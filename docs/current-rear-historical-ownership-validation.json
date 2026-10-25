@@ -1,0 +1,166 @@
+{
+  "consumers": [
+    {
+      "mode": 2,
+      "payload_row": 10,
+      "phase": 3,
+      "power": 4,
+      "raw": 183,
+      "record": 268,
+      "source_row": 10
+    },
+    {
+      "mode": 2,
+      "payload_row": 9,
+      "phase": 4,
+      "power": 4,
+      "raw": 182,
+      "record": 268,
+      "source_row": 9
+    },
+    {
+      "mode": 2,
+      "payload_row": 10,
+      "phase": 3,
+      "power": 5,
+      "raw": 183,
+      "record": 269,
+      "source_row": 10
+    },
+    {
+      "mode": 2,
+      "payload_row": 9,
+      "phase": 4,
+      "power": 5,
+      "raw": 182,
+      "record": 269,
+      "source_row": 9
+    },
+    {
+      "mode": 2,
+      "payload_row": 10,
+      "phase": 3,
+      "power": 6,
+      "raw": 183,
+      "record": 270,
+      "source_row": 10
+    },
+    {
+      "mode": 2,
+      "payload_row": 9,
+      "phase": 4,
+      "power": 6,
+      "raw": 182,
+      "record": 270,
+      "source_row": 9
+    }
+  ],
+  "editorial_recommendation": "Preserve existing frozen two-source chain; add maintainer ownership/index entry and regression proof, not a duplicate editable Rear snapshot or silent linkage to current Front. 46/48 means current-editable output coverage, not two missing source owners.",
+  "exact_byte_copy_paths": {
+    "40c0b2f889e29b8916b2e36f89dce9060a27ba70595f040f519b169a910f252c": [
+      "assets/hd/source/rear-multicannon-p1-bank8-183-8-f420cffc0378.png",
+      "assets/hd/artwork/player-rear-multicannon-p4-mode2-down-diagonals-v1/output/rear-multi-p4-183-8.png"
+    ],
+    "85fe7b765089b72f23f1eaaf0449be40f1687fdbb77445fa2c4cb1a26fa7bd65": [
+      "assets/hd/source/rear-multicannon-p1-bank8-182-8-b8d65e2ebae3.png",
+      "assets/hd/artwork/player-rear-multicannon-p4-mode2-down-diagonals-v1/output/rear-multi-p4-182-8.png"
+    ],
+    "94ee0b55b1642e1781e72ccf1d0f1570670821fca66e3bcf97a692f06f3bda1c": [
+      "assets/hd/artwork/player-rear-multicannon-p4-mode2-down-diagonals-v1/output/rear-multi-p4-182-8.rgba"
+    ],
+    "b8d65e2ebae36ffef0ab7aa849fa5086134db521590ee6753ff379f525d9ebb9": [
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-182-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-182-8.hda"
+    ],
+    "bcbdc63d519471ffaf8eed1bfe2e46969aa8c10537b9430afa925232575ab3cf": [
+      "assets/hd/source/bullet-164-8-1db3c3883bc1.png",
+      "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-164-8.png",
+      "authoring-inputs/front-multi-current/bullet-164-8.png"
+    ],
+    "c195101ad4685602590f93270b8fc9e14b6b2ab92ed5fc69fd90119298b1cbce": [
+      "assets/hd/artwork/player-rear-multicannon-p4-mode2-down-diagonals-v1/output/rear-multi-p4-183-8.rgba"
+    ],
+    "e17751a9ce3660041189b1ecd9ed7f76113448ea2ce24648bf7e2aff40d49b58": [
+      "assets/hd/source/bullet-163-8-f8428cf165a1.png",
+      "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-163-8.png",
+      "authoring-inputs/front-multi-current/bullet-163-8.png"
+    ],
+    "f420cffc0378b55e957699461fc98727ef26519ea13ac86cb7b7816383e7c873": [
+      "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-183-8.hda",
+      "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-183-8.hda"
+    ]
+  },
+  "existing_regression_guard": {
+    "evidence": "Source inspection: applies edits to current163 and164 then requires both Rear runtime rows/HDA bytes and preview/debug exports unchanged. Not rerun by this read-only audit.",
+    "method": "FrontMultiAuthoringTests.test_historical_rear_multi_derivatives_stay_frozen_after_163_164_edits",
+    "path": "tests/test_current_front_multi_authoring.py"
+  },
+  "existing_single_source_chain": true,
+  "external_receipt_sha256": "f63d3f6fd08202e4568a0accb33e3299b9b8a353a26a1809affd1e894e8c60ca",
+  "limits": "No production changes, renderer reauthoring, Windows, game/compositor or original-data admission tests; C phase predicate only. Strict Rear P4 pixel-transform builder PASS; this is not a rerun of the older Front SVG renderer.",
+  "observed_head": "a13829445ef3d88bc9d3836b6819ea28b2989323",
+  "outputs": [
+    {
+      "canonical_frozen_input": "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-163-8.png",
+      "current_front_editable_input": "authoring-inputs/front-multi-current/bullet-163-8.png",
+      "hda_sha256": "b8d65e2ebae36ffef0ab7aa849fa5086134db521590ee6753ff379f525d9ebb9",
+      "png_sha256": "85fe7b765089b72f23f1eaaf0449be40f1687fdbb77445fa2c4cb1a26fa7bd65",
+      "raw": 182,
+      "rgba_sha256": "94ee0b55b1642e1781e72ccf1d0f1570670821fca66e3bcf97a692f06f3bda1c",
+      "runtime": {
+        "bytes": 43036,
+        "destination": "assets/gameplay/rear-multicannon-p1-bank8-182-8.hda",
+        "git_blob": "1154934f1e81f52865d467e40ea0e9c82c623d19",
+        "group": "gameplay",
+        "revision": "reconstructed-local-unpublished",
+        "sha256": "b8d65e2ebae36ffef0ab7aa849fa5086134db521590ee6753ff379f525d9ebb9",
+        "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-182-8.hda"
+      },
+      "same_bytes_today_but_distinct_authority": true,
+      "source_old_front": 163,
+      "source_png_sha256": "e17751a9ce3660041189b1ecd9ed7f76113448ea2ce24648bf7e2aff40d49b58"
+    },
+    {
+      "canonical_frozen_input": "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-164-8.png",
+      "current_front_editable_input": "authoring-inputs/front-multi-current/bullet-164-8.png",
+      "hda_sha256": "f420cffc0378b55e957699461fc98727ef26519ea13ac86cb7b7816383e7c873",
+      "png_sha256": "40c0b2f889e29b8916b2e36f89dce9060a27ba70595f040f519b169a910f252c",
+      "raw": 183,
+      "rgba_sha256": "c195101ad4685602590f93270b8fc9e14b6b2ab92ed5fc69fd90119298b1cbce",
+      "runtime": {
+        "bytes": 43036,
+        "destination": "assets/gameplay/rear-multicannon-p1-bank8-183-8.hda",
+        "git_blob": "12c8103ba1b622f3ed76a9b8e64570d7819504b0",
+        "group": "gameplay",
+        "revision": "reconstructed-local-unpublished",
+        "sha256": "f420cffc0378b55e957699461fc98727ef26519ea13ac86cb7b7816383e7c873",
+        "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-183-8.hda"
+      },
+      "same_bytes_today_but_distinct_authority": true,
+      "source_old_front": 164,
+      "source_png_sha256": "bcbdc63d519471ffaf8eed1bfe2e46969aa8c10537b9430afa925232575ab3cf"
+    }
+  ],
+  "phase_queries": 440,
+  "preserved_payload_cells": {
+    "18_d4_182": 0,
+    "19_d8_182": "0x888f7807cb7fb1b7",
+    "20_d4_183": 0,
+    "21_d8_183": "0x79d684e2a12caa1f"
+  },
+  "profiles": {
+    "historical_front_sharp": "0.35.4",
+    "pillow": "12.3.0",
+    "pillow_linked_zlib": "1.3.1",
+    "python": "Python 3.12.14",
+    "python_zlib": "1.3.2"
+  },
+  "semantic_vs_raster": "Both historic sources use one common diagonal geometry with SVG reflection, but frozen raster163/164 differ from an exact pixel mirror by290 samples. They are two fixed raster authorities, not two independent semantic designs; no new duplicate Rear master needed.",
+  "source_pair_is_not_exact_rgba_mirror": {
+    "differing_samples": 290,
+    "reason": "SVG reflection before rasterization is not equivalent to post-raster pixel reflection; frozen outputs must remain separate unless a newly reviewed canonical renderer recreates both exactly.",
+    "total_samples": 10752
+  },
+  "status": "PASS read-only historical ownership and strict frozen rebuild",
+  "strict_builder_stdout": "PASS: reviewed 182/183 density8 PNG/RGBA/HDR1; exact whole-canvas flip and energy preservation."
+}

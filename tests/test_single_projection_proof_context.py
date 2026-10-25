@@ -21,7 +21,7 @@ import accepted_later_changes as a
 import _projection_proof_context as guarded
 from _projection_proof_context import _ProjectionProofContext
 
-FAMILIES = ('rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron')
+FAMILIES = ('rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron')
 EXPECTED = '45ad4ff592f22934c23a4014708ad90fbc01518471144ea47aaef5f820dd583f'
 REJECTIONS = (ValueError, AssertionError, RuntimeError, OSError)
 
@@ -35,8 +35,8 @@ def finite_paths(family):
     names = c.input_paths(ROOT) | {c.MAPPING, c.HEADER}
     if family == 'protron':
         names |= {c.ROOT + '/' + c.name(*pair) for pair in c.PAIRS}
-    if family in ('rear281', 'rear1', 'rear39', 'rear_p7'):
-        for value in ('rear281', 'rear1', 'rear39', 'rear_p7'):
+    if family in ('rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7'):
+        for value in ('rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7'):
             other = module(value)
             names |= other.input_paths(ROOT) | {other.MAPPING, other.HEADER}
     # Source inverse chains are separate from mapping paths; retain their exact
@@ -316,7 +316,7 @@ class SingleProofContextUnits(unittest.TestCase):
 
 
 class FreshFamilyClosureTests(unittest.TestCase):
-    def test_all_ten_families_missing_tamper_restore_and_public_freshness(self):
+    def test_all_eleven_families_missing_tamper_restore_and_public_freshness(self):
         with tempfile.TemporaryDirectory(prefix='single-proof-family-') as temp:
             root = Path(temp)
             for family in FAMILIES:
@@ -404,7 +404,7 @@ class FreshFamilyClosureTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix='single-proof-rear-joint-') as temp:
             root = Path(temp)
             copy_inputs(root, finite_paths('rear39'))
-            for family, other in ((f,o) for f in ('rear281','rear1','rear39','rear_p7') for o in ('rear281','rear1','rear39','rear_p7') if f!=o):
+            for family, other in ((f,o) for f in ('rear_lobes', 'rear281','rear1','rear39','rear_p7') for o in ('rear_lobes', 'rear281','rear1','rear39','rear_p7') if f!=o):
                 with self.subTest(family=family, other=other):
                     context = _ProjectionProofContext(root, ROOT)
                     try:
@@ -427,7 +427,7 @@ class SingleProjectionIntegration(unittest.TestCase):
     def setUpClass(cls):
         cls.inventory = a.current_asset_inventory(ROOT)
 
-    def test_exact_output_ten_proofs_once_and_next_call_fresh(self):
+    def test_exact_output_eleven_proofs_once_and_next_call_fresh(self):
         # Counter wrappers are instrumentation only; each calls the unchanged
         # original validator. The context itself is never mocked.
         from contextlib import ExitStack

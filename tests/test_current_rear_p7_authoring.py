@@ -37,6 +37,9 @@ class CurrentRearP7Tests(unittest.TestCase):
         import current_rear1_compatibility as rear1
         for name in rear1.input_paths(ROOT) | {rear1.MAPPING}:
             self.write(name,(ROOT/name).read_bytes())
+        import current_rear_lobes_compatibility as rear_lobes
+        for name in rear_lobes.input_paths(ROOT) | {rear_lobes.MAPPING}:
+            self.write(name,(ROOT/name).read_bytes())
         import current_rear281_compatibility as rear281
         for name in rear281.input_paths(ROOT) | {rear281.MAPPING}:
             self.write(name, (ROOT/name).read_bytes())

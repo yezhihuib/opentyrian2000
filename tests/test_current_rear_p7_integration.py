@@ -95,6 +95,14 @@ class CurrentRearP7Integration(unittest.TestCase):
         from build_current_craft267 import current_overlays
         from shared_asset_authoring_map import build_map
         overlays = current_overlays(ROOT)
+        from accepted_later_changes import verified_current_rear_lobes
+        rear_lobes = verified_current_rear_lobes(ROOT)['mapping']
+        self.assertEqual(len(rear_lobes),8)
+        self.assertEqual(len(overlays),232)
+        overlays = dict(overlays)
+        for destination, selected in rear_lobes.items():
+            self.assertEqual(overlays.pop(Path(destination).name),
+                             (ROOT/selected['source_path']).read_bytes())
         from accepted_later_changes import verified_current_rear281
         rear281 = verified_current_rear281(ROOT)['mapping']
         self.assertEqual(len(rear281),20)

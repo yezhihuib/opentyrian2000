@@ -353,7 +353,14 @@ def current_overlays(root):
         {'assets/gameplay/' + rear281.name(identity, density): blob
          for (identity, density), blob in blobs.items()})
     if len(files) != 224:
-        raise ValueError('Expected exactly 224 current gameplay overlays')
+        raise ValueError('Expected exactly 224 pre-Rear-lobes gameplay overlays')
+    import current_rear_lobes_compatibility as rear_lobes
+    selected, _, blobs = rear_lobes.generate(root, read(root, rear_lobes.SELECTION))
+    add(rear_lobes.MAPPING, rear_lobes.SELECTION, selected, rear_lobes.load(root),
+        {'assets/gameplay/' + rear_lobes.name(identity, density): blob
+         for (identity, density), blob in blobs.items()})
+    if len(files) != 232:
+        raise ValueError('Expected exactly 232 current gameplay overlays')
     return files
 
 

@@ -412,6 +412,28 @@ def main(argv=None) -> int:
             if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-rear281'):
                 raise ValueError('Stale Rear281 runtime selection')
+    # Rear lobes replaces eight existing destinations; no new runtime resources.
+    rear_lobes_prefix = 'assets/hd/current-compat/rear-lobes/'
+    rear_lobes_names = {f'rear-multicannon-p1-bank8-{i}-{d}.hda' for i in (203,222,43,5) for d in (4,8)}
+    rear_lobes_rows = [row for row in manifest['files'] if any(
+        Path(row[key]).name.casefold() in rear_lobes_names for key in ('destination','source_path')) or
+        row['source_path'].casefold().startswith(rear_lobes_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-rear-lobes')]
+    rear_lobes_current = manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or any(
+        row['source_path'].casefold().startswith(rear_lobes_prefix) or
+        (isinstance(row.get('revision'),str) and row['revision'].casefold() == 'current-single-source-rear-lobes')
+        for row in manifest['files'])
+    if rear_lobes_current:
+        from current_rear_lobes_compatibility import load as rear_lobes_load
+        expected = {'assets/gameplay/'+name for name in rear_lobes_names}
+        if len(rear_lobes_rows)!=8 or {row['destination'] for row in rear_lobes_rows}!=expected:
+            raise ValueError('Rear lobes packaging requires exactly eight current consumers')
+        selected = rear_lobes_load(roots[0])
+        for row in rear_lobes_rows:
+            current = selected[row['destination']]
+            if (row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or
+                    row.get('group')!='gameplay' or row.get('revision')!='current-single-source-rear-lobes'):
+                raise ValueError('Stale Rear lobes runtime selection')
     # Current NEWSHF keeps the same nine opt-in destinations, with six poses
     # derived from two authored three-pose masters and three frozen 168 V4 PNGs.
     # The older revision marker also appears in historical manifests, so it

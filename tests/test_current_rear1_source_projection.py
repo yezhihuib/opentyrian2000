@@ -46,6 +46,7 @@ class CurrentRear1SourceProjection(unittest.TestCase):
  def test_exact_nine_assets_reject_missing_hash_and_mode(self):
   proof=a.verified_current_rear1()['assets']
   preceding=dict(a.verified_current_rear39()['assets'],**a.verified_current_rear281()['assets'])
+  preceding.update(a.verified_current_rear_lobes()['assets'])
   for name in proof:
    for action in ('missing','hash','mode'):
     invalid=copy.deepcopy(preceding);invalid.update(copy.deepcopy(proof))

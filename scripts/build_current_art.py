@@ -118,11 +118,11 @@ def verify_authority(root,registry,family='pulse'):
     # Rear builders regenerate their own edited candidate and compose every
     # shared-header pin. Cross-check the other family's complete assets here,
     # without asking its shared-header loader to validate our stale selection.
-    for rear_family in ('rear-p7','rear39','rear1','rear281'):
+    for rear_family in ('rear-p7','rear39','rear1','rear281','rear-lobes'):
         if family != rear_family:
             import importlib
             rear = importlib.import_module('current_'+rear_family.replace('-','_')+'_compatibility')
-            (rear.load_assets if family in ('rear-p7','rear39','rear1','rear281') else rear.load)(root)
+            (rear.load_assets if family in ('rear-p7','rear39','rear1','rear281','rear-lobes') else rear.load)(root)
     if family != 'missile':
         from current_missile_compatibility import load as missile_load
         missile_load(root)

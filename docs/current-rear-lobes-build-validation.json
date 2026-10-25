@@ -1,0 +1,202 @@
+{
+  "candidate_head_at_observation": "a13829445ef3d88bc9d3836b6819ea28b2989323",
+  "candidate_inputs_equal_frozen_parent": true,
+  "candidate_inputs_equal_original_P7_build_snapshot": true,
+  "candidate_stable": true,
+  "candidate_worktree": "/workspace/scratch/f67dd347fa0a/current-rear-lobes-authoring-worktree",
+  "compiler_version_equal_original": true,
+  "external_recorded_dependency_hashes_reverified": {
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL.h": "952e89e1dc4e0dd1a7bea6a153df632b8cdb6e433a9b3b0702c5ffe15b9b9360",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_assert.h": "db0d41caea4c8ddd56b6938eb4264c20a683d40674e4ad6565f51dac79b51088",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_atomic.h": "c561ce8f94de18ccb4f708bda45880ba6d3c9f052e166beb5dadc5544f35221e",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_audio.h": "047afc29591ac43a90f06169f67ee7d99a6256c6bbe5efe5de79a52565bb6853",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_blendmode.h": "1985f81b886d9bc681821af4f23d28e6e51bf51f21e5ef28ccc13bc8c7cdfbae",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_clipboard.h": "3e8c73fb9b3ca5a544b70b66b683b78db53e1a187e066912a068c0ed7bb3e8ce",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_config.h": "cd342053da09dea347acbca3d4cd056cf83d03ac8d29f1d5eee9507ea839cf34",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_cpuinfo.h": "53718d214a96caa34831182adc67916bc9706a17438927d2a29621404b3e91d0",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_endian.h": "7907cb3ab7b8d7bc99274f5aef5294bef215b01ea49d97226cbe6e911de557d5",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_error.h": "0931656a5825e5f1f319f2cd3f573fc527393bb02fa7a1ed3f7fae6c790328be",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_events.h": "ceb7bc717342e652e2c432fd1dd08a5508575cea6bd8615fb4ddea63c071ddc4",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_filesystem.h": "dcfaa010c73150e7b0d56f50f5adb3fc2e35621091a55bc5436b2fb85fe71675",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_gamecontroller.h": "c77c1d8287ee441843b9d8be87b71252bdb1ce76b7bfc4fcff46889ad8e9cfec",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_gesture.h": "a5a8f8bb8efb26860faa9694189aaf76df1cdb7755ccd30a8599b46b237a5d82",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_guid.h": "da8fef1d047b31e55d1b167de301a806481b6948e7c2497779fd71934c45d5db",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_haptic.h": "4267b6f039bea7ad0f5cb37c37d63d0704af84f73a36d2680684ff302f49f153",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_hidapi.h": "489a83d1073e528f82e821c23c515af8b5a59357ec5ab132c854bb588648f59f",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_hints.h": "96c1056e0734f019b1dafed5129d4a9d36253559ed8c7577a23c188bb75a48c1",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_joystick.h": "a39fc5da97edc94eabff8616a413cf850efb35d1daf437a8cc16caa837766482",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_keyboard.h": "98b3c717ab10e7c51cab7b2a4582080c2c50ccac54c7b7aa69709e7cb2c76aec",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_keycode.h": "291c769a05bc3e1ead011db3e07cb52415e1aa306f484904d203e94cbb3186cd",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_loadso.h": "8d3653b7b774b406a289519c74ae695eb5b52d71060712a88fce4c72d82b1bd3",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_locale.h": "c4a663ce8ea4ca22f961796cae644a04fc521fa2d0681333f7da8a581909560c",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_log.h": "3342cb31280c2dbf0e5809b03e5499f0cf5edf193efa5e3c5b17814526a92033",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_main.h": "622ffcd0e7fe0c755a987c5eb9dad6b3672774026b8250b66ad3c40d3a4dda9a",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_messagebox.h": "65df549cab0a515145ae55325c447159ae1d60171331a7508eac06034d25c972",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_metal.h": "1f3d0251522b735b0e37677eb1a0594440599fbbb2af86bbb508606cca001a06",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_misc.h": "5d5e4b42481a5ef44ec9d66159e88426be5632262731a3c3b223277771d30006",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_mouse.h": "66b5353387d011a54b232931e86121cb5551e251b9491b9ed15afe293d5856ff",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_mutex.h": "c5ef9a8aeb056422ef878672770e1f60ae965933693df6d8ebd53d0e514a1794",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_net.h": "081090ed6900e7411276b54c947b1ff777bd2b3959b1a3aa7b224fb9695400e5",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_pixels.h": "fee61aee337a3823e832f5c26b3000315d6eb95da91ba20d4fb0b5bac9d4967a",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_platform.h": "9ce62823791d7a16b9ad17ad11f4de8dcbcde7918f67bf6d1dd4fc625b69e50c",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_power.h": "fbbdf3ff13b21095623edfc5659c1b76c6dbb1364a4dd14d8f9e5cf329048784",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_quit.h": "9c902abaea7560f98fc546bd35a04629a205d047df5433fc30b0c1d81af58b21",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_rect.h": "01db368d4b7736e2358cd29eec0d187d964cfd6182cffab57a938adf73b6a418",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_render.h": "a0cf0db1a13d0dd0d8bfdc01ffb371e2b19be36326f85058200ac9481876c7f0",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_rwops.h": "10da91c08e96e5fca452e06e11029908a6f237356e4db11af1ad13ffa2e57a47",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_scancode.h": "eb14f3cedde58358f6456d185f473d7551e8234de260151ad0319861ff1444c2",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_sensor.h": "f4dabf5bae217fa6370d8af73abdcbba99aea626f35e17a381b636afe01bb81b",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_shape.h": "cbdcdd8ead6d61a7bfa09bc4c538cc598919d1c060d70524c0828d3af7418667",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_stdinc.h": "3e86c3b44908892b55809101915b30e65706676f026d9c60e8a38d5f7c69ba02",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_surface.h": "65a6218547c924eab7a10bb0ae3ac8181e203ce81cd0a2da3aa24b309f97814b",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_system.h": "ffc5f3662a85f795c0b2e2b87b9fbf493bceeda4aacf7721a68225c5e318ca67",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_thread.h": "0e546047dd407ca0e1d2d686cf2650ac77a987047184e3645f6ba2ec958ddc5c",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_timer.h": "d0497ad3d75701613a227134d63fdcbc62ed72f645153d52753e386ee4b498c7",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_touch.h": "4e5d7a083bbf5237daf5ccf06faed3fae81b1caa693e27841ebf4ec9bf8ff769",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_types.h": "ed0c92bed5eec2648f744e8451f3ac5140c1ef11510175fa1b726273dbded9ed",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_version.h": "0a2835e6331aba4903312e161d42822dd895b2ffbb27dcb9ffa65baf930c9644",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/SDL_video.h": "82ab63ff37834cd4bfcee490b8e37fb892bbb0b31a1a7913ec13c329271ca5ff",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/begin_code.h": "9803dab29fb4522ce3500ab789260e9622df6307ce90f92ad20c1808e19c4e7b",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/SDL2/close_code.h": "4599e9cedba7451ff07a6306f0b7531beed05b1c5a65b1a2613d1b771be43fda",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu/SDL2/SDL_platform.h": "9ce62823791d7a16b9ad17ad11f4de8dcbcde7918f67bf6d1dd4fc625b69e50c",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h": "7a58b7fa105e36a6ab5236acee35aa917e85d808929dafc45ffb79c89f52b303",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu/SDL2/begin_code.h": "9803dab29fb4522ce3500ab789260e9622df6307ce90f92ad20c1808e19c4e7b",
+    "/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu/SDL2/close_code.h": "4599e9cedba7451ff07a6306f0b7531beed05b1c5a65b1a2613d1b771be43fda"
+  },
+  "frozen_parent_commit": "019c92a1547726807eacf93673983e91cd2ca7a6",
+  "full_receipt_sha256": "a483f4763e8b3c6e347de2350ecfbc36f47cd5a0675ea42da7eaf88d519b3ac0",
+  "inherited_build_count": 6,
+  "input_count": 278,
+  "inputs_after_count": 278,
+  "inputs_after_sha256": "536f3e3aa8f9cf3266629ea86bab8ce18c64586e52c2da91edaa94dc21fe7a79",
+  "inputs_before_count": 278,
+  "inputs_before_sha256": "536f3e3aa8f9cf3266629ea86bab8ce18c64586e52c2da91edaa94dc21fe7a79",
+  "modes": {
+    "default-off": {
+      "baseline_current_dependency_counts": {
+        "baseline": 321,
+        "current": 322
+      },
+      "binary_sha256": "16a3fad7492eb986b5ef9af848dc235e4ff7422f81f678b8b9481e2adb53148a",
+      "inherited_original_builds": 2,
+      "new_builds": 0,
+      "original_commands": {
+        "baseline": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-rear-p7-build-validation/baseline-default-off",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG  -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ],
+        "current": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-rear-p7-build-validation/current-default-off",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG  -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ]
+      },
+      "retained_binary_pair_rehashed_equal": true,
+      "retained_object_pairs_rehashed": 86
+    },
+    "mirror-disabled": {
+      "baseline_current_dependency_counts": {
+        "baseline": 262,
+        "current": 262
+      },
+      "binary_sha256": "5515d09e3179918a52089ef5bb60faf95d09decf143b069574155765ad155fea",
+      "inherited_original_builds": 2,
+      "new_builds": 0,
+      "original_commands": {
+        "baseline": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-rear-p7-build-validation/baseline-mirror-disabled",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG -DENEMY_REUSE_HD_PROTOTYPE=1 -DRENDER_MIRROR_DISABLED -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ],
+        "current": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-rear-p7-build-validation/current-mirror-disabled",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG -DENEMY_REUSE_HD_PROTOTYPE=1 -DRENDER_MIRROR_DISABLED -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ]
+      },
+      "retained_binary_pair_rehashed_equal": true,
+      "retained_object_pairs_rehashed": 86
+    },
+    "opt-in": {
+      "baseline_current_dependency_counts": {
+        "baseline": 323,
+        "current": 324
+      },
+      "binary_sha256": "088921b38f4083c8986eef9f3ffd4fc6edbf8622e03a602be8602d8a3715d2f7",
+      "inherited_original_builds": 2,
+      "new_builds": 0,
+      "original_commands": {
+        "baseline": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-rear-p7-build-validation/baseline-opt-in",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG -DENEMY_REUSE_HD_PROTOTYPE=1 -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ],
+        "current": [
+          "make",
+          "-C",
+          "/workspace/scratch/f67dd347fa0a/current-rear-p7-build-validation/current-opt-in",
+          "-j2",
+          "VCS_IDREV=printf newshf-identity-native",
+          "CPPFLAGS=-MMD -DNDEBUG -DENEMY_REUSE_HD_PROTOTYPE=1 -I/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/include/x86_64-linux-gnu",
+          "LDFLAGS=-Wl,-rpath,/workspace/scratch/f67dd347fa0a/cloud-native-validation-20261024/sysroot/usr/lib/x86_64-linux-gnu"
+        ]
+      },
+      "retained_binary_pair_rehashed_equal": true,
+      "retained_object_pairs_rehashed": 86
+    }
+  },
+  "new_build_count": 0,
+  "prior_receipt": "current-rear-p7-build-validation/receipt.json",
+  "prior_receipt_sha256": "477c7886c6d0fbb51a5799f79e315af5ee4b38e42db8b6e32b473f9b97fc4973",
+  "public_baseline_commit": "525de2b9d5b4605dd6bf997cee644c9ac39546c1",
+  "public_input_count": 277,
+  "public_inputs_equal_original_baseline_build_snapshot": true,
+  "public_to_parent_differences": [
+    "src/current_rear_multi_payload_pins.h",
+    "src/rear_multi_p1_mirror.inc"
+  ],
+  "result": "PASS",
+  "retained_binary_pairs_rehashed": 3,
+  "retained_object_pairs_rehashed": 258,
+  "scope": "All 274 src files, Makefile and three generated shared-menu headers match frozen P7 and all three P7 build snapshots exactly. Inherited six successful Linux builds compare 258 object pairs and three executable pairs to public525; retained artifacts were independently rehashed, not rebuilt. Recorded dependency hashes and private sysroot rechecked. No new executable execution, edited-payload validation, Windows, physical GPU, campaign or asset-generation claim. Original build fixed VCS_IDREV; ordinary Git-derived version strings are outside this comparison. This does not independently freeze all historical host toolchain/system headers. Any later change to listed inputs invalidates this result.",
+  "source_count": 274,
+  "supporting_receipt_and_log_hashes": {
+    "current-rear-p7-build-validation/baseline-default-off-actual-dependencies.json": "be4519d50b3304f0bbe4d761528f8eb7311f72e20ba80a1f04b66e3769482ae4",
+    "current-rear-p7-build-validation/baseline-default-off.log": "3cb704c3dfb5543c2c01c9b801349e26a9e308709a88bab356ac3570ebcce888",
+    "current-rear-p7-build-validation/baseline-mirror-disabled-actual-dependencies.json": "93b8a235910eba85ae34142910f160dc99139a08d68bf4f1565aeea306e3608f",
+    "current-rear-p7-build-validation/baseline-mirror-disabled.log": "14aa0d9f271a8faa5ab85b375a11913641cf6e8ccb61d66ea9f24e90460a29ac",
+    "current-rear-p7-build-validation/baseline-opt-in-actual-dependencies.json": "6c516d1940c653701081976c3a44056ff4397950c355ca498992f72e295840c2",
+    "current-rear-p7-build-validation/baseline-opt-in.log": "f124dfc6cfc23e4040028f651fb4c5bb7fe59fa85b93f4df4f32a325df44a844",
+    "current-rear-p7-build-validation/current-default-off-actual-dependencies.json": "389cccffa08da60324a4f46472c6a55b1be1b4b0b351b4de7153eb3a0d065487",
+    "current-rear-p7-build-validation/current-default-off.log": "b07854620f11e6aa3c3cbb6cf8d25707156c31a62a797493df899c4db3190832",
+    "current-rear-p7-build-validation/current-mirror-disabled-actual-dependencies.json": "93b8a235910eba85ae34142910f160dc99139a08d68bf4f1565aeea306e3608f",
+    "current-rear-p7-build-validation/current-mirror-disabled.log": "dd07dcb6d5449b080cd4337ff3154d2d3f8ab9c18a5c0f3d4cdaca1e80123988",
+    "current-rear-p7-build-validation/current-opt-in-actual-dependencies.json": "24ab16a5b58305f336e927f2e82731280d1cb639d68296b2db24ad47324acd24",
+    "current-rear-p7-build-validation/current-opt-in.log": "a648a4368677a63141a0bc47e604eb1580a5fc5b6f66289d296e5231e9d25e74"
+  },
+  "sysroot_equal_original_build": true,
+  "sysroot_files_rehashed": 122,
+  "verification_type": "transitive compile/link input equivalence; no new compilation",
+  "verified_at_utc": "2026-10-25T11:00:38.062324+00:00"
+}

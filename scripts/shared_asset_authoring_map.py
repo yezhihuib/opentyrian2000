@@ -46,7 +46,7 @@ def current_records(root):
         configs.append((family, policy['selection'], policy['mapping'], selected,
                         'scripts/build_current_art.py --family ' + family))
     for family in ('craft267', 'tank-shell', 'enemy-energy', 'sidekick-body',
-                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided', 'mint27', 'missile', 'rear-p7', 'rear39', 'rear1', 'rear281'):
+                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided', 'mint27', 'missile', 'rear-p7', 'rear39', 'rear1', 'rear281', 'rear-lobes'):
         module = importlib.import_module('current_' + family.replace('-', '_') + '_compatibility')
         builder = module if hasattr(module, 'selection') else importlib.import_module('build_current_' + family.replace('-', '_'))
         selected = builder.selection(root, read(root, module.SELECTION))
@@ -71,7 +71,10 @@ def current_records(root):
         for transport in mapping['files']:
             identity, density = transport['identity'], transport.get('density', 8)
             row = by_pair.get((identity, density))
-            if family in ('rear39','rear1','rear281'):
+            if family == 'rear-lobes':
+                selector=203 if identity in (1310203,1310222) else 43
+                sources=[r['source_json'] for r in selected['masters'] if r['selector']==selector]
+            elif family in ('rear39','rear1','rear281'):
                 sources = [selected['masters'][0]['source_json']]
             elif family == 'rear-p7':
                 sources = [selected['masters'][0]['source_svg']]
@@ -167,6 +170,16 @@ def current_records(root):
                 notes.append('P7 mode2 only: one canonical SVG294, exact RGBA horizontal mirror295; d4 and d8 render independently. The six current Rear39 transports stay independently editable; the other 30 Rear transports and every Front transport stay separate and frozen. No generic player/sidekick eligibility or default-off gate changes.')
             if family == 'front-multi':
                 notes.append('Eight independent inputs. Historical rear 1310182/1310183 do NOT follow current Front 163/164 edits.')
+            if family == 'rear-lobes':
+                for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
+                    consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
+                notes.append('Two independent canonical JSON masters203 and43 produce four-head and five-head mirrored pairs. Each source controls only its own four outputs; whole-canvas byte flipX preserves accepted support. Other Rear families and historical182/183 remain separate; no eligibility changes.')
+            if family == 'rear-p7':
+                for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
+                    consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
+                notes.append('Two independent canonical JSON masters203 and43 produce four-head and five-head mirrored pairs. Each source controls only its own four outputs; whole-canvas byte flipX preserves accepted support. Other Rear families and historical182/183 remain separate; no eligibility changes.')
+            if family == 'front-multi':
+                notes.append('Two independent canonical JSON masters203 and43 produce four-head and five-head mirrored pairs. Each source controls only its own four outputs; whole-canvas byte flipX preserves accepted support. Other Rear families and historical182/183 remain separate; no eligibility changes.')
             if family == 'enemy-orb':
                 notes.append('Two independent masters; ordinary role8 and masked role142 remain separate. Preview overlays only ordinary two; explicit contract view exports all four.')
             result.append(dict(family=family, identity=identity, density=density, role=identity // 10000,

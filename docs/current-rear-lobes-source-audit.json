@@ -1,0 +1,268 @@
+{
+  "audit_receipt_sha256": "24d5b57e65e138e96faa7da1df4eb450b020edb1785bb3ca6c74c40d3c055c9d",
+  "consumers": [
+    {
+      "payload_row": 21,
+      "phase": 5,
+      "raw": 203,
+      "record": 263,
+      "source_row": 23
+    },
+    {
+      "payload_row": 22,
+      "phase": 6,
+      "raw": 222,
+      "record": 263,
+      "source_row": 24
+    },
+    {
+      "payload_row": 23,
+      "phase": 5,
+      "raw": 43,
+      "record": 264,
+      "source_row": 25
+    },
+    {
+      "payload_row": 24,
+      "phase": 6,
+      "raw": 5,
+      "record": 264,
+      "source_row": 26
+    },
+    {
+      "payload_row": 10,
+      "phase": 3,
+      "raw": 183,
+      "record": 268,
+      "source_row": 10
+    },
+    {
+      "payload_row": 9,
+      "phase": 4,
+      "raw": 182,
+      "record": 268,
+      "source_row": 9
+    },
+    {
+      "payload_row": 10,
+      "phase": 3,
+      "raw": 183,
+      "record": 269,
+      "source_row": 10
+    },
+    {
+      "payload_row": 9,
+      "phase": 4,
+      "raw": 182,
+      "record": 269,
+      "source_row": 9
+    },
+    {
+      "payload_row": 10,
+      "phase": 3,
+      "raw": 183,
+      "record": 270,
+      "source_row": 10
+    },
+    {
+      "payload_row": 9,
+      "phase": 4,
+      "raw": 182,
+      "record": 270,
+      "source_row": 9
+    }
+  ],
+  "contract_exception": "P10 candidate contract records actual Node version, so differs from frozen contract only versions.node; SVG/PNG/RGBA outputs exact. P11 contract has no versions and is byteexact.",
+  "eight_output_consumers": [
+    {
+      "payload_row": 21,
+      "phase": 5,
+      "raw": 203,
+      "record": 263,
+      "source_row": 23
+    },
+    {
+      "payload_row": 22,
+      "phase": 6,
+      "raw": 222,
+      "record": 263,
+      "source_row": 24
+    },
+    {
+      "payload_row": 23,
+      "phase": 5,
+      "raw": 43,
+      "record": 264,
+      "source_row": 25
+    },
+    {
+      "payload_row": 24,
+      "phase": 6,
+      "raw": 5,
+      "record": 264,
+      "source_row": 26
+    }
+  ],
+  "historical": [
+    {
+      "d4_unsupported": true,
+      "payload_cells": [
+        18,
+        19
+      ],
+      "raw": 182,
+      "source": "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-163-8.png",
+      "source_png_sha256": "e17751a9ce3660041189b1ecd9ed7f76113448ea2ce24648bf7e2aff40d49b58"
+    },
+    {
+      "d4_unsupported": true,
+      "payload_cells": [
+        20,
+        21
+      ],
+      "raw": 183,
+      "source": "assets/hd/artwork/player-front-multi-eight-v1/output/bullet-164-8.png",
+      "source_png_sha256": "bcbdc63d519471ffaf8eed1bfe2e46969aa8c10537b9430afa925232575ab3cf"
+    }
+  ],
+  "mutable_cells": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "predicate_queries": 1320,
+  "private_baseline": "46babac8cf030e6e4496a054a846713dc0d48ffd",
+  "public_baseline": "d3fad9863555c7e620a3a9fd5c7b4610a58ddb67",
+  "rows": [
+    {
+      "density": 4,
+      "fnv": "0xac10f74cff7c73e8",
+      "hda_sha256": "48bfc7fa7ea3c1025ba7b230d617ebc33b36dc5a30b0b9c696087eb4c2e01776",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-203-4.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-203-4.hda"
+      ],
+      "payload_cell": 42,
+      "png_sha256": "ba4d0730a7114f898f408cc58b3c2344822407bc61f7efef3fc89240a57304f0",
+      "raw": 203,
+      "rgba_sha256": "a4fd9f5a611ec83a7ddec97ed672363c1f732c2aaf167d8013f3b6366c23ac07",
+      "source_row": 23
+    },
+    {
+      "density": 4,
+      "fnv": "0x10bb72f75e86c13c",
+      "hda_sha256": "9f7529933ee2bd6ce99ab4e457072f5eb5874ce3fc260f7d987dfefcf8f41ba1",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-222-4.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-222-4.hda"
+      ],
+      "payload_cell": 44,
+      "png_sha256": "2725e53f13992d4d13c48e41d49b0856ca8b1db05ee5fe62f9c4dde0f4daa7b6",
+      "raw": 222,
+      "rgba_sha256": "8efb472f5b2d2caa21cfba1dfed09e3d55b531d0013bf0e43eba086528dfde2f",
+      "source_row": 24
+    },
+    {
+      "density": 8,
+      "fnv": "0x625ed5d5dc2be74c",
+      "hda_sha256": "7dfb3c86688e3ec693eaf9193e60797ca46981bbd90cdfc1b626d8f2ec302959",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-203-8.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-203-8.hda"
+      ],
+      "payload_cell": 43,
+      "png_sha256": "9755e8122ecfe855db53e47d042543b5c12d5e428c3259bccec3eba7a3cc8504",
+      "raw": 203,
+      "rgba_sha256": "5204aa4d56d39e3fc963e8dbeafac2160a041dfedce848aa64efea562bb7cddc",
+      "source_row": 23
+    },
+    {
+      "density": 8,
+      "fnv": "0xb1a39b640c2f3340",
+      "hda_sha256": "fc7b46f45c757446c6f34eb6879b12afa0b589a6a6db63eb5e5c4c4065772cb0",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-222-8.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-222-8.hda"
+      ],
+      "payload_cell": 45,
+      "png_sha256": "c7db44414b8c42699d2e8fe4e16218491083c0ddc7751744f7130e945f19ec18",
+      "raw": 222,
+      "rgba_sha256": "55ac245902845a6c948ca2c7f2496b43a1fb264701ffcdce16a11244c419b3d8",
+      "source_row": 24
+    },
+    {
+      "density": 4,
+      "fnv": "0xee810e2190d8d938",
+      "hda_sha256": "78f68d2be758fdb169e5db8d52fd393e34a3c377deb5bf5aadf501c106f88f6f",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-43-4.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-43-4.hda"
+      ],
+      "payload_cell": 46,
+      "png_sha256": "003bb36141804fcb852714bed9c110eb150d1986e29168e692afaac9e94d4cab",
+      "raw": 43,
+      "rgba_sha256": "12841f6d5426de3634430634c78b931040a894cf471172e014ae96715b9fd85f",
+      "source_row": 25
+    },
+    {
+      "density": 8,
+      "fnv": "0xe208230d3c48d0f7",
+      "hda_sha256": "4f49cd5e9265535f5d00002016c6211ef7c351a3fbdcdba4cf98ac538265b6e5",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-43-8.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-43-8.hda"
+      ],
+      "payload_cell": 47,
+      "png_sha256": "35ec8f2e72bafec3a6de8d103b845ad48371c7962f6c9eb9c1bd7c11aad0baf0",
+      "raw": 43,
+      "rgba_sha256": "885c3e1fdaa19e6fb77d84fb32bb67fc1bc1ac67c9c37684c8e21846eb5ee34f",
+      "source_row": 25
+    },
+    {
+      "density": 4,
+      "fnv": "0x16a1fd75aa93ab00",
+      "hda_sha256": "182596636156764f5f92720f164eb8fbe1acc5eda52a785e5897c42de9d813d0",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-5-4.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-5-4.hda"
+      ],
+      "payload_cell": 48,
+      "png_sha256": "de4790bedb60f7c824e859aa799d769153c4a1c37c2f45ba064bf9bb413e5b8f",
+      "raw": 5,
+      "rgba_sha256": "f0d3dbb1189bfc399699640d634052967667ec4d1f3d92c907af3b6886faf720",
+      "source_row": 26
+    },
+    {
+      "density": 8,
+      "fnv": "0xf475bf2a22b295b3",
+      "hda_sha256": "5f23c38d1e1110e0a6aa1cef5b0fe73cc6f7ee2a2547c2ffdcd925a1c7578cd0",
+      "pack_paths": [
+        "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-5-8.hda",
+        "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/rear-multicannon-p1-bank8-5-8.hda"
+      ],
+      "payload_cell": 49,
+      "png_sha256": "1846255e2115759c348f4d87abb14ae3044a537037c3efe0a1810e27c0770be0",
+      "raw": 5,
+      "rgba_sha256": "9d45728c323f6f9b5bb6cf8c619219f48104aeec1ff7ac503854f180ed01df5e",
+      "source_row": 26
+    }
+  ],
+  "scope": "Read-only offline fresh rendering and actual C phase predicate. No gameplay/Windows/compositor/original-data acceptance.",
+  "sources": {
+    "assets/hd/artwork/player-rear-multicannon-p10-mode1-fourlobes-v1/binding.json": "476f711bd9e52c8b2ad13ff2410efafc0ecc07a4e89dc488f842ee98849cdc01",
+    "assets/hd/artwork/player-rear-multicannon-p10-mode1-fourlobes-v1/freeze.json": "96720179d186d356c048880184f062283e7eb18253d986d89aecf89780685700",
+    "assets/hd/artwork/player-rear-multicannon-p10-mode1-fourlobes-v1/rebuild.cjs": "a388435b50984852732efd7d5c9ae6e671e9b3806ce51b4dea05851342a13f75",
+    "assets/hd/artwork/player-rear-multicannon-p10-mode1-fourlobes-v1/src/author-candidates.cjs": "7a56f454f95fef12f41294148864db2ac104bea5d508b2aadea8312503589ea3",
+    "assets/hd/artwork/player-rear-multicannon-p11-mode1-fivelobes-v1/binding.json": "973fafff7c1cc16b61b583275e501fdc9ad24e23ca142a78b58129566e7d79c5",
+    "assets/hd/artwork/player-rear-multicannon-p11-mode1-fivelobes-v1/freeze.json": "bcb73b3fb7f7bfca9a1edc8af0cd046baae32cc9029085fcbf51f7b828084bf6",
+    "assets/hd/artwork/player-rear-multicannon-p11-mode1-fivelobes-v1/rebuild.cjs": "b03996b3a371f91b6ed40d282260361afee373354df88c041d54283fac72ad35",
+    "assets/hd/artwork/player-rear-multicannon-p11-mode1-fivelobes-v1/src/author-a2.cjs": "0e0f9b717006ec0996e374743b1de0a7a83eb5427d61209c0d54b6b5584d5a94"
+  },
+  "status": "PASS fresh unchanged generators to eight exact output PNG/RGBA/HDA plus runtime predicate",
+  "strict_old_rebuilds": "Both FAIL solely pinned Node24.19.0 vs installed24.22.1; unchanged direct generators run independently, not strict rebuild pass"
+}

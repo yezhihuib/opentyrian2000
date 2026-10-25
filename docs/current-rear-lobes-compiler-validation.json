@@ -1,0 +1,71 @@
+{
+  "all_five_strict_loads": "PASS",
+  "at_utc": "2026-10-25T06:35:33.617229+00:00",
+  "authoring_tests": {
+    "seconds": 15.536,
+    "status": "PASS",
+    "tests": 10
+  },
+  "both_master_cells": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49
+  ],
+  "builder_dependency_count": 765,
+  "evidence_sha256": {
+    "authoring-tests.log": "d375da29fa5360c205b55ee66399397702386e64576583e3df50e26b7a6e5187",
+    "dependencies.json": "09ad1da727e59e03a2684962cee9c57770d1894f8820eaccf1d85ee5ae8ed171",
+    "integration.json": "c229e96c1e989f213001da5efc2f9c82c7be4e4318b08deb7b95753d1bde54ef",
+    "preview-count.json": "81e5b53c5418e19cb0e83ce5b25c4cc498a3ef0a28581e04f020fc4b3cb21ba0",
+    "probe.json": "8b7b4f27eb71b142776c883f997cf979c742a6889252c3852956ccc014bd5f4a",
+    "registration-test.log": "6beb9d1354b7f1b02d6a8b95edad7a749fdbebed8adb0b8412ce96c063563e67"
+  },
+  "fixes_observed": "Copied module docstring corrected from one master/twenty outputs to two independent masters/eight outputs. Owner independently found missing sidekick helper input closure; this review checked final21 required Lobes inputs are present. No functional defect discovered by independent probes.",
+  "generic_profiles_covered": 14,
+  "golden_outputs": 8,
+  "independent_master_edits": {
+    "203": [
+      42,
+      43,
+      44,
+      45
+    ],
+    "43": [
+      46,
+      47,
+      48,
+      49
+    ]
+  },
+  "limits": "Read-only compiler/math/schema/closure review. Focused authoring rollback tests use mocked derivation/dependencies; final full transaction belongs to separate owner qualification. No native execution, complete historical54, Windows, original-data admission, compositor pixels or campaign proof. Old strict Node24.19 rebuild not claimed; new actual-profile compiler is golden verified.",
+  "malformed_geometry_rejections": 72,
+  "manual_verifier_coverage_regression": {
+    "seconds": 0.062,
+    "status": "PASS",
+    "tests": 1
+  },
+  "opposite_family_missing_file_rejections": 40,
+  "preview_count": 232,
+  "renderer_profile_rejections": 2,
+  "review_receipt_sha256": "51698c3fa69e4f4a30ff5f78f2f66b02a6a15a408afa8662632cd19ad7bfd12f",
+  "reviewed_sha256": {
+    "scripts/build_current_craft267.py": "6ef1a4bc00b08adb1e0b99b49cd7a2f31b1e2168d564543cf5702e6f58003895",
+    "scripts/build_current_rear_lobes.py": "4757059397ad1bc9dfc6f6e616f087b1f1ab70cfa5bd5686c67b7cf4dadff6ab",
+    "scripts/current_rear1_compatibility.py": "fd515e1d8dbbb833b6e0a4aee75a8620fb907cb9e25d0dacd956fed336740731",
+    "scripts/current_rear281_compatibility.py": "ae8376f0f315cf76f84c0f26a6cd929e011e1e760604505eb3d658c4482acac7",
+    "scripts/current_rear39_compatibility.py": "59932585c73571abe50dc93f6a18a4c23f60d38dac0b8a6884955b8df0ee05ff",
+    "scripts/current_rear_lobes_compatibility.py": "e4f3e05717e1fe6dd432cbc9ec110cdfe5f128a3d767b49755666b7671566602",
+    "scripts/current_rear_p7_compatibility.py": "32f1e3f89b0f2c0e8d03c0d6da5091057d0f9d32c1a28276bd05b2380173444b",
+    "scripts/current_sidekick_body_compatibility.py": "cb5f7845945af8c60fa90fc87f6d18f68792250e7b71bad21917ff7507f33327",
+    "tests/test_current_rear_lobes_authoring.py": "eab0fc1ea080802b3745474f42f2d5f6320f752824ae278ff5cf50601aa5e2a3"
+  },
+  "sidekick_required_lobes_inputs": 21,
+  "src_vs_frozen_parent": "unchanged",
+  "status": "PASS independent compiler and boundary review",
+  "svg_structure": "203 upper two paths then full-vector flipY;43 first pair then flipY pair then central once LAST. Output222/5 independent whole-RGBA horizontal mirror oracle PASS. Masters remain independent."
+}

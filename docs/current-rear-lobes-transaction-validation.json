@@ -1,0 +1,1867 @@
+{
+  "baseline_source_sha256_count": 1942,
+  "baseline_source_sha256_manifest_sha256": "c7d4f5be5d4c4b474d533bf0a476d15bfc7c9a1dae90ff96c4bd71d7e99a0dc3",
+  "changed": [
+    "assets/gameplay/rear-multicannon-p1-bank8-1-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-1-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-2-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-2-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-203-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-203-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-222-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-222-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-277-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-277-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-278-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-278-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-281-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-281-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-282-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-282-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-294-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-294-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-295-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-296-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-296-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-297-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-297-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-298-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-298-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-299-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-299-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-3-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-3-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-300-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-300-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-301-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-301-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-39-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-39-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-40-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-40-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-41-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-41-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-43-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-43-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-5-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-5-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-77-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-77-8.hda"
+  ],
+  "cross_family_corruptions": 20,
+  "current_script_inputs_rechecked": 75,
+  "dependencies": 1942,
+  "export_files": 1029,
+  "export_metadata_difference": "RUNTIME-STATUS.json platform only",
+  "exports_equal": true,
+  "final_snapshot_count": 1966,
+  "final_snapshot_manifest_sha256": "07972f9fcbeea670fc43dab677c6d33db8ac1137fa94360012e8cd318a9a67ba",
+  "full_receipt_sha256": "cebe558282b59b73aa33819abbac1b988ff6277a4606ce7ba411ede29d899174",
+  "rollback": "actual second os.replace; full snapshot identical",
+  "scope": "Actual finite cloud authoring transactions and asset-only export equality. Not Windows/gameplay/compositor execution.",
+  "script_input_differences_after_run": [],
+  "stale_stages": "all preceding stages refused after each later edit",
+  "status": "PASS",
+  "steps": [
+    {
+      "changed": [
+        "assets/gameplay/rear-multicannon-p1-bank8-203-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-203-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-222-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-222-8.hda"
+      ],
+      "checks": {
+        "current_rear1_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 2646,
+              "clipped_samples": 26,
+              "density": 4,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 77
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 11628,
+              "clipped_samples": 82,
+              "density": 8,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 77
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear281_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 1536
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 1536
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 10,
+          "resources": 20,
+          "status": "PASS"
+        },
+        "current_rear39_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 1926,
+              "clipped_samples": 20,
+              "density": 4,
+              "source": 39,
+              "target": 41
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 8390,
+              "clipped_samples": 64,
+              "density": 8,
+              "source": 39,
+              "target": 41
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 3,
+          "resources": 6,
+          "status": "PASS"
+        },
+        "current_rear_lobes_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            }
+          ],
+          "editable_masters": 2,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear_p7_compatibility": {
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 2,
+          "resources": 4,
+          "status": "PASS"
+        }
+      },
+      "family": "current_rear_lobes_compatibility",
+      "files": 21,
+      "inputs": 765,
+      "master_index": 0,
+      "step": 0,
+      "total_changed": 4
+    },
+    {
+      "changed": [
+        "assets/gameplay/rear-multicannon-p1-bank8-43-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-43-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-5-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-5-8.hda"
+      ],
+      "checks": {
+        "current_rear1_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 2646,
+              "clipped_samples": 26,
+              "density": 4,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 77
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 11628,
+              "clipped_samples": 82,
+              "density": 8,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 77
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear281_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 1536
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 1536
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 10,
+          "resources": 20,
+          "status": "PASS"
+        },
+        "current_rear39_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 1926,
+              "clipped_samples": 20,
+              "density": 4,
+              "source": 39,
+              "target": 41
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 8390,
+              "clipped_samples": 64,
+              "density": 8,
+              "source": 39,
+              "target": 41
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 3,
+          "resources": 6,
+          "status": "PASS"
+        },
+        "current_rear_lobes_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            }
+          ],
+          "editable_masters": 2,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear_p7_compatibility": {
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 2,
+          "resources": 4,
+          "status": "PASS"
+        }
+      },
+      "family": "current_rear_lobes_compatibility",
+      "files": 21,
+      "inputs": 765,
+      "master_index": 1,
+      "step": 1,
+      "total_changed": 8
+    },
+    {
+      "changed": [
+        "assets/gameplay/rear-multicannon-p1-bank8-294-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-294-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-295-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-295-8.hda"
+      ],
+      "checks": {
+        "current_rear1_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 2646,
+              "clipped_samples": 26,
+              "density": 4,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 77
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 11628,
+              "clipped_samples": 82,
+              "density": 8,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 77
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear281_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 1536
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 1536
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 10,
+          "resources": 20,
+          "status": "PASS"
+        },
+        "current_rear39_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 1926,
+              "clipped_samples": 20,
+              "density": 4,
+              "source": 39,
+              "target": 41
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 8390,
+              "clipped_samples": 64,
+              "density": 8,
+              "source": 39,
+              "target": 41
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 3,
+          "resources": 6,
+          "status": "PASS"
+        },
+        "current_rear_lobes_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            }
+          ],
+          "editable_masters": 2,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear_p7_compatibility": {
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 2,
+          "resources": 4,
+          "status": "PASS"
+        }
+      },
+      "family": "current_rear_p7_compatibility",
+      "files": 13,
+      "inputs": 769,
+      "master_index": 0,
+      "step": 2,
+      "total_changed": 12
+    },
+    {
+      "changed": [
+        "assets/gameplay/rear-multicannon-p1-bank8-39-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-39-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-40-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-40-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-41-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-41-8.hda"
+      ],
+      "checks": {
+        "current_rear1_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 2646,
+              "clipped_samples": 26,
+              "density": 4,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 77
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 11628,
+              "clipped_samples": 82,
+              "density": 8,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 77
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear281_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 1536
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 1536
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 10,
+          "resources": 20,
+          "status": "PASS"
+        },
+        "current_rear39_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 1582,
+              "clipped_samples": 20,
+              "density": 4,
+              "source": 39,
+              "target": 41
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 6900,
+              "clipped_samples": 60,
+              "density": 8,
+              "source": 39,
+              "target": 41
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 3,
+          "resources": 6,
+          "status": "PASS"
+        },
+        "current_rear_lobes_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            }
+          ],
+          "editable_masters": 2,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear_p7_compatibility": {
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 2,
+          "resources": 4,
+          "status": "PASS"
+        }
+      },
+      "family": "current_rear39_compatibility",
+      "files": 17,
+      "inputs": 767,
+      "master_index": 0,
+      "step": 3,
+      "total_changed": 18
+    },
+    {
+      "changed": [
+        "assets/gameplay/rear-multicannon-p1-bank8-1-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-1-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-2-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-2-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-3-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-3-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-77-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-77-8.hda"
+      ],
+      "checks": {
+        "current_rear1_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 2646,
+              "clipped_samples": 26,
+              "density": 4,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 77
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 11628,
+              "clipped_samples": 82,
+              "density": 8,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 77
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear281_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 1536
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 1536
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 10,
+          "resources": 20,
+          "status": "PASS"
+        },
+        "current_rear39_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 1582,
+              "clipped_samples": 20,
+              "density": 4,
+              "source": 39,
+              "target": 41
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 6900,
+              "clipped_samples": 60,
+              "density": 8,
+              "source": 39,
+              "target": 41
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 3,
+          "resources": 6,
+          "status": "PASS"
+        },
+        "current_rear_lobes_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            }
+          ],
+          "editable_masters": 2,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear_p7_compatibility": {
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 2,
+          "resources": 4,
+          "status": "PASS"
+        }
+      },
+      "family": "current_rear1_compatibility",
+      "files": 21,
+      "inputs": 765,
+      "master_index": 0,
+      "step": 4,
+      "total_changed": 26
+    },
+    {
+      "changed": [
+        "assets/gameplay/rear-multicannon-p1-bank8-277-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-277-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-278-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-278-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-281-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-281-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-282-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-282-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-296-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-296-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-297-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-297-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-298-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-298-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-299-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-299-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-300-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-300-8.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-301-4.hda",
+        "assets/gameplay/rear-multicannon-p1-bank8-301-8.hda"
+      ],
+      "checks": {
+        "current_rear1_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 2646,
+              "clipped_samples": 26,
+              "density": 4,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 1,
+              "target": 77
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 2
+            },
+            {
+              "clipped_alpha": 11628,
+              "clipped_samples": 82,
+              "density": 8,
+              "source": 1,
+              "target": 3
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 1,
+              "target": 77
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear281_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 384
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 282,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 300,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 281,
+              "target": 301,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 277
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 278
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 296,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 297,
+              "transparent_clipped_samples": 0
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 298,
+              "transparent_clipped_samples": 1536
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "overlap_samples": 5,
+              "source": 281,
+              "target": 299,
+              "transparent_clipped_samples": 1536
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 10,
+          "resources": 20,
+          "status": "PASS"
+        },
+        "current_rear39_compatibility": {
+          "composition": [
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 4,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 1582,
+              "clipped_samples": 20,
+              "density": 4,
+              "source": 39,
+              "target": 41
+            },
+            {
+              "clipped_alpha": 0,
+              "clipped_samples": 0,
+              "density": 8,
+              "source": 39,
+              "target": 40
+            },
+            {
+              "clipped_alpha": 6900,
+              "clipped_samples": 60,
+              "density": 8,
+              "source": 39,
+              "target": 41
+            }
+          ],
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 3,
+          "resources": 6,
+          "status": "PASS"
+        },
+        "current_rear_lobes_compatibility": {
+          "composition": [
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 203,
+              "target": 222,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 4,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            },
+            {
+              "density": 8,
+              "occupied_clipped_samples": 0,
+              "source": 43,
+              "target": 5,
+              "transform": "whole-canvas-RGBA-flipX"
+            }
+          ],
+          "editable_masters": 2,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 4,
+          "resources": 8,
+          "status": "PASS"
+        },
+        "current_rear_p7_compatibility": {
+          "editable_masters": 1,
+          "global_registry_additions": 0,
+          "historical_outputs": "untouched",
+          "logical_pieces": 2,
+          "resources": 4,
+          "status": "PASS"
+        }
+      },
+      "family": "current_rear281_compatibility",
+      "files": 45,
+      "inputs": 753,
+      "master_index": 0,
+      "step": 5,
+      "total_changed": 46
+    }
+  ],
+  "tamper": "refused without mutation"
+}

@@ -154,7 +154,8 @@ def load(root):
     from current_rear_p7_compatibility import verified_pins as p7_pins
     from current_rear39_compatibility import verified_pins as rear39_pins
     from current_rear281_compatibility import verified_pins as rear281_pins
-    if read(root, HEADER) != payload_header(pins,p7_pins(root),rear39_pins(root),rear281_pins(root)):
+    from current_rear_lobes_compatibility import verified_pins as rear_lobes_pins
+    if read(root, HEADER) != payload_header(pins,p7_pins(root),rear39_pins(root),rear281_pins(root),rear_lobes_pins(root)):
         raise ValueError('Stale Rear1 payload pins')
     return result
 
@@ -333,9 +334,9 @@ def verified_pins(root):
     return _assets(root)[1]
 
 
-def payload_header(pins, p7_pins, rear39_pins, rear281_pins=None):
+def payload_header(pins, p7_pins, rear39_pins, rear281_pins=None, rear_lobes_pins=None):
     from current_rear_p7_compatibility import payload_header as compose_header
-    return compose_header(p7_pins,rear39_pins,pins,rear281_pins)
+    return compose_header(p7_pins,rear39_pins,pins,rear281_pins,rear_lobes_pins)
 
 GOLDEN_MASTER = b'{\n  "schema": "rear1-data-only-geometry-v1",\n  "geometry": {\n    "path": "M9.45 4 C10.95 4 12 4.72 12 6 C12 7.23 11.18 8 9.55 8 C7.13 8 4.17 7.56 1 6.92 C2.31 5.87 3.92 4.93 6.28 4.39 C7.46 4.12 8.48 4 9.45 4Z",\n    "heat": {\n      "cx": 10.18,\n      "cy": 6.05,\n      "dx": -0.9961947,\n      "dy": 0.0871557,\n      "L": 9.1,\n      "W": 1.8\n    }\n  },\n  "gradient": {\n    "type": "elliptical-radial",\n    "stops": [\n      [\n        "0",\n        "#fffaa1"\n      ],\n      [\n        ".19",\n        "#fff06b"\n      ],\n      [\n        ".38",\n        "#ffd338"\n      ],\n      [\n        ".57",\n        "#ff9e1c"\n      ],\n      [\n        ".75",\n        "#ff680a"\n      ],\n      [\n        ".91",\n        "#ef3904"\n      ],\n      [\n        "1",\n        "#cd2102"\n      ]\n    ]\n  }\n}\n'
 GOLDEN_HASHES = {(1310001, 4): ('501b8f5790dcc96ac82f65d827a2d10ca53d4414fca9b78739ae0720b44fb2bd', '5b5db7122400f1ea988e25596b4deecc8e540bb850d31cd936131e2d951d48e8'), (1310002, 4): ('fa40c06f129fc23bdcd1f1b33272070085db4a397cf76d1a8017cb00c75aa3aa', '81afa542ccdb62b95e543d6609d29dc407a28cf5527f73c0f9dcee68845f1b11'), (1310003, 4): ('bb8382993564208f9aac6610728f35c17751e26106e11a632b5c57f388a8faed', '78c48990ef6ca08052b034c80d0b08f6f6f49d254e4b71c8a55dc7f3fa798cd8'), (1310077, 4): ('611c9ef986c93eeb2bbd90ea51ef55d9f97986c24c9c89714eeee7875d399084', '346271300e8e6f9739a88882dad83ddc01c067bcd6e1c1f89176783f345dffc6'), (1310001, 8): ('c7547ef49f5bca733dbe0f0e8a913e47acc8a7e200db4553a4cb324e42ab0ddc', '402738376529a5a59441ebceefb5d427fe23ba298674e93c2e94d05e732437c5'), (1310002, 8): ('7d725fc5deb48d215dfaf53b91e2792eb18d53c642c7fb50b6a2e3bd6b45a861', '09f964752d2665ecfccc79d674fec6df602375a3a5f558d4efc7dc9c0feea6f4'), (1310003, 8): ('d7b1a8bada8ea5534e388e79a736dea586cc6e7f28ec28994f002bbefc321745', '083e3bf03b124601a3273718f4b12f0b3003b4574400647e0f858fd49d43d160'), (1310077, 8): ('8d397c99b1f3f96a2e4cb98dac7988c6477102a6b3ef3110fa2e4ac5ca15b55d', '73fe11a2f4926504850b406552c9a720919306a15a7313b2c5eff09c8df15362')}

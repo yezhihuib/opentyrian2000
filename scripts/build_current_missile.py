@@ -36,6 +36,8 @@ def dependencies(root, selected):
     names |= rear1_input_paths(root) | {REAR1_MAPPING}
     from current_rear281_compatibility import input_paths as rear281_input_paths, MAPPING as REAR281_MAPPING
     names |= rear281_input_paths(root) | {REAR281_MAPPING}
+    from current_rear_lobes_compatibility import input_paths as rear_lobes_input_paths, MAPPING as REAR_LOBES_MAPPING
+    names |= rear_lobes_input_paths(root) | {REAR_LOBES_MAPPING}
     from build_enemy_protron_p09 import input_paths as p09_input_paths
     names |= p09_input_paths(root)
     # The user edits this master in place; installed hashes are deliberately

@@ -1,0 +1,59 @@
+{
+  "changed_runtime_rows": [
+    "assets/gameplay/rear-multicannon-p1-bank8-203-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-203-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-222-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-222-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-43-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-43-8.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-5-4.hda",
+    "assets/gameplay/rear-multicannon-p1-bank8-5-8.hda"
+  ],
+  "check": {
+    "composition": [
+      {
+        "density": 4,
+        "occupied_clipped_samples": 0,
+        "source": 203,
+        "target": 222,
+        "transform": "whole-canvas-RGBA-flipX"
+      },
+      {
+        "density": 8,
+        "occupied_clipped_samples": 0,
+        "source": 203,
+        "target": 222,
+        "transform": "whole-canvas-RGBA-flipX"
+      },
+      {
+        "density": 4,
+        "occupied_clipped_samples": 0,
+        "source": 43,
+        "target": 5,
+        "transform": "whole-canvas-RGBA-flipX"
+      },
+      {
+        "density": 8,
+        "occupied_clipped_samples": 0,
+        "source": 43,
+        "target": 5,
+        "transform": "whole-canvas-RGBA-flipX"
+      }
+    ],
+    "editable_masters": 2,
+    "global_registry_additions": 0,
+    "historical_outputs": "untouched",
+    "logical_pieces": 4,
+    "resources": 8,
+    "status": "PASS"
+  },
+  "masters": 2,
+  "other_rear_outputs_unchanged": 40,
+  "png_rgba_hda_golden_outputs": 8,
+  "preview_count": 232,
+  "private_parent": "46babac8cf030e6e4496a054a846713dc0d48ffd",
+  "runtime_count": 1029,
+  "scope": "Bootstrap equality and cloud authoring checks, not gameplay/compositor/Windows execution.",
+  "shared_header_byte_exact": true,
+  "status": "PASS"
+}
