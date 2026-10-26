@@ -4,19 +4,22 @@
 #include "current_newshf_hd_assets.h"
 #include "current_linked_newshf_hd_assets.h"
 #include "current_dualmissile_newshf_hd_assets.h"
-enum { GLOBAL_NEWSHF_RESOURCE_COUNT=16 };
+#include "current_turret_newshf_hd_assets.h"
+enum { GLOBAL_NEWSHF_RESOURCE_COUNT=18 };
 static Uint8 *global_newshf_rgba[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static uint64_t global_newshf_rgba_stamp[GLOBAL_NEWSHF_RESOURCE_COUNT];
-static unsigned global_newshf_used_resources;
+static uint32_t global_newshf_used_resources;
+typedef char global_newshf_mask_capacity[(GLOBAL_NEWSHF_RESOURCE_COUNT<=32)?1:-1];
 static bool global_newshf_linked_loaded,global_newshf_linked_good;
 static bool global_newshf_dualmissile_loaded,global_newshf_dualmissile_good;
+static bool global_newshf_turret_loaded,global_newshf_turret_good;
 /* Per-allocation decision made before the first visible dualmissile quadrant. */
 static uint64_t global_newshf_dual_preflight_generation[100];
 static Uint8 global_newshf_dual_preflight_state[100];
 static bool global_newshf_assets_match(void)
 {
  for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++)
-  if((global_newshf_used_resources&(1u<<i))&&(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i]))return false;
+  if((global_newshf_used_resources&(UINT32_C(1)<<i))&&(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i]))return false;
  return true;
 }
 static bool global_newshf_loaded,global_newshf_good,global_newshf_cached;
@@ -115,14 +118,14 @@ static bool global_newshf_surface_matches(void)
 static bool global_newshf_group_ready(unsigned phase)
 {
  if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT)return false;
- bool dual=phase>=15,linked=phase>=9&&!dual;
- bool *loaded=dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;
- bool *good=dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;
- unsigned begin=dual?15:linked?9:0,end=dual?16:linked?15:9;
+ bool turret=phase>=16,dual=phase==15,linked=phase>=9&&phase<15;
+ bool *loaded=turret?&global_newshf_turret_loaded:dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;
+ bool *good=turret?&global_newshf_turret_good:dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;
+ unsigned begin=turret?16:dual?15:linked?9:0,end=turret?18:dual?16:linked?15:9;
  if(!*loaded){
   *loaded=true;*good=true;
   for(unsigned i=begin;i<end;i++){
-   const GlobalAssetResource *r=dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
+   const GlobalAssetResource *r=turret?turret_newshf_hd_resources+i-16:dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
    if(r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||!(global_newshf_rgba[i]=global_resource_load(r)))*good=false;
    if(global_newshf_rgba[i])global_newshf_rgba_stamp[i]=global_bytes_hash(global_newshf_rgba[i],192u*224u*4u);
   }
@@ -157,7 +160,8 @@ static void global_newshf_shutdown(void)
  for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++){free(global_newshf_rgba[i]);global_newshf_rgba[i]=NULL;}
  global_newshf_loaded=global_newshf_good=false;
  global_newshf_linked_loaded=global_newshf_linked_good=false;
- global_newshf_dualmissile_loaded=global_newshf_dualmissile_good=false;global_newshf_used_resources=0;
+ global_newshf_dualmissile_loaded=global_newshf_dualmissile_good=false;
+ global_newshf_turret_loaded=global_newshf_turret_good=false;global_newshf_used_resources=0;
  free(global_newshf_owner);free(global_newshf_foreign);global_newshf_owner=global_newshf_foreign=NULL;global_newshf_capacity=0;
 }
 static void global_newshf_frame_begin(void)
@@ -219,7 +223,7 @@ static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array ban
  if(x<0||x>308){global_newshf_fail();return 0;}
  /* Missing optional art leaves this actor classic, not other groups revoked. */
  if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT){global_newshf_fail();return 0;}
- unsigned group_mask=phase<9?0x1ffu:phase<15?0x7e00u:0x8000u;
+ uint32_t group_mask=phase<9?UINT32_C(0x1ff):phase<15?UINT32_C(0x7e00):phase==15?UINT32_C(0x8000):UINT32_C(0x30000);
  if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&group_mask))global_newshf_fail();return 0;}
  global_newshf_used_resources|=group_mask;
  if(global_newshf_call.live){global_newshf_fail();return 0;}

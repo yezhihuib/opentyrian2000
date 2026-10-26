@@ -1,0 +1,121 @@
+{
+  "status": "ART_CANDIDATE_NOT_RUNTIME_QUALIFIED",
+  "size": [
+    192,
+    224
+  ],
+  "registration": {
+    "source_crop": "x=0..width, y=45..height",
+    "resize": "LANCZOS 192x224",
+    "background_fill": "none; all pixels from existing raw source"
+  },
+  "original_changed_cells": [
+    [
+      9,
+      8
+    ],
+    [
+      9,
+      9
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      10,
+      7
+    ],
+    [
+      10,
+      8
+    ],
+    [
+      10,
+      9
+    ],
+    [
+      10,
+      10
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      11,
+      7
+    ],
+    [
+      11,
+      8
+    ],
+    [
+      11,
+      9
+    ],
+    [
+      11,
+      10
+    ],
+    [
+      11,
+      11
+    ],
+    [
+      12,
+      7
+    ],
+    [
+      12,
+      8
+    ],
+    [
+      12,
+      10
+    ],
+    [
+      12,
+      11
+    ],
+    [
+      13,
+      7
+    ],
+    [
+      13,
+      8
+    ],
+    [
+      13,
+      9
+    ],
+    [
+      13,
+      10
+    ],
+    [
+      13,
+      11
+    ]
+  ],
+  "allowed_hd_pixels": 1408,
+  "changed_hd_pixels": 1396,
+  "outside_allowed_changes": 0,
+  "both_fully_opaque": true,
+  "canonical_master": "turret-cold-registered-v1.png",
+  "overlay": "turret-aperture-overlay-v1.png",
+  "source_hashes": {
+    "turret-cold-generated-v1.png": "c022328eed91aa0b161cd3ddf782811442cd019313460a628f57f51cff5b1f5a",
+    "turret-hot-generated-v1.png": "de61d994607b09b73d28fba00f9de23f1b0dea98aabb518a347540cbc11cc5b5"
+  },
+  "reference_hashes": {
+    "original-newshf-base39-native.png": "33528a5f12b723a4bf0e2563b7580d61c09e54809cb40402445dc503d8b027dd",
+    "original-newshf-base41-native.png": "59dc8e2aa1c25d76fec5f72a7571c681b7fbc7fb1f8b5476f5293ef8cd4dcce5"
+  },
+  "output_hashes": {
+    "turret-cold-registered-v1.png": "9137f7bff98821c26ff89726a5ebc6dbb1e0a523a056ff9b08613bf9bc0a7ae1",
+    "turret-hot-registered-v1.png": "a596d1343dca0c45f89912152c9aa6956c48d313b895935046a2455716eb2641",
+    "turret-aperture-overlay-v1.png": "08a5309abcb5de8dd7ec8e70c24bdd20100cf0b0b82430cbacca88ce55c8eec9"
+  }
+}

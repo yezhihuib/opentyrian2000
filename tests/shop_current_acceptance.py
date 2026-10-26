@@ -56,7 +56,12 @@ def check_current_inventory(root=ROOT):
     dual_added = dict(dual['added_sources'])
     dual_added.update({n:r['sha256'] for n,r in dual['assets'].items()})
     assert not set(dual_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added))
+    from turret_newshf_projection import verified as turret_verified
+    turret = turret_verified(root)
+    turret_added = dict(turret['added_sources'])
+    turret_added.update({n:r['sha256'] for n,r in turret['assets'].items()})
+    assert not set(turret_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

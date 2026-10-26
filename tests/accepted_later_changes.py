@@ -116,6 +116,8 @@ def before_current_projectile91_inventory(inventory,root=ROOT):
 
 def _before_current_projectile91_inventory(inventory,root=ROOT, *, _proofs):
  result=dict(inventory)
+ turret=_current_projection_proof('turret_newshf',root,_proofs)
+ for name,digest in turret['added_sources'].items():assert result.pop(name)==digest
  dual=_current_projection_proof('dualmissile_newshf',root,_proofs)
  for name,digest in dual['added_sources'].items():assert result.pop(name)==digest
  shapesy=_current_projection_proof('shapesy_platform',root,_proofs)
@@ -1134,6 +1136,7 @@ def _verified_sidekick_current(root=ROOT, *, _proofs):
  projectile91=_current_projection_proof('projectile91',root,_proofs)
  expected_sources.update(_current_projection_proof('shapesy_platform',root,_proofs)['added_sources'])
  expected_sources.update(_current_projection_proof('linked_newshf',root,_proofs)['added_sources'])
+ expected_sources.update(_current_projection_proof('turret_newshf',root,_proofs)['added_sources'])
  expected_sources.update(_current_projection_proof('dualmissile_newshf',root,_proofs)['added_sources'])
  expected_sources.update(projectile91['added_sources'])
  expected_sources[CURRENT_PROJECTILE91_HEADER]=projectile91['header_sha256']
@@ -1616,6 +1619,8 @@ def project_p9_inventory(current,root=ROOT):
 
 def _project_p9_inventory(current,root=ROOT, *, _proofs):
  current=copy.deepcopy(current)
+ for name,row in _current_projection_proof('turret_newshf',root,_proofs)['assets'].items():
+  assert current.pop(name)==row,('unverified turret output',name)
  for name,row in _current_projection_proof('dualmissile_newshf',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified dualmissile output',name)
  shapesy=_current_projection_proof('shapesy_platform',root,_proofs)
@@ -1719,8 +1724,9 @@ def validate_current_sources(root=ROOT):
  reuse=verified_enemy_reuse_sources(root)
  observe=verified_enemy_observe_sources(root)
  probe=verified_enemy_probe_sources(root)
- assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe)|{CURRENT_PROJECTILE91_HEADER}|set(current_projectile91_ledger()['added_sources'])|set(_current_projection_proof('linked_newshf',root,None)['added_sources'])|set(_current_projection_proof('shapesy_platform',root,None)['added_sources'])|set(_current_projection_proof('dualmissile_newshf',root,None)['added_sources']),'unapproved current source paths'
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe)|{CURRENT_PROJECTILE91_HEADER}|set(current_projectile91_ledger()['added_sources'])|set(_current_projection_proof('linked_newshf',root,None)['added_sources'])|set(_current_projection_proof('shapesy_platform',root,None)['added_sources'])|set(_current_projection_proof('dualmissile_newshf',root,None)['added_sources'])|set(_current_projection_proof('turret_newshf',root,None)['added_sources']),'unapproved current source paths'
  projected=dict(actual)
+ for name,digest in _current_projection_proof('turret_newshf',root,None)['added_sources'].items():assert projected.pop(name)==digest
  for name,digest in _current_projection_proof('dualmissile_newshf',root,None)['added_sources'].items():assert projected.pop(name)==digest
  for name,digest in _current_projection_proof('shapesy_platform',root,None)['added_sources'].items():assert projected.pop(name)==digest
  for name,digest in _current_projection_proof('linked_newshf',root,None)['added_sources'].items():assert projected.pop(name)==digest
@@ -1770,7 +1776,9 @@ def _current_projection_proof(family,root,context):
  from shapesy_platform_projection import verified as verified_shapesy
  from linked_newshf_projection import verified as verified_linked
  from dualmissile_newshf_projection import verified as verified_dual
+ from turret_newshf_projection import verified as verified_turret
  validators={
+  'turret_newshf':verified_turret,
   'dualmissile_newshf':verified_dual,
   'shapesy_platform':verified_shapesy,
   'linked_newshf':verified_linked,

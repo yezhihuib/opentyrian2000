@@ -120,7 +120,8 @@ class DualProjection(unittest.TestCase):
    bad=dict(current);bad[name]='0'*64
    with self.assertRaises((AssertionError,KeyError)):p.before_inventory(bad)
   rows=json.loads((p.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files'];mapping=p.verified()['mapping'];old=p.before_runtime(rows)
-  self.assertEqual(old,[r for r in rows if r['destination'] not in mapping])
+  from turret_newshf_projection import before_runtime as turret_before
+  self.assertEqual(old,[r for r in turret_before(rows) if r['destination'] not in mapping])
   for kind in ('missing','duplicate','changed'):
    bad=copy.deepcopy(rows);row=next(r for r in bad if r['destination'] in mapping)
    if kind=='missing':bad.remove(row)

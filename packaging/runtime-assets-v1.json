@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 38318,
+      "bytes": 38531,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "5aeeb15f16d058f858c258986ce086d3a48a7bfa",
+      "git_blob": "74cf6c53ac7d73defe15065854bcce07b3e76813",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "ab04b722b1a066ba074d825f01aa24c88ef53a5c4e140cbc2df3c4919dd52c2b",
+      "sha256": "c35c22eb58fba01b06a49fb31454b638b42d89da041821dcd811727fee41cc04",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -7574,6 +7574,24 @@
       "source_path": "assets/hd/current-compat/newshf-linked/newshf-role2100014-8.hda"
     },
     {
+      "destination": "assets/global/newshf-turret/newshf-role2100016-8.hda",
+      "source_path": "assets/hd/current-compat/newshf-turret/newshf-role2100016-8.hda",
+      "bytes": 172060,
+      "sha256": "34c4da3b168c28c6ef96b9c0ba14b74c6e699524744c4a1ee1972363777d2882",
+      "git_blob": "47065c39d3beb683c6d05285140097f7fd7bd495",
+      "group": "newshf-optin",
+      "revision": "current-single-source-turret-newshf-two"
+    },
+    {
+      "destination": "assets/global/newshf-turret/newshf-role2100017-8.hda",
+      "source_path": "assets/hd/current-compat/newshf-turret/newshf-role2100017-8.hda",
+      "bytes": 172060,
+      "sha256": "6678b027161ea947846f1943f0cfb5e3be3736226df6730722cbeb1df7495196",
+      "git_blob": "043e0d11f9afb6dfd0552e88c3a265a9a7d297ed",
+      "group": "newshf-optin",
+      "revision": "current-single-source-turret-newshf-two"
+    },
+    {
       "bytes": 172060,
       "destination": "assets/global/newshf/newshf-role2100000-8.hda",
       "git_blob": "1cf12e9490b52bc333893114020d1d16df6ca113",
@@ -9665,7 +9683,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "62275f311168760fb4ea2dd1d4f6ca087dbd37c53d5f81e62b7ab30c55ebe412",
+    "current_production_source_manifest_sha256": "27d664cf2922dc59b5d9314ebe8e0339c73e6984c962dffda562443d0bfacfda",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

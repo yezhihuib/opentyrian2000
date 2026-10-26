@@ -63,6 +63,20 @@ def records(root):
             notes=['One canonical single missile bitmap copied exactly twice; static NEWSHF bank10 quartet169/170/188/189.',
                    'Separate records2/500 retain distinct movement and native type6 white-smoke effects; artwork does not alter gameplay.',
                    'Alpha is smooth only inside immutable original support; palette5 identity remains runtime guarded.']))
+    import current_turret_newshf_compatibility as turret
+    for destination,row in turret.load(root).items():
+        sources=[turret.INPUT_ROOT+'/cold-master.png',turret.INPUT_ROOT+'/hot-overlay.png']
+        result.append(dict(family='newshf-turret',identity=row['identity'],density=8,role=210,
+            status='current-editable',editable_inputs=sources,source_inputs=sources+[turret.INPUT_ROOT+'/'+n for n in ('native-hot-mask.png','pod-composition-mask8x.png','native-peripheral-source.png')],
+            selection=turret.SELECTION,
+            recipe=['scripts/build_current_turret_newshf.py','scripts/current_turret_newshf_compatibility.py'],
+            derived_outputs=[row['source_png'],row['source_path']],
+            declared_consumers=[dict(destination=destination,record=record,base=row['base'],evidence=turret.MAPPING) for record in turret.RECORDS],
+            rebuild_commands=['python3 scripts/build_current_turret_newshf.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>',
+                              'python3 scripts/build_current_turret_newshf.py --root . apply --destination <external-stage-dir>'],
+            notes=['One generated pod master composed over exact original peripheral ground; hot overlay is limited to original22 native changed cells.',
+                   'Records162/840 preserve separate original shooting and launch behavior; seven native slots map to two images.',
+                   'Full brown backplate remains opaque; no animation clock or gameplay changes.']))
     import current_shapesy_platform_compatibility as shapesy
     for destination,row in shapesy.load(root).items():
         sources=sorted(shapesy.input_paths(root)-{shapesy.SELECTION,shapesy.RECIPE_MODULE})

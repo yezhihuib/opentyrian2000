@@ -30,7 +30,9 @@ def inverse(name,raw,pin):
 
 def project_source(name,raw):
  pin=ledger()['files'].get(name)
- return raw if pin is None else inverse(name,raw,pin)
+ if pin is None:return raw
+ from turret_newshf_projection import project_if_current as turret_project
+ return inverse(name,turret_project(name,raw),pin)
 
 def project_if_current(name,raw):
  """Compose with an earlier inverse accepting either exact chain position.
@@ -41,17 +43,21 @@ This is not a fallback accepting arbitrary prior or mutated live input.
  pin=ledger()['files'].get(name)
  if pin is None:return raw
  if sha(raw)==pin['previous_sha256']:return raw
- return inverse(name,raw,pin)
+ from turret_newshf_projection import project_if_current as turret_project
+ return inverse(name,turret_project(name,raw),pin)
 
 def checked_read(root,name):
  p=root/name
  assert p.is_file() and not p.is_symlink() and not any(q.is_symlink() for q in p.parents),('unsafe dual input',name)
- return p.read_bytes()
+ from turret_newshf_projection import project_if_current as turret_project
+ return turret_project(name,p.read_bytes())
 
 def qualified_paths(root=ROOT):
  spec=ledger();return set(spec['qualified'])|FILES|{LEDGER,'tests/dualmissile_newshf_projection.py'}
 
 def verified(root=ROOT):
+ from turret_newshf_projection import verified as turret_verified
+ turret_verified(root)
  spec=ledger()
  for name,h in spec['qualified'].items():assert sha(checked_read(root,name))==h,('unqualified dual input',name)
  for name,pin in spec['files'].items():inverse(name,checked_read(root,name),pin)
@@ -72,7 +78,8 @@ def verified(root=ROOT):
  return dict(mapping=mapping,added_sources=spec['added_sources'],assets=assets,paths=qualified_paths(root))
 
 def before_inventory(inventory,root=ROOT):
- proof=verified(root);result=dict(inventory)
+ from turret_newshf_projection import before_inventory as turret_before
+ proof=verified(root);result=turret_before(inventory,root)
  for n,h in proof['added_sources'].items():assert result.pop(n)==h,('dual source addition drift',n)
  for n in FILES:
   raw=checked_read(root,n);assert result[n]==sha(raw),('dual live source inventory drift',n)
@@ -80,6 +87,8 @@ def before_inventory(inventory,root=ROOT):
  return result
 
 def before_runtime(rows,root=ROOT):
+ from turret_newshf_projection import before_runtime as turret_before
+ rows=turret_before(rows,root)
  proof=verified(root);mapping=proof['mapping'];result=[];seen=set()
  import current_dualmissile_newshf_compatibility as c
  for row in rows:
@@ -94,6 +103,7 @@ def before_runtime(rows,root=ROOT):
 
 
 def drop_additions(inventory,root=ROOT):
- proof=verified(root);result=dict(inventory)
+ from turret_newshf_projection import drop_additions as turret_drop
+ proof=verified(root);result=turret_drop(inventory,root)
  for n,h in proof['added_sources'].items():assert result.pop(n)==h,('dual source addition drift',n)
  return result

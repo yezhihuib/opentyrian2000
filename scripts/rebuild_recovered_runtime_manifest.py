@@ -204,6 +204,13 @@ def main():
         add(row['source_path'],destination,'newshf-optin')
         rows[destination]['revision']=dualmissile_revision
 
+    from current_turret_newshf_compatibility import load as turret_load, REVISION as turret_revision
+    turret=turret_load(root)
+    if len(turret)!=2 or set(turret)&set(rows):raise ValueError('Unexpected/colliding turret NEWSHF extension')
+    for destination,row in sorted(turret.items()):
+        add(row['source_path'],destination,'newshf-optin')
+        rows[destination]['revision']=turret_revision
+
     # Independent finite Y terrain family; never aliases Z/coast/water assets.
     from current_shapesy_platform_compatibility import load as shapesy_load, IDS as SHAPESY_IDS, name as shapesy_name, REVISION as SHAPESY_REVISION
     shapesy=shapesy_load(root)

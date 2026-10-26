@@ -193,7 +193,7 @@ class _ProjectionProofContext:
         self._closed = False
 
     def _module(self, family):
-        if family not in ('dualmissile_newshf', 'shapesy_platform', 'linked_newshf', 'projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
+        if family not in ('turret_newshf', 'dualmissile_newshf', 'shapesy_platform', 'linked_newshf', 'projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
             raise ValueError('Unknown current-proof family')
         scripts = str(self.module_root / 'scripts')
         if scripts not in sys.path:
@@ -234,7 +234,8 @@ class _ProjectionProofContext:
         if family in ('projectile91', 'rear_p7', 'missile', 'mint27', 'newshf'):
             source_chain = ('projectile91',) + source_chain
         # Every live source projection first validates the finite ShapesY delta.
-        source_chain = ('dualmissile_newshf', 'shapesy_platform') + source_chain
+        source_chain = ('turret_newshf', 'dualmissile_newshf', 'shapesy_platform') + source_chain
+        files.add(self.module_root / 'tests' / 'turret_newshf_projection.py')
         files.add(self.module_root / 'tests' / 'dualmissile_newshf_projection.py')
         files.add(self.module_root / 'tests' / 'shapesy_platform_projection.py')
         for name in source_chain:
@@ -244,7 +245,7 @@ class _ProjectionProofContext:
             spec = json.loads(ledger.read_bytes())
             for source in set(spec['files']) | set(spec.get('added_sources', {})) | set(spec.get('qualified', {})) | set(spec.get('asset_edits', {})):
                 files.add(_relative(self.root, source))
-        scripts = {'current_dualmissile_newshf_compatibility.py', 'current_craft267_compatibility.py', 'package_runtime.py', 'build_current_art.py', 'current_shapesy_platform_compatibility.py', 'build_current_shapesy_platform.py'}
+        scripts = {'current_turret_newshf_compatibility.py', 'current_dualmissile_newshf_compatibility.py', 'current_craft267_compatibility.py', 'package_runtime.py', 'build_current_art.py', 'current_shapesy_platform_compatibility.py', 'build_current_shapesy_platform.py'}
         scripts |= {'current_' + name + '_compatibility.py' for name in families}
         if family == 'projectile91':
             scripts |= {'current_plasma_projectile_compatibility.py'}

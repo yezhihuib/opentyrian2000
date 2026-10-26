@@ -485,6 +485,18 @@ def main(argv=None) -> int:
             if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=dualmissile_revision:
                 raise ValueError('Stale dualmissile NEWSHF runtime selection')
 
+    # Two turret states share one master and retain two separate record behaviors.
+    from current_turret_newshf_compatibility import ROOT as turret_prefix, load as turret_load, REVISION as turret_revision
+    turret_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(turret_prefix+'/') or r['destination'].casefold().startswith('assets/global/newshf-turret/') or r.get('revision')==turret_revision or Path(r['source_path']).name.casefold() in ('newshf-role2100016-8.hda','newshf-role2100017-8.hda') or Path(r['destination']).name.casefold() in ('newshf-role2100016-8.hda','newshf-role2100017-8.hda')]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or turret_rows:
+        selected=turret_load(roots[0])
+        if len(turret_rows)!=2 or {r['destination'] for r in turret_rows}!=set(selected):
+            raise ValueError('Turret NEWSHF requires exactly two shared consumers')
+        for row in turret_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=turret_revision:
+                raise ValueError('Stale turret NEWSHF runtime selection')
+
     # Current Y family is exact28, with independently regenerated masks/pixels.
     # Absence of all rows cannot silently remove it from the current manifest.
     from current_shapesy_platform_compatibility import load as shapesy_load, REVISION as shapesy_revision

@@ -81,7 +81,8 @@ def checked_read(root, name):
     assert path.is_file() and not path.is_symlink(), ('nonregular ShapesY input', name)
     assert not any(p.is_symlink() for p in path.parents), ('symlink ShapesY ancestor', name)
     from dualmissile_newshf_projection import project_if_current
-    return project_if_current(name, path.read_bytes())
+    from turret_newshf_projection import project_if_current as turret_project
+    return project_if_current(name, turret_project(name,path.read_bytes()))
 
 
 def verified(root=ROOT):

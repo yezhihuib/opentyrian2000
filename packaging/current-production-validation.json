@@ -24,7 +24,7 @@
     "Normal observer final-surface alias has native production-object proof only; no new live normal-game target-event, Windows/GPU or full-campaign acceptance."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "62275f311168760fb4ea2dd1d4f6ca087dbd37c53d5f81e62b7ab30c55ebe412",
+  "production_source_manifest_sha256": "27d664cf2922dc59b5d9314ebe8e0339c73e6984c962dffda562443d0bfacfda",
   "reviewed_charge_body_changes": {
     "files": [
       "src/entity_draw.c",
@@ -214,6 +214,7 @@
     "src/current_sidekick_body_payload_pins.h": "1d25bd99fd3bb300f150be65ea4bd4de9014354787eafb6d04250a9b86320da2",
     "src/current_sonic_payload_pins.h": "82611c0977733cc9fb0d6daad744b607dec9ab6b32de5e8e6c077355570f86a3",
     "src/current_tank_shell_payload_pins.h": "c474a33b8af08d772113a015fadca77f446cb49626a66bafbf7e24357326e5f6",
+    "src/current_turret_newshf_hd_assets.h": "3ee125f63b1d2e49121134adcff78ceaf14107181e9269cef5198b08a660c595",
     "src/data_exit_pins.inc": "38103a33f86480c47623fc88b9c76b148fb0ba1dd955d231b06306d2d4bb3b33",
     "src/data_frame.c": "8d4a5238cb6fd29e94c7af571e58ffb43ae4edbb5b721dd50c1fe9594a813cc0",
     "src/data_frame.h": "652e2789ddb160587a02dd690c58c93c096ca42bbd502619ad8b19673c8cd4c5",
@@ -282,7 +283,7 @@
     "src/global_green_identity.inc": "aa6febe5e8c65e872357bd7fa36d16aa0d3beeac59d7a9ef8d58befa4d4006ca",
     "src/global_green_mirror.inc": "7992448caada923a3e7a4fcc59282c4d86603a503b36dc3ac321b1d84131ca60",
     "src/global_hitflare_mirror.inc": "2ab0900bab0dfa6423f3e3abf84fbbffbfcb21dd205b02d30e6bc54a1261a964",
-    "src/global_newshf_mirror.inc": "a82b14909f1445d71a5645d54782a692240f8ce32d138ceb4d8b1acf9a73ecf7",
+    "src/global_newshf_mirror.inc": "603f4139f28f484b64ed5ca1ba3f92e6ad87cac6dd6206355c870b81c6096dba",
     "src/global_projectile91_mirror.inc": "31309bdef96922bc830fe3e8f28ee4117c4df0253d1baab03396b3ad954a3829",
     "src/global_pulse_mirror.inc": "3502ad962fbcff5bcd2bcdfc77bf804627e26974f306eedaa6ca94f206492cf6",
     "src/global_rotor_identity.inc": "d09e9a0a111b361bbb44b0c751115147f2a2b4053c01e9a89c52898b02ce28c0",
@@ -330,9 +331,10 @@
     "src/network.h": "3d1db19be051259fecd16e1af5cbdfd514134fbe1ec19e5a7480aba59ba3a5cb",
     "src/newshf_dualmissile_pins.h": "28b70229016267cdb9e5156c94a2d4f8ea23773027f04970781283843e0544ff",
     "src/newshf_hd_assets.h": "c9552ffee0610c7ece607dce0e20a414818f143911d2a5e42bd21b5fd4a8d129",
-    "src/newshf_identity_validation.inc": "d20fdfd69b5aa4c1f028b4fd853594ff2c68189ab6c4bbd75d0b05af758b3211",
+    "src/newshf_identity_validation.inc": "bb06599be8d7027187ce455d5b3fbf9cc2e53595837317d9e6f291967f09f096",
     "src/newshf_linked_pins.h": "4a6876272e9a1b3a25733fb7e566d06be918f8f7b2054d5b196e9c797a0fdaf1",
     "src/newshf_prototype_pins.h": "6b111c2b6c1d560d3698e822cf749aa55172849dcab53dfc20ceb5cd3fb85605",
+    "src/newshf_turret_pins.h": "23bbcbbe7b41073e1a60d2256042b5b89dfd48323e6500a2ade6b55d484c058c",
     "src/nortsong.c": "0d0a1cbe9432a3263f80cf9e932339f76be0747d4f163b0430a36aff3011ae72",
     "src/nortsong.h": "99d2610d15c12eb34a24ae2e1b873d1c1e360663aef34e11598300cbd654adeb",
     "src/nortvars.c": "c5e048d081ce402cdb84f2fd73040aea936f1910cd343a326178b1edac11f077",
