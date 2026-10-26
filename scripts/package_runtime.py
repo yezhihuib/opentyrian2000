@@ -523,6 +523,19 @@ def main(argv=None) -> int:
             if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='gameplay' or row.get('revision')!=cyan_revision:
                 raise ValueError('Stale cyan layer2 runtime selection')
 
+    # Independent static cyan_secondary layer2 closure; no platform/catalog alias.
+    from current_shapesy_cyan_secondary_compatibility import load as cyan_secondary_load, ROOT as cyan_secondary_prefix, REVISION as cyan_secondary_revision, IDS as cyan_secondary_ids, name as cyan_secondary_name
+    cyan_secondary_names={cyan_secondary_name(i) for i in cyan_secondary_ids}
+    cyan_secondary_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(cyan_secondary_prefix+'/') or r.get('revision')==cyan_secondary_revision or Path(r['source_path']).name.casefold() in cyan_secondary_names or Path(r['destination']).name.casefold() in cyan_secondary_names]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or cyan_secondary_rows:
+        selected=cyan_secondary_load(roots[0])
+        if len(cyan_secondary_rows)!=5 or {r['destination'] for r in cyan_secondary_rows}!=set(selected):
+            raise ValueError('Secondary cyan layer2 requires exactly five shared consumers')
+        for row in cyan_secondary_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='gameplay' or row.get('revision')!=cyan_secondary_revision:
+                raise ValueError('Stale cyan_secondary layer2 runtime selection')
+
     # Current Y family is exact28, with independently regenerated masks/pixels.
     # Absence of all rows cannot silently remove it from the current manifest.
     from current_shapesy_platform_compatibility import load as shapesy_load, REVISION as shapesy_revision

@@ -71,7 +71,12 @@ def check_current_inventory(root=ROOT):
     cyan_added=dict(cyan['added_sources'])
     cyan_added.update({n:r['sha256'] for n,r in cyan['assets'].items()})
     assert not set(cyan_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added)|set(large_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added))
+    from shapesy_cyan_secondary_projection import verified as secondary_verified
+    secondary=secondary_verified(root)
+    secondary_added=dict(secondary['added_sources'])
+    secondary_added.update({n:r['sha256'] for n,r in secondary['assets'].items()})
+    assert not set(secondary_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added)|set(large_added)|set(cyan_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

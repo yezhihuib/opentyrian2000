@@ -1,0 +1,49 @@
+{
+  "schema": "opentyrian-shapesy-cyan-secondary-registration-v1",
+  "size": [
+    384,
+    672
+  ],
+  "density": 8,
+  "mask_sha256": "bb5faf2c0ac27a738632d7c0d55e84f7362e0f10261d416222822d6984e401b6",
+  "master_sha256": "8a5879f82232e23cd685a9d64ae937bd93488fa58c28c02bcf53956477930318",
+  "source_pins": {
+    "172": "05a481ead82550ac",
+    "181": "d8abb918ce951c06",
+    "182": "dba57501fd9266bb",
+    "191": "8a46980a5b7ce081",
+    "192": "e8ac01289d0ab0d9"
+  },
+  "palette_fnv": "5e80e83992be2927",
+  "crop": [
+    187,
+    158,
+    789,
+    1437
+  ],
+  "crop_size": [
+    184,
+    376
+  ],
+  "offset": [
+    112,
+    136
+  ],
+  "mask_sigma": 5,
+  "mask_threshold": 0.55,
+  "mask_ramp": 0.35,
+  "distance_offset": 0.5,
+  "distance_ramp": 7.5,
+  "alpha_floor": 3,
+  "cap": {
+    "window_top": 402,
+    "window_bottom": 452,
+    "window_ramp": 8,
+    "x_start": 262,
+    "x_ramp": 6,
+    "curve_origin": 287.0,
+    "curve_scale": 0.012,
+    "curve_y": 427.0,
+    "ramp": 4.0
+  }
+}

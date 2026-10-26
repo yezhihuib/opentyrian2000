@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+"""Explicit SMOKE subset, not full qualification: projections and three row negatives.
+
+Runs no 84-case historical inventory mutation sweep. Full tests remain required.
+"""
+import copy,json,sys
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+sys.path[:0]=[str(ROOT/'tests'),str(ROOT/'scripts')]
+import shapesy_cyan_secondary_projection as p
+import shapesy_cyan_projection as old
+import shapesy_platform_projection as y
+import dualmissile_newshf_projection as dual
+import turret_newshf_projection as turret
+import large_newshi_projection as large
+from verify_current_production import source_inventory
+
+def main():
+ proof=p.verified();assert len(proof['mapping'])==5
+ inv=source_inventory(ROOT);before=p.before_inventory(inv)
+ assert before==p.ledger()['base_source_inventory']
+ rows=json.loads((ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']
+ restored=p.before_runtime(rows)
+ assert len(rows)-len(restored)==5
+ for kind in ('missing','duplicate','changed'):
+  bad=copy.deepcopy(rows);row=next(r for r in bad if r['destination'] in proof['mapping'])
+  if kind=='missing':bad.remove(row)
+  elif kind=='duplicate':bad.append(row)
+  else:row['group']='wrong'
+  try:p.before_runtime(bad)
+  except (AssertionError,ValueError,KeyError):pass
+  else:raise AssertionError('SMOKE accepted '+kind+' runtime row')
+ original=y.before_inventory(inv)
+ assert original==y.ledger()['public_source_inventory']
+ assert set(inv)-set(original)==y.ADDED|dual.ADDED|turret.ADDED|large.ADDED|old.ADDED|p.ADDED
+ assert len(rows)-len(y.before_runtime(rows))==50
+ from test_dualmissile_newshf_projection import DualProjection
+ DualProjection('test_projection_dispatch_orders').test_projection_dispatch_orders()
+ print('SMOKE PASS: valid inventory/runtime, 3 row negatives, old ShapesY header/50-row assertions, actual dispatcher order; NOT full qualification',flush=True)
+if __name__=='__main__':main()

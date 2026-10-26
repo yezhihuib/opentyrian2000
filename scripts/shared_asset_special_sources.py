@@ -101,6 +101,18 @@ def records(root):
             notes=['One generated static 48x56 cloud master split into four independently placed 24x28 tiles; no animation.',
                    'Original index0 cells remain transparent RGBA0. Two boundary source cells deliberately move fully inward.',
                    'Only verified ShapesY layer2 palette5 normal internal8; other palettes, blend, and true4 stay classic.']))
+    import current_shapesy_cyan_secondary_compatibility as cyan_secondary
+    for destination,row in cyan_secondary.load(root).items():
+        result.append(dict(family='shapesy-cyan-secondary',identity=row['identity'],density=8,role=203,
+            status='current-editable',editable_inputs=[cyan_secondary.INPUT_ROOT+'/raw-generated.png',cyan_secondary.INPUT_ROOT+'/registration-recipe.json'],
+            source_inputs=sorted(cyan_secondary.input_paths(root)-{cyan_secondary.SELECTION}),selection=cyan_secondary.SELECTION,
+            recipe=['scripts/current_shapesy_cyan_secondary_compatibility.py','scripts/build_current_shapesy_cyan_secondary.py'],
+            derived_outputs=[row['source_png'],row['source_path'],cyan_secondary.INPUT_ROOT+'/derived/master-384x672.png'],
+            declared_consumers=[dict(destination=destination,base=row['base'],layer=2,evidence=cyan_secondary.MAPPING)],
+            rebuild_commands=['python3 scripts/build_current_shapesy_cyan_secondary.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>','python3 scripts/build_current_shapesy_cyan_secondary.py --root . apply --destination <external-stage-dir>'],
+            notes=['One generated static 48x84 cloud master split into five independently placed 24x28 tiles; no animation.',
+                   'Original index0 cells remain transparent RGBA0. Thirty-eight boundary source cells deliberately move fully inward.',
+                   'Only verified ShapesY layer2 palette5 normal internal8; other palettes, blend, and true4 stay classic.']))
     import current_shapesy_platform_compatibility as shapesy
     for destination,row in shapesy.load(root).items():
         sources=sorted(shapesy.input_paths(root)-{shapesy.SELECTION,shapesy.RECIPE_MODULE})

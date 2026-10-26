@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 39073,
+      "bytes": 39314,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "1b91e59e9e8c91e02ba18bad0a09ecf09c967402",
+      "git_blob": "79b1966eb1617a1581359c12b663e26ad88a4943",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "1b79e5e1375012b13e17b66c1370275d750b4126ed5b1ca4acf1127fcc7d0f61",
+      "sha256": "01a6666ca2705a6116159060e5d928d2c0b2b448ab1785201cd4cb44eddefcba",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -5244,6 +5244,51 @@
     },
     {
       "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-cyan-172-8.hda",
+      "git_blob": "3f28c0efe06c25b32c6658e2b533617e7195df68",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-cyan-secondary-five",
+      "sha256": "e765c1a0588df01b077087b64f4b18bd8956afdee8f3948ae4c07f8b3e5225f3",
+      "source_path": "assets/hd/current-compat/shapesy-cyan-secondary/terrain-shapesy-cyan-172-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-cyan-181-8.hda",
+      "git_blob": "c9e5e5e0b3d1a074a458a707176ca6ed6710513f",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-cyan-secondary-five",
+      "sha256": "a34aee5688f97c6a52cefc0c515c7e9dae4b3f23dc58885aea3d9c23e9309690",
+      "source_path": "assets/hd/current-compat/shapesy-cyan-secondary/terrain-shapesy-cyan-181-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-cyan-182-8.hda",
+      "git_blob": "547e2401380fb401a62a9e019c77ac85f53f6511",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-cyan-secondary-five",
+      "sha256": "02049e01130b29d1c2f0b984d3ad9e534045c4a2ed9e2c3ec14d324d6f625b3d",
+      "source_path": "assets/hd/current-compat/shapesy-cyan-secondary/terrain-shapesy-cyan-182-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-cyan-191-8.hda",
+      "git_blob": "82db8c7e42672a5206780db409ef4b3b415f56f2",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-cyan-secondary-five",
+      "sha256": "411f6250046a7414f89865dd083f4df658afb15a868eb0cf115e4058940cb2f3",
+      "source_path": "assets/hd/current-compat/shapesy-cyan-secondary/terrain-shapesy-cyan-191-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-cyan-192-8.hda",
+      "git_blob": "5c7bbfce40487c518e552a22d7f8931852624fbe",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-cyan-secondary-five",
+      "sha256": "d2711d21d7eadf58466f71787fa4379e66492aa778463521e3c2f14cf537bd74",
+      "source_path": "assets/hd/current-compat/shapesy-cyan-secondary/terrain-shapesy-cyan-192-8.hda"
+    },
+    {
+      "bytes": 172060,
       "destination": "assets/gameplay/terrain-shapesz-100-8.hda",
       "git_blob": "58387a8cd9eb3f823b5ff7ad9d7efe98fb4e9bc5",
       "group": "gameplay",
@@ -9809,7 +9854,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "c1443250a59a08503b58d029073f083b6fe9018460869072187daaaf9ca9cd3d",
+    "current_production_source_manifest_sha256": "c9173b2489fb98126b07e5f800918a1ad8a80f58694ee41298e08b1c6c640d97",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

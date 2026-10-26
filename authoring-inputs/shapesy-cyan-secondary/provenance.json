@@ -1,0 +1,40 @@
+{
+  "tool": "image_gen__imagegen",
+  "date_utc": "2026-10-26",
+  "prompt_file": "prompt.txt",
+  "generated_original": "raw-generated.png",
+  "generation_count": 1,
+  "master": "derived/master-384x672.png",
+  "recipe": "registration-recipe.json",
+  "source_bank": "shapesy.dat",
+  "source_bank_sha256": "1faf60f8804c4ca52ea41ece94e3d2fd3cdaecb437b63ecb61adc58907c7b869",
+  "tile_ids": [
+    172,
+    181,
+    182,
+    191,
+    192
+  ],
+  "geometry_reference": "Original-derived binary native-mask.png; no original RGB/index image bytes",
+  "style_reference": "Previously generated first-family artwork; style only",
+  "runtime_qualified": false,
+  "artifact_sha256": {
+    "raw-generated.png": "19ad6c5b2f509e8934b28576d248dfe98364091a79aa320a6539b96b3020b24a",
+    "prompt.txt": "3eaf658f111f9c98a7eecb35d52c5159ea8d3ed89e9ff64f7967a2f5a80b13f1",
+    "rebuild.py": "b1bf45e02fa3fc7d4a13a48c28dfde2d8840576eacf24f0c0d64886341e38301",
+    "registration-recipe.json": "ac2e947f08cebc9f847d9c736f601a0733ca51a426bd64908de642d8f65facdb",
+    "native-mask.png": "bb5faf2c0ac27a738632d7c0d55e84f7362e0f10261d416222822d6984e401b6",
+    "derived/master-384x672.png": "8a5879f82232e23cd685a9d64ae937bd93488fa58c28c02bcf53956477930318"
+  },
+  "local_refinement": "Deterministic inward lower-right alpha cap in registration-recipe.json; unchanged RGB and no outward expansion",
+  "historical_art_recipe": "rebuild.py",
+  "mask_dependency": {
+    "canonical_name": "native-mask.png",
+    "sha256": "bb5faf2c0ac27a738632d7c0d55e84f7362e0f10261d416222822d6984e401b6",
+    "dimensions": [
+      48,
+      84
+    ],
+    "nonzero_cells": 669
+  }
+}

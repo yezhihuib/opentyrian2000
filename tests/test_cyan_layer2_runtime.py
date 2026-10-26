@@ -31,7 +31,7 @@ static unsigned checks,cases,draws;
 typedef Uint8 JE_byte;
 typedef struct {bool initialized,valid;int bank,index,w,h,anchor_x,anchor_y,density;Uint8 *rgba;} Asset;
 static struct {Uint8 *mainmap[600][14];struct {Uint8 nothing[3],fill,sh[672];} shapes[71];} megaData2;
-static Uint8 originals[4][672],expected[64000],pixels[64000];
+static Uint8 originals[9][672],expected[64000],pixels[64000];
 static SDL_PixelFormat format={.format=SDL_PIXELFORMAT_INDEX8,.BitsPerPixel=8,.BytesPerPixel=1};
 static SDL_PixelFormat rgba_format={.format=SDL_PIXELFORMAT_ARGB8888,.BitsPerPixel=32,.BytesPerPixel=4};
 static Uint32 canvas_pixels[2560*1600];
@@ -209,24 +209,118 @@ static void callbacks(void)
  }
 }
 
+static void registry_both(int bad)
+{
+ cyan_map_reset();reject_reason=NULL;terrain_file='Y';donor_live=true;donor_serial=55;
+ for(unsigned i=0;i<71;i++){
+  unsigned k=i%9;memcpy(megaData2.shapes[i].sh,originals[k],672);
+  /* A structurally legitimate offscreen alias with wrong bytes is local. */
+  if((bad==1&&i==63)||(bad==2&&i==67))megaData2.shapes[i].sh[0]^=1;
+  cyan_bind(2,cyan_id_at(k),megaData2.shapes[i].sh);
+ }
+ for(unsigned y=0;y<600;y++)for(unsigned x=0;x<14;x++)megaData2.mainmap[y][x]=megaData2.shapes[x%9].sh;
+ CYAN_CHECK(cyan_structure_valid());
+}
+static void both_complete(unsigned mask)
+{
+ complete();CYAN_CHECK(cyan_frame.used==mask&&cyan_borrow.used==mask);
+ unsigned admitted[9]={0};
+ for(unsigned y=0;y<200;y++)for(unsigned x=0;x<288;x++){
+  unsigned k=(x/24)%9,i=((y+1)%28)*24+x%24;Uint8 v=originals[k][i];
+  size_t n=(size_t)y*8*2560+x*8;bool hd=v&&(mask&(1u<<cyan_group_of(k)));
+  CYAN_CHECK(pixels[y*320+x]==(v?v:7)&&!!hd_owner[n]==hd);
+  if(hd){const Uint8 *a=cyan_asset(k)->rgba+4*((i/24*8)*192+i%24*8);CYAN_CHECK(canvas_pixels[n]==blend_rgba(palette_rgb(7),a,a[3]));admitted[k]++;}
+  else CYAN_CHECK(canvas_pixels[n]==palette_rgb(v?v:7));
+ }
+ for(unsigned k=0;k<9;k++)CYAN_CHECK(!!admitted[k]==!!(mask&(1u<<cyan_group_of(k))));
+}
+static void secondary_cases(void)
+{
+ cases++;registry_both(0);frame();both_complete(3);
+ for(int bad=1;bad<=2;bad++){cases++;registry_both(bad);frame();both_complete(bad==1?2:1);}
+ /* Independent bind-time missing original members, not just missing resources. */
+ for(unsigned missing=0;missing<9;missing++){
+  cases++;registry_both(0);cyan_registry.seen[missing]=false;frame();both_complete(missing<4?2:1);
+ }
+ /* Any used group's source aliases, payload or epoch stay dependencies after
+  * owner transfer/complete occlusion and after the pass has ended. */
+ for(unsigned g=0;g<2;g++)for(unsigned mutation=0;mutation<4;mutation++){
+  cases++;registry_both(0);frame();both_complete(3);uint64_t serial=cyan_borrow.serial;
+  memset(hd_owner,0,sizeof(hd_owner));memset(canvas_pixels,0,sizeof(canvas_pixels));
+  if(mutation==0)cyan_group(g)->members[0].rgba[1]^=1;
+  if(mutation==1)megaData2.shapes[g?67:63].sh[0]^=1;
+  if(mutation==2)cyan_group(g)->generation++;
+  if(mutation==3)cyan_group(g)->root[0]^=1;
+  CYAN_CHECK(!cyan_borrow_check(serial)&&!cyan_frame_check());
+ }
+ for(unsigned g=0;g<2;g++){
+  cases++;registry_both(0);frame();begin();blit_background_row(&surface,0,-1,&megaData2.mainmap[280][0]);
+  megaData2.shapes[g?67:63].sh[0]^=1;
+  blit_background_row(&surface,0,27,&megaData2.mainmap[281][0]);CYAN_CHECK(reject_reason&&!cyan_borrow.sealed);
+ }
+ /* A loaded/ready second family fully clipped below native support contributes
+  * no dependency, whereas global slot-ID corruption must still fail closed. */
+ for(unsigned mutation=0;mutation<5;mutation++){
+  cases++;registry_both(0);
+  for(unsigned y=0;y<600;y++)for(unsigned x=0;x<14;x++)megaData2.mainmap[y][x]=megaData2.shapes[x%4].sh;
+  megaData2.mainmap[287][11]=megaData2.shapes[4].sh;
+  frame();complete();CYAN_CHECK(cyan_pass.ready==3&&cyan_frame.used==1);
+  uint64_t serial=cyan_borrow.serial;
+  if(mutation==0)cyan_secondary_resources.members[0].rgba[1]^=1;
+  if(mutation==1)megaData2.shapes[67].sh[0]^=1;
+  if(mutation==2)cyan_secondary_resources.generation++;
+  if(mutation==3)cyan_secondary_resources.root[0]^=1;
+  if(mutation==4)cyan_registry.ids[67]=42;
+  CYAN_CHECK(cyan_borrow_check(serial)==(mutation!=4));
+ }
+ /* Lazy loading an unused sibling after sealing must not change the borrowed
+  * proof's epochs. Its later mutation is still irrelevant to old-only output. */
+ cases++;registry_both(0);
+ for(unsigned y=0;y<600;y++)for(unsigned x=0;x<14;x++)megaData2.mainmap[y][x]=megaData2.shapes[x%4].sh;
+ frame();complete();CYAN_CHECK(!cyan_secondary_resources.checked&&cyan_frame.used==1);
+ uint64_t old_serial=cyan_borrow.serial;CYAN_CHECK(cyan_group_ready(1)&&cyan_borrow_check(old_serial));
+ cyan_secondary_resources.members[0].rgba[1]^=1;CYAN_CHECK(cyan_borrow_check(old_serial));
+ /* Genuine secondary-only opacity uses the same native-zero rule; layer3 binds
+  * never register a secondary member and wrong density remains classic. */
+ cases++;registry_both(0);cyan_map_reset();cyan_bind(3,172,megaData2.shapes[4].sh);CYAN_CHECK(!cyan_id(megaData2.shapes[4].sh));
+ cases++;registry_both(0);frame();game_probe_density=4;begin();CYAN_CHECK(!cyan_pass.live);game_probe_density=8;
+ /* Unknown/offset map pointers and identity remaps are never optional-local. */
+ for(unsigned mutation=0;mutation<4;mutation++){
+  cases++;registry_both(0);frame();
+  if(mutation==0)megaData2.mainmap[280][4]++;
+  if(mutation==1)cyan_registry.ids[67]=111;
+  if(mutation==2)cyan_bind(2,172,megaData2.shapes[67].sh);
+  if(mutation==3)cyan_bind(2,601,megaData2.shapes[67].sh);
+  begin();CYAN_CHECK(!cyan_pass.live);
+ }
+ /* New-group zero alpha restores native/typed donor; source-zero never writes. */
+ cases++;registry_both(0);frame();begin();
+ unsigned i=0;while(i<672&&!originals[4][i])i++;CYAN_CHECK(i<672);
+ size_t n=(size_t)(i/24-1)*8*2560+i%24*8;Uint8 *a=cyan_asset(4)->rgba+4*(i/24*8*192+i%24*8),save[4];memcpy(save,a,4);memset(a,0,4);
+ CYAN_CHECK(cyan_tile_draw(4,0,-1)&&canvas_pixels[n]==palette_rgb(7)&&hd_owner[n]);
+ memcpy(a,save,4);cyan_pass.live=cyan_row_lease.live=false;
+}
+
 int main(int argc,char **argv)
 {
  assert(argc==4);game_probe_assets=argv[2];FILE *f=fopen(argv[1],"rb");assert(f);
- assert(fread(originals,672,4,f)==4);for(unsigned i=0;i<256;i++){Uint8 p[3];assert(fread(p,1,3,f)==3);rgb_palette[i]=p[0]<<16|p[1]<<8|p[2];}assert(fgetc(f)==EOF);fclose(f);
+ assert(fread(originals,672,9,f)==9);for(unsigned i=0;i<256;i++){Uint8 p[3];assert(fread(p,1,3,f)==3);rgb_palette[i]=p[0]<<16|p[1]<<8|p[2];}assert(fgetc(f)==EOF);fclose(f);
  registry();frame();
  if(!strcmp(argv[3],"reject")){begin();CYAN_CHECK(!cyan_pass.live);}
+ else if(!strncmp(argv[3],"groups-",7)){registry_both(0);frame();both_complete((unsigned)atoi(argv[3]+7));}
+ else if(!strcmp(argv[3],"secondary")){secondary_cases();}
  else{positive();guarded();alpha_and_underlays();final_guards();callbacks();}
  cyan_shutdown();printf("cyan runtime PASS cases=%u checks=%u\n",cases,checks);return 0;
 }
 '''
 def main():
- p=argparse.ArgumentParser();p.add_argument('--data',type=Path,required=True);p.add_argument('--pack',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--sdl-include',action='append',default=[]);p.add_argument('--sanitize',action='store_true');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=False)
+ p=argparse.ArgumentParser();p.add_argument('--data',type=Path,required=True);p.add_argument('--pack',type=Path,required=True);p.add_argument('--secondary-pack',type=Path,default=ROOT/'assets/hd/current-compat/shapesy-cyan-secondary');p.add_argument('--out',type=Path,required=True);p.add_argument('--sdl-include',action='append',default=[]);p.add_argument('--sanitize',action='store_true');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=False)
  ext=module(ROOT/'tests/test_asteroid1_ten_assets.py','extract').extract;r=(ROOT/'src/render_mirror.c').read_text();b=(ROOT/'src/backgrnd.c').read_text();inc=(ROOT/'src/shapesy_cyan_layer2_mirror.inc').read_text()
  raw=(a.data/'shapesy.dat').read_bytes();assert hashlib.sha256(raw).hexdigest()=='1faf60f8804c4ca52ea41ece94e3d2fd3cdaecb437b63ecb61adc58907c7b869';tiles={};pos=0
  for i in range(1,601):
   blank=raw[pos];pos+=1;tiles[i]=bytes(672) if blank else raw[pos:pos+672];pos+=0 if blank else 672
  pal=(a.data/'palette.dat').read_bytes()[5*768:6*768];pal=bytes((v<<2)|(v>>4) for v in pal)
- data=a.out/'sources.bin';data.write_bytes(b''.join(tiles[i] for i in (111,112,121,122))+pal)
+ data=a.out/'sources.bin';data.write_bytes(b''.join(tiles[i] for i in (111,112,121,122,172,181,182,191,192))+pal)
  geometry=re.search(r'typedef struct VideoOutputGeometry \{.*?\} VideoOutputGeometry;', (ROOT/'src/video.h').read_text(),re.S).group(0)
  code=PREFIX+'typedef int ScalingMode;\n'+geometry+r'''
 static VideoOutputGeometry mock_geometry={(SDL_Window *)1,(SDL_Renderer *)2,1,{0,0,1280,800},1280,800,1280,800,4,2,0};
@@ -266,5 +360,38 @@ static void render_mirror_terrain_pixel(SDL_Surface *s,Uint8 *p,Uint8 v,int styl
     else:struct.pack_into('<I',blob,dict(role=4,density=8,width=12,height=16,anchor=20)[kind],1)
     dest.write_bytes(blob)
    res=subprocess.run([str(exe),str(data),str(out),'reject'],capture_output=True,text=True);(out/'result.log').write_text(res.stdout+res.stderr);assert res.returncode==0,(i,kind,res.stderr);count+=1
+ both=a.out/'both';both.mkdir()
+ ids=(111,112,121,122,172,181,182,191,192)
+ for i in ids:
+  name=f'terrain-shapesy-cyan-{i}-8.hda';(both/name).symlink_to(((a.pack if i<172 else a.secondary_pack)/name).resolve())
+ def group_run(pack,mode):
+  result=subprocess.run([str(exe),str(data),str(pack),mode],capture_output=True,text=True)
+  (pack/(mode+'.log')).write_text(result.stdout+result.stderr);assert result.returncode==0,(mode,pack,result.stderr)
+  return result.stdout.strip()
+ receipt['secondary_pack_sha256']={name.name:hashlib.sha256(name.read_bytes()).hexdigest() for name in sorted(both.glob('*.hda'))}
+ receipt['secondary_positive']=group_run(both,'secondary')
+ group_run(both,'groups-3')
+ group_negatives=0
+ for i in ids:
+  for kind in ('missing','payload','magic','density','role','width','height','anchor','short','trailing'):
+   out=a.out/'group-negative'/f'{i}-{kind}';out.mkdir(parents=True)
+   for other in ids:
+    name=f'terrain-shapesy-cyan-{other}-8.hda';dest=out/name;source=both/name
+    if other!=i:dest.symlink_to(source.resolve());continue
+    blob=bytearray(source.read_bytes())
+    if kind=='missing':continue
+    if kind=='payload':blob[40]^=1
+    elif kind=='magic':blob[:4]=b'NOPE'
+    elif kind=='short':blob=blob[:-1]
+    elif kind=='trailing':blob+=b'x'
+    else:struct.pack_into('<I',blob,dict(role=4,density=8,width=12,height=16,anchor=20)[kind],1)
+    dest.write_bytes(blob)
+   group_run(out,'groups-'+('2' if i<172 else '1'));group_negatives+=1
+ for mask in (1,2):
+  out=a.out/f'only-{mask}';out.mkdir()
+  for i in (ids[:4] if mask==1 else ids[4:]):
+   name=f'terrain-shapesy-cyan-{i}-8.hda';(out/name).symlink_to((both/name).resolve())
+  group_run(out,f'groups-{mask}')
+ receipt['independent_group_rejections']=group_negatives
  receipt.update(passed=True,atomic_rejections=count);(a.out/'receipt.json').write_text(json.dumps(receipt,indent=2));print(json.dumps(receipt))
 if __name__=='__main__':main()

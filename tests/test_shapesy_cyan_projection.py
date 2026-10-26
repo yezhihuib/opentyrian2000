@@ -3,6 +3,7 @@ import copy,json,subprocess,unittest
 from pathlib import Path
 from unittest.mock import patch
 import shapesy_cyan_projection as p
+import shapesy_cyan_secondary_projection as secondary
 class CyanProjection(unittest.TestCase):
  def test_exact_scope_no_git_or_original_data(self):
   with patch.object(subprocess,'Popen',side_effect=AssertionError('Git forbidden')):
@@ -15,7 +16,7 @@ class CyanProjection(unittest.TestCase):
      with self.assertRaises(AssertionError):p.project_source(name,raw)
  def test_every_qualified_input_is_rechecked(self):
   read=Path.read_bytes
-  for name in p.qualified_paths()-{p.LEDGER,'tests/shapesy_cyan_projection.py'}:
+  for name in p.qualified_paths()-{p.LEDGER,'tests/shapesy_cyan_projection.py','tests/shapesy_cyan_secondary_projection.py'}:
    def mutated(path):
     raw=read(path);return raw+b'\n' if path==p.ROOT/name else raw
    with self.subTest(name=name),patch.object(Path,'read_bytes',mutated),self.assertRaises((AssertionError,ValueError,OSError)):p.verified()
@@ -61,7 +62,7 @@ class CyanProjection(unittest.TestCase):
    bad=dict(current);bad[name]='0'*64
    with self.assertRaises((AssertionError,KeyError)):p.before_inventory(bad)
   rows=json.loads((p.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files'];mapping=p.verified()['mapping'];old=p.before_runtime(rows)
-  self.assertEqual(old,[r for r in rows if r['destination'] not in mapping])
+  self.assertEqual(old,[r for r in secondary.before_runtime(rows) if r['destination'] not in mapping])
   for kind in ('missing','duplicate','changed'):
    bad=copy.deepcopy(rows);row=next(r for r in bad if r['destination'] in mapping)
    if kind=='missing':bad.remove(row)

@@ -225,6 +225,13 @@ def main():
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']=cyan_revision
 
+    from current_shapesy_cyan_secondary_compatibility import load as cyan_secondary_load, REVISION as cyan_secondary_revision
+    cyan_secondary=cyan_secondary_load(root)
+    if len(cyan_secondary)!=5 or set(cyan_secondary)&set(rows):raise ValueError('Unexpected/colliding cyan_secondary layer2 extension')
+    for destination,row in sorted(cyan_secondary.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=cyan_secondary_revision
+
     # Independent finite Y terrain family; never aliases Z/coast/water assets.
     from current_shapesy_platform_compatibility import load as shapesy_load, IDS as SHAPESY_IDS, name as shapesy_name, REVISION as SHAPESY_REVISION
     shapesy=shapesy_load(root)
