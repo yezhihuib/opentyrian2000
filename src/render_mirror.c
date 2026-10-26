@@ -79,7 +79,7 @@ static void enemy_reuse_observe_frame_result(bool,const char *);
 #define enemy_reuse_cache_check() true
 #define enemy_reuse_observe_frame_result(a,b) ((void)0)
 #endif
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_SHAPESY_PLATFORM=202, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ENEMY_PROJECTILE91=149, ASSET_ASTEROID1=108 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_SHAPESY_PLATFORM=202, ASSET_SHAPESY_CYAN=203, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ENEMY_PROJECTILE91=149, ASSET_ASTEROID1=108 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
 static Asset assets[576];
@@ -120,6 +120,10 @@ static bool shapesy_frame_check(void);
 static void shapesy_borrow_mark(size_t,Uint32);
 static uint64_t shapesy_borrow_ready(void);
 static bool shapesy_borrow_sample(uint64_t,size_t,Uint32),shapesy_borrow_check(uint64_t);
+static void cyan_shutdown(void),cyan_map_reset(void),cyan_frame_reset(void);
+static bool cyan_frame_check(void);
+static uint64_t cyan_borrow_ready(void);
+static bool cyan_borrow_sample(uint64_t,size_t,Uint32),cyan_borrow_check(uint64_t);
 static bool shapesy_clear_proof;
 static const Asset *shapesy_draw_lease;
 static void terrain144_map_reset(char,char);
@@ -1370,7 +1374,7 @@ void render_mirror_hud_shutdown(void)
  enemy_reuse_shutdown();
  render_mirror_newshf_validation_reset();
  global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_projectile91_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -1553,7 +1557,7 @@ static bool hud_compose(void)
 
 void render_mirror_begin(void)
 {
- shapesy_frame_reset();
+ shapesy_frame_reset();cyan_frame_reset();
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
  if(enemy_reuse_observe_requested()&&!enemy_reuse_observe_active()) {render_mirror_hud_reset();return;}
 #endif
@@ -1732,7 +1736,7 @@ void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 
 void render_mirror_unsupported(const char *reason)
 {
- shapesy_frame_reset();
+ shapesy_frame_reset();cyan_frame_reset();
  vulcan_shadow_clear();
  if(!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_projectile91_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;
  if(!reject_reason) reject_reason=reason;
@@ -1877,7 +1881,7 @@ static bool read_asset(Asset *a,int wanted)
  if(a->bank==ASSET_ASTEROID1_FIRING285)return false;
  if(a->bank==ASSET_ASTEROID1_ENEMY_ORB112113)return false;
  if(a->bank==ASSET_ASTEROID1_TERRAIN144)return false;
- if(a->bank==ASSET_SHAPESY_PLATFORM)return false; /* finite eager loader only */
+ if(a->bank==ASSET_SHAPESY_PLATFORM||a->bank==ASSET_SHAPESY_CYAN)return false; /* finite eager loaders only */
  if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1)return false;
  char name[1024];
  const char *prefix=a->bank==ASSET_CHARGE_BODY?"option-charge-bank9":a->bank==ASSET_PLASMA_PROJECTILE?"option-plasma-projectile":a->bank==ASSET_PLASMA_BODY?"option-plasma-bank9":a->bank==ASSET_FRONTBLASTER_BODY?"option-frontblaster-bank10":a->bank==ASSET_MINT_BODY?"option-mint-bank9":a->bank==ASSET_MARLO_BODY?"option-marlo-bank9":a->bank==ASSET_PROTRON_SHADOW?"protron-shadow":a->bank==ASSET_REAR534_BODY?"rear534-bank11":a->bank==ASSET_DATA513_BODY?"data513-bank11":a->bank==ASSET_ENEMY_TANK_SHELL?"enemy-tank-shell":a->bank==ASSET_GEM250_BODY?"gem250-bank11":a->bank==ASSET_GEM250_VALUE?"gem250-value-newsh6":a->bank==ASSET_GEM100_BODY?"gem100-bank11":a->bank==ASSET_GEM100_VALUE?"gem100-value-newsh6":a->bank==ASSET_CASH50_BODY?"coin50-bank11":a->bank==ASSET_CASH50_VALUE?"coin50-value-newsh6":a->bank==ASSET_CASH75_BODY?"coin75-bank11":a->bank==ASSET_CASH75_VALUE?"coin75-value-newsh6":a->bank==ASSET_CASH25_BODY?"coin25-bank11":a->bank==ASSET_CASH25_VALUE?"coin25-value-newsh6":a->bank==9?"ship":a->bank==8?"bullet":a->bank==ASSET_ENEMY_ENERGY?"enemy-energy":a->bank==ASSET_NEWSH2?"enemy-newsh2":a->bank==ASSET_NEWSH4?"enemy-newsh4":a->bank==ASSET_NEWSHE?"enemy-newshe":a->bank==ASSET_TALON_BANK?"talon-bank":a->bank==ASSET_EXPLOSION?"explosion-newsh6":"terrain-shapesz";
@@ -2878,6 +2882,7 @@ static bool draw_asset_filtered(int x,int y,Asset *a,int style,const SDL_Rect *p
  if(a->bank==ASSET_ASTEROID1_FIRING270&&(!asteroid_hd_enabled||a!=firing270_draw_lease))return false;
  if(a->bank==ASSET_ASTEROID1_FIRING285&&(!asteroid_hd_enabled||a!=firing285_draw_lease||style!=MIRROR_NORMAL))return false;
  if(a->bank==ASSET_ASTEROID1_ENEMY_ORB112113&&(!asteroid_hd_enabled||a!=enemy_orb112113_draw_lease||style!=MIRROR_NORMAL))return false;
+ if(a->bank==ASSET_SHAPESY_CYAN)return false; /* standalone guarded layer2 only */
  if(a->bank==ASSET_SHAPESY_PLATFORM&&(a!=shapesy_draw_lease||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;
  if(a->bank==ASSET_ASTEROID1_TERRAIN144&&(!asteroid_hd_enabled||a!=terrain144_draw_lease||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;
  if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1&&a->bank!=ASSET_ASTEROID1_NEWSHP&&a->bank!=ASSET_ASTEROID1_NEWSHS&&a->bank!=ASSET_ASTEROID1_TRIPLE275&&a->bank!=ASSET_ASTEROID1_COLUMNS276&&a->bank!=ASSET_ASTEROID1_TURRET273&&a->bank!=ASSET_ASTEROID1_PROJECTILE304&&a->bank!=ASSET_ASTEROID1_FIRING270&&a->bank!=ASSET_ASTEROID1_FIRING285&&a->bank!=ASSET_ASTEROID1_ENEMY_ORB112113&&a->bank!=ASSET_ASTEROID1_TERRAIN144&&a->bank!=ASSET_ENEMY_PROJECTILE91)return false;
@@ -4213,9 +4218,10 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
 
 #include "asteroid1_terrain144_mirror.inc"
 #include "shapesy_platform_mirror.inc"
+#include "shapesy_cyan_layer2_mirror.inc"
 
 void render_mirror_map_begin(char shape_file)
-{render_mirror_global_reset();shapesy_map_reset();terrain144_map_reset(0,shape_file);render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
+{render_mirror_global_reset();shapesy_map_reset();cyan_map_reset();terrain144_map_reset(0,shape_file);render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
 /* Only shapesZ layer2 cloud IDs; no renderer/filter or game-state changes. */
 static int cloud_terrain_slot(unsigned int id)
 {
@@ -4321,7 +4327,7 @@ static int layer3_linked31_slot(unsigned int id)
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
  terrain144_bind(layer,id,data);
- shapesy_bind(layer,id,data);
+ shapesy_bind(layer,id,data);cyan_bind(layer,id,data);
  if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0||layer3_circuit_slot(id)>=0||layer3_mechanical_slot(id)>=0||layer3_linked31_slot(id)>=0)))&&terrain_source_count<199) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
@@ -4379,7 +4385,7 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
  if(enemy_reuse_observe_requested()){render_mirror_shapesy_end();return 0;}
 #endif
  if(asteroid_hd_enabled){render_mirror_shapesy_end();return terrain144_row(surface,x,y,map,style);}
- if(terrain_file=='Y'||terrain_file=='y')return shapesy_row(surface,x,y,map,style);
+ if(terrain_file=='Y'||terrain_file=='y')return cyan_pass_active()?cyan_row(surface,x,y,map,style):shapesy_row(surface,x,y,map,style);
  render_mirror_shapesy_end();
  if(!active||surface!=game_screen||reject_reason||!(game_probe_scene_assets&2))return 0;
  if(x<0||x+12*24>surface->pitch) {render_mirror_unsupported("terrain-row-outside-linear-layout");return 0;}
@@ -4445,9 +4451,10 @@ void render_mirror_terrain_pixel(SDL_Surface *surface,Uint8 *address,Uint8 sourc
 {
  /* Terrain rows render all RGBA tiles before original indexed callbacks.
   * Their actual non-cloud RGBA writes already invalidated cloud provenance. */
- bool qualified_y=false;
+ bool qualified_y=false,qualified_cyan=false;
  bool native_water=shapesy_native_water(surface,address,source,style,replaced,&qualified_y);
- if((terrain_file=='Y'||terrain_file=='y')&&!qualified_y)replaced=false;
+ cyan_native_pixel(surface,address,source,style,replaced,&qualified_cyan);
+ if((terrain_file=='Y'||terrain_file=='y')&&!qualified_y&&!qualified_cyan)replaced=false;
  bool previous=suppress,previous_cloud=suppress_cloud;suppress=replaced&&!native_water;suppress_cloud=replaced&&!native_water;
  render_mirror_pixel(surface,address,source,style);suppress=previous;suppress_cloud=previous_cloud;
 }
@@ -5059,6 +5066,7 @@ static void shared_hud_finish(MirrorOutputKind kind,int lightx,int lighty)
 void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 {
  if(!shapesy_frame_check())render_mirror_unsupported("shapesy-output-context");
+ if(!cyan_frame_check())render_mirror_unsupported("cyan-output-context");
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
  if(enemy_reuse_observe_requested()&&!enemy_reuse_observe_active()) {render_mirror_hud_reset();return;}
 #endif
@@ -5293,8 +5301,8 @@ void render_mirror_fade_step(int steps)
 
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
- if(!shapesy_frame_check()||!shapesy_present_geometry(renderer,dst)) {
-  shapesy_frame_reset();ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;
+ if(!shapesy_frame_check()||!shapesy_present_geometry(renderer,dst)||!cyan_frame_check()||!cyan_present_geometry(renderer,dst)) {
+  shapesy_frame_reset();cyan_frame_reset();ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;
   return false; /* Late context change: ordinary indexed presentation owns it. */
  }
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE

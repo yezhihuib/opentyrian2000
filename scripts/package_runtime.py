@@ -497,11 +497,37 @@ def main(argv=None) -> int:
             if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=turret_revision:
                 raise ValueError('Stale turret NEWSHF runtime selection')
 
+    # NEWSHI bank13 is independent of bank10; ten assets form one optional closure.
+    from current_large_newshi_compatibility import ROOT as large_prefix, load as large_load, REVISION as large_revision, IDS as large_ids, name as large_name
+    large_names={large_name(i) for i in large_ids}
+    large_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(large_prefix+'/') or r['destination'].casefold().startswith('assets/global/newshi-large/') or r.get('revision')==large_revision or Path(r['source_path']).name.casefold() in large_names or Path(r['destination']).name.casefold() in large_names]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or large_rows:
+        selected=large_load(roots[0])
+        if len(large_rows)!=10 or {r['destination'] for r in large_rows}!=set(selected):
+            raise ValueError('Large NEWSHI requires exactly ten shared consumers')
+        for row in large_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=large_revision:
+                raise ValueError('Stale large NEWSHI runtime selection')
+
+    # Independent static cyan layer2 closure; no platform/catalog alias.
+    from current_shapesy_cyan_compatibility import load as cyan_load, ROOT as cyan_prefix, REVISION as cyan_revision, IDS as cyan_ids, name as cyan_name
+    cyan_names={cyan_name(i) for i in cyan_ids}
+    cyan_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(cyan_prefix+'/') or r.get('revision')==cyan_revision or Path(r['source_path']).name.casefold() in cyan_names or Path(r['destination']).name.casefold() in cyan_names]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or cyan_rows:
+        selected=cyan_load(roots[0])
+        if len(cyan_rows)!=4 or {r['destination'] for r in cyan_rows}!=set(selected):
+            raise ValueError('Cyan layer2 requires exactly four shared consumers')
+        for row in cyan_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='gameplay' or row.get('revision')!=cyan_revision:
+                raise ValueError('Stale cyan layer2 runtime selection')
+
     # Current Y family is exact28, with independently regenerated masks/pixels.
     # Absence of all rows cannot silently remove it from the current manifest.
     from current_shapesy_platform_compatibility import load as shapesy_load, REVISION as shapesy_revision
-    shapesy_rows=[r for r in manifest['files'] if 'terrain-shapesy-' in r['source_path'].casefold() or
-                  'terrain-shapesy-' in r['destination'].casefold() or r.get('revision')==shapesy_revision]
+    shapesy_rows=[r for r in manifest['files'] if (('terrain-shapesy-' in r['source_path'].casefold() or
+                  'terrain-shapesy-' in r['destination'].casefold()) and not ('terrain-shapesy-cyan-' in r['source_path'].casefold() or 'terrain-shapesy-cyan-' in r['destination'].casefold())) or r.get('revision')==shapesy_revision]
     if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or shapesy_rows:
         selected=shapesy_load(roots[0])
         if len(shapesy_rows)!=28 or {r['destination'] for r in shapesy_rows}!=set(selected):

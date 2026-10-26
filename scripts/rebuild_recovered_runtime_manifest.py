@@ -211,6 +211,20 @@ def main():
         add(row['source_path'],destination,'newshf-optin')
         rows[destination]['revision']=turret_revision
 
+    from current_large_newshi_compatibility import load as large_load, REVISION as large_revision
+    large=large_load(root)
+    if len(large)!=10 or set(large)&set(rows):raise ValueError('Unexpected/colliding large NEWSHI extension')
+    for destination,row in sorted(large.items()):
+        add(row['source_path'],destination,'newshf-optin')
+        rows[destination]['revision']=large_revision
+
+    from current_shapesy_cyan_compatibility import load as cyan_load, REVISION as cyan_revision
+    cyan=cyan_load(root)
+    if len(cyan)!=4 or set(cyan)&set(rows):raise ValueError('Unexpected/colliding cyan layer2 extension')
+    for destination,row in sorted(cyan.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=cyan_revision
+
     # Independent finite Y terrain family; never aliases Z/coast/water assets.
     from current_shapesy_platform_compatibility import load as shapesy_load, IDS as SHAPESY_IDS, name as shapesy_name, REVISION as SHAPESY_REVISION
     shapesy=shapesy_load(root)

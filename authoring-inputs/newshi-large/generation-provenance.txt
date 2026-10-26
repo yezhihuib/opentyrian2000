@@ -1,0 +1,5 @@
+Normal source: built-in image_gen__imagegen, 2026-10-26, returned saved image /workspace/scratch/f67dd347fa0a/generated_images/exec-4d9aaf0c-1cea-4cb9-a6c8-55e080387e16.png. Copied without modification to normal-generated-v1.png. Reference: original decoded actual-frame397-assembly-nearest8x.png. Exact prompt: prompt-normal-v1.txt.
+
+Open-nose source: built-in image_gen__imagegen, 2026-10-26, returned saved image /workspace/scratch/f67dd347fa0a/generated_images/exec-37a4fed0-f678-4452-9cdc-f1c960e45d37.png. Copied without modification to open-center-generated-v1.png. References: registered normal-nose-reference-v1.png and private decoded original-open270-reference-private.png (subsequently moved out of the draft directory into the private audit reference directory). Exact prompt: prompt-open-center-v1.txt.
+
+Registration is deterministic, performed by register_candidate.py. It only fits/crops/composes generated artwork using exact original masks and animation differences; it does not generate replacement artwork with procedural drawing.

@@ -153,6 +153,9 @@ typedef enum {
 #define render_mirror_shapesy_layer1(...) ((void)0)
 #define render_mirror_shapesy_row_end(...) ((void)0)
 #define render_mirror_shapesy_end(...) ((void)0)
+#define render_mirror_cyan_layer2(...) ((void)0)
+#define render_mirror_cyan_row_end(...) ((void)0)
+#define render_mirror_cyan_end(...) ((void)0)
 #define render_mirror_ground101_layer1(...) ((void)0)
 #define render_mirror_asteroid_terrain_map(...) ((void)0)
 #define render_mirror_asteroid_terrain_layer1(...) ((void)0)
@@ -299,6 +302,9 @@ void render_mirror_bind_terrain(unsigned int layer, unsigned int id, const Uint8
 void render_mirror_shapesy_layer1(SDL_Surface *,const void *,int,int);
 void render_mirror_shapesy_row_end(void);
 void render_mirror_shapesy_end(void);
+void render_mirror_cyan_layer2(SDL_Surface *,const void *,int,int);
+void render_mirror_cyan_row_end(void);
+void render_mirror_cyan_end(void);
 unsigned int render_mirror_terrain_row(SDL_Surface *, int x, int y, Uint8 **map, int style);
 void render_mirror_terrain_pixel(SDL_Surface *, Uint8 *, Uint8 source, int style, bool replaced);
 unsigned int render_mirror_cloud_blend_row(SDL_Surface *,int x,int y,Uint8 **map);

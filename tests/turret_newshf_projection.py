@@ -30,23 +30,36 @@ def inverse(name,raw,pin):
 
 def project_source(name,raw):
  if name not in FILES:return raw
- return inverse(name,raw,ledger()['files'][name])
+ pin=ledger()['files'][name]
+ if sha(raw)==pin['current_sha256']:return inverse(name,raw,pin)
+ from shapesy_cyan_projection import project_if_current as cyan_project
+ raw=cyan_project(name,raw)
+ from large_newshi_projection import project_if_current as newer
+ return inverse(name,newer(name,raw),ledger()['files'][name])
 
 def project_if_current(name,raw):
  if name not in FILES:return raw
  pin=ledger()['files'][name]
  if sha(raw)==pin['previous_sha256']:return raw
- return inverse(name,raw,pin)
+ if sha(raw)==pin['current_sha256']:return inverse(name,raw,pin)
+ from shapesy_cyan_projection import project_if_current as cyan_project
+ raw=cyan_project(name,raw)
+ from large_newshi_projection import project_if_current as newer
+ return inverse(name,newer(name,raw),pin)
 
 def checked_read(root,name):
  p=root/name
  assert p.is_file() and not p.is_symlink() and not any(q.is_symlink() for q in p.parents),('unsafe turret input',name)
- return p.read_bytes()
+ from large_newshi_projection import project_if_current as newer
+ from shapesy_cyan_projection import project_if_current as cyan_project
+ return newer(name,cyan_project(name,p.read_bytes()))
 
 def qualified_paths(root=ROOT):
  spec=ledger();return set(spec['qualified'])|FILES|{LEDGER,'tests/turret_newshf_projection.py'}
 
 def verified(root=ROOT):
+ from large_newshi_projection import verified as newer_verified
+ newer_verified(root)
  spec=ledger()
  for name,h in spec['qualified'].items():assert sha(checked_read(root,name))==h,('unqualified turret input',name)
  for name,pin in spec['files'].items():inverse(name,checked_read(root,name),pin)
@@ -67,7 +80,8 @@ def verified(root=ROOT):
  return dict(mapping=mapping,added_sources=spec['added_sources'],assets=assets,paths=qualified_paths(root))
 
 def before_inventory(inventory,root=ROOT):
- proof=verified(root);result=dict(inventory)
+ from large_newshi_projection import before_inventory as newer_before
+ proof=verified(root);result=newer_before(inventory,root)
  for n,h in proof['added_sources'].items():assert result.pop(n)==h,('turret source addition drift',n)
  for n in SRC_FILES:
   raw=checked_read(root,n);assert result[n]==sha(raw),('turret live source inventory drift',n)
@@ -75,6 +89,8 @@ def before_inventory(inventory,root=ROOT):
  return result
 
 def before_runtime(rows,root=ROOT):
+ from large_newshi_projection import before_runtime as newer_before
+ rows=newer_before(rows,root)
  proof=verified(root);mapping=proof['mapping'];result=[];seen=set()
  import current_turret_newshf_compatibility as c
  for row in rows:
@@ -87,6 +103,7 @@ def before_runtime(rows,root=ROOT):
  return result
 
 def drop_additions(inventory,root=ROOT):
- proof=verified(root);result=dict(inventory)
+ from large_newshi_projection import drop_additions as newer_drop
+ proof=verified(root);result=newer_drop(inventory,root)
  for n,h in proof['added_sources'].items():assert result.pop(n)==h,('turret source addition drift',n)
  return result

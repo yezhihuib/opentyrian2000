@@ -24,6 +24,15 @@ static struct {Uint8 *mainmap[300][14];struct {Uint8 sh[672];} shapes[72];} mega
 static unsigned short lookup[72];static Uint8 original_sources[72][672],map_indices[4200];
 static Uint8 **mapYPos;static intptr_t mapXbpPos;static int mapXPos,backPos;
 static void render_mirror_shapesy_end(void);
+/* This standalone harness deliberately exercises only the original layer1.
+ * New layer2 entry fails closed; inactive callbacks cannot claim cyan pixels.
+ * The role202-only scene assertion below also rejects any cyan draw claim.
+ * Active mixed paths are covered by the real cyan include and game tests. */
+static void render_mirror_cyan_layer2(SDL_Surface *surface,const void *first,int x,int y)
+{(void)surface;(void)first;(void)x;(void)y;assert(!"cyan layer2 outside layer1 harness");}
+static void render_mirror_cyan_row_end(void){}
+static bool cyan_native_pixel(SDL_Surface *s,Uint8 *address,Uint8 source,int style,bool replaced,bool *qualified)
+{(void)s;(void)address;(void)source;(void)style;(void)replaced;*qualified=false;return false;}
 static void game_probe_scene_draw(int role,unsigned id,int x,int y,int part,int style,bool mirrored)
 {(void)id;(void)x;(void)y;(void)mirrored;assert(role==202&&!part&&style==MIRROR_NORMAL);}
 static void asset_debug_terrain_row(int x,int y,Uint8 **map){(void)x;(void)y;(void)map;}
@@ -198,10 +207,12 @@ def main():
  r=(ROOT/'src/render_mirror.c').read_text();b=(ROOT/'src/backgrnd.c').read_text();inc=(ROOT/'src/shapesy_platform_mirror.inc').read_text()
  ext=module(ROOT/'tests/test_asteroid1_ten_assets.py','y_extract').extract
  assert 'if(!shapesy_frame_check())' in ext(r,'render_mirror_finish')
- assert 'if(!shapesy_frame_check()||!shapesy_present_geometry(renderer,dst))' in ext(r,'render_mirror_present')
+ assert 'if(!shapesy_frame_check()||!shapesy_present_geometry(renderer,dst)||' in ext(r,'render_mirror_present')
+ assert '||!cyan_frame_check()||!cyan_present_geometry(renderer,dst))' in ext(r,'render_mirror_present')
  assert 'shapesy_frame_reset();' in ext(r,'render_mirror_begin')
  assert 'shapesy_frame_reset();' in ext(r,'render_mirror_unsupported')
- assert '!qualified_y)replaced=false;' in ext(r,'render_mirror_terrain_pixel')
+ assert '!qualified_y&&!qualified_cyan)replaced=false;' in ext(r,'render_mirror_terrain_pixel')
+ assert 'cyan_native_pixel(surface,address,source,style,replaced,&qualified_cyan);' in ext(r,'render_mirror_terrain_pixel')
  orb=module(ROOT/'tests/test_asteroid1_enemy_orb112113_runtime.py','y_prefix')
  raw=(a.data/'shapesy.dat').read_bytes();assert hashlib.sha256(raw).hexdigest()=='1faf60f8804c4ca52ea41ece94e3d2fd3cdaecb437b63ecb61adc58907c7b869';tiles={};pos=0
  for i in range(1,601):

@@ -61,7 +61,17 @@ def check_current_inventory(root=ROOT):
     turret_added = dict(turret['added_sources'])
     turret_added.update({n:r['sha256'] for n,r in turret['assets'].items()})
     assert not set(turret_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added))
+    from large_newshi_projection import verified as large_verified
+    large = large_verified(root)
+    large_added = dict(large['added_sources'])
+    large_added.update({n:r['sha256'] for n,r in large['assets'].items()})
+    assert not set(large_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added))
+    from shapesy_cyan_projection import verified as cyan_verified
+    cyan=cyan_verified(root)
+    cyan_added=dict(cyan['added_sources'])
+    cyan_added.update({n:r['sha256'] for n,r in cyan['assets'].items()})
+    assert not set(cyan_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added)|set(large_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

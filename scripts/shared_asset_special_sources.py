@@ -77,6 +77,30 @@ def records(root):
             notes=['One generated pod master composed over exact original peripheral ground; hot overlay is limited to original22 native changed cells.',
                    'Records162/840 preserve separate original shooting and launch behavior; seven native slots map to two images.',
                    'Full brown backplate remains opaque; no animation clock or gameplay changes.']))
+    import current_large_newshi_compatibility as large
+    for destination,row in large.load(root).items():
+        sources=[large.INPUT_ROOT+'/'+n for n in ('normal-generated-v1.png','open-center-generated-v1.png','registration-recipe.json')]
+        result.append(dict(family='newshi-large',identity=row['identity'],density=8,role=210,
+            status='current-editable',editable_inputs=sources,source_inputs=sorted(large.input_paths(root)-{large.SELECTION}),selection=large.SELECTION,
+            recipe=['scripts/build_current_large_newshi.py','scripts/current_large_newshi_compatibility.py'],
+            derived_outputs=[row['source_png'],row['source_path'],large.INPUT_ROOT+'/derived/normal-master-v2.png'],
+            declared_consumers=[dict(destination=destination,record=record,base=row['base'],evidence=large.MAPPING) for record in row['records']],
+            rebuild_commands=['python3 scripts/build_current_large_newshi.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>','python3 scripts/build_current_large_newshi.py --root . apply --destination <external-stage-dir>'],
+            notes=['One 96x84 master with seven independent 24x28 native parts; three separate nose-state masks. No fused actor or clock.',
+                   'Deterministic V1 registration then four local V2 alpha mattes; retained RGB unchanged and newly transparent RGB zero-normalized.',
+                   'NEWSHI bank13 is independent from NEWSHF bank10; original unchanged-cell masks constrain all damaged nose states.']))
+    import current_shapesy_cyan_compatibility as cyan
+    for destination,row in cyan.load(root).items():
+        result.append(dict(family='shapesy-cyan',identity=row['identity'],density=8,role=203,
+            status='current-editable',editable_inputs=[cyan.INPUT_ROOT+'/raw-generated.png',cyan.INPUT_ROOT+'/registration-recipe.json'],
+            source_inputs=sorted(cyan.input_paths(root)-{cyan.SELECTION}),selection=cyan.SELECTION,
+            recipe=['scripts/current_shapesy_cyan_compatibility.py','scripts/build_current_shapesy_cyan.py'],
+            derived_outputs=[row['source_png'],row['source_path'],cyan.INPUT_ROOT+'/derived/master-384x448.png'],
+            declared_consumers=[dict(destination=destination,base=row['base'],layer=2,evidence=cyan.MAPPING)],
+            rebuild_commands=['python3 scripts/build_current_shapesy_cyan.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>','python3 scripts/build_current_shapesy_cyan.py --root . apply --destination <external-stage-dir>'],
+            notes=['One generated static 48x56 cloud master split into four independently placed 24x28 tiles; no animation.',
+                   'Original index0 cells remain transparent RGBA0. Two boundary source cells deliberately move fully inward.',
+                   'Only verified ShapesY layer2 palette5 normal internal8; other palettes, blend, and true4 stay classic.']))
     import current_shapesy_platform_compatibility as shapesy
     for destination,row in shapesy.load(root).items():
         sources=sorted(shapesy.input_paths(root)-{shapesy.SELECTION,shapesy.RECIPE_MODULE})

@@ -31,6 +31,9 @@ def inverse(name,raw,pin):
 def project_source(name,raw):
  pin=ledger()['files'].get(name)
  if pin is None:return raw
+ if sha(raw)==pin['current_sha256']:return inverse(name,raw,pin)
+ from shapesy_cyan_projection import project_if_current as cyan_project
+ raw=cyan_project(name,raw)
  from turret_newshf_projection import project_if_current as turret_project
  return inverse(name,turret_project(name,raw),pin)
 
@@ -43,6 +46,9 @@ This is not a fallback accepting arbitrary prior or mutated live input.
  pin=ledger()['files'].get(name)
  if pin is None:return raw
  if sha(raw)==pin['previous_sha256']:return raw
+ if sha(raw)==pin['current_sha256']:return inverse(name,raw,pin)
+ from shapesy_cyan_projection import project_if_current as cyan_project
+ raw=cyan_project(name,raw)
  from turret_newshf_projection import project_if_current as turret_project
  return inverse(name,turret_project(name,raw),pin)
 
@@ -50,7 +56,8 @@ def checked_read(root,name):
  p=root/name
  assert p.is_file() and not p.is_symlink() and not any(q.is_symlink() for q in p.parents),('unsafe dual input',name)
  from turret_newshf_projection import project_if_current as turret_project
- return turret_project(name,p.read_bytes())
+ from shapesy_cyan_projection import project_if_current as cyan_project
+ return turret_project(name,cyan_project(name,p.read_bytes()))
 
 def qualified_paths(root=ROOT):
  spec=ledger();return set(spec['qualified'])|FILES|{LEDGER,'tests/dualmissile_newshf_projection.py'}

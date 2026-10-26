@@ -1,0 +1,50 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * NEWSHI independent bank13 identity hashes; no original records/pixels. */
+#ifndef NEWSHI_LARGE_PINS_H
+#define NEWSHI_LARGE_PINS_H
+#define NEWSHI_LARGE_BANK_BYTES 30860u
+#define NEWSHI_LARGE_BANK_FNV UINT64_C(0xd6c48101225d764e)
+static const uint64_t newshi_large_record_fnv[7]={UINT64_C(0x3b242b44cfda575c),UINT64_C(0x67b867d9237c9b78),UINT64_C(0x79d958997b7fb0bf),UINT64_C(0x72c3aa1c1fff7093),UINT64_C(0xd1cf79e10834717e),UINT64_C(0x40dd657166cd1655),UINT64_C(0xf23b9f59973e593e)};
+static const struct {unsigned index; uint64_t fnv;} newshi_large_tiles[]={
+ {201u,UINT64_C(0xb42c64bca59b41b3)},
+ {202u,UINT64_C(0xb5fd2114e880a596)},
+ {203u,UINT64_C(0x8f4bd0ba92fca78e)},
+ {204u,UINT64_C(0x43bbf1820291ca21)},
+ {220u,UINT64_C(0x60df4d0ac1df9b6e)},
+ {221u,UINT64_C(0x7b5b7bdf51fc06fa)},
+ {222u,UINT64_C(0xc6b18cb09ccc535f)},
+ {223u,UINT64_C(0x211512b4b2d17a19)},
+ {237u,UINT64_C(0x6d9bc00ffd210508)},
+ {238u,UINT64_C(0xf09d1f4fbc421a98)},
+ {239u,UINT64_C(0x43febf5bac55e13b)},
+ {240u,UINT64_C(0xcca818fbe92185cb)},
+ {241u,UINT64_C(0xad96d6ed2857ba8f)},
+ {242u,UINT64_C(0x0d47d869a1297483)},
+ {243u,UINT64_C(0x51563abb773289c9)},
+ {244u,UINT64_C(0x7f7ca4974a8a72a8)},
+ {256u,UINT64_C(0x51795983e22e1d65)},
+ {257u,UINT64_C(0x7acd42f4321ce40b)},
+ {258u,UINT64_C(0xd7aa6b8901e87434)},
+ {259u,UINT64_C(0xf22ef0135e48c3cf)},
+ {260u,UINT64_C(0x76827322176a80fc)},
+ {261u,UINT64_C(0x82eee6197bc7e8ac)},
+ {262u,UINT64_C(0xb1fd2b73dafa8260)},
+ {263u,UINT64_C(0x51795983e22e1d65)},
+ {268u,UINT64_C(0x140aaca71db77f34)},
+ {269u,UINT64_C(0x6642139184d52913)},
+ {270u,UINT64_C(0x51646ef5ac76ae51)},
+ {271u,UINT64_C(0x3a174a0739b969c7)},
+ {272u,UINT64_C(0x24f756a2031106ad)},
+ {273u,UINT64_C(0x3a174a0739b969c7)},
+ {278u,UINT64_C(0xcbc92c0675bd1412)},
+ {279u,UINT64_C(0x2f2ee6bd2b54fac2)},
+ {287u,UINT64_C(0x111590983007dc1c)},
+ {288u,UINT64_C(0x2454d4441c06f6d1)},
+ {289u,UINT64_C(0xf76cd6d169b79a09)},
+ {290u,UINT64_C(0xfe3865c090e12109)},
+ {291u,UINT64_C(0xcd2b8062661240b1)},
+ {292u,UINT64_C(0x993f39f6a4318eb4)},
+ {297u,UINT64_C(0xbbc58a0e6d937f7d)},
+ {298u,UINT64_C(0xaf00b18de0edef2f)},
+};
+#endif

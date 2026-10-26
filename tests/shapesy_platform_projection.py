@@ -59,9 +59,12 @@ def inverse(name, raw, pin):
 def project_source(name, raw):
     # Only this inverse owns these paths; linked stages may already have
     # restored their unrelated inputs to an older exact chain position.
+    own=ledger()['files'].get(name)
+    if own is not None and sha(raw)==own['current_sha256']:return inverse(name,raw,own)
     if name in FILES | ADDED:
         from dualmissile_newshf_projection import project_if_current
-        raw = project_if_current(name, raw)
+        from shapesy_cyan_projection import project_if_current as cyan_project
+        raw = project_if_current(name, cyan_project(name,raw))
     pin = ledger()['files'].get(name)
     return raw if pin is None else inverse(name, raw, pin)
 
@@ -82,7 +85,8 @@ def checked_read(root, name):
     assert not any(p.is_symlink() for p in path.parents), ('symlink ShapesY ancestor', name)
     from dualmissile_newshf_projection import project_if_current
     from turret_newshf_projection import project_if_current as turret_project
-    return project_if_current(name, turret_project(name,path.read_bytes()))
+    from shapesy_cyan_projection import project_if_current as cyan_project
+    return project_if_current(name, turret_project(name,cyan_project(name,path.read_bytes())))
 
 
 def verified(root=ROOT):

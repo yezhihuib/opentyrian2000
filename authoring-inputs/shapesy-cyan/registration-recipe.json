@@ -1,0 +1,37 @@
+{
+  "schema": "opentyrian-shapesy-cyan-registration-v1",
+  "size": [
+    384,
+    448
+  ],
+  "density": 8,
+  "mask_sha256": "3a9a71ac5c8768cb0db75eba14392f43dab5b0e2175376fc187a1efd36660807",
+  "master_sha256": "69ba9e3a0b6c22ce7885d2d5443ee367eb83a71f2cb1fdffabdaee3bdce88e63",
+  "source_pins": {
+    "111": "d5dd76195190aaa2",
+    "112": "791e6ab3efec5c7f",
+    "121": "474e697606a47780",
+    "122": "3df3b4ff46b4b4b2"
+  },
+  "source_sha256": {
+    "111": "0d5f8f32854028b6ec0004b934a8b526f07d5aa8dea13f7b0f4bbd5453a7ecc7",
+    "112": "03890af377c4df532e2fb244e102cedcfec7fdeb6233d55e5882ed45abb4f0d2",
+    "121": "a74391709513de1bc2269c251d6812d8cfc03b01953ee082f0793ae6b66f9226",
+    "122": "107b42af7214b25fef39d25e709745b99463537dc71eeb25f3fa24a5b3773e9f"
+  },
+  "palette_fnv": "5e80e83992be2927",
+  "palette_sha256": "d4c24a49efb588abd6dc1ffd0f0d1279a498c422cdd26fba4fc921b07f8c159f",
+  "mask_sigma": 5,
+  "mask_threshold": 0.55,
+  "mask_ramp": 0.35,
+  "alpha_floor": 3,
+  "cap": {
+    "window_top": 100,
+    "window_bottom": 172,
+    "window_ramp": 12,
+    "curve_origin": 299.0,
+    "curve_scale": 0.012,
+    "curve_y": 135.0,
+    "ramp": 8.0
+  }
+}

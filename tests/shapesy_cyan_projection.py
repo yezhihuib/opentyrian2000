@@ -1,0 +1,98 @@
+"""Exact cyan layer2 extension over qualified private 3b3e04b; old ledgers stay immutable.
+
+Every new input and changed prior path is independently qualified before older
+oracles see exact preimages. This proof never invokes an older proof recursively.
+"""
+from pathlib import Path
+import hashlib,json,sys
+ROOT=Path(__file__).resolve().parents[1]
+PRIVATE_BASE='3b3e04bac4b384f1b2563d7cf0080b143603a790'
+LEDGER='tests/current_shapesy_cyan_source_projection.json'
+LEDGER_SHA256='78f95add156bd410e89b3b619fe73026edcc83e9d22fed91de5b5d2a14cf5339'
+SRC_FILES={'src/render_mirror.c','src/render_mirror.h','src/backgrnd.c','src/global_newshf_mirror.inc'}
+FILES=SRC_FILES|{'tests/test_shapesy_platform_runtime.py','tests/turret_newshf_projection.py','tests/dualmissile_newshf_projection.py','scripts/package_runtime.py','scripts/rebuild_recovered_runtime_manifest.py','scripts/shared_asset_special_sources.py','scripts/current_sidekick_body_compatibility.py','tests/large_newshi_projection.py','tests/shapesy_platform_projection.py','tests/accepted_later_changes.py','tests/shop_current_acceptance.py','tests/_projection_proof_context.py','tests/test_shapesy_platform_projection.py','tests/test_large_newshi_projection.py'}
+ADDED={'src/shapesy_cyan_layer2_mirror.inc','src/current_shapesy_cyan_source.h','src/current_shapesy_cyan_hd_assets.h'}
+sha=lambda raw:hashlib.sha256(raw).hexdigest()
+def ledger():
+ raw=(ROOT/LEDGER).read_bytes();assert sha(raw)==LEDGER_SHA256,'cyan layer2 ledger is not frozen'
+ spec=json.loads(raw);assert spec['private_base']==PRIVATE_BASE
+ assert set(spec['files'])==FILES and set(spec['added_sources'])==ADDED
+ return spec
+
+def inverse(name,raw,pin):
+ assert sha(raw)==pin['current_sha256'],('unapproved cyan layer2 current bytes',name)
+ lines=raw.splitlines(keepends=True)
+ for h in reversed(pin['hunks']):
+  a,b=h['after_lines'];assert b''.join(lines[a:b])==h['after'].encode(),('cyan layer2 hunk drift',name)
+  lines[a:b]=h['before'].encode().splitlines(keepends=True)
+ result=b''.join(lines);assert sha(result)==pin['previous_sha256'],('cyan layer2 preimage drift',name)
+ return result
+
+def project_source(name,raw):
+ if name not in FILES:return raw
+ return inverse(name,raw,ledger()['files'][name])
+
+def project_if_current(name,raw):
+ if name not in FILES:return raw
+ pin=ledger()['files'][name]
+ if sha(raw)==pin['previous_sha256']:return raw
+ return inverse(name,raw,pin)
+
+def checked_read(root,name):
+ p=root/name
+ assert p.is_file() and not p.is_symlink() and not any(q.is_symlink() for q in p.parents),('unsafe cyan layer2 input',name)
+ return p.read_bytes()
+
+def qualified_paths(root=ROOT):
+ spec=ledger();return set(spec['qualified'])|FILES|{LEDGER,'tests/shapesy_cyan_projection.py'}
+
+def verified(root=ROOT):
+ spec=ledger()
+ for name,h in spec['qualified'].items():assert sha(checked_read(root,name))==h,('unqualified cyan layer2 input',name)
+ for name,pin in spec['files'].items():inverse(name,checked_read(root,name),pin)
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_shapesy_cyan_compatibility as c
+ from verify_current_production import source_inventory
+ expected=dict(spec['base_source_inventory']);expected.update(spec['added_sources'])
+ expected.update({n:spec['files'][n]['current_sha256'] for n in SRC_FILES})
+ assert source_inventory(root)==expected,'cyan whole source directory drift'
+ mapping=c.load(root)
+ assert len(mapping)==4 and set(r['identity'] for r in mapping.values())=={2030000+i for i in c.IDS}
+ assert all(r['source_layer']==2 and r['source_bank']=='shapesy.dat' for r in mapping.values())
+ required=c.input_paths(root)|c.generated_paths()|{c.HEADER,c.MAPPING}|{c.ROOT+'/'+c.name(i) for i in c.IDS}|ADDED
+ assert required<=set(spec['qualified'])
+ assert {n:spec['qualified'][n] for n in ADDED}==spec['added_sources']
+ for top in ('authoring-inputs/shapesy-cyan','assets/hd/current-compat/shapesy-cyan'):
+  actual={p.relative_to(root).as_posix() for p in (root/top).rglob('*') if p.is_file() or p.is_symlink()}
+  assert actual=={n for n in spec['qualified'] if n.startswith(top+'/')},('cyan layer2 input directory closure drift',top)
+ assets={n:{'sha256':h,'mode':'100644'} for n,h in spec['qualified'].items() if n.startswith('assets/')}
+ assert set(assets)=={c.SELECTION}|{c.ROOT+'/'+c.name(i) for i in c.IDS},'cyan layer2 asset scope drift'
+ return dict(mapping=mapping,added_sources=spec['added_sources'],assets=assets,paths=qualified_paths(root))
+
+def before_inventory(inventory,root=ROOT):
+ from verify_current_production import source_inventory
+ proof=verified(root);result=dict(inventory)
+ assert result==source_inventory(root),'cyan passed source inventory drift'
+ for n,h in proof['added_sources'].items():assert result.pop(n)==h,('cyan layer2 source addition drift',n)
+ for n in SRC_FILES:
+  raw=checked_read(root,n);assert result[n]==sha(raw),('cyan layer2 live source inventory drift',n)
+  result[n]=sha(project_source(n,raw))
+ return result
+
+def before_runtime(rows,root=ROOT):
+ proof=verified(root);mapping=proof['mapping'];result=[];seen=set()
+ import current_shapesy_cyan_compatibility as c
+ for row in rows:
+  dest=row['destination']
+  if dest not in mapping:result.append(row);continue
+  q=mapping[dest];raw=checked_read(root,q['source_path'])
+  expected=dict(destination=dest,source_path=q['source_path'],sha256=sha(raw),bytes=len(raw),git_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest(),group='gameplay',revision=c.REVISION)
+  assert row==expected and dest not in seen,('cyan layer2 runtime row drift',dest);seen.add(dest)
+ assert seen==set(mapping),'missing cyan layer2 runtime row'
+ return result
+
+def drop_additions(inventory,root=ROOT):
+ proof=verified(root);result=dict(inventory)
+ for n,h in proof['added_sources'].items():assert result.pop(n)==h,('cyan layer2 source addition drift',n)
+ return result

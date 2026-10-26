@@ -8,6 +8,8 @@ from unittest.mock import patch
 import shapesy_platform_projection as p
 import dualmissile_newshf_projection as dual
 import turret_newshf_projection as turret
+import large_newshi_projection as large
+import shapesy_cyan_projection as cyan
 
 class ShapesYInverseMechanism(unittest.TestCase):
     def test_exact_inverse_and_all_three_checks(self):
@@ -70,7 +72,7 @@ class ShapesYProjection(unittest.TestCase):
         sys.path.insert(0,str(p.ROOT/'scripts'))
         from verify_current_production import source_inventory
         source=source_inventory(p.ROOT);old=p.before_inventory(source)
-        self.assertEqual(set(source)-set(old),p.ADDED|dual.ADDED|turret.ADDED)
+        self.assertEqual(set(source)-set(old),p.ADDED|dual.ADDED|turret.ADDED|large.ADDED|cyan.ADDED)
         self.assertEqual(old,p.ledger()['public_source_inventory'])
         binding=json.loads((p.ROOT/'packaging/current-production-validation.json').read_bytes())
         self.assertEqual(binding['source_sha256'],source)
@@ -85,7 +87,7 @@ class ShapesYProjection(unittest.TestCase):
         rows=json.loads((p.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']
         mapping=p.verified()['mapping'];old=p.before_runtime(rows)
         self.assertEqual(old,[r for r in dual.before_runtime(rows) if r['destination'] not in mapping])
-        self.assertEqual(len(rows)-len(old),31)  # 28 ShapesY + 1 dualmissile + 2 turret resources
+        self.assertEqual(len(rows)-len(old),45)  # 28 ShapesY + 1 dualmissile + 2 turret + 10 large NEWSHI + 4 cyan resources
         for destination in mapping:
             for action in ('missing','duplicate','changed'):
                 bad=copy.deepcopy(rows);row=next(r for r in bad if r['destination']==destination)

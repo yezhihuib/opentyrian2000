@@ -98,7 +98,7 @@ void blit_background_row(SDL_Surface *surface, int x, int y, Uint8 **map)
 			for (int x = 24; x; x--)
 			{
 				if (pixels >= pixels_ul)
-					{ render_mirror_shapesy_row_end(); return; }
+					{ render_mirror_shapesy_row_end(); render_mirror_cyan_row_end(); return; }
 				if (pixels >= pixels_ll && *data != 0)
 					{ *pixels = *data; render_mirror_terrain_pixel(surface,pixels,*data,MIRROR_NORMAL,(hd_tiles&(1u<<tile))!=0); }
 				
@@ -109,7 +109,7 @@ void blit_background_row(SDL_Surface *surface, int x, int y, Uint8 **map)
 		
 		pixels += surface->pitch - 12 * 24;
 	}
-	render_mirror_shapesy_row_end();
+	render_mirror_shapesy_row_end(); render_mirror_cyan_row_end();
 }
 
 void blit_background_row_blend(SDL_Surface *surface, int x, int y, Uint8 **map)
@@ -192,6 +192,7 @@ void draw_background_2(SDL_Surface *surface)
 		int x = smoothies[1] ? mapXPos : mapX2Pos;
 		
 		Uint8 **map = (Uint8 **)mapY2Pos + (smoothies[1] ? mapXbpPos : mapX2bpPos) - 12;
+		render_mirror_cyan_layer2(surface,map,x,backPos2-28);
 		
 		for (int i = -1; i < 7; i++)
 		{
@@ -199,6 +200,7 @@ void draw_background_2(SDL_Surface *surface)
 			
 			map += 14;
 		}
+		render_mirror_cyan_end();
 	}
 	
 	/*Set Movement of background*/

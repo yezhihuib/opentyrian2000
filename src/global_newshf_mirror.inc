@@ -5,7 +5,8 @@
 #include "current_linked_newshf_hd_assets.h"
 #include "current_dualmissile_newshf_hd_assets.h"
 #include "current_turret_newshf_hd_assets.h"
-enum { GLOBAL_NEWSHF_RESOURCE_COUNT=18 };
+#include "current_large_newshi_hd_assets.h"
+enum { GLOBAL_NEWSHF_RESOURCE_COUNT=28 };
 static Uint8 *global_newshf_rgba[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static uint64_t global_newshf_rgba_stamp[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static uint32_t global_newshf_used_resources;
@@ -13,6 +14,10 @@ typedef char global_newshf_mask_capacity[(GLOBAL_NEWSHF_RESOURCE_COUNT<=32)?1:-1
 static bool global_newshf_linked_loaded,global_newshf_linked_good;
 static bool global_newshf_dualmissile_loaded,global_newshf_dualmissile_good;
 static bool global_newshf_turret_loaded,global_newshf_turret_good;
+static bool global_newshi_large_loaded,global_newshi_large_good;
+static unsigned global_newshf_preflight_phase[100],global_newshf_preflight_pose[100];
+/* Retained independently of pixel ownership, live slots, and draw order. */
+static struct {const Sprite2_array *object;const Uint8 *data;size_t size;} global_newshf_bank_leases[2];
 /* Per-allocation decision made before the first visible dualmissile quadrant. */
 static uint64_t global_newshf_dual_preflight_generation[100];
 static Uint8 global_newshf_dual_preflight_state[100];
@@ -38,6 +43,10 @@ static struct {
 } global_newshf_source_lease;
 static bool global_newshf_talon_dependency;
 static uint64_t global_newshf_shapesy_dependency,global_newshf_dual_shapesy_serial[100];
+/* Separate actual dependencies: cyan may itself depend on layer1, but a direct
+ * layer1 sample must never be erased when this actor also samples cyan. */
+static uint64_t global_newshf_cyan_dependency,global_newshf_dual_cyan_serial[100];
+static unsigned global_newshf_cyan_pixels[100];
 static struct {bool live;int x,y,style,filter;unsigned left;Uint8 source[168],mask[168],seen[168];} global_newshf_call;
 
 static bool global_newshf_requested(void)
@@ -55,7 +64,7 @@ static bool global_newshf_identity_complete(void)
    !newshf_validation_slots[i].role||newshf_validation_slots[i].remaining||
    !newshf_validation_shape(i))return false;
   if((newshf_profiles[newshf_validation_slots[i].profile].linked||newshf_validation_slots[i].profile>=6)&&
-   (enemy[i].enemycycle!=newshf_validation_slots[i].pose||enemy[i].evalue!=newshf_validation_slots[i].value))return false;
+   !newshf_validation_postdraw(i))return false;
  }
  return true;
 }
@@ -69,9 +78,29 @@ static void global_newshf_use_color(unsigned i)
 {if(!global_newshf_used_colors[i]){global_newshf_used_colors[i]=1;global_newshf_underlay_palette[i]=rgb_palette[i]&0xffffffu;}}
 static bool global_newshf_source_matches(Sprite2_array bank)
 {
- const Sprite2_array *b=newshf_validation_bank();
- return b&&b->data==bank.data&&b->size==bank.size&&newshf_validation_bank_valid(b)&&newshf_validation_records();
+ for(unsigned k=0;k<2;k++){
+  unsigned id=k?13:10;const Sprite2_array *b=newshf_validation_bank_id(id);
+  if(b&&b->data==bank.data&&b->size==bank.size)
+   return newshf_validation_bank_valid_id(b,id)&&(k||newshf_validation_records());
+ }
+ return false;
 }
+static bool global_newshf_used_banks_match(void)
+{
+ for(unsigned k=0;k<2;k++)if(global_newshf_bank_leases[k].object){
+  const Sprite2_array *b=newshf_validation_bank_id(k?13:10);
+  if(!b||b!=global_newshf_bank_leases[k].object||b->data!=global_newshf_bank_leases[k].data||
+   b->size!=global_newshf_bank_leases[k].size||!global_newshf_source_matches(*b))return false;
+ }
+ return true;
+}
+static void global_newshf_use_bank(unsigned phase)
+{
+ unsigned k=phase>=18;const Sprite2_array *b=newshf_validation_bank_id(k?13:10);
+ global_newshf_bank_leases[k].object=b;global_newshf_bank_leases[k].data=b->data;global_newshf_bank_leases[k].size=b->size;
+}
+static bool global_newshf_soft_phase(unsigned phase)
+{return phase==15||(phase>=18&&phase<=27);}
 static bool global_newshf_disjoint(const SDL_Surface *a,const SDL_Surface *b)
 {
  uintptr_t x=(uintptr_t)a->pixels,y=(uintptr_t)b->pixels;
@@ -118,14 +147,14 @@ static bool global_newshf_surface_matches(void)
 static bool global_newshf_group_ready(unsigned phase)
 {
  if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT)return false;
- bool turret=phase>=16,dual=phase==15,linked=phase>=9&&phase<15;
- bool *loaded=turret?&global_newshf_turret_loaded:dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;
- bool *good=turret?&global_newshf_turret_good:dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;
- unsigned begin=turret?16:dual?15:linked?9:0,end=turret?18:dual?16:linked?15:9;
+ bool large=phase>=18,turret=phase>=16&&phase<18,dual=phase==15,linked=phase>=9&&phase<15;
+ bool *loaded=large?&global_newshi_large_loaded:turret?&global_newshf_turret_loaded:dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;
+ bool *good=large?&global_newshi_large_good:turret?&global_newshf_turret_good:dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;
+ unsigned begin=large?18:turret?16:dual?15:linked?9:0,end=large?28:turret?18:dual?16:linked?15:9;
  if(!*loaded){
   *loaded=true;*good=true;
   for(unsigned i=begin;i<end;i++){
-   const GlobalAssetResource *r=turret?turret_newshf_hd_resources+i-16:dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
+   const GlobalAssetResource *r=large?large_newshi_hd_resources+i-18:turret?turret_newshf_hd_resources+i-16:dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
    if(r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||!(global_newshf_rgba[i]=global_resource_load(r)))*good=false;
    if(global_newshf_rgba[i])global_newshf_rgba_stamp[i]=global_bytes_hash(global_newshf_rgba[i],192u*224u*4u);
   }
@@ -149,7 +178,7 @@ static void global_newshf_reset(void)
  if(global_newshf_contributed){active=shared_hud_frame=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;}
  if(global_newshf_cached){ready=last_output_valid=have_fade_saved=false;fade_mode=0;}
  global_newshf_frame=global_newshf_cached=global_newshf_fault=global_newshf_contributed=false;global_newshf_call.live=false;
- global_newshf_talon_dependency=false;global_newshf_shapesy_dependency=0;memset(&global_newshf_source_lease,0,sizeof(global_newshf_source_lease));
+ global_newshf_talon_dependency=false;global_newshf_shapesy_dependency=0;global_newshf_cyan_dependency=0;memset(&global_newshf_source_lease,0,sizeof(global_newshf_source_lease));
  memset(&global_newshf_fade_lease,0,sizeof(global_newshf_fade_lease));
  if(global_newshf_owner)memset(global_newshf_owner,0,global_newshf_capacity);
  if(global_newshf_foreign)memset(global_newshf_foreign,0,global_newshf_capacity);
@@ -161,15 +190,18 @@ static void global_newshf_shutdown(void)
  global_newshf_loaded=global_newshf_good=false;
  global_newshf_linked_loaded=global_newshf_linked_good=false;
  global_newshf_dualmissile_loaded=global_newshf_dualmissile_good=false;
- global_newshf_turret_loaded=global_newshf_turret_good=false;global_newshf_used_resources=0;
+ global_newshf_turret_loaded=global_newshf_turret_good=false;global_newshi_large_loaded=global_newshi_large_good=false;global_newshf_used_resources=0;
  free(global_newshf_owner);free(global_newshf_foreign);global_newshf_owner=global_newshf_foreign=NULL;global_newshf_capacity=0;
 }
 static void global_newshf_frame_begin(void)
 {
  global_newshf_rejected_frame=false;global_newshf_used_resources=0;
+ memset(global_newshf_bank_leases,0,sizeof(global_newshf_bank_leases));
  memset(global_newshf_dual_preflight_state,0,sizeof(global_newshf_dual_preflight_state));
  memset(global_newshf_dual_preflight_generation,0,sizeof(global_newshf_dual_preflight_generation));
  memset(global_newshf_dual_shapesy_serial,0,sizeof(global_newshf_dual_shapesy_serial));global_newshf_shapesy_dependency=0;
+ memset(global_newshf_dual_cyan_serial,0,sizeof(global_newshf_dual_cyan_serial));global_newshf_cyan_dependency=0;
+ memset(global_newshf_cyan_pixels,0,sizeof(global_newshf_cyan_pixels));
  memset(global_newshf_generations,0,sizeof(global_newshf_generations));global_newshf_epoch=newshf_validation_bank_epoch;
  global_newshf_frame=global_newshf_cached=global_newshf_fault=global_newshf_contributed=false;global_newshf_call.live=false;
  memset(global_newshf_used_colors,0,sizeof(global_newshf_used_colors));global_newshf_talon_dependency=false;
@@ -208,10 +240,10 @@ static void global_newshf_fail(void)
 static void global_newshf_observed_preflight(void)
 {
  if(global_newshf_contributed&&(!global_newshf_requested()||!global_newshf_surface_matches()||
-    !global_newshf_final_surface_matches()||!global_newshf_source_matches(global_newshf_bank())||
+    !global_newshf_final_surface_matches()||!global_newshf_used_banks_match()||
     !global_newshf_palette_matches()||!global_newshf_underlay_matches()))global_newshf_fail();
 }
-static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,int filter,unsigned phase,int part,uint64_t shapesy_serial)
+static int global_newshf_draw_typed(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,int filter,unsigned phase,int part,uint64_t shapesy_serial,uint64_t cyan_serial,unsigned slot)
 {
  if(!global_newshf_requested()||!global_newshf_frame||global_newshf_fault||surface!=game_screen||
   !global_newshf_surface_matches()||(filter<0||filter>255)||
@@ -223,15 +255,16 @@ static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array ban
  if(x<0||x>308){global_newshf_fail();return 0;}
  /* Missing optional art leaves this actor classic, not other groups revoked. */
  if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT){global_newshf_fail();return 0;}
- uint32_t group_mask=phase<9?UINT32_C(0x1ff):phase<15?UINT32_C(0x7e00):phase==15?UINT32_C(0x8000):UINT32_C(0x30000);
+ uint32_t group_mask=phase<9?UINT32_C(0x1ff):phase<15?UINT32_C(0x7e00):phase==15?UINT32_C(0x8000):phase<18?UINT32_C(0x30000):UINT32_C(0x0ffc0000);
  if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&group_mask))global_newshf_fail();return 0;}
- global_newshf_used_resources|=group_mask;
+ global_newshf_used_resources|=group_mask;global_newshf_use_bank(phase);
  if(global_newshf_call.live){global_newshf_fail();return 0;}
  memset(&global_newshf_call,0,sizeof(global_newshf_call));
  if(!decode_tile(bank,index,global_newshf_call.source,global_newshf_call.mask,12,0,0))return 0;
  for(int yy=0;yy<14;yy++)for(int xx=0;xx<12;xx++)if(global_newshf_call.mask[yy*12+xx]&&y+yy>=0&&y+yy<200)++global_newshf_call.left;
  global_newshf_call.x=x;global_newshf_call.y=y;global_newshf_call.style=MIRROR_NORMAL;global_newshf_call.filter=filter;global_newshf_call.live=true;
  font_before_effect((SDL_Rect){x,y,12,14});
+ unsigned cyan_pixels=0;
  int d=game_probe_density;const Uint8 *rgba=global_newshf_rgba[phase];
  int qx=part==1||part==20?12:0,qy=part==19||part==20?14:0;
  for(int ay=0;ay<14*d;ay++)for(int ax=0;ax<12*d;ax++) {
@@ -245,9 +278,15 @@ static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array ban
    * owner may retain its own RGB, never another owner's unproven lifetime. */
   if(a[3]<255&&foreign){
    Uint32 color=*((Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx);
-   if(phase!=15||!shapesy_borrow_sample(shapesy_serial,n,color)||
-      (global_newshf_shapesy_dependency&&global_newshf_shapesy_dependency!=shapesy_serial)){global_newshf_fail();return 0;}
-   global_newshf_shapesy_dependency=shapesy_serial;foreign=false;
+   if(!global_newshf_soft_phase(phase)){global_newshf_fail();return 0;}
+   if(cyan_borrow_sample(cyan_serial,n,color)){
+    if(global_newshf_cyan_dependency&&global_newshf_cyan_dependency!=cyan_serial){global_newshf_fail();return 0;}
+    global_newshf_cyan_dependency=cyan_serial;++cyan_pixels;
+   }else if(shapesy_borrow_sample(shapesy_serial,n,color)){
+    if(global_newshf_shapesy_dependency&&global_newshf_shapesy_dependency!=shapesy_serial){global_newshf_fail();return 0;}
+    global_newshf_shapesy_dependency=shapesy_serial;
+   }else{global_newshf_fail();return 0;}
+   foreign=false;
   }
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
   if(!hd_owner[n]) {Uint8 v=((Uint8 *)game_screen->pixels)[(dy/d)*320+dx/d];*p=palette_rgb(v);global_newshf_use_color(v);}
@@ -272,26 +311,33 @@ static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array ban
   global_newshf_owner[n]=1;global_newshf_foreign[n]=foreign;hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;
   selected[(dy/d)*320+dx/d]=1;
  }
+ if(slot<100)global_newshf_cyan_pixels[slot]+=cyan_pixels;
+ if(cyan_pixels&&getenv("TYRIAN_CYAN_BORROW_TRACE"))
+  fprintf(stderr,"CYAN_AIRCRAFT_BORROW tick=%u logic_tick=%llu slot=%u phase=%u part=%d pixels=%u cyan=%llu layer1=%llu\n",game_probe_tick,(unsigned long long)mirror_logic_tick,slot,phase,part,cyan_pixels,(unsigned long long)cyan_serial,(unsigned long long)shapesy_serial);
  ++draws;return 1;
 }
+/* Historical direct harness entry never implicitly gains a cyan lease. */
+static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,int filter,unsigned phase,int part,uint64_t shapesy_serial)
+{return global_newshf_draw_typed(surface,x,y,bank,index,filter,phase,part,shapesy_serial,0,100);}
 /* A soft sprite must not consume an unproven foreign RGB lifetime. For this
  * new static group, decline its entire quartet before contributing any pixels,
  * rather than allowing a later quadrant to revoke unrelated scene HD. Existing
  * groups retain their established policy; the per-pixel guard remains active. */
-static bool global_newshf_dual_preflight(unsigned slot,Sprite2_array bank,unsigned base)
+static bool global_newshf_soft_preflight(unsigned slot,Sprite2_array bank,unsigned base,unsigned phase)
 {
  uint64_t generation=newshf_validation_slots[slot].generation;
- if(global_newshf_dual_preflight_generation[slot]==generation&&global_newshf_dual_preflight_state[slot])
+ if(global_newshf_dual_preflight_generation[slot]==generation&&global_newshf_preflight_phase[slot]==phase&&global_newshf_preflight_pose[slot]==newshf_validation_slots[slot].pose&&global_newshf_dual_preflight_state[slot])
   return global_newshf_dual_preflight_state[slot]==2;
  global_newshf_dual_preflight_generation[slot]=generation;
+ global_newshf_preflight_phase[slot]=phase;global_newshf_preflight_pose[slot]=newshf_validation_slots[slot].pose;global_newshf_dual_shapesy_serial[slot]=0;global_newshf_dual_cyan_serial[slot]=0;
  global_newshf_dual_preflight_state[slot]=1;
  if(!global_newshf_requested()||!global_newshf_frame||global_newshf_fault||
     !global_newshf_surface_matches()||!global_newshf_source_matches(bank)||
-    !global_newshf_palette_matches()||!global_newshf_underlay_matches()||!global_newshf_group_ready(15))return false;
- Uint8 native[4][336];const unsigned parts[4]={0,1,19,20};
+    !global_newshf_palette_matches()||!global_newshf_underlay_matches()||!global_newshf_group_ready(phase))return false;
+ Uint8 native[4][336]={0};const unsigned parts[4]={0,1,19,20};
  for(unsigned q=0;q<4;q++)if(!decode_tile(bank,base+parts[q],native[q],native[q]+168,12,0,0))return false;
  int d=game_probe_density,cx=newshf_validation_slots[slot].x,cy=newshf_validation_slots[slot].y;
- const Uint8 *rgba=global_newshf_rgba[15];uint64_t shapesy_serial=shapesy_borrow_ready();
+ const Uint8 *rgba=global_newshf_rgba[phase];uint64_t shapesy_serial=shapesy_borrow_ready(),cyan_serial=cyan_borrow_ready();
  for(int ay=0;ay<28*d;ay++)for(int ax=0;ax<24*d;ax++){
   int nx=ax/d,ny=ay/d;
   if(ny<14?cy<=-13:cy<=-26||cy>=182)continue;
@@ -303,8 +349,9 @@ static bool global_newshf_dual_preflight(unsigned slot,Sprite2_array bank,unsign
   size_t n=(size_t)y*canvas->w+x;
   bool foreign=global_newshf_owner[n]?global_newshf_foreign[n]:hd_owner[n]!=0;
   if(foreign){Uint32 color=*((Uint32 *)((Uint8 *)canvas->pixels+y*canvas->pitch)+x);
-   if(!shapesy_borrow_sample(shapesy_serial,n,color))return false;
-   global_newshf_dual_shapesy_serial[slot]=shapesy_serial;
+   if(cyan_borrow_sample(cyan_serial,n,color))global_newshf_dual_cyan_serial[slot]=cyan_serial;
+   else if(shapesy_borrow_sample(shapesy_serial,n,color))global_newshf_dual_shapesy_serial[slot]=shapesy_serial;
+   else return false;
   }
  }
  global_newshf_dual_preflight_state[slot]=2;return true;
@@ -318,8 +365,8 @@ static int global_newshf_body(SDL_Surface *surface,int x,int y,Sprite2_array ban
  /* Reject physical row wrapping as a complete family, never an HD prefix. */
  if(newshf_validation_slots[slot].x<6||newshf_validation_slots[slot].x>302){global_newshf_fail();return 0;}
  unsigned phase=newshf_profiles[newshf_validation_slots[slot].profile].resources[newshf_validation_slots[slot].pose-1];
- if(phase==15&&!global_newshf_dual_preflight(slot,bank,base))return 0;
- int result=global_newshf_draw(surface,x,y,bank,base+(unsigned)part,filter,phase,part,phase==15?global_newshf_dual_shapesy_serial[slot]:0);
+ if(global_newshf_soft_phase(phase)&&!global_newshf_soft_preflight(slot,bank,base,phase))return 0;
+ int result=global_newshf_draw_typed(surface,x,y,bank,base+(unsigned)part,filter,phase,part,global_newshf_soft_phase(phase)?global_newshf_dual_shapesy_serial[slot]:0,global_newshf_soft_phase(phase)?global_newshf_dual_cyan_serial[slot]:0,slot);
  if(result)global_newshf_generations[slot]=newshf_validation_slots[slot].generation;
  return result;
 }
@@ -353,12 +400,12 @@ static bool global_newshf_finish_proof(void)
 {
  if(global_newshf_rejected_frame)return false;
  if(!global_newshf_contributed)return true;
- if(!global_newshf_identity_complete()||(global_newshf_shapesy_dependency&&!shapesy_borrow_check(global_newshf_shapesy_dependency)))global_newshf_fail();
+ if(!global_newshf_identity_complete()||(global_newshf_shapesy_dependency&&!shapesy_borrow_check(global_newshf_shapesy_dependency))||(global_newshf_cyan_dependency&&!cyan_borrow_check(global_newshf_cyan_dependency)))global_newshf_fail();
  if(global_newshf_surface_matches())for(int y=0;y<200;y++)
   if(memcmp(expected+y*320,(Uint8 *)game_screen->pixels+y*320,320)){global_newshf_fail();break;}
  return global_newshf_assets_match()&&global_newshf_requested()&&!global_newshf_fault&&!global_newshf_call.live&&
   global_newshf_surface_matches()&&global_newshf_final_surface_matches()&&
-  global_newshf_source_matches(global_newshf_bank())&&global_newshf_palette_matches()&&
+  global_newshf_used_banks_match()&&global_newshf_palette_matches()&&
   global_newshf_underlay_matches()&&(!global_newshf_talon_dependency||
    (!global_talon_fault&&global_talon_source_matches(spriteSheet9)&&global_talon_palette_matches()));
 }
@@ -385,7 +432,7 @@ static bool global_newshf_compose(MirrorOutputKind kind,int lightx,int lighty)
  if(!global_newshf_surface_matches()||!global_newshf_final_surface_matches()) {
   global_newshf_frame=global_newshf_cached=false;return false;
  }
- bool valid=global_newshf_requested()&&!global_newshf_fault&&global_newshf_surface_matches()&&global_newshf_source_matches(global_newshf_bank())&&
+ bool valid=global_newshf_requested()&&!global_newshf_fault&&global_newshf_surface_matches()&&global_newshf_used_banks_match()&&
   global_newshf_palette_matches()&&global_newshf_underlay_matches()&&(!global_newshf_talon_dependency||(!global_talon_fault&&global_talon_source_matches(spriteSheet9)&&global_talon_palette_matches()))&&(kind==MIRROR_OUTPUT_ORDINARY||kind==MIRROR_OUTPUT_NORMAL15_LOW_DETAIL||kind==MIRROR_OUTPUT_NORMAL15_NIGHT)&&
   VGAScreenSeg&&VGAScreenSeg->pixels&&VGAScreenSeg->w==320&&VGAScreenSeg->h==200&&VGAScreenSeg->pitch>=320&&
   VGAScreenSeg->format&&VGAScreenSeg->format->format==SDL_PIXELFORMAT_INDEX8;
@@ -412,7 +459,7 @@ static bool global_newshf_compose(MirrorOutputKind kind,int lightx,int lighty)
 }
 static bool global_newshf_cache_source_matches(void)
 {
- bool valid=global_newshf_assets_match()&&global_newshf_identity_complete()&&(!global_newshf_shapesy_dependency||shapesy_borrow_check(global_newshf_shapesy_dependency))&&!global_newshf_fault&&global_newshf_requested()&&global_newshf_surface_matches()&&global_newshf_final_surface_matches()&&global_newshf_source_matches(global_newshf_bank())&&(!global_newshf_talon_dependency||(!global_talon_fault&&global_talon_source_matches(spriteSheet9)));
+ bool valid=global_newshf_assets_match()&&global_newshf_identity_complete()&&(!global_newshf_shapesy_dependency||shapesy_borrow_check(global_newshf_shapesy_dependency))&&(!global_newshf_cyan_dependency||cyan_borrow_check(global_newshf_cyan_dependency))&&!global_newshf_fault&&global_newshf_requested()&&global_newshf_surface_matches()&&global_newshf_final_surface_matches()&&global_newshf_used_banks_match()&&(!global_newshf_talon_dependency||(!global_talon_fault&&global_talon_source_matches(spriteSheet9)));
  if(valid)for(int y=0;y<200;y++)if(memcmp(expected+y*320,(Uint8 *)game_screen->pixels+y*320,320)){valid=false;break;}
  if(valid)for(int y=0;y<200;y++)if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)){valid=false;break;}
  return valid;

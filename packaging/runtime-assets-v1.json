@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 38531,
+      "bytes": 39073,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "74cf6c53ac7d73defe15065854bcce07b3e76813",
+      "git_blob": "1b91e59e9e8c91e02ba18bad0a09ecf09c967402",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "c35c22eb58fba01b06a49fb31454b638b42d89da041821dcd811727fee41cc04",
+      "sha256": "1b79e5e1375012b13e17b66c1370275d750b4126ed5b1ca4acf1127fcc7d0f61",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -5208,6 +5208,42 @@
     },
     {
       "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-cyan-111-8.hda",
+      "git_blob": "dd40ce5d4a01f0d31d402041dfff68b73e5949d5",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-cyan-four",
+      "sha256": "9ebed5b3b7165711f23b4b5937ca7dac09f3ca6d8bf031a3565339296b10a6be",
+      "source_path": "assets/hd/current-compat/shapesy-cyan/terrain-shapesy-cyan-111-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-cyan-112-8.hda",
+      "git_blob": "dd0846924bcc851e46504299d8a61aba729fc6ad",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-cyan-four",
+      "sha256": "757a806356b4599f3060dfbb74d12f90d0f70fc43f9f7893aa38d342ffbc5a7a",
+      "source_path": "assets/hd/current-compat/shapesy-cyan/terrain-shapesy-cyan-112-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-cyan-121-8.hda",
+      "git_blob": "02df1c54cfba6696e5d6b7df6b00ee10df9e206e",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-cyan-four",
+      "sha256": "0f68e1c8bae02242ed40a1f416eb728cef409a91c320b982bd91894371c8f78f",
+      "source_path": "assets/hd/current-compat/shapesy-cyan/terrain-shapesy-cyan-121-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-cyan-122-8.hda",
+      "git_blob": "bc0bbf13a077a707207d125d7c8b25429627b19d",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-cyan-four",
+      "sha256": "27e9ea9fe60664a331e650e481d1faee0fc97f7461aad4a584c5d9212650e15e",
+      "source_path": "assets/hd/current-compat/shapesy-cyan/terrain-shapesy-cyan-122-8.hda"
+    },
+    {
+      "bytes": 172060,
       "destination": "assets/gameplay/terrain-shapesz-100-8.hda",
       "git_blob": "58387a8cd9eb3f823b5ff7ad9d7efe98fb4e9bc5",
       "group": "gameplay",
@@ -7511,13 +7547,13 @@
       "source_path": "assets/hd/global-assets-v1/content/fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa.hda"
     },
     {
-      "destination": "assets/global/newshf-dualmissile/newshf-role2100015-8.hda",
-      "source_path": "assets/hd/current-compat/newshf-dualmissile/newshf-role2100015-8.hda",
       "bytes": 172060,
-      "sha256": "d1557281a1f8fc4c48aa3bbf64b0eed3013b4ab4c5a06e456dcf48beaa99eafe",
+      "destination": "assets/global/newshf-dualmissile/newshf-role2100015-8.hda",
       "git_blob": "3bb1a90385245e75ee3fef19734ae3ccb128ead7",
       "group": "newshf-optin",
-      "revision": "current-single-source-dualmissile-newshf-one"
+      "revision": "current-single-source-dualmissile-newshf-one",
+      "sha256": "d1557281a1f8fc4c48aa3bbf64b0eed3013b4ab4c5a06e456dcf48beaa99eafe",
+      "source_path": "assets/hd/current-compat/newshf-dualmissile/newshf-role2100015-8.hda"
     },
     {
       "bytes": 172060,
@@ -7574,22 +7610,22 @@
       "source_path": "assets/hd/current-compat/newshf-linked/newshf-role2100014-8.hda"
     },
     {
-      "destination": "assets/global/newshf-turret/newshf-role2100016-8.hda",
-      "source_path": "assets/hd/current-compat/newshf-turret/newshf-role2100016-8.hda",
       "bytes": 172060,
-      "sha256": "34c4da3b168c28c6ef96b9c0ba14b74c6e699524744c4a1ee1972363777d2882",
+      "destination": "assets/global/newshf-turret/newshf-role2100016-8.hda",
       "git_blob": "47065c39d3beb683c6d05285140097f7fd7bd495",
       "group": "newshf-optin",
-      "revision": "current-single-source-turret-newshf-two"
+      "revision": "current-single-source-turret-newshf-two",
+      "sha256": "34c4da3b168c28c6ef96b9c0ba14b74c6e699524744c4a1ee1972363777d2882",
+      "source_path": "assets/hd/current-compat/newshf-turret/newshf-role2100016-8.hda"
     },
     {
-      "destination": "assets/global/newshf-turret/newshf-role2100017-8.hda",
-      "source_path": "assets/hd/current-compat/newshf-turret/newshf-role2100017-8.hda",
       "bytes": 172060,
-      "sha256": "6678b027161ea947846f1943f0cfb5e3be3736226df6730722cbeb1df7495196",
+      "destination": "assets/global/newshf-turret/newshf-role2100017-8.hda",
       "git_blob": "043e0d11f9afb6dfd0552e88c3a265a9a7d297ed",
       "group": "newshf-optin",
-      "revision": "current-single-source-turret-newshf-two"
+      "revision": "current-single-source-turret-newshf-two",
+      "sha256": "6678b027161ea947846f1943f0cfb5e3be3736226df6730722cbeb1df7495196",
+      "source_path": "assets/hd/current-compat/newshf-turret/newshf-role2100017-8.hda"
     },
     {
       "bytes": 172060,
@@ -7671,6 +7707,96 @@
       "revision": "current-single-source-newshf-nine",
       "sha256": "35a17d97f319ae97dcbfcf8c1545f66048c9c27a5545c2f6a9ac05f2ba4c97dd",
       "source_path": "assets/hd/newshf-v1/newshf-role2100008-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100018-8.hda",
+      "git_blob": "45fc6a0fd234f19ebab44b964e584d0da5c7cfa1",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "badf5e5c5166703de63cb931924a0d635d9f1fbf2c8195d470df841090d5c980",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100018-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100019-8.hda",
+      "git_blob": "513a44bc9ce3defdebd4ba6d2b3c6b8754ee56aa",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "dbd2059e04314a9796f5333d5391c4c182604386b17d243dd45143e6c99ff7b3",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100019-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100020-8.hda",
+      "git_blob": "89e0fe3e56bf7274b9f382143f5d5ebc7f454a1c",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "7ecf67d07b8978178641a4116e098147fbb1f550b42c030cde06a5ad8ca9ea61",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100020-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100021-8.hda",
+      "git_blob": "1ac305c32de97d12f92a44995125680037e4cd60",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "36be678af8274c32d38cc697c978eb2f8ef1e6982e2ea8fe0521e98cad44ea95",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100021-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100022-8.hda",
+      "git_blob": "6b3ebb1446b2e0474a1c51651af9aa543c4d0d77",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "6a30042c68e3b37a7d26e1e4e1e53087dd12a58578247bcad6ec28bfcae43ece",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100022-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100023-8.hda",
+      "git_blob": "c90da2633fc7db25931450218a25f92509d5f6fb",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "b92e29d3b934be238a1361db44eaa6d75b9d344e2d1c724716733d217ade8d86",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100023-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100024-8.hda",
+      "git_blob": "bb16d6f8fb52e6c59a2702794a8db742767de99a",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "2e8c8c3cd5c1407be95ba3d9067fc1b3a62e004891ef0d1ce8e614759132062c",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100024-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100025-8.hda",
+      "git_blob": "1fb539491e3fdeaa6bfbbc9003d70c71d3e25a7a",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "e6e8c7c5125c0127252bece967fe5eccd5c4d5fba01d96a2c8599a90abb3a4d3",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100025-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100026-8.hda",
+      "git_blob": "ab907194af7f738e9363f5d6289979692b5211b8",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "32c0d64451e956d771daa815c97efdf41c89e19a08d4d880faad70e7f80a5e01",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100026-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshi-large/newshi-role2100027-8.hda",
+      "git_blob": "a93956409cd534ac5044308896e6f5847d9692d2",
+      "group": "newshf-optin",
+      "revision": "current-single-source-large-newshi-ten",
+      "sha256": "cc2f690c8789942ea488545144de677dab85446661e827be04afcc5fce779a52",
+      "source_path": "assets/hd/current-compat/newshi-large/newshi-role2100027-8.hda"
     },
     {
       "bytes": 204989,
@@ -9683,7 +9809,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "27d664cf2922dc59b5d9314ebe8e0339c73e6984c962dffda562443d0bfacfda",
+    "current_production_source_manifest_sha256": "c1443250a59a08503b58d029073f083b6fe9018460869072187daaaf9ca9cd3d",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",
