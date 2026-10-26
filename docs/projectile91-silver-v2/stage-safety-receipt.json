@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "tampered_bytes",
+      "status": "PASS",
+      "error": "Modified staged Projectile91 bytes: assets/hd/current-compat/projectile91/projectile91-registered.png",
+      "production_unchanged": true
+    },
+    {
+      "case": "tampered_plan",
+      "status": "PASS",
+      "error": "Stale or modified Projectile91 plan/current inputs; restage explicitly",
+      "production_unchanged": true
+    },
+    {
+      "case": "valid_noop_apply",
+      "status": "PASS",
+      "production_unchanged": true
+    }
+  ],
+  "bound_paths": 649
+}

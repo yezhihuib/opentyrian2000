@@ -1,0 +1,253 @@
+{
+  "bank_sha256": "9bba1e94d38df61f152412c226bfd6df235e42027c9143c5961d4a5add853a68",
+  "physical_inputs_sha256": {
+    "tyrian.shp": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "tyrian.hdt": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b",
+    "palette.dat": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+  },
+  "selector": 91,
+  "source": "tyrian.shp bank8 / spriteSheet8",
+  "logical_canvas": [
+    12,
+    14
+  ],
+  "occupied_cells": 62,
+  "bbox_xyxy_exclusive": [
+    3,
+    2,
+    9,
+    14
+  ],
+  "palette0_indices": [
+    1,
+    2,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "weapon24": {
+    "drain": 0,
+    "shotrepeat": 8,
+    "multi": 1,
+    "weapani": 0,
+    "max": 1,
+    "tx": 0,
+    "ty": 0,
+    "aim": 0,
+    "attack": [
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "del": [
+      255,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sx": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sy": [
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "bx": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "by": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sg": [
+      91,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "acceleration": 0,
+    "accelerationx": 0,
+    "circlesize": 0,
+    "sound": 11,
+    "trail": 255,
+    "shipblastfilter": 208
+  },
+  "weapon_records_with91_in_any_sg_field": [
+    24
+  ],
+  "enemy_records_with_weapon24": [
+    173,
+    285
+  ],
+  "enemies": {
+    "173": {
+      "ani": 4,
+      "tur": [
+        24,
+        0,
+        0
+      ],
+      "freq": [
+        48,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 0,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 130,
+      "starty": -13,
+      "startxc": 125,
+      "startyc": 0,
+      "armor": 20,
+      "esize": 1,
+      "egraphic": [
+        119,
+        121,
+        121,
+        119,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 5,
+      "animate": 2,
+      "shapebank": 10,
+      "xrev": 0,
+      "yrev": 0,
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "elaunchfreq": 0,
+      "elaunchtype": 0,
+      "value": 75,
+      "eenemydie": 0
+    },
+    "285": {
+      "ani": 8,
+      "tur": [
+        24,
+        0,
+        0
+      ],
+      "freq": [
+        40,
+        0,
+        0
+      ],
+      "xmove": 0,
+      "ymove": 2,
+      "xaccel": 0,
+      "yaccel": 0,
+      "xcaccel": 0,
+      "ycaccel": 0,
+      "startx": 130,
+      "starty": -13,
+      "startxc": 125,
+      "startyc": 0,
+      "armor": 8,
+      "esize": 1,
+      "egraphic": [
+        157,
+        159,
+        159,
+        161,
+        161,
+        159,
+        159,
+        157,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "explosiontype": 6,
+      "animate": 2,
+      "shapebank": 8,
+      "xrev": 0,
+      "yrev": 0,
+      "dgr": 0,
+      "dlevel": 0,
+      "dani": 0,
+      "elaunchfreq": 0,
+      "elaunchtype": 0,
+      "value": 250,
+      "eenemydie": 0
+    }
+  },
+  "preview": "original-bank8-selector91-palette0.png",
+  "palette_caveat": "Exact palette0 reference, not assertion of all runtime palettes.",
+  "method": "Existing verify_cash25_source_identity.decode; HDT schema derived from production episodes.c. No image editing/resampling.",
+  "no_gameplay_or_art_changes": true
+}

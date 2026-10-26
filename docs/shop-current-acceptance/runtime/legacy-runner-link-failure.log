@@ -1,0 +1,126 @@
+/usr/bin/ld: /tmp/cc4oxwcB.o: warning: relocation against `powerSys' in read-only section `.text.item_proof'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `inventory_item':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:519:(.text.inventory_item+0x54): undefined reference to `itemAvailMax'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:520:(.text.inventory_item+0x7e): undefined reference to `itemAvail'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `live_power':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:564:(.text.live_power+0x5a): undefined reference to `player'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_pulse_requested':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_render.inc:24:(.text.shop_pulse_requested+0x10): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_render.inc:24:(.text.shop_pulse_requested+0x19): undefined reference to `game_probe_missing'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_render.inc:24:(.text.shop_pulse_requested+0x23): undefined reference to `game_probe_invalid'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_vulcan_requested':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_render.inc:27:(.text.shop_vulcan_requested+0x10): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_render.inc:27:(.text.shop_vulcan_requested+0x19): undefined reference to `game_probe_missing'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_render.inc:27:(.text.shop_vulcan_requested+0x23): undefined reference to `game_probe_invalid'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_static_requested':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_static_render.inc:17:(.text.shop_static_requested+0x18): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_static_render.inc:17:(.text.shop_static_requested+0x21): undefined reference to `game_probe_missing'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_static_render.inc:17:(.text.shop_static_requested+0x2b): undefined reference to `game_probe_invalid'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_ship_requested':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:33:(.text.shop_ship_requested+0x10): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:33:(.text.shop_ship_requested+0x19): undefined reference to `game_probe_missing'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:33:(.text.shop_ship_requested+0x23): undefined reference to `game_probe_invalid'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_pulse_port_stamp':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_proof.inc:30:(.text.shop_pulse_port_stamp+0x14): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_proof.inc:31:(.text.shop_pulse_port_stamp+0x39): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_proof.inc:32:(.text.shop_pulse_port_stamp+0x44): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_proof.inc:32:(.text.shop_pulse_port_stamp+0x78): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_proof.inc:33:(.text.shop_pulse_port_stamp+0xb8): undefined reference to `weaponPort'
+/usr/bin/ld: /tmp/cc4oxwcB.o:/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_proof.inc:33: more undefined references to `weaponPort' follow
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_pulse_table':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_proof.inc:53:(.text.shop_pulse_table+0x59): undefined reference to `weapons'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_vulcan_port_stamp':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_proof.inc:30:(.text.shop_vulcan_port_stamp+0x14): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_proof.inc:31:(.text.shop_vulcan_port_stamp+0x39): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_proof.inc:32:(.text.shop_vulcan_port_stamp+0x44): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_proof.inc:32:(.text.shop_vulcan_port_stamp+0x78): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_proof.inc:33:(.text.shop_vulcan_port_stamp+0xb8): undefined reference to `weaponPort'
+/usr/bin/ld: /tmp/cc4oxwcB.o:/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_proof.inc:33: more undefined references to `weaponPort' follow
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_vulcan_table':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_proof.inc:53:(.text.shop_vulcan_table+0x59): undefined reference to `weapons'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_ship_record':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:38:(.text.shop_ship_source+0x8b): undefined reference to `player'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:38:(.text.shop_ship_source+0x94): undefined reference to `ships'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:39:(.text.shop_ship_source+0xa7): undefined reference to `ships'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:39:(.text.shop_ship_source+0xb3): undefined reference to `ships'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:40:(.text.shop_ship_source+0xbf): undefined reference to `ships'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:40:(.text.shop_ship_source+0xc6): undefined reference to `ships'
+/usr/bin/ld: /tmp/cc4oxwcB.o:/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:42: more undefined references to `ships' follow
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `item_proof':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:537:(.text.item_proof+0xd5): undefined reference to `player'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `table_item':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:526:(.text.item_proof+0x103): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:527:(.text.item_proof+0x13c): undefined reference to `shields'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:528:(.text.item_proof+0x178): undefined reference to `powerSys'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:529:(.text.item_proof+0x1b4): undefined reference to `options'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `item_proof':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:542:(.text.item_proof+0x23d): undefined reference to `player'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `validate_typography':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:488:(.text.validate_typography+0x10): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:489:(.text.validate_typography+0x85): undefined reference to `common_menu_runs_ready'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:489:(.text.validate_typography+0x94): undefined reference to `common_menu_runs_generation'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:490:(.text.validate_typography+0xba): undefined reference to `common_menu_runs_ready'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:490:(.text.validate_typography+0xc8): undefined reference to `common_menu_runs_generation'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:491:(.text.validate_typography+0xe9): undefined reference to `common_menu_numeric_runs_ready'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:491:(.text.validate_typography+0xf2): undefined reference to `common_menu_numeric_runs_generation'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `place_run':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:505:(.text.place_run+0x5d): undefined reference to `common_menu_runs_get'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `render_typography':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:1068:(.text.render_typography+0x281): undefined reference to `common_menu_numeric_runs_sample'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_pulse_records_valid':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_pulse_proof.inc:166:(.text.shop_pulse_records_valid+0x12): undefined reference to `weapons'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_vulcan_records_valid':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_vulcan_proof.inc:173:(.text.shop_vulcan_records_valid+0x12): undefined reference to `weapons'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `shop_ship_quad_begin':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:107:(.text.shop_ship_quad_begin+0xab): undefined reference to `player'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:107:(.text.shop_ship_quad_begin+0xbc): undefined reference to `player'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/shop_ship_render.inc:107:(.text.shop_ship_quad_begin+0xce): undefined reference to `player'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `pregame_font_begin':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:420:(.text.pregame_font_begin+0xc4): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:420:(.text.pregame_font_begin+0xe3): undefined reference to `common_menu_runs_generation'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:421:(.text.pregame_font_begin+0xf5): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:421:(.text.pregame_font_begin+0x10a): undefined reference to `common_menu_numeric_runs_generation'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:420:(.text.pregame_font_begin+0x166): undefined reference to `common_menu_runs_load'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:421:(.text.pregame_font_begin+0x173): undefined reference to `common_menu_numeric_runs_load'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `pregame_font_product_begin':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:432:(.text.pregame_font_product_begin+0xae): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:432:(.text.pregame_font_product_begin+0xcd): undefined reference to `common_menu_runs_generation'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:433:(.text.pregame_font_product_begin+0xdf): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:433:(.text.pregame_font_product_begin+0xf9): undefined reference to `common_menu_runs_generation'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:434:(.text.pregame_font_product_begin+0x10b): undefined reference to `game_probe_original_reference'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:434:(.text.pregame_font_product_begin+0x120): undefined reference to `common_menu_numeric_runs_generation'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:432:(.text.pregame_font_product_begin+0x140): undefined reference to `common_menu_runs_load'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:433:(.text.pregame_font_product_begin+0x152): undefined reference to `common_menu_runs_load'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:434:(.text.pregame_font_product_begin+0x15c): undefined reference to `common_menu_numeric_runs_load'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `power_observe':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:576:(.text.pregame_font_run_begin+0xc3f): undefined reference to `weaponPort'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:577:(.text.pregame_font_run_begin+0xc83): undefined reference to `downgradeCost'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:577:(.text.pregame_font_run_begin+0xcb0): undefined reference to `upgradeCost'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `names_tag':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:591:(.text.pregame_font_run_begin+0xe45): undefined reference to `common_menu_runs_get'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `numeric_tag':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:610:(.text.pregame_font_run_begin+0x10a6): undefined reference to `common_menu_numeric_runs_layout'
+/usr/bin/ld: /tmp/cc4oxwcB.o: in function `tag_typography':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/../src/pregame_font.c:634:(.text.pregame_font_run_begin+0x11e1): undefined reference to `common_menu_runs_get'
+/usr/bin/ld: /tmp/ccwsJ2fd.o: in function `blit_sprite':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:125:(.text.blit_sprite+0x44): undefined reference to `common_pause_glyph_begin'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:168:(.text.blit_sprite+0x224): undefined reference to `common_pause_glyph_end'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:182:(.text.blit_sprite+0x258): undefined reference to `common_pause_glyph_end'
+/usr/bin/ld: /tmp/ccwsJ2fd.o: in function `blit_sprite_hv_unsafe':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:254:(.text.blit_sprite_hv_unsafe+0xba): undefined reference to `common_pause_glyph_begin'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:299:(.text.blit_sprite_hv_unsafe+0x2f9): undefined reference to `common_pause_glyph_end'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:314:(.text.blit_sprite_hv_unsafe+0x33c): undefined reference to `common_pause_glyph_end'
+/usr/bin/ld: /tmp/ccwsJ2fd.o: in function `blit_sprite_hv':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:323:(.text.blit_sprite_hv+0xb7): undefined reference to `common_pause_glyph_begin'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:367:(.text.blit_sprite_hv+0x2fd): undefined reference to `common_pause_glyph_end'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:387:(.text.blit_sprite_hv+0x318): undefined reference to `common_pause_glyph_end'
+/usr/bin/ld: /tmp/ccwsJ2fd.o: in function `blit_sprite_dark':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:464:(.text.blit_sprite_dark+0xa2): undefined reference to `common_pause_glyph_begin'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:507:(.text.blit_sprite_dark+0x346): undefined reference to `common_pause_glyph_end'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:522:(.text.blit_sprite_dark+0x366): undefined reference to `common_pause_glyph_end'
+/usr/bin/ld: /tmp/ccwsJ2fd.o: in function `blit_sprite2_clip':
+/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:612:(.text.blit_sprite2_clip+0x7e): undefined reference to `common_pause_cursor_sprite_begin'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:651:(.text.blit_sprite2_clip+0xcf): undefined reference to `common_pause_cursor_sprite_end'
+/usr/bin/ld: /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/src/sprite.c:621:(.text.blit_sprite2_clip+0x116): undefined reference to `common_pause_cursor_sprite_end'
+/usr/bin/ld: warning: creating DT_TEXTREL in a PIE
+collect2: error: ld returned 1 exit status

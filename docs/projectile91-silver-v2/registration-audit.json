@@ -1,0 +1,53 @@
+{
+  "schema": "opentyrian-projectile91-registration-audit-v1",
+  "source": {
+    "selector": 91,
+    "source_png": "authoring-inputs/projectile91-current/projectile91-silver-v2-concept.png",
+    "source_sha256": "38e41cea9b2cd4c78068e7124ba1c3d4e500311db69a902f92eb0d99e6fb449e"
+  },
+  "input_rgba": [
+    1161,
+    1354
+  ],
+  "visible_alpha_threshold": 127,
+  "visible_bbox": [
+    311,
+    121,
+    850,
+    1305
+  ],
+  "source_aspect": 0.4552364864864865,
+  "registered_raster": [
+    44,
+    96
+  ],
+  "aspect_rounding_fraction": 0.006802721088435382,
+  "offset": [
+    26,
+    16
+  ],
+  "canvas": [
+    96,
+    112
+  ],
+  "logical_canvas": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "density": 8,
+  "resampling": "Pillow RGBA premultiplied BICUBIC",
+  "pillow_version": "12.3.0",
+  "source_alpha_cleanup": "Set alpha <=127 to0 before resampling; canonical transparent RGB0 after support clip",
+  "alpha_mass_before_mask": 781500,
+  "alpha_mass_after_mask": 781463,
+  "alpha_mass_clip_fraction": 4.73448496481126e-05,
+  "logical_support_cells": 62,
+  "occupied_output_cells": 62,
+  "payload_sha256": "2940279a66281c16838d4e070421a581ea0e4b5bb91cf85a1cbc532902933e4c",
+  "native_derivative": "assets/hd/current-compat/projectile91/projectile91-registered.png",
+  "creative_changes": false
+}

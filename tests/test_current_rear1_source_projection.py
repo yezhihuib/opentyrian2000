@@ -12,7 +12,8 @@ class CurrentRear1SourceProjection(unittest.TestCase):
   from verify_current_production import source_inventory
   self.assertEqual(a.current_rear1_ledger()['files'],{})
   actual=source_inventory(a.ROOT)
-  self.assertEqual(len(actual),274)
+  self.assertEqual(len(actual),277)
+  self.assertEqual(len(a.before_current_projectile91_inventory(actual)),274)
   proof=a.verified_current_rear1()
   self.assertEqual(proof['header_sha256'],actual[c.HEADER])
   self.assertEqual(proof['header_sha256'],a.verified_current_rear_p7()['header_sha256'])

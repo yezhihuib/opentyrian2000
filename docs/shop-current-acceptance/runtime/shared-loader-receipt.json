@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "whole_string_raqm_cases": 1009,
+  "independent_alpha_pixels": 5297472,
+  "invalid_canonical_strings": 16,
+  "resource_mutation_negatives": 2631,
+  "families": [
+    16,
+    7,
+    7,
+    9,
+    19,
+    113
+  ],
+  "numeric_sha256": "7becf23de59c40582992f3c8caeea4b953405f014f86a070b0d25cef63f4878d",
+  "source_hashes": {
+    "src/common_menu_runs.c": "0a8dfc757bfa29eda618ddc2a1bf034a409dbf4a6b34428bd0b6030392064308",
+    "src/common_menu_runs.h": "b079e08650f5ca85c69ecfb2df1a9f5376fc0ca851eb911d956de3a2a3defa78",
+    "tests/test_reconstructed_menu_runs.py": "9d9ef00fe3d20a2bbd63fe97a3244ae5490a4a553cbd2e98a317dbe5bb02a63c",
+    "tests/reconstructed_menu_runs_adapter.c": "ebb47705196b37c065ac024cbc1bc0ac7d59ee8ac20b8b3dce3a181e83a7e7e0"
+  },
+  "limits": "Loader and raster oracle only. No native menu semantic admission or gameplay acceptance."
+}

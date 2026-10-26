@@ -23,9 +23,11 @@ class CurrentRearP7SourceProjection(unittest.TestCase):
   from verify_current_production import source_inventory
   actual=source_inventory(a.ROOT)
   projected=a.before_current_rear_p7_inventory(actual)
-  self.assertEqual(len(actual),274)
+  self.assertEqual(len(actual),277)
+  previous=a.before_current_projectile91_inventory(actual)
+  self.assertEqual(len(previous),274)
   self.assertEqual(len(projected),273)
-  self.assertEqual({n:h for n,h in actual.items() if n not in (NAME,a.CURRENT_REAR_P7_HEADER)},{n:h for n,h in projected.items() if n!=NAME})
+  self.assertEqual({n:h for n,h in previous.items() if n not in (NAME,a.CURRENT_REAR_P7_HEADER)},{n:h for n,h in projected.items() if n!=NAME})
   self.assertNotIn(a.CURRENT_REAR_P7_HEADER,projected)
   self.assertEqual(projected[NAME],a.current_rear_p7_ledger()['files'][NAME]['previous_sha256'])
   for key in (NAME,a.CURRENT_REAR_P7_HEADER):

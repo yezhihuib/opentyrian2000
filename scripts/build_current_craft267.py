@@ -360,7 +360,14 @@ def current_overlays(root):
         {'assets/gameplay/' + rear_lobes.name(identity, density): blob
          for (identity, density), blob in blobs.items()})
     if len(files) != 232:
-        raise ValueError('Expected exactly 232 current gameplay overlays')
+        raise ValueError('Expected exactly 232 pre-projectile91 gameplay overlays')
+    import current_projectile91_compatibility as projectile91
+    selected, _, blobs = projectile91.generate(root, read(root, projectile91.SELECTION))
+    add(projectile91.MAPPING, projectile91.SELECTION, selected, projectile91.load(root),
+        {'assets/gameplay/' + projectile91.name(identity, density): blob
+         for (identity, density), blob in blobs.items()})
+    if len(files) != 233:
+        raise ValueError('Expected exactly 233 current gameplay overlays')
     return files
 
 

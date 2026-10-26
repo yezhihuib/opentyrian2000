@@ -354,6 +354,7 @@ int render_mirror_global_vulcan(SDL_Surface *surface,int x,int y,Sprite2_array b
   if(global_small_explosion_owner)global_small_explosion_owner[n]=global_small_explosion_foreign[n]=0;
   if(global_cash25_owner)global_cash25_owner[n]=global_cash25_foreign[n]=0;
   if(global_rotor_owner)global_rotor_owner[n]=global_rotor_foreign[n]=0;
+  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;
   global_newshf_clear(n);
   if(global_pulse_owner)global_pulse_owner[n]=global_pulse_foreign[n]=0;
   global_vulcan_owner[n]=1;global_vulcan_foreign[n]=foreign;hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;

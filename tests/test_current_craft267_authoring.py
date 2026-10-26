@@ -736,11 +736,19 @@ class Craft267AuthoringTests(unittest.TestCase):
 
 
 class AssetIndexEntrypointTests(unittest.TestCase):
+    @staticmethod
+    def original_data_fixture(base):
+        data = base/'original-data'; data.mkdir()
+        for name in ['tyrian1.lvl', 'tyrian.shp', 'newsh2.shp', 'shapesz.dat', 'palette.dat']:
+            (data/name).write_bytes(b'synthetic external-data fingerprint; no game data read')
+        return data
+
     def test_build_uses_current_view_unless_explicit_assets_are_selected(self):
         import runpy
         script = ROOT/'prototype/asset-index.py'
         with tempfile.TemporaryDirectory(prefix='preview-index-entry-') as temporary:
             base = Path(temporary); run = base/'trace'; run.mkdir()
+            original_data = self.original_data_fixture(base)
             (run/'asset-debug-clock.tsv').write_text('tick\tstart_ms\tend_ms\n0\t0\t10\n')
             (run/'state.tsv').write_text('tick\n0\n')
             (run/'asset-debug-materials.tsv').write_text(
@@ -757,7 +765,7 @@ class AssetIndexEntrypointTests(unittest.TestCase):
                 return original_read(path)
             for explicit in (None, historical):
                 output = base/('explicit.json' if explicit else 'default.json')
-                argv = [str(script), 'build', '--run', str(run), '--output', str(output)]
+                argv = [str(script), 'build', '--run', str(run), '--output', str(output), '--data', str(original_data)]
                 if explicit: argv += ['--assets', str(explicit)]
                 with mock.patch.object(sys, 'argv', argv), \
                         mock.patch.object(b, 'view', return_value={'path': str(current)}) as view, \
@@ -771,6 +779,7 @@ class AssetIndexEntrypointTests(unittest.TestCase):
                     view.assert_called_once()
                     self.assertEqual(view.call_args.args[:2], (ROOT, 'debug'))
                 index = json.loads(output.read_bytes())
+                self.assertEqual(index['replay']['data_sha256'], {name: hashlib.sha256((original_data/name).read_bytes()).hexdigest() for name in ['tyrian1.lvl', 'tyrian.shp', 'newsh2.shp', 'shapesz.dat', 'palette.dat']})
                 chosen = explicit or current
                 self.assertEqual(index['replay']['pack_directory'], str(chosen.resolve()))
                 record = next(iter(index['segments'][0]['materials'].values()))['replacement_at_index_build']
@@ -783,6 +792,7 @@ class AssetIndexEntrypointTests(unittest.TestCase):
         sprites = (258,259,260,277,278,279,296,297,298)
         with tempfile.TemporaryDirectory(prefix='charge-index-entry-') as temporary:
             base = Path(temporary); run = base/'trace'; run.mkdir()
+            original_data = self.original_data_fixture(base)
             (run/'asset-debug-clock.tsv').write_text('tick\tstart_ms\tend_ms\n0\t0\t10\n')
             (run/'state.tsv').write_text('tick\n0\n')
             rows = 'tick\tcategory\tsheet\tid\tx\ty\ttile_id\n'
@@ -798,7 +808,7 @@ class AssetIndexEntrypointTests(unittest.TestCase):
                 self.assertEqual((root,kind),(ROOT,'debug'))
                 return real_view(root,kind,base/'current-view')
             output = base/'index.json'
-            with mock.patch.object(sys,'argv',[str(script),'build','--run',str(run),'--output',str(output)]), mock.patch.object(b,'view',side_effect=current_view), mock.patch.object(Path,'read_bytes',no_original_data), contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit):
+            with mock.patch.object(sys,'argv',[str(script),'build','--run',str(run),'--output',str(output),'--data',str(original_data)]), mock.patch.object(b,'view',side_effect=current_view), mock.patch.object(Path,'read_bytes',no_original_data), contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit):
                 runpy.run_path(str(script),run_name='__main__')
             index=json.loads(output.read_bytes());view=Path(index['replay']['pack_directory'])
             self.assertEqual(len([path for path in view.rglob('*') if path.is_file()]),650)
@@ -815,8 +825,8 @@ class AssetIndexEntrypointTests(unittest.TestCase):
             argv=[str(script),'play','--index',str(output),'--sheet','tyrian.shp#spriteSheet9','--id','258','--category','player','--no-launch']
             with mock.patch.object(sys,'argv',argv), mock.patch.object(subprocess,'call',side_effect=AssertionError('Must not launch')) as launch, contextlib.redirect_stdout(io.StringIO()):
                 result=runpy.run_path(str(script),run_name='__main__')
-            launch.assert_not_called();self.assertNotIn('-Assets',result['cmd'])
-            self.assertEqual(result['cmd'][-2:],['-Python',sys.executable])
+            launch.assert_not_called();self.assertNotIn('--assets',result['cmd'])
+            self.assertEqual(result['cmd'][:2],[sys.executable,str(ROOT/'prototype/start-asset-debug.py')])
 
     def run_play_without_launch(self, assets=None):
         import runpy
@@ -842,14 +852,15 @@ class AssetIndexEntrypointTests(unittest.TestCase):
 
     def test_default_play_reuses_running_interpreter_without_launch(self):
         cmd = self.run_play_without_launch()
-        self.assertNotIn('-Assets', cmd)
-        self.assertEqual(cmd[-2:], ['-Python', sys.executable])
+        self.assertNotIn('--assets', cmd)
+        self.assertEqual(cmd[:2], [sys.executable, str(ROOT/'prototype/start-asset-debug.py')])
 
-    def test_explicit_assets_do_not_add_python_or_launch(self):
-        assets = ROOT.parent/'explicit assets fixture'
-        cmd = self.run_play_without_launch(assets)
-        self.assertNotIn('-Python', cmd)
-        self.assertEqual(cmd[-2:], ['-Assets', str(assets.resolve())])
+    def test_explicit_assets_reuse_python_without_launch(self):
+        with tempfile.TemporaryDirectory(prefix='explicit assets fixture ') as temporary:
+            assets = Path(temporary)
+            cmd = self.run_play_without_launch(assets)
+            self.assertEqual(cmd[0], sys.executable)
+            self.assertEqual(cmd[-2:], ['--assets', str(assets.resolve())])
 
 
 class ViewOracleTests(unittest.TestCase):

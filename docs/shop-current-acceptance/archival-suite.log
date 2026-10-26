@@ -1,0 +1,136 @@
+FFFF.FF.FF.FF.F..
+======================================================================
+FAIL: test_frame_contract (test_shop_frame_integration.ShopFrameIntegration.test_frame_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_frame_integration.py", line 19, in test_frame_contract
+    check_inventory()
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 56, in check_inventory
+    check_inventory_names(actual, expected)
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 50, in check_inventory_names
+    assert actual == {p for p in expected if p.startswith(('src/', 'assets/'))}, 'source/asset inventory drift'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: source/asset inventory drift
+
+======================================================================
+FAIL: test_original_private_tree_proof (test_shop_frame_integration.ShopFrameIntegration.test_original_private_tree_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_frame_integration.py", line 63, in test_original_private_tree_proof
+    replay_original_historical_contract('frame_integration')
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 96, in replay_original_historical_contract
+    assert row['status'] == 'available', (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HISTORICAL_PROOF_UNAVAILABLE: frame_integration requires exact private commit 8218c1f8a2ca046b6c461f3da1006ee76cf1b203; published-stage live checks do not substitute for this private-tree proof. fatal: Not a valid object name 8218c1f8a2ca046b6c461f3da1006ee76cf1b203^{commit}
+
+======================================================================
+FAIL: test_live_inventory_and_original_assets (test_shop_front_boundary.PublishedShopBoundary.test_live_inventory_and_original_assets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_front_boundary.py", line 8, in test_live_inventory_and_original_assets
+    check_inventory()
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 56, in check_inventory
+    check_inventory_names(actual, expected)
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 50, in check_inventory_names
+    assert actual == {p for p in expected if p.startswith(('src/', 'assets/'))}, 'source/asset inventory drift'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: source/asset inventory drift
+
+======================================================================
+FAIL: test_original_private_tree_proof (test_shop_front_boundary.PublishedShopBoundary.test_original_private_tree_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_front_boundary.py", line 18, in test_original_private_tree_proof
+    replay_original_historical_contract('front_boundary')
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 96, in replay_original_historical_contract
+    assert row['status'] == 'available', (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HISTORICAL_PROOF_UNAVAILABLE: front_boundary requires exact private commit ac64ee7d3f72dc07fac6a1454eefe4d95429e7b3; published-stage live checks do not substitute for this private-tree proof. fatal: Not a valid object name ac64ee7d3f72dc07fac6a1454eefe4d95429e7b3^{commit}
+
+======================================================================
+FAIL: test_live_inventory_and_original_assets (test_shop_generator_boundary.PublishedShopBoundary.test_live_inventory_and_original_assets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_generator_boundary.py", line 8, in test_live_inventory_and_original_assets
+    check_inventory()
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 56, in check_inventory
+    check_inventory_names(actual, expected)
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 50, in check_inventory_names
+    assert actual == {p for p in expected if p.startswith(('src/', 'assets/'))}, 'source/asset inventory drift'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: source/asset inventory drift
+
+======================================================================
+FAIL: test_original_private_tree_proof (test_shop_generator_boundary.PublishedShopBoundary.test_original_private_tree_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_generator_boundary.py", line 18, in test_original_private_tree_proof
+    replay_original_historical_contract('generator_boundary')
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 96, in replay_original_historical_contract
+    assert row['status'] == 'available', (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HISTORICAL_PROOF_UNAVAILABLE: generator_boundary requires exact private commit d97783b0ad24cce20d1cecfe0afc6890ac7943df; published-stage live checks do not substitute for this private-tree proof. fatal: Not a valid object name d97783b0ad24cce20d1cecfe0afc6890ac7943df^{commit}
+
+======================================================================
+FAIL: test_live_inventory_and_original_assets (test_shop_menu_font_boundary.PublishedShopBoundary.test_live_inventory_and_original_assets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_menu_font_boundary.py", line 8, in test_live_inventory_and_original_assets
+    check_inventory()
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 56, in check_inventory
+    check_inventory_names(actual, expected)
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 50, in check_inventory_names
+    assert actual == {p for p in expected if p.startswith(('src/', 'assets/'))}, 'source/asset inventory drift'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: source/asset inventory drift
+
+======================================================================
+FAIL: test_original_private_tree_proof (test_shop_menu_font_boundary.PublishedShopBoundary.test_original_private_tree_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_menu_font_boundary.py", line 31, in test_original_private_tree_proof
+    replay_original_historical_contract('menu_font_boundary')
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 96, in replay_original_historical_contract
+    assert row['status'] == 'available', (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HISTORICAL_PROOF_UNAVAILABLE: menu_font_boundary requires exact private commit 1685561b2b5d6bd6264bd7756cc30cf7c7506c4f; published-stage live checks do not substitute for this private-tree proof. fatal: Not a valid object name 1685561b2b5d6bd6264bd7756cc30cf7c7506c4f^{commit}
+
+======================================================================
+FAIL: test_observer_only_delta_and_live_tail (test_shop_product_font_integration.ShopProductFontIntegration.test_observer_only_delta_and_live_tail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_product_font_integration.py", line 11, in test_observer_only_delta_and_live_tail
+    check_inventory()
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 56, in check_inventory
+    check_inventory_names(actual, expected)
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 50, in check_inventory_names
+    assert actual == {p for p in expected if p.startswith(('src/', 'assets/'))}, 'source/asset inventory drift'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: source/asset inventory drift
+
+======================================================================
+FAIL: test_original_private_tree_proof (test_shop_product_font_integration.ShopProductFontIntegration.test_original_private_tree_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_product_font_integration.py", line 34, in test_original_private_tree_proof
+    replay_original_historical_contract('product_font_integration')
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 96, in replay_original_historical_contract
+    assert row['status'] == 'available', (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HISTORICAL_PROOF_UNAVAILABLE: product_font_integration requires exact private commit 8ffe93fa4f991163fd4e6bb6842a1a1b21a46b0d; published-stage live checks do not substitute for this private-tree proof. fatal: Not a valid object name 8ffe93fa4f991163fd4e6bb6842a1a1b21a46b0d^{commit}
+
+======================================================================
+FAIL: test_all_inverse_spans_reject_mutation_before_projection (test_shop_published_boundaries.ShopProjectionControls.test_all_inverse_spans_reject_mutation_before_projection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/test_shop_published_boundaries.py", line 12, in test_all_inverse_spans_reject_mutation_before_projection
+    project_bytes(raw, spec)
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-current-baseline/tests/shop_published_boundary.py", line 30, in project_bytes
+    assert sha(raw) == spec['after_sha256'], 'unreviewed current source bytes'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unreviewed current source bytes
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.831s
+
+FAILED (failures=11)

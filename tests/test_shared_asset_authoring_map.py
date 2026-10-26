@@ -50,6 +50,17 @@ class AuthoringMapTests(unittest.TestCase):
         self.assertNotEqual(by_id[80112]['role'], by_id[1420112]['role'])
         self.assertTrue(all(r['declared_consumers'] for r in rows))
 
+    def test_projectile91_one_master_shared_role(self):
+        rows = self.rows_for({1490091})
+        self.assertEqual(len(rows), 1)
+        row = rows[0]
+        self.assertEqual(row['editable_inputs'], ['authoring-inputs/projectile91-current/projectile91-silver-v2-concept.png'])
+        self.assertEqual(row['role'],149)
+        self.assertEqual(row['density'],8)
+        self.assertIn('assets/hd/current-compat/projectile91/projectile91-registered.png',row['derived_outputs'])
+        self.assertTrue(any(c['path']=='assets/gameplay/enemy-projectile91-91-8.hda' for c in row['declared_consumers']))
+        self.assertTrue(any('Christmas' in n for n in row['notes']))
+
     def test_front_eight_independent_current_pngs(self):
         rows = self.rows_for({80121,80122,80163,80164,80201,80202,80279,80280})
         self.assertEqual(len(rows), 8)

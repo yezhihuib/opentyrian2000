@@ -1,0 +1,84 @@
+{
+  "schema": "opentyrian-projectile91-validation-summary-v1",
+  "checks": [
+    {
+      "check": "current91 deterministic builder",
+      "status": "PASS",
+      "receipt": "current-check-final.json"
+    },
+    {
+      "check": "stage tamper/plan/noop safety",
+      "status": "PASS",
+      "cases": 3,
+      "bound_paths": 649,
+      "receipt": "stage-safety-receipt.json"
+    },
+    {
+      "check": "current Orb and Pulse compatibility",
+      "status": "PASS"
+    },
+    {
+      "check": "packaging",
+      "status": "PASS",
+      "tests": 40
+    },
+    {
+      "check": "read-only authoring map",
+      "status": "PASS",
+      "tests": 24
+    },
+    {
+      "check": "art derivation negative and positive checks",
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "check": "new source inverse/negative controls",
+      "status": "PASS",
+      "tests": 5
+    },
+    {
+      "check": "native callback+original shot loop",
+      "status": "PASS",
+      "modes": [
+        "optimized",
+        "ASan+UBSan"
+      ],
+      "malformed_resource_cases": 22,
+      "source_byte_mutations_per_cold_warm": 32060,
+      "shot_trace_comparisons": 640
+    },
+    {
+      "check": "native full renderer lifecycle",
+      "status": "PASS",
+      "cases": 37,
+      "assertions": 81611
+    },
+    {
+      "check": "actual controlled original-event game replay",
+      "status": "PASS",
+      "consumers": [
+        173,
+        285
+      ],
+      "captured_frames": 16,
+      "hd91_draws": 40,
+      "paired_logic_ticks": 916,
+      "changed_pixels": 9912
+    },
+    {
+      "check": "broader portable historical source+asset boundary aggregate",
+      "status": "PENDING at code freeze; see final external delivery manifest for terminal result"
+    }
+  ],
+  "review": "Independent read-only review PASS; source/asset/build/cross-owner boundaries reviewed",
+  "limitations": [
+    "Not a full historical unittest suite pass; some old stage-specific tests depend on missing historical Git objects in recovered repository",
+    "No ordinary menu-to-campaign interactive run",
+    "No Windows/GPU certification",
+    "Native lifecycle sanitizers only on touched renderer/sprite/entity/harness units; LeakSanitizer off",
+    "Native fade proof is capture and invalid-step rejection, not complete successful fade sequence",
+    "Separately private SHOP and launcher changes not integrated or certified"
+  ],
+  "publication": "Private local only"
+}

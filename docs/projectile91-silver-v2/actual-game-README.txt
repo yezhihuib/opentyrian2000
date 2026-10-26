@@ -1,0 +1,9 @@
+Projectile91 approved silver V2 actual-game evidence
+
+Final frozen candidate global91 owner tested via --global-assets with existing controlled original-event replay. Episodes/physical-levels: E1/12 record173 at ticks70..77; E5/5 record285 at830..837. Original initialization, normal difficulty, seed0x5eed, existing stationary/no-fire input. No modified data, event prefix skipping, actor injection, shot injection, healing or gameplay patch.
+
+Ten processes exit0;80 native SDL_RenderReadPixels BMPs640x400; software renderer/dummy video and audio. Same candidate plus identical original inputs/assets:91present versus91missing (only91classic, unrelated HD identical),91corrupt, whole-scene original-reference; extra unmodified f586public baseline with identical pack and inputs.916 paired logic ticks per comparison; originalstate/RNG/INDEX8/firing/collision/projectile logs equal.40 accepted91draws across16 positive frames; missing/corrupt/reference zero91HDdraws. Missing/corrupt/publicbaseline screenshots byteidentical.9912 differing physical pixels all inside original62cell support after original game viewport copy x-24.
+
+Actual source selection corresponds sole weapon24 consumers173/285 in original HDT and original scheduled events; no emitter lineage instrumentation introduced. Observation demonstrates shared role, not general gameplay certification. Dedicated native harness separately covers active=false ordinary owner lifecycle. These actual-engine captures use controlled probe and are not ordinary menu-to-campaign, no-probe, full-level, interactive desktop, Windows, GPU or 2K evidence. Preliminary scouts/candidates are separate and excluded from final receipts.
+
+Visual review: original/HD firstframe each consumer inspected; silver capsule is identifiable with stable original placement; no expandedglow or stray alpha visible. Screenshots use stock existing pack for unrelated assets, not claim those are current authoring selections.

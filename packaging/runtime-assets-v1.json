@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 36644,
+      "bytes": 36978,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "540b5603e6de0585a3cdad184f8c8cedaea0e2e6",
+      "git_blob": "93cbeb9a1c7152c33adf6dc33d5c27808489bac1",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "b676da793bf5bb88c4308bcae05d11de47761dbafada8c2dee8f4cb9522cf560",
+      "sha256": "79e1da1638da9c89be86321f7060ef5c6b6d03ac6f9d9ff2c886c2d4ea66374b",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2514,6 +2514,15 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "6cbe2e8afc2b4d19204ea5644f9301d14a869de2e73e0a85c2e25f2d58801b6f",
       "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newshe-9-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile91-91-8.hda",
+      "git_blob": "48026f987fd5af6671c424987ff5e72098a0d857",
+      "group": "gameplay",
+      "revision": "current-single-source-projectile91",
+      "sha256": "2940279a66281c16838d4e070421a581ea0e4b5bb91cf85a1cbc532902933e4c",
+      "source_path": "assets/hd/current-compat/projectile91/enemy-projectile91-91-8.hda"
     },
     {
       "bytes": 43036,
@@ -9341,7 +9350,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "3f892c9a49f443f03d4c2494bda52e805987b480ac46241ca23d6d5ec3bb8a3f",
+    "current_production_source_manifest_sha256": "828b4d78ecbf334531418b2903b03f2685656ea0d6a547442111d0540235908d",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

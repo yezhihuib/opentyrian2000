@@ -51,7 +51,7 @@ def current_records(root):
         configs.append((family, policy['selection'], policy['mapping'], selected,
                         'scripts/build_current_art.py --family ' + family))
     for family in ('craft267', 'tank-shell', 'enemy-energy', 'sidekick-body',
-                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided', 'mint27', 'missile', 'rear-p7', 'rear39', 'rear1', 'rear281', 'rear-lobes'):
+                   'plasma-projectile', 'front-multi', 'enemy-orb', 'protron', 'sonic', 'guided', 'mint27', 'missile', 'rear-p7', 'rear39', 'rear1', 'rear281', 'rear-lobes', 'projectile91'):
         module = importlib.import_module('current_' + family.replace('-', '_') + '_compatibility')
         builder = module if hasattr(module, 'selection') else importlib.import_module('build_current_' + family.replace('-', '_'))
         selected = builder.selection(root, read(root, module.SELECTION))
@@ -179,11 +179,18 @@ def current_records(root):
                 for evidence, scope in (('src/rear_multi_p1_mirror.inc', 'existing dedicated Rear role131 normal birth/record/source lease'), ('src/rear_multi_p11_shadow.inc', 'existing dedicated Rear role131 shadow lease')):
                     consumers.append(dict(path=evidence, role=131, material_identity=identity, scope=scope, evidence=evidence))
                 notes.append('Two independent canonical JSON masters203 and43 produce four-head and five-head mirrored pairs. Each source controls only its own four outputs; whole-canvas byte flipX preserves accepted support. Other Rear families and historical182/183 remain separate; no eligibility changes.')
+            if family == 'projectile91':
+                import current_projectile91_compatibility as projectile91
+                outputs += [projectile91.PREVIEW, projectile91.HEADER]
+                consumers.append(dict(path='src/enemy_projectile91_mirror.inc',role=149,
+                                      material_identity=identity,scope='authenticated normal bank8 enemy-shot91 only',
+                                      evidence='src/enemy_projectile91_mirror.inc'))
+                notes.append('One preserved approved silver V2 bitmap controls both original weapon24 consumers173/285; fixed12x14 mask/anchor,8x registration, no movement or collision changes. Christmas and unproven palettes remain classic.')
             if family == 'enemy-orb':
                 notes.append('Two independent masters; ordinary role8 and masked role142 remain separate. Preview overlays only ordinary two; explicit contract view exports all four.')
             result.append(dict(family=family, identity=identity, density=density, role=identity // 10000,
                 status='current-editable', editable_inputs=sources, source_inputs=sources,
-                selection=selection_path, recipe=[command.split()[0]] + ([selected['recipe']['path']] if 'recipe' in selected else []) + (['scripts/current_enemy_orb_compatibility.py'] if family == 'enemy-orb' else []),
+                selection=selection_path, recipe=[command.split()[0]] + ([selected['recipe']['path']] if 'recipe' in selected else []) + (['scripts/current_' + family.replace('-', '_') + '_compatibility.py'] if family in ('enemy-orb','projectile91') else []),
                 derived_outputs=outputs, declared_consumers=consumers,
                 rebuild_commands=['python3 ' + command + ' stage --selection <candidate.json> --stage <new-external-stage-dir>',
                                   'python3 ' + command + ' apply --stage <new-external-stage-dir>',

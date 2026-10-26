@@ -22,6 +22,9 @@ with a two-hunk exact source inverse before Charge; all old fixtures stay frozen
 Guided adds four independent current masters and a two-source P04-only payload
 inverse before Sonic. Exactly four existing runtime rows project back to their
 frozen transports; Sonic's exact quartet and every old destination remain.
+Projectile91 adds one bank8 enemy-shot render role, two exact executable modules,
+one derived header and one runtime destination. Its newest 14-source inverse
+returns authentic public f586 bytes; historical pins and proofs remain unchanged.
 """
 from pathlib import Path
 import copy, hashlib, json, os, subprocess, sys
@@ -66,6 +69,71 @@ def _project_source_once(label,name,raw):
  assert sha(restored)==pin['previous_sha256'],(name,'historical result drift')
  return restored
 
+CURRENT_PROJECTILE91_LEDGER_SHA='e35945a7f74a3c213af3edfbf202c06b207d4d5254ee9641842f78f3b5961d96'
+CURRENT_PROJECTILE91_HEADER='src/current_projectile91_payload_pins.h'
+def current_projectile91_ledger():
+ raw=(ROOT/'tests/current_projectile91_source_projection.json').read_bytes()
+ assert sha(raw)==CURRENT_PROJECTILE91_LEDGER_SHA,'changed current PROJECTILE91 inverse ledger'
+ return json.loads(raw)
+
+def project_current_projectile91_source(name,raw):
+ """Whole-current identity, exact reviewed spans, then authentic public preimage."""
+ pin=current_projectile91_ledger()['files'].get(name)
+ if pin is None:return raw
+ assert sha(raw)==pin['current_sha256'],('unapproved current PROJECTILE91 module',name)
+ lines=raw.splitlines(keepends=True)
+ for edit in reversed(pin['hunks']):
+  a,b=edit['after_lines']
+  assert b''.join(lines[a:b])==edit['after'].encode(),('current PROJECTILE91 hunk drift',name)
+  lines[a:b]=edit['before'].encode().splitlines(keepends=True)
+ result=b''.join(lines)
+ assert sha(result)==pin['previous_sha256'],('current PROJECTILE91 inverse drift',name)
+ return result
+
+def verified_current_projectile91(root=ROOT):
+ scripts=str(ROOT/'scripts')
+ if scripts not in sys.path:sys.path.insert(0,scripts)
+ import current_projectile91_compatibility as c
+ for name in current_projectile91_ledger()['files']:
+  project_current_projectile91_source(name,c.read(root,name))
+ mapping=c.load(root)
+ added=current_projectile91_ledger()['added_sources']
+ assert set(added)=={'src/enemy_projectile91_mirror.inc','src/global_projectile91_mirror.inc'}
+ for name,digest in added.items():
+  path=root/name
+  assert path.is_file() and not path.is_symlink() and sha(c.read(root,name))==digest,('unapproved PROJECTILE91 added source',name)
+ names=c.input_paths(root)|set(added)|set(current_projectile91_ledger()['files'])
+ assets={n:{'sha256':sha(c.read(root,n)),'mode':'100644'} for n in names if n.startswith('assets/')}
+ assert len(assets)==3,'unapproved PROJECTILE91 asset scope'
+ return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,added_sources=added,header_sha256=sha(c.read(root,c.HEADER)))
+
+def before_current_projectile91_inventory(inventory,root=ROOT):
+ return _before_current_projectile91_inventory(inventory,root,_proofs=None)
+
+def _before_current_projectile91_inventory(inventory,root=ROOT, *, _proofs):
+ result=dict(inventory);proof=_current_projection_proof('projectile91',root,_proofs)
+ assert result.pop(CURRENT_PROJECTILE91_HEADER)==proof['header_sha256']
+ for name,digest in proof['added_sources'].items():
+  assert result.pop(name)==digest,('unapproved PROJECTILE91 added source inventory',name)
+ for name in current_projectile91_ledger()['files']:
+  raw=(root/name).read_bytes()
+  assert result.get(name)==sha(raw),('unapproved PROJECTILE91 source inventory',name)
+  result[name]=sha(project_current_projectile91_source(name,raw))
+ return result
+
+def before_current_projectile91_runtime(rows,root=ROOT):
+ return _before_current_projectile91_runtime(rows,root,_proofs=None)
+
+def _before_current_projectile91_runtime(rows,root=ROOT, *, _proofs):
+ assert isinstance(rows,list) and len(rows)==1030,'unexpected PROJECTILE91 runtime scope'
+ assert len({row['destination'] for row in rows})==1030,'duplicate PROJECTILE91 runtime destination'
+ proof=_current_projection_proof('projectile91',root,_proofs)
+ assert set(proof['mapping'])=={'assets/gameplay/enemy-projectile91-91-8.hda'}
+ destination,selected=next(iter(proof['mapping'].items()));raw=(root/selected['source_path']).read_bytes()
+ expected=dict(destination=destination,source_path=selected['source_path'],sha256=sha(raw),bytes=len(raw),git_blob=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest(),group='gameplay',revision='current-single-source-projectile91')
+ assert [r for r in rows if r['destination']==destination]==[expected],'unapproved PROJECTILE91 runtime row'
+ return copy.deepcopy([r for r in rows if r['destination']!=destination])
+
 CURRENT_REAR_LOBES_LEDGER_SHA='54215d6f5abcf6290a1e8e817b3b9684a2bcbaab9286484fb571ad4d54aca2a4'
 def current_rear_lobes_ledger():
  raw=(ROOT/'tests/current_rear_lobes_source_projection.json').read_bytes()
@@ -88,6 +156,7 @@ def before_current_rear_lobes_runtime(rows,root=ROOT):
  return _before_current_rear_lobes_runtime(rows,root,_proofs=None)
 
 def _before_current_rear_lobes_runtime(rows,root=ROOT, *, _proofs):
+ rows=_before_current_projectile91_runtime(rows,root,_proofs=_proofs)
  assert isinstance(rows,list) and len(rows)==1029,'unexpected REAR_LOBES runtime scope / destination scope'
  assert len({row['destination'] for row in rows})==1029,'duplicate REAR_LOBES runtime destination scope'
  proof=_current_projection_proof('rear_lobes',root,_proofs)
@@ -201,12 +270,13 @@ def verified_current_rear39(root=ROOT):
  return dict(assets=assets,paths=names-{c.MAPPING},mapping=mapping,header_sha256=sha(c.read(root,c.HEADER)))
 
 def rear39_runtime_input_paths(root=ROOT):
+ import current_projectile91_compatibility as projectile91
  import current_rear39_compatibility as c
  import current_rear_p7_compatibility as p7
  import current_rear1_compatibility as rear1
  import current_rear281_compatibility as rear281
  import current_rear_lobes_compatibility as rear_lobes
- return c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|rear1.input_paths(root)|{rear1.MAPPING}|rear281.input_paths(root)|{rear281.MAPPING}|rear_lobes.input_paths(root)|{rear_lobes.MAPPING}|set(current_rear_p7_ledger()['files'])
+ return projectile91.input_paths(root)|set(current_projectile91_ledger()['files'])|set(current_projectile91_ledger()['added_sources'])|c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|rear1.input_paths(root)|{rear1.MAPPING}|rear281.input_paths(root)|{rear281.MAPPING}|rear_lobes.input_paths(root)|{rear_lobes.MAPPING}|set(current_rear_p7_ledger()['files'])
 
 def before_current_rear39_runtime(rows,root=ROOT):
  return _before_current_rear39_runtime(rows,root,_proofs=None)
@@ -237,6 +307,7 @@ def current_rear_p7_ledger():
  return json.loads(raw)
 
 def project_current_rear_p7_source(name,raw):
+ raw=project_current_projectile91_source(name,raw)
  pin=current_rear_p7_ledger()['files'].get(name)
  if pin is None:return raw
  assert sha(raw)==pin['current_sha256'],('unapproved current REAR_P7 compositor module',name)
@@ -268,11 +339,11 @@ def before_current_rear_p7_inventory(inventory,root=ROOT):
  return _before_current_rear_p7_inventory(inventory,root,_proofs=None)
 
 def _before_current_rear_p7_inventory(inventory,root=ROOT, *, _proofs):
- result=dict(inventory)
+ result=_before_current_projectile91_inventory(inventory,root,_proofs=_proofs)
  assert result.pop(CURRENT_REAR_P7_HEADER)==_current_projection_proof('rear_p7',root,_proofs)['header_sha256']
  for name in current_rear_p7_ledger()['files']:
   raw=(root/name).read_bytes()
-  assert result.get(name)==sha(raw),('unapproved current REAR_P7 inventory',name)
+  assert result.get(name)==sha(project_current_projectile91_source(name,raw)),('unapproved current REAR_P7 inventory',name)
   result[name]=sha(project_current_rear_p7_source(name,raw))
  return result
 
@@ -347,7 +418,7 @@ def _before_current_missile_inventory(inventory,root=ROOT, *, _proofs):
  assert result.pop(CURRENT_MISSILE_HEADER)==_current_projection_proof('missile',root,_proofs)['header_sha256']
  for name in current_missile_ledger()['files']:
   raw=(root/name).read_bytes()
-  assert result.get(name)==sha(raw),('unapproved current MISSILE inventory',name)
+  assert result.get(name)==sha(project_current_rear_p7_source(name,raw)),('unapproved current MISSILE inventory',name)
   result[name]=sha(project_current_missile_source(name,raw))
  return result
 
@@ -497,7 +568,7 @@ def _before_current_newshf_inventory(inventory,root=ROOT, *, _proofs):
  assert result.pop(CURRENT_NEWSHF_HEADER)==_current_projection_proof('newshf',root,_proofs)['header_sha256']
  for name in current_newshf_ledger()['files']:
   raw=(root/name).read_bytes()
-  assert result.get(name)==sha(raw),('unapproved current NEWSHF inventory',name)
+  assert result.get(name)==sha(project_current_mint27_source(name,raw)),('unapproved current NEWSHF inventory',name)
   result[name]=sha(project_current_newshf_source(name,raw))
  return result
 
@@ -766,6 +837,7 @@ def before_current_protron_runtime(rows,root=ROOT):
 
 def project_source(label,name,raw):
  # Newest first; generated payload values never relax executable source bytes.
+ if label=='current-projectile91':return project_current_projectile91_source(name,raw)
  if label=='current-rear-p7':return project_current_rear_p7_source(name,raw)
  if label=='current-missile':return project_current_missile_source(name,raw)
  if label=='current-mint27':return project_current_mint27_source(name,raw)
@@ -804,7 +876,7 @@ def project_source(label,name,raw):
  return _project_source_once(label,name,raw)
 
 def corrected_source_paths():
- return sorted(set(current_rear_p7_ledger()['files'])|((set(load('enemy-controlled-probe-source.json')['files'])|set(load('enemy-reuse-observe-source.json')['files']))-set(load('enemy-reuse-source.json')['added_sources']))|set(load('enemy-reuse-source.json')['files'])|set(load('newshf-compositor-source.json')['files'])|set(load('newshf-identity-source.json')['files'])|set(load('enemy-orb-source.json')['files'])|set(load('front-multi-source.json')['files'])|set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
+ return sorted((set(current_projectile91_ledger()['files']) & set(load('current-source-inventory.json')['files']))|set(current_rear_p7_ledger()['files'])|((set(load('enemy-controlled-probe-source.json')['files'])|set(load('enemy-reuse-observe-source.json')['files']))-set(load('enemy-reuse-source.json')['added_sources']))|set(load('enemy-reuse-source.json')['files'])|set(load('newshf-compositor-source.json')['files'])|set(load('newshf-identity-source.json')['files'])|set(load('enemy-orb-source.json')['files'])|set(load('front-multi-source.json')['files'])|set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
 
 
 PROTRON_HEADER='src/current_enemy_protron_payload_pins.h'
@@ -1037,6 +1109,9 @@ def _verified_sidekick_current(root=ROOT, *, _proofs):
  expected_sources.update(verified_enemy_reuse_sources(root))
  expected_sources.update(verified_enemy_observe_sources(root))
  expected_sources.update(verified_enemy_probe_sources(root))
+ projectile91=_current_projection_proof('projectile91',root,_proofs)
+ expected_sources.update(projectile91['added_sources'])
+ expected_sources[CURRENT_PROJECTILE91_HEADER]=projectile91['header_sha256']
  expected_sources[PROTRON_HEADER]=verified_protron_current(root)['header_sha256']
  expected_sources[CURRENT_PROTRON_HEADER]=_current_projection_proof('protron',root,_proofs)['header_sha256']
  expected_sources[CURRENT_REAR_P7_HEADER]=_current_projection_proof('rear_p7',root,_proofs)['header_sha256']
@@ -1513,6 +1588,8 @@ def project_p9_inventory(current,root=ROOT):
 
 def _project_p9_inventory(current,root=ROOT, *, _proofs):
  current=copy.deepcopy(current)
+ for name,row in _current_projection_proof('projectile91',root,_proofs)['assets'].items():
+  assert current.pop(name)==row,('unverified current PROJECTILE91 output',name)
  for name,row in _current_projection_proof('rear_lobes',root,_proofs)['assets'].items():
   assert current.get(name)==row,('unverified current Rear lobes output',name)
   del current[name]
@@ -1605,8 +1682,12 @@ def validate_current_sources(root=ROOT):
  reuse=verified_enemy_reuse_sources(root)
  observe=verified_enemy_observe_sources(root)
  probe=verified_enemy_probe_sources(root)
- assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe),'unapproved current source paths'
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe)|{CURRENT_PROJECTILE91_HEADER}|set(current_projectile91_ledger()['added_sources']),'unapproved current source paths'
  projected=dict(actual)
+ projectile91=verified_current_projectile91(root)
+ assert projected.pop(CURRENT_PROJECTILE91_HEADER)==projectile91['header_sha256']
+ for name,digest in projectile91['added_sources'].items():
+  assert projected.pop(name)==digest
  assert projected.pop(CURRENT_REAR_P7_HEADER)==verified_current_rear_p7(root)['header_sha256']
  assert projected.pop(CURRENT_MISSILE_HEADER)==verified_current_missile(root)['header_sha256']
  assert projected.pop(CURRENT_MINT27_HEADER)==verified_current_mint27(root)['header_sha256']
@@ -1645,6 +1726,7 @@ def validate_current_catalog(catalog):
 
 def _current_projection_proof(family,root,context):
  validators={
+  'projectile91':verified_current_projectile91,
   'guided':verified_current_guided,
   'mint27':verified_current_mint27,
   'missile':verified_current_missile,

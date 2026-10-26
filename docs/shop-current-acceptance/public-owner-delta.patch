@@ -1,0 +1,24 @@
+diff --git a/src/sprite.c b/src/sprite.c
+index e3c7766..748f4b6 100644
+--- a/src/sprite.c
++++ b/src/sprite.c
+@@ -25,0 +26 @@
++#include "enemy_reuse_identity.h"
+@@ -541,0 +543,4 @@ void JE_loadCompShapesB(Sprite2_array *sprite2s, FILE *f)
++	render_mirror_newshf_validation_bank_changed(sprite2s);
++#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
++	enemy_reuse_bank_changed(sprite2s);
++#endif
+@@ -549,0 +555,4 @@ void free_sprite2s(Sprite2_array *sprite2s)
++	render_mirror_newshf_validation_bank_changed(sprite2s);
++#if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
++	enemy_reuse_bank_changed(sprite2s);
++#endif
+diff --git a/visualc/opentyrian.vcxproj b/visualc/opentyrian.vcxproj
+index 189bff3..32cb8e8 100644
+--- a/visualc/opentyrian.vcxproj
++++ b/visualc/opentyrian.vcxproj
+@@ -172,0 +173 @@
++    <ClCompile Include="..\src\enemy_reuse_identity.c" />
+@@ -282,0 +284 @@
++    <ClInclude Include="..\src\enemy_reuse_identity.h" />

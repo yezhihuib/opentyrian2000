@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "scope": "Fresh actual SDL software presenter captures from synthetic SHOP fixture.\nRequires existing run_shop_current_acceptance.sh output; no game loop, historical\nscreenshots, Windows or GPU acceptance. Writes only to requested output directory.\n",
+  "dimensions": [
+    [
+      640,
+      400
+    ],
+    [
+      1280,
+      800
+    ],
+    [
+      913,
+      599
+    ]
+  ],
+  "root_variants": [
+    "fonts",
+    "metal",
+    "talon",
+    "front",
+    "generator",
+    "current RFR3 menu"
+  ],
+  "product_categories": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "source_sha256": {
+    "tests/shop_current_capture.c": "26235c2afe8d006f0e2e328a4a3ef8bc62afb577d371a5f8776b2955832f63b1",
+    "tests/shop_current_capture_inspect.py": "0b0e0c96745306c605874a7879d6ec2ad2b3bd61b9be96efc3d348d39f6f7dbd",
+    "tests/shop_current_capture.py": "824443bee93a683b97162b2cdb8c5d450495291029fbcf56e335438ddf6f6148"
+  }
+}

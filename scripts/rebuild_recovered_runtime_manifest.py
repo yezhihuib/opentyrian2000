@@ -190,6 +190,15 @@ def main():
         add(row['source_path'],destination,'newshf-optin')
         rows[destination]['revision']='current-single-source-newshf-nine'
 
+    # Exact additive shared91 enemy-shot role, never another bank/body selector.
+    from current_projectile91_compatibility import load as projectile91_load
+    projectile91 = projectile91_load(root)
+    if set(projectile91) != {'assets/gameplay/enemy-projectile91-91-8.hda'} or set(projectile91)&set(rows):
+        raise ValueError('Unexpected/colliding projectile91 runtime extension')
+    for destination,row in projectile91.items():
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']='current-single-source-projectile91'
+
     # Exactly one private P09 transport; no player227 or duplicate226/244.
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
     for name,raw in protron_derive(root).items():

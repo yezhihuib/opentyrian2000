@@ -1,0 +1,567 @@
+{
+  "added_sources": {
+    "src/enemy_projectile91_mirror.inc": "64fe9cc941ddc6d2bd71bf4b34a25154b9bd86695af60023e56f1c2a39d2f497",
+    "src/global_projectile91_mirror.inc": "31309bdef96922bc830fe3e8f28ee4117c4df0253d1baab03396b3ad954a3829"
+  },
+  "files": {
+    "src/entity_draw.c": {
+      "current_sha256": "9b46c3838d0a5eff1af52c78aa19418d2985f6b680fb96089fd6fb3a8714523a",
+      "hunks": [
+        {
+          "after": " else if(bank.data==spriteSheet8.data&&index==91)\n  game_probe_scene_draw(149,index,x,y,0,ENTITY_NORMAL,mirrored);\n",
+          "after_lines": [
+            102,
+            104
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "232327b462a18dcc7648ef3f993f72bdffb9b9e7de1c6ba9be293ea16f0bc935"
+    },
+    "src/global_cash25_mirror.inc": {
+      "current_sha256": "554194d972448c3880ebe45866743c76d9e55c9f5127cf9d1fc0cdf713c7961c",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            288,
+            289
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "0092bacb866753da033a6d6a54af9fdb787110c74f729bfebf477c0d44e1b64c"
+    },
+    "src/global_green_mirror.inc": {
+      "current_sha256": "7992448caada923a3e7a4fcc59282c4d86603a503b36dc3ac321b1d84131ca60",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            253,
+            254
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "89d292d6cd7c946579c78dc503287afb75c386aa660238d89042c5b2e9e69c15"
+    },
+    "src/global_hitflare_mirror.inc": {
+      "current_sha256": "2ab0900bab0dfa6423f3e3abf84fbbffbfcb21dd205b02d30e6bc54a1261a964",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            246,
+            247
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "0fce1f7c51c774338b352ceaa0bfb58073ee378590f8a2793401be074a22dd10"
+    },
+    "src/global_newshf_mirror.inc": {
+      "current_sha256": "b7b7d4486c834a451ddabe100591f8091fb3ac0353466d3731d5444b0aca64d1",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            222,
+            223
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "14089f205fb786ef60d689dece58de4cd370a5a34198f664cece2b583eb3c361"
+    },
+    "src/global_pulse_mirror.inc": {
+      "current_sha256": "3502ad962fbcff5bcd2bcdfc77bf804627e26974f306eedaa6ca94f206492cf6",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            326,
+            327
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "c51c264d0c32f757fe9465a3c5b045b9234251914410d788451fef82341cfbd4"
+    },
+    "src/global_rotor_mirror.inc": {
+      "current_sha256": "cd080dc92d308951b37a136035b1e7ae9989abdb0acbf197a190da2bcb43eacb",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            219,
+            220
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "144b85e9ea4469346a1bfd4c8a9f38529920e1192e34161ae8eb56c9ab1ad283"
+    },
+    "src/global_shield_mirror.inc": {
+      "current_sha256": "15fd98c0b775e7acae64baa14491f9648c67b605edc1f5b31c7f46566d800b71",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            246,
+            247
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "f0ce8600e2765141cb3af13dfb3241a4ae02102bbb1b30e05df58def16757cb5"
+    },
+    "src/global_small_explosion_mirror.inc": {
+      "current_sha256": "e7aee4178b6489ff764e2565600b8e7533dec2e96cf2c4f239a97c1359faa4ca",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            252,
+            253
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "08f3a16761c530e3413b686915b0f70b726a1247152f3783a950ee5446fbc8e3"
+    },
+    "src/global_smoke_mirror.inc": {
+      "current_sha256": "41f614df07ceaeff772d7eccb9aee80ecfd14532296ce96739d555834928ab34",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            251,
+            252
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "19c570e67a35e48b22d426c6d3b01192aec453a56fc14eb4c443a069de64e024"
+    },
+    "src/global_talon_mirror.inc": {
+      "current_sha256": "04a804277cb362a4f49c5bceba8db6d46706811998c63c5b99728d52a5643461",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            235,
+            236
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "c7456d1ec292faa5e4b895cd7982b1143b6c2b2eaa90a576f0d595f1958a9119"
+    },
+    "src/global_vulcan_mirror.inc": {
+      "current_sha256": "7f07c65ae3628e81a6b0c58f322c799fc9678679ed2f1a5619d6a6acfe652c1f",
+      "hunks": [
+        {
+          "after": "  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;\n",
+          "after_lines": [
+            356,
+            357
+          ],
+          "before": ""
+        }
+      ],
+      "previous_sha256": "e215b407511cb6f90a01dd1f11d4f86268093178dfa2692bbf3c6316d7dced92"
+    },
+    "src/render_mirror.c": {
+      "current_sha256": "1762d1287000f3502ddc6999d7eb84671c03a32e8cf9c3b009e145b6ca2e4cc8",
+      "hunks": [
+        {
+          "after": "enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ENEMY_PROJECTILE91=149, ASSET_ASTEROID1=108 };\n",
+          "after_lines": [
+            81,
+            82
+          ],
+          "before": "enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ASTEROID1=108 };\n"
+        },
+        {
+          "after": "static void projectile91_shutdown(void);\n",
+          "after_lines": [
+            111,
+            112
+          ],
+          "before": ""
+        },
+        {
+          "after": "static bool projectile91_draw(SDL_Surface *,int,int,Sprite2_array,unsigned);\n",
+          "after_lines": [
+            118,
+            119
+          ],
+          "before": ""
+        },
+        {
+          "after": "static const Asset *projectile91_draw_lease;\n",
+          "after_lines": [
+            126,
+            127
+          ],
+          "before": ""
+        },
+        {
+          "after": "static bool global_projectile91_frame,global_projectile91_fault;\nstatic void global_projectile91_shutdown(void);\nstatic void global_projectile91_reset(void);\nstatic void global_projectile91_frame_begin(void);\nstatic bool global_projectile91_pixel(int,int,Uint8,Uint8,int);\nstatic void global_projectile91_final_pixel(SDL_Surface *,Uint8 *);\nstatic void global_projectile91_final_rect(SDL_Surface *,const SDL_Rect *);\nstatic void global_projectile91_end(void);\nstatic bool global_projectile91_compose(MirrorOutputKind,int,int);\nstatic bool global_projectile91_surface_matches(void);\nstatic bool global_projectile91_final_surface_matches(void);\nstatic bool global_projectile91_source_matches(Sprite2_array);\nstatic bool global_projectile91_palette_matches(void);\nstatic void global_projectile91_check_cache(void);\nstatic void global_projectile91_fade_palette(void);\nstatic Uint8 *global_projectile91_owner,*global_projectile91_foreign;\nstatic bool global_projectile91_requested(void);\nstatic bool projectile91_source(Sprite2_array,unsigned);\nstatic bool projectile91_palette_matches(void);\nstatic Asset *projectile91_resource(const char *);\n",
+          "after_lines": [
+            288,
+            308
+          ],
+          "before": ""
+        },
+        {
+          "after": " global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_projectile91_shutdown();global_newshf_shutdown();global_vulcan_root_changed();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();global_asset_directory[0]='\\0';\n",
+          "after_lines": [
+            1348,
+            1349
+          ],
+          "before": " global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_newshf_shutdown();global_vulcan_root_changed();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();global_asset_directory[0]='\\0';\n"
+        },
+        {
+          "after": " global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_projectile91_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();\n render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();\n",
+          "after_lines": [
+            1364,
+            1366
+          ],
+          "before": " global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_rotor_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();\n render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();\n"
+        },
+        {
+          "after": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested()) {render_mirror_hud_reset();return;}\n",
+          "after_lines": [
+            1563,
+            1564
+          ],
+          "before": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}\n"
+        },
+        {
+          "after": " ready=false; active=false;shared_hud_frame=false;global_talon_frame=global_shield_frame=global_pulse_frame=global_hitflare_frame=global_projectile91_frame=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_vulcan_frame=false; suppress=false;suppress_green_smoke=false;suppress_cloud=false;\n",
+          "after_lines": [
+            1570,
+            1571
+          ],
+          "before": " ready=false; active=false;shared_hud_frame=false;global_talon_frame=global_shield_frame=global_pulse_frame=global_hitflare_frame=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_vulcan_frame=false; suppress=false;suppress_green_smoke=false;suppress_cloud=false;\n"
+        },
+        {
+          "after": " if(!mirror_enabled()&&!enemy_reuse_observe_active()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested()) return;\n",
+          "after_lines": [
+            1572,
+            1573
+          ],
+          "before": " if(!mirror_enabled()&&!enemy_reuse_observe_active()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()) return;\n"
+        },
+        {
+          "after": " if(!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested()) return;\n",
+          "after_lines": [
+            1574,
+            1575
+          ],
+          "before": " if(!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()) return;\n"
+        },
+        {
+          "after": " global_talon_frame_begin();global_shield_frame_begin();global_pulse_frame_begin();global_hitflare_frame_begin();global_smoke_frame_begin();global_green_frame_begin();global_small_explosion_frame_begin();global_cash25_frame_begin();global_rotor_frame_begin();global_projectile91_frame_begin();global_newshf_frame_begin();global_vulcan_frame_begin();\n",
+          "after_lines": [
+            1611,
+            1612
+          ],
+          "before": " global_talon_frame_begin();global_shield_frame_begin();global_pulse_frame_begin();global_hitflare_frame_begin();global_smoke_frame_begin();global_green_frame_begin();global_small_explosion_frame_begin();global_cash25_frame_begin();global_rotor_frame_begin();global_newshf_frame_begin();global_vulcan_frame_begin();\n"
+        },
+        {
+          "after": " global_talon_final_pixel(surface,address);global_shield_final_pixel(surface,address);global_pulse_final_pixel(surface,address);global_hitflare_final_pixel(surface,address);global_smoke_final_pixel(surface,address);global_green_final_pixel(surface,address);global_small_explosion_final_pixel(surface,address);global_cash25_final_pixel(surface,address);global_rotor_final_pixel(surface,address);global_projectile91_final_pixel(surface,address);global_newshf_final_pixel(surface,address);global_vulcan_final_pixel(surface,address);\n",
+          "after_lines": [
+            1631,
+            1632
+          ],
+          "before": " global_talon_final_pixel(surface,address);global_shield_final_pixel(surface,address);global_pulse_final_pixel(surface,address);global_hitflare_final_pixel(surface,address);global_smoke_final_pixel(surface,address);global_green_final_pixel(surface,address);global_small_explosion_final_pixel(surface,address);global_cash25_final_pixel(surface,address);global_rotor_final_pixel(surface,address);global_newshf_final_pixel(surface,address);global_vulcan_final_pixel(surface,address);\n"
+        },
+        {
+          "after": " if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_projectile91_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||surface!=game_screen) {render_mirror_shadow_end();return;}\n",
+          "after_lines": [
+            1633,
+            1634
+          ],
+          "before": " if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||surface!=game_screen) {render_mirror_shadow_end();return;}\n"
+        },
+        {
+          "after": " if(global_projectile91_pixel(x,y,before,*address,style))return;\n",
+          "after_lines": [
+            1643,
+            1644
+          ],
+          "before": ""
+        },
+        {
+          "after": " global_talon_final_rect(s,rect);global_shield_final_rect(s,rect);global_pulse_final_rect(s,rect);global_hitflare_final_rect(s,rect);global_smoke_final_rect(s,rect);global_green_final_rect(s,rect);global_small_explosion_final_rect(s,rect);global_cash25_final_rect(s,rect);global_rotor_final_rect(s,rect);global_projectile91_final_rect(s,rect);global_newshf_final_rect(s,rect);global_vulcan_final_rect(s,rect);\n if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_projectile91_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||s!=game_screen) {common_pause_rect(s,rect);return;}\n",
+          "after_lines": [
+            1707,
+            1709
+          ],
+          "before": " global_talon_final_rect(s,rect);global_shield_final_rect(s,rect);global_pulse_final_rect(s,rect);global_hitflare_final_rect(s,rect);global_smoke_final_rect(s,rect);global_green_final_rect(s,rect);global_small_explosion_final_rect(s,rect);global_cash25_final_rect(s,rect);global_rotor_final_rect(s,rect);global_newshf_final_rect(s,rect);global_vulcan_final_rect(s,rect);\n if((!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)||s!=game_screen) {common_pause_rect(s,rect);return;}\n"
+        },
+        {
+          "after": " if(!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_projectile91_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;\n",
+          "after_lines": [
+            1721,
+            1722
+          ],
+          "before": " if(!active&&!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;\n"
+        },
+        {
+          "after": "#include \"global_projectile91_mirror.inc\"\n",
+          "after_lines": [
+            1775,
+            1776
+          ],
+          "before": ""
+        },
+        {
+          "after": "void render_mirror_global_reset(void){render_mirror_newshf_validation_reset();global_hitflare_reset();global_smoke_reset();global_green_reset();global_small_explosion_reset();global_cash25_reset();global_rotor_reset();global_projectile91_reset();global_newshf_reset();global_vulcan_reset();global_pulse_reset();global_shield_reset();global_talon_reset();}\n",
+          "after_lines": [
+            1845,
+            1846
+          ],
+          "before": "void render_mirror_global_reset(void){render_mirror_newshf_validation_reset();global_hitflare_reset();global_smoke_reset();global_green_reset();global_small_explosion_reset();global_cash25_reset();global_rotor_reset();global_newshf_reset();global_vulcan_reset();global_pulse_reset();global_shield_reset();global_talon_reset();}\n"
+        },
+        {
+          "after": " if(a->bank==ASSET_ENEMY_PROJECTILE91)return false;\n",
+          "after_lines": [
+            1858,
+            1859
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(a->bank==ASSET_ENEMY_PROJECTILE91&&(a!=projectile91_draw_lease||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;\n",
+          "after_lines": [
+            2859,
+            2860
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1&&a->bank!=ASSET_ASTEROID1_NEWSHP&&a->bank!=ASSET_ASTEROID1_NEWSHS&&a->bank!=ASSET_ASTEROID1_TRIPLE275&&a->bank!=ASSET_ASTEROID1_COLUMNS276&&a->bank!=ASSET_ASTEROID1_TURRET273&&a->bank!=ASSET_ASTEROID1_PROJECTILE304&&a->bank!=ASSET_ASTEROID1_FIRING270&&a->bank!=ASSET_ASTEROID1_FIRING285&&a->bank!=ASSET_ASTEROID1_ENEMY_ORB112113&&a->bank!=ASSET_ASTEROID1_TERRAIN144&&a->bank!=ASSET_ENEMY_PROJECTILE91)return false;\n",
+          "after_lines": [
+            2865,
+            2866
+          ],
+          "before": " if(asteroid_hd_enabled&&a->bank!=ASSET_ASTEROID1&&a->bank!=ASSET_ASTEROID1_NEWSHP&&a->bank!=ASSET_ASTEROID1_NEWSHS&&a->bank!=ASSET_ASTEROID1_TRIPLE275&&a->bank!=ASSET_ASTEROID1_COLUMNS276&&a->bank!=ASSET_ASTEROID1_TURRET273&&a->bank!=ASSET_ASTEROID1_PROJECTILE304&&a->bank!=ASSET_ASTEROID1_FIRING270&&a->bank!=ASSET_ASTEROID1_FIRING285&&a->bank!=ASSET_ASTEROID1_ENEMY_ORB112113&&a->bank!=ASSET_ASTEROID1_TERRAIN144)return false;\n"
+        },
+        {
+          "after": " /* Shared normal91 is ordinary enemy art; optional304 retains its own scope. */\n if(index==91) {\n  if(global_asset_directory[0]) {global_projectile91_observed_preflight();return global_projectile91_draw(surface,x,y,bank,index)>0;}\n  return projectile91_draw(surface,x,y,bank,index);\n }\n",
+          "after_lines": [
+            3479,
+            3484
+          ],
+          "before": " /* Only this enemy-shot role can lease the optional shared normal304 art. */\n"
+        },
+        {
+          "after": "#include \"enemy_projectile91_mirror.inc\"\n",
+          "after_lines": [
+            3813,
+            3814
+          ],
+          "before": ""
+        },
+        {
+          "after": " global_hitflare_end();global_smoke_end();global_green_end();global_small_explosion_end();global_cash25_end();global_rotor_end();global_projectile91_end();global_newshf_end();global_vulcan_end();global_pulse_end();global_shield_end();global_talon_end();asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }\n",
+          "after_lines": [
+            4433,
+            4434
+          ],
+          "before": " global_hitflare_end();global_smoke_end();global_green_end();global_small_explosion_end();global_cash25_end();global_rotor_end();global_newshf_end();global_vulcan_end();global_pulse_end();global_shield_end();global_talon_end();asteroid1_talon_blend_end(); render_mirror_shadow_end();cash25_fixed_value=false;cash75_fixed_value=false;cash50_fixed_value=false;gem100_fixed_value=false;gem250_fixed_value=false;data_fixed_value=false;fixed_pickup_flash=false;suppress=false;suppress_green_smoke=false;suppress_cloud=false; }\n"
+        },
+        {
+          "after": " if(global_vulcan_observe_blend(surface,address)||global_green_observe_blend(surface,address)||global_smoke_observe_blend(surface,address)||global_projectile91_observe_blend(surface,address)||global_rotor_observe_blend(surface,address)||global_cash25_observe_blend(surface,address)||global_small_explosion_observe_blend(surface,address)||global_hitflare_observe_blend(surface,address)||global_pulse_observe_blend(surface,address)||global_shield_observe_blend(surface,address)||global_talon_observe_blend(surface,address)){render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}\n",
+          "after_lines": [
+            4835,
+            4836
+          ],
+          "before": " if(global_vulcan_observe_blend(surface,address)||global_green_observe_blend(surface,address)||global_smoke_observe_blend(surface,address)||global_rotor_observe_blend(surface,address)||global_cash25_observe_blend(surface,address)||global_small_explosion_observe_blend(surface,address)||global_hitflare_observe_blend(surface,address)||global_pulse_observe_blend(surface,address)||global_shield_observe_blend(surface,address)||global_talon_observe_blend(surface,address)){render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}\n"
+        },
+        {
+          "after": " if(!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_projectile91_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;\n",
+          "after_lines": [
+            4989,
+            4990
+          ],
+          "before": " if(!shared_hud_frame&&!global_talon_frame&&!global_shield_frame&&!global_pulse_frame&&!global_hitflare_frame&&!global_small_explosion_frame&&!global_rotor_frame&&!global_newshf_frame&&!global_cash25_frame&&!global_green_frame&&!global_smoke_frame&&!global_vulcan_frame)return;\n"
+        },
+        {
+          "after": " if((!shared_hud_requested()&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested())||!VGAScreenSeg||!VGAScreenSeg->pixels||\n",
+          "after_lines": [
+            4991,
+            4992
+          ],
+          "before": " if((!shared_hud_requested()&&!global_talon_requested()&&!global_newshf_requested())||!VGAScreenSeg||!VGAScreenSeg->pixels||\n"
+        },
+        {
+          "after": "  shared_hud_frame=global_talon_frame=global_shield_frame=global_pulse_frame=global_hitflare_frame=global_projectile91_frame=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_vulcan_frame=false;ready=false;return;\n",
+          "after_lines": [
+            4996,
+            4997
+          ],
+          "before": "  shared_hud_frame=global_talon_frame=global_shield_frame=global_pulse_frame=global_hitflare_frame=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_vulcan_frame=false;ready=false;return;\n"
+        },
+        {
+          "after": " retained_global=global_projectile91_compose(kind,lightx,lighty)||retained_global;\n",
+          "after_lines": [
+            5015,
+            5016
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(!enemy_reuse_proof()||!global_newshf_finish_proof()||!global_newshf_output_proof(kind,lightx,lighty)||!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_projectile91_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {\n",
+          "after_lines": [
+            5043,
+            5044
+          ],
+          "before": " if(!enemy_reuse_proof()||!global_newshf_finish_proof()||!global_newshf_output_proof(kind,lightx,lighty)||!global_talon_finish_proof()||!global_vulcan_finish_proof()||!global_green_finish_proof()||!global_smoke_finish_proof()||!global_rotor_finish_proof()||!global_cash25_finish_proof()||!global_small_explosion_finish_proof()||!global_hitflare_finish_proof()||!global_pulse_finish_proof()||!global_shield_finish_proof()) {\n"
+        },
+        {
+          "after": "  global_talon_frame=global_talon_cached=global_shield_frame=global_shield_cached=global_pulse_frame=global_pulse_cached=global_hitflare_frame=global_hitflare_cached=global_projectile91_frame=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_projectile91_cached=global_rotor_cached=global_cash25_cached=global_small_explosion_cached=global_green_cached=global_smoke_cached=global_vulcan_frame=global_vulcan_cached=false;fade_mode=0;return;\n",
+          "after_lines": [
+            5045,
+            5046
+          ],
+          "before": "  global_talon_frame=global_talon_cached=global_shield_frame=global_shield_cached=global_pulse_frame=global_pulse_cached=global_hitflare_frame=global_hitflare_cached=global_rotor_frame=global_cash25_frame=global_small_explosion_frame=global_green_frame=global_smoke_frame=global_rotor_cached=global_cash25_cached=global_small_explosion_cached=global_green_cached=global_smoke_cached=global_vulcan_frame=global_vulcan_cached=false;fade_mode=0;return;\n"
+        },
+        {
+          "after": "    (global_projectile91_frame&&(!global_projectile91_surface_matches()||!global_projectile91_final_surface_matches()))||\n",
+          "after_lines": [
+            5053,
+            5054
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(asteroid_hd_enabled&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested()) {render_mirror_hud_reset();return;}\n",
+          "after_lines": [
+            5067,
+            5068
+          ],
+          "before": " if(asteroid_hd_enabled&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}\n"
+        },
+        {
+          "after": "  if(global_newshf_frame||shared_hud_frame||global_talon_frame||global_shield_frame||global_pulse_frame||global_hitflare_frame||global_small_explosion_frame||global_projectile91_frame||global_rotor_frame||global_cash25_frame||global_green_frame||global_smoke_frame||global_vulcan_frame)shared_hud_finish(kind,lightx,lighty);\n",
+          "after_lines": [
+            5077,
+            5078
+          ],
+          "before": "  if(global_newshf_frame||shared_hud_frame||global_talon_frame||global_shield_frame||global_pulse_frame||global_hitflare_frame||global_small_explosion_frame||global_rotor_frame||global_cash25_frame||global_green_frame||global_smoke_frame||global_vulcan_frame)shared_hud_finish(kind,lightx,lighty);\n"
+        },
+        {
+          "after": " retained_global=global_projectile91_compose(kind,lightx,lighty)||retained_global;\n",
+          "after_lines": [
+            5133,
+            5134
+          ],
+          "before": ""
+        },
+        {
+          "after": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested()) {render_mirror_hud_reset();return;}\n",
+          "after_lines": [
+            5182,
+            5183
+          ],
+          "before": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}\n"
+        },
+        {
+          "after": " global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_projectile91_check_cache();global_newshf_check_cache();global_vulcan_check_cache();\n",
+          "after_lines": [
+            5185,
+            5186
+          ],
+          "before": " global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_newshf_check_cache();global_vulcan_check_cache();\n"
+        },
+        {
+          "after": " if((!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested())||game_probe_density<2||!output||!cached||first!=0||last!=255)return;\n",
+          "after_lines": [
+            5187,
+            5188
+          ],
+          "before": " if((!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested())||game_probe_density<2||!output||!cached||first!=0||last!=255)return;\n"
+        },
+        {
+          "after": "  if(!global_talon_fade_buffer_safe()||!global_shield_fade_buffer_safe()||!global_pulse_fade_buffer_safe()||!global_vulcan_fade_buffer_safe()||!global_hitflare_fade_buffer_safe()||!global_green_fade_buffer_safe()||!global_smoke_fade_buffer_safe()||!global_rotor_fade_buffer_safe()||!global_projectile91_fade_buffer_safe()||!global_cash25_fade_buffer_safe()||!global_small_explosion_fade_buffer_safe())return;\n",
+          "after_lines": [
+            5196,
+            5197
+          ],
+          "before": "  if(!global_talon_fade_buffer_safe()||!global_shield_fade_buffer_safe()||!global_pulse_fade_buffer_safe()||!global_vulcan_fade_buffer_safe()||!global_hitflare_fade_buffer_safe()||!global_green_fade_buffer_safe()||!global_smoke_fade_buffer_safe()||!global_rotor_fade_buffer_safe()||!global_cash25_fade_buffer_safe()||!global_small_explosion_fade_buffer_safe())return;\n"
+        },
+        {
+          "after": " if(fade_mode&&global_talon_fade_capture()&&global_shield_fade_capture()&&global_pulse_fade_capture()&&global_vulcan_fade_capture()&&global_hitflare_fade_capture()&&global_green_fade_capture()&&global_smoke_fade_capture()&&global_small_explosion_fade_capture()&&global_rotor_fade_capture()&&global_projectile91_fade_capture()&&global_cash25_fade_capture())last_output_valid=true;\n",
+          "after_lines": [
+            5210,
+            5211
+          ],
+          "before": " if(fade_mode&&global_talon_fade_capture()&&global_shield_fade_capture()&&global_pulse_fade_capture()&&global_vulcan_fade_capture()&&global_hitflare_fade_capture()&&global_green_fade_capture()&&global_smoke_fade_capture()&&global_small_explosion_fade_capture()&&global_rotor_fade_capture()&&global_cash25_fade_capture())last_output_valid=true;\n"
+        },
+        {
+          "after": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested()) {render_mirror_hud_reset();return;}\n",
+          "after_lines": [
+            5215,
+            5216
+          ],
+          "before": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return;}\n"
+        },
+        {
+          "after": " if(!global_newshf_fade_decline()||!global_talon_fade_step_valid(steps)||!global_shield_fade_step_valid(steps)||!global_pulse_fade_step_valid(steps)||!global_vulcan_fade_step_valid(steps)||!global_hitflare_fade_step_valid(steps)||!global_green_fade_step_valid(steps)||!global_smoke_fade_step_valid(steps)||!global_rotor_fade_step_valid(steps)||!global_projectile91_fade_step_valid(steps)||!global_cash25_fade_step_valid(steps)||!global_small_explosion_fade_step_valid(steps))return;\n",
+          "after_lines": [
+            5218,
+            5219
+          ],
+          "before": " if(!global_newshf_fade_decline()||!global_talon_fade_step_valid(steps)||!global_shield_fade_step_valid(steps)||!global_pulse_fade_step_valid(steps)||!global_vulcan_fade_step_valid(steps)||!global_hitflare_fade_step_valid(steps)||!global_green_fade_step_valid(steps)||!global_smoke_fade_step_valid(steps)||!global_rotor_fade_step_valid(steps)||!global_cash25_fade_step_valid(steps)||!global_small_explosion_fade_step_valid(steps))return;\n"
+        },
+        {
+          "after": " global_talon_fade_palette();global_shield_fade_palette();global_pulse_fade_palette();global_hitflare_fade_palette();global_smoke_fade_palette();global_green_fade_palette();global_small_explosion_fade_palette();global_cash25_fade_palette();global_rotor_fade_palette();global_projectile91_fade_palette();global_vulcan_fade_palette();\n",
+          "after_lines": [
+            5262,
+            5263
+          ],
+          "before": " global_talon_fade_palette();global_shield_fade_palette();global_pulse_fade_palette();global_hitflare_fade_palette();global_smoke_fade_palette();global_green_fade_palette();global_small_explosion_fade_palette();global_cash25_fade_palette();global_rotor_fade_palette();global_vulcan_fade_palette();\n"
+        },
+        {
+          "after": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested()) {render_mirror_hud_reset();return false;}\n",
+          "after_lines": [
+            5274,
+            5275
+          ],
+          "before": " if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()) {render_mirror_hud_reset();return false;}\n"
+        },
+        {
+          "after": " global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_projectile91_check_cache();global_newshf_check_cache();global_vulcan_check_cache();\n",
+          "after_lines": [
+            5283,
+            5284
+          ],
+          "before": " global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_newshf_check_cache();global_vulcan_check_cache();\n"
+        }
+      ],
+      "previous_sha256": "bd160bb74cb6b53f3da1e31d1ee6b8d858a3622d7fdd7fda5f167245064d6b9a"
+    },
+    "src/tyrian2.c": {
+      "current_sha256": "28594978b928983d677992025fff27b1fc62396b99a26388ae4d42bd9ee066fc",
+      "hunks": [
+        {
+          "after": "\t\t\t\t\t\t\tif (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147 || sprite == 304 || sprite == 91)\n",
+          "after_lines": [
+            1944,
+            1945
+          ],
+          "before": "\t\t\t\t\t\t\tif (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147 || sprite == 304)\n"
+        }
+      ],
+      "previous_sha256": "201be3480a792437df0dee54fa72ec5f6f643552dd5512a82d119174345572ea"
+    }
+  },
+  "integration_base": "f58647e7ff74e2276a1413b3675e651f1232bb41",
+  "provenance": "Exact inverse to authentic public f586 source bytes; no fabricated private parent and no gameplay-equivalence claim from unchanged hashes.",
+  "schema": "current-projectile91-source-projection-v1"
+}

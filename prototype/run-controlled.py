@@ -1,9 +1,14 @@
 """Bounded actual JE_main runs using local data and isolated config directories."""
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launcher_paths import dependency
 import argparse,csv,hashlib,json,os,subprocess,time
-p=argparse.ArgumentParser();p.add_argument('--modes',default='classic,classic-again,4,8,missing,invalid,repeat');p.add_argument('--ticks',type=int,default=600);p.add_argument('--exe');p.add_argument('--assets');p.add_argument('--local-blend',action='store_true');p.add_argument('--scene',choices=['v1','enemy-hit','fade-cycle','banking'],default='v1');p.add_argument('--prefix');p.add_argument('--scene-assets',choices=['off','enemy','terrain','all'],default='off');p.add_argument('--original-reference',action='store_true');p.add_argument('--known-explosion-blend',action='store_true');p.add_argument('--capture-blend',action='store_true');p.add_argument('--native-window',action='store_true');p.add_argument('--legacy-exe',action='store_true');p.add_argument('--allow-natural-end',action='store_true');p.add_argument('--png-captures',action='store_true');p.add_argument('--talon-bank',choices=['5','13'],default='13');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--modes',default='classic,classic-again,4,8,missing,invalid,repeat');p.add_argument('--ticks',type=int,default=600);p.add_argument('--exe');p.add_argument('--assets');p.add_argument('--data',help='Original data directory; default: ../runtime-data/tyrian2000');p.add_argument('--local-blend',action='store_true');p.add_argument('--scene',choices=['v1','enemy-hit','fade-cycle','banking'],default='v1');p.add_argument('--prefix');p.add_argument('--scene-assets',choices=['off','enemy','terrain','all'],default='off');p.add_argument('--original-reference',action='store_true');p.add_argument('--known-explosion-blend',action='store_true');p.add_argument('--capture-blend',action='store_true');p.add_argument('--native-window',action='store_true');p.add_argument('--legacy-exe',action='store_true');p.add_argument('--allow-natural-end',action='store_true');p.add_argument('--png-captures',action='store_true');p.add_argument('--talon-bank',choices=['5','13'],default='13');a=p.parse_args()
 repo=Path(__file__).resolve().parent.parent; task=repo.parent
-exe=Path(a.exe).resolve() if a.exe else repo/'opentyrian-x64-Release.exe'
+exe=dependency(p,a.exe,repo/'opentyrian-x64-Release.exe','exe')
+data=dependency(p,a.data,task/'runtime-data/tyrian2000','data')
+if a.assets:a.assets=dependency(p,a.assets,None,'assets')
 
 def compress_finished_captures(out,records,finished=False):
  """Store lossless PNG proofs; permanently delete redundant BMPs after the run finishes."""
@@ -68,7 +73,7 @@ for requested in a.modes.split(','):
  if requested.endswith('-local'):mode='local'
  if requested in ['repeat-local','skip-local','coverage-fault-local']:mode=requested[:-6]
  out=task/'controlled-runs'/label;out.mkdir(parents=True,exist_ok=True)
- cmd=[str(exe),'--data='+str(task/'runtime-data/tyrian2000'),'--no-sound','--no-joystick','--no-xmas','--render-test='+mode,'--render-ticks='+str(a.ticks)]
+ cmd=[str(exe),'--data='+str(data),'--no-sound','--no-joystick','--no-xmas','--render-test='+mode,'--render-ticks='+str(a.ticks)]
  if a.assets:cmd+=['--render-assets='+str(Path(a.assets).resolve())]
  cmd+=['--render-talon-bank='+a.talon_bank]
  if a.local_blend:cmd+=['--render-local-blend']

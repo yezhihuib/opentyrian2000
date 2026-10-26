@@ -266,6 +266,7 @@ def authoring_input_fingerprints(root):
     paths|={'scripts/current_charge_body_recipe.py','scripts/current_sidekick_body_compatibility.py','scripts/build_current_sidekick_body.py',
             'scripts/current_plasma_projectile_compatibility.py','scripts/build_current_plasma_projectile.py',
             'scripts/current_front_multi_compatibility.py','scripts/build_current_front_multi.py',
+            'scripts/current_projectile91_compatibility.py','scripts/build_current_projectile91.py',
             'scripts/current_enemy_orb_compatibility.py','scripts/build_current_enemy_orb.py',
             'scripts/build_newshf_hd.py','scripts/check_newshf_phase_a.py',
             'scripts/current_newshf_compatibility.py','scripts/build_current_newshf.py'}
@@ -419,4 +420,5 @@ def independent_input_paths(root):
     from current_rear1_compatibility import input_paths as rear1_input_paths, MAPPING as REAR1_MAPPING
     from current_rear281_compatibility import input_paths as rear281_input_paths, MAPPING as REAR281_MAPPING
     from current_rear_lobes_compatibility import input_paths as rear_lobes_input_paths, MAPPING as REAR_LOBES_MAPPING
-    return rear_lobes_input_paths(root)|{REAR_LOBES_MAPPING}|rear281_input_paths(root)|{REAR281_MAPPING}|rear1_input_paths(root)|{REAR1_MAPPING}|rear39_input_paths(root)|{REAR39_MAPPING}|rear_p7_input_paths(root)|{REAR_P7_MAPPING}|missile_input_paths(root)|{MISSILE_MAPPING}|mint27_input_paths(root)|{MINT27_MAPPING}|guided_input_paths(root)|{GUIDED_MAPPING}|sonic_input_paths(root)|{SONIC_MAPPING}|protron_input_paths(root)|{PROTRON_MAPPING}|p09|newshf_input_paths(root)|charge_input_paths(root)|mf_input_paths(root)|plasma_input_paths(root)|front_multi_input_paths(root)|orb_input_paths(root)|{CHARGE_MAPPING,MF_MAPPING,PLASMA_MAPPING,FRONT_MULTI_MAPPING,ORB_MAPPING}
+    from current_projectile91_compatibility import input_paths as projectile91_input_paths
+    return projectile91_input_paths(root)|rear_lobes_input_paths(root)|{REAR_LOBES_MAPPING}|rear281_input_paths(root)|{REAR281_MAPPING}|rear1_input_paths(root)|{REAR1_MAPPING}|rear39_input_paths(root)|{REAR39_MAPPING}|rear_p7_input_paths(root)|{REAR_P7_MAPPING}|missile_input_paths(root)|{MISSILE_MAPPING}|mint27_input_paths(root)|{MINT27_MAPPING}|guided_input_paths(root)|{GUIDED_MAPPING}|sonic_input_paths(root)|{SONIC_MAPPING}|protron_input_paths(root)|{PROTRON_MAPPING}|p09|newshf_input_paths(root)|charge_input_paths(root)|mf_input_paths(root)|plasma_input_paths(root)|front_multi_input_paths(root)|orb_input_paths(root)|{CHARGE_MAPPING,MF_MAPPING,PLASMA_MAPPING,FRONT_MULTI_MAPPING,ORB_MAPPING}

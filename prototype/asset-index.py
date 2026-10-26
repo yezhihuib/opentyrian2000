@@ -1,5 +1,9 @@
 """Build/query an observed draw-reference index; replay by segment or sheet-qualified material."""
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launcher_paths import dependency
+import shlex
 import argparse,csv,hashlib,json,collections,subprocess,struct,os,datetime,shutil,sys
 repo=Path(__file__).resolve().parent.parent;root=repo.parent
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -16,16 +20,17 @@ def hdstate(x,pack):
  p=pack/name if name else None
  return {'status':'mapped external asset available' if p and p.exists() else 'original fallback / no external binding','file':name,'sha256':sha(p) if p and p.exists() else None,'header_values':list(struct.unpack('<6I',p.read_bytes()[4:28])) if p and p.exists() else None,'note':'Availability, not proof that every effect/occlusion draw uses HD; replay reloads pack in a fresh process.'}
 p=argparse.ArgumentParser();sub=p.add_subparsers(dest='command',required=True)
-b=sub.add_parser('build');b.add_argument('--run',type=Path,required=True);b.add_argument('--output',type=Path,required=True);b.add_argument('--assets',type=Path)
+b=sub.add_parser('build');b.add_argument('--run',type=Path,required=True);b.add_argument('--output',type=Path,required=True);b.add_argument('--assets',type=Path);b.add_argument('--data',type=Path,help='Original data directory; default: ../runtime-data/tyrian2000')
 for name in ['list','find','play','replace']:
  q=sub.add_parser(name);q.add_argument('--index',type=Path,default=repo/'assets/hd/tyrian-e1-level9-index.json')
  if name in ['list','play']:q.add_argument('--segment',type=int)
  if name!='list':q.add_argument('--sheet');q.add_argument('--id',type=int);q.add_argument('--category')
- if name=='play':q.add_argument('--no-launch',action='store_true');q.add_argument('--headless',action='store_true');q.add_argument('--running',action='store_true');q.add_argument('--capture',action='store_true');q.add_argument('--capture-start',type=int,default=-1);q.add_argument('--capture-count',type=int,default=36);q.add_argument('--window-only',action='store_true');q.add_argument('--explosion-log',action='store_true');q.add_argument('--talon13',action='store_true');q.add_argument('--talon5',action='store_true');q.add_argument('--until',type=int,default=6000);q.add_argument('--assets',type=Path)
+ if name=='play':q.add_argument('--exe',type=Path,help='Game executable; default: repo/opentyrian-x64-Release.exe');q.add_argument('--data',type=Path,help='Original data directory; default: ../runtime-data/tyrian2000');q.add_argument('--no-launch',action='store_true');q.add_argument('--headless',action='store_true');q.add_argument('--running',action='store_true');q.add_argument('--capture',action='store_true');q.add_argument('--capture-start',type=int,default=-1);q.add_argument('--capture-count',type=int,default=36);q.add_argument('--window-only',action='store_true');q.add_argument('--explosion-log',action='store_true');q.add_argument('--talon13',action='store_true');q.add_argument('--talon5',action='store_true');q.add_argument('--until',type=int,default=6000);q.add_argument('--assets',type=Path)
  if name=='replace':q.add_argument('--hda',type=Path,required=True);q.add_argument('--assets',type=Path,required=True)
  if name in ['list','find']:q.add_argument('--assets',type=Path)
 a=p.parse_args()
 if a.command=='build':
+ original_data=dependency(p,a.data,root/'runtime-data/tyrian2000','data')
  if a.assets is None:
   import uuid
   sys.path.insert(0,str(repo/'scripts'))
@@ -49,7 +54,7 @@ if a.command=='build':
   selected=[int(x[len(prefix):]) for x in info['argv'] if x.startswith(prefix)]
   if selected and selected[-1]!=expected:p.error('This first index builder supports the observed episode1 physical-level9 route only')
  if any(x.startswith('--render-scene=') and x!='--render-scene=enemy-hit' for x in info['argv']):p.error('This first index builder requires stationary enemy-hit input')
- data={'schema':'opentyrian-observed-segment-material-index-v1','replay':{'episode':1,'physical_level':9,'level_name':'TYRIAN','seed':'0x5eed','input':'enemy-hit: stationary, no firing; original natural enemies/projectiles','mode':'existing controlled level entry, original event engine and indexed drawing','index_window_ms':15000,'time_basis':'sum of actual configured original frameCountMax * PIT delayPeriod for each simulated logic tick; excludes debug pause and video playback FPS','source_HEAD':subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo).decode().strip(),'source_sha256':info.get('source_sha256',{}),'exe_sha256':info['exe_sha256'],'data_sha256':{n:sha(root/'runtime-data/tyrian2000'/n) for n in ['tyrian1.lvl','tyrian.shp','newsh2.shp','shapesz.dat','palette.dat']},'pack_directory':str(a.assets.resolve()),'reentry':'Fresh original initialization plus deterministic replay from tick0; no pointer jump, snapshots or artificial spawned enemy scene'},'coverage':{'first_tick':0,'last_tick':len(clock)-1,'nominal_end_ms':float(clock[-1]['end_ms']),'draw_reference_rows':len(draws),'kind':'Original ordered draw references whose rect intersects original playfield; later occlusion may cover them','limitations':['One observed level/input/seed/mode only, not static full coverage for other routes, firing, RNG or difficulty','Enemy IDs normalize original quad base; tile_IDs retain actual quadrants; sheet namespace prevents collisions','Terrain layers and player/projectile/effect sprite2 references recorded; UI fonts, procedural particles and menu assets excluded','Last index window may be partial; playback may continue beyond recorded coverage but later materials are not indexed','Replacement status is frozen at build; regenerate or inspect current pack after editing external assets']},'segments':[segments[x] for x in sorted(segments)],'materials':materials,'trace_sha256':{n:sha(r/n) for n in ['asset-debug-clock.tsv','asset-debug-materials.tsv','state.tsv']}}
+ data={'schema':'opentyrian-observed-segment-material-index-v1','replay':{'episode':1,'physical_level':9,'level_name':'TYRIAN','seed':'0x5eed','input':'enemy-hit: stationary, no firing; original natural enemies/projectiles','mode':'existing controlled level entry, original event engine and indexed drawing','index_window_ms':15000,'time_basis':'sum of actual configured original frameCountMax * PIT delayPeriod for each simulated logic tick; excludes debug pause and video playback FPS','source_HEAD':subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo).decode().strip(),'source_sha256':info.get('source_sha256',{}),'exe_sha256':info['exe_sha256'],'data_sha256':{n:sha(original_data/n) for n in ['tyrian1.lvl','tyrian.shp','newsh2.shp','shapesz.dat','palette.dat']},'pack_directory':str(a.assets.resolve()),'reentry':'Fresh original initialization plus deterministic replay from tick0; no pointer jump, snapshots or artificial spawned enemy scene'},'coverage':{'first_tick':0,'last_tick':len(clock)-1,'nominal_end_ms':float(clock[-1]['end_ms']),'draw_reference_rows':len(draws),'kind':'Original ordered draw references whose rect intersects original playfield; later occlusion may cover them','limitations':['One observed level/input/seed/mode only, not static full coverage for other routes, firing, RNG or difficulty','Enemy IDs normalize original quad base; tile_IDs retain actual quadrants; sheet namespace prevents collisions','Terrain layers and player/projectile/effect sprite2 references recorded; UI fonts, procedural particles and menu assets excluded','Last index window may be partial; playback may continue beyond recorded coverage but later materials are not indexed','Replacement status is frozen at build; regenerate or inspect current pack after editing external assets']},'segments':[segments[x] for x in sorted(segments)],'materials':materials,'trace_sha256':{n:sha(r/n) for n in ['asset-debug-clock.tsv','asset-debug-materials.tsv','state.tsv']}}
  a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8');print(json.dumps({'index':str(a.output),'segments':len(segments),'unique_materials':len(materials),'coverage':data['coverage']},indent=2));raise SystemExit()
 data=json.loads(a.index.read_text(encoding='utf-8'));segments={x['number']:x for x in data['segments']}
 if a.command=='list':
@@ -92,15 +97,19 @@ if a.sheet is not None or a.id is not None:
  target=min(x['first_tick'] for x in occurrences)
 if target is None:p.error('Play requires --segment or a sheet-qualified material')
 if a.until<=target:p.error('--until must exceed selected target tick')
-cmd=['powershell.exe','-NoProfile','-ExecutionPolicy','Bypass','-File',str(repo/'prototype/start-asset-debug.ps1'),'-Preset','custom','-Episode',str(data['replay']['episode']),'-Level',str(data['replay']['physical_level']),'-Tick',str(target),'-Until',str(a.until)]
-if a.assets:cmd+=['-Assets',str(a.assets.resolve())]
-else:cmd+=['-Python',sys.executable]
-if a.capture:cmd+=['-CaptureCount',str(a.capture_count)]
-if a.capture_start>=0:cmd+=['-CaptureStart',str(a.capture_start)]
-if a.window_only:cmd.append('-WindowOnly')
-if a.explosion_log:cmd.append('-ExplosionLog')
 if a.talon13 and a.talon5:p.error('Choose --talon5 for compatibility or keep the default13')
-for flag,enabled in [('-Headless',a.headless),('-Running',a.running),('-Capture',a.capture),('-Talon5',a.talon5)]:
- if enabled:cmd.append(flag)
-print(subprocess.list2cmdline(cmd),flush=True)
+# Validate explicit dependencies even for --no-launch, without generating a pack.
+for name in ['exe','assets','data']:
+ value=getattr(a,name)
+ if value is not None:setattr(a,name,dependency(p,value,None,name))
+cmd=[sys.executable,str(repo/'prototype/start-asset-debug.py'),'--episode',str(data['replay']['episode']),'--level',str(data['replay']['physical_level']),'--tick',str(target),'--until',str(a.until)]
+for name in ['exe','assets','data']:
+ value=getattr(a,name)
+ if value is not None:cmd+=['--'+name,str(value)]
+if a.capture:cmd+=['--capture-count',str(a.capture_count)]
+if a.capture_start>=0:cmd+=['--capture-start',str(a.capture_start)]
+if a.talon5:cmd+=['--talon-bank','5']
+for name in ['headless','running','capture','window-only','explosion-log']:
+ if getattr(a,name.replace('-','_')):cmd.append('--'+name)
+print(('& ' + ' '.join("'" + x.replace("'", "''") + "'" for x in cmd)) if os.name=='nt' else shlex.join(cmd),flush=True)
 if not a.no_launch:raise SystemExit(subprocess.call(cmd))

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "classic_3_rows",
+    "returncode": 134,
+    "semantic_assertion_rejected": true,
+    "tail": "FAIL /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/mutants/classic_3_rows/tests/pregame_font_test.c:240: !sf.output[((p/320)*4+yy)*1280+(p%320)*4+xx] (stage=4 row=8 command=232/232 pixel=0 active=1 frame=1)\n/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/mutants/classic_3_rows/mutate-run.sh: line 8:    43 Aborted                 SDL_VIDEODRIVER=dummy \"$O/core-plain\" /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/dependencies/data /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/fonts /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/metal /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/talon /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/front /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/generator\n"
+  },
+  {
+    "name": "sprite_overwrite_alpha",
+    "returncode": 134,
+    "semantic_assertion_rejected": true,
+    "tail": "FAIL /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/mutants/sprite_overwrite_alpha/tests/pregame_font_test.c:168: sf.output[y*1280+x]==oracle(x,y) (stage=4 row=8 command=218/218 pixel=0 active=1 frame=1)\n/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/mutants/sprite_overwrite_alpha/mutate-run.sh: line 8:    82 Aborted                 SDL_VIDEODRIVER=dummy \"$O/core-plain\" /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/dependencies/data /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/fonts /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/metal /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/talon /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/front /workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/generator\n"
+  },
+  {
+    "name": "idle_static_merge",
+    "returncode": 0,
+    "semantic_assertion_rejected": false,
+    "tail": "PASS pregame core: 121 states, 13145147 checks; static=915624 peak_owned=7909204 output_static=32832; no game runs\n"
+  }
+]

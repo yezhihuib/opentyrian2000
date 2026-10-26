@@ -1,0 +1,68 @@
+{
+  "base": "f58647e7ff74e2276a1413b3675e651f1232bb41",
+  "capture_comparison": {
+    "plain_equals_ubsan_equals_original_shop_inspection": true,
+    "status": "PASS"
+  },
+  "compatibility_parent": "e00ae118766f6d4e861d41c8dfdfc1f4d45d1ffb",
+  "evidence": {
+    "README.md": "8f5635275708a684da97cda9944ccc7dd5ead03a9ca438f3db65c90ed5a8ebfa",
+    "canonical-static-20.log": "3466d4a547d0d1826ff05b81cc6673424aefc42c07bbeefe2fcae07ad6669a0e",
+    "launcher-12.log": "81de9322cea782f36bc17e3766775f9c35c5516b547194ed782d60c470ebac19",
+    "projectile91-builder.log": "4c8f581cb1ff2071090efd4df82b99f9367e04d13e1d24b534a04886d3d58bed",
+    "runtime-plain-capture.json": "9cd4c00f5e5190e9d8af389b294854d81f142ac8a05f9d667d76ba23bea51688",
+    "runtime-plain-mutations.json": "10ae41e83bdaead89669833350b6b90085484ae9eaecbd4a125ad75257081283",
+    "runtime-plain.log": "103f39c54847ffcbce01354a4e83daba8aa05c3aa56382c16007752a7a024939",
+    "runtime-ubsan-capture.json": "9cd4c00f5e5190e9d8af389b294854d81f142ac8a05f9d667d76ba23bea51688",
+    "runtime-ubsan-plain-mutations.json": "932c60889ac82b6d15fcf79c727921088b473d814bc156473815a25129f4fdd8",
+    "runtime-ubsan.log": "103f39c54847ffcbce01354a4e83daba8aa05c3aa56382c16007752a7a024939",
+    "static-20.log": "82fa680d87c120514da61f0e06f66a774d126ddddf1d7e8131c28248b8c3c3db"
+  },
+  "historical_unavailable_proofs": "UNCHANGED; missing5 remain unavailable, not fabricated or relaxed",
+  "launcher_tests": {
+    "count": 12,
+    "status": "PASS"
+  },
+  "native_plain": {
+    "core_checks": 13145152,
+    "core_states": 121,
+    "negative_mutants_rejected": 3,
+    "status": "PASS",
+    "typography_checks": 16252,
+    "typography_states": 126
+  },
+  "native_ubsan": {
+    "negative_mutants_plain": 3,
+    "positive_core_and_typography_instrumented": true,
+    "status": "PASS"
+  },
+  "original_shop_inventory_sha256": "26b7e3b33cba2adfe6fee1aa19f887ff09aa1ed6d438491a3f8c737b738fc102",
+  "production_source_assets_authoring_packaging_vs_qualified_91": "NO_DIFF",
+  "projectile91_builder": {
+    "editable_masters": 1,
+    "global_registry_additions": 0,
+    "historical_outputs": "untouched",
+    "opt_in_consumers": 0,
+    "ordinary_consumers": 2,
+    "resources": 1,
+    "status": "PASS"
+  },
+  "qualified_extension_sha256": "cd2b80009795e1b106bbc64eded7f104bcdc6b38ee44779070941ec7eefd750b",
+  "reviewed_code_sha256": {
+    "tests/run_shop_current_acceptance.sh": "b1a690415ad792db0bd0ddeb77a82ecf73eec78ba06100812dcd92182244efd6",
+    "tests/shop_current_acceptance.py": "5443eb06a9b5e64de9c2f161b56436975c4c1e7364141d16d8896d719d6f1dc8",
+    "tests/test_shop_projectile91_compatibility.py": "a07f240a3e79c7c3b700563c49ce6c33b5ea129b249cab7b07eee70ccb0c9724"
+  },
+  "schema": "combined-readiness-results-v1",
+  "scope_limits": [
+    "synthetic SHOP fixtures / SDL software presenter, not actual game-loop SHOP navigation",
+    "no Windows verification",
+    "no public push"
+  ],
+  "static_tests": {
+    "canonical_runner_total": 20,
+    "new_compatibility": 6,
+    "original_fresh_shop": 14,
+    "status": "PASS"
+  }
+}

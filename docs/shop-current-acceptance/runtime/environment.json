@@ -1,0 +1,54 @@
+{
+  "production_commit": "f58647e7ff74e2276a1413b3675e651f1232bb41",
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "flags": {
+    "common": "-std=c99 -O1 -g -ffunction-sections -fdata-sections -Wall -Wextra -Werror -Wno-misleading-indentation -Wl,--gc-sections -lm",
+    "ubsan_positive_only": "-fsanitize=undefined -fno-sanitize-recover=all -fno-omit-frame-pointer"
+  },
+  "environment": {
+    "DATA": "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/dependencies/data",
+    "SDL_CFLAGS": "-I/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/dependencies/sysroot/usr/include/SDL2 -I/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/dependencies/sysroot/usr/include/x86_64-linux-gnu -D_REENTRANT",
+    "SDL_LIBS": "-L/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/dependencies/sysroot/usr/lib/x86_64-linux-gnu -lSDL2",
+    "LD_LIBRARY_PATH": "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/dependencies/sysroot/usr/lib/x86_64-linux-gnu"
+  },
+  "used_original_data": {
+    "newsh1.shp": {
+      "bytes": 29941,
+      "sha256": "77827c137462ebaa53ad9c6d190224a6e0e1d00bf36cff2c7c66f82b00b7026a"
+    },
+    "tyrian.shp": {
+      "bytes": 505983,
+      "sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0"
+    },
+    "palette.dat": {
+      "bytes": 18432,
+      "sha256": "f628396306805387f07f72c4ccf0fdee9ca84b8e70ae23ba4ec58ec5fb362da0"
+    },
+    "tyrian.pic": {
+      "bytes": 367161,
+      "sha256": "76fa51ba6878c886f67daa65cf6d19968615e4423822c9fe1dde797fc2f8d802"
+    },
+    "tyrian.hdt": {
+      "bytes": 295069,
+      "sha256": "fde8506326e7bb0916b38c362e33bf8a8a5affa561206c021af7f65b4a17745b"
+    },
+    "tyrian4.lvl": {
+      "bytes": 937303,
+      "sha256": "6589b898094887925e7717c8663c4b8b5e4b76f3c89a7898ed9f4691c1f2cc16"
+    },
+    "tyrian5.lvl": {
+      "bytes": 521137,
+      "sha256": "275b5aaf55caecee8dc95e26f7cf118a9ee265f095ce61945b9ece56a4523323"
+    }
+  },
+  "data_scope": "These files are consumed by fixtures/item_fixture. This receipt is not a new full original-data audit.",
+  "sdl_package_receipt_sha256": "b5e2e131864759928f4b302039bf70e40004caf4ccd160a6e833c55ec8b5a369",
+  "versioned_drivers": {
+    "tests/shop_current_runtime.c": "290c64be305cc63f7dd2a769a5e611da060fd6943c42b36cf12bad4d76cdc80a",
+    "tests/shop_current_runtime_mutations.py": "68f9af2e24a38d97338e6a4379ef7664e6cbd4cd7aa875eaadf7d901ca0e3669",
+    "tests/shop_current_capture.c": "26235c2afe8d006f0e2e328a4a3ef8bc62afb577d371a5f8776b2955832f63b1",
+    "tests/shop_current_capture.py": "824443bee93a683b97162b2cdb8c5d450495291029fbcf56e335438ddf6f6148",
+    "tests/shop_current_capture_inspect.py": "0b0e0c96745306c605874a7879d6ec2ad2b3bd61b9be96efc3d348d39f6f7dbd",
+    "tests/run_shop_current_acceptance.sh": "df9a3c6a14dbe0e87248086828acdfffa67b80fca096db8d878634f63657b83f"
+  }
+}

@@ -55,7 +55,8 @@ REGISTRY_AUTHORITY_SHA256='21d0b78355542b5315df82a515f3e341a3070508bdfc414f632b1
 # Current Rear P7 include-only extraction: tests/current_rear_p7_source_projection.json.
 # Current regular Missile payload-only extraction: tests/current_missile_source_projection.json.
 # Prior source authority 8ba6fed3c0c0a74b2388d5b54d9b7d9edb051690cdcb94c30626ac5cd7b758fe remains historical only.
-GAMEPLAY_SOURCE_SHA256='3246d88c3fb1b3af7fa81a152535731fbec1cf2cc6e3bc20ea0dc54ab6c32937'
+# Reviewed shared91 finite source inverse: tests/current_projectile91_source_projection.json.
+GAMEPLAY_SOURCE_SHA256='2c0f3a92a3d4a169065aec72cef11b15f20131cb2cfc44b67545f4ec8cfc7a03'
 BUILD_INPUT_SHA256='dcc93711da1cb8eb764582d33f81b80c8474a0009271b682ed235548314a3800'
 
 def sha(data):return hashlib.sha256(data).hexdigest()
@@ -101,12 +102,16 @@ def verify_authority(root,registry,family='pulse'):
             for key in ('path','sha256','payload_fnv64','provenance'):row.pop(key,None)
     if source_manifest_digest(fixed)!=REGISTRY_AUTHORITY_SHA256:
         raise ValueError('Registry role/source authority or unrelated resource changed')
-    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None);sources.pop('src/current_plasma_projectile_payload_pins.h',None);sources.pop('src/hd_front_multi_current.h',None);sources.pop('src/current_enemy_orb_payload_pins.h',None);sources.pop('src/newshf_hd_assets.h',None);sources.pop('src/current_enemy_protron_payload_pins.h',None);sources.pop('src/current_protron_payload_pins.h',None);sources.pop('src/current_sonic_payload_pins.h',None);sources.pop('src/current_guided_payload_pins.h',None);sources.pop('src/current_newshf_hd_assets.h',None);sources.pop('src/current_mint27_payload_pins.h',None);sources.pop('src/current_missile_payload_pins.h',None);sources.pop('src/current_rear_multi_payload_pins.h',None)
+    sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None);sources.pop('src/current_plasma_projectile_payload_pins.h',None);sources.pop('src/hd_front_multi_current.h',None);sources.pop('src/current_enemy_orb_payload_pins.h',None);sources.pop('src/newshf_hd_assets.h',None);sources.pop('src/current_enemy_protron_payload_pins.h',None);sources.pop('src/current_protron_payload_pins.h',None);sources.pop('src/current_sonic_payload_pins.h',None);sources.pop('src/current_guided_payload_pins.h',None);sources.pop('src/current_newshf_hd_assets.h',None);sources.pop('src/current_mint27_payload_pins.h',None);sources.pop('src/current_missile_payload_pins.h',None);sources.pop('src/current_rear_multi_payload_pins.h',None);sources.pop('src/current_projectile91_payload_pins.h',None)
     if source_manifest_digest(sources)!=GAMEPLAY_SOURCE_SHA256:
         raise ValueError('Unrelated gameplay source changed')
     inputs={p:sha(read(root,p)) for p in BUILD_INPUTS}
     if source_manifest_digest(inputs)!=BUILD_INPUT_SHA256:
         raise ValueError('Build inputs changed')
+
+    if family != 'projectile91':
+        from current_projectile91_compatibility import load as projectile91_load
+        projectile91_load(root)
 
     # Prove the current Sonic header here so unrelated builders cannot bless
     # stale payload pins, including the separately bounded runtime quartet.

@@ -1,0 +1,213 @@
+{
+  "status": "PASS",
+  "gate_exit_codes": {
+    "plain": 0,
+    "ubsan": 0
+  },
+  "plain_and_ubsan_command_capture_bytes_identical": true,
+  "raw_external_output": {
+    "plain": "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/final-plain-stable",
+    "ubsan": "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/shop-runtime-review/final-ubsan"
+  },
+  "raw_capture_bytes": 76913820,
+  "source_unchanged": "No src/ or assets/ changes; exact frozen current inventory separately checked",
+  "limitations": "UBSan instruments positive core/typography only. Both commands use plain semantic mutants and captures. Synthetic fixtures, not full game-loop navigation or original missing private proofs.",
+  "files": {
+    "README.md": {
+      "sha256": "03d24fbf6a2bffe95487133229662a1a5cc5c4983e71b42c583ac10d7f176024",
+      "bytes": 6242
+    },
+    "environment.json": {
+      "sha256": "e368d22ace8307e6272a8f34c76c52a1e469ae88e36aac76255e5824bbec8317",
+      "bytes": 3082
+    },
+    "initial-idle-static-merge.log": {
+      "sha256": "32396c25fe6ff99a945e340df2588fb5b2c7af0550ea42a1ca85906e09ba1be4",
+      "bytes": 115
+    },
+    "initial-mutation-results.json": {
+      "sha256": "0b5ee06d1cb04a7162d355b07c65210c99e43ca95602629722e170a53b85cf04",
+      "bytes": 2405
+    },
+    "legacy-runner-link-failure.log": {
+      "sha256": "3ce4431c644027c5abddf9c00c676f5e0209c36384c8b79f0875fc6d5950f139",
+      "bytes": 20681
+    },
+    "official-packages.json": {
+      "sha256": "b5e2e131864759928f4b302039bf70e40004caf4ccd160a6e833c55ec8b5a369",
+      "bytes": 1038
+    },
+    "plain/build-plain.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "plain/capture-build.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "plain/capture-inspect.log": {
+      "sha256": "c3de3ef846d318908f017fe4c47742fe389a114e154eb4dd7be57bcda17d3c39",
+      "bytes": 1537
+    },
+    "plain/capture-inspection.json": {
+      "sha256": "9cd4c00f5e5190e9d8af389b294854d81f142ac8a05f9d667d76ba23bea51688",
+      "bytes": 7104
+    },
+    "plain/capture-plain.log": {
+      "sha256": "c0de7ef30ede2b9b84ab8c759bd2886d4c6867489c816a4bd17a6f7759eb3f17",
+      "bytes": 950
+    },
+    "plain/capture-receipt.json": {
+      "sha256": "c0de7ef30ede2b9b84ab8c759bd2886d4c6867489c816a4bd17a6f7759eb3f17",
+      "bytes": 950
+    },
+    "plain/capture.log": {
+      "sha256": "627d97107bef6374e21982978808a37c73397e3fdc0b1043586452092e2720e2",
+      "bytes": 157
+    },
+    "plain/complete-gate.log": {
+      "sha256": "103f39c54847ffcbce01354a4e83daba8aa05c3aa56382c16007752a7a024939",
+      "bytes": 368
+    },
+    "plain/core-plain.log": {
+      "sha256": "d5dfb9bf9ace693b12b4dc0a2a3c47af6ff3e22b86ababe006fa68ef5971afc9",
+      "bytes": 115
+    },
+    "plain/mutation-classic_3_rows-build.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "plain/mutation-classic_3_rows.log": {
+      "sha256": "7c82182d706dd6ebe7bff1ea0a8eb1091451bac475ed7d3ea3e5a849c994e69c",
+      "bytes": 261
+    },
+    "plain/mutation-idle_static_merge-build.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "plain/mutation-idle_static_merge.log": {
+      "sha256": "6cd9cea4a754f3fc410adc9f343e779c67e65b09da7993420304d0faed4a7a15",
+      "bytes": 122
+    },
+    "plain/mutation-results.json": {
+      "sha256": "0583d929aa717ac091464520e9f87ba49b6e07dd3591f049bb4d6601ea492151",
+      "bytes": 1177
+    },
+    "plain/mutation-sprite_overwrite_alpha-build.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "plain/mutation-sprite_overwrite_alpha.log": {
+      "sha256": "afc473765bbee04969fdc7a790f19b21662660fa00bd1a686bbed4bf1dfa44b6",
+      "bytes": 257
+    },
+    "plain/mutations-plain.log": {
+      "sha256": "0583d929aa717ac091464520e9f87ba49b6e07dd3591f049bb4d6601ea492151",
+      "bytes": 1177
+    },
+    "plain/root-contact-sheet.png": {
+      "sha256": "b29f6a49a1f454737e4bfa6b2fe87d4e30554e249bcf9edc336946c204de02ce",
+      "bytes": 644165
+    },
+    "plain/static-plain.log": {
+      "sha256": "57180b94eb1bdd3b14ba119d952127b697cf0bee294f490e3f6087d39bb6e0df",
+      "bytes": 2235
+    },
+    "plain/typography-plain.log": {
+      "sha256": "009a645bc00096e317f8c53fa7bdc606d905615e1e6c24784ef522cb930ab876",
+      "bytes": 124
+    },
+    "product-contact-sheet.png": {
+      "sha256": "e6d94e95305b251557721e71d07f69525c5418f1f665df8a14e13acf2fd55fce",
+      "bytes": 545364
+    },
+    "root-contact-sheet.png": {
+      "sha256": "b29f6a49a1f454737e4bfa6b2fe87d4e30554e249bcf9edc336946c204de02ce",
+      "bytes": 644165
+    },
+    "shared-loader-receipt.json": {
+      "sha256": "6f7f61c43c1eecda2cbf8ff2bf3f168d780935b1ac6f539cbb1689094d226eb4",
+      "bytes": 878
+    },
+    "ubsan/build-ubsan.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ubsan/capture-build.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ubsan/capture-inspect.log": {
+      "sha256": "c3de3ef846d318908f017fe4c47742fe389a114e154eb4dd7be57bcda17d3c39",
+      "bytes": 1537
+    },
+    "ubsan/capture-inspection.json": {
+      "sha256": "9cd4c00f5e5190e9d8af389b294854d81f142ac8a05f9d667d76ba23bea51688",
+      "bytes": 7104
+    },
+    "ubsan/capture-receipt.json": {
+      "sha256": "c0de7ef30ede2b9b84ab8c759bd2886d4c6867489c816a4bd17a6f7759eb3f17",
+      "bytes": 950
+    },
+    "ubsan/capture-ubsan.log": {
+      "sha256": "c0de7ef30ede2b9b84ab8c759bd2886d4c6867489c816a4bd17a6f7759eb3f17",
+      "bytes": 950
+    },
+    "ubsan/capture.log": {
+      "sha256": "627d97107bef6374e21982978808a37c73397e3fdc0b1043586452092e2720e2",
+      "bytes": 157
+    },
+    "ubsan/complete-gate.log": {
+      "sha256": "103f39c54847ffcbce01354a4e83daba8aa05c3aa56382c16007752a7a024939",
+      "bytes": 368
+    },
+    "ubsan/core-ubsan.log": {
+      "sha256": "d5dfb9bf9ace693b12b4dc0a2a3c47af6ff3e22b86ababe006fa68ef5971afc9",
+      "bytes": 115
+    },
+    "ubsan/mutation-classic_3_rows-build.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ubsan/mutation-classic_3_rows.log": {
+      "sha256": "b4ca3b30998a3b58e7dbc846939e88ec246f610147b242257e26016359507898",
+      "bytes": 254
+    },
+    "ubsan/mutation-idle_static_merge-build.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ubsan/mutation-idle_static_merge.log": {
+      "sha256": "6cd9cea4a754f3fc410adc9f343e779c67e65b09da7993420304d0faed4a7a15",
+      "bytes": 122
+    },
+    "ubsan/mutation-results.json": {
+      "sha256": "e9b5a77f5ef66792cc35d15b940497e66a0c2242db6b885c47ac791ca7457864",
+      "bytes": 1163
+    },
+    "ubsan/mutation-sprite_overwrite_alpha-build.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "ubsan/mutation-sprite_overwrite_alpha.log": {
+      "sha256": "9f426f2917f6f081b61648ef5306278309be198cd6109989a478ede5bb717ecd",
+      "bytes": 250
+    },
+    "ubsan/mutations-ubsan.log": {
+      "sha256": "e9b5a77f5ef66792cc35d15b940497e66a0c2242db6b885c47ac791ca7457864",
+      "bytes": 1163
+    },
+    "ubsan/root-contact-sheet.png": {
+      "sha256": "b29f6a49a1f454737e4bfa6b2fe87d4e30554e249bcf9edc336946c204de02ce",
+      "bytes": 644165
+    },
+    "ubsan/static-ubsan.log": {
+      "sha256": "975c6b035cea8fc9eec91fbad4c240bda448b1a20d7aa5411fb408db7b2b7cd4",
+      "bytes": 2235
+    },
+    "ubsan/typography-ubsan.log": {
+      "sha256": "009a645bc00096e317f8c53fa7bdc606d905615e1e6c24784ef522cb930ab876",
+      "bytes": 124
+    }
+  }
+}

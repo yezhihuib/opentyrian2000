@@ -1,0 +1,105 @@
+test_command_flags (test_portable_launchers.PortableLaunchers.test_command_flags) ... ok
+test_explicit_invalid_data_fails_before_launch (test_portable_launchers.PortableLaunchers.test_explicit_invalid_data_fails_before_launch) ... usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: --data: existing directory required: /tmp/launcher test 空间 26ryz9ge/missing
+usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: --data: existing directory required: /tmp/launcher test 空间 26ryz9ge/game 空格.exe
+usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: --data: missing tyrian1.lvl in /tmp/launcher test 空间 26ryz9ge/pack 素材
+ok
+test_invalid_capture_and_tick_ranges (test_portable_launchers.PortableLaunchers.test_invalid_capture_and_tick_ranges) ... usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: Require 0 <= tick < until and until 60..6000
+usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: Require 0 <= tick < until and until 60..6000
+usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: Require 0 <= tick < until and until 60..6000
+usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: Episode must be 1..5 and level 1..255
+usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: Episode must be 1..5 and level 1..255
+usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: Capture bounds require start -1..5999 and count 1..120
+usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: Capture bounds/window-only require --capture
+usage: python3 -m unittest [-h] [--exe EXE] [--assets ASSETS] [--data DATA]
+                           [--episode EPISODE] [--level LEVEL] --tick TICK
+                           [--until UNTIL] [--capture-start CAPTURE_START]
+                           [--capture-count CAPTURE_COUNT]
+                           [--max-replays MAX_REPLAYS] [--talon-bank {5,13}]
+                           [--headless] [--running] [--capture]
+                           [--window-only] [--explosion-log]
+python3 -m unittest: error: Capture bounds require start -1..5999 and count 1..120
+ok
+test_missing_executable_and_file_as_assets_rejected (test_portable_launchers.PortableLaunchers.test_missing_executable_and_file_as_assets_rejected) ... ok
+test_missing_path_values_rejected_all_entrypoints (test_portable_launchers.PortableLaunchers.test_missing_path_values_rejected_all_entrypoints) ... ok
+test_no_launch_never_builds_or_starts_process (test_portable_launchers.PortableLaunchers.test_no_launch_never_builds_or_starts_process) ... ok
+test_nonzero_exit_propagates (test_portable_launchers.PortableLaunchers.test_nonzero_exit_propagates) ... ok
+test_original_data_default_retained (test_portable_launchers.PortableLaunchers.test_original_data_default_retained) ... ok
+test_play_routes_python_and_preserves_argv (test_portable_launchers.PortableLaunchers.test_play_routes_python_and_preserves_argv) ... ok
+test_reload_metadata_and_isolated_process (test_portable_launchers.PortableLaunchers.test_reload_metadata_and_isolated_process) ... ok
+test_replay_limit_is_bounded (test_portable_launchers.PortableLaunchers.test_replay_limit_is_bounded) ... ok
+test_run_controlled_forwards_explicit_data (test_portable_launchers.PortableLaunchers.test_run_controlled_forwards_explicit_data) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.082s
+
+OK

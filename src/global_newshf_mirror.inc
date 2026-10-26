@@ -220,6 +220,7 @@ static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array ban
   }
   if(global_talon_owner)global_talon_owner[n]=global_talon_foreign[n]=0;
   if(global_rotor_owner)global_rotor_owner[n]=global_rotor_foreign[n]=0;
+  if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;
   global_newshf_contributed=true;
   if(global_pulse_owner)global_pulse_owner[n]=global_pulse_foreign[n]=0;
   if(global_shield_owner)global_shield_owner[n]=global_shield_foreign[n]=0;
