@@ -34,6 +34,23 @@ typedef enum {
 	ScalingMode_MAX
 } ScalingMode;
 
+/* Observational presentation geometry for finite output-footprint consumers.
+ * Unsupported renderer transforms return false; querying never changes them. */
+typedef struct VideoOutputGeometry {
+	SDL_Window *window;
+	SDL_Renderer *renderer;
+	Uint64 renderer_generation;
+	SDL_Rect dst;
+	int window_w, window_h;
+	int output_w, output_h;
+	int scale, footprint;
+	ScalingMode scaling_mode;
+} VideoOutputGeometry;
+
+bool video_output_geometry(VideoOutputGeometry *out);
+bool video_output_geometry_equal(const VideoOutputGeometry *a,
+                                 const VideoOutputGeometry *b);
+
 extern const char *const scaling_mode_names[ScalingMode_MAX];
 
 extern int fullscreen_display; // -1 means windowed

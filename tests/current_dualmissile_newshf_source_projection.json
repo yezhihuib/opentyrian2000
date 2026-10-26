@@ -1,0 +1,729 @@
+{
+  "private_base": "68d35712770281f72b0e55f96a764c5656bc8272",
+  "files": {
+    "src/global_newshf_mirror.inc": {
+      "previous_sha256": "dcd67b57d412809b9b57bb735fa02deca9b1b79f8613e9bb355aa8606885d8c0",
+      "current_sha256": "a82b14909f1445d71a5645d54782a692240f8ce32d138ceb4d8b1acf9a73ecf7",
+      "hunks": [
+        {
+          "before_lines": [
+            5,
+            6
+          ],
+          "after_lines": [
+            5,
+            7
+          ],
+          "before": "enum { GLOBAL_NEWSHF_RESOURCE_COUNT=15 };\n",
+          "after": "#include \"current_dualmissile_newshf_hd_assets.h\"\nenum { GLOBAL_NEWSHF_RESOURCE_COUNT=16 };\n"
+        },
+        {
+          "before_lines": [
+            10,
+            10
+          ],
+          "after_lines": [
+            11,
+            15
+          ],
+          "before": "",
+          "after": "static bool global_newshf_dualmissile_loaded,global_newshf_dualmissile_good;\n/* Per-allocation decision made before the first visible dualmissile quadrant. */\nstatic uint64_t global_newshf_dual_preflight_generation[100];\nstatic Uint8 global_newshf_dual_preflight_state[100];\n"
+        },
+        {
+          "before_lines": [
+            31,
+            31
+          ],
+          "after_lines": [
+            36,
+            37
+          ],
+          "before": "",
+          "after": "static uint64_t global_newshf_shapesy_dependency,global_newshf_dual_shapesy_serial[100];\n"
+        },
+        {
+          "before_lines": [
+            47,
+            48
+          ],
+          "after_lines": [
+            53,
+            54
+          ],
+          "before": "  if(newshf_profiles[newshf_validation_slots[i].profile].linked&&\n",
+          "after": "  if((newshf_profiles[newshf_validation_slots[i].profile].linked||newshf_validation_slots[i].profile>=6)&&\n"
+        },
+        {
+          "before_lines": [
+            110,
+            114
+          ],
+          "after_lines": [
+            116,
+            121
+          ],
+          "before": " bool linked=phase>=9;\n bool *loaded=linked?&global_newshf_linked_loaded:&global_newshf_loaded;\n bool *good=linked?&global_newshf_linked_good:&global_newshf_good;\n unsigned begin=linked?9:0,end=linked?15:9;\n",
+          "after": " if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT)return false;\n bool dual=phase>=15,linked=phase>=9&&!dual;\n bool *loaded=dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;\n bool *good=dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;\n unsigned begin=dual?15:linked?9:0,end=dual?16:linked?15:9;\n"
+        },
+        {
+          "before_lines": [
+            117,
+            118
+          ],
+          "after_lines": [
+            124,
+            125
+          ],
+          "before": "   const GlobalAssetResource *r=linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;\n",
+          "after": "   const GlobalAssetResource *r=dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;\n"
+        },
+        {
+          "before_lines": [
+            141,
+            142
+          ],
+          "after_lines": [
+            148,
+            149
+          ],
+          "before": " global_newshf_talon_dependency=false;memset(&global_newshf_source_lease,0,sizeof(global_newshf_source_lease));\n",
+          "after": " global_newshf_talon_dependency=false;global_newshf_shapesy_dependency=0;memset(&global_newshf_source_lease,0,sizeof(global_newshf_source_lease));\n"
+        },
+        {
+          "before_lines": [
+            151,
+            152
+          ],
+          "after_lines": [
+            158,
+            160
+          ],
+          "before": " global_newshf_linked_loaded=global_newshf_linked_good=false;global_newshf_used_resources=0;\n",
+          "after": " global_newshf_linked_loaded=global_newshf_linked_good=false;\n global_newshf_dualmissile_loaded=global_newshf_dualmissile_good=false;global_newshf_used_resources=0;\n"
+        },
+        {
+          "before_lines": [
+            157,
+            157
+          ],
+          "after_lines": [
+            165,
+            168
+          ],
+          "before": "",
+          "after": " memset(global_newshf_dual_preflight_state,0,sizeof(global_newshf_dual_preflight_state));\n memset(global_newshf_dual_preflight_generation,0,sizeof(global_newshf_dual_preflight_generation));\n memset(global_newshf_dual_shapesy_serial,0,sizeof(global_newshf_dual_shapesy_serial));global_newshf_shapesy_dependency=0;\n"
+        },
+        {
+          "before_lines": [
+            198,
+            199
+          ],
+          "after_lines": [
+            209,
+            210
+          ],
+          "before": "static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,int filter,unsigned phase,int part)\n",
+          "after": "static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,int filter,unsigned phase,int part,uint64_t shapesy_serial)\n"
+        },
+        {
+          "before_lines": [
+            208,
+            209
+          ],
+          "after_lines": [
+            219,
+            220
+          ],
+          "before": " /* Missing optional linked art leaves this actor classic, not old artwork revoked. */\n",
+          "after": " /* Missing optional art leaves this actor classic, not other groups revoked. */\n"
+        },
+        {
+          "before_lines": [
+            210,
+            212
+          ],
+          "after_lines": [
+            221,
+            224
+          ],
+          "before": " if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&0x7e00u))global_newshf_fail();return 0;}\n global_newshf_used_resources|=phase<9?0x1ffu:0x7e00u;\n",
+          "after": " unsigned group_mask=phase<9?0x1ffu:phase<15?0x7e00u:0x8000u;\n if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&group_mask))global_newshf_fail();return 0;}\n global_newshf_used_resources|=group_mask;\n"
+        },
+        {
+          "before_lines": [
+            229,
+            230
+          ],
+          "after_lines": [
+            241,
+            247
+          ],
+          "before": "  if(a[3]<255&&foreign){global_newshf_fail();return 0;}\n",
+          "after": "  if(a[3]<255&&foreign){\n   Uint32 color=*((Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx);\n   if(phase!=15||!shapesy_borrow_sample(shapesy_serial,n,color)||\n      (global_newshf_shapesy_dependency&&global_newshf_shapesy_dependency!=shapesy_serial)){global_newshf_fail();return 0;}\n   global_newshf_shapesy_dependency=shapesy_serial;foreign=false;\n  }\n"
+        },
+        {
+          "before_lines": [
+            255,
+            255
+          ],
+          "after_lines": [
+            272,
+            307
+          ],
+          "before": "",
+          "after": "/* A soft sprite must not consume an unproven foreign RGB lifetime. For this\n * new static group, decline its entire quartet before contributing any pixels,\n * rather than allowing a later quadrant to revoke unrelated scene HD. Existing\n * groups retain their established policy; the per-pixel guard remains active. */\nstatic bool global_newshf_dual_preflight(unsigned slot,Sprite2_array bank,unsigned base)\n{\n uint64_t generation=newshf_validation_slots[slot].generation;\n if(global_newshf_dual_preflight_generation[slot]==generation&&global_newshf_dual_preflight_state[slot])\n  return global_newshf_dual_preflight_state[slot]==2;\n global_newshf_dual_preflight_generation[slot]=generation;\n global_newshf_dual_preflight_state[slot]=1;\n if(!global_newshf_requested()||!global_newshf_frame||global_newshf_fault||\n    !global_newshf_surface_matches()||!global_newshf_source_matches(bank)||\n    !global_newshf_palette_matches()||!global_newshf_underlay_matches()||!global_newshf_group_ready(15))return false;\n Uint8 native[4][336];const unsigned parts[4]={0,1,19,20};\n for(unsigned q=0;q<4;q++)if(!decode_tile(bank,base+parts[q],native[q],native[q]+168,12,0,0))return false;\n int d=game_probe_density,cx=newshf_validation_slots[slot].x,cy=newshf_validation_slots[slot].y;\n const Uint8 *rgba=global_newshf_rgba[15];uint64_t shapesy_serial=shapesy_borrow_ready();\n for(int ay=0;ay<28*d;ay++)for(int ax=0;ax<24*d;ax++){\n  int nx=ax/d,ny=ay/d;\n  if(ny<14?cy<=-13:cy<=-26||cy>=182)continue;\n  int x=(cx-6)*d+ax,y=(cy-7)*d+ay;if(y<0||y>=canvas->h)continue;\n  unsigned q=(ny>=14?2u:0u)+(nx>=12?1u:0u);\n  bool covered=native[q][168+(ny%14)*12+nx%12]!=0;\n  unsigned alpha=rgba[4*((ay*8/d)*192+ax*8/d)+3];\n  if((!alpha&&!covered)||alpha==255)continue;\n  size_t n=(size_t)y*canvas->w+x;\n  bool foreign=global_newshf_owner[n]?global_newshf_foreign[n]:hd_owner[n]!=0;\n  if(foreign){Uint32 color=*((Uint32 *)((Uint8 *)canvas->pixels+y*canvas->pitch)+x);\n   if(!shapesy_borrow_sample(shapesy_serial,n,color))return false;\n   global_newshf_dual_shapesy_serial[slot]=shapesy_serial;\n  }\n }\n global_newshf_dual_preflight_state[slot]=2;return true;\n}\n"
+        },
+        {
+          "before_lines": [
+            264,
+            265
+          ],
+          "after_lines": [
+            316,
+            318
+          ],
+          "before": " int result=global_newshf_draw(surface,x,y,bank,base+(unsigned)part,filter,phase,part);\n",
+          "after": " if(phase==15&&!global_newshf_dual_preflight(slot,bank,base))return 0;\n int result=global_newshf_draw(surface,x,y,bank,base+(unsigned)part,filter,phase,part,phase==15?global_newshf_dual_shapesy_serial[slot]:0);\n"
+        },
+        {
+          "before_lines": [
+            298,
+            299
+          ],
+          "after_lines": [
+            351,
+            352
+          ],
+          "before": " if(!global_newshf_identity_complete())global_newshf_fail();\n",
+          "after": " if(!global_newshf_identity_complete()||(global_newshf_shapesy_dependency&&!shapesy_borrow_check(global_newshf_shapesy_dependency)))global_newshf_fail();\n"
+        },
+        {
+          "before_lines": [
+            357,
+            358
+          ],
+          "after_lines": [
+            410,
+            411
+          ],
+          "before": " bool valid=global_newshf_assets_match()&&global_newshf_identity_complete()&&!global_newshf_fault&&global_newshf_requested()&&global_newshf_surface_matches()&&global_newshf_final_surface_matches()&&global_newshf_source_matches(global_newshf_bank())&&(!global_newshf_talon_dependency||(!global_talon_fault&&global_talon_source_matches(spriteSheet9)));\n",
+          "after": " bool valid=global_newshf_assets_match()&&global_newshf_identity_complete()&&(!global_newshf_shapesy_dependency||shapesy_borrow_check(global_newshf_shapesy_dependency))&&!global_newshf_fault&&global_newshf_requested()&&global_newshf_surface_matches()&&global_newshf_final_surface_matches()&&global_newshf_source_matches(global_newshf_bank())&&(!global_newshf_talon_dependency||(!global_talon_fault&&global_talon_source_matches(spriteSheet9)));\n"
+        }
+      ]
+    },
+    "src/newshf_identity_validation.inc": {
+      "previous_sha256": "3b587afe5a48b345470c832594c0c7dd9c079279982492f7670b89256f174530",
+      "current_sha256": "d20fdfd69b5aa4c1f028b4fd853594ff2c68189ab6c4bbd75d0b05af758b3211",
+      "hunks": [
+        {
+          "before_lines": [
+            7,
+            7
+          ],
+          "after_lines": [
+            7,
+            8
+          ],
+          "before": "",
+          "after": "#include \"newshf_dualmissile_pins.h\"\n"
+        },
+        {
+          "before_lines": [
+            14,
+            15
+          ],
+          "after_lines": [
+            15,
+            18
+          ],
+          "before": " {173,4,{119,121,121,119},{13,14,14,13},true}\n",
+          "after": " {173,4,{119,121,121,119},{13,14,14,13},true},\n {2,1,{169,0,0,0},{15,0,0,0},false},\n {500,1,{169,0,0,0},{15,0,0,0},false}\n"
+        },
+        {
+          "before_lines": [
+            76,
+            77
+          ],
+          "after_lines": [
+            79,
+            80
+          ],
+          "before": "  (p<3?newshf_prototype_record_fnv[p]:newshf_linked_record_fnv[p-3]);\n",
+          "after": "  (p<3?newshf_prototype_record_fnv[p]:p<6?newshf_linked_record_fnv[p-3]:newshf_dualmissile_record_fnv[p-6]);\n"
+        },
+        {
+          "before_lines": [
+            216,
+            216
+          ],
+          "after_lines": [
+            219,
+            223
+          ],
+          "before": "",
+          "after": " for(unsigned i=0;i<COUNTOF(newshf_dualmissile_tiles);i++)if(newshf_dualmissile_tiles[i].index==index){\n  Uint8 bytes[336]={0};\n  return decode_tile(bank,index,bytes,bytes+168,12,0,0)&&global_bytes_hash(bytes,sizeof(bytes))==newshf_dualmissile_tiles[i].fnv;\n }\n"
+        }
+      ]
+    },
+    "src/render_mirror.c": {
+      "previous_sha256": "762343593a675e029f21eaf2e7abba298ff53a31ae67bc7b6de611970e7ab50c",
+      "current_sha256": "942acfa762f72063a9e418a836e727e84a4c96c85d8902fbcbad0e1119b44218",
+      "hunks": [
+        {
+          "before_lines": [
+            119,
+            119
+          ],
+          "after_lines": [
+            119,
+            122
+          ],
+          "before": "",
+          "after": "static void shapesy_borrow_mark(size_t,Uint32);\nstatic uint64_t shapesy_borrow_ready(void);\nstatic bool shapesy_borrow_sample(uint64_t,size_t,Uint32),shapesy_borrow_check(uint64_t);\n"
+        },
+        {
+          "before_lines": [
+            2963,
+            2963
+          ],
+          "after_lines": [
+            2966,
+            2967
+          ],
+          "before": "",
+          "after": "  if(a->bank==ASSET_SHAPESY_PLATFORM)shapesy_borrow_mark((size_t)owner_index,*p);\n"
+        }
+      ]
+    },
+    "src/shapesy_platform_mirror.inc": {
+      "previous_sha256": "ee4a4e955126b917e949ebecc3bef7aa2d471337ab8aad3393dd99ca4e8d29e8",
+      "current_sha256": "a30eb178dbc3d7279dfa136d2ef2ce060a2118f60f61e0b8a80a79e5425d32b1",
+      "hunks": [
+        {
+          "before_lines": [
+            10,
+            10
+          ],
+          "after_lines": [
+            10,
+            56
+          ],
+          "before": "",
+          "after": "/* Typed opaque values written only by the guarded ShapesY layer1/edge path.\n * Zero means untyped. Exact sampled-value equality prevents a later foreign\n * writer from lending changed RGB; a same-valued write is equivalent to this\n * still-proven terrain value. The sealed witness survives cached Present only\n * until a frame/map/root/reset, and never grants another owner by itself. */\nstatic struct {\n Uint32 *values;size_t capacity;bool building,sealed,failed;\n uint64_t serial,generation,tick;\n SDL_Surface *canvas_surface,*index_surface;void *pixels,*index_pixels;\n SDL_PixelFormat *format,*index_format;int w,h,pitch,index_pitch;\n VideoOutputGeometry geometry;\n} shapesy_borrow;\nstatic uint64_t shapesy_borrow_serial;\nstatic void shapesy_borrow_retire(void)\n{shapesy_borrow.building=shapesy_borrow.sealed=false;}\nstatic void shapesy_borrow_begin(void)\n{\n shapesy_borrow_retire();shapesy_borrow.failed=false;\n if(!canvas||!canvas->pixels||!canvas->format||canvas->w!=2560||canvas->h!=1600||\n    canvas->pitch<2560*4||canvas->pitch%4||canvas->format->format!=SDL_PIXELFORMAT_ARGB8888)return;\n const size_t count=320u*200u*8u*8u;\n if(shapesy_borrow.capacity!=count){\n  Uint32 *values=calloc(count,sizeof(Uint32));if(!values)return;\n  free(shapesy_borrow.values);shapesy_borrow.values=values;shapesy_borrow.capacity=count;\n }\n memset(shapesy_borrow.values,0,count*sizeof(Uint32));\n if(++shapesy_borrow_serial==0)++shapesy_borrow_serial;\n shapesy_borrow.serial=shapesy_borrow_serial;shapesy_borrow.building=true;\n}\nstatic void shapesy_borrow_mark(size_t n,Uint32 color)\n{\n if(!shapesy_borrow.building)return;\n if(n>=shapesy_borrow.capacity||(color>>24)!=255){shapesy_borrow.failed=true;return;}\n shapesy_borrow.values[n]=color;\n}\nstatic void shapesy_borrow_seal(void)\n{\n if(!shapesy_borrow.building||shapesy_borrow.failed||!shapesy_frame.live){shapesy_borrow_retire();return;}\n shapesy_borrow.building=false;shapesy_borrow.sealed=true;\n shapesy_borrow.generation=shapesy_resources.generation;shapesy_borrow.tick=mirror_logic_tick;\n shapesy_borrow.canvas_surface=canvas;shapesy_borrow.pixels=canvas->pixels;shapesy_borrow.format=canvas->format;\n shapesy_borrow.w=canvas->w;shapesy_borrow.h=canvas->h;shapesy_borrow.pitch=canvas->pitch;\n shapesy_borrow.index_surface=game_screen;shapesy_borrow.index_pixels=game_screen->pixels;\n shapesy_borrow.index_format=game_screen->format;shapesy_borrow.index_pitch=game_screen->pitch;\n shapesy_borrow.geometry=shapesy_frame.geometry;\n}\n"
+        },
+        {
+          "before_lines": [
+            41,
+            41
+          ],
+          "after_lines": [
+            87,
+            88
+          ],
+          "before": "",
+          "after": " bool had_pass=shapesy_pass.live,seal=had_pass&&shapesy_pass.drew&&shapesy_pass.row==8&&!bad&&!edge_bad&&!reject_reason;\n"
+        },
+        {
+          "before_lines": [
+            42,
+            42
+          ],
+          "after_lines": [
+            89,
+            90
+          ],
+          "before": "",
+          "after": " if(seal)shapesy_borrow_seal();else if(had_pass)shapesy_borrow_retire();\n"
+        },
+        {
+          "before_lines": [
+            45,
+            46
+          ],
+          "after_lines": [
+            93,
+            94
+          ],
+          "before": "{render_mirror_shapesy_end();memset(&shapesy_frame,0,sizeof(shapesy_frame));}\n",
+          "after": "{render_mirror_shapesy_end();shapesy_borrow_retire();memset(&shapesy_frame,0,sizeof(shapesy_frame));}\n"
+        },
+        {
+          "before_lines": [
+            54,
+            55
+          ],
+          "after_lines": [
+            102,
+            103
+          ],
+          "before": "{shapesy_map_reset();}\n",
+          "after": "{shapesy_map_reset();free(shapesy_borrow.values);memset(&shapesy_borrow,0,sizeof(shapesy_borrow));}\n"
+        },
+        {
+          "before_lines": [
+            161,
+            162
+          ],
+          "after_lines": [
+            209,
+            210
+          ],
+          "before": " bool cleared=shapesy_clear_proof;render_mirror_shapesy_end();\n",
+          "after": " bool cleared=shapesy_clear_proof;render_mirror_shapesy_end();shapesy_borrow_retire();\n"
+        },
+        {
+          "before_lines": [
+            174,
+            174
+          ],
+          "after_lines": [
+            222,
+            223
+          ],
+          "before": "",
+          "after": " shapesy_borrow_begin();\n"
+        },
+        {
+          "before_lines": [
+            263,
+            263
+          ],
+          "after_lines": [
+            312,
+            342
+          ],
+          "before": "",
+          "after": "static bool shapesy_borrow_layout(uint64_t serial)\n{\n return serial&&shapesy_borrow.sealed&&!shapesy_borrow.building&&!shapesy_borrow.failed&&\n  serial==shapesy_borrow.serial&&shapesy_borrow.values&&shapesy_borrow.capacity==320u*200u*8u*8u&&\n  shapesy_borrow.tick==mirror_logic_tick&&shapesy_borrow.generation==shapesy_resources.generation&&\n  shapesy_frame.live&&shapesy_frame.generation==shapesy_borrow.generation&&\n  canvas&&canvas==shapesy_borrow.canvas_surface&&canvas->pixels==shapesy_borrow.pixels&&\n  canvas->format==shapesy_borrow.format&&canvas->w==shapesy_borrow.w&&canvas->h==shapesy_borrow.h&&\n  canvas->pitch==shapesy_borrow.pitch&&canvas->format&&canvas->format->format==SDL_PIXELFORMAT_ARGB8888&&\n  game_screen&&game_screen==shapesy_borrow.index_surface&&game_screen->pixels==shapesy_borrow.index_pixels&&\n  game_screen->format==shapesy_borrow.index_format&&game_screen->pitch==shapesy_borrow.index_pitch&&\n  game_probe_density==8&&!reject_reason;\n}\nstatic uint64_t shapesy_borrow_ready(void)\n{\n uint64_t serial=shapesy_borrow.serial;\n return shapesy_borrow_layout(serial)&&shapesy_frame_check()&&shapesy_geometry_matches(&shapesy_borrow.geometry)?serial:0;\n}\nstatic bool shapesy_borrow_sample(uint64_t serial,size_t n,Uint32 color)\n{\n return shapesy_borrow_layout(serial)&&n<shapesy_borrow.capacity&&\n  (color>>24)==255&&shapesy_borrow.values[n]==color;\n}\nstatic bool shapesy_borrow_check(uint64_t serial)\n{\n /* Final/cached checks rehash mutable asset payloads, not merely frame flags.\n  * No resource scans happen inside the per-pixel borrowed-value test. */\n return shapesy_borrow_layout(serial)&&shapesy_frame_check()&&\n  shapesy_geometry_matches(&shapesy_borrow.geometry)&&shapesy_cache_valid();\n}\n"
+        },
+        {
+          "before_lines": [
+            471,
+            471
+          ],
+          "after_lines": [
+            550,
+            551
+          ],
+          "before": "",
+          "after": "     shapesy_borrow_mark((size_t)gy*canvas->w+gx,color);\n"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "src/current_dualmissile_newshf_hd_assets.h": "89c69d0add571e0d78fefb126f84ab0a6887e5b001621ab57c10fc14fe7fb9e1",
+    "src/newshf_dualmissile_pins.h": "28b70229016267cdb9e5156c94a2d4f8ea23773027f04970781283843e0544ff"
+  },
+  "qualified": {
+    "assets/hd/authoring/newshf-dualmissile.json": "8882e9560522bb9de87427a61990067e2eada1c784b89d4fc37c57dfa3ebe54c",
+    "assets/hd/current-compat/newshf-dualmissile/newshf-role2100015-8.hda": "d1557281a1f8fc4c48aa3bbf64b0eed3013b4ab4c5a06e456dcf48beaa99eafe",
+    "authoring-inputs/newshf-dualmissile/README.md": "00c9536bbb08bdb471bff4ce3c0e6f0303291af2f7f40d5db74f853e128d08ea",
+    "authoring-inputs/newshf-dualmissile/derived/newshf-role2100015-8.png": "021bc53f6b6ef43856b72bc164ae26c4bd1388664578a8f70e8c9925cd83ec86",
+    "authoring-inputs/newshf-dualmissile/native-mask.png": "bfe38fafcaa1944ba42cb3b7b3be364ac937bbcdd2a14035b4b6805d7a38a1d6",
+    "authoring-inputs/newshf-dualmissile/raw/prompt-v1.txt": "6ebf313565cf6f5f3a026a3faf8dd8492dffb8b712fa01e96489cff19a73b508",
+    "authoring-inputs/newshf-dualmissile/raw/register-candidate-original.py": "29958f14894530374f5fcc65753b671de2744dc00520fd7d365d693820a933a5",
+    "authoring-inputs/newshf-dualmissile/raw/single-missile-generated-v1.png": "e1dd1a120d643b32292b69cf9295eff6e86fe80e2e14e7400f6ca7fae001bb85",
+    "authoring-inputs/newshf-dualmissile/registration.json": "239f81ce80db8b18b758f7ddfd3dc269890f1aa4fcf1e7408c570dc797f63c91",
+    "authoring-inputs/newshf-dualmissile/single-master.png": "8283018c4294ec5ac315e51637346a9f74824b04fbeca344b90a4a794e7e57ac",
+    "packaging/current-dualmissile-newshf-compatibility.json": "a8318bf8a69deadd55739c27d7e8897a1d5abf711a9c14b40348a9dc6d87b1bd",
+    "scripts/build_current_dualmissile_newshf.py": "80ca37992f7f436edcc3ba61514e3b8081dcac995b242ffec89ff004b1f2097e",
+    "scripts/check_dualmissile_newshf_pins.py": "fac044900f843a33532a635b2fa2064b01f1b2e4129f30e476972aa574856261",
+    "scripts/current_dualmissile_newshf_compatibility.py": "6782feddae3a1aac4cc473fe21229937f6d2052b7456f787b9f506bdd8c38a7c",
+    "scripts/current_sidekick_body_compatibility.py": "7ce1b0aa2d720a9ddd420da9b10e925f5aa67f4675890b4232550c88c0e3f9e9",
+    "scripts/package_runtime.py": "bdbb4b3c62692090cc4ed38aa9c0801d49357e4e1473c53f65f1fa4ae37bb5d7",
+    "scripts/rebuild_recovered_runtime_manifest.py": "6fff1c556651bc79de40ebb92258b17e601ec71ead82c255bfda54d1255a6032",
+    "scripts/shared_asset_special_sources.py": "40b8d0010bb9c97b03e99e365e0c5869fd9b4a6815a978753b187a2f5d7659c0",
+    "src/current_dualmissile_newshf_hd_assets.h": "89c69d0add571e0d78fefb126f84ab0a6887e5b001621ab57c10fc14fe7fb9e1",
+    "src/newshf_dualmissile_pins.h": "28b70229016267cdb9e5156c94a2d4f8ea23773027f04970781283843e0544ff",
+    "tests/_projection_proof_context.py": "840a83c7c65997b4a23a3635f3723fdd48d9033e254fad191be0e6613d690139",
+    "tests/accepted_later_changes.py": "4af9a10383ff6e78f25d10221c07e1a6e2494fba6d2891604e656bedc0513235",
+    "tests/linked_newshf_projection.py": "f3f8ca347770cee652a68c317b34a6ea118fdf5b06f13d043c983805fd77204e",
+    "tests/shapesy_platform_projection.py": "ad348e2cc3c6c6092a675c06c7e548b0c524d115e235dc8769f16b33e49bd0af",
+    "tests/shop_current_acceptance.py": "d8859de0206a59fcb813fdc5c0cbeaf6cb1449ba5781597bf82443e3b3cf2ee3"
+  },
+  "base_source_inventory": {
+    "src/animlib.c": "1340570680ddff3fac80e34785f511657888d72430b47724330331d8c0b7a1de",
+    "src/animlib.h": "55079d0abd8248fe0d7141042b185d593c44b9197d3025921f3f35f88c2c386a",
+    "src/arg_parse.c": "1a2f7ebea323e73fd329946a78b50922471d3186657fb975c5152eef8fb596ac",
+    "src/arg_parse.h": "bf21cfcee7f24453373d405d69ea4646e8cd404337bee4ec13bc35529302e056",
+    "src/asset_debug.c": "ea6de19bf2e983a83096fd441216b21a8d611d529b13b2bde1f9878122c0a298",
+    "src/asset_debug.h": "50792b512ae2e887d701b33fd1324e460d30c8a98b6aa16f07b3e363596ed08c",
+    "src/asteroid1_capsule545_mirror.inc": "857a7c9c6c08523e3c2730b8fe7ac519c976f6ad1c000f47decaeb3b0e73d484",
+    "src/asteroid1_columns276_mirror.inc": "d69e50a23b1a0c416abe2cd41273f6700c210a8df6328e105c5e5337a27e4ad9",
+    "src/asteroid1_common4_mirror.inc": "b1bfca51933419e00461ca762527fa880ec191d42fee50a679cb005f23ef66e5",
+    "src/asteroid1_effect_blend_mirror.inc": "fa07b54f2d98ea2440c182ac55b49028d56e2f251a848475b2afeab2108950cf",
+    "src/asteroid1_enemy_orb112113_mirror.inc": "7d3f8ccaf7c96d60c066b8cb48c0e451acce67632cea0db9bbb7df05fc8ff096",
+    "src/asteroid1_firing270_mirror.inc": "464fa21d1a71fd1675cc2c8909ce72602f36546668a8dc64716d22417cccbec4",
+    "src/asteroid1_firing285_mirror.inc": "bd902f90c31a1cd58d51e1c810a33fffe8344575b55e251d701bbe8df741f38e",
+    "src/asteroid1_firing325_mirror.inc": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+    "src/asteroid1_fork284_mirror.inc": "4f01f641de50f900c7c5c41baff6eaa100a1c742b918aa607eeaa87a2d5f2479",
+    "src/asteroid1_four_mirror.inc": "3045ab6db880062f5cf46a54349a9c09b98b82d55b27b83c112e9fca26e4fc75",
+    "src/asteroid1_goldwing_mirror.inc": "bc6dd4571870cf0fcb836f0c76e4b272a15bd68d768f7f568dc94ee89f32e727",
+    "src/asteroid1_paired287_288_mirror.inc": "fb4540a6e0503adc23c2bd073357ceb782c6c6f30fac07ea5cdfa1b6ab0316cd",
+    "src/asteroid1_projectile304_mirror.inc": "210732124398c21a308309218bc5ce4f98619cc147685fa42b12dd3e22e1b43c",
+    "src/asteroid1_pulsing272_mirror.inc": "66a7d96811f70cf74951e3d0df7cdc20983cdf30838b5173016dd81d50785a93",
+    "src/asteroid1_random114_mirror.inc": "1fd521e2d08e5e885602a1cbca7145f0a77146efeabeaec25f789f650015733e",
+    "src/asteroid1_random123_mirror.inc": "7f555ca000c047db2b7bbc6aead046be87028ce93beba26f77c89c2f4ab13695",
+    "src/asteroid1_random133_mirror.inc": "046ebf8d0b2ca368ebce39fcaf752f3577d251f039a4eec748fc3e35c2d34af7",
+    "src/asteroid1_random152_mirror.inc": "e7510937334e46096092e2267c2408b7211291ba2d40f582ca2b757f590ce0b4",
+    "src/asteroid1_random286_mirror.inc": "af22344195ea5146522f0d3287aac369ba6d77521c3eafb3cd919dea59e7415e",
+    "src/asteroid1_random43_mirror.inc": "d7d1b5413400be41d0d8817c8e30aecb294302bcce5d07fbc85612acd1aa53a9",
+    "src/asteroid1_random5_mirror.inc": "de0de609881a08bb53e32b3b2b4d190871284d28e25b5dcef6b265b657441aa9",
+    "src/asteroid1_random85_mirror.inc": "bcbf8743e9b487097f403d3e45e83c89bda608882870c9c53b9aa3ccb92e1639",
+    "src/asteroid1_random95_mirror.inc": "276f5549a7182459ba9d6c92e581d6d9c8c44087b0fc17afc7b23b313536886b",
+    "src/asteroid1_source_snapshot.inc": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "src/asteroid1_talon_blend_mirror.inc": "11d0fe45406d2250fe6648aa2cd50e66f1caff8ff50eb386e5b3d8bfc52a0d6f",
+    "src/asteroid1_ten_mirror.inc": "59405811f96b992e52a40f32a8b1f88222a237be2f23f18a47101cb0c551b61e",
+    "src/asteroid1_terrain144_mirror.inc": "0deb685b84a1e53bedfd5398e234371399bcbce882a7c0e921c386c860406910",
+    "src/asteroid1_triple275_mirror.inc": "edf182b8762675086153368ba1a8a9f490834f1483741c293ab1ce031c163de8",
+    "src/asteroid1_turret273_mirror.inc": "5de309c9351e55c9509a1582de6ce9370fef053f22733a846247573dfb099a73",
+    "src/backgrnd.c": "970f1ae9677d92eadac78d52f6fba52b229a17c875738e7728092f16867bfe32",
+    "src/backgrnd.h": "6c705b59ba19842cfe46b8991ce57a360f8671a1080ca42b857c47bddf860d3e",
+    "src/common_menu_config.c": "d336f55d79be3a4f9cc6bf2681301b89c22c9d684c9e4daa9871f8bbf5535397",
+    "src/common_menu_config.h": "1ef4a68c52202bb966edea1a4fd78c0a051f762c5d9690585f8d47d86b710f03",
+    "src/common_menu_fonts.c": "8c976853dfaf2715fa80a336c9231d31895d11923239411968f62687c229a609",
+    "src/common_menu_fonts.h": "8c3636ff452d529a5c3eec238e2e4d6dabed450dbd45dcb8cd0b473ab340cb8a",
+    "src/common_menu_runs.c": "0a8dfc757bfa29eda618ddc2a1bf034a409dbf4a6b34428bd0b6030392064308",
+    "src/common_menu_runs.h": "b079e08650f5ca85c69ecfb2df1a9f5376fc0ca851eb911d956de3a2a3defa78",
+    "src/common_pause.c": "d072ddd7ee08edd4594cb49bd784f3916726088236fa73ebb894e976a9bbdb72",
+    "src/common_pause.h": "6281006c64c6ac932bc7c6c407e9b9c7d3630434812272a53b6cebed0cf22a13",
+    "src/config.c": "74508fd75517587caeea65c4b148c2c52277317558535e01a02b88604a2ddf1c",
+    "src/config.h": "df43ab4f8887c1275d1f876f83b2ab9f8dcd4a333ee1f2414caa3c8123522fe0",
+    "src/config_file.c": "03756d1059703d2bab2fdb6d65faa001866e9afd82bdfffaba9e14bc9ec159dc",
+    "src/config_file.h": "42e28cfb22e5def08ec333f8573750f658b29ee0e52054cee1084a48bfa59fc5",
+    "src/current_art_payload_pins.h": "241a99017c7eb9f7d999e49b69683abdc9a408762bc0eb1afa91216121fc4d82",
+    "src/current_enemy_energy_payload_pins.h": "b7a62e985b0cba0be3a6f865349d637fbefac8f08f53e6c4a6ba5821ba86602f",
+    "src/current_enemy_orb_payload_pins.h": "90c8d67b5ea3ee0153fa5c9f40141fdf572b0a1cc5927b2b4c656b8d84e7f9f8",
+    "src/current_enemy_protron_payload_pins.h": "a6138c492da92e824bc117491c2b20d7695077b6ae050a3ca9022d6c2ec0cd6d",
+    "src/current_guided_payload_pins.h": "40bb129b5e74080c354c0e5bfa2811dde41b6e1d6810c1fe628eccad255df97c",
+    "src/current_hud_payload_pins.h": "5fa2744f0043c7ea57457f0f1cc78da66a1a226d37581060b51bd6525ced9456",
+    "src/current_linked_newshf_hd_assets.h": "040fb86bfa084f80e294947788d5a4423bcac0ed8a1ff61473fcea35670306b8",
+    "src/current_mint27_payload_pins.h": "a3e1aba6f16a1867de5ef5ba05997a3a290cf3ac2ee2e899284b4266234c04c1",
+    "src/current_missile_payload_pins.h": "fe6944ea9a54974e1ecc5f2dac9771d3999a52fd525dee74dc5d110032b1f0d9",
+    "src/current_newshf_hd_assets.h": "d370bd06f7accac54b23179824e98fe9caad2d92b8709f13f5173c670c936210",
+    "src/current_plasma_projectile_payload_pins.h": "e8c6f7497df9a88d3653675136af8c9c727d85eba2328eddb03b2f69f2d89283",
+    "src/current_projectile91_payload_pins.h": "6f3cc6accda71244820e84e3d9fcdc434a100b630b52843cf0e7000731682779",
+    "src/current_protron_payload_pins.h": "bf982da11154061bdf56683270ef23a12200f014a060cfcf6482b97d31de88fb",
+    "src/current_rear_multi_payload_pins.h": "8bb99e02e583850d28d3af059349c3f5f24f2d86bb5295a715f8a1cab8a399bc",
+    "src/current_shapesy_contour_materials.h": "e45bfe6b5a39ab8f6ba2d7c04a508b16d1dfdd173a13a10e907c74b6a5e20970",
+    "src/current_shapesy_platform_hd_assets.h": "c61b31e1b513f94dd77c0d3b318ba811a176392fcdb51efcfef070c543279111",
+    "src/current_shapesy_platform_source.h": "55b935e8403931142718afb283eed6b70f00e4e2f32354c88d140f32600354d8",
+    "src/current_sidekick_body_payload_pins.h": "1d25bd99fd3bb300f150be65ea4bd4de9014354787eafb6d04250a9b86320da2",
+    "src/current_sonic_payload_pins.h": "82611c0977733cc9fb0d6daad744b607dec9ab6b32de5e8e6c077355570f86a3",
+    "src/current_tank_shell_payload_pins.h": "c474a33b8af08d772113a015fadca77f446cb49626a66bafbf7e24357326e5f6",
+    "src/data_exit_pins.inc": "38103a33f86480c47623fc88b9c76b148fb0ba1dd955d231b06306d2d4bb3b33",
+    "src/data_frame.c": "8d4a5238cb6fd29e94c7af571e58ffb43ae4edbb5b721dd50c1fe9594a813cc0",
+    "src/data_frame.h": "652e2789ddb160587a02dd690c58c93c096ca42bbd502619ad8b19673c8cd4c5",
+    "src/data_frame_pins.inc": "3674a7095afb792d611cc8f404102b27cdff008b3ec630b7bf65365f89732dcc",
+    "src/data_pickup_glyph.c": "7687f7c2f93ffd3d2d603df0a1309f3f2513c7acf8d3a680ebe9e3de1b10d0cb",
+    "src/data_pickup_glyph.h": "d7ab3965a98a16342a7a0e2750ef2f24c09a1112c8578aae530738ae93e137de",
+    "src/data_portrait.c": "8bda44739bcfca9d62536ce3ccc52a18aba869291f32253c21a201058276a399",
+    "src/data_portrait.h": "791b16fb1ca3e560382e72d5cad3a52e2d69f4e8c3cfd7af562f6931195aa784",
+    "src/data_portrait_pins.inc": "c53723322e10f5b4ac8c86df79b90db194316aab9567fdef8d0f4213c8b11ec0",
+    "src/data_text.c": "f39d6a07791f432ef4b3f10b010f13231e9ac10aa90197e2d24d6d958d933390",
+    "src/data_text.h": "a1316320aacea43e74e48c57bef80537a8ee110176d1d1961b8a271a127b162b",
+    "src/data_text_pins.inc": "d8e4ba2400c9ef9fe9293002963d753a3bf956d1ce7117a81b4f6709f6d87c49",
+    "src/destruct.c": "8a32ef22e67a621cd8ec36fb27f1f905866c2ce31f78dc64335c43b4254cff44",
+    "src/destruct.h": "50934ed9a4f35ef994adf9693ae237fe720ea629e8143eabc65c3c49151b0e7b",
+    "src/editship.c": "5877d8012076a3a2631fd0e0d80c359cca8bf67d6bc534c5fb07add5812835af",
+    "src/editship.h": "91c67ce815195f568661d158b970c430f453dd857df8cfbd7131f7c215a1236f",
+    "src/enemy_projectile91_mirror.inc": "64fe9cc941ddc6d2bd71bf4b34a25154b9bd86695af60023e56f1c2a39d2f497",
+    "src/enemy_reuse_identity.c": "fbe0f11feeb9ee03e1170b6996f27ed8d02f4e676564b1cd44f70e5bcd66824d",
+    "src/enemy_reuse_identity.h": "b9dd91ab7d9de869f4c0c0fef70153e72309f16831176bb78c92326e646bb755",
+    "src/enemy_reuse_mirror.inc": "ed4dce9e3183c7d5dd31962217849ecebfa46e3fa23cc5f8afd50bc06cf34858",
+    "src/enemy_reuse_observe.h": "5c7fb94a44203ecda2e7eabfd25c6181c9e28a8bb3c05332a62a8466e31c5193",
+    "src/enemy_reuse_observe.inc": "0fba6f67006309918154363526adbdd738b953185a6d4ed307ef2b188e0beb9d",
+    "src/enemy_reuse_probe.h": "8ef9d60321bc52cdb7e5e2261e967cf33cec3b0f73302e168bff7387d69457f9",
+    "src/enemy_reuse_probe.inc": "7501e2cb27def19e1ad780a8f4e6d175f32ddc12893d1e9587645c4b3207ae01",
+    "src/entity_draw.c": "9b46c3838d0a5eff1af52c78aa19418d2985f6b680fb96089fd6fb3a8714523a",
+    "src/entity_draw.h": "2fa761d269860a0da42a5e02c418477a9b874f749ad979291038e2b6806ba827",
+    "src/episodes.c": "1430b09faa5c8cabeb95b2d0f84b1b40af0f81ff7f186847d5ae086c3f9c5d8e",
+    "src/episodes.h": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
+    "src/external_music.c": "dc99cf7d3dae27e4f39dc3ea870423891d6cf3526e4c571e703f6182b7d7d1b7",
+    "src/external_music.h": "e0e6cd3a72a738a1544577cf2799d1f80c37bf4b198415de6c22f3fab667abe7",
+    "src/file.c": "538f16417b2d0e3c02d178a950a2353a901fb74fedbaa4b9117f992943a56f29",
+    "src/file.h": "71ddca478c7299b6262cbd1acb9fca3a70cb0049fbb5b698b4445400a63f1016",
+    "src/fixed_pickup_flash.c": "840e926c0b30907ddda9e339489f2089ff284f74c452153d8b34d7f1c05cb5fe",
+    "src/fixed_pickup_flash.h": "54f49710690414f419f6bbb4597eb9802a6af67b928260bf3178171ddadb9266",
+    "src/font.c": "a4d9125a15ac161efb1f97e8bc2f37c537647339902c0f5ad875874150a71cc8",
+    "src/font.h": "800c116da45345492051438946a949be22b52013a6c3de20ba54da0acc392915",
+    "src/fonthand.c": "1d6c63d81e02538272a9225f70c26731c86a2048640a41e5857096cdeb03825e",
+    "src/fonthand.h": "c113d1949a16caa830ae1e2a42fa250b3484dba7a7b2ea826e4e87a46362c467",
+    "src/forest13_bundle_index.h": "8ba706d26a2c70848bee5f387940bb3c2d9a7137559a1da21c42ed18cc2c63bc",
+    "src/forest13_material.c": "a96be3f33ec951d74ee5bf6e49e0c4315420016b8f119c64b1e2bbf972c1f4b1",
+    "src/forest13_material.h": "8a50b1e31566088d6cd47e159fb53de27d889ab5a1a6616029480fa070fe68a2",
+    "src/game_menu.c": "78698d019df60abfadb2999ae9fd1df8757ae483bd2b54d37abf3a4b63d4e195",
+    "src/game_menu.h": "a142bb5f438d53a6b4b5bdf981282f92ebd7a9641d88520a74b735888648ceda",
+    "src/game_probe.c": "1821fc281c91d70a69e5dbcb6cf0292aa3cb57abfc85697e5aee67b17df9b34d",
+    "src/game_probe.h": "896551acabbabe3c36afb2a7ee473a2d631ab11826e0114e3b6e6e050e212689",
+    "src/game_probe_fields.inc": "df168d18aae3be18344292d28a25d60050cd6b850fab9a6d476fc4daed1d0ab1",
+    "src/gameplay_hud.c": "fecbb296db28a059743aae0bd314d93315d8e46e47786bb3d17ad6dc04a54b6a",
+    "src/gameplay_hud.h": "90be7715c069b1a382e5cb48b1007c1fbaeb284482694ffc5b22e98cb6817e60",
+    "src/gameplay_hud_components.c": "6f47d8079c889cb574d65198cb8734ea3187f010214d4fca78c69bdb66757ab6",
+    "src/gameplay_hud_components.h": "2af78b5c5368857cdb14018d29c5e3180000751dfac5cff064f739649ec1e42c",
+    "src/gameplay_hud_fixed_text.c": "3d637c23ca8d410a3e2720a024a4bd1a48a58c9ad92a1b742b5801dd23bfdc3a",
+    "src/gameplay_hud_fixed_text.h": "923ada7701b06a8f1dc6d9276e955f8ce3b17853e8d388f5e06eff314984582f",
+    "src/gameplay_hud_font.c": "02237476b400f8d7b78e5331000bff4d8cbb5d1f22108f907b388240c74f4221",
+    "src/gameplay_hud_font.h": "e960503ca8b7a87e2083fe2f96fb54f06d1a53a2b7d1258ed88a84df93e5a29f",
+    "src/gameplay_hud_font_mirror.inc": "f895ef13ae4e0bc8bb6cf1460ae93acf0c99c762560ee48dbb3d2fbf1725e044",
+    "src/gameplay_hud_indicators.c": "05d125af540fdfc478141d10a6cb1cd3b06b3ba12c008a28c4941d8954ee1961",
+    "src/gameplay_hud_indicators.h": "e19fa83820ace574cdf12cb5a6f8081353edc63bfb7001fac6c14b460c272ff5",
+    "src/gameplay_hud_meters.c": "3b1b5bf4e9119cb85aed05cc8690ba46f5ea63249a746b5f31fbc8aeb01c83e4",
+    "src/gameplay_hud_meters.h": "c8e4fa4f2da223caddb08882a6b98f808ec22817457a2f745913fa0466eba911",
+    "src/gameplay_hud_storm.c": "44c4abe15bd013f0857b22b001e1a1ebd7c5077dc45fa247e202445bc2eeedb2",
+    "src/gameplay_hud_storm.h": "cda5953b9d7946954131811c39c12288466f4eade4fc512dd9bb241dae80d5dd",
+    "src/gameplay_hud_storm_mirror.inc": "63034eeb2f55a1bcd60cc738ef739951fb60a888ab8b7d7ecfb8d3574dbd3345",
+    "src/global_asset_registry.h": "0c96a8b30482ecc5224e73de98efbb4e2cf5bbaa3478f717bc9118cf86570b69",
+    "src/global_cash25_identity.inc": "28ba8a5f9f9465d13efcc582e8e3a96434e739abe660d658e3ecc0c5d213316d",
+    "src/global_cash25_mirror.inc": "554194d972448c3880ebe45866743c76d9e55c9f5127cf9d1fc0cdf713c7961c",
+    "src/global_green_identity.inc": "aa6febe5e8c65e872357bd7fa36d16aa0d3beeac59d7a9ef8d58befa4d4006ca",
+    "src/global_green_mirror.inc": "7992448caada923a3e7a4fcc59282c4d86603a503b36dc3ac321b1d84131ca60",
+    "src/global_hitflare_mirror.inc": "2ab0900bab0dfa6423f3e3abf84fbbffbfcb21dd205b02d30e6bc54a1261a964",
+    "src/global_newshf_mirror.inc": "dcd67b57d412809b9b57bb735fa02deca9b1b79f8613e9bb355aa8606885d8c0",
+    "src/global_projectile91_mirror.inc": "31309bdef96922bc830fe3e8f28ee4117c4df0253d1baab03396b3ad954a3829",
+    "src/global_pulse_mirror.inc": "3502ad962fbcff5bcd2bcdfc77bf804627e26974f306eedaa6ca94f206492cf6",
+    "src/global_rotor_identity.inc": "d09e9a0a111b361bbb44b0c751115147f2a2b4053c01e9a89c52898b02ce28c0",
+    "src/global_rotor_mirror.inc": "cd080dc92d308951b37a136035b1e7ae9989abdb0acbf197a190da2bcb43eacb",
+    "src/global_shield_mirror.inc": "15fd98c0b775e7acae64baa14491f9648c67b605edc1f5b31c7f46566d800b71",
+    "src/global_small_explosion_mirror.inc": "e7aee4178b6489ff764e2565600b8e7533dec2e96cf2c4f239a97c1359faa4ca",
+    "src/global_smoke_mirror.inc": "41f614df07ceaeff772d7eccb9aee80ecfd14532296ce96739d555834928ab34",
+    "src/global_talon_mirror.inc": "04a804277cb362a4f49c5bceba8db6d46706811998c63c5b99728d52a5643461",
+    "src/global_vulcan_mirror.inc": "7f07c65ae3628e81a6b0c58f322c799fc9678679ed2f1a5619d6a6acfe652c1f",
+    "src/ground101_bundle_index.h": "b8a59a727ee966a029618e00dfb0424fb51ed227623f7927d824a51a4fa3d469",
+    "src/ground101_material.c": "c520102853e558bc9dedd2f1aa40ce886a82a82b90a377eab9b3f6bd9789dfd0",
+    "src/ground101_material.h": "ca8bed2e22f473d1556b9aa53e016eb924c865c5bd5bd3a75cbb882aa94d0690",
+    "src/hd_cursor.c": "b5cade94923790b6376c2ca74808d7635f2a1e0b7670e6ccf812c7c122bc8abc",
+    "src/hd_cursor.h": "7c2dd251e4decfcd7aba1cacb9baf9beb694dc717883dd7203d8a399cf87c521",
+    "src/hd_front_multi_current.h": "d461056e9c56a3e0f82dc6d3ca07f2097d6250c1f2a8bf94794eaed274beb15f",
+    "src/helptext.c": "514112d21eb7c2d398886de891875021e128b56bad242cd4429e4a20008d5341",
+    "src/helptext.h": "5c4e3c4196e6c45f8d852f9751e8d70eefe526141bd1a9dae210faca01580134",
+    "src/joystick.c": "a2eafce5f709c792b44a7859e57270fd25d14100ef86df241312e0ae8c556014",
+    "src/joystick.h": "b4b2f49e150d7d6f8bcd6b0022ade78442eb9da8a445ed99ef3ffb47c428bf47",
+    "src/jukebox.c": "2cd36d7bc22f92e1b2e0bcb0a37ba9448e5aa2559c78a665d25c1a9be942920e",
+    "src/jukebox.h": "45b87217b0d6a7e8c1b01262010f1e2178c23fbeff3829df79b864d2a68229cf",
+    "src/keyboard.c": "0efcbf3b76b4ac8a06d8e67b9dd4d97bb463ea7ec562590f1365a0dab21fb8e7",
+    "src/keyboard.h": "5447a91dc535c63d45a8e3a28dc2fddfa2381496cf7e5231487d421e5d3d0af2",
+    "src/lds_play.c": "9b5de03c6ac4a56e0a721cf833e51b785dc9db8bce50b1d70bbf9cf6030866ef",
+    "src/lds_play.h": "44ca981e96421183ec79476ce820ec93b50589e1670762744a0b2dfc5851436a",
+    "src/load_font.c": "30f5f1933dd8e5677567598e136ebe2c6b09c484ff8296d86085fd233951bf85",
+    "src/load_font.h": "ccb135a5450fa6bc3ab17709865966ce417dca0e98e49e54b9d820b879596d1c",
+    "src/loudness.c": "b62c0b15c9b2283d0c5c85dfab5277d6cc8c16fca99b768f0dd49dc58e87f7d2",
+    "src/loudness.h": "61771bc2dc9c8cb58881da7a4b871e901c9017dd9f5bd6061b956f76e893f2e3",
+    "src/lvllib.c": "34467e09b9088b646ad7006480c691ebc65491f8bd72c1d3c65b2e4454e4fca5",
+    "src/lvllib.h": "c9e0c879b41bdd4dbf7bd1a6e067c98a5efea3b998731671114b882799dee7c5",
+    "src/lvlmast.c": "0c5e99f01d11ffaa5b08326ae88e183a1c1f0a60a3b17b0b7f83d311fb6c4faf",
+    "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
+    "src/mainint.c": "77e7104e907dd83c935f21cc03aaf887b19182f25a2735006c651ac52767a6c8",
+    "src/mainint.h": "ebdb4f196f3db62b6e896381a8a6fc0bb4caf1854e0b44b1598ae09b5d7d572e",
+    "src/menus.c": "c4bd830a9b90dbbe88ec4a93150e1a619bb2525a48fafe1ba56792f6b474310c",
+    "src/menus.h": "e73cc1b9a6c5a090a7f3a2e65303e06f63a71d87e938885224fa64c89fb65c72",
+    "src/mouse.c": "f8491a4cbc5d09e8296faf9928abd63ab880254ffa971c67f67aed80fbad6224",
+    "src/mouse.h": "026ea9c3af479e7de6a577dc48553222f9815f2fa3d69f6940453ffaf891050f",
+    "src/mtrand.c": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+    "src/mtrand.h": "a116de45cc7fd429824e3ef729ace3d5af0ce50fa890a96cf3261ead74dcc4b3",
+    "src/musmast.c": "9f65b60d695bc1ffb7b27e67a498c218c431a4c0c1effb7419d4238214f29621",
+    "src/musmast.h": "0ab73ab81d65ea311944623e617381fcea98cd70fa842234aa581d0268921701",
+    "src/network.c": "68981dfce02ca2ae1ac643213b2e499c210e9306c27a05ac829a6d6f3e5f9e76",
+    "src/network.h": "3d1db19be051259fecd16e1af5cbdfd514134fbe1ec19e5a7480aba59ba3a5cb",
+    "src/newshf_hd_assets.h": "c9552ffee0610c7ece607dce0e20a414818f143911d2a5e42bd21b5fd4a8d129",
+    "src/newshf_identity_validation.inc": "3b587afe5a48b345470c832594c0c7dd9c079279982492f7670b89256f174530",
+    "src/newshf_linked_pins.h": "4a6876272e9a1b3a25733fb7e566d06be918f8f7b2054d5b196e9c797a0fdaf1",
+    "src/newshf_prototype_pins.h": "6b111c2b6c1d560d3698e822cf749aa55172849dcab53dfc20ceb5cd3fb85605",
+    "src/nortsong.c": "0d0a1cbe9432a3263f80cf9e932339f76be0747d4f163b0430a36aff3011ae72",
+    "src/nortsong.h": "99d2610d15c12eb34a24ae2e1b873d1c1e360663aef34e11598300cbd654adeb",
+    "src/nortvars.c": "c5e048d081ce402cdb84f2fd73040aea936f1910cd343a326178b1edac11f077",
+    "src/nortvars.h": "8ef1d0aba8a44d221ca0d700226da2f64b990f7b7b0c2140abba926a1437aa16",
+    "src/opentyr.c": "fbb44d7745cd3aaa6426e373da4a7feb1195a4e669031491ba33a5fd0d5f1318",
+    "src/opentyr.h": "53cf73134192dfd212e0bf773f9780f2b2cf3754ccd9058b3216195426b171d5",
+    "src/opentyrian_version.h": "5c91392fd85769b54c08a1efc181391c27e0ba1a2c27cc96c062a34996fe9a17",
+    "src/opl.c": "5791559e2b9b88802cd1709a6c431a048823e7ac2b6b54222a764ac446aa53a6",
+    "src/opl.h": "cef389dc66c22ba1483051f22e73514d672d3bbe9d53d6ff60992d04758399cb",
+    "src/palette.c": "93fac33cb0ceb3b9a9e9ed55c15a79b9bc5eafe9d7bb6ba0bafd27ed5297f19a",
+    "src/palette.h": "7fd6948e08023cbdea050e66456c484b6abe8c50a82abc058fa2ee47ccd8fbbe",
+    "src/params.c": "f7929c17473fdea0ab9c3fc1ee944922273e95f4ac06b4bb0e1e18606d2fd6e9",
+    "src/params.h": "65f55a947ca02b62678310ee46fcfe1e360428b0627a389d36f70f596fd71da5",
+    "src/pcxload.c": "89d156f605212f91854b13534e6cb21db35d7bd09f917ee32780e803c53921c5",
+    "src/pcxload.h": "1bbb851eef66bb3160c92152eb36d3148461c6909af94dfed53f694116b7833f",
+    "src/pcxmast.c": "41a5367659b8096b13727d3c087ea0e34341881c7270072bdf0782c25a248653",
+    "src/pcxmast.h": "a908dd1e79df55f3ff6cfdaf06dc032687d7402988d033b78b8381180035b8a0",
+    "src/picload.c": "3e8bf5d69aa5b2188fa4b36be06b7881ddbed7f0a8fefbc1bb434104e50b6d37",
+    "src/picload.h": "4b266fa1e50d9be6e22906087037d5048163577e41cec700752a956827aeaada",
+    "src/plateau_cap_bundle_index.h": "cc11fffd04004f199e113cc5722837e8746a09d76b29ca3decaeb61c8f261185",
+    "src/plateau_cap_material.c": "54f3770dbfe2a5b91c6ac1f5de5f8a3317f437f9b00af7c744cab4fadf6b4623",
+    "src/plateau_cap_material.h": "0edaf035fa9c5f03488a6dcb3c2c89a840266115b652b00aa6ef158f35d6f2d9",
+    "src/player.c": "cda0f507f73e9024112a289e5d1951bd4246f4580c9c266ff538cc063e14eb3a",
+    "src/player.h": "f1c5d26624d1c2b86531e620908701a1a2bfe22a902f4f760672ae52f06446b6",
+    "src/pregame_font.c": "106facbec6c610c7758589df59875c14fdf43de2055bbe8aef60b4349f79db7f",
+    "src/pregame_font.h": "5d8a1a74967522a0c7d93ff6015b1938e1870a810d5be01c525d45bfe0eca59d",
+    "src/rear_multi_p1.c": "335afe02b0830d082335a4f55e850976c905ba977d65a1a146b2d1a9def232f7",
+    "src/rear_multi_p1.h": "b905f8c0530cb0783d2258b855aa8d650f70a586927623faabda6f6f7187c048",
+    "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
+    "src/rear_multi_p1_mirror.inc": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c",
+    "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
+    "src/render_mirror.c": "762343593a675e029f21eaf2e7abba298ff53a31ae67bc7b6de611970e7ab50c",
+    "src/render_mirror.h": "402ba18a31d7d0de6e3ab4cea17558decda7ceaa266d385a7604c2807c271cfd",
+    "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
+    "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",
+    "src/secret_exit_orb.h": "f9357364dc407e8615668f76ca4376710f4d4c033269e342dc1f09ccb7aaf9c7",
+    "src/selector_font.c": "9e5f2e5d57fe609f134098fe0bd87ab52aca634eebe442c507e15126eae0d1c5",
+    "src/selector_font.h": "c219391ff0597f4e02b533cdaa26e95893d4a09320605ad2690d84cd9b0f1628",
+    "src/selector_font_output.c": "004b3931d858c46aad3258eb651379d51799a281cc53de660d0a0cb567dde1b7",
+    "src/selector_font_output.h": "646229465fccd8f380b93b5d70020ea5bae481c4c4bb5b8acfdef4a8d1c67c55",
+    "src/settings_font.c": "4b38acb9f6665b6b14b9376d09aa967986fa98504bbbd10885a13d56e327fa14",
+    "src/settings_font.h": "dfef403ad9051b694316a3cfe77f40692cc141cc9feca2cca3b2a3e0660a4506",
+    "src/shapesy_platform_mirror.inc": "ee4a4e955126b917e949ebecc3bef7aa2d471337ab8aad3393dd99ca4e8d29e8",
+    "src/shared_asset_fd_reader.inc": "2131908a8d6e53488648cb202f03a49eb9cd864da7a0c036a199a50f2243bfbe",
+    "src/shared_asset_reader.h": "570ef567a70dd21f8fe0f0e8a8f6edba1e4949fcc03278d28c1d68abc442e82c",
+    "src/shop_equipment_sprite_pins.h": "2118370a93a56b8738bbb1b261ef3352d613bdf57e701e24a8e5a01fc2ef6ba2",
+    "src/shop_generator_sprite_pins.h": "dc6895971026397a4dfda9f052cabdbd737b953ab63b4a62aa9f3d565e9a3900",
+    "src/shop_menu_font_pins.h": "348b66abeb638eebd605af1a40ab38e461139e011ac6c93e065a6786a766e0f1",
+    "src/shop_pulse.h": "c36c619bd6d5ba221b5276b8a5bc394af54bde40982456c567aa65de01505db3",
+    "src/shop_pulse_proof.inc": "813b3c1770ad59610412381965826021f4657e5265b04ba35f8328e25516c8ab",
+    "src/shop_pulse_render.inc": "a5dd735df6cd00d3501435e9c3184af098afaba0af4836ebd96a8df59518568f",
+    "src/shop_shield_material_pins.h": "d0429c705a0fd7c1a7259c20eeed811205e902ff204ffc74b7e2bb228585a695",
+    "src/shop_ship_render.inc": "38118806ce2c70524a9c54cf96ff10679951641f6fa6a468e9b772d3c21427de",
+    "src/shop_static_pins.h": "3c37b5de85349767c4a3ffd2efe5e3de6c897e51009af8cd508c81b2d63800b4",
+    "src/shop_static_render.inc": "e1239927d07b137849d7f610e742edf12b05da5bdc35080519eca2192679a109",
+    "src/shop_talon_sprite_pins.h": "00f4e913c782f25be77cc0ee4aee7ed4bbc2900dc9604d4f4492a6aef9e40040",
+    "src/shop_vulcan.h": "03b50cc3a82eb09784fa53dd762859450522ea593996ded959b52add8993cf68",
+    "src/shop_vulcan_proof.inc": "a032b8f11c0301e72cabd849a25abc14c410fef78b506da8d98d808f97f31d9f",
+    "src/shop_vulcan_render.inc": "e4f876c30b08ef12137e4d2456ff02c61d1eccce919a1af9797b7dc7429ee375",
+    "src/shots.c": "c73b31130db3d8ee672aa2bcd1c702bc833a808a373e5670dd3a954816a56356",
+    "src/shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+    "src/sizebuf.c": "3a65cbff97cfb0521346d958716dcef1d89052417823b97ac963376b102b3c21",
+    "src/sizebuf.h": "a02bc0963f26a8d3ec1609013908583e08a9de29393999e0d0f8a7d421a4cb24",
+    "src/sndmast.c": "74255135db19f9a4757df53821b4a419717104837da7094bece753e1d38b4fb7",
+    "src/sndmast.h": "47657cb6846a8a701129c25e0b3a66250a362edb92487925996eea31b0cb036e",
+    "src/sprite.c": "9fe507a7724825c5cc1ffb42aa533ab947135368d1102bd8372743e0d4496a96",
+    "src/sprite.h": "057f40950f96df7ed49b26c235a1398a34088f095380da8f52475cf3e46a7952",
+    "src/starlib.c": "d1b1f2e3cae293088007ddf5be0452d2a1362286ffc201f89056a260ced879cc",
+    "src/starlib.h": "a9f5dc80bde82dc12fdc34d0721951023e2133dbcb1eb9bf7c57d05aba37ac37",
+    "src/startup_logos.c": "6db4730cef41cda023fe854b39070af6a0b531b82009ec6bdd4a2504a3750128",
+    "src/startup_logos.h": "5ddd20f33596b526c6e12a2c8d5fefcdc7dc293464b1432bd43b561f1f5e9a43",
+    "src/third_party/dr_mp3-LICENSE": "dd1c647e6f767f8ff4b2dfae0fed314726600a01e0cf1ef556afddd5fa96ff15",
+    "src/third_party/dr_mp3-PROVENANCE.md": "8a5f3ff084155e583b7e0c74a943ad8bfb9249178e915da32f4b7e9133ba045e",
+    "src/third_party/dr_mp3.h": "997b7ee18de6e6b81e2a83f1ea9fc62aef25c62b28d48db95635f49e65de0a2f",
+    "src/title_layers.c": "4e12b9e54ce75bc98a5e36cf2ddad45f24840553cddb8a35969a852a1320a372",
+    "src/title_layers.h": "2d5b69d52126174d77ab42edf321c355a08ad15d43fa099a5b0bbc7823a332b7",
+    "src/title_menu_font.inc": "4bb6c3d143ce1dcbce71345e9799d499cdde1d962a99bc3d48c9200b84363224",
+    "src/tyrian2.c": "28594978b928983d677992025fff27b1fc62396b99a26388ae4d42bd9ee066fc",
+    "src/tyrian2.h": "1341c4371128fda951031caef18ad6bd154beb9e187bd800a25ebb1ed1c4c32f",
+    "src/varz.c": "70014229765dece18d2a15a0a906cb89daf2d0174bc1d1834008bfeb5772de45",
+    "src/varz.h": "c0557171c5454d9b6e64c9eb22facf5e9cd5cdefcf54aa743020d5c4ffdde37c",
+    "src/vga256d.c": "8ad18c32142d0a936e8a8bee6b7302578fef2b96670b44f3a71f9f68813d3b1d",
+    "src/vga256d.h": "ab1b7f31003ed5af78d58347509524b470894abeb1326075a2a62f5875046d38",
+    "src/vga_palette.c": "e0c47679389ceac36a6b10e499e11b623b056c51424188cab2001cb6c19d9e9e",
+    "src/vga_palette.h": "db0d453d541da1bd911056d50c63755e884f33ac701636bb1385f155129f651a",
+    "src/video.c": "5a9475470a638a7c9516256b03b31ef901ac2c58a0275afa326e76a6eb0665f7",
+    "src/video.h": "07178ae47dd0d1f4403af2da6ce93f3c9bab9f7ed413f4e45698303ed09306c6",
+    "src/video_scale.c": "75984787a7258453be95c7f89ff5ca7a270dabdca94154e851c4f13d0fe8947b",
+    "src/video_scale.h": "fe7864339df745da07f8209f8bc7e18edcf1d9ad4bc873ecbec1a3754b265d31",
+    "src/video_scale_hqNx.c": "0b11cb3c5c4e94424a1c881e506ce53b29fef7f7c64d9704a6426612e47cd57d",
+    "src/world_material.c": "7aa2fb5a12ccec668037a53c88e0e2d9e29fed971f5e4b864fc96e2031fccc47",
+    "src/world_material.h": "07552d48974b5719de05af3010106d270cba2b886cfcfa2e862b805b2059752c",
+    "src/world_material_fast.c": "54feac5f47619c449f67c35a758394a63a215bfacdfe2c1f051b3d4f47b3b377",
+    "src/world_material_fast.h": "73462afc02ebc1d2792ea9678c8061ff89e67df8485ffeb8f20cd295892f270b",
+    "src/xmas.c": "81510a3554b71e4c1a587b557bbc2c153fcb7c9377b65db0f36f0a4e346cfb7d",
+    "src/xmas.h": "fd90770e44fe968fc02207a8bea43bfd6adc00c58a12eaa18d5938dcab0874fd"
+  }
+}

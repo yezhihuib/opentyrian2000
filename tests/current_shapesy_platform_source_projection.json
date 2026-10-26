@@ -1,0 +1,953 @@
+{
+  "schema": "opentyrian-public7d-shapesy-platform-projection-v1",
+  "public_base": "7d94cf87740566e40c91043dcf2ebe2fb4e0e67b",
+  "files": {
+    "src/backgrnd.c": {
+      "previous_sha256": "4a3347d22d0db2f456ffc0a8d541a4895f103a238718f3436db1993705ae11fa",
+      "current_sha256": "970f1ae9677d92eadac78d52f6fba52b229a17c875738e7728092f16867bfe32",
+      "hunks": [
+        {
+          "before_lines": [
+            100,
+            101
+          ],
+          "after_lines": [
+            100,
+            101
+          ],
+          "before": "\t\t\t\t\treturn;\n",
+          "after": "\t\t\t\t\t{ render_mirror_shapesy_row_end(); return; }\n"
+        },
+        {
+          "before_lines": [
+            111,
+            111
+          ],
+          "after_lines": [
+            111,
+            112
+          ],
+          "before": "",
+          "after": "\trender_mirror_shapesy_row_end();\n"
+        },
+        {
+          "before_lines": [
+            170,
+            170
+          ],
+          "after_lines": [
+            171,
+            172
+          ],
+          "before": "",
+          "after": "\trender_mirror_shapesy_layer1(surface,map,mapXPos,backPos-28);\n"
+        },
+        {
+          "before_lines": [
+            178,
+            178
+          ],
+          "after_lines": [
+            180,
+            181
+          ],
+          "before": "",
+          "after": "\trender_mirror_shapesy_end();\n"
+        }
+      ]
+    },
+    "src/render_mirror.c": {
+      "previous_sha256": "1762d1287000f3502ddc6999d7eb84671c03a32e8cf9c3b009e145b6ca2e4cc8",
+      "current_sha256": "762343593a675e029f21eaf2e7abba298ff53a31ae67bc7b6de611970e7ab50c",
+      "hunks": [
+        {
+          "before_lines": [
+            81,
+            82
+          ],
+          "after_lines": [
+            81,
+            82
+          ],
+          "before": "enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ENEMY_PROJECTILE91=149, ASSET_ASTEROID1=108 };\n",
+          "after": "enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_SHAPESY_PLATFORM=202, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ENEMY_PROJECTILE91=149, ASSET_ASTEROID1=108 };\n"
+        },
+        {
+          "before_lines": [
+            117,
+            117
+          ],
+          "after_lines": [
+            117,
+            121
+          ],
+          "before": "",
+          "after": "static void shapesy_shutdown(void),shapesy_map_reset(void),shapesy_frame_reset(void);\nstatic bool shapesy_frame_check(void);\nstatic bool shapesy_clear_proof;\nstatic const Asset *shapesy_draw_lease;\n"
+        },
+        {
+          "before_lines": [
+            1365,
+            1366
+          ],
+          "after_lines": [
+            1369,
+            1370
+          ],
+          "before": " render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();\n",
+          "after": " render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();\n"
+        },
+        {
+          "before_lines": [
+            1548,
+            1548
+          ],
+          "after_lines": [
+            1552,
+            1553
+          ],
+          "before": "",
+          "after": " shapesy_frame_reset();\n"
+        },
+        {
+          "before_lines": [
+            1619,
+            1619
+          ],
+          "after_lines": [
+            1624,
+            1625
+          ],
+          "before": "",
+          "after": " shapesy_clear_proof=false;\n"
+        },
+        {
+          "before_lines": [
+            1716,
+            1716
+          ],
+          "after_lines": [
+            1722,
+            1727
+          ],
+          "before": "",
+          "after": " /* A one-use proof of the real full-screen black clear. The ordinary mirror\n  * callbacks above cleared RGBA/ownership; zero333 is rechecked at draw time. */\n shapesy_clear_proof=(terrain_file=='Y'||terrain_file=='y')&&!rect&&s==game_screen&&active&&!reject_reason&&!suppress&&x0==0&&y0==0&&x1==320&&y1==200;\n if(shapesy_clear_proof)for(int y=0;y<200;y++)for(int x=0;x<320;x++)\n  if(((Uint8 *)s->pixels)[y*s->pitch+x]||expected[y*320+x])shapesy_clear_proof=false;\n"
+        },
+        {
+          "before_lines": [
+            1720,
+            1720
+          ],
+          "after_lines": [
+            1731,
+            1732
+          ],
+          "before": "",
+          "after": " shapesy_frame_reset();\n"
+        },
+        {
+          "before_lines": [
+            1864,
+            1864
+          ],
+          "after_lines": [
+            1876,
+            1877
+          ],
+          "before": "",
+          "after": " if(a->bank==ASSET_SHAPESY_PLATFORM)return false; /* finite eager loader only */\n"
+        },
+        {
+          "before_lines": [
+            2864,
+            2864
+          ],
+          "after_lines": [
+            2877,
+            2878
+          ],
+          "before": "",
+          "after": " if(a->bank==ASSET_SHAPESY_PLATFORM&&(a!=shapesy_draw_lease||style!=MIRROR_NORMAL||part||filter||material||cap||forest))return false;\n"
+        },
+        {
+          "before_lines": [
+            4196,
+            4196
+          ],
+          "after_lines": [
+            4210,
+            4211
+          ],
+          "before": "",
+          "after": "#include \"shapesy_platform_mirror.inc\"\n"
+        },
+        {
+          "before_lines": [
+            4198,
+            4199
+          ],
+          "after_lines": [
+            4213,
+            4214
+          ],
+          "before": "{render_mirror_global_reset();terrain144_map_reset(0,shape_file);render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}\n",
+          "after": "{render_mirror_global_reset();shapesy_map_reset();terrain144_map_reset(0,shape_file);render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}\n"
+        },
+        {
+          "before_lines": [
+            4304,
+            4304
+          ],
+          "after_lines": [
+            4319,
+            4320
+          ],
+          "before": "",
+          "after": " shapesy_bind(layer,id,data);\n"
+        },
+        {
+          "before_lines": [
+            4358,
+            4359
+          ],
+          "after_lines": [
+            4374,
+            4375
+          ],
+          "before": " if(enemy_reuse_observe_requested())return 0;\n",
+          "after": " if(enemy_reuse_observe_requested()){render_mirror_shapesy_end();return 0;}\n"
+        },
+        {
+          "before_lines": [
+            4360,
+            4361
+          ],
+          "after_lines": [
+            4376,
+            4379
+          ],
+          "before": " if(asteroid_hd_enabled)return terrain144_row(surface,x,y,map,style);\n",
+          "after": " if(asteroid_hd_enabled){render_mirror_shapesy_end();return terrain144_row(surface,x,y,map,style);}\n if(terrain_file=='Y'||terrain_file=='y')return shapesy_row(surface,x,y,map,style);\n render_mirror_shapesy_end();\n"
+        },
+        {
+          "before_lines": [
+            4425,
+            4426
+          ],
+          "after_lines": [
+            4443,
+            4447
+          ],
+          "before": " bool previous=suppress,previous_cloud=suppress_cloud;suppress=replaced;suppress_cloud=replaced;\n",
+          "after": " bool qualified_y=false;\n bool native_water=shapesy_native_water(surface,address,source,style,replaced,&qualified_y);\n if((terrain_file=='Y'||terrain_file=='y')&&!qualified_y)replaced=false;\n bool previous=suppress,previous_cloud=suppress_cloud;suppress=replaced&&!native_water;suppress_cloud=replaced&&!native_water;\n"
+        },
+        {
+          "before_lines": [
+            5035,
+            5035
+          ],
+          "after_lines": [
+            5056,
+            5057
+          ],
+          "before": "",
+          "after": " if(!shapesy_frame_check())render_mirror_unsupported(\"shapesy-output-context\");\n"
+        },
+        {
+          "before_lines": [
+            5269,
+            5269
+          ],
+          "after_lines": [
+            5291,
+            5295
+          ],
+          "before": "",
+          "after": " if(!shapesy_frame_check()||!shapesy_present_geometry(renderer,dst)) {\n  shapesy_frame_reset();ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;\n  return false; /* Late context change: ordinary indexed presentation owns it. */\n }\n"
+        }
+      ]
+    },
+    "src/render_mirror.h": {
+      "previous_sha256": "e8b04342f346e392cc627f3463932b7dc509b87f216a68846bf5bba127b3e138",
+      "current_sha256": "402ba18a31d7d0de6e3ab4cea17558decda7ceaa266d385a7604c2807c271cfd",
+      "hunks": [
+        {
+          "before_lines": [
+            152,
+            152
+          ],
+          "after_lines": [
+            152,
+            155
+          ],
+          "before": "",
+          "after": "#define render_mirror_shapesy_layer1(...) ((void)0)\n#define render_mirror_shapesy_row_end(...) ((void)0)\n#define render_mirror_shapesy_end(...) ((void)0)\n"
+        },
+        {
+          "before_lines": [
+            295,
+            295
+          ],
+          "after_lines": [
+            298,
+            301
+          ],
+          "before": "",
+          "after": "void render_mirror_shapesy_layer1(SDL_Surface *,const void *,int,int);\nvoid render_mirror_shapesy_row_end(void);\nvoid render_mirror_shapesy_end(void);\n"
+        }
+      ]
+    },
+    "src/video.c": {
+      "previous_sha256": "67dbb38e6928bb8c4cea0d4006b098ce3b1eae651ab283eef3b2494b3d4a3bbf",
+      "current_sha256": "5a9475470a638a7c9516256b03b31ef901ac2c58a0275afa326e76a6eb0665f7",
+      "hunks": [
+        {
+          "before_lines": [
+            62,
+            62
+          ],
+          "after_lines": [
+            62,
+            63
+          ],
+          "before": "",
+          "after": "static Uint64 output_renderer_generation;\n"
+        },
+        {
+          "before_lines": [
+            159,
+            159
+          ],
+          "after_lines": [
+            160,
+            162
+          ],
+          "before": "",
+          "after": "\t/* Pointer addresses may be reused after renderer recreation. */\n\t++output_renderer_generation;\n"
+        },
+        {
+          "before_lines": [
+            440,
+            440
+          ],
+          "after_lines": [
+            443,
+            502
+          ],
+          "before": "",
+          "after": "bool video_output_geometry(VideoOutputGeometry *out)\n{\n\tVideoOutputGeometry g = {0};\n\tSDL_Rect viewport;\n\tfloat sx = 0.0f, sy = 0.0f;\n\tint logical_w = 0, logical_h = 0, texture_w = 0, texture_h = 0;\n\tif (!out || !main_window || !main_window_renderer || !main_window_texture ||\n\t    !VGAScreenSeg || VGAScreenSeg->w != 320 || VGAScreenSeg->h != 200)\n\t\treturn false;\n\tg.window = main_window;\n\tg.renderer = main_window_renderer;\n\tg.renderer_generation = output_renderer_generation;\n\tg.scaling_mode = scaling_mode;\n\tif (g.scaling_mode < SCALE_CENTER || g.scaling_mode >= ScalingMode_MAX)\n\t\treturn false;\n\tSDL_GetWindowSize(g.window, &g.window_w, &g.window_h);\n\tif (g.window_w <= 0 || g.window_h <= 0 ||\n\t    SDL_GetRendererOutputSize(g.renderer, &g.output_w, &g.output_h) != 0 ||\n\t    g.output_w <= 0 || g.output_h <= 0 ||\n\t    SDL_QueryTexture(main_window_texture, NULL, NULL, &texture_w, &texture_h) != 0 ||\n\t    texture_w <= 0 || texture_h <= 0 || SDL_GetRenderTarget(g.renderer) != NULL)\n\t\treturn false;\n\tSDL_RenderGetLogicalSize(g.renderer, &logical_w, &logical_h);\n\tSDL_RenderGetScale(g.renderer, &sx, &sy);\n\tSDL_RenderGetViewport(g.renderer, &viewport);\n\t/* The existing RenderCopy destination is physical only with this identity\n\t * transform. Do not guess a window-to-output ratio on high-DPI backends. */\n\tif (logical_w || logical_h || sx != 1.0f || sy != 1.0f ||\n\t    viewport.x || viewport.y || viewport.w != g.output_w || viewport.h != g.output_h ||\n\t    SDL_RenderIsClipEnabled(g.renderer))\n\t\treturn false;\n\tcalc_dst_render_rect(VGAScreenSeg, &g.dst);\n\tif (g.dst.x < 0 || g.dst.y < 0 || g.dst.w <= 0 || g.dst.h <= 0 ||\n\t    g.dst.w > g.output_w - g.dst.x || g.dst.h > g.output_h - g.dst.y ||\n\t    g.dst.w % 320 || g.dst.h % 200)\n\t\treturn false;\n\tg.scale = g.dst.w / 320;\n\tif (g.scale != g.dst.h / 200 ||\n\t    (g.scale != 1 && g.scale != 2 && g.scale != 4 && g.scale != 8))\n\t\treturn false;\n\tg.footprint = 8 / g.scale;\n\t*out = g;\n\treturn true;\n}\n\nbool video_output_geometry_equal(const VideoOutputGeometry *a,\n                                 const VideoOutputGeometry *b)\n{\n\t/* Fieldwise equality deliberately excludes uninitialized structure padding. */\n\treturn a && b && a->window == b->window && a->renderer == b->renderer &&\n\t       a->renderer_generation == b->renderer_generation &&\n\t       a->dst.x == b->dst.x && a->dst.y == b->dst.y &&\n\t       a->dst.w == b->dst.w && a->dst.h == b->dst.h &&\n\t       a->window_w == b->window_w && a->window_h == b->window_h &&\n\t       a->output_w == b->output_w && a->output_h == b->output_h &&\n\t       a->scale == b->scale && a->footprint == b->footprint &&\n\t       a->scaling_mode == b->scaling_mode;\n}\n\n"
+        }
+      ]
+    },
+    "src/video.h": {
+      "previous_sha256": "fda2ce6ac4a1769a0f8ff7b466384ee734874a3c8ee5b533d53e87e09de9e76d",
+      "current_sha256": "07178ae47dd0d1f4403af2da6ce93f3c9bab9f7ed413f4e45698303ed09306c6",
+      "hunks": [
+        {
+          "before_lines": [
+            36,
+            36
+          ],
+          "after_lines": [
+            36,
+            53
+          ],
+          "before": "",
+          "after": "/* Observational presentation geometry for finite output-footprint consumers.\n * Unsupported renderer transforms return false; querying never changes them. */\ntypedef struct VideoOutputGeometry {\n\tSDL_Window *window;\n\tSDL_Renderer *renderer;\n\tUint64 renderer_generation;\n\tSDL_Rect dst;\n\tint window_w, window_h;\n\tint output_w, output_h;\n\tint scale, footprint;\n\tScalingMode scaling_mode;\n} VideoOutputGeometry;\n\nbool video_output_geometry(VideoOutputGeometry *out);\nbool video_output_geometry_equal(const VideoOutputGeometry *a,\n                                 const VideoOutputGeometry *b);\n\n"
+        }
+      ]
+    }
+  },
+  "added_sources": {
+    "src/current_shapesy_platform_hd_assets.h": "c61b31e1b513f94dd77c0d3b318ba811a176392fcdb51efcfef070c543279111",
+    "src/current_shapesy_platform_source.h": "55b935e8403931142718afb283eed6b70f00e4e2f32354c88d140f32600354d8",
+    "src/shapesy_platform_mirror.inc": "ee4a4e955126b917e949ebecc3bef7aa2d471337ab8aad3393dd99ca4e8d29e8",
+    "src/current_shapesy_contour_materials.h": "e45bfe6b5a39ab8f6ba2d7c04a508b16d1dfdd173a13a10e907c74b6a5e20970"
+  },
+  "asset_edits": {
+    "assets/hd/manifest.json": {
+      "previous_sha256": "24b2a920f2c889c56ce3d29811679228bcb9ddf45067fc9488e1aef414527f9a",
+      "current_sha256": "fb802ceaf35663c526c25fb3502c54f700cfd297a195eabc24d036d02fc31155",
+      "hunks": [
+        {
+          "before_lines": [
+            8,
+            9
+          ],
+          "after_lines": [
+            8,
+            9
+          ],
+          "before": "      \"count\": 629,\n",
+          "after": "      \"count\": 657,\n"
+        },
+        {
+          "before_lines": [
+            8186,
+            8186
+          ],
+          "after_lines": [
+            8186,
+            8550
+          ],
+          "before": "",
+          "after": "        },\n        \"terrain-shapesy-321-8.hda\": {\n          \"sha256\": \"c078e1802472738134f81ef7d78b7ede39a5de1e94e414ba10f7dee91f7670e0\",\n          \"header_u32\": [\n            2020321,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-321-8.png\",\n          \"source_png_sha256\": \"172b72978c41956b1e0858846be71a5d18b8ca02b24e2963a46ff3edc0acc657\"\n        },\n        \"terrain-shapesy-322-8.hda\": {\n          \"sha256\": \"2690e3fe372d101867ec2c820e2db7ab7fb9d5d45f1bf23af534a2b662fcbcc7\",\n          \"header_u32\": [\n            2020322,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-322-8.png\",\n          \"source_png_sha256\": \"9e8d231e48fd6ec130a6439be2a98d0e23aaa4db8bdb26807202ad48025d04b9\"\n        },\n        \"terrain-shapesy-323-8.hda\": {\n          \"sha256\": \"6fa531daffa746b74ed57543ea0df24a01e3fbb5e4362ea62fbd96fb4d22f981\",\n          \"header_u32\": [\n            2020323,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-323-8.png\",\n          \"source_png_sha256\": \"05aba1c70ab51529294d7360a4d75670b16a8d357073e57a7f6082ffdcb0023e\"\n        },\n        \"terrain-shapesy-324-8.hda\": {\n          \"sha256\": \"4b28c910a9309e05ade233a72166a9966f6ed63432d517335b89346cc1b574b2\",\n          \"header_u32\": [\n            2020324,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-324-8.png\",\n          \"source_png_sha256\": \"ef1d9d79c66470118c6cec66693c4679ef44cc6a9c8e76c9f52894d497e9ef2a\"\n        },\n        \"terrain-shapesy-325-8.hda\": {\n          \"sha256\": \"771d55ca1544d2a1e511ce851e27d59f91253c4d3e5cae44c041566bdf2c5e47\",\n          \"header_u32\": [\n            2020325,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-325-8.png\",\n          \"source_png_sha256\": \"3b6d038fe42c84965f43429f1045675dfc7541dec3c586c7673f83e9a68428d1\"\n        },\n        \"terrain-shapesy-326-8.hda\": {\n          \"sha256\": \"e178bfc57f79591a0426fabbc35c926dde0885e9cb94c3f7ea0c9f2f75014436\",\n          \"header_u32\": [\n            2020326,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-326-8.png\",\n          \"source_png_sha256\": \"c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06\"\n        },\n        \"terrain-shapesy-331-8.hda\": {\n          \"sha256\": \"7da00a4a1dd5a45d469195ec20c92f90a3ec6cafa78390d9468e39db1fbf21a8\",\n          \"header_u32\": [\n            2020331,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-331-8.png\",\n          \"source_png_sha256\": \"059853f34b08c5a9a774721f14beea5922db5c38b266236c3c97dedab05abc00\"\n        },\n        \"terrain-shapesy-332-8.hda\": {\n          \"sha256\": \"037c006fbf9c0737164b1a1186b298f053364a7f66cf0ef23ec733e02ea422e6\",\n          \"header_u32\": [\n            2020332,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-332-8.png\",\n          \"source_png_sha256\": \"4bfcbb2a6a96d976dbcfda49133c22ee12df06691d1969ed20ab8e82c2ab4758\"\n        },\n        \"terrain-shapesy-333-8.hda\": {\n          \"sha256\": \"718be98ace8d69f4ca2b211fcbaf9c148e2e10a7bbffe57d181177f800a8a812\",\n          \"header_u32\": [\n            2020333,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-333-8.png\",\n          \"source_png_sha256\": \"1e46b7010b318a1f478022c8b1086c823519c1c29d963e50e88da50d193cbc31\"\n        },\n        \"terrain-shapesy-334-8.hda\": {\n          \"sha256\": \"83c4fe0a5ddcb9d4cad5c27d6072dcf63b7aa4f41fc6607785d77d76fadc1288\",\n          \"header_u32\": [\n            2020334,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-334-8.png\",\n          \"source_png_sha256\": \"90eea0c6ed9f9541aaa1bb8ed0d616b563bfb1388416fe7ddfae81e1750a63d0\"\n        },\n        \"terrain-shapesy-336-8.hda\": {\n          \"sha256\": \"796d1d97017d802eb6cce6bf708fb8b3d4b92beaf1c27baa49491e8dedcd9b52\",\n          \"header_u32\": [\n            2020336,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-336-8.png\",\n          \"source_png_sha256\": \"5ea5bb68e0e2753d4506dca20bb4a9f2f755744350b7939e34044a38afeb1e32\"\n        },\n        \"terrain-shapesy-341-8.hda\": {\n          \"sha256\": \"7fd7b0d0a708aaf86e860625b185ac4bfbde0a44e34c5c288789c3cdcc1bc191\",\n          \"header_u32\": [\n            2020341,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-341-8.png\",\n          \"source_png_sha256\": \"10591dd0202a587a286108a889fb95aca7a30c7524bc1997efcb8281a32d74c9\"\n        },\n        \"terrain-shapesy-342-8.hda\": {\n          \"sha256\": \"2e9ed4974e9ca261262b8134fd5702d190445c3318d33c3f23c404f3c1eb2d1f\",\n          \"header_u32\": [\n            2020342,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-342-8.png\",\n          \"source_png_sha256\": \"c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06\"\n        },\n        \"terrain-shapesy-343-8.hda\": {\n          \"sha256\": \"c31cf2724f39d40538e7c432d36d643b00a1d678dff962385645357646007e03\",\n          \"header_u32\": [\n            2020343,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-343-8.png\",\n          \"source_png_sha256\": \"11eef52716b322d35b75cb99e471fecf00c432dff7712bd81e0907bf70113b94\"\n        },\n        \"terrain-shapesy-346-8.hda\": {\n          \"sha256\": \"8ba1e9b6a3d426eb96ac56b832d3e33fef0110622fef2f719d4127d870b51c1e\",\n          \"header_u32\": [\n            2020346,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-346-8.png\",\n          \"source_png_sha256\": \"8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e\"\n        },\n        \"terrain-shapesy-351-8.hda\": {\n          \"sha256\": \"76ffd933a8ea974ffe1aaf0b29d81f258632cdf9a4372ee9ef19f3299b9af1bb\",\n          \"header_u32\": [\n            2020351,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-351-8.png\",\n          \"source_png_sha256\": \"d234a755bbb311464079cef993b646060727584ca36ebf85c1c35e12b6a7bd56\"\n        },\n        \"terrain-shapesy-352-8.hda\": {\n          \"sha256\": \"a76ca99041c5310c96657b644531e978828af4fcd78e30a36ee20e530461f554\",\n          \"header_u32\": [\n            2020352,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-352-8.png\",\n          \"source_png_sha256\": \"77eda5a96592617829c06ab8b5f40ca696acd1175282e735cc0dc1305bb7fe18\"\n        },\n        \"terrain-shapesy-353-8.hda\": {\n          \"sha256\": \"abe2c0bad9e155ba85c7caee8fa86d1801c3204bea37a03cd8c358404102c920\",\n          \"header_u32\": [\n            2020353,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-353-8.png\",\n          \"source_png_sha256\": \"87bc4dafa15252fc69aaacc4032d52545b87a95b6df3e4ae4b02a3e2fd0c38d1\"\n        },\n        \"terrain-shapesy-354-8.hda\": {\n          \"sha256\": \"ae41c3941b31e9aa5e85b52f70a0b026ba37744b4883942ccb8e9dde971a2b80\",\n          \"header_u32\": [\n            2020354,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-354-8.png\",\n          \"source_png_sha256\": \"73c4d0edc5115333f60b5452587ed997be3855bed14d9a6c966b09385a07b138\"\n        },\n        \"terrain-shapesy-361-8.hda\": {\n          \"sha256\": \"d034c9684dfaa6d41c7059cec160ec2378b06f2a2c919081e43c8d4ccf9376bf\",\n          \"header_u32\": [\n            2020361,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-361-8.png\",\n          \"source_png_sha256\": \"4d84a6e2f8bc4294c7ba5c859471893306a2ca99db13551ebf8ec18947e883ff\"\n        },\n        \"terrain-shapesy-362-8.hda\": {\n          \"sha256\": \"04f192638d955bbd1e81be1c5af529d48a3c52ea0414a8e87151b155ac9968bc\",\n          \"header_u32\": [\n            2020362,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-362-8.png\",\n          \"source_png_sha256\": \"8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e\"\n        },\n        \"terrain-shapesy-363-8.hda\": {\n          \"sha256\": \"be549a01517a5c4008f5dded955ed8984d66351bf70c7eb2899954b3b765dab8\",\n          \"header_u32\": [\n            2020363,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-363-8.png\",\n          \"source_png_sha256\": \"e33d52f7f1bf94ca4e12f26086fc80568ec9597778ddb081e06512768f89fb2c\"\n        },\n        \"terrain-shapesy-364-8.hda\": {\n          \"sha256\": \"43e89bf1582f99f086cafa817731b8a378c224891acd22158f10ff730d73a415\",\n          \"header_u32\": [\n            2020364,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-364-8.png\",\n          \"source_png_sha256\": \"88247851f1cf0e07a08b2da6557cafafe9186653c53d1abfca34421758271988\"\n        },\n        \"terrain-shapesy-365-8.hda\": {\n          \"sha256\": \"adae960e9da2bf7cb3b878bf6f0f6fe3fed94036879f434994b211e110753c84\",\n          \"header_u32\": [\n            2020365,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-365-8.png\",\n          \"source_png_sha256\": \"cfb8eb03efeb0409abbcf54a5d395b80019e28f0d769ffbb7e75d122c65cc7d2\"\n        },\n        \"terrain-shapesy-374-8.hda\": {\n          \"sha256\": \"65aa008345f0c089ec0589891ac6b21b9af092af0ca4ad2dae6a6485a0dca634\",\n          \"header_u32\": [\n            2020374,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-374-8.png\",\n          \"source_png_sha256\": \"a27e029e32d07cbe70909f1cd7cc049c55402b68946ee8312b8e917ca9e310b4\"\n        },\n        \"terrain-shapesy-375-8.hda\": {\n          \"sha256\": \"a6c3c27d247ad6ea254142970969ce1d445fc855c86c29245f66fa9172cf3363\",\n          \"header_u32\": [\n            2020375,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-375-8.png\",\n          \"source_png_sha256\": \"980e7b96d9ac5fcbc19ded196335ee20b70cdd568dd29dfec48d139fa7f0f05a\"\n        },\n        \"terrain-shapesy-384-8.hda\": {\n          \"sha256\": \"d6c7283235745c501902f0639786864a11ad2f592d7731d55e32ca0f53c402b2\",\n          \"header_u32\": [\n            2020384,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-384-8.png\",\n          \"source_png_sha256\": \"904456aa132808a1bdca12a45891d6149a7be2d673da3d0cacb9523ef37ae6e4\"\n        },\n        \"terrain-shapesy-385-8.hda\": {\n          \"sha256\": \"0890a924360eb599178a65e6262487236d5c46e8565955b3dcd1d2a8cac928f7\",\n          \"header_u32\": [\n            2020385,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-385-8.png\",\n          \"source_png_sha256\": \"c5eb4d118e372100255d930c610aa8b6f13c84014d442df9f7fa89d1bbaee2c6\"\n"
+        },
+        {
+          "before_lines": [
+            8190,
+            8191
+          ],
+          "after_lines": [
+            8554,
+            8555
+          ],
+          "before": "      \"count\": 629,\n",
+          "after": "      \"count\": 657,\n"
+        },
+        {
+          "before_lines": [
+            16368,
+            16368
+          ],
+          "after_lines": [
+            16732,
+            17096
+          ],
+          "before": "",
+          "after": "        },\n        \"terrain-shapesy-321-8.hda\": {\n          \"sha256\": \"c078e1802472738134f81ef7d78b7ede39a5de1e94e414ba10f7dee91f7670e0\",\n          \"header_u32\": [\n            2020321,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-321-8.png\",\n          \"source_png_sha256\": \"172b72978c41956b1e0858846be71a5d18b8ca02b24e2963a46ff3edc0acc657\"\n        },\n        \"terrain-shapesy-322-8.hda\": {\n          \"sha256\": \"2690e3fe372d101867ec2c820e2db7ab7fb9d5d45f1bf23af534a2b662fcbcc7\",\n          \"header_u32\": [\n            2020322,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-322-8.png\",\n          \"source_png_sha256\": \"9e8d231e48fd6ec130a6439be2a98d0e23aaa4db8bdb26807202ad48025d04b9\"\n        },\n        \"terrain-shapesy-323-8.hda\": {\n          \"sha256\": \"6fa531daffa746b74ed57543ea0df24a01e3fbb5e4362ea62fbd96fb4d22f981\",\n          \"header_u32\": [\n            2020323,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-323-8.png\",\n          \"source_png_sha256\": \"05aba1c70ab51529294d7360a4d75670b16a8d357073e57a7f6082ffdcb0023e\"\n        },\n        \"terrain-shapesy-324-8.hda\": {\n          \"sha256\": \"4b28c910a9309e05ade233a72166a9966f6ed63432d517335b89346cc1b574b2\",\n          \"header_u32\": [\n            2020324,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-324-8.png\",\n          \"source_png_sha256\": \"ef1d9d79c66470118c6cec66693c4679ef44cc6a9c8e76c9f52894d497e9ef2a\"\n        },\n        \"terrain-shapesy-325-8.hda\": {\n          \"sha256\": \"771d55ca1544d2a1e511ce851e27d59f91253c4d3e5cae44c041566bdf2c5e47\",\n          \"header_u32\": [\n            2020325,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-325-8.png\",\n          \"source_png_sha256\": \"3b6d038fe42c84965f43429f1045675dfc7541dec3c586c7673f83e9a68428d1\"\n        },\n        \"terrain-shapesy-326-8.hda\": {\n          \"sha256\": \"e178bfc57f79591a0426fabbc35c926dde0885e9cb94c3f7ea0c9f2f75014436\",\n          \"header_u32\": [\n            2020326,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-326-8.png\",\n          \"source_png_sha256\": \"c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06\"\n        },\n        \"terrain-shapesy-331-8.hda\": {\n          \"sha256\": \"7da00a4a1dd5a45d469195ec20c92f90a3ec6cafa78390d9468e39db1fbf21a8\",\n          \"header_u32\": [\n            2020331,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-331-8.png\",\n          \"source_png_sha256\": \"059853f34b08c5a9a774721f14beea5922db5c38b266236c3c97dedab05abc00\"\n        },\n        \"terrain-shapesy-332-8.hda\": {\n          \"sha256\": \"037c006fbf9c0737164b1a1186b298f053364a7f66cf0ef23ec733e02ea422e6\",\n          \"header_u32\": [\n            2020332,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-332-8.png\",\n          \"source_png_sha256\": \"4bfcbb2a6a96d976dbcfda49133c22ee12df06691d1969ed20ab8e82c2ab4758\"\n        },\n        \"terrain-shapesy-333-8.hda\": {\n          \"sha256\": \"718be98ace8d69f4ca2b211fcbaf9c148e2e10a7bbffe57d181177f800a8a812\",\n          \"header_u32\": [\n            2020333,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-333-8.png\",\n          \"source_png_sha256\": \"1e46b7010b318a1f478022c8b1086c823519c1c29d963e50e88da50d193cbc31\"\n        },\n        \"terrain-shapesy-334-8.hda\": {\n          \"sha256\": \"83c4fe0a5ddcb9d4cad5c27d6072dcf63b7aa4f41fc6607785d77d76fadc1288\",\n          \"header_u32\": [\n            2020334,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-334-8.png\",\n          \"source_png_sha256\": \"90eea0c6ed9f9541aaa1bb8ed0d616b563bfb1388416fe7ddfae81e1750a63d0\"\n        },\n        \"terrain-shapesy-336-8.hda\": {\n          \"sha256\": \"796d1d97017d802eb6cce6bf708fb8b3d4b92beaf1c27baa49491e8dedcd9b52\",\n          \"header_u32\": [\n            2020336,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-336-8.png\",\n          \"source_png_sha256\": \"5ea5bb68e0e2753d4506dca20bb4a9f2f755744350b7939e34044a38afeb1e32\"\n        },\n        \"terrain-shapesy-341-8.hda\": {\n          \"sha256\": \"7fd7b0d0a708aaf86e860625b185ac4bfbde0a44e34c5c288789c3cdcc1bc191\",\n          \"header_u32\": [\n            2020341,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-341-8.png\",\n          \"source_png_sha256\": \"10591dd0202a587a286108a889fb95aca7a30c7524bc1997efcb8281a32d74c9\"\n        },\n        \"terrain-shapesy-342-8.hda\": {\n          \"sha256\": \"2e9ed4974e9ca261262b8134fd5702d190445c3318d33c3f23c404f3c1eb2d1f\",\n          \"header_u32\": [\n            2020342,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-342-8.png\",\n          \"source_png_sha256\": \"c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06\"\n        },\n        \"terrain-shapesy-343-8.hda\": {\n          \"sha256\": \"c31cf2724f39d40538e7c432d36d643b00a1d678dff962385645357646007e03\",\n          \"header_u32\": [\n            2020343,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-343-8.png\",\n          \"source_png_sha256\": \"11eef52716b322d35b75cb99e471fecf00c432dff7712bd81e0907bf70113b94\"\n        },\n        \"terrain-shapesy-346-8.hda\": {\n          \"sha256\": \"8ba1e9b6a3d426eb96ac56b832d3e33fef0110622fef2f719d4127d870b51c1e\",\n          \"header_u32\": [\n            2020346,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-346-8.png\",\n          \"source_png_sha256\": \"8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e\"\n        },\n        \"terrain-shapesy-351-8.hda\": {\n          \"sha256\": \"76ffd933a8ea974ffe1aaf0b29d81f258632cdf9a4372ee9ef19f3299b9af1bb\",\n          \"header_u32\": [\n            2020351,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-351-8.png\",\n          \"source_png_sha256\": \"d234a755bbb311464079cef993b646060727584ca36ebf85c1c35e12b6a7bd56\"\n        },\n        \"terrain-shapesy-352-8.hda\": {\n          \"sha256\": \"a76ca99041c5310c96657b644531e978828af4fcd78e30a36ee20e530461f554\",\n          \"header_u32\": [\n            2020352,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-352-8.png\",\n          \"source_png_sha256\": \"77eda5a96592617829c06ab8b5f40ca696acd1175282e735cc0dc1305bb7fe18\"\n        },\n        \"terrain-shapesy-353-8.hda\": {\n          \"sha256\": \"abe2c0bad9e155ba85c7caee8fa86d1801c3204bea37a03cd8c358404102c920\",\n          \"header_u32\": [\n            2020353,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-353-8.png\",\n          \"source_png_sha256\": \"87bc4dafa15252fc69aaacc4032d52545b87a95b6df3e4ae4b02a3e2fd0c38d1\"\n        },\n        \"terrain-shapesy-354-8.hda\": {\n          \"sha256\": \"ae41c3941b31e9aa5e85b52f70a0b026ba37744b4883942ccb8e9dde971a2b80\",\n          \"header_u32\": [\n            2020354,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-354-8.png\",\n          \"source_png_sha256\": \"73c4d0edc5115333f60b5452587ed997be3855bed14d9a6c966b09385a07b138\"\n        },\n        \"terrain-shapesy-361-8.hda\": {\n          \"sha256\": \"d034c9684dfaa6d41c7059cec160ec2378b06f2a2c919081e43c8d4ccf9376bf\",\n          \"header_u32\": [\n            2020361,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-361-8.png\",\n          \"source_png_sha256\": \"4d84a6e2f8bc4294c7ba5c859471893306a2ca99db13551ebf8ec18947e883ff\"\n        },\n        \"terrain-shapesy-362-8.hda\": {\n          \"sha256\": \"04f192638d955bbd1e81be1c5af529d48a3c52ea0414a8e87151b155ac9968bc\",\n          \"header_u32\": [\n            2020362,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-362-8.png\",\n          \"source_png_sha256\": \"8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e\"\n        },\n        \"terrain-shapesy-363-8.hda\": {\n          \"sha256\": \"be549a01517a5c4008f5dded955ed8984d66351bf70c7eb2899954b3b765dab8\",\n          \"header_u32\": [\n            2020363,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-363-8.png\",\n          \"source_png_sha256\": \"e33d52f7f1bf94ca4e12f26086fc80568ec9597778ddb081e06512768f89fb2c\"\n        },\n        \"terrain-shapesy-364-8.hda\": {\n          \"sha256\": \"43e89bf1582f99f086cafa817731b8a378c224891acd22158f10ff730d73a415\",\n          \"header_u32\": [\n            2020364,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-364-8.png\",\n          \"source_png_sha256\": \"88247851f1cf0e07a08b2da6557cafafe9186653c53d1abfca34421758271988\"\n        },\n        \"terrain-shapesy-365-8.hda\": {\n          \"sha256\": \"adae960e9da2bf7cb3b878bf6f0f6fe3fed94036879f434994b211e110753c84\",\n          \"header_u32\": [\n            2020365,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-365-8.png\",\n          \"source_png_sha256\": \"cfb8eb03efeb0409abbcf54a5d395b80019e28f0d769ffbb7e75d122c65cc7d2\"\n        },\n        \"terrain-shapesy-374-8.hda\": {\n          \"sha256\": \"65aa008345f0c089ec0589891ac6b21b9af092af0ca4ad2dae6a6485a0dca634\",\n          \"header_u32\": [\n            2020374,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-374-8.png\",\n          \"source_png_sha256\": \"a27e029e32d07cbe70909f1cd7cc049c55402b68946ee8312b8e917ca9e310b4\"\n        },\n        \"terrain-shapesy-375-8.hda\": {\n          \"sha256\": \"a6c3c27d247ad6ea254142970969ce1d445fc855c86c29245f66fa9172cf3363\",\n          \"header_u32\": [\n            2020375,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-375-8.png\",\n          \"source_png_sha256\": \"980e7b96d9ac5fcbc19ded196335ee20b70cdd568dd29dfec48d139fa7f0f05a\"\n        },\n        \"terrain-shapesy-384-8.hda\": {\n          \"sha256\": \"d6c7283235745c501902f0639786864a11ad2f592d7731d55e32ca0f53c402b2\",\n          \"header_u32\": [\n            2020384,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-384-8.png\",\n          \"source_png_sha256\": \"904456aa132808a1bdca12a45891d6149a7be2d673da3d0cacb9523ef37ae6e4\"\n        },\n        \"terrain-shapesy-385-8.hda\": {\n          \"sha256\": \"0890a924360eb599178a65e6262487236d5c46e8565955b3dcd1d2a8cac928f7\",\n          \"header_u32\": [\n            2020385,\n            8,\n            24,\n            28,\n            0,\n            0\n          ],\n          \"source_png\": \"assets/hd/source/terrain-shapesy-385-8.png\",\n          \"source_png_sha256\": \"c5eb4d118e372100255d930c610aa8b6f13c84014d442df9f7fa89d1bbaee2c6\"\n"
+        }
+      ]
+    }
+  },
+  "asset_additions": [
+    "assets/hd/authoring/shapesy-platform-current.json",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-321-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-322-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-323-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-324-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-325-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-326-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-331-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-332-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-333-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-334-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-336-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-341-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-342-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-343-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-346-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-351-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-352-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-353-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-354-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-361-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-362-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-363-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-364-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-365-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-374-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-375-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-384-8.hda",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-385-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-321-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-322-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-323-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-324-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-325-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-326-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-331-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-332-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-333-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-334-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-336-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-341-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-342-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-343-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-346-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-351-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-352-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-353-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-354-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-361-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-362-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-363-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-364-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-365-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-374-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-375-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-384-8.hda",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-385-8.hda",
+    "assets/hd/source/terrain-shapesy-321-8.png",
+    "assets/hd/source/terrain-shapesy-322-8.png",
+    "assets/hd/source/terrain-shapesy-323-8.png",
+    "assets/hd/source/terrain-shapesy-324-8.png",
+    "assets/hd/source/terrain-shapesy-325-8.png",
+    "assets/hd/source/terrain-shapesy-326-8.png",
+    "assets/hd/source/terrain-shapesy-331-8.png",
+    "assets/hd/source/terrain-shapesy-332-8.png",
+    "assets/hd/source/terrain-shapesy-333-8.png",
+    "assets/hd/source/terrain-shapesy-334-8.png",
+    "assets/hd/source/terrain-shapesy-336-8.png",
+    "assets/hd/source/terrain-shapesy-341-8.png",
+    "assets/hd/source/terrain-shapesy-342-8.png",
+    "assets/hd/source/terrain-shapesy-343-8.png",
+    "assets/hd/source/terrain-shapesy-346-8.png",
+    "assets/hd/source/terrain-shapesy-351-8.png",
+    "assets/hd/source/terrain-shapesy-352-8.png",
+    "assets/hd/source/terrain-shapesy-353-8.png",
+    "assets/hd/source/terrain-shapesy-354-8.png",
+    "assets/hd/source/terrain-shapesy-361-8.png",
+    "assets/hd/source/terrain-shapesy-362-8.png",
+    "assets/hd/source/terrain-shapesy-363-8.png",
+    "assets/hd/source/terrain-shapesy-364-8.png",
+    "assets/hd/source/terrain-shapesy-365-8.png",
+    "assets/hd/source/terrain-shapesy-374-8.png",
+    "assets/hd/source/terrain-shapesy-375-8.png",
+    "assets/hd/source/terrain-shapesy-384-8.png",
+    "assets/hd/source/terrain-shapesy-385-8.png"
+  ],
+  "qualified": {
+    "assets/hd/authoring/shapesy-platform-current.json": "e802b43b2b98ad763bd36106bf679ef82ec35a3c06b320392245fe7c883785eb",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-321-8.hda": "c078e1802472738134f81ef7d78b7ede39a5de1e94e414ba10f7dee91f7670e0",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-322-8.hda": "2690e3fe372d101867ec2c820e2db7ab7fb9d5d45f1bf23af534a2b662fcbcc7",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-323-8.hda": "6fa531daffa746b74ed57543ea0df24a01e3fbb5e4362ea62fbd96fb4d22f981",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-324-8.hda": "4b28c910a9309e05ade233a72166a9966f6ed63432d517335b89346cc1b574b2",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-325-8.hda": "771d55ca1544d2a1e511ce851e27d59f91253c4d3e5cae44c041566bdf2c5e47",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-326-8.hda": "e178bfc57f79591a0426fabbc35c926dde0885e9cb94c3f7ea0c9f2f75014436",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-331-8.hda": "7da00a4a1dd5a45d469195ec20c92f90a3ec6cafa78390d9468e39db1fbf21a8",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-332-8.hda": "037c006fbf9c0737164b1a1186b298f053364a7f66cf0ef23ec733e02ea422e6",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-333-8.hda": "718be98ace8d69f4ca2b211fcbaf9c148e2e10a7bbffe57d181177f800a8a812",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-334-8.hda": "83c4fe0a5ddcb9d4cad5c27d6072dcf63b7aa4f41fc6607785d77d76fadc1288",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-336-8.hda": "796d1d97017d802eb6cce6bf708fb8b3d4b92beaf1c27baa49491e8dedcd9b52",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-341-8.hda": "7fd7b0d0a708aaf86e860625b185ac4bfbde0a44e34c5c288789c3cdcc1bc191",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-342-8.hda": "2e9ed4974e9ca261262b8134fd5702d190445c3318d33c3f23c404f3c1eb2d1f",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-343-8.hda": "c31cf2724f39d40538e7c432d36d643b00a1d678dff962385645357646007e03",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-346-8.hda": "8ba1e9b6a3d426eb96ac56b832d3e33fef0110622fef2f719d4127d870b51c1e",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-351-8.hda": "76ffd933a8ea974ffe1aaf0b29d81f258632cdf9a4372ee9ef19f3299b9af1bb",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-352-8.hda": "a76ca99041c5310c96657b644531e978828af4fcd78e30a36ee20e530461f554",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-353-8.hda": "abe2c0bad9e155ba85c7caee8fa86d1801c3204bea37a03cd8c358404102c920",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-354-8.hda": "ae41c3941b31e9aa5e85b52f70a0b026ba37744b4883942ccb8e9dde971a2b80",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-361-8.hda": "d034c9684dfaa6d41c7059cec160ec2378b06f2a2c919081e43c8d4ccf9376bf",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-362-8.hda": "04f192638d955bbd1e81be1c5af529d48a3c52ea0414a8e87151b155ac9968bc",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-363-8.hda": "be549a01517a5c4008f5dded955ed8984d66351bf70c7eb2899954b3b765dab8",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-364-8.hda": "43e89bf1582f99f086cafa817731b8a378c224891acd22158f10ff730d73a415",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-365-8.hda": "adae960e9da2bf7cb3b878bf6f0f6fe3fed94036879f434994b211e110753c84",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-374-8.hda": "65aa008345f0c089ec0589891ac6b21b9af092af0ca4ad2dae6a6485a0dca634",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-375-8.hda": "a6c3c27d247ad6ea254142970969ce1d445fc855c86c29245f66fa9172cf3363",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-384-8.hda": "d6c7283235745c501902f0639786864a11ad2f592d7731d55e32ca0f53c402b2",
+    "assets/hd/packs/packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-385-8.hda": "0890a924360eb599178a65e6262487236d5c46e8565955b3dcd1d2a8cac928f7",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-321-8.hda": "c078e1802472738134f81ef7d78b7ede39a5de1e94e414ba10f7dee91f7670e0",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-322-8.hda": "2690e3fe372d101867ec2c820e2db7ab7fb9d5d45f1bf23af534a2b662fcbcc7",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-323-8.hda": "6fa531daffa746b74ed57543ea0df24a01e3fbb5e4362ea62fbd96fb4d22f981",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-324-8.hda": "4b28c910a9309e05ade233a72166a9966f6ed63432d517335b89346cc1b574b2",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-325-8.hda": "771d55ca1544d2a1e511ce851e27d59f91253c4d3e5cae44c041566bdf2c5e47",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-326-8.hda": "e178bfc57f79591a0426fabbc35c926dde0885e9cb94c3f7ea0c9f2f75014436",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-331-8.hda": "7da00a4a1dd5a45d469195ec20c92f90a3ec6cafa78390d9468e39db1fbf21a8",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-332-8.hda": "037c006fbf9c0737164b1a1186b298f053364a7f66cf0ef23ec733e02ea422e6",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-333-8.hda": "718be98ace8d69f4ca2b211fcbaf9c148e2e10a7bbffe57d181177f800a8a812",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-334-8.hda": "83c4fe0a5ddcb9d4cad5c27d6072dcf63b7aa4f41fc6607785d77d76fadc1288",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-336-8.hda": "796d1d97017d802eb6cce6bf708fb8b3d4b92beaf1c27baa49491e8dedcd9b52",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-341-8.hda": "7fd7b0d0a708aaf86e860625b185ac4bfbde0a44e34c5c288789c3cdcc1bc191",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-342-8.hda": "2e9ed4974e9ca261262b8134fd5702d190445c3318d33c3f23c404f3c1eb2d1f",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-343-8.hda": "c31cf2724f39d40538e7c432d36d643b00a1d678dff962385645357646007e03",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-346-8.hda": "8ba1e9b6a3d426eb96ac56b832d3e33fef0110622fef2f719d4127d870b51c1e",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-351-8.hda": "76ffd933a8ea974ffe1aaf0b29d81f258632cdf9a4372ee9ef19f3299b9af1bb",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-352-8.hda": "a76ca99041c5310c96657b644531e978828af4fcd78e30a36ee20e530461f554",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-353-8.hda": "abe2c0bad9e155ba85c7caee8fa86d1801c3204bea37a03cd8c358404102c920",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-354-8.hda": "ae41c3941b31e9aa5e85b52f70a0b026ba37744b4883942ccb8e9dde971a2b80",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-361-8.hda": "d034c9684dfaa6d41c7059cec160ec2378b06f2a2c919081e43c8d4ccf9376bf",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-362-8.hda": "04f192638d955bbd1e81be1c5af529d48a3c52ea0414a8e87151b155ac9968bc",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-363-8.hda": "be549a01517a5c4008f5dded955ed8984d66351bf70c7eb2899954b3b765dab8",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-364-8.hda": "43e89bf1582f99f086cafa817731b8a378c224891acd22158f10ff730d73a415",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-365-8.hda": "adae960e9da2bf7cb3b878bf6f0f6fe3fed94036879f434994b211e110753c84",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-374-8.hda": "65aa008345f0c089ec0589891ac6b21b9af092af0ca4ad2dae6a6485a0dca634",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-375-8.hda": "a6c3c27d247ad6ea254142970969ce1d445fc855c86c29245f66fa9172cf3363",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-384-8.hda": "d6c7283235745c501902f0639786864a11ad2f592d7731d55e32ca0f53c402b2",
+    "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesy-385-8.hda": "0890a924360eb599178a65e6262487236d5c46e8565955b3dcd1d2a8cac928f7",
+    "assets/hd/source/terrain-shapesy-321-8.png": "172b72978c41956b1e0858846be71a5d18b8ca02b24e2963a46ff3edc0acc657",
+    "assets/hd/source/terrain-shapesy-322-8.png": "9e8d231e48fd6ec130a6439be2a98d0e23aaa4db8bdb26807202ad48025d04b9",
+    "assets/hd/source/terrain-shapesy-323-8.png": "05aba1c70ab51529294d7360a4d75670b16a8d357073e57a7f6082ffdcb0023e",
+    "assets/hd/source/terrain-shapesy-324-8.png": "ef1d9d79c66470118c6cec66693c4679ef44cc6a9c8e76c9f52894d497e9ef2a",
+    "assets/hd/source/terrain-shapesy-325-8.png": "3b6d038fe42c84965f43429f1045675dfc7541dec3c586c7673f83e9a68428d1",
+    "assets/hd/source/terrain-shapesy-326-8.png": "c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06",
+    "assets/hd/source/terrain-shapesy-331-8.png": "059853f34b08c5a9a774721f14beea5922db5c38b266236c3c97dedab05abc00",
+    "assets/hd/source/terrain-shapesy-332-8.png": "4bfcbb2a6a96d976dbcfda49133c22ee12df06691d1969ed20ab8e82c2ab4758",
+    "assets/hd/source/terrain-shapesy-333-8.png": "1e46b7010b318a1f478022c8b1086c823519c1c29d963e50e88da50d193cbc31",
+    "assets/hd/source/terrain-shapesy-334-8.png": "90eea0c6ed9f9541aaa1bb8ed0d616b563bfb1388416fe7ddfae81e1750a63d0",
+    "assets/hd/source/terrain-shapesy-336-8.png": "5ea5bb68e0e2753d4506dca20bb4a9f2f755744350b7939e34044a38afeb1e32",
+    "assets/hd/source/terrain-shapesy-341-8.png": "10591dd0202a587a286108a889fb95aca7a30c7524bc1997efcb8281a32d74c9",
+    "assets/hd/source/terrain-shapesy-342-8.png": "c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06",
+    "assets/hd/source/terrain-shapesy-343-8.png": "11eef52716b322d35b75cb99e471fecf00c432dff7712bd81e0907bf70113b94",
+    "assets/hd/source/terrain-shapesy-346-8.png": "8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e",
+    "assets/hd/source/terrain-shapesy-351-8.png": "d234a755bbb311464079cef993b646060727584ca36ebf85c1c35e12b6a7bd56",
+    "assets/hd/source/terrain-shapesy-352-8.png": "77eda5a96592617829c06ab8b5f40ca696acd1175282e735cc0dc1305bb7fe18",
+    "assets/hd/source/terrain-shapesy-353-8.png": "87bc4dafa15252fc69aaacc4032d52545b87a95b6df3e4ae4b02a3e2fd0c38d1",
+    "assets/hd/source/terrain-shapesy-354-8.png": "73c4d0edc5115333f60b5452587ed997be3855bed14d9a6c966b09385a07b138",
+    "assets/hd/source/terrain-shapesy-361-8.png": "4d84a6e2f8bc4294c7ba5c859471893306a2ca99db13551ebf8ec18947e883ff",
+    "assets/hd/source/terrain-shapesy-362-8.png": "8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e",
+    "assets/hd/source/terrain-shapesy-363-8.png": "e33d52f7f1bf94ca4e12f26086fc80568ec9597778ddb081e06512768f89fb2c",
+    "assets/hd/source/terrain-shapesy-364-8.png": "88247851f1cf0e07a08b2da6557cafafe9186653c53d1abfca34421758271988",
+    "assets/hd/source/terrain-shapesy-365-8.png": "cfb8eb03efeb0409abbcf54a5d395b80019e28f0d769ffbb7e75d122c65cc7d2",
+    "assets/hd/source/terrain-shapesy-374-8.png": "a27e029e32d07cbe70909f1cd7cc049c55402b68946ee8312b8e917ca9e310b4",
+    "assets/hd/source/terrain-shapesy-375-8.png": "980e7b96d9ac5fcbc19ded196335ee20b70cdd568dd29dfec48d139fa7f0f05a",
+    "assets/hd/source/terrain-shapesy-384-8.png": "904456aa132808a1bdca12a45891d6149a7be2d673da3d0cacb9523ef37ae6e4",
+    "assets/hd/source/terrain-shapesy-385-8.png": "c5eb4d118e372100255d930c610aa8b6f13c84014d442df9f7fa89d1bbaee2c6",
+    "authoring-inputs/shapesy-platform-current/README.md": "8af9472c4d957857a460be258243d70f5eb2086b62310666ce49cd9de7731b69",
+    "authoring-inputs/shapesy-platform-current/generation-provenance.txt": "c6cd06b4815da5a999b6cdaeedc71b6ca671ce9ea869b61dc8e3d76d803628ad",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/321-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/321-semantic.png": "5ea478e4d6e5a3be06dd66a8df14c32adf8e9e83472c34ce6102170b0e6f9550",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/322-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/322-semantic.png": "3b18e68263ce55e1b466352b7d53bc21e50f1ceb1e904cef655017f76b4365b3",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/323-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/323-semantic.png": "6e11ef06c5cac8be8dd0f45d367464101fa6a0af63006ba2ef3fdc395bc8fdc6",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/324-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/324-semantic.png": "08b85cb3fbad54d8473cad52cb6766553ee425d9e4922b2d79f6546bc7e5ff76",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/325-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/325-semantic.png": "340016daebd12e5ab6eb0f92715d634839ff5f9c6f7ce57d50149b4492990708",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/326-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/326-semantic.png": "d0ebca487db2d192a930031476088c311395c23e3f8e8b3e9bb97d2caa37febd",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/331-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/331-semantic.png": "7cfe19c6b565deab5c529be62588ed06b63adab642a418edaa97989a52acce44",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/332-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/332-semantic.png": "918cc88056ae0f2e33723c301ce2dd6c97dc8b5c3cca63313f29044ffe3f7a8b",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/333-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/333-semantic.png": "23e7f519eba87682542131a2a53587f22f44aace23e005402a2f1de37e652adb",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/334-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/334-semantic.png": "414c81031c0f06daaf4bdeae244dcce4247315d6d0869900baff19f9e23aa916",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/336-red.png": "89a3002a3f263ef169587cae7268879bbca1afd23fb30078e794a31f2e54a464",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/336-semantic.png": "b06e75b91f1533261e710e6b96361f083b73609f352f337619bd87a02f986d2c",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/341-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/341-semantic.png": "d6220ec23d5eb505902bc75d0dd2f183cfe015d046628d5d2a1f7e6e22b6e347",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/342-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/342-semantic.png": "d0ebca487db2d192a930031476088c311395c23e3f8e8b3e9bb97d2caa37febd",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/343-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/343-semantic.png": "8d19f450fb64c5a7b4597c377f8b80c7448608afa92628fddabf3aafd1b6ccdf",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/346-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/346-semantic.png": "b61478ed1b4d573bac4c9549f790e0e47f7d086146b7e15553e26baa3c3184f8",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/351-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/351-semantic.png": "2dcfca6bcf51bcf520eac48fef0b7cdcb245b1f358ed38283484a77d58028fd0",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/352-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/352-semantic.png": "0d27a4584f00ff173a867efe7ab85db0f7a3d61c1bd6b84c19bc3c4afd600bfb",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/353-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/353-semantic.png": "cab54f44458d307cc4bd5352811e664c1f7ea5d561ddc48653c81d5c06835679",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/354-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/354-semantic.png": "e23bdbcffdb03501486e65fde197141389ac471d66d798f1ec5d5dc118a9f1cf",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/361-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/361-semantic.png": "3d53d3c12a797eb8f5c84f1f383ffa4046eb517ffe05f8b61041ab26e499c025",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/362-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/362-semantic.png": "b61478ed1b4d573bac4c9549f790e0e47f7d086146b7e15553e26baa3c3184f8",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/363-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/363-semantic.png": "7b5981e0d80c00f96e161d29d7a9cf07137840bdb8dc4fa85ce60b18f97d36c5",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/364-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/364-semantic.png": "8b4f40ed8400e00c1036beef3c8106de9123363600893f2bc62721c60bef747b",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/365-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/365-semantic.png": "cfbc2757ec082d599431a9b5c0c825d3ed2e67b6b1db9a4d134cc69d79abd1c8",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/374-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/374-semantic.png": "b9737982b00b260f9717270ad0ce97ed90c6b7c8ec2732dd1a13222bb5f128be",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/375-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/375-semantic.png": "ccdd6f6bc9fcccf4907e18fc9739246a0e71923fe8c973f9100a59f4d363c6ba",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/384-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/384-semantic.png": "3896dd2651f3a696772f4bf4186887fecdb2acc52aad814800d5bdf288b302d7",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/385-red.png": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907",
+    "authoring-inputs/shapesy-platform-current/geometry-masks/385-semantic.png": "7af204ec3a7a0fbad82e437ec1ec05a36632c204bed052d8220416b5b07f74b6",
+    "authoring-inputs/shapesy-platform-current/master-platform.png": "358aae19772bea5b5580a904503ca3872ca2d71967486e75f4bae5e875d57d29",
+    "authoring-inputs/shapesy-platform-current/recipe.json": "fea0b7b066ca908f4e95cbeeb60a1df1025679e447c5e7ca875442477c699281",
+    "packaging/current-shapesy-platform-compatibility.json": "49adaac3ff5e8086b907a40ed96ff1dbc6a4537544d217961e2212e1345bd961",
+    "prototype/build-shapesy-platform-art.py": "0bc013d86fe567f4bf6a141c72684e31561879d040e91d0b66d5be575e34006e",
+    "scripts/build_current_art.py": "a39a7be9136dad0427eb35b9b05dd82aff33f056d5da363848740b873018de05",
+    "scripts/build_current_craft267.py": "10bc8f5f3c85fa5d2d620343a1013a84a23043524747808d8c14abe830aa009b",
+    "scripts/build_current_shapesy_platform.py": "91905f8b4d8cb5b2bc33801f0c173d61ea18b9fac1dee9a72f10a15626f95a4e",
+    "scripts/build_newshf_hd.py": "6cc8ef06081de950b7d6a68e7493c30b34a25b7292e46815b31ae465728221d1",
+    "scripts/current_craft267_compatibility.py": "8597658d6d3415fe6cef12a109c39dd145cc9a9890905e3a384796d32a537e56",
+    "scripts/current_guided_compatibility.py": "aa1907a61b6af69958a07093bb21585ca3ba7e8956229f6db582793a8a31aa32",
+    "scripts/current_shapesy_platform_compatibility.py": "f5a4a93090f729cf4626f3d88ab15e968466d7d5f2ecb3bb754e84ccb9710927",
+    "src/current_shapesy_platform_hd_assets.h": "c61b31e1b513f94dd77c0d3b318ba811a176392fcdb51efcfef070c543279111",
+    "src/current_shapesy_platform_source.h": "55b935e8403931142718afb283eed6b70f00e4e2f32354c88d140f32600354d8",
+    "src/shapesy_platform_mirror.inc": "ee4a4e955126b917e949ebecc3bef7aa2d471337ab8aad3393dd99ca4e8d29e8",
+    "prototype/build-shapesy-contour-materials.py": "cc137e5ff0dbf1ce131e3e755498844d1e3c7384b68ecbb39d91449abe751661",
+    "src/current_shapesy_contour_materials.h": "e45bfe6b5a39ab8f6ba2d7c04a508b16d1dfdd173a13a10e907c74b6a5e20970"
+  },
+  "public_source_inventory": {
+    "src/animlib.c": "1340570680ddff3fac80e34785f511657888d72430b47724330331d8c0b7a1de",
+    "src/animlib.h": "55079d0abd8248fe0d7141042b185d593c44b9197d3025921f3f35f88c2c386a",
+    "src/arg_parse.c": "1a2f7ebea323e73fd329946a78b50922471d3186657fb975c5152eef8fb596ac",
+    "src/arg_parse.h": "bf21cfcee7f24453373d405d69ea4646e8cd404337bee4ec13bc35529302e056",
+    "src/asset_debug.c": "ea6de19bf2e983a83096fd441216b21a8d611d529b13b2bde1f9878122c0a298",
+    "src/asset_debug.h": "50792b512ae2e887d701b33fd1324e460d30c8a98b6aa16f07b3e363596ed08c",
+    "src/asteroid1_capsule545_mirror.inc": "857a7c9c6c08523e3c2730b8fe7ac519c976f6ad1c000f47decaeb3b0e73d484",
+    "src/asteroid1_columns276_mirror.inc": "d69e50a23b1a0c416abe2cd41273f6700c210a8df6328e105c5e5337a27e4ad9",
+    "src/asteroid1_common4_mirror.inc": "b1bfca51933419e00461ca762527fa880ec191d42fee50a679cb005f23ef66e5",
+    "src/asteroid1_effect_blend_mirror.inc": "fa07b54f2d98ea2440c182ac55b49028d56e2f251a848475b2afeab2108950cf",
+    "src/asteroid1_enemy_orb112113_mirror.inc": "7d3f8ccaf7c96d60c066b8cb48c0e451acce67632cea0db9bbb7df05fc8ff096",
+    "src/asteroid1_firing270_mirror.inc": "464fa21d1a71fd1675cc2c8909ce72602f36546668a8dc64716d22417cccbec4",
+    "src/asteroid1_firing285_mirror.inc": "bd902f90c31a1cd58d51e1c810a33fffe8344575b55e251d701bbe8df741f38e",
+    "src/asteroid1_firing325_mirror.inc": "ba498fc6ea5cdd3b4355df620199ca909faebe62135fd17aa6fca529b055bce1",
+    "src/asteroid1_fork284_mirror.inc": "4f01f641de50f900c7c5c41baff6eaa100a1c742b918aa607eeaa87a2d5f2479",
+    "src/asteroid1_four_mirror.inc": "3045ab6db880062f5cf46a54349a9c09b98b82d55b27b83c112e9fca26e4fc75",
+    "src/asteroid1_goldwing_mirror.inc": "bc6dd4571870cf0fcb836f0c76e4b272a15bd68d768f7f568dc94ee89f32e727",
+    "src/asteroid1_paired287_288_mirror.inc": "fb4540a6e0503adc23c2bd073357ceb782c6c6f30fac07ea5cdfa1b6ab0316cd",
+    "src/asteroid1_projectile304_mirror.inc": "210732124398c21a308309218bc5ce4f98619cc147685fa42b12dd3e22e1b43c",
+    "src/asteroid1_pulsing272_mirror.inc": "66a7d96811f70cf74951e3d0df7cdc20983cdf30838b5173016dd81d50785a93",
+    "src/asteroid1_random114_mirror.inc": "1fd521e2d08e5e885602a1cbca7145f0a77146efeabeaec25f789f650015733e",
+    "src/asteroid1_random123_mirror.inc": "7f555ca000c047db2b7bbc6aead046be87028ce93beba26f77c89c2f4ab13695",
+    "src/asteroid1_random133_mirror.inc": "046ebf8d0b2ca368ebce39fcaf752f3577d251f039a4eec748fc3e35c2d34af7",
+    "src/asteroid1_random152_mirror.inc": "e7510937334e46096092e2267c2408b7211291ba2d40f582ca2b757f590ce0b4",
+    "src/asteroid1_random286_mirror.inc": "af22344195ea5146522f0d3287aac369ba6d77521c3eafb3cd919dea59e7415e",
+    "src/asteroid1_random43_mirror.inc": "d7d1b5413400be41d0d8817c8e30aecb294302bcce5d07fbc85612acd1aa53a9",
+    "src/asteroid1_random5_mirror.inc": "de0de609881a08bb53e32b3b2b4d190871284d28e25b5dcef6b265b657441aa9",
+    "src/asteroid1_random85_mirror.inc": "bcbf8743e9b487097f403d3e45e83c89bda608882870c9c53b9aa3ccb92e1639",
+    "src/asteroid1_random95_mirror.inc": "276f5549a7182459ba9d6c92e581d6d9c8c44087b0fc17afc7b23b313536886b",
+    "src/asteroid1_source_snapshot.inc": "b6b9d48eb57fb5029d25a20ab4bac5e56ca77f9a28cc31d4d8513e0fc9d93f9a",
+    "src/asteroid1_talon_blend_mirror.inc": "11d0fe45406d2250fe6648aa2cd50e66f1caff8ff50eb386e5b3d8bfc52a0d6f",
+    "src/asteroid1_ten_mirror.inc": "59405811f96b992e52a40f32a8b1f88222a237be2f23f18a47101cb0c551b61e",
+    "src/asteroid1_terrain144_mirror.inc": "0deb685b84a1e53bedfd5398e234371399bcbce882a7c0e921c386c860406910",
+    "src/asteroid1_triple275_mirror.inc": "edf182b8762675086153368ba1a8a9f490834f1483741c293ab1ce031c163de8",
+    "src/asteroid1_turret273_mirror.inc": "5de309c9351e55c9509a1582de6ce9370fef053f22733a846247573dfb099a73",
+    "src/backgrnd.c": "4a3347d22d0db2f456ffc0a8d541a4895f103a238718f3436db1993705ae11fa",
+    "src/backgrnd.h": "6c705b59ba19842cfe46b8991ce57a360f8671a1080ca42b857c47bddf860d3e",
+    "src/common_menu_config.c": "d336f55d79be3a4f9cc6bf2681301b89c22c9d684c9e4daa9871f8bbf5535397",
+    "src/common_menu_config.h": "1ef4a68c52202bb966edea1a4fd78c0a051f762c5d9690585f8d47d86b710f03",
+    "src/common_menu_fonts.c": "8c976853dfaf2715fa80a336c9231d31895d11923239411968f62687c229a609",
+    "src/common_menu_fonts.h": "8c3636ff452d529a5c3eec238e2e4d6dabed450dbd45dcb8cd0b473ab340cb8a",
+    "src/common_menu_runs.c": "0a8dfc757bfa29eda618ddc2a1bf034a409dbf4a6b34428bd0b6030392064308",
+    "src/common_menu_runs.h": "b079e08650f5ca85c69ecfb2df1a9f5376fc0ca851eb911d956de3a2a3defa78",
+    "src/common_pause.c": "d072ddd7ee08edd4594cb49bd784f3916726088236fa73ebb894e976a9bbdb72",
+    "src/common_pause.h": "6281006c64c6ac932bc7c6c407e9b9c7d3630434812272a53b6cebed0cf22a13",
+    "src/config.c": "74508fd75517587caeea65c4b148c2c52277317558535e01a02b88604a2ddf1c",
+    "src/config.h": "df43ab4f8887c1275d1f876f83b2ab9f8dcd4a333ee1f2414caa3c8123522fe0",
+    "src/config_file.c": "03756d1059703d2bab2fdb6d65faa001866e9afd82bdfffaba9e14bc9ec159dc",
+    "src/config_file.h": "42e28cfb22e5def08ec333f8573750f658b29ee0e52054cee1084a48bfa59fc5",
+    "src/current_art_payload_pins.h": "241a99017c7eb9f7d999e49b69683abdc9a408762bc0eb1afa91216121fc4d82",
+    "src/current_enemy_energy_payload_pins.h": "b7a62e985b0cba0be3a6f865349d637fbefac8f08f53e6c4a6ba5821ba86602f",
+    "src/current_enemy_orb_payload_pins.h": "90c8d67b5ea3ee0153fa5c9f40141fdf572b0a1cc5927b2b4c656b8d84e7f9f8",
+    "src/current_enemy_protron_payload_pins.h": "a6138c492da92e824bc117491c2b20d7695077b6ae050a3ca9022d6c2ec0cd6d",
+    "src/current_guided_payload_pins.h": "40bb129b5e74080c354c0e5bfa2811dde41b6e1d6810c1fe628eccad255df97c",
+    "src/current_hud_payload_pins.h": "5fa2744f0043c7ea57457f0f1cc78da66a1a226d37581060b51bd6525ced9456",
+    "src/current_linked_newshf_hd_assets.h": "040fb86bfa084f80e294947788d5a4423bcac0ed8a1ff61473fcea35670306b8",
+    "src/current_mint27_payload_pins.h": "a3e1aba6f16a1867de5ef5ba05997a3a290cf3ac2ee2e899284b4266234c04c1",
+    "src/current_missile_payload_pins.h": "fe6944ea9a54974e1ecc5f2dac9771d3999a52fd525dee74dc5d110032b1f0d9",
+    "src/current_newshf_hd_assets.h": "d370bd06f7accac54b23179824e98fe9caad2d92b8709f13f5173c670c936210",
+    "src/current_plasma_projectile_payload_pins.h": "e8c6f7497df9a88d3653675136af8c9c727d85eba2328eddb03b2f69f2d89283",
+    "src/current_projectile91_payload_pins.h": "6f3cc6accda71244820e84e3d9fcdc434a100b630b52843cf0e7000731682779",
+    "src/current_protron_payload_pins.h": "bf982da11154061bdf56683270ef23a12200f014a060cfcf6482b97d31de88fb",
+    "src/current_rear_multi_payload_pins.h": "8bb99e02e583850d28d3af059349c3f5f24f2d86bb5295a715f8a1cab8a399bc",
+    "src/current_sidekick_body_payload_pins.h": "1d25bd99fd3bb300f150be65ea4bd4de9014354787eafb6d04250a9b86320da2",
+    "src/current_sonic_payload_pins.h": "82611c0977733cc9fb0d6daad744b607dec9ab6b32de5e8e6c077355570f86a3",
+    "src/current_tank_shell_payload_pins.h": "c474a33b8af08d772113a015fadca77f446cb49626a66bafbf7e24357326e5f6",
+    "src/data_exit_pins.inc": "38103a33f86480c47623fc88b9c76b148fb0ba1dd955d231b06306d2d4bb3b33",
+    "src/data_frame.c": "8d4a5238cb6fd29e94c7af571e58ffb43ae4edbb5b721dd50c1fe9594a813cc0",
+    "src/data_frame.h": "652e2789ddb160587a02dd690c58c93c096ca42bbd502619ad8b19673c8cd4c5",
+    "src/data_frame_pins.inc": "3674a7095afb792d611cc8f404102b27cdff008b3ec630b7bf65365f89732dcc",
+    "src/data_pickup_glyph.c": "7687f7c2f93ffd3d2d603df0a1309f3f2513c7acf8d3a680ebe9e3de1b10d0cb",
+    "src/data_pickup_glyph.h": "d7ab3965a98a16342a7a0e2750ef2f24c09a1112c8578aae530738ae93e137de",
+    "src/data_portrait.c": "8bda44739bcfca9d62536ce3ccc52a18aba869291f32253c21a201058276a399",
+    "src/data_portrait.h": "791b16fb1ca3e560382e72d5cad3a52e2d69f4e8c3cfd7af562f6931195aa784",
+    "src/data_portrait_pins.inc": "c53723322e10f5b4ac8c86df79b90db194316aab9567fdef8d0f4213c8b11ec0",
+    "src/data_text.c": "f39d6a07791f432ef4b3f10b010f13231e9ac10aa90197e2d24d6d958d933390",
+    "src/data_text.h": "a1316320aacea43e74e48c57bef80537a8ee110176d1d1961b8a271a127b162b",
+    "src/data_text_pins.inc": "d8e4ba2400c9ef9fe9293002963d753a3bf956d1ce7117a81b4f6709f6d87c49",
+    "src/destruct.c": "8a32ef22e67a621cd8ec36fb27f1f905866c2ce31f78dc64335c43b4254cff44",
+    "src/destruct.h": "50934ed9a4f35ef994adf9693ae237fe720ea629e8143eabc65c3c49151b0e7b",
+    "src/editship.c": "5877d8012076a3a2631fd0e0d80c359cca8bf67d6bc534c5fb07add5812835af",
+    "src/editship.h": "91c67ce815195f568661d158b970c430f453dd857df8cfbd7131f7c215a1236f",
+    "src/enemy_projectile91_mirror.inc": "64fe9cc941ddc6d2bd71bf4b34a25154b9bd86695af60023e56f1c2a39d2f497",
+    "src/enemy_reuse_identity.c": "fbe0f11feeb9ee03e1170b6996f27ed8d02f4e676564b1cd44f70e5bcd66824d",
+    "src/enemy_reuse_identity.h": "b9dd91ab7d9de869f4c0c0fef70153e72309f16831176bb78c92326e646bb755",
+    "src/enemy_reuse_mirror.inc": "ed4dce9e3183c7d5dd31962217849ecebfa46e3fa23cc5f8afd50bc06cf34858",
+    "src/enemy_reuse_observe.h": "5c7fb94a44203ecda2e7eabfd25c6181c9e28a8bb3c05332a62a8466e31c5193",
+    "src/enemy_reuse_observe.inc": "0fba6f67006309918154363526adbdd738b953185a6d4ed307ef2b188e0beb9d",
+    "src/enemy_reuse_probe.h": "8ef9d60321bc52cdb7e5e2261e967cf33cec3b0f73302e168bff7387d69457f9",
+    "src/enemy_reuse_probe.inc": "7501e2cb27def19e1ad780a8f4e6d175f32ddc12893d1e9587645c4b3207ae01",
+    "src/entity_draw.c": "9b46c3838d0a5eff1af52c78aa19418d2985f6b680fb96089fd6fb3a8714523a",
+    "src/entity_draw.h": "2fa761d269860a0da42a5e02c418477a9b874f749ad979291038e2b6806ba827",
+    "src/episodes.c": "1430b09faa5c8cabeb95b2d0f84b1b40af0f81ff7f186847d5ae086c3f9c5d8e",
+    "src/episodes.h": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
+    "src/external_music.c": "dc99cf7d3dae27e4f39dc3ea870423891d6cf3526e4c571e703f6182b7d7d1b7",
+    "src/external_music.h": "e0e6cd3a72a738a1544577cf2799d1f80c37bf4b198415de6c22f3fab667abe7",
+    "src/file.c": "538f16417b2d0e3c02d178a950a2353a901fb74fedbaa4b9117f992943a56f29",
+    "src/file.h": "71ddca478c7299b6262cbd1acb9fca3a70cb0049fbb5b698b4445400a63f1016",
+    "src/fixed_pickup_flash.c": "840e926c0b30907ddda9e339489f2089ff284f74c452153d8b34d7f1c05cb5fe",
+    "src/fixed_pickup_flash.h": "54f49710690414f419f6bbb4597eb9802a6af67b928260bf3178171ddadb9266",
+    "src/font.c": "a4d9125a15ac161efb1f97e8bc2f37c537647339902c0f5ad875874150a71cc8",
+    "src/font.h": "800c116da45345492051438946a949be22b52013a6c3de20ba54da0acc392915",
+    "src/fonthand.c": "1d6c63d81e02538272a9225f70c26731c86a2048640a41e5857096cdeb03825e",
+    "src/fonthand.h": "c113d1949a16caa830ae1e2a42fa250b3484dba7a7b2ea826e4e87a46362c467",
+    "src/forest13_bundle_index.h": "8ba706d26a2c70848bee5f387940bb3c2d9a7137559a1da21c42ed18cc2c63bc",
+    "src/forest13_material.c": "a96be3f33ec951d74ee5bf6e49e0c4315420016b8f119c64b1e2bbf972c1f4b1",
+    "src/forest13_material.h": "8a50b1e31566088d6cd47e159fb53de27d889ab5a1a6616029480fa070fe68a2",
+    "src/game_menu.c": "78698d019df60abfadb2999ae9fd1df8757ae483bd2b54d37abf3a4b63d4e195",
+    "src/game_menu.h": "a142bb5f438d53a6b4b5bdf981282f92ebd7a9641d88520a74b735888648ceda",
+    "src/game_probe.c": "1821fc281c91d70a69e5dbcb6cf0292aa3cb57abfc85697e5aee67b17df9b34d",
+    "src/game_probe.h": "896551acabbabe3c36afb2a7ee473a2d631ab11826e0114e3b6e6e050e212689",
+    "src/game_probe_fields.inc": "df168d18aae3be18344292d28a25d60050cd6b850fab9a6d476fc4daed1d0ab1",
+    "src/gameplay_hud.c": "fecbb296db28a059743aae0bd314d93315d8e46e47786bb3d17ad6dc04a54b6a",
+    "src/gameplay_hud.h": "90be7715c069b1a382e5cb48b1007c1fbaeb284482694ffc5b22e98cb6817e60",
+    "src/gameplay_hud_components.c": "6f47d8079c889cb574d65198cb8734ea3187f010214d4fca78c69bdb66757ab6",
+    "src/gameplay_hud_components.h": "2af78b5c5368857cdb14018d29c5e3180000751dfac5cff064f739649ec1e42c",
+    "src/gameplay_hud_fixed_text.c": "3d637c23ca8d410a3e2720a024a4bd1a48a58c9ad92a1b742b5801dd23bfdc3a",
+    "src/gameplay_hud_fixed_text.h": "923ada7701b06a8f1dc6d9276e955f8ce3b17853e8d388f5e06eff314984582f",
+    "src/gameplay_hud_font.c": "02237476b400f8d7b78e5331000bff4d8cbb5d1f22108f907b388240c74f4221",
+    "src/gameplay_hud_font.h": "e960503ca8b7a87e2083fe2f96fb54f06d1a53a2b7d1258ed88a84df93e5a29f",
+    "src/gameplay_hud_font_mirror.inc": "f895ef13ae4e0bc8bb6cf1460ae93acf0c99c762560ee48dbb3d2fbf1725e044",
+    "src/gameplay_hud_indicators.c": "05d125af540fdfc478141d10a6cb1cd3b06b3ba12c008a28c4941d8954ee1961",
+    "src/gameplay_hud_indicators.h": "e19fa83820ace574cdf12cb5a6f8081353edc63bfb7001fac6c14b460c272ff5",
+    "src/gameplay_hud_meters.c": "3b1b5bf4e9119cb85aed05cc8690ba46f5ea63249a746b5f31fbc8aeb01c83e4",
+    "src/gameplay_hud_meters.h": "c8e4fa4f2da223caddb08882a6b98f808ec22817457a2f745913fa0466eba911",
+    "src/gameplay_hud_storm.c": "44c4abe15bd013f0857b22b001e1a1ebd7c5077dc45fa247e202445bc2eeedb2",
+    "src/gameplay_hud_storm.h": "cda5953b9d7946954131811c39c12288466f4eade4fc512dd9bb241dae80d5dd",
+    "src/gameplay_hud_storm_mirror.inc": "63034eeb2f55a1bcd60cc738ef739951fb60a888ab8b7d7ecfb8d3574dbd3345",
+    "src/global_asset_registry.h": "0c96a8b30482ecc5224e73de98efbb4e2cf5bbaa3478f717bc9118cf86570b69",
+    "src/global_cash25_identity.inc": "28ba8a5f9f9465d13efcc582e8e3a96434e739abe660d658e3ecc0c5d213316d",
+    "src/global_cash25_mirror.inc": "554194d972448c3880ebe45866743c76d9e55c9f5127cf9d1fc0cdf713c7961c",
+    "src/global_green_identity.inc": "aa6febe5e8c65e872357bd7fa36d16aa0d3beeac59d7a9ef8d58befa4d4006ca",
+    "src/global_green_mirror.inc": "7992448caada923a3e7a4fcc59282c4d86603a503b36dc3ac321b1d84131ca60",
+    "src/global_hitflare_mirror.inc": "2ab0900bab0dfa6423f3e3abf84fbbffbfcb21dd205b02d30e6bc54a1261a964",
+    "src/global_newshf_mirror.inc": "dcd67b57d412809b9b57bb735fa02deca9b1b79f8613e9bb355aa8606885d8c0",
+    "src/global_projectile91_mirror.inc": "31309bdef96922bc830fe3e8f28ee4117c4df0253d1baab03396b3ad954a3829",
+    "src/global_pulse_mirror.inc": "3502ad962fbcff5bcd2bcdfc77bf804627e26974f306eedaa6ca94f206492cf6",
+    "src/global_rotor_identity.inc": "d09e9a0a111b361bbb44b0c751115147f2a2b4053c01e9a89c52898b02ce28c0",
+    "src/global_rotor_mirror.inc": "cd080dc92d308951b37a136035b1e7ae9989abdb0acbf197a190da2bcb43eacb",
+    "src/global_shield_mirror.inc": "15fd98c0b775e7acae64baa14491f9648c67b605edc1f5b31c7f46566d800b71",
+    "src/global_small_explosion_mirror.inc": "e7aee4178b6489ff764e2565600b8e7533dec2e96cf2c4f239a97c1359faa4ca",
+    "src/global_smoke_mirror.inc": "41f614df07ceaeff772d7eccb9aee80ecfd14532296ce96739d555834928ab34",
+    "src/global_talon_mirror.inc": "04a804277cb362a4f49c5bceba8db6d46706811998c63c5b99728d52a5643461",
+    "src/global_vulcan_mirror.inc": "7f07c65ae3628e81a6b0c58f322c799fc9678679ed2f1a5619d6a6acfe652c1f",
+    "src/ground101_bundle_index.h": "b8a59a727ee966a029618e00dfb0424fb51ed227623f7927d824a51a4fa3d469",
+    "src/ground101_material.c": "c520102853e558bc9dedd2f1aa40ce886a82a82b90a377eab9b3f6bd9789dfd0",
+    "src/ground101_material.h": "ca8bed2e22f473d1556b9aa53e016eb924c865c5bd5bd3a75cbb882aa94d0690",
+    "src/hd_cursor.c": "b5cade94923790b6376c2ca74808d7635f2a1e0b7670e6ccf812c7c122bc8abc",
+    "src/hd_cursor.h": "7c2dd251e4decfcd7aba1cacb9baf9beb694dc717883dd7203d8a399cf87c521",
+    "src/hd_front_multi_current.h": "d461056e9c56a3e0f82dc6d3ca07f2097d6250c1f2a8bf94794eaed274beb15f",
+    "src/helptext.c": "514112d21eb7c2d398886de891875021e128b56bad242cd4429e4a20008d5341",
+    "src/helptext.h": "5c4e3c4196e6c45f8d852f9751e8d70eefe526141bd1a9dae210faca01580134",
+    "src/joystick.c": "a2eafce5f709c792b44a7859e57270fd25d14100ef86df241312e0ae8c556014",
+    "src/joystick.h": "b4b2f49e150d7d6f8bcd6b0022ade78442eb9da8a445ed99ef3ffb47c428bf47",
+    "src/jukebox.c": "2cd36d7bc22f92e1b2e0bcb0a37ba9448e5aa2559c78a665d25c1a9be942920e",
+    "src/jukebox.h": "45b87217b0d6a7e8c1b01262010f1e2178c23fbeff3829df79b864d2a68229cf",
+    "src/keyboard.c": "0efcbf3b76b4ac8a06d8e67b9dd4d97bb463ea7ec562590f1365a0dab21fb8e7",
+    "src/keyboard.h": "5447a91dc535c63d45a8e3a28dc2fddfa2381496cf7e5231487d421e5d3d0af2",
+    "src/lds_play.c": "9b5de03c6ac4a56e0a721cf833e51b785dc9db8bce50b1d70bbf9cf6030866ef",
+    "src/lds_play.h": "44ca981e96421183ec79476ce820ec93b50589e1670762744a0b2dfc5851436a",
+    "src/load_font.c": "30f5f1933dd8e5677567598e136ebe2c6b09c484ff8296d86085fd233951bf85",
+    "src/load_font.h": "ccb135a5450fa6bc3ab17709865966ce417dca0e98e49e54b9d820b879596d1c",
+    "src/loudness.c": "b62c0b15c9b2283d0c5c85dfab5277d6cc8c16fca99b768f0dd49dc58e87f7d2",
+    "src/loudness.h": "61771bc2dc9c8cb58881da7a4b871e901c9017dd9f5bd6061b956f76e893f2e3",
+    "src/lvllib.c": "34467e09b9088b646ad7006480c691ebc65491f8bd72c1d3c65b2e4454e4fca5",
+    "src/lvllib.h": "c9e0c879b41bdd4dbf7bd1a6e067c98a5efea3b998731671114b882799dee7c5",
+    "src/lvlmast.c": "0c5e99f01d11ffaa5b08326ae88e183a1c1f0a60a3b17b0b7f83d311fb6c4faf",
+    "src/lvlmast.h": "f33fbe72ec273bf4c72cb2c49bd4dbc4336b6bc6802e1b53d32ac58667026ed0",
+    "src/mainint.c": "77e7104e907dd83c935f21cc03aaf887b19182f25a2735006c651ac52767a6c8",
+    "src/mainint.h": "ebdb4f196f3db62b6e896381a8a6fc0bb4caf1854e0b44b1598ae09b5d7d572e",
+    "src/menus.c": "c4bd830a9b90dbbe88ec4a93150e1a619bb2525a48fafe1ba56792f6b474310c",
+    "src/menus.h": "e73cc1b9a6c5a090a7f3a2e65303e06f63a71d87e938885224fa64c89fb65c72",
+    "src/mouse.c": "f8491a4cbc5d09e8296faf9928abd63ab880254ffa971c67f67aed80fbad6224",
+    "src/mouse.h": "026ea9c3af479e7de6a577dc48553222f9815f2fa3d69f6940453ffaf891050f",
+    "src/mtrand.c": "9bb519b6b67d990184da25f1d373858760d2952a782c3e850e2f21c972c01f95",
+    "src/mtrand.h": "a116de45cc7fd429824e3ef729ace3d5af0ce50fa890a96cf3261ead74dcc4b3",
+    "src/musmast.c": "9f65b60d695bc1ffb7b27e67a498c218c431a4c0c1effb7419d4238214f29621",
+    "src/musmast.h": "0ab73ab81d65ea311944623e617381fcea98cd70fa842234aa581d0268921701",
+    "src/network.c": "68981dfce02ca2ae1ac643213b2e499c210e9306c27a05ac829a6d6f3e5f9e76",
+    "src/network.h": "3d1db19be051259fecd16e1af5cbdfd514134fbe1ec19e5a7480aba59ba3a5cb",
+    "src/newshf_hd_assets.h": "c9552ffee0610c7ece607dce0e20a414818f143911d2a5e42bd21b5fd4a8d129",
+    "src/newshf_identity_validation.inc": "3b587afe5a48b345470c832594c0c7dd9c079279982492f7670b89256f174530",
+    "src/newshf_linked_pins.h": "4a6876272e9a1b3a25733fb7e566d06be918f8f7b2054d5b196e9c797a0fdaf1",
+    "src/newshf_prototype_pins.h": "6b111c2b6c1d560d3698e822cf749aa55172849dcab53dfc20ceb5cd3fb85605",
+    "src/nortsong.c": "0d0a1cbe9432a3263f80cf9e932339f76be0747d4f163b0430a36aff3011ae72",
+    "src/nortsong.h": "99d2610d15c12eb34a24ae2e1b873d1c1e360663aef34e11598300cbd654adeb",
+    "src/nortvars.c": "c5e048d081ce402cdb84f2fd73040aea936f1910cd343a326178b1edac11f077",
+    "src/nortvars.h": "8ef1d0aba8a44d221ca0d700226da2f64b990f7b7b0c2140abba926a1437aa16",
+    "src/opentyr.c": "fbb44d7745cd3aaa6426e373da4a7feb1195a4e669031491ba33a5fd0d5f1318",
+    "src/opentyr.h": "53cf73134192dfd212e0bf773f9780f2b2cf3754ccd9058b3216195426b171d5",
+    "src/opentyrian_version.h": "5c91392fd85769b54c08a1efc181391c27e0ba1a2c27cc96c062a34996fe9a17",
+    "src/opl.c": "5791559e2b9b88802cd1709a6c431a048823e7ac2b6b54222a764ac446aa53a6",
+    "src/opl.h": "cef389dc66c22ba1483051f22e73514d672d3bbe9d53d6ff60992d04758399cb",
+    "src/palette.c": "93fac33cb0ceb3b9a9e9ed55c15a79b9bc5eafe9d7bb6ba0bafd27ed5297f19a",
+    "src/palette.h": "7fd6948e08023cbdea050e66456c484b6abe8c50a82abc058fa2ee47ccd8fbbe",
+    "src/params.c": "f7929c17473fdea0ab9c3fc1ee944922273e95f4ac06b4bb0e1e18606d2fd6e9",
+    "src/params.h": "65f55a947ca02b62678310ee46fcfe1e360428b0627a389d36f70f596fd71da5",
+    "src/pcxload.c": "89d156f605212f91854b13534e6cb21db35d7bd09f917ee32780e803c53921c5",
+    "src/pcxload.h": "1bbb851eef66bb3160c92152eb36d3148461c6909af94dfed53f694116b7833f",
+    "src/pcxmast.c": "41a5367659b8096b13727d3c087ea0e34341881c7270072bdf0782c25a248653",
+    "src/pcxmast.h": "a908dd1e79df55f3ff6cfdaf06dc032687d7402988d033b78b8381180035b8a0",
+    "src/picload.c": "3e8bf5d69aa5b2188fa4b36be06b7881ddbed7f0a8fefbc1bb434104e50b6d37",
+    "src/picload.h": "4b266fa1e50d9be6e22906087037d5048163577e41cec700752a956827aeaada",
+    "src/plateau_cap_bundle_index.h": "cc11fffd04004f199e113cc5722837e8746a09d76b29ca3decaeb61c8f261185",
+    "src/plateau_cap_material.c": "54f3770dbfe2a5b91c6ac1f5de5f8a3317f437f9b00af7c744cab4fadf6b4623",
+    "src/plateau_cap_material.h": "0edaf035fa9c5f03488a6dcb3c2c89a840266115b652b00aa6ef158f35d6f2d9",
+    "src/player.c": "cda0f507f73e9024112a289e5d1951bd4246f4580c9c266ff538cc063e14eb3a",
+    "src/player.h": "f1c5d26624d1c2b86531e620908701a1a2bfe22a902f4f760672ae52f06446b6",
+    "src/pregame_font.c": "106facbec6c610c7758589df59875c14fdf43de2055bbe8aef60b4349f79db7f",
+    "src/pregame_font.h": "5d8a1a74967522a0c7d93ff6015b1938e1870a810d5be01c525d45bfe0eca59d",
+    "src/rear_multi_p1.c": "335afe02b0830d082335a4f55e850976c905ba977d65a1a146b2d1a9def232f7",
+    "src/rear_multi_p1.h": "b905f8c0530cb0783d2258b855aa8d650f70a586927623faabda6f6f7187c048",
+    "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
+    "src/rear_multi_p1_mirror.inc": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c",
+    "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
+    "src/render_mirror.c": "1762d1287000f3502ddc6999d7eb84671c03a32e8cf9c3b009e145b6ca2e4cc8",
+    "src/render_mirror.h": "e8b04342f346e392cc627f3463932b7dc509b87f216a68846bf5bba127b3e138",
+    "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
+    "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",
+    "src/secret_exit_orb.h": "f9357364dc407e8615668f76ca4376710f4d4c033269e342dc1f09ccb7aaf9c7",
+    "src/selector_font.c": "9e5f2e5d57fe609f134098fe0bd87ab52aca634eebe442c507e15126eae0d1c5",
+    "src/selector_font.h": "c219391ff0597f4e02b533cdaa26e95893d4a09320605ad2690d84cd9b0f1628",
+    "src/selector_font_output.c": "004b3931d858c46aad3258eb651379d51799a281cc53de660d0a0cb567dde1b7",
+    "src/selector_font_output.h": "646229465fccd8f380b93b5d70020ea5bae481c4c4bb5b8acfdef4a8d1c67c55",
+    "src/settings_font.c": "4b38acb9f6665b6b14b9376d09aa967986fa98504bbbd10885a13d56e327fa14",
+    "src/settings_font.h": "dfef403ad9051b694316a3cfe77f40692cc141cc9feca2cca3b2a3e0660a4506",
+    "src/shared_asset_fd_reader.inc": "2131908a8d6e53488648cb202f03a49eb9cd864da7a0c036a199a50f2243bfbe",
+    "src/shared_asset_reader.h": "570ef567a70dd21f8fe0f0e8a8f6edba1e4949fcc03278d28c1d68abc442e82c",
+    "src/shop_equipment_sprite_pins.h": "2118370a93a56b8738bbb1b261ef3352d613bdf57e701e24a8e5a01fc2ef6ba2",
+    "src/shop_generator_sprite_pins.h": "dc6895971026397a4dfda9f052cabdbd737b953ab63b4a62aa9f3d565e9a3900",
+    "src/shop_menu_font_pins.h": "348b66abeb638eebd605af1a40ab38e461139e011ac6c93e065a6786a766e0f1",
+    "src/shop_pulse.h": "c36c619bd6d5ba221b5276b8a5bc394af54bde40982456c567aa65de01505db3",
+    "src/shop_pulse_proof.inc": "813b3c1770ad59610412381965826021f4657e5265b04ba35f8328e25516c8ab",
+    "src/shop_pulse_render.inc": "a5dd735df6cd00d3501435e9c3184af098afaba0af4836ebd96a8df59518568f",
+    "src/shop_shield_material_pins.h": "d0429c705a0fd7c1a7259c20eeed811205e902ff204ffc74b7e2bb228585a695",
+    "src/shop_ship_render.inc": "38118806ce2c70524a9c54cf96ff10679951641f6fa6a468e9b772d3c21427de",
+    "src/shop_static_pins.h": "3c37b5de85349767c4a3ffd2efe5e3de6c897e51009af8cd508c81b2d63800b4",
+    "src/shop_static_render.inc": "e1239927d07b137849d7f610e742edf12b05da5bdc35080519eca2192679a109",
+    "src/shop_talon_sprite_pins.h": "00f4e913c782f25be77cc0ee4aee7ed4bbc2900dc9604d4f4492a6aef9e40040",
+    "src/shop_vulcan.h": "03b50cc3a82eb09784fa53dd762859450522ea593996ded959b52add8993cf68",
+    "src/shop_vulcan_proof.inc": "a032b8f11c0301e72cabd849a25abc14c410fef78b506da8d98d808f97f31d9f",
+    "src/shop_vulcan_render.inc": "e4f876c30b08ef12137e4d2456ff02c61d1eccce919a1af9797b7dc7429ee375",
+    "src/shots.c": "c73b31130db3d8ee672aa2bcd1c702bc833a808a373e5670dd3a954816a56356",
+    "src/shots.h": "b6e009500719222b134f508e3db2bf3c365a9e1f54e576f8465f98ff6f364042",
+    "src/sizebuf.c": "3a65cbff97cfb0521346d958716dcef1d89052417823b97ac963376b102b3c21",
+    "src/sizebuf.h": "a02bc0963f26a8d3ec1609013908583e08a9de29393999e0d0f8a7d421a4cb24",
+    "src/sndmast.c": "74255135db19f9a4757df53821b4a419717104837da7094bece753e1d38b4fb7",
+    "src/sndmast.h": "47657cb6846a8a701129c25e0b3a66250a362edb92487925996eea31b0cb036e",
+    "src/sprite.c": "9fe507a7724825c5cc1ffb42aa533ab947135368d1102bd8372743e0d4496a96",
+    "src/sprite.h": "057f40950f96df7ed49b26c235a1398a34088f095380da8f52475cf3e46a7952",
+    "src/starlib.c": "d1b1f2e3cae293088007ddf5be0452d2a1362286ffc201f89056a260ced879cc",
+    "src/starlib.h": "a9f5dc80bde82dc12fdc34d0721951023e2133dbcb1eb9bf7c57d05aba37ac37",
+    "src/startup_logos.c": "6db4730cef41cda023fe854b39070af6a0b531b82009ec6bdd4a2504a3750128",
+    "src/startup_logos.h": "5ddd20f33596b526c6e12a2c8d5fefcdc7dc293464b1432bd43b561f1f5e9a43",
+    "src/third_party/dr_mp3-LICENSE": "dd1c647e6f767f8ff4b2dfae0fed314726600a01e0cf1ef556afddd5fa96ff15",
+    "src/third_party/dr_mp3-PROVENANCE.md": "8a5f3ff084155e583b7e0c74a943ad8bfb9249178e915da32f4b7e9133ba045e",
+    "src/third_party/dr_mp3.h": "997b7ee18de6e6b81e2a83f1ea9fc62aef25c62b28d48db95635f49e65de0a2f",
+    "src/title_layers.c": "4e12b9e54ce75bc98a5e36cf2ddad45f24840553cddb8a35969a852a1320a372",
+    "src/title_layers.h": "2d5b69d52126174d77ab42edf321c355a08ad15d43fa099a5b0bbc7823a332b7",
+    "src/title_menu_font.inc": "4bb6c3d143ce1dcbce71345e9799d499cdde1d962a99bc3d48c9200b84363224",
+    "src/tyrian2.c": "28594978b928983d677992025fff27b1fc62396b99a26388ae4d42bd9ee066fc",
+    "src/tyrian2.h": "1341c4371128fda951031caef18ad6bd154beb9e187bd800a25ebb1ed1c4c32f",
+    "src/varz.c": "70014229765dece18d2a15a0a906cb89daf2d0174bc1d1834008bfeb5772de45",
+    "src/varz.h": "c0557171c5454d9b6e64c9eb22facf5e9cd5cdefcf54aa743020d5c4ffdde37c",
+    "src/vga256d.c": "8ad18c32142d0a936e8a8bee6b7302578fef2b96670b44f3a71f9f68813d3b1d",
+    "src/vga256d.h": "ab1b7f31003ed5af78d58347509524b470894abeb1326075a2a62f5875046d38",
+    "src/vga_palette.c": "e0c47679389ceac36a6b10e499e11b623b056c51424188cab2001cb6c19d9e9e",
+    "src/vga_palette.h": "db0d453d541da1bd911056d50c63755e884f33ac701636bb1385f155129f651a",
+    "src/video.c": "67dbb38e6928bb8c4cea0d4006b098ce3b1eae651ab283eef3b2494b3d4a3bbf",
+    "src/video.h": "fda2ce6ac4a1769a0f8ff7b466384ee734874a3c8ee5b533d53e87e09de9e76d",
+    "src/video_scale.c": "75984787a7258453be95c7f89ff5ca7a270dabdca94154e851c4f13d0fe8947b",
+    "src/video_scale.h": "fe7864339df745da07f8209f8bc7e18edcf1d9ad4bc873ecbec1a3754b265d31",
+    "src/video_scale_hqNx.c": "0b11cb3c5c4e94424a1c881e506ce53b29fef7f7c64d9704a6426612e47cd57d",
+    "src/world_material.c": "7aa2fb5a12ccec668037a53c88e0e2d9e29fed971f5e4b864fc96e2031fccc47",
+    "src/world_material.h": "07552d48974b5719de05af3010106d270cba2b886cfcfa2e862b805b2059752c",
+    "src/world_material_fast.c": "54feac5f47619c449f67c35a758394a63a215bfacdfe2c1f051b3d4f47b3b377",
+    "src/world_material_fast.h": "73462afc02ebc1d2792ea9678c8061ff89e67df8485ffeb8f20cd295892f270b",
+    "src/xmas.c": "81510a3554b71e4c1a587b557bbc2c153fcb7c9377b65db0f36f0a4e346cfb7d",
+    "src/xmas.h": "fd90770e44fe968fc02207a8bea43bfd6adc00c58a12eaa18d5938dcab0874fd"
+  },
+  "catalog_previous_sha256": "5dc224d8632f32594fde642286fd028200a7cd890430ee60f8a3d4b8ccec50ef",
+  "catalog_current_sha256": "ba8f80938dad5797097096670f1aee9c7ad1ffafac8334187e2944c3d00b646d"
+}

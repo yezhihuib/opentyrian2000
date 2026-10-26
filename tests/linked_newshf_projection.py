@@ -19,6 +19,8 @@ def ledger():
 def project_source(name,raw):
  pin=ledger()['files'].get(name)
  if pin is None:return raw
+ from dualmissile_newshf_projection import project_if_current
+ raw=project_if_current(name,raw)
  assert sha(raw)==pin['current_sha256'],('unapproved linked NEWSHF source',name)
  lines=raw.splitlines(keepends=True)
  for edit in reversed(pin['hunks']):
@@ -31,6 +33,8 @@ def project_source(name,raw):
 
 def verified(root=ROOT):
  import sys
+ from dualmissile_newshf_projection import verified as dual_verified
+ dual_verified(root)
  spec=ledger()
  # Check immutable qualification before importing/running the authored recipe.
  for name,digest in spec['qualified'].items():
@@ -53,7 +57,8 @@ def before_inventory(inventory,root=ROOT):
  result=dict(inventory);proof=verified(root)
  for name,digest in proof['added_sources'].items():assert result.pop(name)==digest
  for name in ledger()['files']:
-  raw=(root/name).read_bytes();assert result[name]==sha(raw)
+  from dualmissile_newshf_projection import project_if_current
+  raw=project_if_current(name,(root/name).read_bytes());assert result[name]==sha(raw)
   result[name]=sha(project_source(name,raw))
  return result
 

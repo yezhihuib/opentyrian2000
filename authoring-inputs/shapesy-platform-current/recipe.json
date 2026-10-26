@@ -1,0 +1,750 @@
+{
+  "schema": "shapesy-platform-candidate-v2",
+  "status": "PRIVATE CANDIDATE; not integrated or accepted",
+  "master": "master-platform.png",
+  "master_sha256": "358aae19772bea5b5580a904503ca3872ca2d71967486e75f4bae5e875d57d29",
+  "semantic_labels": {
+    "0": "native_water_passthrough",
+    "1": "top_deck",
+    "2": "front_wall",
+    "3": "left_wall",
+    "4": "right_wall",
+    "5": "beveled_rim",
+    "6": "red_recess",
+    "7": "source_dark_water_adjacent_boundary",
+    "8": "layer1_pinned_black0"
+  },
+  "components": {
+    "deck": {
+      "crop": [
+        409,
+        246,
+        571,
+        446
+      ],
+      "size": [
+        192,
+        224
+      ],
+      "periodic_registration": 2
+    },
+    "front": {
+      "crop": [
+        79,
+        770,
+        223,
+        1098
+      ],
+      "size": [
+        192,
+        456
+      ],
+      "periodic_registration_x": 12
+    },
+    "side": {
+      "crop": [
+        33,
+        1136,
+        355,
+        1420
+      ],
+      "size": [
+        192,
+        456
+      ],
+      "periodic_registration_x": 12
+    },
+    "bevel": {
+      "crop": [
+        396,
+        1264,
+        762,
+        1327
+      ],
+      "size": [
+        192,
+        16
+      ],
+      "periodic_registration_x": 12
+    },
+    "recess": {
+      "crop": [
+        818,
+        1225,
+        942,
+        1415
+      ],
+      "size": [
+        192,
+        224
+      ],
+      "periodic_registration_x": 2
+    }
+  },
+  "lighting": {
+    "right_wall": 0.3,
+    "original_shadow": 0.1,
+    "front_wall": 0.72,
+    "left_wall": 0.65,
+    "beveled_rim": 0.85,
+    "recess": 0.72
+  },
+  "tiles": [
+    {
+      "id": 321,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 1,
+      "wall_v_offset": 0,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/321-semantic.png",
+      "red_mask": "geometry-masks/321-red.png",
+      "source_indices_sha256": "26a5b190331ae5f557f091486042f59593227e538f9b096d29d6f8a3f8eece34",
+      "native_water_cells": 568,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "5ea478e4d6e5a3be06dd66a8df14c32adf8e9e83472c34ce6102170b0e6f9550",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 322,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 1,
+      "wall_v_offset": 0,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/322-semantic.png",
+      "red_mask": "geometry-masks/322-red.png",
+      "source_indices_sha256": "28f72c1283ce7314d5882a8a2d6ea5ddb5cb6f540d69d6b491c25e4f398b5602",
+      "native_water_cells": 299,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "3b18e68263ce55e1b466352b7d53bc21e50f1ceb1e904cef655017f76b4365b3",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 323,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 1,
+      "wall_v_offset": 0,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/323-semantic.png",
+      "red_mask": "geometry-masks/323-red.png",
+      "source_indices_sha256": "a0d1e84f00e75f69ce493a94eaff45e4acd32cf20e590938c58b7c1f48a3e8fe",
+      "native_water_cells": 547,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "6e11ef06c5cac8be8dd0f45d367464101fa6a0af63006ba2ef3fdc395bc8fdc6",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 324,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 3,
+      "wall_v_offset": -13,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/324-semantic.png",
+      "red_mask": "geometry-masks/324-red.png",
+      "source_indices_sha256": "0f2e35106e08ff7013e21fc1b06f19d6d0deead0de6ec0c16914579575e41d8b",
+      "native_water_cells": 0,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "08b85cb3fbad54d8473cad52cb6766553ee425d9e4922b2d79f6546bc7e5ff76",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 325,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 4,
+      "wall_v_offset": -36,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/325-semantic.png",
+      "red_mask": "geometry-masks/325-red.png",
+      "source_indices_sha256": "3af76f21b0808bc346c62431263845102f45743057c82d7c8b57dcf12051b806",
+      "native_water_cells": 0,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "340016daebd12e5ab6eb0f92715d634839ff5f9c6f7ce57d50149b4492990708",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 326,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 2,
+      "wall_v_offset": -13,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/326-semantic.png",
+      "red_mask": "geometry-masks/326-red.png",
+      "source_indices_sha256": "01ba38b13a78f0c1e16a354363c01de410fa8051ca4e5da885e570e853510695",
+      "native_water_cells": 0,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "d0ebca487db2d192a930031476088c311395c23e3f8e8b3e9bb97d2caa37febd",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 331,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 3,
+      "wall_v_offset": 0,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/331-semantic.png",
+      "red_mask": "geometry-masks/331-red.png",
+      "source_indices_sha256": "934bd60c09747e5d3d8336845fdddcaeb1264dfe33afa1a64ea6293b5705da35",
+      "native_water_cells": 308,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "7cfe19c6b565deab5c529be62588ed06b63adab642a418edaa97989a52acce44",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 332,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 1,
+      "wall_v_offset": 0,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/332-semantic.png",
+      "red_mask": "geometry-masks/332-red.png",
+      "source_indices_sha256": "ca0f6f36440eefbc741fc97296bf2fa22b395e14f2b3ef20559171ccd9b81803",
+      "native_water_cells": 0,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "918cc88056ae0f2e33723c301ce2dd6c97dc8b5c3cca63313f29044ffe3f7a8b",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 333,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 4,
+      "wall_v_offset": 0,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/333-semantic.png",
+      "red_mask": "geometry-masks/333-red.png",
+      "source_indices_sha256": "77153c76bb26afea09b4a7b41dbfbb1f94689321994eeb82a63e4c1cdc0bdd88",
+      "native_water_cells": 316,
+      "pinned_black_cells": 1,
+      "original_red_cells": 0,
+      "semantic_sha256": "23e7f519eba87682542131a2a53587f22f44aace23e005402a2f1de37e652adb",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 334,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 3,
+      "wall_v_offset": 15,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/334-semantic.png",
+      "red_mask": "geometry-masks/334-red.png",
+      "source_indices_sha256": "7538aaa914dd7de37b5f2fcb921e7a634f97f6d50cd50179ebffc3acc1cf71fc",
+      "native_water_cells": 0,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "414c81031c0f06daaf4bdeae244dcce4247315d6d0869900baff19f9e23aa916",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 336,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 6,
+      "wall_v_offset": 15,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/336-semantic.png",
+      "red_mask": "geometry-masks/336-red.png",
+      "source_indices_sha256": "1f261a48d200b0869a8dfbe12ad4cfdfe251817c8c53d144191ec78f18d63785",
+      "native_water_cells": 0,
+      "pinned_black_cells": 0,
+      "original_red_cells": 71,
+      "semantic_sha256": "b06e75b91f1533261e710e6b96361f083b73609f352f337619bd87a02f986d2c",
+      "red_sha256": "89a3002a3f263ef169587cae7268879bbca1afd23fb30078e794a31f2e54a464"
+    },
+    {
+      "id": 341,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 3,
+      "wall_v_offset": 11,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/341-semantic.png",
+      "red_mask": "geometry-masks/341-red.png",
+      "source_indices_sha256": "3ff4faf63c55b8cce9b170014c36a01ebe609da690903d3d097c69fe91359846",
+      "native_water_cells": 301,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "d6220ec23d5eb505902bc75d0dd2f183cfe015d046628d5d2a1f7e6e22b6e347",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 342,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 2,
+      "wall_v_offset": -13,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/342-semantic.png",
+      "red_mask": "geometry-masks/342-red.png",
+      "source_indices_sha256": "cae728805e5415974eb96913d86fda4dc64873b12e65ff7bb4ab5240499a8fac",
+      "native_water_cells": 0,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "d0ebca487db2d192a930031476088c311395c23e3f8e8b3e9bb97d2caa37febd",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 343,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 4,
+      "wall_v_offset": -12,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/343-semantic.png",
+      "red_mask": "geometry-masks/343-red.png",
+      "source_indices_sha256": "8073d6ca57934bc71345a3d82192a62cbbeacf95407a14c676f7e11f9e517f36",
+      "native_water_cells": 250,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "8d19f450fb64c5a7b4597c377f8b80c7448608afa92628fddabf3aafd1b6ccdf",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 346,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 2,
+      "wall_v_offset": 43,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/346-semantic.png",
+      "red_mask": "geometry-masks/346-red.png",
+      "source_indices_sha256": "d34f718caebb6a1c25cd8048b523a13d9b9212d50dad50bf5ab73ba66aca1f9a",
+      "native_water_cells": 356,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "b61478ed1b4d573bac4c9549f790e0e47f7d086146b7e15553e26baa3c3184f8",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 351,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 3,
+      "wall_v_offset": 39,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/351-semantic.png",
+      "red_mask": "geometry-masks/351-red.png",
+      "source_indices_sha256": "fca0be99657505bb237f6faf0cbf4478cdce43149f83ce6bc668ce8fc5eaadc1",
+      "native_water_cells": 313,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "2dcfca6bcf51bcf520eac48fef0b7cdcb245b1f358ed38283484a77d58028fd0",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 352,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 2,
+      "wall_v_offset": 15,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/352-semantic.png",
+      "red_mask": "geometry-masks/352-red.png",
+      "source_indices_sha256": "67fb152d1d44b7ea9c1388eac95844f145296aa9c4ffc845bf91e506f3792ecd",
+      "native_water_cells": 0,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "0d27a4584f00ff173a867efe7ab85db0f7a3d61c1bd6b84c19bc3c4afd600bfb",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 353,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 4,
+      "wall_v_offset": 16,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/353-semantic.png",
+      "red_mask": "geometry-masks/353-red.png",
+      "source_indices_sha256": "e9a7b0697c2a9e0f7edf668913c308187dce643ff4b86545ef32dab4598514c1",
+      "native_water_cells": 220,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "cab54f44458d307cc4bd5352811e664c1f7ea5d561ddc48653c81d5c06835679",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 354,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 3,
+      "wall_v_offset": 11,
+      "split_wall_offset": 43,
+      "semantic_mask": "geometry-masks/354-semantic.png",
+      "red_mask": "geometry-masks/354-red.png",
+      "source_indices_sha256": "6fc8adaabf5660206d1b08a86996a2fc1925cb245e048dc9777cbd7e40e15452",
+      "native_water_cells": 61,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "e23bdbcffdb03501486e65fde197141389ac471d66d798f1ec5d5dc118a9f1cf",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 361,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 3,
+      "wall_v_offset": 67,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/361-semantic.png",
+      "red_mask": "geometry-masks/361-red.png",
+      "source_indices_sha256": "1dc6a504725eedb2a756b0527fe7a1aba480f16f8531d5e9a3790f282af1980e",
+      "native_water_cells": 564,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "3d53d3c12a797eb8f5c84f1f383ffa4046eb517ffe05f8b61041ab26e499c025",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 362,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 2,
+      "wall_v_offset": 43,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/362-semantic.png",
+      "red_mask": "geometry-masks/362-red.png",
+      "source_indices_sha256": "06fb9b927e56eabb3e11f5a4f0de7933cf43b2799de42fc64d00467d73add966",
+      "native_water_cells": 356,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "b61478ed1b4d573bac4c9549f790e0e47f7d086146b7e15553e26baa3c3184f8",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 363,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 4,
+      "wall_v_offset": 44,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/363-semantic.png",
+      "red_mask": "geometry-masks/363-red.png",
+      "source_indices_sha256": "ed8f181a7870e55a783429aeeb6144a2b358507d0c9eb1495e2ad395569eb339",
+      "native_water_cells": 505,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "7b5981e0d80c00f96e161d29d7a9cf07137840bdb8dc4fa85ce60b18f97d36c5",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 364,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 1,
+      "wall_v_offset": 0,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/364-semantic.png",
+      "red_mask": "geometry-masks/364-red.png",
+      "source_indices_sha256": "0e93ea0f36776825a466432aa718d1e6652db9dab514643c0e6c8712e90ee12c",
+      "native_water_cells": 88,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "8b4f40ed8400e00c1036beef3c8106de9123363600893f2bc62721c60bef747b",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 365,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 1,
+      "wall_v_offset": 0,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/365-semantic.png",
+      "red_mask": "geometry-masks/365-red.png",
+      "source_indices_sha256": "b7ceabc1caabd7c0dfc58033b7af08797507c3eb541ce5cba8f01f0b2fa29b53",
+      "native_water_cells": 77,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "cfbc2757ec082d599431a9b5c0c825d3ed2e67b6b1db9a4d134cc69d79abd1c8",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 374,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 3,
+      "wall_v_offset": 12,
+      "split_wall_offset": 15,
+      "semantic_mask": "geometry-masks/374-semantic.png",
+      "red_mask": "geometry-masks/374-red.png",
+      "source_indices_sha256": "af9b8506dfca5922e756acd294558a408834d46c99bb6b4491b7a4752a20b49c",
+      "native_water_cells": 0,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "b9737982b00b260f9717270ad0ce97ed90c6b7c8ec2732dd1a13222bb5f128be",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 375,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 4,
+      "wall_v_offset": -12,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/375-semantic.png",
+      "red_mask": "geometry-masks/375-red.png",
+      "source_indices_sha256": "f51147f38ce526add520ecac7491368d0c163222b46f9cc97f71c233c4ae827d",
+      "native_water_cells": 1,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "ccdd6f6bc9fcccf4907e18fc9739246a0e71923fe8c973f9100a59f4d363c6ba",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 384,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 3,
+      "wall_v_offset": 40,
+      "split_wall_offset": 43,
+      "semantic_mask": "geometry-masks/384-semantic.png",
+      "red_mask": "geometry-masks/384-red.png",
+      "source_indices_sha256": "303becf3deb72d2541b29942de043ef3afc28600ee49d886b7e6962c1510952e",
+      "native_water_cells": 61,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "3896dd2651f3a696772f4bf4186887fecdb2acc52aad814800d5bdf288b302d7",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    },
+    {
+      "id": 385,
+      "logical_size": [
+        24,
+        28
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "density": 8,
+      "default_plane": 4,
+      "wall_v_offset": 16,
+      "split_wall_offset": null,
+      "semantic_mask": "geometry-masks/385-semantic.png",
+      "red_mask": "geometry-masks/385-red.png",
+      "source_indices_sha256": "4f842a6c382acccff936de80e5e8f2a571aa5d2b580207df06817899d427b298",
+      "native_water_cells": 70,
+      "pinned_black_cells": 0,
+      "original_red_cells": 0,
+      "semantic_sha256": "7af204ec3a7a0fbad82e437ec1ec05a36632c204bed052d8220416b5b07f74b6",
+      "red_sha256": "609a92e470476f540e2610b9f7b3f9d87338dfefdfc60918416811f9b8f85907"
+    }
+  ],
+  "geometry_annotation": "Fixed native-cell plane annotations:321/322/323/332/364/365 top;326/342 y<13 top;331/334 x>=14 top;333 x<9 top;324 y<x+13 top;325 y<36-x top;341 y<x-11 top;343/375 y<12-x top;354/374 y<x-12 top. Remaining cells use listed default wall plane. Water exact native48..63 overrides all. Original<=1 water-adjacent footprint overrides to dark shadow; original0 pinnedblack. Top-to-wall/water boundary interior four-neighbor cell uses generated bevel. These are candidate visual annotations, not claimed lossless recovery of an absent original semantic map.",
+  "registration_scope": "Shared material-repeat edge RGB registration only; no tile-adjacency solver, no water texel correction, no guarantee unlike internal material terminal colors equal.",
+  "red_policy": "Root-reviewed correction:336 uses one coherent generated recess crop, NOT the original pixel red-footprint stencil. Original red semantic mask retained only as identity/location provenance. No red texture is selected for any other ID. Source water/black masks unchanged.",
+  "deck_period_measurement": {
+    "method": "mean absolute RGB difference over interior y60:680,x220:850",
+    "horizontal_pixels": 162,
+    "horizontal_mae": 7.035941089973348,
+    "vertical_pixels": 200,
+    "vertical_mae": 6.259498614260519,
+    "old_crop_rejected_reason": "y35 touched exceptional generated top sample border, repeated as horizontal grid line",
+    "new_crop": "one full interior period; centered T motif; consistent same crop/phase for every top label"
+  }
+}

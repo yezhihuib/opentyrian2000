@@ -105,7 +105,7 @@ class ChargeSourceBoundary(unittest.TestCase):
         self.assertEqual(ledger['historical_source_inventory'],'current-source-inventory.json')
         self.assertEqual(set(ledger['files']),{'src/entity_draw.c','src/entity_draw.h','src/mainint.c','src/render_mirror.c','src/render_mirror.h'})
         self.assertEqual(set(projection.current_rear_p7_ledger()['files']),{'src/rear_multi_p1_mirror.inc'})
-        self.assertEqual(set(projection.corrected_source_paths())-set(projection.current_rear_p7_ledger()['files']),set(ledger['files'])|{'src/config.c','src/game_probe.c','src/opentyr.c','src/asset_debug.c'}|{'src/global_talon_mirror.inc','src/asteroid1_enemy_orb112113_mirror.inc','src/sprite.c','src/tyrian2.c','src/newshf_identity_validation.inc'}|{'src/global_'+family+'_mirror.inc' for family in ('shield','pulse','vulcan','hitflare','smoke','green','small_explosion','cash25','rotor')})
+        self.assertEqual(set(projection.corrected_source_paths())-set(projection.current_rear_p7_ledger()['files']),{'src/backgrnd.c'}|set(ledger['files'])|{'src/config.c','src/game_probe.c','src/opentyr.c','src/asset_debug.c'}|{'src/global_talon_mirror.inc','src/asteroid1_enemy_orb112113_mirror.inc','src/sprite.c','src/tyrian2.c','src/newshf_identity_validation.inc'}|{'src/global_'+family+'_mirror.inc' for family in ('shield','pulse','vulcan','hitflare','smoke','green','small_explosion','cash25','rotor')})
         for name,pin in ledger['files'].items():
             with self.subTest(path=name):
                 raw=(projection.ROOT/name).read_bytes()

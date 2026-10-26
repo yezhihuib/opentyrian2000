@@ -1,0 +1,11 @@
+{
+  "public_base": "7d94cf87740566e40c91043dcf2ebe2fb4e0e67b",
+  "sha256": {
+    "prototype/run-controlled.py": "decd957d141e4f8297478be23a594018e5a50b052ee4f8478c0c2deef7cbe3aa",
+    "prototype/start-asset-debug.py": "9b1284e264edb9230d6e29b26400a9bd8e7773abf009b7661c2f4b6bcc88aaf7",
+    "prototype/asset-index.py": "75f026fa4db3843a3a449b3836bd0d964f79c95708bfefde80ce635b99ad6897",
+    "src/game_probe.c": "1821fc281c91d70a69e5dbcb6cf0292aa3cb57abfc85697e5aee67b17df9b34d"
+  },
+  "finding": "No global/hud-assets option emitted by these three canonical wrappers. run-controlled modes4 uses render-assets only; asset debugger/index have no internal-density selector. Window scaler4x does not assert internal density4.",
+  "reference_flag": "Independent boolean; previous reference runs remain reference at effective density8."
+}

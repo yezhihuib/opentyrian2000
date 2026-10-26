@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "regression_tests": 10,
+  "driver_sha256": "4d1e81fb39347b4b019c0ff6ce509ded4ccd811d737d8e58b98439c411033e36",
+  "tests_sha256": "67464fcaa7f148b8537aadd688e2b03ac7e04e0f239730baad02d83d3796f13f",
+  "guarded_input_count": 1290,
+  "four_critical_data_names": [
+    "newshf.shp",
+    "palette.dat",
+    "tyrian.hdt",
+    "tyrian1.lvl"
+  ],
+  "four_fixed_oracle_masks": [
+    "mask-119.png",
+    "mask-121.png",
+    "mask-43.png",
+    "mask-81.png"
+  ],
+  "not_all_original_data_files": true,
+  "receipt_sha256": "d3c2115775b8cb309a7f57bf271e676f2716778825a2eeff7cad3ccb39079d08",
+  "prior_receipts_unchanged": true
+}

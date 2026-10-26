@@ -6,7 +6,7 @@
   "default_debug_pack": "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test",
   "packs": {
     "packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 629,
+      "count": 657,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -8184,11 +8184,375 @@
           "sha256": "11ffdf82296ed985ec9534ba19a555eb22594c14e5fc92414531a47e36383752",
           "source_png": "assets/hd/source/bullet-125-8-11ffdf82296e.png",
           "source_png_sha256": "7d19bd8bc5f74b7256be2ce5b0cee31431205d811403f332b7b357d008cd8d8e"
+        },
+        "terrain-shapesy-321-8.hda": {
+          "sha256": "c078e1802472738134f81ef7d78b7ede39a5de1e94e414ba10f7dee91f7670e0",
+          "header_u32": [
+            2020321,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-321-8.png",
+          "source_png_sha256": "172b72978c41956b1e0858846be71a5d18b8ca02b24e2963a46ff3edc0acc657"
+        },
+        "terrain-shapesy-322-8.hda": {
+          "sha256": "2690e3fe372d101867ec2c820e2db7ab7fb9d5d45f1bf23af534a2b662fcbcc7",
+          "header_u32": [
+            2020322,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-322-8.png",
+          "source_png_sha256": "9e8d231e48fd6ec130a6439be2a98d0e23aaa4db8bdb26807202ad48025d04b9"
+        },
+        "terrain-shapesy-323-8.hda": {
+          "sha256": "6fa531daffa746b74ed57543ea0df24a01e3fbb5e4362ea62fbd96fb4d22f981",
+          "header_u32": [
+            2020323,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-323-8.png",
+          "source_png_sha256": "05aba1c70ab51529294d7360a4d75670b16a8d357073e57a7f6082ffdcb0023e"
+        },
+        "terrain-shapesy-324-8.hda": {
+          "sha256": "4b28c910a9309e05ade233a72166a9966f6ed63432d517335b89346cc1b574b2",
+          "header_u32": [
+            2020324,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-324-8.png",
+          "source_png_sha256": "ef1d9d79c66470118c6cec66693c4679ef44cc6a9c8e76c9f52894d497e9ef2a"
+        },
+        "terrain-shapesy-325-8.hda": {
+          "sha256": "771d55ca1544d2a1e511ce851e27d59f91253c4d3e5cae44c041566bdf2c5e47",
+          "header_u32": [
+            2020325,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-325-8.png",
+          "source_png_sha256": "3b6d038fe42c84965f43429f1045675dfc7541dec3c586c7673f83e9a68428d1"
+        },
+        "terrain-shapesy-326-8.hda": {
+          "sha256": "e178bfc57f79591a0426fabbc35c926dde0885e9cb94c3f7ea0c9f2f75014436",
+          "header_u32": [
+            2020326,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-326-8.png",
+          "source_png_sha256": "c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06"
+        },
+        "terrain-shapesy-331-8.hda": {
+          "sha256": "7da00a4a1dd5a45d469195ec20c92f90a3ec6cafa78390d9468e39db1fbf21a8",
+          "header_u32": [
+            2020331,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-331-8.png",
+          "source_png_sha256": "059853f34b08c5a9a774721f14beea5922db5c38b266236c3c97dedab05abc00"
+        },
+        "terrain-shapesy-332-8.hda": {
+          "sha256": "037c006fbf9c0737164b1a1186b298f053364a7f66cf0ef23ec733e02ea422e6",
+          "header_u32": [
+            2020332,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-332-8.png",
+          "source_png_sha256": "4bfcbb2a6a96d976dbcfda49133c22ee12df06691d1969ed20ab8e82c2ab4758"
+        },
+        "terrain-shapesy-333-8.hda": {
+          "sha256": "718be98ace8d69f4ca2b211fcbaf9c148e2e10a7bbffe57d181177f800a8a812",
+          "header_u32": [
+            2020333,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-333-8.png",
+          "source_png_sha256": "1e46b7010b318a1f478022c8b1086c823519c1c29d963e50e88da50d193cbc31"
+        },
+        "terrain-shapesy-334-8.hda": {
+          "sha256": "83c4fe0a5ddcb9d4cad5c27d6072dcf63b7aa4f41fc6607785d77d76fadc1288",
+          "header_u32": [
+            2020334,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-334-8.png",
+          "source_png_sha256": "90eea0c6ed9f9541aaa1bb8ed0d616b563bfb1388416fe7ddfae81e1750a63d0"
+        },
+        "terrain-shapesy-336-8.hda": {
+          "sha256": "796d1d97017d802eb6cce6bf708fb8b3d4b92beaf1c27baa49491e8dedcd9b52",
+          "header_u32": [
+            2020336,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-336-8.png",
+          "source_png_sha256": "5ea5bb68e0e2753d4506dca20bb4a9f2f755744350b7939e34044a38afeb1e32"
+        },
+        "terrain-shapesy-341-8.hda": {
+          "sha256": "7fd7b0d0a708aaf86e860625b185ac4bfbde0a44e34c5c288789c3cdcc1bc191",
+          "header_u32": [
+            2020341,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-341-8.png",
+          "source_png_sha256": "10591dd0202a587a286108a889fb95aca7a30c7524bc1997efcb8281a32d74c9"
+        },
+        "terrain-shapesy-342-8.hda": {
+          "sha256": "2e9ed4974e9ca261262b8134fd5702d190445c3318d33c3f23c404f3c1eb2d1f",
+          "header_u32": [
+            2020342,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-342-8.png",
+          "source_png_sha256": "c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06"
+        },
+        "terrain-shapesy-343-8.hda": {
+          "sha256": "c31cf2724f39d40538e7c432d36d643b00a1d678dff962385645357646007e03",
+          "header_u32": [
+            2020343,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-343-8.png",
+          "source_png_sha256": "11eef52716b322d35b75cb99e471fecf00c432dff7712bd81e0907bf70113b94"
+        },
+        "terrain-shapesy-346-8.hda": {
+          "sha256": "8ba1e9b6a3d426eb96ac56b832d3e33fef0110622fef2f719d4127d870b51c1e",
+          "header_u32": [
+            2020346,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-346-8.png",
+          "source_png_sha256": "8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e"
+        },
+        "terrain-shapesy-351-8.hda": {
+          "sha256": "76ffd933a8ea974ffe1aaf0b29d81f258632cdf9a4372ee9ef19f3299b9af1bb",
+          "header_u32": [
+            2020351,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-351-8.png",
+          "source_png_sha256": "d234a755bbb311464079cef993b646060727584ca36ebf85c1c35e12b6a7bd56"
+        },
+        "terrain-shapesy-352-8.hda": {
+          "sha256": "a76ca99041c5310c96657b644531e978828af4fcd78e30a36ee20e530461f554",
+          "header_u32": [
+            2020352,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-352-8.png",
+          "source_png_sha256": "77eda5a96592617829c06ab8b5f40ca696acd1175282e735cc0dc1305bb7fe18"
+        },
+        "terrain-shapesy-353-8.hda": {
+          "sha256": "abe2c0bad9e155ba85c7caee8fa86d1801c3204bea37a03cd8c358404102c920",
+          "header_u32": [
+            2020353,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-353-8.png",
+          "source_png_sha256": "87bc4dafa15252fc69aaacc4032d52545b87a95b6df3e4ae4b02a3e2fd0c38d1"
+        },
+        "terrain-shapesy-354-8.hda": {
+          "sha256": "ae41c3941b31e9aa5e85b52f70a0b026ba37744b4883942ccb8e9dde971a2b80",
+          "header_u32": [
+            2020354,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-354-8.png",
+          "source_png_sha256": "73c4d0edc5115333f60b5452587ed997be3855bed14d9a6c966b09385a07b138"
+        },
+        "terrain-shapesy-361-8.hda": {
+          "sha256": "d034c9684dfaa6d41c7059cec160ec2378b06f2a2c919081e43c8d4ccf9376bf",
+          "header_u32": [
+            2020361,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-361-8.png",
+          "source_png_sha256": "4d84a6e2f8bc4294c7ba5c859471893306a2ca99db13551ebf8ec18947e883ff"
+        },
+        "terrain-shapesy-362-8.hda": {
+          "sha256": "04f192638d955bbd1e81be1c5af529d48a3c52ea0414a8e87151b155ac9968bc",
+          "header_u32": [
+            2020362,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-362-8.png",
+          "source_png_sha256": "8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e"
+        },
+        "terrain-shapesy-363-8.hda": {
+          "sha256": "be549a01517a5c4008f5dded955ed8984d66351bf70c7eb2899954b3b765dab8",
+          "header_u32": [
+            2020363,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-363-8.png",
+          "source_png_sha256": "e33d52f7f1bf94ca4e12f26086fc80568ec9597778ddb081e06512768f89fb2c"
+        },
+        "terrain-shapesy-364-8.hda": {
+          "sha256": "43e89bf1582f99f086cafa817731b8a378c224891acd22158f10ff730d73a415",
+          "header_u32": [
+            2020364,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-364-8.png",
+          "source_png_sha256": "88247851f1cf0e07a08b2da6557cafafe9186653c53d1abfca34421758271988"
+        },
+        "terrain-shapesy-365-8.hda": {
+          "sha256": "adae960e9da2bf7cb3b878bf6f0f6fe3fed94036879f434994b211e110753c84",
+          "header_u32": [
+            2020365,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-365-8.png",
+          "source_png_sha256": "cfb8eb03efeb0409abbcf54a5d395b80019e28f0d769ffbb7e75d122c65cc7d2"
+        },
+        "terrain-shapesy-374-8.hda": {
+          "sha256": "65aa008345f0c089ec0589891ac6b21b9af092af0ca4ad2dae6a6485a0dca634",
+          "header_u32": [
+            2020374,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-374-8.png",
+          "source_png_sha256": "a27e029e32d07cbe70909f1cd7cc049c55402b68946ee8312b8e917ca9e310b4"
+        },
+        "terrain-shapesy-375-8.hda": {
+          "sha256": "a6c3c27d247ad6ea254142970969ce1d445fc855c86c29245f66fa9172cf3363",
+          "header_u32": [
+            2020375,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-375-8.png",
+          "source_png_sha256": "980e7b96d9ac5fcbc19ded196335ee20b70cdd568dd29dfec48d139fa7f0f05a"
+        },
+        "terrain-shapesy-384-8.hda": {
+          "sha256": "d6c7283235745c501902f0639786864a11ad2f592d7731d55e32ca0f53c402b2",
+          "header_u32": [
+            2020384,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-384-8.png",
+          "source_png_sha256": "904456aa132808a1bdca12a45891d6149a7be2d673da3d0cacb9523ef37ae6e4"
+        },
+        "terrain-shapesy-385-8.hda": {
+          "sha256": "0890a924360eb599178a65e6262487236d5c46e8565955b3dcd1d2a8cac928f7",
+          "header_u32": [
+            2020385,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-385-8.png",
+          "source_png_sha256": "c5eb4d118e372100255d930c610aa8b6f13c84014d442df9f7fa89d1bbaee2c6"
         }
       }
     },
     "packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test": {
-      "count": 629,
+      "count": 657,
       "files": {
         "bullet-59-8.hda": {
           "sha256": "9b12eb865bcad5d13565106c1ecdaa464fea9469e424c5b4b970c84d7c0576ae",
@@ -16366,6 +16730,370 @@
           "sha256": "11ffdf82296ed985ec9534ba19a555eb22594c14e5fc92414531a47e36383752",
           "source_png": "assets/hd/source/bullet-125-8-11ffdf82296e.png",
           "source_png_sha256": "7d19bd8bc5f74b7256be2ce5b0cee31431205d811403f332b7b357d008cd8d8e"
+        },
+        "terrain-shapesy-321-8.hda": {
+          "sha256": "c078e1802472738134f81ef7d78b7ede39a5de1e94e414ba10f7dee91f7670e0",
+          "header_u32": [
+            2020321,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-321-8.png",
+          "source_png_sha256": "172b72978c41956b1e0858846be71a5d18b8ca02b24e2963a46ff3edc0acc657"
+        },
+        "terrain-shapesy-322-8.hda": {
+          "sha256": "2690e3fe372d101867ec2c820e2db7ab7fb9d5d45f1bf23af534a2b662fcbcc7",
+          "header_u32": [
+            2020322,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-322-8.png",
+          "source_png_sha256": "9e8d231e48fd6ec130a6439be2a98d0e23aaa4db8bdb26807202ad48025d04b9"
+        },
+        "terrain-shapesy-323-8.hda": {
+          "sha256": "6fa531daffa746b74ed57543ea0df24a01e3fbb5e4362ea62fbd96fb4d22f981",
+          "header_u32": [
+            2020323,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-323-8.png",
+          "source_png_sha256": "05aba1c70ab51529294d7360a4d75670b16a8d357073e57a7f6082ffdcb0023e"
+        },
+        "terrain-shapesy-324-8.hda": {
+          "sha256": "4b28c910a9309e05ade233a72166a9966f6ed63432d517335b89346cc1b574b2",
+          "header_u32": [
+            2020324,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-324-8.png",
+          "source_png_sha256": "ef1d9d79c66470118c6cec66693c4679ef44cc6a9c8e76c9f52894d497e9ef2a"
+        },
+        "terrain-shapesy-325-8.hda": {
+          "sha256": "771d55ca1544d2a1e511ce851e27d59f91253c4d3e5cae44c041566bdf2c5e47",
+          "header_u32": [
+            2020325,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-325-8.png",
+          "source_png_sha256": "3b6d038fe42c84965f43429f1045675dfc7541dec3c586c7673f83e9a68428d1"
+        },
+        "terrain-shapesy-326-8.hda": {
+          "sha256": "e178bfc57f79591a0426fabbc35c926dde0885e9cb94c3f7ea0c9f2f75014436",
+          "header_u32": [
+            2020326,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-326-8.png",
+          "source_png_sha256": "c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06"
+        },
+        "terrain-shapesy-331-8.hda": {
+          "sha256": "7da00a4a1dd5a45d469195ec20c92f90a3ec6cafa78390d9468e39db1fbf21a8",
+          "header_u32": [
+            2020331,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-331-8.png",
+          "source_png_sha256": "059853f34b08c5a9a774721f14beea5922db5c38b266236c3c97dedab05abc00"
+        },
+        "terrain-shapesy-332-8.hda": {
+          "sha256": "037c006fbf9c0737164b1a1186b298f053364a7f66cf0ef23ec733e02ea422e6",
+          "header_u32": [
+            2020332,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-332-8.png",
+          "source_png_sha256": "4bfcbb2a6a96d976dbcfda49133c22ee12df06691d1969ed20ab8e82c2ab4758"
+        },
+        "terrain-shapesy-333-8.hda": {
+          "sha256": "718be98ace8d69f4ca2b211fcbaf9c148e2e10a7bbffe57d181177f800a8a812",
+          "header_u32": [
+            2020333,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-333-8.png",
+          "source_png_sha256": "1e46b7010b318a1f478022c8b1086c823519c1c29d963e50e88da50d193cbc31"
+        },
+        "terrain-shapesy-334-8.hda": {
+          "sha256": "83c4fe0a5ddcb9d4cad5c27d6072dcf63b7aa4f41fc6607785d77d76fadc1288",
+          "header_u32": [
+            2020334,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-334-8.png",
+          "source_png_sha256": "90eea0c6ed9f9541aaa1bb8ed0d616b563bfb1388416fe7ddfae81e1750a63d0"
+        },
+        "terrain-shapesy-336-8.hda": {
+          "sha256": "796d1d97017d802eb6cce6bf708fb8b3d4b92beaf1c27baa49491e8dedcd9b52",
+          "header_u32": [
+            2020336,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-336-8.png",
+          "source_png_sha256": "5ea5bb68e0e2753d4506dca20bb4a9f2f755744350b7939e34044a38afeb1e32"
+        },
+        "terrain-shapesy-341-8.hda": {
+          "sha256": "7fd7b0d0a708aaf86e860625b185ac4bfbde0a44e34c5c288789c3cdcc1bc191",
+          "header_u32": [
+            2020341,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-341-8.png",
+          "source_png_sha256": "10591dd0202a587a286108a889fb95aca7a30c7524bc1997efcb8281a32d74c9"
+        },
+        "terrain-shapesy-342-8.hda": {
+          "sha256": "2e9ed4974e9ca261262b8134fd5702d190445c3318d33c3f23c404f3c1eb2d1f",
+          "header_u32": [
+            2020342,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-342-8.png",
+          "source_png_sha256": "c42eb34ff038416c41d0109f9180148aadddace7517a4e76dafcb538ba376d06"
+        },
+        "terrain-shapesy-343-8.hda": {
+          "sha256": "c31cf2724f39d40538e7c432d36d643b00a1d678dff962385645357646007e03",
+          "header_u32": [
+            2020343,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-343-8.png",
+          "source_png_sha256": "11eef52716b322d35b75cb99e471fecf00c432dff7712bd81e0907bf70113b94"
+        },
+        "terrain-shapesy-346-8.hda": {
+          "sha256": "8ba1e9b6a3d426eb96ac56b832d3e33fef0110622fef2f719d4127d870b51c1e",
+          "header_u32": [
+            2020346,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-346-8.png",
+          "source_png_sha256": "8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e"
+        },
+        "terrain-shapesy-351-8.hda": {
+          "sha256": "76ffd933a8ea974ffe1aaf0b29d81f258632cdf9a4372ee9ef19f3299b9af1bb",
+          "header_u32": [
+            2020351,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-351-8.png",
+          "source_png_sha256": "d234a755bbb311464079cef993b646060727584ca36ebf85c1c35e12b6a7bd56"
+        },
+        "terrain-shapesy-352-8.hda": {
+          "sha256": "a76ca99041c5310c96657b644531e978828af4fcd78e30a36ee20e530461f554",
+          "header_u32": [
+            2020352,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-352-8.png",
+          "source_png_sha256": "77eda5a96592617829c06ab8b5f40ca696acd1175282e735cc0dc1305bb7fe18"
+        },
+        "terrain-shapesy-353-8.hda": {
+          "sha256": "abe2c0bad9e155ba85c7caee8fa86d1801c3204bea37a03cd8c358404102c920",
+          "header_u32": [
+            2020353,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-353-8.png",
+          "source_png_sha256": "87bc4dafa15252fc69aaacc4032d52545b87a95b6df3e4ae4b02a3e2fd0c38d1"
+        },
+        "terrain-shapesy-354-8.hda": {
+          "sha256": "ae41c3941b31e9aa5e85b52f70a0b026ba37744b4883942ccb8e9dde971a2b80",
+          "header_u32": [
+            2020354,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-354-8.png",
+          "source_png_sha256": "73c4d0edc5115333f60b5452587ed997be3855bed14d9a6c966b09385a07b138"
+        },
+        "terrain-shapesy-361-8.hda": {
+          "sha256": "d034c9684dfaa6d41c7059cec160ec2378b06f2a2c919081e43c8d4ccf9376bf",
+          "header_u32": [
+            2020361,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-361-8.png",
+          "source_png_sha256": "4d84a6e2f8bc4294c7ba5c859471893306a2ca99db13551ebf8ec18947e883ff"
+        },
+        "terrain-shapesy-362-8.hda": {
+          "sha256": "04f192638d955bbd1e81be1c5af529d48a3c52ea0414a8e87151b155ac9968bc",
+          "header_u32": [
+            2020362,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-362-8.png",
+          "source_png_sha256": "8fc1fb6e46935b6df1ce250a8b74e24d0d460ca9516aec1857dcb4168c10ee5e"
+        },
+        "terrain-shapesy-363-8.hda": {
+          "sha256": "be549a01517a5c4008f5dded955ed8984d66351bf70c7eb2899954b3b765dab8",
+          "header_u32": [
+            2020363,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-363-8.png",
+          "source_png_sha256": "e33d52f7f1bf94ca4e12f26086fc80568ec9597778ddb081e06512768f89fb2c"
+        },
+        "terrain-shapesy-364-8.hda": {
+          "sha256": "43e89bf1582f99f086cafa817731b8a378c224891acd22158f10ff730d73a415",
+          "header_u32": [
+            2020364,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-364-8.png",
+          "source_png_sha256": "88247851f1cf0e07a08b2da6557cafafe9186653c53d1abfca34421758271988"
+        },
+        "terrain-shapesy-365-8.hda": {
+          "sha256": "adae960e9da2bf7cb3b878bf6f0f6fe3fed94036879f434994b211e110753c84",
+          "header_u32": [
+            2020365,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-365-8.png",
+          "source_png_sha256": "cfb8eb03efeb0409abbcf54a5d395b80019e28f0d769ffbb7e75d122c65cc7d2"
+        },
+        "terrain-shapesy-374-8.hda": {
+          "sha256": "65aa008345f0c089ec0589891ac6b21b9af092af0ca4ad2dae6a6485a0dca634",
+          "header_u32": [
+            2020374,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-374-8.png",
+          "source_png_sha256": "a27e029e32d07cbe70909f1cd7cc049c55402b68946ee8312b8e917ca9e310b4"
+        },
+        "terrain-shapesy-375-8.hda": {
+          "sha256": "a6c3c27d247ad6ea254142970969ce1d445fc855c86c29245f66fa9172cf3363",
+          "header_u32": [
+            2020375,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-375-8.png",
+          "source_png_sha256": "980e7b96d9ac5fcbc19ded196335ee20b70cdd568dd29dfec48d139fa7f0f05a"
+        },
+        "terrain-shapesy-384-8.hda": {
+          "sha256": "d6c7283235745c501902f0639786864a11ad2f592d7731d55e32ca0f53c402b2",
+          "header_u32": [
+            2020384,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-384-8.png",
+          "source_png_sha256": "904456aa132808a1bdca12a45891d6149a7be2d673da3d0cacb9523ef37ae6e4"
+        },
+        "terrain-shapesy-385-8.hda": {
+          "sha256": "0890a924360eb599178a65e6262487236d5c46e8565955b3dcd1d2a8cac928f7",
+          "header_u32": [
+            2020385,
+            8,
+            24,
+            28,
+            0,
+            0
+          ],
+          "source_png": "assets/hd/source/terrain-shapesy-385-8.png",
+          "source_png_sha256": "c5eb4d118e372100255d930c610aa8b6f13c84014d442df9f7fa89d1bbaee2c6"
         }
       }
     }

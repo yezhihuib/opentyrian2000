@@ -1,0 +1,27 @@
+{
+  "status": "ART CANDIDATE ONLY; not runtime-qualified",
+  "operation": "whole-object affine crop/resize/translate plus native-mask clip; no row warping or painting",
+  "source_sha256": "e1dd1a120d643b32292b69cf9295eff6e86fe80e2e14e7400f6ca7fae001bb85",
+  "original_mask_sha256": "bfe38fafcaa1944ba42cb3b7b3be364ac937bbcdd2a14035b4b6805d7a38a1d6",
+  "crop": [
+    166,
+    179,
+    661,
+    1723
+  ],
+  "resized_content": [
+    80,
+    176
+  ],
+  "offset": [
+    8,
+    40
+  ],
+  "outside_alpha_mass_subpixels": 9.301960784313726,
+  "outside_alpha_ge128_count": 10,
+  "outside_alpha_max": 255,
+  "inside_alpha_mass_subpixels": 8539.407843137255,
+  "native_mask_subpixels": 10368,
+  "pair_halves_byte_identical": true,
+  "outside_native_mask_after_registration": 0
+}

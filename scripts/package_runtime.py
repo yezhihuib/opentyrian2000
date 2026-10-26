@@ -473,6 +473,32 @@ def main(argv=None) -> int:
                 digest = row['sha256']
                 if not isinstance(digest, str) or len(digest) != 64 or any(c not in '0123456789abcdef' for c in digest):
                     raise ValueError('Invalid manifest content SHA256')
+    # One static dual-missile resource is shared by two separate record identities.
+    from current_dualmissile_newshf_compatibility import ROOT as dualmissile_prefix, load as dualmissile_load, REVISION as dualmissile_revision
+    dualmissile_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(dualmissile_prefix+'/') or r['destination'].casefold().startswith('assets/global/newshf-dualmissile/') or r.get('revision')==dualmissile_revision or Path(r['source_path']).name.casefold()=='newshf-role2100015-8.hda' or Path(r['destination']).name.casefold()=='newshf-role2100015-8.hda']
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or dualmissile_rows:
+        selected=dualmissile_load(roots[0])
+        if len(dualmissile_rows)!=1 or {r['destination'] for r in dualmissile_rows}!=set(selected):
+            raise ValueError('Dualmissile NEWSHF requires exactly one shared consumer')
+        for row in dualmissile_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=dualmissile_revision:
+                raise ValueError('Stale dualmissile NEWSHF runtime selection')
+
+    # Current Y family is exact28, with independently regenerated masks/pixels.
+    # Absence of all rows cannot silently remove it from the current manifest.
+    from current_shapesy_platform_compatibility import load as shapesy_load, REVISION as shapesy_revision
+    shapesy_rows=[r for r in manifest['files'] if 'terrain-shapesy-' in r['source_path'].casefold() or
+                  'terrain-shapesy-' in r['destination'].casefold() or r.get('revision')==shapesy_revision]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or shapesy_rows:
+        selected=shapesy_load(roots[0])
+        if len(shapesy_rows)!=28 or {r['destination'] for r in shapesy_rows}!=set(selected):
+            raise ValueError('Incomplete shapesY platform runtime family')
+        for row in shapesy_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='gameplay' or row.get('revision')!=shapesy_revision:
+                raise ValueError('Stale shapesY platform runtime selection')
+
     # Historical/custom manifests with no Charge consumers retain their exact
     # generic semantics. Any Charge request must close over all nine current
     # consumers and prove their source pixels, not only transport hashes.

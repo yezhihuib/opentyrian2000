@@ -8,6 +8,8 @@ It builds on OpenTyrian2000 and OpenTyrian; the upstream README is preserved bel
 
 ## Current scope and limits
 
+- [Linked NEWSHF density correction](docs/linked-newshf-density-correction.md): earlier nominal4 natural runs were actually8; new actual-density4 evidence is additive.
+
 - Integrated work covers selected ships, enemies, weapons/effects, layered
   terrain, clouds and world materials. The finite single-player HUD includes
   its frame, weapon labels, shield bands, mode indicators and refined corner.

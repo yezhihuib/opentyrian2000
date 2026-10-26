@@ -155,7 +155,7 @@ def _tree_stamp(path):
 
 
 def _profile(module):
-    names = ('NODE', 'SHARP', 'NODE_VERSION', 'SHARP_VERSIONS', 'DRIVER', 'MAGICK', 'MAGICK_VERSION', 'GOLDEN_HASHES', 'GOLDEN_MASTER', 'GOLDEN_SVG', 'GOLDEN_MASTERS', 'GOLDEN_SVG_HASHES', 'PILLOW_VERSION', 'PILLOW_ZLIB_VERSION', 'ZLIB_VERSION')
+    names = ('NODE', 'SHARP', 'NODE_VERSION', 'SHARP_VERSIONS', 'DRIVER', 'MAGICK', 'MAGICK_VERSION', 'GOLDEN_HASHES', 'GOLDEN_MASTER', 'GOLDEN_SVG', 'GOLDEN_MASTERS', 'GOLDEN_SVG_HASHES', 'PILLOW_VERSION', 'PILLOW_ZLIB_VERSION', 'ZLIB_VERSION', '__version__')
     values = tuple((name, _freeze(getattr(module, name))) for name in names if hasattr(module, name))
     if hasattr(module, 'tool_environment'):
         values += (('tool_environment', _freeze(module.tool_environment())),)
@@ -193,7 +193,7 @@ class _ProjectionProofContext:
         self._closed = False
 
     def _module(self, family):
-        if family not in ('linked_newshf', 'projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
+        if family not in ('dualmissile_newshf', 'shapesy_platform', 'linked_newshf', 'projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
             raise ValueError('Unknown current-proof family')
         scripts = str(self.module_root / 'scripts')
         if scripts not in sys.path:
@@ -233,14 +233,18 @@ class _ProjectionProofContext:
             files.add(self.module_root / 'tests' / 'linked_newshf_projection.py')
         if family in ('projectile91', 'rear_p7', 'missile', 'mint27', 'newshf'):
             source_chain = ('projectile91',) + source_chain
+        # Every live source projection first validates the finite ShapesY delta.
+        source_chain = ('dualmissile_newshf', 'shapesy_platform') + source_chain
+        files.add(self.module_root / 'tests' / 'dualmissile_newshf_projection.py')
+        files.add(self.module_root / 'tests' / 'shapesy_platform_projection.py')
         for name in source_chain:
             ledger = self.module_root / 'tests' / ('current_' + name + '_source_projection.json')
             files.add(ledger)
             _repo_stamp(ledger)
             spec = json.loads(ledger.read_bytes())
-            for source in set(spec['files']) | set(spec.get('added_sources', {})) | set(spec.get('qualified', {})):
+            for source in set(spec['files']) | set(spec.get('added_sources', {})) | set(spec.get('qualified', {})) | set(spec.get('asset_edits', {})):
                 files.add(_relative(self.root, source))
-        scripts = {'current_craft267_compatibility.py', 'package_runtime.py', 'build_current_art.py'}
+        scripts = {'current_dualmissile_newshf_compatibility.py', 'current_craft267_compatibility.py', 'package_runtime.py', 'build_current_art.py', 'current_shapesy_platform_compatibility.py', 'build_current_shapesy_platform.py'}
         scripts |= {'current_' + name + '_compatibility.py' for name in families}
         if family == 'projectile91':
             scripts |= {'current_plasma_projectile_compatibility.py'}
@@ -255,9 +259,14 @@ class _ProjectionProofContext:
         files |= {self.module_root / 'scripts' / name for name in scripts}
         files |= {self.module_root / 'tests' / name for name in ('accepted_later_changes.py', '_projection_proof_context.py')}
         external_files, external_trees = set(), set()
-        if family in ('projectile91','linked_newshf'):
-            import PIL, PIL.Image, PIL.PngImagePlugin
-            external_trees.add(Path(PIL.__file__).parent)
+        # ShapesY is the newest source-chain prerequisite for every family.
+        # Its canonical component assembly uses both Pillow and NumPy; include
+        # package bytes, origins and version profiles even for an older cached
+        # proof whose validator reaches ShapesY indirectly.
+        import PIL, PIL.Image, PIL.PngImagePlugin, numpy
+        external_trees |= {Path(PIL.__file__).parent, Path(numpy.__file__).parent}
+        modules += (PIL, numpy)
+        code_modules += tuple((m.__name__, Path(m.__file__).absolute()) for m in (PIL,numpy))
         if family in ('rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7'):
             import _rear_golden_batch as batch
             helper = self.module_root / 'tests' / '_rear_golden_batch.py'

@@ -46,7 +46,17 @@ def check_current_inventory(root=ROOT):
     linked_added = dict(linked['added_sources'])
     linked_added.update({n:r['sha256'] for n,r in linked['assets'].items()})
     assert not set(linked_added)&(set(expected)|set(added)), 'linked extension overlaps existing paths'
-    check_names(actual, dict(expected, **added, **linked_added))
+    from shapesy_platform_projection import verified as shapesy_verified, project_asset as shapesy_asset
+    shapesy = shapesy_verified(root)
+    shapesy_added = dict(shapesy['added_sources'])
+    shapesy_added.update({n:r['sha256'] for n,r in shapesy['assets'].items()})
+    assert not set(shapesy_added)&(set(expected)|set(added)|set(linked_added)), 'ShapesY extension overlaps existing paths'
+    from dualmissile_newshf_projection import verified as dual_verified
+    dual = dual_verified(root)
+    dual_added = dict(dual['added_sources'])
+    dual_added.update({n:r['sha256'] for n,r in dual['assets'].items()})
+    assert not set(dual_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name
@@ -61,6 +71,10 @@ def check_current_inventory(root=ROOT):
             current = linked_project(name,current)
         if name in changed:
             current = project_current_projectile91_source(name, current)
+        else:
+            from shapesy_platform_projection import project_source as shapesy_source
+            current = shapesy_source(name,current)
+        current = shapesy_asset(name,current)
         verify_bytes(current, wanted, name)
 
 def check_live_guards(source):

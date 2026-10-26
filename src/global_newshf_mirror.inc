@@ -3,11 +3,16 @@
  * Included after decode_tile; no level/episode/map predicate grants this owner. */
 #include "current_newshf_hd_assets.h"
 #include "current_linked_newshf_hd_assets.h"
-enum { GLOBAL_NEWSHF_RESOURCE_COUNT=15 };
+#include "current_dualmissile_newshf_hd_assets.h"
+enum { GLOBAL_NEWSHF_RESOURCE_COUNT=16 };
 static Uint8 *global_newshf_rgba[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static uint64_t global_newshf_rgba_stamp[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static unsigned global_newshf_used_resources;
 static bool global_newshf_linked_loaded,global_newshf_linked_good;
+static bool global_newshf_dualmissile_loaded,global_newshf_dualmissile_good;
+/* Per-allocation decision made before the first visible dualmissile quadrant. */
+static uint64_t global_newshf_dual_preflight_generation[100];
+static Uint8 global_newshf_dual_preflight_state[100];
 static bool global_newshf_assets_match(void)
 {
  for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++)
@@ -29,6 +34,7 @@ static struct {
  int pitch,final_pitch,canvas_pitch,output_pitch,density;
 } global_newshf_source_lease;
 static bool global_newshf_talon_dependency;
+static uint64_t global_newshf_shapesy_dependency,global_newshf_dual_shapesy_serial[100];
 static struct {bool live;int x,y,style,filter;unsigned left;Uint8 source[168],mask[168],seen[168];} global_newshf_call;
 
 static bool global_newshf_requested(void)
@@ -45,7 +51,7 @@ static bool global_newshf_identity_complete(void)
   if(global_newshf_generations[i]!=newshf_validation_slots[i].generation||
    !newshf_validation_slots[i].role||newshf_validation_slots[i].remaining||
    !newshf_validation_shape(i))return false;
-  if(newshf_profiles[newshf_validation_slots[i].profile].linked&&
+  if((newshf_profiles[newshf_validation_slots[i].profile].linked||newshf_validation_slots[i].profile>=6)&&
    (enemy[i].enemycycle!=newshf_validation_slots[i].pose||enemy[i].evalue!=newshf_validation_slots[i].value))return false;
  }
  return true;
@@ -108,14 +114,15 @@ static bool global_newshf_surface_matches(void)
 
 static bool global_newshf_group_ready(unsigned phase)
 {
- bool linked=phase>=9;
- bool *loaded=linked?&global_newshf_linked_loaded:&global_newshf_loaded;
- bool *good=linked?&global_newshf_linked_good:&global_newshf_good;
- unsigned begin=linked?9:0,end=linked?15:9;
+ if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT)return false;
+ bool dual=phase>=15,linked=phase>=9&&!dual;
+ bool *loaded=dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;
+ bool *good=dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;
+ unsigned begin=dual?15:linked?9:0,end=dual?16:linked?15:9;
  if(!*loaded){
   *loaded=true;*good=true;
   for(unsigned i=begin;i<end;i++){
-   const GlobalAssetResource *r=linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
+   const GlobalAssetResource *r=dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
    if(r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||!(global_newshf_rgba[i]=global_resource_load(r)))*good=false;
    if(global_newshf_rgba[i])global_newshf_rgba_stamp[i]=global_bytes_hash(global_newshf_rgba[i],192u*224u*4u);
   }
@@ -139,7 +146,7 @@ static void global_newshf_reset(void)
  if(global_newshf_contributed){active=shared_hud_frame=ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;}
  if(global_newshf_cached){ready=last_output_valid=have_fade_saved=false;fade_mode=0;}
  global_newshf_frame=global_newshf_cached=global_newshf_fault=global_newshf_contributed=false;global_newshf_call.live=false;
- global_newshf_talon_dependency=false;memset(&global_newshf_source_lease,0,sizeof(global_newshf_source_lease));
+ global_newshf_talon_dependency=false;global_newshf_shapesy_dependency=0;memset(&global_newshf_source_lease,0,sizeof(global_newshf_source_lease));
  memset(&global_newshf_fade_lease,0,sizeof(global_newshf_fade_lease));
  if(global_newshf_owner)memset(global_newshf_owner,0,global_newshf_capacity);
  if(global_newshf_foreign)memset(global_newshf_foreign,0,global_newshf_capacity);
@@ -149,12 +156,16 @@ static void global_newshf_shutdown(void)
  global_newshf_reset();
  for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++){free(global_newshf_rgba[i]);global_newshf_rgba[i]=NULL;}
  global_newshf_loaded=global_newshf_good=false;
- global_newshf_linked_loaded=global_newshf_linked_good=false;global_newshf_used_resources=0;
+ global_newshf_linked_loaded=global_newshf_linked_good=false;
+ global_newshf_dualmissile_loaded=global_newshf_dualmissile_good=false;global_newshf_used_resources=0;
  free(global_newshf_owner);free(global_newshf_foreign);global_newshf_owner=global_newshf_foreign=NULL;global_newshf_capacity=0;
 }
 static void global_newshf_frame_begin(void)
 {
  global_newshf_rejected_frame=false;global_newshf_used_resources=0;
+ memset(global_newshf_dual_preflight_state,0,sizeof(global_newshf_dual_preflight_state));
+ memset(global_newshf_dual_preflight_generation,0,sizeof(global_newshf_dual_preflight_generation));
+ memset(global_newshf_dual_shapesy_serial,0,sizeof(global_newshf_dual_shapesy_serial));global_newshf_shapesy_dependency=0;
  memset(global_newshf_generations,0,sizeof(global_newshf_generations));global_newshf_epoch=newshf_validation_bank_epoch;
  global_newshf_frame=global_newshf_cached=global_newshf_fault=global_newshf_contributed=false;global_newshf_call.live=false;
  memset(global_newshf_used_colors,0,sizeof(global_newshf_used_colors));global_newshf_talon_dependency=false;
@@ -196,7 +207,7 @@ static void global_newshf_observed_preflight(void)
     !global_newshf_final_surface_matches()||!global_newshf_source_matches(global_newshf_bank())||
     !global_newshf_palette_matches()||!global_newshf_underlay_matches()))global_newshf_fail();
 }
-static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,int filter,unsigned phase,int part)
+static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,int filter,unsigned phase,int part,uint64_t shapesy_serial)
 {
  if(!global_newshf_requested()||!global_newshf_frame||global_newshf_fault||surface!=game_screen||
   !global_newshf_surface_matches()||(filter<0||filter>255)||
@@ -206,10 +217,11 @@ static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array ban
   * clipped top tile. Keep it classic without poisoning other valid quadrants.
   * Physical-row wrapping is likewise deliberately not reinterpreted as HD. */
  if(x<0||x>308){global_newshf_fail();return 0;}
- /* Missing optional linked art leaves this actor classic, not old artwork revoked. */
+ /* Missing optional art leaves this actor classic, not other groups revoked. */
  if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT){global_newshf_fail();return 0;}
- if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&0x7e00u))global_newshf_fail();return 0;}
- global_newshf_used_resources|=phase<9?0x1ffu:0x7e00u;
+ unsigned group_mask=phase<9?0x1ffu:phase<15?0x7e00u:0x8000u;
+ if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&group_mask))global_newshf_fail();return 0;}
+ global_newshf_used_resources|=group_mask;
  if(global_newshf_call.live){global_newshf_fail();return 0;}
  memset(&global_newshf_call,0,sizeof(global_newshf_call));
  if(!decode_tile(bank,index,global_newshf_call.source,global_newshf_call.mask,12,0,0))return 0;
@@ -227,7 +239,12 @@ static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array ban
   bool foreign=global_newshf_owner[n]?global_newshf_foreign[n]:hd_owner[n]!=0;
   /* Transparent or partial-alpha art needs a proven underlay. This finite
    * owner may retain its own RGB, never another owner's unproven lifetime. */
-  if(a[3]<255&&foreign){global_newshf_fail();return 0;}
+  if(a[3]<255&&foreign){
+   Uint32 color=*((Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx);
+   if(phase!=15||!shapesy_borrow_sample(shapesy_serial,n,color)||
+      (global_newshf_shapesy_dependency&&global_newshf_shapesy_dependency!=shapesy_serial)){global_newshf_fail();return 0;}
+   global_newshf_shapesy_dependency=shapesy_serial;foreign=false;
+  }
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
   if(!hd_owner[n]) {Uint8 v=((Uint8 *)game_screen->pixels)[(dy/d)*320+dx/d];*p=palette_rgb(v);global_newshf_use_color(v);}
   else if(foreign)for(unsigned i=0;i<256;i++)global_newshf_use_color(i);
@@ -253,6 +270,41 @@ static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array ban
  }
  ++draws;return 1;
 }
+/* A soft sprite must not consume an unproven foreign RGB lifetime. For this
+ * new static group, decline its entire quartet before contributing any pixels,
+ * rather than allowing a later quadrant to revoke unrelated scene HD. Existing
+ * groups retain their established policy; the per-pixel guard remains active. */
+static bool global_newshf_dual_preflight(unsigned slot,Sprite2_array bank,unsigned base)
+{
+ uint64_t generation=newshf_validation_slots[slot].generation;
+ if(global_newshf_dual_preflight_generation[slot]==generation&&global_newshf_dual_preflight_state[slot])
+  return global_newshf_dual_preflight_state[slot]==2;
+ global_newshf_dual_preflight_generation[slot]=generation;
+ global_newshf_dual_preflight_state[slot]=1;
+ if(!global_newshf_requested()||!global_newshf_frame||global_newshf_fault||
+    !global_newshf_surface_matches()||!global_newshf_source_matches(bank)||
+    !global_newshf_palette_matches()||!global_newshf_underlay_matches()||!global_newshf_group_ready(15))return false;
+ Uint8 native[4][336];const unsigned parts[4]={0,1,19,20};
+ for(unsigned q=0;q<4;q++)if(!decode_tile(bank,base+parts[q],native[q],native[q]+168,12,0,0))return false;
+ int d=game_probe_density,cx=newshf_validation_slots[slot].x,cy=newshf_validation_slots[slot].y;
+ const Uint8 *rgba=global_newshf_rgba[15];uint64_t shapesy_serial=shapesy_borrow_ready();
+ for(int ay=0;ay<28*d;ay++)for(int ax=0;ax<24*d;ax++){
+  int nx=ax/d,ny=ay/d;
+  if(ny<14?cy<=-13:cy<=-26||cy>=182)continue;
+  int x=(cx-6)*d+ax,y=(cy-7)*d+ay;if(y<0||y>=canvas->h)continue;
+  unsigned q=(ny>=14?2u:0u)+(nx>=12?1u:0u);
+  bool covered=native[q][168+(ny%14)*12+nx%12]!=0;
+  unsigned alpha=rgba[4*((ay*8/d)*192+ax*8/d)+3];
+  if((!alpha&&!covered)||alpha==255)continue;
+  size_t n=(size_t)y*canvas->w+x;
+  bool foreign=global_newshf_owner[n]?global_newshf_foreign[n]:hd_owner[n]!=0;
+  if(foreign){Uint32 color=*((Uint32 *)((Uint8 *)canvas->pixels+y*canvas->pitch)+x);
+   if(!shapesy_borrow_sample(shapesy_serial,n,color))return false;
+   global_newshf_dual_shapesy_serial[slot]=shapesy_serial;
+  }
+ }
+ global_newshf_dual_preflight_state[slot]=2;return true;
+}
 static int global_newshf_body(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned base,int part,int filter,const G101EnemyContext *context,bool identity)
 {
  global_newshf_observed_preflight();
@@ -262,7 +314,8 @@ static int global_newshf_body(SDL_Surface *surface,int x,int y,Sprite2_array ban
  /* Reject physical row wrapping as a complete family, never an HD prefix. */
  if(newshf_validation_slots[slot].x<6||newshf_validation_slots[slot].x>302){global_newshf_fail();return 0;}
  unsigned phase=newshf_profiles[newshf_validation_slots[slot].profile].resources[newshf_validation_slots[slot].pose-1];
- int result=global_newshf_draw(surface,x,y,bank,base+(unsigned)part,filter,phase,part);
+ if(phase==15&&!global_newshf_dual_preflight(slot,bank,base))return 0;
+ int result=global_newshf_draw(surface,x,y,bank,base+(unsigned)part,filter,phase,part,phase==15?global_newshf_dual_shapesy_serial[slot]:0);
  if(result)global_newshf_generations[slot]=newshf_validation_slots[slot].generation;
  return result;
 }
@@ -296,7 +349,7 @@ static bool global_newshf_finish_proof(void)
 {
  if(global_newshf_rejected_frame)return false;
  if(!global_newshf_contributed)return true;
- if(!global_newshf_identity_complete())global_newshf_fail();
+ if(!global_newshf_identity_complete()||(global_newshf_shapesy_dependency&&!shapesy_borrow_check(global_newshf_shapesy_dependency)))global_newshf_fail();
  if(global_newshf_surface_matches())for(int y=0;y<200;y++)
   if(memcmp(expected+y*320,(Uint8 *)game_screen->pixels+y*320,320)){global_newshf_fail();break;}
  return global_newshf_assets_match()&&global_newshf_requested()&&!global_newshf_fault&&!global_newshf_call.live&&
@@ -355,7 +408,7 @@ static bool global_newshf_compose(MirrorOutputKind kind,int lightx,int lighty)
 }
 static bool global_newshf_cache_source_matches(void)
 {
- bool valid=global_newshf_assets_match()&&global_newshf_identity_complete()&&!global_newshf_fault&&global_newshf_requested()&&global_newshf_surface_matches()&&global_newshf_final_surface_matches()&&global_newshf_source_matches(global_newshf_bank())&&(!global_newshf_talon_dependency||(!global_talon_fault&&global_talon_source_matches(spriteSheet9)));
+ bool valid=global_newshf_assets_match()&&global_newshf_identity_complete()&&(!global_newshf_shapesy_dependency||shapesy_borrow_check(global_newshf_shapesy_dependency))&&!global_newshf_fault&&global_newshf_requested()&&global_newshf_surface_matches()&&global_newshf_final_surface_matches()&&global_newshf_source_matches(global_newshf_bank())&&(!global_newshf_talon_dependency||(!global_talon_fault&&global_talon_source_matches(spriteSheet9)));
  if(valid)for(int y=0;y<200;y++)if(memcmp(expected+y*320,(Uint8 *)game_screen->pixels+y*320,320)){valid=false;break;}
  if(valid)for(int y=0;y<200;y++)if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)){valid=false;break;}
  return valid;

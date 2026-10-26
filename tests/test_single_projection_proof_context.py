@@ -46,6 +46,8 @@ def finite_paths(family):
         names |= set(ledger['files']) | set(ledger.get('added_sources', {}))
     from linked_newshf_projection import ledger as linked_ledger
     linked=linked_ledger();names |= set(linked['qualified'])|set(linked['files'])
+    from shapesy_platform_projection import qualified_paths as shapesy_paths
+    names |= shapesy_paths(ROOT)
     return names
 
 

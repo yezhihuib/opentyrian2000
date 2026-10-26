@@ -60,6 +60,7 @@ SDL_Surface *game_screen;
 
 SDL_Window *main_window = NULL;
 static SDL_Renderer *main_window_renderer = NULL;
+static Uint64 output_renderer_generation;
 SDL_PixelFormat *main_window_tex_format = NULL;
 static SDL_Texture *main_window_texture = NULL;
 
@@ -157,6 +158,8 @@ static void init_renderer(void)
 		fprintf(stderr, "error: failed to create renderer: %s\n", SDL_GetError());
 		exit(EXIT_FAILURE);
 	}
+	/* Pointer addresses may be reused after renderer recreation. */
+	++output_renderer_generation;
 }
 
 static void deinit_renderer(void)
@@ -436,6 +439,65 @@ static void calc_dst_render_rect(SDL_Surface *const src_surface, SDL_Rect *const
 
 	dst_rect->x = (win_w - dst_rect->w) / 2;
 	dst_rect->y = (win_h - dst_rect->h) / 2;
+}
+
+bool video_output_geometry(VideoOutputGeometry *out)
+{
+	VideoOutputGeometry g = {0};
+	SDL_Rect viewport;
+	float sx = 0.0f, sy = 0.0f;
+	int logical_w = 0, logical_h = 0, texture_w = 0, texture_h = 0;
+	if (!out || !main_window || !main_window_renderer || !main_window_texture ||
+	    !VGAScreenSeg || VGAScreenSeg->w != 320 || VGAScreenSeg->h != 200)
+		return false;
+	g.window = main_window;
+	g.renderer = main_window_renderer;
+	g.renderer_generation = output_renderer_generation;
+	g.scaling_mode = scaling_mode;
+	if (g.scaling_mode < SCALE_CENTER || g.scaling_mode >= ScalingMode_MAX)
+		return false;
+	SDL_GetWindowSize(g.window, &g.window_w, &g.window_h);
+	if (g.window_w <= 0 || g.window_h <= 0 ||
+	    SDL_GetRendererOutputSize(g.renderer, &g.output_w, &g.output_h) != 0 ||
+	    g.output_w <= 0 || g.output_h <= 0 ||
+	    SDL_QueryTexture(main_window_texture, NULL, NULL, &texture_w, &texture_h) != 0 ||
+	    texture_w <= 0 || texture_h <= 0 || SDL_GetRenderTarget(g.renderer) != NULL)
+		return false;
+	SDL_RenderGetLogicalSize(g.renderer, &logical_w, &logical_h);
+	SDL_RenderGetScale(g.renderer, &sx, &sy);
+	SDL_RenderGetViewport(g.renderer, &viewport);
+	/* The existing RenderCopy destination is physical only with this identity
+	 * transform. Do not guess a window-to-output ratio on high-DPI backends. */
+	if (logical_w || logical_h || sx != 1.0f || sy != 1.0f ||
+	    viewport.x || viewport.y || viewport.w != g.output_w || viewport.h != g.output_h ||
+	    SDL_RenderIsClipEnabled(g.renderer))
+		return false;
+	calc_dst_render_rect(VGAScreenSeg, &g.dst);
+	if (g.dst.x < 0 || g.dst.y < 0 || g.dst.w <= 0 || g.dst.h <= 0 ||
+	    g.dst.w > g.output_w - g.dst.x || g.dst.h > g.output_h - g.dst.y ||
+	    g.dst.w % 320 || g.dst.h % 200)
+		return false;
+	g.scale = g.dst.w / 320;
+	if (g.scale != g.dst.h / 200 ||
+	    (g.scale != 1 && g.scale != 2 && g.scale != 4 && g.scale != 8))
+		return false;
+	g.footprint = 8 / g.scale;
+	*out = g;
+	return true;
+}
+
+bool video_output_geometry_equal(const VideoOutputGeometry *a,
+                                 const VideoOutputGeometry *b)
+{
+	/* Fieldwise equality deliberately excludes uninitialized structure padding. */
+	return a && b && a->window == b->window && a->renderer == b->renderer &&
+	       a->renderer_generation == b->renderer_generation &&
+	       a->dst.x == b->dst.x && a->dst.y == b->dst.y &&
+	       a->dst.w == b->dst.w && a->dst.h == b->dst.h &&
+	       a->window_w == b->window_w && a->window_h == b->window_h &&
+	       a->output_w == b->output_w && a->output_h == b->output_h &&
+	       a->scale == b->scale && a->footprint == b->footprint &&
+	       a->scaling_mode == b->scaling_mode;
 }
 
 static void scale_and_flip(SDL_Surface *src_surface)

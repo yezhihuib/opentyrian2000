@@ -150,6 +150,9 @@ typedef enum {
 #define render_mirror_rear_p11_shadow(...) false
 #define render_mirror_bind_terrain(...) ((void)0)
 #define render_mirror_terrain_row(...) 0u
+#define render_mirror_shapesy_layer1(...) ((void)0)
+#define render_mirror_shapesy_row_end(...) ((void)0)
+#define render_mirror_shapesy_end(...) ((void)0)
 #define render_mirror_ground101_layer1(...) ((void)0)
 #define render_mirror_asteroid_terrain_map(...) ((void)0)
 #define render_mirror_asteroid_terrain_layer1(...) ((void)0)
@@ -293,6 +296,9 @@ void render_mirror_rear_p1_emit(uint64_t call,unsigned ordinal,unsigned slot,uns
 bool render_mirror_rear_p1_head(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);
 bool render_mirror_rear_p11_shadow(SDL_Surface *,int x,int y,Sprite2_array,unsigned index,unsigned slot,unsigned raw);
 void render_mirror_bind_terrain(unsigned int layer, unsigned int id, const Uint8 *data);
+void render_mirror_shapesy_layer1(SDL_Surface *,const void *,int,int);
+void render_mirror_shapesy_row_end(void);
+void render_mirror_shapesy_end(void);
 unsigned int render_mirror_terrain_row(SDL_Surface *, int x, int y, Uint8 **map, int style);
 void render_mirror_terrain_pixel(SDL_Surface *, Uint8 *, Uint8 source, int style, bool replaced);
 unsigned int render_mirror_cloud_blend_row(SDL_Surface *,int x,int y,Uint8 **map);

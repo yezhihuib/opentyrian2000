@@ -197,6 +197,22 @@ def main():
         add(row['source_path'],destination,'newshf-optin')
         rows[destination]['revision']='current-single-source-linked-newshf-six'
 
+    from current_dualmissile_newshf_compatibility import load as dualmissile_load, REVISION as dualmissile_revision
+    dualmissile=dualmissile_load(root)
+    if len(dualmissile)!=1 or set(dualmissile)&set(rows):raise ValueError('Unexpected/colliding dualmissile NEWSHF extension')
+    for destination,row in sorted(dualmissile.items()):
+        add(row['source_path'],destination,'newshf-optin')
+        rows[destination]['revision']=dualmissile_revision
+
+    # Independent finite Y terrain family; never aliases Z/coast/water assets.
+    from current_shapesy_platform_compatibility import load as shapesy_load, IDS as SHAPESY_IDS, name as shapesy_name, REVISION as SHAPESY_REVISION
+    shapesy=shapesy_load(root)
+    if set(shapesy)!={'assets/gameplay/'+shapesy_name(i) for i in SHAPESY_IDS} or set(shapesy)&set(rows):
+        raise ValueError('Unexpected/colliding shapesY platform extension')
+    for destination,row in sorted(shapesy.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=SHAPESY_REVISION
+
     # Exact additive shared91 enemy-shot role, never another bank/body selector.
     from current_projectile91_compatibility import load as projectile91_load
     projectile91 = projectile91_load(root)

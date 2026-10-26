@@ -77,6 +77,8 @@ def current_projectile91_ledger():
  return json.loads(raw)
 
 def project_current_projectile91_source(name,raw):
+ from shapesy_platform_projection import project_source as shapesy_project
+ raw=shapesy_project(name,raw)
  from linked_newshf_projection import project_source as linked_project
  raw=linked_project(name,raw)
  """Whole-current identity, exact reviewed spans, then authentic public preimage."""
@@ -113,13 +115,19 @@ def before_current_projectile91_inventory(inventory,root=ROOT):
  return _before_current_projectile91_inventory(inventory,root,_proofs=None)
 
 def _before_current_projectile91_inventory(inventory,root=ROOT, *, _proofs):
- result=dict(inventory);linked=_current_projection_proof('linked_newshf',root,_proofs)
+ result=dict(inventory)
+ dual=_current_projection_proof('dualmissile_newshf',root,_proofs)
+ for name,digest in dual['added_sources'].items():assert result.pop(name)==digest
+ shapesy=_current_projection_proof('shapesy_platform',root,_proofs)
+ for name,digest in shapesy['added_sources'].items():assert result.pop(name)==digest
+ linked=_current_projection_proof('linked_newshf',root,_proofs)
  for name,digest in linked['added_sources'].items():assert result.pop(name)==digest
  proof=_current_projection_proof('projectile91',root,_proofs)
  assert result.pop(CURRENT_PROJECTILE91_HEADER)==proof['header_sha256']
  for name,digest in proof['added_sources'].items():
   assert result.pop(name)==digest,('unapproved PROJECTILE91 added source inventory',name)
- for name in current_projectile91_ledger()['files']:
+ from shapesy_platform_projection import FILES as shapesy_files
+ for name in set(current_projectile91_ledger()['files'])|shapesy_files:
   raw=(root/name).read_bytes()
   assert result.get(name)==sha(raw),('unapproved PROJECTILE91 source inventory',name)
   result[name]=sha(project_current_projectile91_source(name,raw))
@@ -129,6 +137,8 @@ def before_current_projectile91_runtime(rows,root=ROOT):
  return _before_current_projectile91_runtime(rows,root,_proofs=None)
 
 def _before_current_projectile91_runtime(rows,root=ROOT, *, _proofs):
+ from shapesy_platform_projection import before_runtime as shapesy_before_runtime
+ rows=shapesy_before_runtime(rows,root)
  from linked_newshf_projection import before_runtime
  rows=before_runtime(rows,root)
  assert isinstance(rows,list) and len(rows)==1030,'unexpected PROJECTILE91 runtime scope'
@@ -284,7 +294,8 @@ def rear39_runtime_input_paths(root=ROOT):
  import current_rear_lobes_compatibility as rear_lobes
  from linked_newshf_projection import ledger as linked_ledger
  linked=linked_ledger()
- return set(linked['qualified'])|set(linked['files'])|projectile91.input_paths(root)|set(current_projectile91_ledger()['files'])|set(current_projectile91_ledger()['added_sources'])|c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|rear1.input_paths(root)|{rear1.MAPPING}|rear281.input_paths(root)|{rear281.MAPPING}|rear_lobes.input_paths(root)|{rear_lobes.MAPPING}|set(current_rear_p7_ledger()['files'])
+ from shapesy_platform_projection import qualified_paths as shapesy_paths
+ return shapesy_paths(root)|set(linked['qualified'])|set(linked['files'])|projectile91.input_paths(root)|set(current_projectile91_ledger()['files'])|set(current_projectile91_ledger()['added_sources'])|c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|rear1.input_paths(root)|{rear1.MAPPING}|rear281.input_paths(root)|{rear281.MAPPING}|rear_lobes.input_paths(root)|{rear_lobes.MAPPING}|set(current_rear_p7_ledger()['files'])
 
 def before_current_rear39_runtime(rows,root=ROOT):
  return _before_current_rear39_runtime(rows,root,_proofs=None)
@@ -884,7 +895,8 @@ def project_source(label,name,raw):
  return _project_source_once(label,name,raw)
 
 def corrected_source_paths():
- return sorted((set(current_projectile91_ledger()['files']) & set(load('current-source-inventory.json')['files']))|set(current_rear_p7_ledger()['files'])|((set(load('enemy-controlled-probe-source.json')['files'])|set(load('enemy-reuse-observe-source.json')['files']))-set(load('enemy-reuse-source.json')['added_sources']))|set(load('enemy-reuse-source.json')['files'])|set(load('newshf-compositor-source.json')['files'])|set(load('newshf-identity-source.json')['files'])|set(load('enemy-orb-source.json')['files'])|set(load('front-multi-source.json')['files'])|set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
+ from shapesy_platform_projection import FILES as shapesy_files
+ return sorted(shapesy_files|(set(current_projectile91_ledger()['files']) & set(load('current-source-inventory.json')['files']))|set(current_rear_p7_ledger()['files'])|((set(load('enemy-controlled-probe-source.json')['files'])|set(load('enemy-reuse-observe-source.json')['files']))-set(load('enemy-reuse-source.json')['added_sources']))|set(load('enemy-reuse-source.json')['files'])|set(load('newshf-compositor-source.json')['files'])|set(load('newshf-identity-source.json')['files'])|set(load('enemy-orb-source.json')['files'])|set(load('front-multi-source.json')['files'])|set(load('plasma-projectile-source.json')['files'])|set(load('charge-body-source.json')['files'])|set(load('render-boundaries-source.json')['files']))
 
 
 PROTRON_HEADER='src/current_enemy_protron_payload_pins.h'
@@ -1120,7 +1132,9 @@ def _verified_sidekick_current(root=ROOT, *, _proofs):
  expected_sources.update(verified_enemy_observe_sources(root))
  expected_sources.update(verified_enemy_probe_sources(root))
  projectile91=_current_projection_proof('projectile91',root,_proofs)
+ expected_sources.update(_current_projection_proof('shapesy_platform',root,_proofs)['added_sources'])
  expected_sources.update(_current_projection_proof('linked_newshf',root,_proofs)['added_sources'])
+ expected_sources.update(_current_projection_proof('dualmissile_newshf',root,_proofs)['added_sources'])
  expected_sources.update(projectile91['added_sources'])
  expected_sources[CURRENT_PROJECTILE91_HEADER]=projectile91['header_sha256']
  expected_sources[PROTRON_HEADER]=verified_protron_current(root)['header_sha256']
@@ -1556,6 +1570,9 @@ def current_asset_inventory(root=ROOT):
  assert set(current)==set(modes)-{'assets/hd/manifest.json'},'Git/working asset path mismatch'
  return current
 def project_p9_catalog(catalog):
+ from shapesy_platform_projection import project_catalog as shapesy_catalog
+ if any('terrain-shapesy-321-8.hda' in p['files'] for p in catalog.get('packs',{}).values()):
+  catalog=shapesy_catalog(catalog)
  ledger=load('p9-assets.json');digest=sha(canonical(catalog))
  # The old oracle also checks an already-projected catalogue for idempotence.
  if digest==ledger['catalog_before_sha256']:return copy.deepcopy(catalog)
@@ -1599,6 +1616,13 @@ def project_p9_inventory(current,root=ROOT):
 
 def _project_p9_inventory(current,root=ROOT, *, _proofs):
  current=copy.deepcopy(current)
+ for name,row in _current_projection_proof('dualmissile_newshf',root,_proofs)['assets'].items():
+  assert current.pop(name)==row,('unverified dualmissile output',name)
+ shapesy=_current_projection_proof('shapesy_platform',root,_proofs)
+ for name,row in shapesy['assets'].items():
+  assert current.pop(name)==row,('unverified ShapesY output',name)
+ # manifest.json is deliberately outside P9 file inventory; its full inverse
+ # is verified by the ShapesY proof and the separate catalog oracle.
  for name,row in _current_projection_proof('linked_newshf',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified linked NEWSHF output',name)
  for name,row in _current_projection_proof('projectile91',root,_proofs)['assets'].items():
@@ -1695,8 +1719,10 @@ def validate_current_sources(root=ROOT):
  reuse=verified_enemy_reuse_sources(root)
  observe=verified_enemy_observe_sources(root)
  probe=verified_enemy_probe_sources(root)
- assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe)|{CURRENT_PROJECTILE91_HEADER}|set(current_projectile91_ledger()['added_sources'])|set(_current_projection_proof('linked_newshf',root,None)['added_sources']),'unapproved current source paths'
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe)|{CURRENT_PROJECTILE91_HEADER}|set(current_projectile91_ledger()['added_sources'])|set(_current_projection_proof('linked_newshf',root,None)['added_sources'])|set(_current_projection_proof('shapesy_platform',root,None)['added_sources'])|set(_current_projection_proof('dualmissile_newshf',root,None)['added_sources']),'unapproved current source paths'
  projected=dict(actual)
+ for name,digest in _current_projection_proof('dualmissile_newshf',root,None)['added_sources'].items():assert projected.pop(name)==digest
+ for name,digest in _current_projection_proof('shapesy_platform',root,None)['added_sources'].items():assert projected.pop(name)==digest
  for name,digest in _current_projection_proof('linked_newshf',root,None)['added_sources'].items():assert projected.pop(name)==digest
  projectile91=verified_current_projectile91(root)
  assert projected.pop(CURRENT_PROJECTILE91_HEADER)==projectile91['header_sha256']
@@ -1736,11 +1762,17 @@ def validate_source_inventory(actual):
  assert actual==load('current-source-inventory.json')['files'],'unapproved current source inventory (added, removed or modified source)'
 
 def validate_current_catalog(catalog):
+ from shapesy_platform_projection import project_catalog as shapesy_catalog
+ catalog=shapesy_catalog(catalog)
  assert sha(canonical(catalog))==load('p9-assets.json')['catalog_after_sha256'],'unapproved live catalog (including historical reversion)'
 
 def _current_projection_proof(family,root,context):
+ from shapesy_platform_projection import verified as verified_shapesy
  from linked_newshf_projection import verified as verified_linked
+ from dualmissile_newshf_projection import verified as verified_dual
  validators={
+  'dualmissile_newshf':verified_dual,
+  'shapesy_platform':verified_shapesy,
   'linked_newshf':verified_linked,
   'projectile91':verified_current_projectile91,
   'guided':verified_current_guided,

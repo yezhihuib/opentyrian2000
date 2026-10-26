@@ -98,7 +98,7 @@ void blit_background_row(SDL_Surface *surface, int x, int y, Uint8 **map)
 			for (int x = 24; x; x--)
 			{
 				if (pixels >= pixels_ul)
-					return;
+					{ render_mirror_shapesy_row_end(); return; }
 				if (pixels >= pixels_ll && *data != 0)
 					{ *pixels = *data; render_mirror_terrain_pixel(surface,pixels,*data,MIRROR_NORMAL,(hd_tiles&(1u<<tile))!=0); }
 				
@@ -109,6 +109,7 @@ void blit_background_row(SDL_Surface *surface, int x, int y, Uint8 **map)
 		
 		pixels += surface->pitch - 12 * 24;
 	}
+	render_mirror_shapesy_row_end();
 }
 
 void blit_background_row_blend(SDL_Surface *surface, int x, int y, Uint8 **map)
@@ -168,6 +169,7 @@ void draw_background_1(SDL_Surface *surface)
 	Uint8 **map = (Uint8 **)mapYPos + mapXbpPos - 12;
 	render_mirror_ground101_layer1(surface,map,mapXPos,backPos-28);
 	render_mirror_asteroid_terrain_layer1(surface,map,mapXPos,backPos-28);
+	render_mirror_shapesy_layer1(surface,map,mapXPos,backPos-28);
 	
 	for (int i = -1; i < 7; i++)
 	{
@@ -176,6 +178,7 @@ void draw_background_1(SDL_Surface *surface)
 		map += 14;
 	}
 	render_mirror_asteroid_terrain_end();
+	render_mirror_shapesy_end();
 }
 
 void draw_background_2(SDL_Surface *surface)

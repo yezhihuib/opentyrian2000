@@ -5,6 +5,7 @@
  */
 #include "newshf_prototype_pins.h"
 #include "newshf_linked_pins.h"
+#include "newshf_dualmissile_pins.h"
 /* Native cycles select resources; these descriptors never advance animation. */
 static const struct {unsigned record,cycles,bases[4],resources[4]; bool linked;} newshf_profiles[]={
  {163,3,{125,123,127,0},{0,1,2,0},false},
@@ -12,7 +13,9 @@ static const struct {unsigned record,cycles,bases[4],resources[4]; bool linked;}
  {168,3,{55,17,93,0},{6,7,8,0},false},
  {171,4,{43,45,45,43},{9,10,10,9},true},
  {172,4,{81,83,83,81},{11,12,12,11},true},
- {173,4,{119,121,121,119},{13,14,14,13},true}
+ {173,4,{119,121,121,119},{13,14,14,13},true},
+ {2,1,{169,0,0,0},{15,0,0,0},false},
+ {500,1,{169,0,0,0},{15,0,0,0},false}
 };
 static struct {
  uint64_t generation,witnessed,born_tick,draw_tick,bank_epoch;
@@ -74,7 +77,7 @@ static uint64_t newshf_validation_record_stamp(unsigned profile)
 static bool newshf_validation_record_valid(unsigned p)
 {
  return p<COUNTOF(newshf_profiles)&&newshf_validation_record_stamp(p)==
-  (p<3?newshf_prototype_record_fnv[p]:newshf_linked_record_fnv[p-3]);
+  (p<3?newshf_prototype_record_fnv[p]:p<6?newshf_linked_record_fnv[p-3]:newshf_dualmissile_record_fnv[p-6]);
 }
 static bool newshf_validation_records(void)
 {
@@ -213,6 +216,10 @@ static bool newshf_validation_tile_source(Sprite2_array bank,unsigned index)
  for(unsigned i=0;i<COUNTOF(newshf_linked_tiles);i++)if(newshf_linked_tiles[i].index==index){
   Uint8 bytes[336]={0};
   return decode_tile(bank,index,bytes,bytes+168,12,0,0)&&global_bytes_hash(bytes,sizeof(bytes))==newshf_linked_tiles[i].fnv;
+ }
+ for(unsigned i=0;i<COUNTOF(newshf_dualmissile_tiles);i++)if(newshf_dualmissile_tiles[i].index==index){
+  Uint8 bytes[336]={0};
+  return decode_tile(bank,index,bytes,bytes+168,12,0,0)&&global_bytes_hash(bytes,sizeof(bytes))==newshf_dualmissile_tiles[i].fnv;
  }
  return false;
 }

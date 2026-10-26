@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "Final checked-in driver executed full corrected present/missing pair; assertions use actual logged density4, not labels.",
+  "driver_test_sha256": {
+    "prototype/verify-linked-newshf-density.py": "206e1dfba28a53929caed2fe7eae4b6fbbf9ae115ca00fd719d01853e7a96684",
+    "tests/test_linked_density_correction.py": "79d3f3a7f67d7cdb8b4fb569d8f5970b9fb2d492c0fe20cd1992714d1f41e45b"
+  },
+  "receipt_sha256": "d128da9fce7bca37aa2bf723ed192c5a3822f99e221565f5e79f1aec99538c17",
+  "regression_tests": 7,
+  "production_code_assets_unchanged": true
+}

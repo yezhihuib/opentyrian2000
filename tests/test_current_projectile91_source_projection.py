@@ -52,7 +52,8 @@ class Projectile91Projection(unittest.TestCase):
   previous=a.before_current_projectile91_runtime(rows)
   destination='assets/gameplay/enemy-projectile91-91-8.hda'
   from linked_newshf_projection import before_runtime
-  self.assertEqual(previous,[r for r in before_runtime(rows) if r['destination']!=destination])
+  from shapesy_platform_projection import before_runtime as shapesy_before_runtime
+  self.assertEqual(previous,[r for r in before_runtime(shapesy_before_runtime(rows)) if r['destination']!=destination])
   self.assertEqual(len(previous),1029)
   for action in ('missing','changed','duplicate'):
    invalid=copy.deepcopy(rows);target=next(r for r in invalid if r['destination']==destination)

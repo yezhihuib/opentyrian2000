@@ -74,7 +74,8 @@ class ShopProjectile91Compatibility(unittest.TestCase):
   proof=a.verified_current_projectile91()
   import current_projectile91_compatibility as c
   from linked_newshf_projection import verified as linked_verified
-  names=set(json.loads(shop.INVENTORY.read_bytes())['files'])|proof['paths']|{c.MAPPING}|linked_verified()['paths']
+  from shapesy_platform_projection import qualified_paths as shapesy_paths
+  names=set(json.loads(shop.INVENTORY.read_bytes())['files'])|proof['paths']|{c.MAPPING}|linked_verified()['paths']|shapesy_paths(shop.ROOT)
   with tempfile.TemporaryDirectory(prefix='shop91-real-negative-') as tmp:
    root=Path(tmp)
    for name in names:

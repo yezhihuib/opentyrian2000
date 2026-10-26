@@ -49,4 +49,32 @@ def records(root):
             notes=['Shared whole cold master with fixed slices at y224/448; unchanged game masks and anchors.',
                    'Top43/45 identical; middle83 latent mechanical extension, not firing; observed firing is43/81/121.',
                    'Overlays replace only immutable original state-difference cells; transparent pixels inherit cold.']))
+    import current_dualmissile_newshf_compatibility as dualmissile
+    for destination,row in dualmissile.load(root).items():
+        sources=[dualmissile.INPUT_ROOT+'/single-master.png']
+        result.append(dict(family='newshf-dualmissile',identity=row['identity'],density=8,role=210,
+            status='current-editable',editable_inputs=sources,source_inputs=sources+[dualmissile.INPUT_ROOT+'/native-mask.png'],
+            selection=dualmissile.SELECTION,
+            recipe=['scripts/build_current_dualmissile_newshf.py','scripts/current_dualmissile_newshf_compatibility.py'],
+            derived_outputs=[row['source_png'],row['source_path']],
+            declared_consumers=[dict(destination=destination,record=record,base=169,evidence=dualmissile.MAPPING) for record in dualmissile.RECORDS],
+            rebuild_commands=['python3 scripts/build_current_dualmissile_newshf.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>',
+                              'python3 scripts/build_current_dualmissile_newshf.py --root . apply --destination <external-stage-dir>'],
+            notes=['One canonical single missile bitmap copied exactly twice; static NEWSHF bank10 quartet169/170/188/189.',
+                   'Separate records2/500 retain distinct movement and native type6 white-smoke effects; artwork does not alter gameplay.',
+                   'Alpha is smooth only inside immutable original support; palette5 identity remains runtime guarded.']))
+    import current_shapesy_platform_compatibility as shapesy
+    for destination,row in shapesy.load(root).items():
+        sources=sorted(shapesy.input_paths(root)-{shapesy.SELECTION,shapesy.RECIPE_MODULE})
+        result.append(dict(family='shapesy-platform',identity=row['identity'],density=8,role=202,
+            status='current-editable',editable_inputs=[shapesy.INPUT_ROOT+'/master-platform.png'],
+            source_inputs=sources,selection=shapesy.SELECTION,
+            recipe=[shapesy.RECIPE_MODULE,'scripts/current_shapesy_platform_compatibility.py','scripts/build_current_shapesy_platform.py'],
+            derived_outputs=[row['source_png']]+['assets/hd/packs/'+pack+'/'+shapesy.name(row['base']) for pack in shapesy.PACKS],
+            declared_consumers=[dict(destination=destination,base=row['base'],evidence=shapesy.MAPPING)],
+            rebuild_commands=['python3 scripts/build_current_shapesy_platform.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>',
+                              'python3 scripts/build_current_shapesy_platform.py --root . apply --destination <external-stage-dir>'],
+            notes=['One shared generated five-component material master, exact28 deterministic semantic/UV recipes.',
+                   'Immutable water cells use native RGB/classic ownership at runtime; transparent PNG is not standalone native passthrough.',
+                   'Only verified shapesY Layer1 palette5 normal8x; unknown contexts remain classic.']))
     return result

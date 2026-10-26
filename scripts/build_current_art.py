@@ -106,6 +106,8 @@ def verify_authority(root,registry,family='pulse'):
     # Only this reviewed extension is inverted; keep the public authority digest.
     tests=str(Path(__file__).resolve().parents[1]/'tests')
     if tests not in sys.path:sys.path.insert(0,tests)
+    from shapesy_platform_projection import before_inventory as shapesy_before_inventory
+    sources=shapesy_before_inventory(sources,root)
     from linked_newshf_projection import before_inventory as linked_before_inventory
     sources=linked_before_inventory(sources,root)
     if source_manifest_digest(sources)!=GAMEPLAY_SOURCE_SHA256:
