@@ -1,14 +1,17 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Default-off NEWSHF owner: nine exact authored composites.
+ * Default-off NEWSHF owner: finite, independently loaded authored groups.
  * Included after decode_tile; no level/episode/map predicate grants this owner. */
 #include "current_newshf_hd_assets.h"
-enum { GLOBAL_NEWSHF_RESOURCE_COUNT=9 };
+#include "current_linked_newshf_hd_assets.h"
+enum { GLOBAL_NEWSHF_RESOURCE_COUNT=15 };
 static Uint8 *global_newshf_rgba[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static uint64_t global_newshf_rgba_stamp[GLOBAL_NEWSHF_RESOURCE_COUNT];
+static unsigned global_newshf_used_resources;
+static bool global_newshf_linked_loaded,global_newshf_linked_good;
 static bool global_newshf_assets_match(void)
 {
  for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++)
-  if(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i])return false;
+  if((global_newshf_used_resources&(1u<<i))&&(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i]))return false;
  return true;
 }
 static bool global_newshf_loaded,global_newshf_good,global_newshf_cached;
@@ -42,6 +45,8 @@ static bool global_newshf_identity_complete(void)
   if(global_newshf_generations[i]!=newshf_validation_slots[i].generation||
    !newshf_validation_slots[i].role||newshf_validation_slots[i].remaining||
    !newshf_validation_shape(i))return false;
+  if(newshf_profiles[newshf_validation_slots[i].profile].linked&&
+   (enemy[i].enemycycle!=newshf_validation_slots[i].pose||enemy[i].evalue!=newshf_validation_slots[i].value))return false;
  }
  return true;
 }
@@ -101,18 +106,27 @@ static bool global_newshf_surface_matches(void)
 }
 
 
-static bool global_newshf_family_ready(void)
+static bool global_newshf_group_ready(unsigned phase)
 {
- if(global_newshf_loaded)return global_newshf_good&&global_newshf_assets_match();
- global_newshf_loaded=true;global_newshf_good=true;
- for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++) {
-  const GlobalAssetResource *r=newshf_hd_resources+i;
-  if(r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||!(global_newshf_rgba[i]=global_resource_load(r)))global_newshf_good=false;
-  if(global_newshf_rgba[i])global_newshf_rgba_stamp[i]=global_bytes_hash(global_newshf_rgba[i],192u*224u*4u);
+ bool linked=phase>=9;
+ bool *loaded=linked?&global_newshf_linked_loaded:&global_newshf_loaded;
+ bool *good=linked?&global_newshf_linked_good:&global_newshf_good;
+ unsigned begin=linked?9:0,end=linked?15:9;
+ if(!*loaded){
+  *loaded=true;*good=true;
+  for(unsigned i=begin;i<end;i++){
+   const GlobalAssetResource *r=linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
+   if(r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||!(global_newshf_rgba[i]=global_resource_load(r)))*good=false;
+   if(global_newshf_rgba[i])global_newshf_rgba_stamp[i]=global_bytes_hash(global_newshf_rgba[i],192u*224u*4u);
+  }
+  if(!*good)for(unsigned i=begin;i<end;i++){free(global_newshf_rgba[i]);global_newshf_rgba[i]=NULL;}
  }
- if(!global_newshf_good)for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++){free(global_newshf_rgba[i]);global_newshf_rgba[i]=NULL;}
- return global_newshf_good;
+ if(!*good)return false;
+ for(unsigned i=begin;i<end;i++)if(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i])return false;
+ return true;
 }
+/* Historical harness entry point retains the old-nine contract. */
+static bool global_newshf_family_ready(void){return global_newshf_group_ready(0);}
 static void global_newshf_fail(void);
 static void global_newshf_reset(void)
 {
@@ -135,11 +149,12 @@ static void global_newshf_shutdown(void)
  global_newshf_reset();
  for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++){free(global_newshf_rgba[i]);global_newshf_rgba[i]=NULL;}
  global_newshf_loaded=global_newshf_good=false;
+ global_newshf_linked_loaded=global_newshf_linked_good=false;global_newshf_used_resources=0;
  free(global_newshf_owner);free(global_newshf_foreign);global_newshf_owner=global_newshf_foreign=NULL;global_newshf_capacity=0;
 }
 static void global_newshf_frame_begin(void)
 {
- global_newshf_rejected_frame=false;
+ global_newshf_rejected_frame=false;global_newshf_used_resources=0;
  memset(global_newshf_generations,0,sizeof(global_newshf_generations));global_newshf_epoch=newshf_validation_bank_epoch;
  global_newshf_frame=global_newshf_cached=global_newshf_fault=global_newshf_contributed=false;global_newshf_call.live=false;
  memset(global_newshf_used_colors,0,sizeof(global_newshf_used_colors));global_newshf_talon_dependency=false;
@@ -191,7 +206,10 @@ static int global_newshf_draw(SDL_Surface *surface,int x,int y,Sprite2_array ban
   * clipped top tile. Keep it classic without poisoning other valid quadrants.
   * Physical-row wrapping is likewise deliberately not reinterpreted as HD. */
  if(x<0||x>308){global_newshf_fail();return 0;}
- if(!global_newshf_family_ready()){global_newshf_fail();return 0;}
+ /* Missing optional linked art leaves this actor classic, not old artwork revoked. */
+ if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT){global_newshf_fail();return 0;}
+ if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&0x7e00u))global_newshf_fail();return 0;}
+ global_newshf_used_resources|=phase<9?0x1ffu:0x7e00u;
  if(global_newshf_call.live){global_newshf_fail();return 0;}
  memset(&global_newshf_call,0,sizeof(global_newshf_call));
  if(!decode_tile(bank,index,global_newshf_call.source,global_newshf_call.mask,12,0,0))return 0;
@@ -243,7 +261,7 @@ static int global_newshf_body(SDL_Surface *surface,int x,int y,Sprite2_array ban
  unsigned slot=context->pool_slot;
  /* Reject physical row wrapping as a complete family, never an HD prefix. */
  if(newshf_validation_slots[slot].x<6||newshf_validation_slots[slot].x>302){global_newshf_fail();return 0;}
- unsigned phase=(unsigned)newshf_validation_slots[slot].profile*3+newshf_validation_slots[slot].pose-1;
+ unsigned phase=newshf_profiles[newshf_validation_slots[slot].profile].resources[newshf_validation_slots[slot].pose-1];
  int result=global_newshf_draw(surface,x,y,bank,base+(unsigned)part,filter,phase,part);
  if(result)global_newshf_generations[slot]=newshf_validation_slots[slot].generation;
  return result;

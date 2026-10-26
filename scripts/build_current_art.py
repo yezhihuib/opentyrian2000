@@ -103,6 +103,11 @@ def verify_authority(root,registry,family='pulse'):
     if source_manifest_digest(fixed)!=REGISTRY_AUTHORITY_SHA256:
         raise ValueError('Registry role/source authority or unrelated resource changed')
     sources=source_inventory(root);sources.pop(HEADER,None);sources.pop(LEGACY_HEADER,None);sources.pop('src/current_hud_payload_pins.h',None);sources.pop('src/current_tank_shell_payload_pins.h',None);sources.pop('src/current_enemy_energy_payload_pins.h',None);sources.pop('src/current_sidekick_body_payload_pins.h',None);sources.pop('src/current_plasma_projectile_payload_pins.h',None);sources.pop('src/hd_front_multi_current.h',None);sources.pop('src/current_enemy_orb_payload_pins.h',None);sources.pop('src/newshf_hd_assets.h',None);sources.pop('src/current_enemy_protron_payload_pins.h',None);sources.pop('src/current_protron_payload_pins.h',None);sources.pop('src/current_sonic_payload_pins.h',None);sources.pop('src/current_guided_payload_pins.h',None);sources.pop('src/current_newshf_hd_assets.h',None);sources.pop('src/current_mint27_payload_pins.h',None);sources.pop('src/current_missile_payload_pins.h',None);sources.pop('src/current_rear_multi_payload_pins.h',None);sources.pop('src/current_projectile91_payload_pins.h',None)
+    # Only this reviewed extension is inverted; keep the public authority digest.
+    tests=str(Path(__file__).resolve().parents[1]/'tests')
+    if tests not in sys.path:sys.path.insert(0,tests)
+    from linked_newshf_projection import before_inventory as linked_before_inventory
+    sources=linked_before_inventory(sources,root)
     if source_manifest_digest(sources)!=GAMEPLAY_SOURCE_SHA256:
         raise ValueError('Unrelated gameplay source changed')
     inputs={p:sha(read(root,p)) for p in BUILD_INPUTS}

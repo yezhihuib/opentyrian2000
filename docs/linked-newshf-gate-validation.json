@@ -1,0 +1,72 @@
+{
+  "after": {
+    "packaging/current-production-validation.json": "75eb015155fc5097b349f7d7b861ce2df456f8c3db3d66642bbf8d4137f042a9",
+    "packaging/runtime-assets-v1.json": "daf1444140c14a93fc6ba0120aaafd0c60b2268656eeed9d94faad42f88c22b2",
+    "scripts/build_current_art.py": "f467110243d68a9be34e8a26252059769ba9e30a6009a1c7249b2b1620372f2a",
+    "scripts/current_sidekick_body_compatibility.py": "0298d4c3a6418037736a5a2711f5a949d309cb8c3432d2bc1bdb922b6a856c29",
+    "scripts/package_runtime.py": "4cdf77f70e826a915bd34e480123e264060eae9f2afb5f92cbd77dd7e03fe00e",
+    "scripts/rebuild_recovered_runtime_manifest.py": "58ca09aac28cd25aa35fae4ef52b2762e23f67f585c60c9caf96f86083d5b28b",
+    "src/current_linked_newshf_hd_assets.h": "040fb86bfa084f80e294947788d5a4423bcac0ed8a1ff61473fcea35670306b8",
+    "src/global_newshf_mirror.inc": "dcd67b57d412809b9b57bb735fa02deca9b1b79f8613e9bb355aa8606885d8c0",
+    "src/newshf_identity_validation.inc": "3b587afe5a48b345470c832594c0c7dd9c079279982492f7670b89256f174530",
+    "src/newshf_linked_pins.h": "4a6876272e9a1b3a25733fb7e566d06be918f8f7b2054d5b196e9c797a0fdaf1",
+    "tests/_projection_proof_context.py": "e15ede2aacb61dbb8797a902a4ce2a48f02f2d916a978239193697cd1fc2414b",
+    "tests/accepted_later_changes.py": "4a51ac546a2270aeb6e4a1d41b8d4c0e8b28c1964b1b7ab0a74a47033c1aca1c",
+    "tests/current_linked_newshf_source_projection.json": "28cf2c35b06d9a97491813b75f3963b06dfbfc2d20e23032acd4f682bf8f7d4e",
+    "tests/linked_newshf_projection.py": "17fa0aace9c89ccd0d6141dd777c3b9cf3ced9969461ac237915895d4525b9a6"
+  },
+  "before": {
+    "packaging/current-production-validation.json": "75eb015155fc5097b349f7d7b861ce2df456f8c3db3d66642bbf8d4137f042a9",
+    "packaging/runtime-assets-v1.json": "daf1444140c14a93fc6ba0120aaafd0c60b2268656eeed9d94faad42f88c22b2",
+    "scripts/build_current_art.py": "f467110243d68a9be34e8a26252059769ba9e30a6009a1c7249b2b1620372f2a",
+    "scripts/current_sidekick_body_compatibility.py": "0298d4c3a6418037736a5a2711f5a949d309cb8c3432d2bc1bdb922b6a856c29",
+    "scripts/package_runtime.py": "4cdf77f70e826a915bd34e480123e264060eae9f2afb5f92cbd77dd7e03fe00e",
+    "scripts/rebuild_recovered_runtime_manifest.py": "58ca09aac28cd25aa35fae4ef52b2762e23f67f585c60c9caf96f86083d5b28b",
+    "src/current_linked_newshf_hd_assets.h": "040fb86bfa084f80e294947788d5a4423bcac0ed8a1ff61473fcea35670306b8",
+    "src/global_newshf_mirror.inc": "dcd67b57d412809b9b57bb735fa02deca9b1b79f8613e9bb355aa8606885d8c0",
+    "src/newshf_identity_validation.inc": "3b587afe5a48b345470c832594c0c7dd9c079279982492f7670b89256f174530",
+    "src/newshf_linked_pins.h": "4a6876272e9a1b3a25733fb7e566d06be918f8f7b2054d5b196e9c797a0fdaf1",
+    "tests/_projection_proof_context.py": "e15ede2aacb61dbb8797a902a4ce2a48f02f2d916a978239193697cd1fc2414b",
+    "tests/accepted_later_changes.py": "4a51ac546a2270aeb6e4a1d41b8d4c0e8b28c1964b1b7ab0a74a47033c1aca1c",
+    "tests/current_linked_newshf_source_projection.json": "28cf2c35b06d9a97491813b75f3963b06dfbfc2d20e23032acd4f682bf8f7d4e",
+    "tests/linked_newshf_projection.py": "17fa0aace9c89ccd0d6141dd777c3b9cf3ced9969461ac237915895d4525b9a6"
+  },
+  "phases": {
+    "P9-inventory": {
+      "result": {
+        "files": 7225,
+        "sha256": "45ad4ff592f22934c23a4014708ad90fbc01518471144ea47aaef5f820dd583f"
+      },
+      "seconds": 140.625,
+      "status": "PASS"
+    },
+    "current-source": {
+      "result": null,
+      "seconds": 198.323,
+      "status": "PASS"
+    },
+    "runtime-rebuild": {
+      "result": {
+        "files": 1036,
+        "sha256": "daf1444140c14a93fc6ba0120aaafd0c60b2268656eeed9d94faad42f88c22b2"
+      },
+      "seconds": 17.389,
+      "status": "PASS"
+    }
+  },
+  "prior_attempts": [
+    {
+      "phase": "P9-inventory",
+      "reason": "New asset paths absent from actual Git index; no asset/source verification failed",
+      "resolution": "Used isolated temporary Git index based on publicHEAD plus explicit seven new asset paths; real index unchanged",
+      "status": "preflight-rejected"
+    }
+  ],
+  "scope": "Final registered linked171-173 finite current source, P9 asset inverse, runtime manifest reproduction; no natural gameplay claim",
+  "status": "PASS",
+  "test_evidence": {
+    "final_independent_review": "Reviewer ran final linked4 tests and SHOP inventory; PASS reported to parent",
+    "synthetic_scope": "14 gate/source/SHOP plus4 currentNEWSHF source projection and1 sixrow runtime negative-control test passed; not final-art acceptance"
+  },
+  "verification_mode_authority": "Temporary Git index, public20f08096 plus six linked HDA and one linked selection; projection itself uses self-contained public-preimage ledger."
+}

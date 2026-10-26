@@ -44,6 +44,8 @@ def finite_paths(family):
     for value in ('projectile91', 'rear_p7', 'missile', 'mint27', 'newshf'):
         ledger = getattr(a, 'current_' + value + '_ledger')()
         names |= set(ledger['files']) | set(ledger.get('added_sources', {}))
+    from linked_newshf_projection import ledger as linked_ledger
+    linked=linked_ledger();names |= set(linked['qualified'])|set(linked['files'])
     return names
 
 

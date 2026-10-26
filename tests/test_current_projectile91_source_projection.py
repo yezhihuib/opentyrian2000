@@ -51,7 +51,8 @@ class Projectile91Projection(unittest.TestCase):
   rows=json.loads((a.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files']
   previous=a.before_current_projectile91_runtime(rows)
   destination='assets/gameplay/enemy-projectile91-91-8.hda'
-  self.assertEqual(previous,[r for r in rows if r['destination']!=destination])
+  from linked_newshf_projection import before_runtime
+  self.assertEqual(previous,[r for r in before_runtime(rows) if r['destination']!=destination])
   self.assertEqual(len(previous),1029)
   for action in ('missing','changed','duplicate'):
    invalid=copy.deepcopy(rows);target=next(r for r in invalid if r['destination']==destination)

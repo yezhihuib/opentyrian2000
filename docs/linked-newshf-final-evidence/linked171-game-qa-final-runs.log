@@ -1,0 +1,41 @@
+4 present 0 75
+4 missing 0 75
+4 reference 0 75
+8 present 0 75
+8 missing 0 75
+8 reference 0 75
+natural state/RNG/projectile/collision equivalence PASS
+[
+  {
+    "internal_density": 4,
+    "window_pixels": [
+      640,
+      400
+    ],
+    "captured_frames": 75,
+    "changed_pixels": 875253,
+    "exact_native_support_only": true,
+    "natural_bases": [
+      43,
+      81,
+      119,
+      121
+    ]
+  },
+  {
+    "internal_density": 8,
+    "window_pixels": [
+      640,
+      400
+    ],
+    "captured_frames": 75,
+    "changed_pixels": 875253,
+    "exact_native_support_only": true,
+    "natural_bases": [
+      43,
+      81,
+      119,
+      121
+    ]
+  }
+]

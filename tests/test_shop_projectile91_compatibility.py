@@ -73,7 +73,8 @@ class ShopProjectile91Compatibility(unittest.TestCase):
  def test_real_private_files_mutate_remove_restore_and_reject_symlinks(self):
   proof=a.verified_current_projectile91()
   import current_projectile91_compatibility as c
-  names=set(json.loads(shop.INVENTORY.read_bytes())['files'])|proof['paths']|{c.MAPPING}
+  from linked_newshf_projection import verified as linked_verified
+  names=set(json.loads(shop.INVENTORY.read_bytes())['files'])|proof['paths']|{c.MAPPING}|linked_verified()['paths']
   with tempfile.TemporaryDirectory(prefix='shop91-real-negative-') as tmp:
    root=Path(tmp)
    for name in names:

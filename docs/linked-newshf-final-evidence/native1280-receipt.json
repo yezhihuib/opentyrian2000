@@ -1,0 +1,52 @@
+{
+  "binary_sha256": "b2685e56936f042c7daf2c678de0bf26d95fb4bb3bc875937660596f57e3b1d2",
+  "argv": [
+    "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/linked171-native-final/hd-on-build/opentyrian2000",
+    "--data=/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/dependencies/data",
+    "--no-sound",
+    "--no-joystick",
+    "--no-xmas",
+    "--asset-debug=custom",
+    "--asset-debug-episode=1",
+    "--asset-debug-level=12",
+    "--asset-debug-tick=158",
+    "--asset-debug-running",
+    "--render-test=8",
+    "--render-ticks=160",
+    "--render-assets=/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/linked171-game-qa/pack",
+    "--global-assets=/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/linked171-game-qa/pack",
+    "--asset-debug-capture",
+    "--asset-debug-capture-start=158",
+    "--asset-debug-capture-count=2",
+    "--asset-debug-window-only"
+  ],
+  "internal_density": 8,
+  "scaler": "4x",
+  "native_window_pixels": [
+    1280,
+    800
+  ],
+  "resized": false,
+  "captures": [
+    {
+      "tick": 158,
+      "file": "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/linked171-game-qa/linked171-173-cold-native1280.png",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "cae586c7f59d86297c189e0992c227358a8c1497f1a2f30b25f876a5df646d57"
+    },
+    {
+      "tick": 159,
+      "file": "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/linked171-game-qa/linked171-173-firing-native1280.png",
+      "pixels": [
+        1280,
+        800
+      ],
+      "sha256": "36a17e2bb0dc3612e3ee8ffef28e7635d7102cf9cf135641471590cce5a09f54"
+    }
+  ],
+  "config_bytes_utf8": "section video\nitem scaler 4x\nitem fullscreen -1\n",
+  "config_sha256": "814c30b9b3c6b264efdfb39d72159b341b89dfc2f7cea75a1792d0f51e95cbd8"
+}

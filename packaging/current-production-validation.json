@@ -24,7 +24,7 @@
     "Normal observer final-surface alias has native production-object proof only; no new live normal-game target-event, Windows/GPU or full-campaign acceptance."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "828b4d78ecbf334531418b2903b03f2685656ea0d6a547442111d0540235908d",
+  "production_source_manifest_sha256": "a7ab102b6f3b1483c3be98ef173862a2f54e73274199bd33abafaa90195776be",
   "reviewed_charge_body_changes": {
     "files": [
       "src/entity_draw.c",
@@ -135,7 +135,7 @@
     "ledger_sha256": "1bac028508e047cb862989d08ef7613b46652c6aea32c71d8bcbc6c78ff9ac30"
   },
   "schema": "opentyrian-current-production-binding-v1",
-  "scope": "Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope.",
+  "scope": "Exact current source binding including bounded linked NEWSHF171-173 additive rendering. Build/package consistency; historical receipts unchanged.",
   "source_manifest_encoding": "UTF-8 JSON of source_sha256 only, sort_keys=True, separators=(comma,colon), ensure_ascii=True, no newline",
   "source_sha256": {
     "src/animlib.c": "1340570680ddff3fac80e34785f511657888d72430b47724330331d8c0b7a1de",
@@ -193,6 +193,7 @@
     "src/current_enemy_protron_payload_pins.h": "a6138c492da92e824bc117491c2b20d7695077b6ae050a3ca9022d6c2ec0cd6d",
     "src/current_guided_payload_pins.h": "40bb129b5e74080c354c0e5bfa2811dde41b6e1d6810c1fe628eccad255df97c",
     "src/current_hud_payload_pins.h": "5fa2744f0043c7ea57457f0f1cc78da66a1a226d37581060b51bd6525ced9456",
+    "src/current_linked_newshf_hd_assets.h": "040fb86bfa084f80e294947788d5a4423bcac0ed8a1ff61473fcea35670306b8",
     "src/current_mint27_payload_pins.h": "a3e1aba6f16a1867de5ef5ba05997a3a290cf3ac2ee2e899284b4266234c04c1",
     "src/current_missile_payload_pins.h": "fe6944ea9a54974e1ecc5f2dac9771d3999a52fd525dee74dc5d110032b1f0d9",
     "src/current_newshf_hd_assets.h": "d370bd06f7accac54b23179824e98fe9caad2d92b8709f13f5173c670c936210",
@@ -271,7 +272,7 @@
     "src/global_green_identity.inc": "aa6febe5e8c65e872357bd7fa36d16aa0d3beeac59d7a9ef8d58befa4d4006ca",
     "src/global_green_mirror.inc": "7992448caada923a3e7a4fcc59282c4d86603a503b36dc3ac321b1d84131ca60",
     "src/global_hitflare_mirror.inc": "2ab0900bab0dfa6423f3e3abf84fbbffbfcb21dd205b02d30e6bc54a1261a964",
-    "src/global_newshf_mirror.inc": "b7b7d4486c834a451ddabe100591f8091fb3ac0353466d3731d5444b0aca64d1",
+    "src/global_newshf_mirror.inc": "dcd67b57d412809b9b57bb735fa02deca9b1b79f8613e9bb355aa8606885d8c0",
     "src/global_projectile91_mirror.inc": "31309bdef96922bc830fe3e8f28ee4117c4df0253d1baab03396b3ad954a3829",
     "src/global_pulse_mirror.inc": "3502ad962fbcff5bcd2bcdfc77bf804627e26974f306eedaa6ca94f206492cf6",
     "src/global_rotor_identity.inc": "d09e9a0a111b361bbb44b0c751115147f2a2b4053c01e9a89c52898b02ce28c0",
@@ -318,7 +319,8 @@
     "src/network.c": "68981dfce02ca2ae1ac643213b2e499c210e9306c27a05ac829a6d6f3e5f9e76",
     "src/network.h": "3d1db19be051259fecd16e1af5cbdfd514134fbe1ec19e5a7480aba59ba3a5cb",
     "src/newshf_hd_assets.h": "c9552ffee0610c7ece607dce0e20a414818f143911d2a5e42bd21b5fd4a8d129",
-    "src/newshf_identity_validation.inc": "39e7bc46d90a19fe396117b437bd6bdb58aa697cade31053031f3f50103355c8",
+    "src/newshf_identity_validation.inc": "3b587afe5a48b345470c832594c0c7dd9c079279982492f7670b89256f174530",
+    "src/newshf_linked_pins.h": "4a6876272e9a1b3a25733fb7e566d06be918f8f7b2054d5b196e9c797a0fdaf1",
     "src/newshf_prototype_pins.h": "6b111c2b6c1d560d3698e822cf749aa55172849dcab53dfc20ceb5cd3fb85605",
     "src/nortsong.c": "0d0a1cbe9432a3263f80cf9e932339f76be0747d4f163b0430a36aff3011ae72",
     "src/nortsong.h": "99d2610d15c12eb34a24ae2e1b873d1c1e360663aef34e11598300cbd654adeb",

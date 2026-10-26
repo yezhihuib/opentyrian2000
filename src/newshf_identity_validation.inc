@@ -4,6 +4,16 @@
  * This include observes production state; every rejection leaves classic intact.
  */
 #include "newshf_prototype_pins.h"
+#include "newshf_linked_pins.h"
+/* Native cycles select resources; these descriptors never advance animation. */
+static const struct {unsigned record,cycles,bases[4],resources[4]; bool linked;} newshf_profiles[]={
+ {163,3,{125,123,127,0},{0,1,2,0},false},
+ {167,3,{3,1,5,0},{3,4,5,0},false},
+ {168,3,{55,17,93,0},{6,7,8,0},false},
+ {171,4,{43,45,45,43},{9,10,10,9},true},
+ {172,4,{81,83,83,81},{11,12,12,11},true},
+ {173,4,{119,121,121,119},{13,14,14,13},true}
+};
 static struct {
  uint64_t generation,witnessed,born_tick,draw_tick,bank_epoch;
  const Sprite2_array *bank_object;
@@ -19,7 +29,7 @@ static uint64_t newshf_validation_tick,newshf_validation_bank_epoch;
 static struct {uint64_t allocations,initialized,tiles,assemblies,rejected,resets;} newshf_validation_counts;
 static int newshf_validation_profile(unsigned record)
 {
- for(unsigned i=0;i<3;i++)if(record==newshf_prototype_record_ids[i])return (int)i;
+ for(unsigned i=0;i<COUNTOF(newshf_profiles);i++)if(record==newshf_profiles[i].record)return (int)i;
  return -1;
 }
 static int newshf_validation_slot(const void *ptr)
@@ -38,8 +48,8 @@ static bool newshf_validation_bank_valid(const Sprite2_array *b)
 {return b&&b->data&&b->size==NEWSHF_PROTOTYPE_BANK_BYTES&&global_bytes_hash(b->data,b->size)==NEWSHF_PROTOTYPE_BANK_FNV;}
 static uint64_t newshf_validation_record_stamp(unsigned profile)
 {
- if(profile>=3)return 0;
- unsigned record=newshf_prototype_record_ids[profile];
+ if(profile>=COUNTOF(newshf_profiles))return 0;
+ unsigned record=newshf_profiles[profile].record;
  Uint8 bytes[77];size_t n=0;
 #define NEWSHF_BYTE(v) do {bytes[n++]=(Uint8)(v);} while(0)
 #define NEWSHF_WORD(v) do {unsigned cv_=(unsigned)(v);NEWSHF_BYTE(cv_);NEWSHF_BYTE(cv_>>8);} while(0)
@@ -60,6 +70,11 @@ static uint64_t newshf_validation_record_stamp(unsigned profile)
 #undef NEWSHF_BYTE
 #undef NEWSHF_WORD
  return n==77?global_bytes_hash(bytes,n):0;
+}
+static bool newshf_validation_record_valid(unsigned p)
+{
+ return p<COUNTOF(newshf_profiles)&&newshf_validation_record_stamp(p)==
+  (p<3?newshf_prototype_record_fnv[p]:newshf_linked_record_fnv[p-3]);
 }
 static bool newshf_validation_records(void)
 {
@@ -85,10 +100,14 @@ static bool newshf_validation_bind(unsigned slot)
 static bool newshf_validation_shape(unsigned slot)
 {
  const struct JE_SingleEnemyType *e=enemy+slot;int p=newshf_validation_slots[slot].profile;
- if(p<0||p>=3)return false;
- unsigned record=newshf_prototype_record_ids[p];
+ if(p<0||(unsigned)p>=COUNTOF(newshf_profiles))return false;
+ unsigned record=newshf_profiles[p].record;
+ if(!newshf_validation_record_valid((unsigned)p))return false;
+ bool animation=newshf_profiles[p].linked?
+  e->ani==4&&e->animin==1&&e->animax==4&&e->aniwhenfire==2&&(e->aniactive==1||e->aniactive==2):
+  e->ani==1&&e->animin==1&&!e->aniactive&&!e->animax&&!e->aniwhenfire;
  if(!newshf_validation_bind(slot)||e->enemytype!=record||e->enemydatofs!=&enemyDat[record]||
-  e->size!=1||e->scoreitem||e->edamaged||e->ani!=1||e->animin!=1||e->aniactive||e->animax||e->aniwhenfire||
+  e->size!=1||e->scoreitem||e->edamaged||!animation||
   e->edani!=enemyDat[record].dani||e->edgr!=enemyDat[record].dgr||e->edlevel!=enemyDat[record].dlevel)return false;
  for(unsigned i=0;i<20;i++)if(e->egr[i]!=enemyDat[record].egraphic[i])return false;
  return true;
@@ -178,7 +197,7 @@ void render_mirror_newshf_validation_observe(unsigned s)
   newshf_validation_slots[s].witnessed!=newshf_validation_slots[s].generation||
   newshf_validation_slots[s].draw_tick==newshf_validation_tick||enemyAvail[s]!=0||!newshf_validation_shape(s)||
   !newshf_validation_records()||!newshf_validation_palette()||e->evalue!=newshf_validation_slots[s].value||
-  e->enemycycle<1||e->enemycycle>3||(int)e->ex+(int)tempMapXOfs<=-29||(int)e->ex+(int)tempMapXOfs>=300){
+  e->enemycycle<1||e->enemycycle>newshf_profiles[newshf_validation_slots[s].profile].cycles||(int)e->ex+(int)tempMapXOfs<=-29||(int)e->ex+(int)tempMapXOfs>=300){
   newshf_validation_reject();return;
  }
  newshf_validation_slots[s].draw_tick=newshf_validation_tick;newshf_validation_slots[s].pose=e->enemycycle;
@@ -190,6 +209,10 @@ static bool newshf_validation_tile_source(Sprite2_array bank,unsigned index)
  for(unsigned i=0;i<COUNTOF(newshf_prototype_tiles);i++)if(newshf_prototype_tiles[i].index==index){
   Uint8 bytes[336]={0};
   return decode_tile(bank,index,bytes,bytes+168,12,0,0)&&global_bytes_hash(bytes,sizeof(bytes))==newshf_prototype_tiles[i].fnv;
+ }
+ for(unsigned i=0;i<COUNTOF(newshf_linked_tiles);i++)if(newshf_linked_tiles[i].index==index){
+  Uint8 bytes[336]={0};
+  return decode_tile(bank,index,bytes,bytes+168,12,0,0)&&global_bytes_hash(bytes,sizeof(bytes))==newshf_linked_tiles[i].fnv;
  }
  return false;
 }
@@ -211,8 +234,8 @@ bool render_mirror_newshf_validation_tile(SDL_Surface *surface,int x,int y,Sprit
   c->availability==0&&c->size==1&&!c->score_item&&!c->damaged&&
   q<4&&bit==(remaining&(~remaining+1u))&&filter>=0&&filter<=255&&filter==e->filter&&filter==newshf_validation_slots[s].filter&&
   bank.data==newshf_validation_slots[s].bank_data&&bank.size==newshf_validation_slots[s].bank_size&&
-  e->enemycycle==newshf_validation_slots[s].pose&&e->enemycycle>=1&&e->enemycycle<=3&&
-  base==newshf_prototype_bases[p][e->enemycycle-1]&&base==e->egr[e->enemycycle-1]&&
+  e->enemycycle==newshf_validation_slots[s].pose&&e->enemycycle>=1&&e->enemycycle<=newshf_profiles[p].cycles&&
+  base==newshf_profiles[p].bases[e->enemycycle-1]&&base==e->egr[e->enemycycle-1]&&
   (int)e->ex+(int)tempMapXOfs==newshf_validation_slots[s].x&&(int)e->ey==newshf_validation_slots[s].y&&
   x==newshf_validation_slots[s].x+(q&1?6:-6)&&y==newshf_validation_slots[s].y+(q>=2?7:-7)&&
   newshf_validation_tile_source(bank,base+(unsigned)part);

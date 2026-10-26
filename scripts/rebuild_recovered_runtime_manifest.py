@@ -190,6 +190,13 @@ def main():
         add(row['source_path'],destination,'newshf-optin')
         rows[destination]['revision']='current-single-source-newshf-nine'
 
+    from current_linked_newshf_compatibility import load as linked_load
+    linked=linked_load(root)
+    if len(linked)!=6 or set(linked)&set(rows):raise ValueError('Unexpected/colliding linked NEWSHF extension')
+    for destination,row in sorted(linked.items()):
+        add(row['source_path'],destination,'newshf-optin')
+        rows[destination]['revision']='current-single-source-linked-newshf-six'
+
     # Exact additive shared91 enemy-shot role, never another bank/body selector.
     from current_projectile91_compatibility import load as projectile91_load
     projectile91 = projectile91_load(root)

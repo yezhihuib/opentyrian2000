@@ -41,7 +41,12 @@ def check_current_inventory(root=ROOT):
     added.update({name: row['sha256'] for name, row in proof['assets'].items()})
     assert added == qualified, 'qualified projectile91 material drift'
     assert len(added) == 6 and not set(added) & set(expected), 'projectile91 extension scope drift'
-    check_names(actual, dict(expected, **added))
+    from linked_newshf_projection import verified as linked_verified
+    linked = linked_verified(root)
+    linked_added = dict(linked['added_sources'])
+    linked_added.update({n:r['sha256'] for n,r in linked['assets'].items()})
+    assert not set(linked_added)&(set(expected)|set(added)), 'linked extension overlaps existing paths'
+    check_names(actual, dict(expected, **added, **linked_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name
@@ -51,6 +56,9 @@ def check_current_inventory(root=ROOT):
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular current file: ' + name
         current = path.read_bytes()
+        if name == 'src/newshf_identity_validation.inc':
+            from linked_newshf_projection import project_source as linked_project
+            current = linked_project(name,current)
         if name in changed:
             current = project_current_projectile91_source(name, current)
         verify_bytes(current, wanted, name)

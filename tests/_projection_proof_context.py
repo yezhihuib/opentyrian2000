@@ -193,7 +193,7 @@ class _ProjectionProofContext:
         self._closed = False
 
     def _module(self, family):
-        if family not in ('projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
+        if family not in ('linked_newshf', 'projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
             raise ValueError('Unknown current-proof family')
         scripts = str(self.module_root / 'scripts')
         if scripts not in sys.path:
@@ -214,6 +214,8 @@ class _ProjectionProofContext:
         files, directories = set(seeds), set()
         for m in modules:
             names = m.input_paths(self.root) | {m.MAPPING, m.HEADER}
+            if m.__name__ == 'current_linked_newshf_compatibility':
+                names |= m.generated_paths()|{m.ROOT+'/'+m.name(i) for i in m.IDS}|{'src/newshf_linked_pins.h','scripts/build_current_linked_newshf.py'}
             if m.__name__ == 'current_protron_compatibility':
                 names |= {m.ROOT + '/' + m.name(*pair) for pair in m.PAIRS}
             files |= {_relative(self.root, n) for n in names}
@@ -226,6 +228,9 @@ class _ProjectionProofContext:
                   'mint27': ('rear_p7', 'missile', 'mint27'),
                   'newshf': ('rear_p7', 'missile', 'mint27', 'newshf')}
         source_chain = chains.get(family, ())
+        if family in ('linked_newshf','projectile91', 'rear_p7', 'missile', 'mint27', 'newshf'):
+            source_chain = ('linked_newshf',) + source_chain
+            files.add(self.module_root / 'tests' / 'linked_newshf_projection.py')
         if family in ('projectile91', 'rear_p7', 'missile', 'mint27', 'newshf'):
             source_chain = ('projectile91',) + source_chain
         for name in source_chain:
@@ -233,12 +238,14 @@ class _ProjectionProofContext:
             files.add(ledger)
             _repo_stamp(ledger)
             spec = json.loads(ledger.read_bytes())
-            for source in set(spec['files']) | set(spec.get('added_sources', {})):
+            for source in set(spec['files']) | set(spec.get('added_sources', {})) | set(spec.get('qualified', {})):
                 files.add(_relative(self.root, source))
         scripts = {'current_craft267_compatibility.py', 'package_runtime.py', 'build_current_art.py'}
         scripts |= {'current_' + name + '_compatibility.py' for name in families}
         if family == 'projectile91':
             scripts |= {'current_plasma_projectile_compatibility.py'}
+        if family == 'linked_newshf':
+            scripts |= {'current_guided_compatibility.py','build_newshf_hd.py','check_newshf_phase_a.py','build_current_linked_newshf.py','check_linked_newshf_pins.py'}
         if family == 'newshf':
             scripts |= {'current_guided_compatibility.py', 'build_newshf_hd.py', 'check_newshf_phase_a.py'}
         code_modules = tuple((name[:-3], self.module_root / 'scripts' / name) for name in sorted(scripts))
@@ -248,7 +255,7 @@ class _ProjectionProofContext:
         files |= {self.module_root / 'scripts' / name for name in scripts}
         files |= {self.module_root / 'tests' / name for name in ('accepted_later_changes.py', '_projection_proof_context.py')}
         external_files, external_trees = set(), set()
-        if family == 'projectile91':
+        if family in ('projectile91','linked_newshf'):
             import PIL, PIL.Image, PIL.PngImagePlugin
             external_trees.add(Path(PIL.__file__).parent)
         if family in ('rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7'):

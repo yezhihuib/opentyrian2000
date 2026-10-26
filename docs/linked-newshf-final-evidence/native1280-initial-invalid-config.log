@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/f67dd347fa0a/opentyrian-recovery-20261026/linked171-game-qa/capture_native1280.py", line 13, in <module>
+    im=Image.open(p);assert im.size==(1280,800),im.size
+                            ^^^^^^^^^^^^^^^^^^^
+AssertionError: (640, 400)

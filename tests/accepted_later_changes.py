@@ -77,6 +77,8 @@ def current_projectile91_ledger():
  return json.loads(raw)
 
 def project_current_projectile91_source(name,raw):
+ from linked_newshf_projection import project_source as linked_project
+ raw=linked_project(name,raw)
  """Whole-current identity, exact reviewed spans, then authentic public preimage."""
  pin=current_projectile91_ledger()['files'].get(name)
  if pin is None:return raw
@@ -111,7 +113,9 @@ def before_current_projectile91_inventory(inventory,root=ROOT):
  return _before_current_projectile91_inventory(inventory,root,_proofs=None)
 
 def _before_current_projectile91_inventory(inventory,root=ROOT, *, _proofs):
- result=dict(inventory);proof=_current_projection_proof('projectile91',root,_proofs)
+ result=dict(inventory);linked=_current_projection_proof('linked_newshf',root,_proofs)
+ for name,digest in linked['added_sources'].items():assert result.pop(name)==digest
+ proof=_current_projection_proof('projectile91',root,_proofs)
  assert result.pop(CURRENT_PROJECTILE91_HEADER)==proof['header_sha256']
  for name,digest in proof['added_sources'].items():
   assert result.pop(name)==digest,('unapproved PROJECTILE91 added source inventory',name)
@@ -125,6 +129,8 @@ def before_current_projectile91_runtime(rows,root=ROOT):
  return _before_current_projectile91_runtime(rows,root,_proofs=None)
 
 def _before_current_projectile91_runtime(rows,root=ROOT, *, _proofs):
+ from linked_newshf_projection import before_runtime
+ rows=before_runtime(rows,root)
  assert isinstance(rows,list) and len(rows)==1030,'unexpected PROJECTILE91 runtime scope'
  assert len({row['destination'] for row in rows})==1030,'duplicate PROJECTILE91 runtime destination'
  proof=_current_projection_proof('projectile91',root,_proofs)
@@ -276,7 +282,9 @@ def rear39_runtime_input_paths(root=ROOT):
  import current_rear1_compatibility as rear1
  import current_rear281_compatibility as rear281
  import current_rear_lobes_compatibility as rear_lobes
- return projectile91.input_paths(root)|set(current_projectile91_ledger()['files'])|set(current_projectile91_ledger()['added_sources'])|c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|rear1.input_paths(root)|{rear1.MAPPING}|rear281.input_paths(root)|{rear281.MAPPING}|rear_lobes.input_paths(root)|{rear_lobes.MAPPING}|set(current_rear_p7_ledger()['files'])
+ from linked_newshf_projection import ledger as linked_ledger
+ linked=linked_ledger()
+ return set(linked['qualified'])|set(linked['files'])|projectile91.input_paths(root)|set(current_projectile91_ledger()['files'])|set(current_projectile91_ledger()['added_sources'])|c.input_paths(root)|{c.MAPPING,c.HEADER}|p7.input_paths(root)|{p7.MAPPING}|rear1.input_paths(root)|{rear1.MAPPING}|rear281.input_paths(root)|{rear281.MAPPING}|rear_lobes.input_paths(root)|{rear_lobes.MAPPING}|set(current_rear_p7_ledger()['files'])
 
 def before_current_rear39_runtime(rows,root=ROOT):
  return _before_current_rear39_runtime(rows,root,_proofs=None)
@@ -959,6 +967,8 @@ def verified_newshf_identity_sources(root=ROOT):
   path=root/name
   assert not path.is_symlink() and path.is_file(),('unapproved NEWSHF prototype module',name)
   raw=path.read_bytes()
+  from linked_newshf_projection import project_source as linked_project
+  raw=linked_project(name,raw)
   pin=load('newshf-compositor-source.json')['files'].get(name)
   assert sha(raw)==(pin['current_sha256'] if pin else digest),('unapproved NEWSHF prototype module',name)
   assert sha(_project_source_once('newshf-compositor',name,raw))==digest,('unapproved NEWSHF prototype module',name)
@@ -1110,6 +1120,7 @@ def _verified_sidekick_current(root=ROOT, *, _proofs):
  expected_sources.update(verified_enemy_observe_sources(root))
  expected_sources.update(verified_enemy_probe_sources(root))
  projectile91=_current_projection_proof('projectile91',root,_proofs)
+ expected_sources.update(_current_projection_proof('linked_newshf',root,_proofs)['added_sources'])
  expected_sources.update(projectile91['added_sources'])
  expected_sources[CURRENT_PROJECTILE91_HEADER]=projectile91['header_sha256']
  expected_sources[PROTRON_HEADER]=verified_protron_current(root)['header_sha256']
@@ -1588,6 +1599,8 @@ def project_p9_inventory(current,root=ROOT):
 
 def _project_p9_inventory(current,root=ROOT, *, _proofs):
  current=copy.deepcopy(current)
+ for name,row in _current_projection_proof('linked_newshf',root,_proofs)['assets'].items():
+  assert current.pop(name)==row,('unverified linked NEWSHF output',name)
  for name,row in _current_projection_proof('projectile91',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified current PROJECTILE91 output',name)
  for name,row in _current_projection_proof('rear_lobes',root,_proofs)['assets'].items():
@@ -1682,8 +1695,9 @@ def validate_current_sources(root=ROOT):
  reuse=verified_enemy_reuse_sources(root)
  observe=verified_enemy_observe_sources(root)
  probe=verified_enemy_probe_sources(root)
- assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe)|{CURRENT_PROJECTILE91_HEADER}|set(current_projectile91_ledger()['added_sources']),'unapproved current source paths'
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe)|{CURRENT_PROJECTILE91_HEADER}|set(current_projectile91_ledger()['added_sources'])|set(_current_projection_proof('linked_newshf',root,None)['added_sources']),'unapproved current source paths'
  projected=dict(actual)
+ for name,digest in _current_projection_proof('linked_newshf',root,None)['added_sources'].items():assert projected.pop(name)==digest
  projectile91=verified_current_projectile91(root)
  assert projected.pop(CURRENT_PROJECTILE91_HEADER)==projectile91['header_sha256']
  for name,digest in projectile91['added_sources'].items():
@@ -1725,7 +1739,9 @@ def validate_current_catalog(catalog):
  assert sha(canonical(catalog))==load('p9-assets.json')['catalog_after_sha256'],'unapproved live catalog (including historical reversion)'
 
 def _current_projection_proof(family,root,context):
+ from linked_newshf_projection import verified as verified_linked
  validators={
+  'linked_newshf':verified_linked,
   'projectile91':verified_current_projectile91,
   'guided':verified_current_guided,
   'mint27':verified_current_mint27,

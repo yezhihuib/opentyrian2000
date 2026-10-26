@@ -1,0 +1,235 @@
+{
+  "added_sources": {
+    "src/current_linked_newshf_hd_assets.h": "040fb86bfa084f80e294947788d5a4423bcac0ed8a1ff61473fcea35670306b8",
+    "src/newshf_linked_pins.h": "4a6876272e9a1b3a25733fb7e566d06be918f8f7b2054d5b196e9c797a0fdaf1"
+  },
+  "files": {
+    "src/global_newshf_mirror.inc": {
+      "current_sha256": "dcd67b57d412809b9b57bb735fa02deca9b1b79f8613e9bb355aa8606885d8c0",
+      "hunks": [
+        {
+          "after": " * Default-off NEWSHF owner: finite, independently loaded authored groups.\n",
+          "after_lines": [
+            1,
+            2
+          ],
+          "before": " * Default-off NEWSHF owner: nine exact authored composites.\n"
+        },
+        {
+          "after": "#include \"current_linked_newshf_hd_assets.h\"\nenum { GLOBAL_NEWSHF_RESOURCE_COUNT=15 };\n",
+          "after_lines": [
+            4,
+            6
+          ],
+          "before": "enum { GLOBAL_NEWSHF_RESOURCE_COUNT=9 };\n"
+        },
+        {
+          "after": "static unsigned global_newshf_used_resources;\nstatic bool global_newshf_linked_loaded,global_newshf_linked_good;\n",
+          "after_lines": [
+            8,
+            10
+          ],
+          "before": ""
+        },
+        {
+          "after": "  if((global_newshf_used_resources&(1u<<i))&&(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i]))return false;\n",
+          "after_lines": [
+            13,
+            14
+          ],
+          "before": "  if(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i])return false;\n"
+        },
+        {
+          "after": "  if(newshf_profiles[newshf_validation_slots[i].profile].linked&&\n   (enemy[i].enemycycle!=newshf_validation_slots[i].pose||enemy[i].evalue!=newshf_validation_slots[i].value))return false;\n",
+          "after_lines": [
+            47,
+            49
+          ],
+          "before": ""
+        },
+        {
+          "after": "static bool global_newshf_group_ready(unsigned phase)\n",
+          "after_lines": [
+            108,
+            109
+          ],
+          "before": "static bool global_newshf_family_ready(void)\n"
+        },
+        {
+          "after": " bool linked=phase>=9;\n bool *loaded=linked?&global_newshf_linked_loaded:&global_newshf_loaded;\n bool *good=linked?&global_newshf_linked_good:&global_newshf_good;\n unsigned begin=linked?9:0,end=linked?15:9;\n if(!*loaded){\n  *loaded=true;*good=true;\n  for(unsigned i=begin;i<end;i++){\n   const GlobalAssetResource *r=linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;\n   if(r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||!(global_newshf_rgba[i]=global_resource_load(r)))*good=false;\n   if(global_newshf_rgba[i])global_newshf_rgba_stamp[i]=global_bytes_hash(global_newshf_rgba[i],192u*224u*4u);\n  }\n  if(!*good)for(unsigned i=begin;i<end;i++){free(global_newshf_rgba[i]);global_newshf_rgba[i]=NULL;}\n",
+          "after_lines": [
+            110,
+            122
+          ],
+          "before": " if(global_newshf_loaded)return global_newshf_good&&global_newshf_assets_match();\n global_newshf_loaded=true;global_newshf_good=true;\n for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++) {\n  const GlobalAssetResource *r=newshf_hd_resources+i;\n  if(r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||!(global_newshf_rgba[i]=global_resource_load(r)))global_newshf_good=false;\n  if(global_newshf_rgba[i])global_newshf_rgba_stamp[i]=global_bytes_hash(global_newshf_rgba[i],192u*224u*4u);\n"
+        },
+        {
+          "after": " if(!*good)return false;\n for(unsigned i=begin;i<end;i++)if(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i])return false;\n return true;\n",
+          "after_lines": [
+            123,
+            126
+          ],
+          "before": " if(!global_newshf_good)for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++){free(global_newshf_rgba[i]);global_newshf_rgba[i]=NULL;}\n return global_newshf_good;\n"
+        },
+        {
+          "after": "/* Historical harness entry point retains the old-nine contract. */\nstatic bool global_newshf_family_ready(void){return global_newshf_group_ready(0);}\n",
+          "after_lines": [
+            127,
+            129
+          ],
+          "before": ""
+        },
+        {
+          "after": " global_newshf_linked_loaded=global_newshf_linked_good=false;global_newshf_used_resources=0;\n",
+          "after_lines": [
+            151,
+            152
+          ],
+          "before": ""
+        },
+        {
+          "after": " global_newshf_rejected_frame=false;global_newshf_used_resources=0;\n",
+          "after_lines": [
+            156,
+            157
+          ],
+          "before": " global_newshf_rejected_frame=false;\n"
+        },
+        {
+          "after": " /* Missing optional linked art leaves this actor classic, not old artwork revoked. */\n if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT){global_newshf_fail();return 0;}\n if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&0x7e00u))global_newshf_fail();return 0;}\n global_newshf_used_resources|=phase<9?0x1ffu:0x7e00u;\n",
+          "after_lines": [
+            208,
+            212
+          ],
+          "before": " if(!global_newshf_family_ready()){global_newshf_fail();return 0;}\n"
+        },
+        {
+          "after": " unsigned phase=newshf_profiles[newshf_validation_slots[slot].profile].resources[newshf_validation_slots[slot].pose-1];\n",
+          "after_lines": [
+            263,
+            264
+          ],
+          "before": " unsigned phase=(unsigned)newshf_validation_slots[slot].profile*3+newshf_validation_slots[slot].pose-1;\n"
+        }
+      ],
+      "previous_sha256": "b7b7d4486c834a451ddabe100591f8091fb3ac0353466d3731d5444b0aca64d1"
+    },
+    "src/newshf_identity_validation.inc": {
+      "current_sha256": "3b587afe5a48b345470c832594c0c7dd9c079279982492f7670b89256f174530",
+      "hunks": [
+        {
+          "after": "#include \"newshf_linked_pins.h\"\n/* Native cycles select resources; these descriptors never advance animation. */\nstatic const struct {unsigned record,cycles,bases[4],resources[4]; bool linked;} newshf_profiles[]={\n {163,3,{125,123,127,0},{0,1,2,0},false},\n {167,3,{3,1,5,0},{3,4,5,0},false},\n {168,3,{55,17,93,0},{6,7,8,0},false},\n {171,4,{43,45,45,43},{9,10,10,9},true},\n {172,4,{81,83,83,81},{11,12,12,11},true},\n {173,4,{119,121,121,119},{13,14,14,13},true}\n};\n",
+          "after_lines": [
+            6,
+            16
+          ],
+          "before": ""
+        },
+        {
+          "after": " for(unsigned i=0;i<COUNTOF(newshf_profiles);i++)if(record==newshf_profiles[i].record)return (int)i;\n",
+          "after_lines": [
+            31,
+            32
+          ],
+          "before": " for(unsigned i=0;i<3;i++)if(record==newshf_prototype_record_ids[i])return (int)i;\n"
+        },
+        {
+          "after": " if(profile>=COUNTOF(newshf_profiles))return 0;\n unsigned record=newshf_profiles[profile].record;\n",
+          "after_lines": [
+            50,
+            52
+          ],
+          "before": " if(profile>=3)return 0;\n unsigned record=newshf_prototype_record_ids[profile];\n"
+        },
+        {
+          "after": "}\nstatic bool newshf_validation_record_valid(unsigned p)\n{\n return p<COUNTOF(newshf_profiles)&&newshf_validation_record_stamp(p)==\n  (p<3?newshf_prototype_record_fnv[p]:newshf_linked_record_fnv[p-3]);\n",
+          "after_lines": [
+            72,
+            77
+          ],
+          "before": ""
+        },
+        {
+          "after": " if(p<0||(unsigned)p>=COUNTOF(newshf_profiles))return false;\n unsigned record=newshf_profiles[p].record;\n if(!newshf_validation_record_valid((unsigned)p))return false;\n bool animation=newshf_profiles[p].linked?\n  e->ani==4&&e->animin==1&&e->animax==4&&e->aniwhenfire==2&&(e->aniactive==1||e->aniactive==2):\n  e->ani==1&&e->animin==1&&!e->aniactive&&!e->animax&&!e->aniwhenfire;\n",
+          "after_lines": [
+            102,
+            108
+          ],
+          "before": " if(p<0||p>=3)return false;\n unsigned record=newshf_prototype_record_ids[p];\n"
+        },
+        {
+          "after": "  e->size!=1||e->scoreitem||e->edamaged||!animation||\n",
+          "after_lines": [
+            109,
+            110
+          ],
+          "before": "  e->size!=1||e->scoreitem||e->edamaged||e->ani!=1||e->animin!=1||e->aniactive||e->animax||e->aniwhenfire||\n"
+        },
+        {
+          "after": "  e->enemycycle<1||e->enemycycle>newshf_profiles[newshf_validation_slots[s].profile].cycles||(int)e->ex+(int)tempMapXOfs<=-29||(int)e->ex+(int)tempMapXOfs>=300){\n",
+          "after_lines": [
+            199,
+            200
+          ],
+          "before": "  e->enemycycle<1||e->enemycycle>3||(int)e->ex+(int)tempMapXOfs<=-29||(int)e->ex+(int)tempMapXOfs>=300){\n"
+        },
+        {
+          "after": " }\n for(unsigned i=0;i<COUNTOF(newshf_linked_tiles);i++)if(newshf_linked_tiles[i].index==index){\n  Uint8 bytes[336]={0};\n  return decode_tile(bank,index,bytes,bytes+168,12,0,0)&&global_bytes_hash(bytes,sizeof(bytes))==newshf_linked_tiles[i].fnv;\n",
+          "after_lines": [
+            211,
+            215
+          ],
+          "before": ""
+        },
+        {
+          "after": "  e->enemycycle==newshf_validation_slots[s].pose&&e->enemycycle>=1&&e->enemycycle<=newshf_profiles[p].cycles&&\n  base==newshf_profiles[p].bases[e->enemycycle-1]&&base==e->egr[e->enemycycle-1]&&\n",
+          "after_lines": [
+            236,
+            238
+          ],
+          "before": "  e->enemycycle==newshf_validation_slots[s].pose&&e->enemycycle>=1&&e->enemycycle<=3&&\n  base==newshf_prototype_bases[p][e->enemycycle-1]&&base==e->egr[e->enemycycle-1]&&\n"
+        }
+      ],
+      "previous_sha256": "39e7bc46d90a19fe396117b437bd6bdb58aa697cade31053031f3f50103355c8"
+    }
+  },
+  "public_base": "20f08096b32652b6f3b22a48826f5bcb4ff6f44a",
+  "qualified": {
+    "assets/hd/authoring/newshf-linked.json": "eeabddc0442233f16ca25b1ba229c292de290cc85871f1b03c44f631814d6d8e",
+    "assets/hd/current-compat/newshf-linked/newshf-role2100009-8.hda": "2ce9a9a2999428ca2038741222215a46b7465e418c41c96b98bdc864a13d745c",
+    "assets/hd/current-compat/newshf-linked/newshf-role2100010-8.hda": "701d144ba3939cf4bed64d03c7269ad686f13cfdd9d4e40bda046c462803c93b",
+    "assets/hd/current-compat/newshf-linked/newshf-role2100011-8.hda": "e13effd3a4ea8d95640a044711fd4ebf3dda14d7844f7d7f877358005f1f7063",
+    "assets/hd/current-compat/newshf-linked/newshf-role2100012-8.hda": "7811aaec7328e80eda64f9031bb2c32414407a39f1bdf8a697d8747d1c37dcf0",
+    "assets/hd/current-compat/newshf-linked/newshf-role2100013-8.hda": "ec3ae8d02e64dcce95dd6619455ff9b1518d2fe0ff1337a1fe81f9956d865883",
+    "assets/hd/current-compat/newshf-linked/newshf-role2100014-8.hda": "8b950d67a8a045daa7732a54ab822e8e27aaefc7859b7c7b0f83a09ff6608264",
+    "authoring-inputs/newshf-linked/alternate-middle-overlay.png": "22dbe2f77a499908900cbd58c65602e3c2a5e8bab73503586ec9e5355a97611a",
+    "authoring-inputs/newshf-linked/change-121.png": "aee48f2bf0af75a69272815a951d25c91d90a5a61d41ff5ed8196936017ee436",
+    "authoring-inputs/newshf-linked/change-83.png": "1319d0cabe5bff024706a0b4e010b7f51b6988b4497f433d3569248ccbe5cb87",
+    "authoring-inputs/newshf-linked/cold-whole.png": "b5daf6ca4635c797756d65df6858ef3253feb069effc066282953196e2fbd67d",
+    "authoring-inputs/newshf-linked/derived/newshf-role2100009-8.png": "011c0ddc8411b2d8f99db3e46367c5654615fd088d41ce28193a6ffd06dee2a4",
+    "authoring-inputs/newshf-linked/derived/newshf-role2100010-8.png": "011c0ddc8411b2d8f99db3e46367c5654615fd088d41ce28193a6ffd06dee2a4",
+    "authoring-inputs/newshf-linked/derived/newshf-role2100011-8.png": "005c1100e9d451231cc0589cd69447ae119ab4c21befe21e4166fa3f4c2423bb",
+    "authoring-inputs/newshf-linked/derived/newshf-role2100012-8.png": "e8432a04ffc02af173fcbb73c178bf6bead079c1db9f99bee87f08ab6af6a0b6",
+    "authoring-inputs/newshf-linked/derived/newshf-role2100013-8.png": "cd2c9e50a970a8fc8ed152e00e57fcc9325e7a7b7261c7b08449af6c15309186",
+    "authoring-inputs/newshf-linked/derived/newshf-role2100014-8.png": "678069be47d0d17e31ad018be59df4de877fee3b15e57db5d0b556c0bb69d805",
+    "authoring-inputs/newshf-linked/hot-bottom-overlay.png": "8b1ffb2aeeca06bf871720a488ce1eaca7e14277e6d0cb5a3030da2f52049581",
+    "authoring-inputs/newshf-linked/mask-119.png": "c8ef6c1b536d37604b21f169b2c8572ea04e55252f19c12121a4799314cffe89",
+    "authoring-inputs/newshf-linked/mask-121.png": "fa4fb2f9257d0d4af0e3a24a30d824bb96e7f19c97ebb5c32d99a8f50c71b775",
+    "authoring-inputs/newshf-linked/mask-43.png": "655aaa9efdf90fbebc84abc602fc31635453d4f389e456d566c8b5048cd7a3dc",
+    "authoring-inputs/newshf-linked/mask-45.png": "655aaa9efdf90fbebc84abc602fc31635453d4f389e456d566c8b5048cd7a3dc",
+    "authoring-inputs/newshf-linked/mask-81.png": "806b5a64666580a7cc9708ed0327e7ff468f097ab80da5374193886e56da9f84",
+    "authoring-inputs/newshf-linked/mask-83.png": "806b5a64666580a7cc9708ed0327e7ff468f097ab80da5374193886e56da9f84",
+    "authoring-inputs/newshf-linked/raw/bottom-firing-whole-v1.png": "ef9b07f3a599a92f2a54cf18cd62861c5ea5104d2d62250ef5a7b3e17414973d",
+    "authoring-inputs/newshf-linked/raw/cold-whole-v2.png": "825b8175fbe9da90b5e762593c97da1000d96c2d2050f11db2fd662fe8765b9d",
+    "authoring-inputs/newshf-linked/raw/generation-provenance.txt": "1b546cb94ea5099526e2e98b7f92f22d0f677baaa33385322fbaa8d84d479e88",
+    "authoring-inputs/newshf-linked/raw/middle-alternate-whole-v1.png": "87d3371e0cfcee039e8b51e6327920ceb9aabc1e05453721278eb5d5be57d492",
+    "authoring-inputs/newshf-linked/registration.json": "7b957a7849a77b4c90a157b1daad0f36933797f2d1ec3a03dcd6b8ff433e5c59",
+    "packaging/current-linked-newshf-compatibility.json": "afa48ceddfc366717ef5fb7756d0d2f1456a0c5643240774cbd0bb5a09270713",
+    "scripts/build_current_linked_newshf.py": "246f1b582310cb9462abe9fa0bc44ac71f6eb86f8c586c341ac4ac2d9c298311",
+    "scripts/check_linked_newshf_pins.py": "ee0f1d89629645e96cc11fe7bc6fe95b9d23eb81a6038bba1c7aaca384a837a6",
+    "scripts/current_linked_newshf_compatibility.py": "cdddc635b9ce494e8d346eba978af115ed1eda8870aa7a275d75826a810f11f5",
+    "scripts/register_linked_newshf.py": "9d6ad7da355297f1a46d68d331c069d14cccce422c340b366cf7c6bccde131f0",
+    "src/current_linked_newshf_hd_assets.h": "040fb86bfa084f80e294947788d5a4423bcac0ed8a1ff61473fcea35670306b8",
+    "src/newshf_linked_pins.h": "4a6876272e9a1b3a25733fb7e566d06be918f8f7b2054d5b196e9c797a0fdaf1"
+  }
+}

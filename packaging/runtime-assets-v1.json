@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 36978,
+      "bytes": 37111,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "93cbeb9a1c7152c33adf6dc33d5c27808489bac1",
+      "git_blob": "075f3b92cbe0f1867d6884bed64a867966534eaf",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "79e1da1638da9c89be86321f7060ef5c6b6d03ac6f9d9ff2c886c2d4ea66374b",
+      "sha256": "75eb015155fc5097b349f7d7b861ce2df456f8c3db3d66642bbf8d4137f042a9",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -7260,6 +7260,60 @@
     },
     {
       "bytes": 172060,
+      "destination": "assets/global/newshf-linked/newshf-role2100009-8.hda",
+      "git_blob": "e2d2455536c33dccc42a49331bad433ecd7be5ce",
+      "group": "newshf-optin",
+      "revision": "current-single-source-linked-newshf-six",
+      "sha256": "2ce9a9a2999428ca2038741222215a46b7465e418c41c96b98bdc864a13d745c",
+      "source_path": "assets/hd/current-compat/newshf-linked/newshf-role2100009-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-linked/newshf-role2100010-8.hda",
+      "git_blob": "606770d8a3a07a61d937663c7144a885c0199011",
+      "group": "newshf-optin",
+      "revision": "current-single-source-linked-newshf-six",
+      "sha256": "701d144ba3939cf4bed64d03c7269ad686f13cfdd9d4e40bda046c462803c93b",
+      "source_path": "assets/hd/current-compat/newshf-linked/newshf-role2100010-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-linked/newshf-role2100011-8.hda",
+      "git_blob": "8fca6f0e50a5c0828bf46aa01c498a60a1d13a5c",
+      "group": "newshf-optin",
+      "revision": "current-single-source-linked-newshf-six",
+      "sha256": "e13effd3a4ea8d95640a044711fd4ebf3dda14d7844f7d7f877358005f1f7063",
+      "source_path": "assets/hd/current-compat/newshf-linked/newshf-role2100011-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-linked/newshf-role2100012-8.hda",
+      "git_blob": "ec00b7927cc05e68a1476d2c4809ba27f7ff6067",
+      "group": "newshf-optin",
+      "revision": "current-single-source-linked-newshf-six",
+      "sha256": "7811aaec7328e80eda64f9031bb2c32414407a39f1bdf8a697d8747d1c37dcf0",
+      "source_path": "assets/hd/current-compat/newshf-linked/newshf-role2100012-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-linked/newshf-role2100013-8.hda",
+      "git_blob": "0dca2c727bc6306afed96b310c6e0fe614f9fde7",
+      "group": "newshf-optin",
+      "revision": "current-single-source-linked-newshf-six",
+      "sha256": "ec3ae8d02e64dcce95dd6619455ff9b1518d2fe0ff1337a1fe81f9956d865883",
+      "source_path": "assets/hd/current-compat/newshf-linked/newshf-role2100013-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-linked/newshf-role2100014-8.hda",
+      "git_blob": "cb8a9e7b91a8c5046434f9c8136d3100bd209b53",
+      "group": "newshf-optin",
+      "revision": "current-single-source-linked-newshf-six",
+      "sha256": "8b950d67a8a045daa7732a54ab822e8e27aaefc7859b7c7b0f83a09ff6608264",
+      "source_path": "assets/hd/current-compat/newshf-linked/newshf-role2100014-8.hda"
+    },
+    {
+      "bytes": 172060,
       "destination": "assets/global/newshf/newshf-role2100000-8.hda",
       "git_blob": "1cf12e9490b52bc333893114020d1d16df6ca113",
       "group": "newshf-optin",
@@ -9350,7 +9404,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "828b4d78ecbf334531418b2903b03f2685656ea0d6a547442111d0540235908d",
+    "current_production_source_manifest_sha256": "a7ab102b6f3b1483c3be98ef173862a2f54e73274199bd33abafaa90195776be",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

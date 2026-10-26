@@ -457,6 +457,16 @@ def main(argv=None) -> int:
             if (row['source_path'] != current['source_path'] or row.get('sha256') != current['sha256'] or
                     row.get('group') != 'newshf-optin' or row.get('revision') != 'current-single-source-newshf-nine'):
                 raise ValueError('Stale NEWSHF runtime selection')
+    from current_linked_newshf_compatibility import ROOT as linked_prefix, load as linked_load
+    linked_rows = [r for r in manifest['files'] if r['source_path'].startswith(linked_prefix+'/') or r['destination'].startswith('assets/global/newshf-linked/') or r.get('revision') == 'current-single-source-linked-newshf-six']
+    if manifest_path.resolve() == (roots[0]/'packaging/runtime-assets-v1.json').resolve() or linked_rows:
+        selected = linked_load(roots[0])
+        if len(linked_rows)!=6 or {r['destination'] for r in linked_rows}!=set(selected):
+            raise ValueError('Linked NEWSHF requires exactly six current consumers')
+        for row in linked_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!='current-single-source-linked-newshf-six':
+                raise ValueError('Stale linked NEWSHF runtime selection')
     if args.content_catalog or args.check_content_catalog:
         for row in manifest['files']:
             if 'sha256' in row:

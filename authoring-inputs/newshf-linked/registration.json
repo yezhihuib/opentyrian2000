@@ -1,0 +1,53 @@
+{
+  "alpha": "threshold128",
+  "body_size": [
+    192,
+    552
+  ],
+  "canvas": [
+    192,
+    672
+  ],
+  "cold_registration_metrics": {
+    "crop_excluded_alpha_fraction": 0.08381632306477634,
+    "crop_excluded_alpha_mass": 20698184,
+    "foreground_holes": 0,
+    "native_mask_clip_fraction": 0.035024154589371984,
+    "native_mask_clipped_pixels": 3712,
+    "raw_alpha_mass": 246946934,
+    "resized_opaque_pixels": 105984,
+    "seam_opaque_pixels": [
+      192,
+      192,
+      192,
+      192
+    ],
+    "seam_rows": [
+      223,
+      224,
+      447,
+      448
+    ],
+    "top_opaque_pixels": 192
+  },
+  "crop": [
+    80,
+    250,
+    646,
+    1830
+  ],
+  "original_mask": "applied by finite art builder",
+  "output_sha256": {
+    "alternate-middle-overlay.png": "22dbe2f77a499908900cbd58c65602e3c2a5e8bab73503586ec9e5355a97611a",
+    "cold-whole.png": "b5daf6ca4635c797756d65df6858ef3253feb069effc066282953196e2fbd67d",
+    "hot-bottom-overlay.png": "8b1ffb2aeeca06bf871720a488ce1eaca7e14277e6d0cb5a3030da2f52049581"
+  },
+  "raw_sha256": {
+    "bottom": "ef9b07f3a599a92f2a54cf18cd62861c5ea5104d2d62250ef5a7b3e17414973d",
+    "cold": "825b8175fbe9da90b5e762593c97da1000d96c2d2050f11db2fd662fe8765b9d",
+    "middle": "87d3371e0cfcee039e8b51e6327920ceb9aabc1e05453721278eb5d5be57d492"
+  },
+  "resample": "Pillow-LANCZOS",
+  "schema": "linked-newshf-registration-v1",
+  "scope": "AI silhouette rims cropped; game geometry preserved; no creative pixel generation"
+}
