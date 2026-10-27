@@ -76,7 +76,12 @@ def check_current_inventory(root=ROOT):
     secondary_added=dict(secondary['added_sources'])
     secondary_added.update({n:r['sha256'] for n,r in secondary['assets'].items()})
     assert not set(secondary_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added)|set(large_added)|set(cyan_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added))
+    from scout164_newshf_projection import verified as scout_verified
+    scout=scout_verified(root)
+    scout_added=dict(scout['added_sources'])
+    scout_added.update({n:r['sha256'] for n,r in scout['assets'].items()})
+    assert not set(scout_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added)|set(large_added)|set(cyan_added)|set(secondary_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

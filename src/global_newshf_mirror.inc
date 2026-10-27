@@ -6,7 +6,8 @@
 #include "current_dualmissile_newshf_hd_assets.h"
 #include "current_turret_newshf_hd_assets.h"
 #include "current_large_newshi_hd_assets.h"
-enum { GLOBAL_NEWSHF_RESOURCE_COUNT=28 };
+#include "current_scout164_newshf_hd_assets.h"
+enum { GLOBAL_NEWSHF_RESOURCE_COUNT=31 };
 static Uint8 *global_newshf_rgba[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static uint64_t global_newshf_rgba_stamp[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static uint32_t global_newshf_used_resources;
@@ -15,6 +16,7 @@ static bool global_newshf_linked_loaded,global_newshf_linked_good;
 static bool global_newshf_dualmissile_loaded,global_newshf_dualmissile_good;
 static bool global_newshf_turret_loaded,global_newshf_turret_good;
 static bool global_newshi_large_loaded,global_newshi_large_good;
+static bool global_newshf_scout164_loaded,global_newshf_scout164_good;
 static unsigned global_newshf_preflight_phase[100],global_newshf_preflight_pose[100];
 /* Retained independently of pixel ownership, live slots, and draw order. */
 static struct {const Sprite2_array *object;const Uint8 *data;size_t size;} global_newshf_bank_leases[2];
@@ -94,13 +96,19 @@ static bool global_newshf_used_banks_match(void)
  }
  return true;
 }
+static bool global_newshf_phase_bank_matches(unsigned phase,Sprite2_array bank)
+{
+ if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT)return false;
+ const Sprite2_array *b=newshf_validation_bank_id(phase>=18&&phase<28?13:10);
+ return b&&b->data==bank.data&&b->size==bank.size;
+}
 static void global_newshf_use_bank(unsigned phase)
 {
- unsigned k=phase>=18;const Sprite2_array *b=newshf_validation_bank_id(k?13:10);
+ unsigned k=phase>=18&&phase<28;const Sprite2_array *b=newshf_validation_bank_id(k?13:10);
  global_newshf_bank_leases[k].object=b;global_newshf_bank_leases[k].data=b->data;global_newshf_bank_leases[k].size=b->size;
 }
 static bool global_newshf_soft_phase(unsigned phase)
-{return phase==15||(phase>=18&&phase<=27);}
+{return phase==15||(phase>=18&&phase<31);}
 static bool global_newshf_disjoint(const SDL_Surface *a,const SDL_Surface *b)
 {
  uintptr_t x=(uintptr_t)a->pixels,y=(uintptr_t)b->pixels;
@@ -147,14 +155,14 @@ static bool global_newshf_surface_matches(void)
 static bool global_newshf_group_ready(unsigned phase)
 {
  if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT)return false;
- bool large=phase>=18,turret=phase>=16&&phase<18,dual=phase==15,linked=phase>=9&&phase<15;
- bool *loaded=large?&global_newshi_large_loaded:turret?&global_newshf_turret_loaded:dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;
- bool *good=large?&global_newshi_large_good:turret?&global_newshf_turret_good:dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;
- unsigned begin=large?18:turret?16:dual?15:linked?9:0,end=large?28:turret?18:dual?16:linked?15:9;
+ bool scout=phase>=28&&phase<31,large=phase>=18&&phase<28,turret=phase>=16&&phase<18,dual=phase==15,linked=phase>=9&&phase<15;
+ bool *loaded=scout?&global_newshf_scout164_loaded:large?&global_newshi_large_loaded:turret?&global_newshf_turret_loaded:dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;
+ bool *good=scout?&global_newshf_scout164_good:large?&global_newshi_large_good:turret?&global_newshf_turret_good:dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;
+ unsigned begin=scout?28:large?18:turret?16:dual?15:linked?9:0,end=scout?31:large?28:turret?18:dual?16:linked?15:9;
  if(!*loaded){
   *loaded=true;*good=true;
   for(unsigned i=begin;i<end;i++){
-   const GlobalAssetResource *r=large?large_newshi_hd_resources+i-18:turret?turret_newshf_hd_resources+i-16:dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
+   const GlobalAssetResource *r=scout?scout164_newshf_hd_resources+i-28:large?large_newshi_hd_resources+i-18:turret?turret_newshf_hd_resources+i-16:dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
    if(r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||!(global_newshf_rgba[i]=global_resource_load(r)))*good=false;
    if(global_newshf_rgba[i])global_newshf_rgba_stamp[i]=global_bytes_hash(global_newshf_rgba[i],192u*224u*4u);
   }
@@ -190,7 +198,8 @@ static void global_newshf_shutdown(void)
  global_newshf_loaded=global_newshf_good=false;
  global_newshf_linked_loaded=global_newshf_linked_good=false;
  global_newshf_dualmissile_loaded=global_newshf_dualmissile_good=false;
- global_newshf_turret_loaded=global_newshf_turret_good=false;global_newshi_large_loaded=global_newshi_large_good=false;global_newshf_used_resources=0;
+ global_newshf_turret_loaded=global_newshf_turret_good=false;global_newshi_large_loaded=global_newshi_large_good=false;
+ global_newshf_scout164_loaded=global_newshf_scout164_good=false;global_newshf_used_resources=0;
  free(global_newshf_owner);free(global_newshf_foreign);global_newshf_owner=global_newshf_foreign=NULL;global_newshf_capacity=0;
 }
 static void global_newshf_frame_begin(void)
@@ -254,8 +263,8 @@ static int global_newshf_draw_typed(SDL_Surface *surface,int x,int y,Sprite2_arr
   * Physical-row wrapping is likewise deliberately not reinterpreted as HD. */
  if(x<0||x>308){global_newshf_fail();return 0;}
  /* Missing optional art leaves this actor classic, not other groups revoked. */
- if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT){global_newshf_fail();return 0;}
- uint32_t group_mask=phase<9?UINT32_C(0x1ff):phase<15?UINT32_C(0x7e00):phase==15?UINT32_C(0x8000):phase<18?UINT32_C(0x30000):UINT32_C(0x0ffc0000);
+ if(!global_newshf_phase_bank_matches(phase,bank)){global_newshf_fail();return 0;}
+ uint32_t group_mask=phase<9?UINT32_C(0x1ff):phase<15?UINT32_C(0x7e00):phase==15?UINT32_C(0x8000):phase<18?UINT32_C(0x30000):phase<28?UINT32_C(0x0ffc0000):UINT32_C(0x70000000);
  if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&group_mask))global_newshf_fail();return 0;}
  global_newshf_used_resources|=group_mask;global_newshf_use_bank(phase);
  if(global_newshf_call.live){global_newshf_fail();return 0;}
@@ -333,7 +342,8 @@ static bool global_newshf_soft_preflight(unsigned slot,Sprite2_array bank,unsign
  global_newshf_dual_preflight_state[slot]=1;
  if(!global_newshf_requested()||!global_newshf_frame||global_newshf_fault||
     !global_newshf_surface_matches()||!global_newshf_source_matches(bank)||
-    !global_newshf_palette_matches()||!global_newshf_underlay_matches()||!global_newshf_group_ready(phase))return false;
+    !global_newshf_palette_matches()||!global_newshf_underlay_matches()||
+    !global_newshf_phase_bank_matches(phase,bank)||!global_newshf_group_ready(phase))return false;
  Uint8 native[4][336]={0};const unsigned parts[4]={0,1,19,20};
  for(unsigned q=0;q<4;q++)if(!decode_tile(bank,base+parts[q],native[q],native[q]+168,12,0,0))return false;
  int d=game_probe_density,cx=newshf_validation_slots[slot].x,cy=newshf_validation_slots[slot].y;
@@ -362,8 +372,14 @@ static int global_newshf_body(SDL_Surface *surface,int x,int y,Sprite2_array ban
  if(!context||newshf_validation_profile(context->type)<0)return -1;
  if(!identity){if(global_newshf_contributed)global_newshf_fail();return 0;}
  unsigned slot=context->pool_slot;
- /* Reject physical row wrapping as a complete family, never an HD prefix. */
- if(newshf_validation_slots[slot].x<6||newshf_validation_slots[slot].x>302){global_newshf_fail();return 0;}
+ /* A native row-wrapping actor is declined before its first HD quadrant.
+  * Its actual native writes still pass through the normal pixel observer,
+  * retiring overlapping RGB at normalized buffer addresses. This is not a
+  * corruption exception: never erase a contribution or an unfinished call. */
+ if(newshf_validation_slots[slot].x<6||newshf_validation_slots[slot].x>302){
+  if(global_newshf_generations[slot]||global_newshf_call.live)global_newshf_fail();
+  return 0;
+ }
  unsigned phase=newshf_profiles[newshf_validation_slots[slot].profile].resources[newshf_validation_slots[slot].pose-1];
  if(global_newshf_soft_phase(phase)&&!global_newshf_soft_preflight(slot,bank,base,phase))return 0;
  int result=global_newshf_draw_typed(surface,x,y,bank,base+(unsigned)part,filter,phase,part,global_newshf_soft_phase(phase)?global_newshf_dual_shapesy_serial[slot]:0,global_newshf_soft_phase(phase)?global_newshf_dual_cyan_serial[slot]:0,slot);

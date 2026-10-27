@@ -1,0 +1,51 @@
+{
+  "date_utc": "2026-10-26",
+  "family": "NEWSHF record 164",
+  "logical_bank": 10,
+  "native_size": [
+    24,
+    28
+  ],
+  "master_size": [
+    192,
+    224
+  ],
+  "tool": "built-in image_gen",
+  "poses": [
+    {
+      "base": 11,
+      "selected_raw": "raw-base11.png",
+      "selected_raw_sha256": "dc366bedad6a5d4591de55c9bf70271d097db9d687e1c263aebf8b2a974bf397",
+      "master": "master-base11.png",
+      "master_sha256": "d68ce6973fd71584f8f697dc8186124466e8663eba8345a932d06416c5467a32",
+      "source_mask": "native-mask-base11.png",
+      "source_mask_sha256": "bed503961a19171a8bc8c82f1b73369bfcda06194fa416fcd0b081c4766b8c79",
+      "prompt": "prompt-base11.txt",
+      "generation": "built-in image_gen, transparent background; independent straight/bank pose drawing"
+    },
+    {
+      "base": 9,
+      "selected_raw": "raw-base9.png",
+      "selected_raw_sha256": "7a93fe237ea4918125dbef472527d692a13c174382a1e01874297c26b0928cd4",
+      "master": "master-base9.png",
+      "master_sha256": "427cf132a30b14959b8000b53b0c9af192d28554a156c5901fe1f5e65c66c139",
+      "source_mask": "native-mask-base9.png",
+      "source_mask_sha256": "cf5e5a136061d0bcb8e6a143c79931e25f92bed71f5c3ad7040976c053fb2f08",
+      "prompt": "prompt-base9-v2.txt",
+      "generation": "built-in image_gen, transparent background; independent straight/bank pose drawing"
+    },
+    {
+      "base": 13,
+      "selected_raw": "raw-base13.png",
+      "selected_raw_sha256": "97ddf3c17177d0f2f68ce1e1750ab7d695077ada2f5926a38891b0111e284a8e",
+      "master": "master-base13.png",
+      "master_sha256": "c49f85f7a4f3c89850f7db2f6b6d2b6f0c0ae965799c4939bd056ba8c1a83146",
+      "source_mask": "native-mask-base13.png",
+      "source_mask_sha256": "d2ccc71741290067f9880bec0087c9f9a7e63998d515a775e0dc8aa4fe913abb",
+      "prompt": "prompt-base13-v2.txt",
+      "generation": "built-in image_gen, transparent background; independent straight/bank pose drawing"
+    }
+  ],
+  "registration": "rebuild.py; crop, Lanczos fit, conservative inward native-mask intersection, disconnected-alpha dust removal",
+  "runtime_acceptance": "Not established by this art package"
+}

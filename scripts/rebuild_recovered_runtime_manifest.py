@@ -218,6 +218,13 @@ def main():
         add(row['source_path'],destination,'newshf-optin')
         rows[destination]['revision']=large_revision
 
+    from current_scout164_newshf_compatibility import load as scout164_load, REVISION as scout164_revision
+    scout164=scout164_load(root)
+    if len(scout164)!=3 or set(scout164)&set(rows):raise ValueError('Unexpected/colliding scout164 NEWSHF extension')
+    for destination,row in sorted(scout164.items()):
+        add(row['source_path'],destination,'newshf-optin')
+        rows[destination]['revision']=scout164_revision
+
     from current_shapesy_cyan_compatibility import load as cyan_load, REVISION as cyan_revision
     cyan=cyan_load(root)
     if len(cyan)!=4 or set(cyan)&set(rows):raise ValueError('Unexpected/colliding cyan layer2 extension')

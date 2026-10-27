@@ -89,6 +89,18 @@ def records(root):
             notes=['One 96x84 master with seven independent 24x28 native parts; three separate nose-state masks. No fused actor or clock.',
                    'Deterministic V1 registration then four local V2 alpha mattes; retained RGB unchanged and newly transparent RGB zero-normalized.',
                    'NEWSHI bank13 is independent from NEWSHF bank10; original unchanged-cell masks constrain all damaged nose states.']))
+    import current_scout164_newshf_compatibility as scout164
+    for destination,row in scout164.load(root).items():
+        sources=[scout164.INPUT_ROOT+'/'+n for n in scout164.MASTER_NAMES]
+        result.append(dict(family='newshf-scout164',identity=row['identity'],density=8,role=210,
+            status='current-editable',editable_inputs=sources,source_inputs=sorted(scout164.input_paths(root)-{scout164.SELECTION}),selection=scout164.SELECTION,
+            recipe=['scripts/build_current_scout164_newshf.py','scripts/current_scout164_newshf_compatibility.py'],
+            derived_outputs=[row['source_png'],row['source_path']],
+            declared_consumers=[dict(destination=destination,record=164,base=row['base'],evidence=scout164.MAPPING)],
+            rebuild_commands=['python3 scripts/build_current_scout164_newshf.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>','python3 scripts/build_current_scout164_newshf.py --root . apply --destination <external-stage-dir>'],
+            notes=['Three registered 24x28 poses retain original bank10 bases11/9/13 and anchor6/7.',
+                   'Smooth alpha remains inside immutable original support; every transparent pixel is RGBA0.',
+                   'Natural straight-pose and controlled bank-pose coverage are distinct; no animation, movement or gameplay changes.']))
     import current_shapesy_cyan_compatibility as cyan
     for destination,row in cyan.load(root).items():
         result.append(dict(family='shapesy-cyan',identity=row['identity'],density=8,role=203,

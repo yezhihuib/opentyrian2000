@@ -29,24 +29,30 @@ def inverse(name,raw,pin):
  return result
 
 def project_source(name,raw):
- if name not in FILES:return raw
- return inverse(name,raw,ledger()['files'][name])
+ from scout164_newshf_projection import project_if_current as newer
+ if name not in FILES:return newer(name,raw)
+ return inverse(name,newer(name,raw),ledger()['files'][name])
 
 def project_if_current(name,raw):
- if name not in FILES:return raw
+ from scout164_newshf_projection import project_if_current as newer
+ if name not in FILES:return newer(name,raw)
  pin=ledger()['files'][name]
  if sha(raw)==pin['previous_sha256']:return raw
- return inverse(name,raw,pin)
+ return inverse(name,newer(name,raw),pin)
 
 def checked_read(root,name):
  p=root/name
  assert p.is_file() and not p.is_symlink() and not any(q.is_symlink() for q in p.parents),('unsafe secondary cyan layer2 input',name)
- return p.read_bytes()
+ from scout164_newshf_projection import project_if_current as newer
+ return newer(name,p.read_bytes())
 
 def qualified_paths(root=ROOT):
- spec=ledger();return set(spec['qualified'])|FILES|{LEDGER,'tests/shapesy_cyan_secondary_projection.py'}
+ from scout164_newshf_projection import qualified_paths as newer_paths
+ spec=ledger();return newer_paths(root)|set(spec['qualified'])|FILES|{LEDGER,'tests/shapesy_cyan_secondary_projection.py'}
 
 def verified(root=ROOT):
+ from scout164_newshf_projection import verified as newer_verified, before_inventory as newer_before
+ newer_verified(root)
  spec=ledger()
  for name,h in spec['qualified'].items():assert sha(checked_read(root,name))==h,('unqualified secondary cyan layer2 input',name)
  for name,pin in spec['files'].items():inverse(name,checked_read(root,name),pin)
@@ -56,7 +62,7 @@ def verified(root=ROOT):
  from verify_current_production import source_inventory
  expected=dict(spec['base_source_inventory']);expected.update(spec['added_sources'])
  expected.update({n:spec['files'][n]['current_sha256'] for n in SRC_FILES})
- assert source_inventory(root)==expected,'cyan whole source directory drift'
+ assert newer_before(source_inventory(root),root)==expected,'cyan whole source directory drift'
  mapping=c.load(root)
  assert len(mapping)==5 and set(r['identity'] for r in mapping.values())=={2030000+i for i in c.IDS}
  assert all(r['source_layer']==2 and r['source_bank']=='shapesy.dat' for r in mapping.values())
@@ -72,8 +78,8 @@ def verified(root=ROOT):
 
 def before_inventory(inventory,root=ROOT):
  from verify_current_production import source_inventory
- proof=verified(root);result=dict(inventory)
- assert result==source_inventory(root),'cyan passed source inventory drift'
+ from scout164_newshf_projection import before_inventory as newer_before
+ proof=verified(root);result=newer_before(inventory,root)
  for n,h in proof['added_sources'].items():assert result.pop(n)==h,('secondary cyan layer2 source addition drift',n)
  for n in SRC_FILES:
   raw=checked_read(root,n);assert result[n]==sha(raw),('secondary cyan layer2 live source inventory drift',n)
@@ -81,6 +87,8 @@ def before_inventory(inventory,root=ROOT):
  return result
 
 def before_runtime(rows,root=ROOT):
+ from scout164_newshf_projection import before_runtime as newer_before
+ rows=newer_before(rows,root)
  proof=verified(root);mapping=proof['mapping'];result=[];seen=set()
  import current_shapesy_cyan_secondary_compatibility as c
  for row in rows:
@@ -93,6 +101,7 @@ def before_runtime(rows,root=ROOT):
  return result
 
 def drop_additions(inventory,root=ROOT):
- proof=verified(root);result=dict(inventory)
+ from scout164_newshf_projection import before_inventory as newer_before
+ proof=verified(root);result=newer_before(inventory,root)
  for n,h in proof['added_sources'].items():assert result.pop(n)==h,('secondary cyan layer2 source addition drift',n)
  return result

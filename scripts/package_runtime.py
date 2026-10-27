@@ -510,6 +510,19 @@ def main(argv=None) -> int:
             if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=large_revision:
                 raise ValueError('Stale large NEWSHI runtime selection')
 
+    # Three finite NEWSHF record164 poses, independently optional at runtime.
+    from current_scout164_newshf_compatibility import ROOT as scout164_prefix, load as scout164_load, REVISION as scout164_revision, IDS as scout164_ids, name as scout164_name
+    scout164_names={scout164_name(i) for i in scout164_ids}
+    scout164_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(scout164_prefix+'/') or r['destination'].casefold().startswith('assets/global/newshf-scout164/') or r.get('revision')==scout164_revision or Path(r['source_path']).name.casefold() in scout164_names or Path(r['destination']).name.casefold() in scout164_names]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or scout164_rows:
+        selected=scout164_load(roots[0])
+        if len(scout164_rows)!=3 or {r['destination'] for r in scout164_rows}!=set(selected):
+            raise ValueError('Scout164 NEWSHF requires exactly three shared poses')
+        for row in scout164_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=scout164_revision:
+                raise ValueError('Stale scout164 NEWSHF runtime selection')
+
     # Independent static cyan layer2 closure; no platform/catalog alias.
     from current_shapesy_cyan_compatibility import load as cyan_load, ROOT as cyan_prefix, REVISION as cyan_revision, IDS as cyan_ids, name as cyan_name
     cyan_names={cyan_name(i) for i in cyan_ids}
