@@ -86,7 +86,12 @@ def check_current_inventory(root=ROOT):
     fighter_added=dict(fighter['added_sources'])
     fighter_added.update({n:r['sha256'] for n,r in fighter['assets'].items()})
     assert not set(fighter_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added)|set(large_added)|set(cyan_added)|set(secondary_added)|set(scout_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added))
+    from interceptor166_newshf_projection import verified as interceptor_verified
+    interceptor=interceptor_verified(root)
+    interceptor_added=dict(interceptor['added_sources'])
+    interceptor_added.update({n:r['sha256'] for n,r in interceptor['assets'].items()})
+    assert not set(interceptor_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added)|set(large_added)|set(cyan_added)|set(secondary_added)|set(scout_added)|set(fighter_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

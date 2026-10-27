@@ -536,6 +536,19 @@ def main(argv=None) -> int:
             if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=fighter165_revision:
                 raise ValueError('Stale fighter165 NEWSHF runtime selection')
 
+    # Three finite NEWSHF record166 poses, independently optional at runtime.
+    from current_interceptor166_newshf_compatibility import ROOT as interceptor166_prefix, load as interceptor166_load, REVISION as interceptor166_revision, IDS as interceptor166_ids, name as interceptor166_name
+    interceptor166_names={interceptor166_name(i) for i in interceptor166_ids}
+    interceptor166_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(interceptor166_prefix+'/') or r['destination'].casefold().startswith('assets/global/newshf-interceptor166/') or r.get('revision')==interceptor166_revision or Path(r['source_path']).name.casefold() in interceptor166_names or Path(r['destination']).name.casefold() in interceptor166_names]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or interceptor166_rows:
+        selected=interceptor166_load(roots[0])
+        if len(interceptor166_rows)!=3 or {r['destination'] for r in interceptor166_rows}!=set(selected):
+            raise ValueError('Interceptor166 NEWSHF requires exactly three shared poses')
+        for row in interceptor166_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=interceptor166_revision:
+                raise ValueError('Stale interceptor166 NEWSHF runtime selection')
+
     # Independent static cyan layer2 closure; no platform/catalog alias.
     from current_shapesy_cyan_compatibility import load as cyan_load, ROOT as cyan_prefix, REVISION as cyan_revision, IDS as cyan_ids, name as cyan_name
     cyan_names={cyan_name(i) for i in cyan_ids}

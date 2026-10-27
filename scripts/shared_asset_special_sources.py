@@ -113,6 +113,18 @@ def records(root):
             notes=['Three registered 24x28 poses retain original bank10 bases49/47/51 and anchor6/7.',
                    'Smooth alpha remains inside immutable original support; every transparent pixel is RGBA0.',
                    'Natural three-pose evidence is kept distinct from controlled diagnostics; no animation, movement or gameplay changes.']))
+    import current_interceptor166_newshf_compatibility as interceptor166
+    for destination,row in interceptor166.load(root).items():
+        sources=[interceptor166.INPUT_ROOT+'/'+n for n in interceptor166.MASTER_NAMES]
+        result.append(dict(family='newshf-interceptor166',identity=row['identity'],density=8,role=210,
+            status='current-editable',editable_inputs=sources,source_inputs=sorted(interceptor166.input_paths(root)-{interceptor166.SELECTION}),selection=interceptor166.SELECTION,
+            recipe=['scripts/build_current_interceptor166_newshf.py','scripts/current_interceptor166_newshf_compatibility.py'],
+            derived_outputs=[row['source_png'],row['source_path']],
+            declared_consumers=[dict(destination=destination,record=166,base=row['base'],evidence=interceptor166.MAPPING)],
+            rebuild_commands=['python3 scripts/build_current_interceptor166_newshf.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>','python3 scripts/build_current_interceptor166_newshf.py --root . apply --destination <external-stage-dir>'],
+            notes=['Three registered 24x28 poses retain original bank10 bases87/85/89 and anchor6/7.',
+                   'Smooth alpha remains inside immutable original support; every transparent pixel is RGBA0.',
+                   'Natural three-pose evidence is kept distinct from controlled diagnostics; no animation, movement or gameplay changes.']))
     import current_shapesy_cyan_compatibility as cyan
     for destination,row in cyan.load(root).items():
         result.append(dict(family='shapesy-cyan',identity=row['identity'],density=8,role=203,

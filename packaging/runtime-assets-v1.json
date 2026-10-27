@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 39752,
+      "bytes": 39981,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "28ad109cb005ca8a90e3d7ca25ac3d4eaec8724b",
+      "git_blob": "3a26b0bce07025bdadf4007ef4dd7a7607c30a0c",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "42fa4f1f3946e244960c2e0a773114e6f4000133a2b84324122bb19baa6d5c6e",
+      "sha256": "d5aaa394421019a595d5b6e5c692bc73637a3f3eb308f2971d9bf4f371968a92",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -7629,6 +7629,33 @@
     },
     {
       "bytes": 172060,
+      "destination": "assets/global/newshf-interceptor166/newshf-role2100034-8.hda",
+      "git_blob": "8464fbba385bd0b7bcf696ccc94db3c58d5102be",
+      "group": "newshf-optin",
+      "revision": "current-single-source-interceptor166-newshf-three",
+      "sha256": "3365d84608bebc56f571c37421ea8045c6ccbd56604290737f464681c47321c8",
+      "source_path": "assets/hd/current-compat/newshf-interceptor166/newshf-role2100034-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-interceptor166/newshf-role2100035-8.hda",
+      "git_blob": "a3c0e514820e294aee878deac4da32ace0dd74c3",
+      "group": "newshf-optin",
+      "revision": "current-single-source-interceptor166-newshf-three",
+      "sha256": "0988b5c7c063fc390693c3bd42f78b9a5ca3ee6a10a79170372478cd5618ebdc",
+      "source_path": "assets/hd/current-compat/newshf-interceptor166/newshf-role2100035-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-interceptor166/newshf-role2100036-8.hda",
+      "git_blob": "c5baff6f6793c20dce4b3a0d47f3205ba2f70b32",
+      "group": "newshf-optin",
+      "revision": "current-single-source-interceptor166-newshf-three",
+      "sha256": "955846c4eb5b1b17ab1d779ebc12d07e918040713b361b7592b640f25315ff8a",
+      "source_path": "assets/hd/current-compat/newshf-interceptor166/newshf-role2100036-8.hda"
+    },
+    {
+      "bytes": 172060,
       "destination": "assets/global/newshf-linked/newshf-role2100009-8.hda",
       "git_blob": "e2d2455536c33dccc42a49331bad433ecd7be5ce",
       "group": "newshf-optin",
@@ -9908,7 +9935,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "b0bb2dd24b299af06387c0fa6ee20bc2cd0fc46e221fbd8bc91551c827b48a01",
+    "current_production_source_manifest_sha256": "76465f0a8bf09e6c3f4ba2ae0af412beaca6f844086cf76b589c35ac64e2a19a",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

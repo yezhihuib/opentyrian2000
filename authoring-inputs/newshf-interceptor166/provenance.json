@@ -1,0 +1,54 @@
+{
+  "date_utc": "2026-10-27",
+  "family": "NEWSHF record166 smooth tan-gold interceptor",
+  "logical_bank": 10,
+  "native_size": [
+    24,
+    28
+  ],
+  "master_size": [
+    192,
+    224
+  ],
+  "tool": "built-in image_gen",
+  "poses": [
+    {
+      "base": 87,
+      "raw": "raw-base87.png",
+      "raw_sha256": "b23a7d8e39143d1fe3ff7aa51e43b6d3ef5c1368b6b4d9b39a99a9cbf9782365",
+      "master": "master-base87.png",
+      "master_sha256": "e2b65f49632787a1f8c41ee16b7c6af88a0815d38af9723bad7d0a3558458026",
+      "source_mask": "native-mask-base87.png",
+      "source_mask_sha256": "7dd15db327977f883c5efd8504f4cf10273ad8dc6a4bac11a0d73db9e7d25658",
+      "prompt": "prompt-base87.txt",
+      "generation": "Independent built-in image_gen generation with original pose reference; opposite banks additionally use new straight identity as style reference"
+    },
+    {
+      "base": 85,
+      "raw": "raw-base85.png",
+      "raw_sha256": "4c9fe6333a1e9470a54fcb7656b5fbc7857f734f911d1ac00bb81ce3f472d4a4",
+      "master": "master-base85.png",
+      "master_sha256": "8228af37bd0b2d61b0967e6b1f25cabe7efa1e8845dec3ce38d6e8a07b931859",
+      "source_mask": "native-mask-base85.png",
+      "source_mask_sha256": "9979e82dcf21edb220f0f6fb9036d3b95e9019e182698a25da4e1dcbf8e94617",
+      "prompt": "prompt-base85.txt",
+      "generation": "Independent built-in image_gen generation with original pose reference; opposite banks additionally use new straight identity as style reference"
+    },
+    {
+      "base": 89,
+      "raw": "raw-base89.png",
+      "raw_sha256": "835b83b20c9c3376bf154c1205934c0b41a3ee3e9d57b964728f2a5f51112029",
+      "master": "master-base89.png",
+      "master_sha256": "f3d3d090a62f740851ea79909e3f1166dd65459e777bd0db0ab1e067f2688e20",
+      "source_mask": "native-mask-base89.png",
+      "source_mask_sha256": "0daf595769e308fb794493ae81233b2c1f25a1d89582a6f9dadfb68ae8a6e76f",
+      "prompt": "prompt-base89.txt",
+      "generation": "Independent built-in image_gen generation with original pose reference; opposite banks additionally use new straight identity as style reference"
+    }
+  ],
+  "native_reference_dependency": "Masks reproduced from original bank10 source, source audit identity receipt kept privately. Game data is not bundled.",
+  "registration": "Alpha>32 bounds crop; Lanczos fit to exact original-mask occupied bounds; original support intersected with conservative inward antialias alpha; disconnected low-alpha dust removed; RGB zero whenever alpha zero. No creative painting or mesh warp.",
+  "style_reference": "Accepted record165 V2 straight artwork used only for smooth broad metal shading, not silhouette.",
+  "transparency": "Generated alpha retained; median visible alpha253, ordinary underlay compositing required. Source-zero cells are exactly RGBA0.",
+  "rebuild_verification": "All three master PNGs reproduced byte-for-byte; zero-source and zero-alpha RGB checked; one connected component each."
+}
