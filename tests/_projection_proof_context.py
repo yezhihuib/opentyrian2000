@@ -193,7 +193,7 @@ class _ProjectionProofContext:
         self._closed = False
 
     def _module(self, family):
-        if family not in ('scout164_newshf', 'shapesy_cyan_secondary', 'shapesy_cyan', 'large_newshi', 'turret_newshf', 'dualmissile_newshf', 'shapesy_platform', 'linked_newshf', 'projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
+        if family not in ('fighter165_newshf', 'scout164_newshf', 'shapesy_cyan_secondary', 'shapesy_cyan', 'large_newshi', 'turret_newshf', 'dualmissile_newshf', 'shapesy_platform', 'linked_newshf', 'projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
             raise ValueError('Unknown current-proof family')
         scripts = str(self.module_root / 'scripts')
         if scripts not in sys.path:
@@ -236,8 +236,10 @@ class _ProjectionProofContext:
         # All indirect proofs also bind the newest family's directory closure.
         directories |= {_relative(self.root, n) for n in ('authoring-inputs/newshi-large', 'authoring-inputs/newshi-large/derived', 'assets/hd/current-compat/newshi-large')}
         # Every live source projection first validates the finite ShapesY delta.
-        source_chain = ('scout164_newshf', 'shapesy_cyan_secondary', 'shapesy_cyan', 'large_newshi', 'turret_newshf', 'dualmissile_newshf', 'shapesy_platform') + source_chain
+        source_chain = ('fighter165_newshf', 'scout164_newshf', 'shapesy_cyan_secondary', 'shapesy_cyan', 'large_newshi', 'turret_newshf', 'dualmissile_newshf', 'shapesy_platform') + source_chain
         files.add(self.module_root / 'tests' / 'shapesy_cyan_projection.py')
+        files.add(self.module_root / 'tests' / 'fighter165_newshf_projection.py')
+        directories |= {_relative(self.root,n) for n in ('authoring-inputs/newshf-fighter165','authoring-inputs/newshf-fighter165/derived','assets/hd/current-compat/newshf-fighter165')}
         files.add(self.module_root / 'tests' / 'scout164_newshf_projection.py')
         directories |= {_relative(self.root,n) for n in ('authoring-inputs/newshf-scout164','authoring-inputs/newshf-scout164/derived','assets/hd/current-compat/newshf-scout164')}
         files.add(self.module_root / 'tests' / 'shapesy_cyan_secondary_projection.py')
@@ -257,7 +259,7 @@ class _ProjectionProofContext:
             spec = json.loads(ledger.read_bytes())
             for source in set(spec['files']) | set(spec.get('added_sources', {})) | set(spec.get('qualified', {})) | set(spec.get('asset_edits', {})):
                 files.add(_relative(self.root, source))
-        scripts = {'current_scout164_newshf_compatibility.py','build_current_scout164_newshf.py','current_shapesy_cyan_secondary_compatibility.py','build_current_shapesy_cyan_secondary.py','current_shapesy_cyan_compatibility.py','build_current_shapesy_cyan.py','current_large_newshi_compatibility.py', 'build_current_large_newshi.py', 'current_turret_newshf_compatibility.py', 'current_dualmissile_newshf_compatibility.py', 'current_craft267_compatibility.py', 'package_runtime.py', 'build_current_art.py', 'current_shapesy_platform_compatibility.py', 'build_current_shapesy_platform.py'}
+        scripts = {'current_fighter165_newshf_compatibility.py','build_current_fighter165_newshf.py','current_scout164_newshf_compatibility.py','build_current_scout164_newshf.py','current_shapesy_cyan_secondary_compatibility.py','build_current_shapesy_cyan_secondary.py','current_shapesy_cyan_compatibility.py','build_current_shapesy_cyan.py','current_large_newshi_compatibility.py', 'build_current_large_newshi.py', 'current_turret_newshf_compatibility.py', 'current_dualmissile_newshf_compatibility.py', 'current_craft267_compatibility.py', 'package_runtime.py', 'build_current_art.py', 'current_shapesy_platform_compatibility.py', 'build_current_shapesy_platform.py'}
         scripts |= {'current_' + name + '_compatibility.py' for name in families}
         if family == 'projectile91':
             scripts |= {'current_plasma_projectile_compatibility.py'}

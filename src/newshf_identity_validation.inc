@@ -9,6 +9,7 @@
 #include "newshf_turret_pins.h"
 #include "newshi_large_pins.h"
 #include "newshf_scout164_pins.h"
+#include "newshf_fighter165_pins.h"
 /* Native cycles select resources; these descriptors never advance animation. */
 static const struct {unsigned record,cycles,bases[12],resources[12]; bool linked; unsigned bank;} newshf_profiles[]={
  {163,3,{125,123,127,0},{0,1,2,0},false,10},
@@ -28,7 +29,8 @@ static const struct {unsigned record,cycles,bases[12],resources[12]; bool linked
  {306,1,{241},{22},false,13},
  {307,1,{243},{23},false,13},
  {308,12,{278,0,268,268,270,270,270,272,272,270,270,270},{24,0,25,25,26,26,26,27,27,26,26,26},false,13},
- {164,3,{11,9,13},{28,29,30},false,10}
+ {164,3,{11,9,13},{28,29,30},false,10},
+ {165,3,{49,47,51},{31,32,33},false,10}
 };
 static struct {
  uint64_t generation,witnessed,born_tick,draw_tick,bank_epoch;
@@ -94,7 +96,7 @@ static uint64_t newshf_validation_record_stamp(unsigned profile)
 static bool newshf_validation_record_valid(unsigned p)
 {
  return p<COUNTOF(newshf_profiles)&&newshf_validation_record_stamp(p)==
-  (p<3?newshf_prototype_record_fnv[p]:p<6?newshf_linked_record_fnv[p-3]:p<8?newshf_dualmissile_record_fnv[p-6]:p<10?newshf_turret_record_fnv[p-8]:p<17?newshi_large_record_fnv[p-10]:newshf_scout164_record_fnv);
+  (p<3?newshf_prototype_record_fnv[p]:p<6?newshf_linked_record_fnv[p-3]:p<8?newshf_dualmissile_record_fnv[p-6]:p<10?newshf_turret_record_fnv[p-8]:p<17?newshi_large_record_fnv[p-10]:p==17?newshf_scout164_record_fnv:newshf_fighter165_record_fnv);
 }
 static bool newshf_validation_records(void)
 {
@@ -148,7 +150,7 @@ static bool newshf_validation_shape(unsigned slot)
   e->ani==1&&e->animin==1&&!e->aniactive&&!e->animax&&!e->aniwhenfire;
  if(p==16&&!e->edamaged)animation=e->ani==12&&e->animin==3&&e->aniactive==1&&!e->animax&&!e->aniwhenfire;
  if(!newshf_validation_bind(slot)||e->enemytype!=record||e->enemydatofs!=&enemyDat[record]||
-  e->size!=1||e->scoreitem||((p<10||p==17)&&e->edamaged)||!animation||
+  e->size!=1||e->scoreitem||((p<10||p==17||p==18)&&e->edamaged)||!animation||
   e->edani!=enemyDat[record].dani||e->edgr!=enemyDat[record].dgr||e->edlevel!=enemyDat[record].dlevel)return false;
  for(unsigned i=0;i<20;i++)if(e->egr[i]!=enemyDat[record].egraphic[i])return false;
  return true;
@@ -274,6 +276,10 @@ static bool newshf_validation_tile_source(Sprite2_array bank,unsigned index)
  for(unsigned i=0;i<COUNTOF(newshf_scout164_tiles);i++)if(newshf_scout164_tiles[i].index==index){
   Uint8 bytes[336]={0};
   return decode_tile(bank,index,bytes,bytes+168,12,0,0)&&global_bytes_hash(bytes,sizeof(bytes))==newshf_scout164_tiles[i].fnv;
+ }
+ for(unsigned i=0;i<COUNTOF(newshf_fighter165_tiles);i++)if(newshf_fighter165_tiles[i].index==index){
+  Uint8 bytes[336]={0};
+  return decode_tile(bank,index,bytes,bytes+168,12,0,0)&&global_bytes_hash(bytes,sizeof(bytes))==newshf_fighter165_tiles[i].fnv;
  }
  return false;
 }

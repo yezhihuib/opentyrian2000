@@ -101,6 +101,18 @@ def records(root):
             notes=['Three registered 24x28 poses retain original bank10 bases11/9/13 and anchor6/7.',
                    'Smooth alpha remains inside immutable original support; every transparent pixel is RGBA0.',
                    'Natural straight-pose and controlled bank-pose coverage are distinct; no animation, movement or gameplay changes.']))
+    import current_fighter165_newshf_compatibility as fighter165
+    for destination,row in fighter165.load(root).items():
+        sources=[fighter165.INPUT_ROOT+'/'+n for n in fighter165.MASTER_NAMES]
+        result.append(dict(family='newshf-fighter165',identity=row['identity'],density=8,role=210,
+            status='current-editable',editable_inputs=sources,source_inputs=sorted(fighter165.input_paths(root)-{fighter165.SELECTION}),selection=fighter165.SELECTION,
+            recipe=['scripts/build_current_fighter165_newshf.py','scripts/current_fighter165_newshf_compatibility.py'],
+            derived_outputs=[row['source_png'],row['source_path']],
+            declared_consumers=[dict(destination=destination,record=165,base=row['base'],evidence=fighter165.MAPPING)],
+            rebuild_commands=['python3 scripts/build_current_fighter165_newshf.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>','python3 scripts/build_current_fighter165_newshf.py --root . apply --destination <external-stage-dir>'],
+            notes=['Three registered 24x28 poses retain original bank10 bases49/47/51 and anchor6/7.',
+                   'Smooth alpha remains inside immutable original support; every transparent pixel is RGBA0.',
+                   'Natural three-pose evidence is kept distinct from controlled diagnostics; no animation, movement or gameplay changes.']))
     import current_shapesy_cyan_compatibility as cyan
     for destination,row in cyan.load(root).items():
         result.append(dict(family='shapesy-cyan',identity=row['identity'],density=8,role=203,

@@ -116,6 +116,8 @@ def before_current_projectile91_inventory(inventory,root=ROOT):
 
 def _before_current_projectile91_inventory(inventory,root=ROOT, *, _proofs):
  result=dict(inventory)
+ fighter=_current_projection_proof('fighter165_newshf',root,_proofs)
+ for name,digest in fighter['added_sources'].items():assert result.pop(name)==digest
  scout=_current_projection_proof('scout164_newshf',root,_proofs)
  for name,digest in scout['added_sources'].items():assert result.pop(name)==digest
  secondary=_current_projection_proof('shapesy_cyan_secondary',root,_proofs)
@@ -1144,6 +1146,7 @@ def _verified_sidekick_current(root=ROOT, *, _proofs):
  projectile91=_current_projection_proof('projectile91',root,_proofs)
  expected_sources.update(_current_projection_proof('shapesy_platform',root,_proofs)['added_sources'])
  expected_sources.update(_current_projection_proof('linked_newshf',root,_proofs)['added_sources'])
+ expected_sources.update(_current_projection_proof('fighter165_newshf',root,_proofs)['added_sources'])
  expected_sources.update(_current_projection_proof('scout164_newshf',root,_proofs)['added_sources'])
  expected_sources.update(_current_projection_proof('shapesy_cyan_secondary',root,_proofs)['added_sources'])
  expected_sources.update(_current_projection_proof('shapesy_cyan',root,_proofs)['added_sources'])
@@ -1631,6 +1634,8 @@ def project_p9_inventory(current,root=ROOT):
 
 def _project_p9_inventory(current,root=ROOT, *, _proofs):
  current=copy.deepcopy(current)
+ for name,row in _current_projection_proof('fighter165_newshf',root,_proofs)['assets'].items():
+  assert current.pop(name)==row,('unverified fighter165 output',name)
  for name,row in _current_projection_proof('scout164_newshf',root,_proofs)['assets'].items():
   assert current.pop(name)==row,('unverified scout164 output',name)
  for name,row in _current_projection_proof('shapesy_cyan_secondary',root,_proofs)['assets'].items():
@@ -1744,8 +1749,9 @@ def validate_current_sources(root=ROOT):
  reuse=verified_enemy_reuse_sources(root)
  observe=verified_enemy_observe_sources(root)
  probe=verified_enemy_probe_sources(root)
- assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe)|{CURRENT_PROJECTILE91_HEADER}|set(current_projectile91_ledger()['added_sources'])|set(_current_projection_proof('linked_newshf',root,None)['added_sources'])|set(_current_projection_proof('shapesy_platform',root,None)['added_sources'])|set(_current_projection_proof('dualmissile_newshf',root,None)['added_sources'])|set(_current_projection_proof('turret_newshf',root,None)['added_sources'])|set(_current_projection_proof('large_newshi',root,None)['added_sources'])|set(_current_projection_proof('shapesy_cyan',root,None)['added_sources'])|set(_current_projection_proof('shapesy_cyan_secondary',root,None)['added_sources'])|set(_current_projection_proof('scout164_newshf',root,None)['added_sources']),'unapproved current source paths'
+ assert set(actual)==set(expected)|{PLASMA_HEADER,FRONT_MULTI_HEADER,ORB_HEADER,NEWSHF_HEADER,PROTRON_HEADER,CURRENT_PROTRON_HEADER,CURRENT_SONIC_HEADER,CURRENT_GUIDED_HEADER,CURRENT_NEWSHF_HEADER,CURRENT_MINT27_HEADER,CURRENT_MISSILE_HEADER,CURRENT_REAR_P7_HEADER}|set(added)|set(compositor)|set(reuse)|set(observe)|set(probe)|{CURRENT_PROJECTILE91_HEADER}|set(current_projectile91_ledger()['added_sources'])|set(_current_projection_proof('linked_newshf',root,None)['added_sources'])|set(_current_projection_proof('shapesy_platform',root,None)['added_sources'])|set(_current_projection_proof('dualmissile_newshf',root,None)['added_sources'])|set(_current_projection_proof('turret_newshf',root,None)['added_sources'])|set(_current_projection_proof('large_newshi',root,None)['added_sources'])|set(_current_projection_proof('shapesy_cyan',root,None)['added_sources'])|set(_current_projection_proof('shapesy_cyan_secondary',root,None)['added_sources'])|set(_current_projection_proof('scout164_newshf',root,None)['added_sources'])|set(_current_projection_proof('fighter165_newshf',root,None)['added_sources']),'unapproved current source paths'
  projected=dict(actual)
+ for name,digest in _current_projection_proof('fighter165_newshf',root,None)['added_sources'].items():assert projected.pop(name)==digest
  for name,digest in _current_projection_proof('scout164_newshf',root,None)['added_sources'].items():assert projected.pop(name)==digest
  for name,digest in _current_projection_proof('shapesy_cyan_secondary',root,None)['added_sources'].items():assert projected.pop(name)==digest
  for name,digest in _current_projection_proof('shapesy_cyan',root,None)['added_sources'].items():assert projected.pop(name)==digest
@@ -1801,11 +1807,13 @@ def _current_projection_proof(family,root,context):
  from linked_newshf_projection import verified as verified_linked
  from dualmissile_newshf_projection import verified as verified_dual
  from shapesy_cyan_projection import verified as verified_cyan
+ from fighter165_newshf_projection import verified as verified_fighter
  from scout164_newshf_projection import verified as verified_scout
  from shapesy_cyan_secondary_projection import verified as verified_secondary
  from large_newshi_projection import verified as verified_large
  from turret_newshf_projection import verified as verified_turret
  validators={
+  'fighter165_newshf':verified_fighter,
   'scout164_newshf':verified_scout,
   'shapesy_cyan_secondary':verified_secondary,
   'shapesy_cyan':verified_cyan,

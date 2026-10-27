@@ -523,6 +523,19 @@ def main(argv=None) -> int:
             if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=scout164_revision:
                 raise ValueError('Stale scout164 NEWSHF runtime selection')
 
+    # Three finite NEWSHF record165 poses, independently optional at runtime.
+    from current_fighter165_newshf_compatibility import ROOT as fighter165_prefix, load as fighter165_load, REVISION as fighter165_revision, IDS as fighter165_ids, name as fighter165_name
+    fighter165_names={fighter165_name(i) for i in fighter165_ids}
+    fighter165_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(fighter165_prefix+'/') or r['destination'].casefold().startswith('assets/global/newshf-fighter165/') or r.get('revision')==fighter165_revision or Path(r['source_path']).name.casefold() in fighter165_names or Path(r['destination']).name.casefold() in fighter165_names]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or fighter165_rows:
+        selected=fighter165_load(roots[0])
+        if len(fighter165_rows)!=3 or {r['destination'] for r in fighter165_rows}!=set(selected):
+            raise ValueError('Fighter165 NEWSHF requires exactly three shared poses')
+        for row in fighter165_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=fighter165_revision:
+                raise ValueError('Stale fighter165 NEWSHF runtime selection')
+
     # Independent static cyan layer2 closure; no platform/catalog alias.
     from current_shapesy_cyan_compatibility import load as cyan_load, ROOT as cyan_prefix, REVISION as cyan_revision, IDS as cyan_ids, name as cyan_name
     cyan_names={cyan_name(i) for i in cyan_ids}

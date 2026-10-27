@@ -225,6 +225,13 @@ def main():
         add(row['source_path'],destination,'newshf-optin')
         rows[destination]['revision']=scout164_revision
 
+    from current_fighter165_newshf_compatibility import load as fighter165_load, REVISION as fighter165_revision
+    fighter165=fighter165_load(root)
+    if len(fighter165)!=3 or set(fighter165)&set(rows):raise ValueError('Unexpected/colliding fighter165 NEWSHF extension')
+    for destination,row in sorted(fighter165.items()):
+        add(row['source_path'],destination,'newshf-optin')
+        rows[destination]['revision']=fighter165_revision
+
     from current_shapesy_cyan_compatibility import load as cyan_load, REVISION as cyan_revision
     cyan=cyan_load(root)
     if len(cyan)!=4 or set(cyan)&set(rows):raise ValueError('Unexpected/colliding cyan layer2 extension')

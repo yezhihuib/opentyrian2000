@@ -3,19 +3,20 @@ import copy,json,subprocess,unittest
 from pathlib import Path
 from unittest.mock import patch
 import scout164_newshf_projection as p
+import fighter165_newshf_projection as fighter
 class Scout164Projection(unittest.TestCase):
  def test_exact_scope_no_git_or_original_data(self):
   with patch.object(subprocess,'Popen',side_effect=AssertionError('Git forbidden')):
    proof=p.verified();self.assertEqual(len(proof['mapping']),3);self.assertEqual(set(proof['added_sources']),p.ADDED)
    for name in p.FILES:
-    current=(p.ROOT/name).read_bytes();old=p.project_source(name,current)
+    current=p.checked_read(p.ROOT,name);old=p.project_source(name,current)
     self.assertEqual(p.sha(old),p.ledger()['files'][name]['previous_sha256'])
     self.assertEqual(p.project_if_current(name,old),old)
     for raw in (current+b'\n',old):
      with self.assertRaises(AssertionError):p.project_source(name,raw)
  def test_every_qualified_input_is_rechecked(self):
   read=Path.read_bytes
-  for name in p.qualified_paths()-{p.LEDGER,'tests/scout164_newshf_projection.py'}:
+  for name in p.qualified_paths()-{p.LEDGER,'tests/scout164_newshf_projection.py','tests/fighter165_newshf_projection.py'}:
    def mutated(path):
     raw=read(path);return raw+b'\n' if path==p.ROOT/name else raw
    with self.subTest(name=name),patch.object(Path,'read_bytes',mutated),self.assertRaises((AssertionError,ValueError,OSError)):p.verified()
@@ -29,9 +30,9 @@ class Scout164Projection(unittest.TestCase):
   for name in p.FILES:
    for field in ('before','after'):
     spec=copy.deepcopy(p.ledger());spec['files'][name]['hunks'][0][field]+='bad'
-    with patch.object(p,'ledger',return_value=spec),self.assertRaises(AssertionError):p.project_source(name,(p.ROOT/name).read_bytes())
+    with patch.object(p,'ledger',return_value=spec),self.assertRaises(AssertionError):p.project_source(name,p.checked_read(p.ROOT,name))
    spec=copy.deepcopy(p.ledger());spec['files'][name]['previous_sha256']='0'*64
-   with patch.object(p,'ledger',return_value=spec),self.assertRaises(AssertionError):p.project_source(name,(p.ROOT/name).read_bytes())
+   with patch.object(p,'ledger',return_value=spec),self.assertRaises(AssertionError):p.project_source(name,p.checked_read(p.ROOT,name))
  def test_undeclared_family_file_rejected(self):
   rglob=Path.rglob
   def extra(path,pattern):
@@ -61,7 +62,7 @@ class Scout164Projection(unittest.TestCase):
    bad=dict(current);bad[name]='0'*64
    with self.assertRaises((AssertionError,KeyError)):p.before_inventory(bad)
   rows=json.loads((p.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files'];mapping=p.verified()['mapping'];old=p.before_runtime(rows)
-  self.assertEqual(old,[r for r in rows if r['destination'] not in mapping])
+  self.assertEqual(old,[r for r in fighter.before_runtime(rows) if r['destination'] not in mapping])
   for kind in ('missing','duplicate','changed'):
    bad=copy.deepcopy(rows);row=next(r for r in bad if r['destination'] in mapping)
    if kind=='missing':bad.remove(row)
@@ -119,6 +120,6 @@ class Scout164Projection(unittest.TestCase):
  def test_original_runtime_paths_restore_exactly(self):
   import shapesy_cyan_secondary_projection as old
   for name in p.SRC_FILES:
-   self.assertEqual(p.sha(p.project_source(name,(p.ROOT/name).read_bytes())),p.ledger()['base_source_inventory'][name])
+   self.assertEqual(p.sha(p.project_source(name,p.checked_read(p.ROOT,name))),p.ledger()['base_source_inventory'][name])
   old.verified()
 if __name__=='__main__':unittest.main()

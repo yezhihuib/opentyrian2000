@@ -1,0 +1,51 @@
+{
+  "date_utc": "2026-10-27",
+  "family": "NEWSHF record165 V2 reduced-grid surface revision",
+  "logical_bank": 10,
+  "native_size": [
+    24,
+    28
+  ],
+  "master_size": [
+    192,
+    224
+  ],
+  "tool": "built-in image_gen",
+  "poses": [
+    {
+      "base": 49,
+      "raw": "raw-base49.png",
+      "raw_sha256": "580bc43d5ea6d1e4e5432c897b51f3ad67f0617919b845f456313bac73ac720b",
+      "master": "master-base49.png",
+      "master_sha256": "92b6a7617c79cd1fdf7b7dadf3eb1176710578aa6d6b5023bb7927479e4cb20d",
+      "source_mask": "native-mask-base49.png",
+      "source_mask_sha256": "c45e2f2512df707f5f177d9ebc6fbe953194fcf0df5932fff1163e8ac78d9909",
+      "prompt": "prompt-base49.txt",
+      "generation": "independent built-in image_gen edit of corresponding V1 pose; V2 straight as banking style reference"
+    },
+    {
+      "base": 47,
+      "raw": "raw-base47.png",
+      "raw_sha256": "7606b78e2e13e4e69d825c549c661f690e4e7312d4585f101057e96b88328081",
+      "master": "master-base47.png",
+      "master_sha256": "eab93551df2c822092bf820bdb84c69e4344f59dd8ad4cc9dd5876b3b4468962",
+      "source_mask": "native-mask-base47.png",
+      "source_mask_sha256": "a25a5c7d1ea2298fb71ef5057267487101997a37d69343f2a5779d562874aa34",
+      "prompt": "prompt-base47.txt",
+      "generation": "independent built-in image_gen edit of corresponding V1 pose; V2 straight as banking style reference"
+    },
+    {
+      "base": 51,
+      "raw": "raw-base51.png",
+      "raw_sha256": "43d92a543f6625186b8a73932cfeb2ff4703b44b1dcaec1280ea6dad42fb96c1",
+      "master": "master-base51.png",
+      "master_sha256": "3f4d0485bb095a1f80c9c124093b3d8ee59191c18d048796bf76efcd673286d8",
+      "source_mask": "native-mask-base51.png",
+      "source_mask_sha256": "1a4d048f1067923b06de78bdd7283fd75c8a090e212547ef072c52e2eba26597",
+      "prompt": "prompt-base51.txt",
+      "generation": "independent built-in image_gen edit of corresponding V1 pose; V2 straight as banking style reference"
+    }
+  ],
+  "registration": "rebuild.py: alpha bbox crop, global Lanczos fit, conservative inward native-mask intersection and disconnected alpha-dust removal; no surface painting, blur-filter edit or per-row warp",
+  "runtime_acceptance": "Not established by this art package; V1 validation cannot qualify V2"
+}

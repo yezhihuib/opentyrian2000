@@ -7,16 +7,18 @@
 #include "current_turret_newshf_hd_assets.h"
 #include "current_large_newshi_hd_assets.h"
 #include "current_scout164_newshf_hd_assets.h"
-enum { GLOBAL_NEWSHF_RESOURCE_COUNT=31 };
+#include "current_fighter165_newshf_hd_assets.h"
+enum { GLOBAL_NEWSHF_RESOURCE_COUNT=34 };
 static Uint8 *global_newshf_rgba[GLOBAL_NEWSHF_RESOURCE_COUNT];
 static uint64_t global_newshf_rgba_stamp[GLOBAL_NEWSHF_RESOURCE_COUNT];
-static uint32_t global_newshf_used_resources;
-typedef char global_newshf_mask_capacity[(GLOBAL_NEWSHF_RESOURCE_COUNT<=32)?1:-1];
+static uint64_t global_newshf_used_resources;
+typedef char global_newshf_mask_capacity[(GLOBAL_NEWSHF_RESOURCE_COUNT<=64)?1:-1];
 static bool global_newshf_linked_loaded,global_newshf_linked_good;
 static bool global_newshf_dualmissile_loaded,global_newshf_dualmissile_good;
 static bool global_newshf_turret_loaded,global_newshf_turret_good;
 static bool global_newshi_large_loaded,global_newshi_large_good;
 static bool global_newshf_scout164_loaded,global_newshf_scout164_good;
+static bool global_newshf_fighter165_loaded,global_newshf_fighter165_good;
 static unsigned global_newshf_preflight_phase[100],global_newshf_preflight_pose[100];
 /* Retained independently of pixel ownership, live slots, and draw order. */
 static struct {const Sprite2_array *object;const Uint8 *data;size_t size;} global_newshf_bank_leases[2];
@@ -26,7 +28,7 @@ static Uint8 global_newshf_dual_preflight_state[100];
 static bool global_newshf_assets_match(void)
 {
  for(unsigned i=0;i<GLOBAL_NEWSHF_RESOURCE_COUNT;i++)
-  if((global_newshf_used_resources&(UINT32_C(1)<<i))&&(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i]))return false;
+  if((global_newshf_used_resources&(UINT64_C(1)<<i))&&(!global_newshf_rgba[i]||global_bytes_hash(global_newshf_rgba[i],192u*224u*4u)!=global_newshf_rgba_stamp[i]))return false;
  return true;
 }
 static bool global_newshf_loaded,global_newshf_good,global_newshf_cached;
@@ -108,7 +110,7 @@ static void global_newshf_use_bank(unsigned phase)
  global_newshf_bank_leases[k].object=b;global_newshf_bank_leases[k].data=b->data;global_newshf_bank_leases[k].size=b->size;
 }
 static bool global_newshf_soft_phase(unsigned phase)
-{return phase==15||(phase>=18&&phase<31);}
+{return phase==15||(phase>=18&&phase<34);}
 static bool global_newshf_disjoint(const SDL_Surface *a,const SDL_Surface *b)
 {
  uintptr_t x=(uintptr_t)a->pixels,y=(uintptr_t)b->pixels;
@@ -155,14 +157,14 @@ static bool global_newshf_surface_matches(void)
 static bool global_newshf_group_ready(unsigned phase)
 {
  if(phase>=GLOBAL_NEWSHF_RESOURCE_COUNT)return false;
- bool scout=phase>=28&&phase<31,large=phase>=18&&phase<28,turret=phase>=16&&phase<18,dual=phase==15,linked=phase>=9&&phase<15;
- bool *loaded=scout?&global_newshf_scout164_loaded:large?&global_newshi_large_loaded:turret?&global_newshf_turret_loaded:dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;
- bool *good=scout?&global_newshf_scout164_good:large?&global_newshi_large_good:turret?&global_newshf_turret_good:dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;
- unsigned begin=scout?28:large?18:turret?16:dual?15:linked?9:0,end=scout?31:large?28:turret?18:dual?16:linked?15:9;
+ bool fighter=phase>=31&&phase<34,scout=phase>=28&&phase<31,large=phase>=18&&phase<28,turret=phase>=16&&phase<18,dual=phase==15,linked=phase>=9&&phase<15;
+ bool *loaded=fighter?&global_newshf_fighter165_loaded:scout?&global_newshf_scout164_loaded:large?&global_newshi_large_loaded:turret?&global_newshf_turret_loaded:dual?&global_newshf_dualmissile_loaded:linked?&global_newshf_linked_loaded:&global_newshf_loaded;
+ bool *good=fighter?&global_newshf_fighter165_good:scout?&global_newshf_scout164_good:large?&global_newshi_large_good:turret?&global_newshf_turret_good:dual?&global_newshf_dualmissile_good:linked?&global_newshf_linked_good:&global_newshf_good;
+ unsigned begin=fighter?31:scout?28:large?18:turret?16:dual?15:linked?9:0,end=fighter?34:scout?31:large?28:turret?18:dual?16:linked?15:9;
  if(!*loaded){
   *loaded=true;*good=true;
   for(unsigned i=begin;i<end;i++){
-   const GlobalAssetResource *r=scout?scout164_newshf_hd_resources+i-28:large?large_newshi_hd_resources+i-18:turret?turret_newshf_hd_resources+i-16:dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
+   const GlobalAssetResource *r=fighter?fighter165_newshf_hd_resources+i-31:scout?scout164_newshf_hd_resources+i-28:large?large_newshi_hd_resources+i-18:turret?turret_newshf_hd_resources+i-16:dual?dualmissile_newshf_hd_resources+i-15:linked?linked_newshf_hd_resources+i-9:newshf_hd_resources+i;
    if(r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||!(global_newshf_rgba[i]=global_resource_load(r)))*good=false;
    if(global_newshf_rgba[i])global_newshf_rgba_stamp[i]=global_bytes_hash(global_newshf_rgba[i],192u*224u*4u);
   }
@@ -199,6 +201,7 @@ static void global_newshf_shutdown(void)
  global_newshf_linked_loaded=global_newshf_linked_good=false;
  global_newshf_dualmissile_loaded=global_newshf_dualmissile_good=false;
  global_newshf_turret_loaded=global_newshf_turret_good=false;global_newshi_large_loaded=global_newshi_large_good=false;
+ global_newshf_fighter165_loaded=global_newshf_fighter165_good=false;
  global_newshf_scout164_loaded=global_newshf_scout164_good=false;global_newshf_used_resources=0;
  free(global_newshf_owner);free(global_newshf_foreign);global_newshf_owner=global_newshf_foreign=NULL;global_newshf_capacity=0;
 }
@@ -264,7 +267,7 @@ static int global_newshf_draw_typed(SDL_Surface *surface,int x,int y,Sprite2_arr
  if(x<0||x>308){global_newshf_fail();return 0;}
  /* Missing optional art leaves this actor classic, not other groups revoked. */
  if(!global_newshf_phase_bank_matches(phase,bank)){global_newshf_fail();return 0;}
- uint32_t group_mask=phase<9?UINT32_C(0x1ff):phase<15?UINT32_C(0x7e00):phase==15?UINT32_C(0x8000):phase<18?UINT32_C(0x30000):phase<28?UINT32_C(0x0ffc0000):UINT32_C(0x70000000);
+ uint64_t group_mask=phase<9?UINT64_C(0x1ff):phase<15?UINT64_C(0x7e00):phase==15?UINT64_C(0x8000):phase<18?UINT64_C(0x30000):phase<28?UINT64_C(0x0ffc0000):phase<31?UINT64_C(0x70000000):UINT64_C(0x380000000);
  if(!(phase<9?global_newshf_family_ready():global_newshf_group_ready(phase))){if(phase<9||(global_newshf_used_resources&group_mask))global_newshf_fail();return 0;}
  global_newshf_used_resources|=group_mask;global_newshf_use_bank(phase);
  if(global_newshf_call.live){global_newshf_fail();return 0;}
