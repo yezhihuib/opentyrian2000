@@ -1,11 +1,18 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Finite shapesY gray platforms. Native water is an ordered indexed callback,
+ * Finite shapesY gray platforms plus independent opaque bronze356.
+ * Native water is an ordered indexed callback,
  * not transparency over a previous scene. No new indexed writes or owners. */
 #include "current_shapesy_platform_source.h"
 #include "current_shapesy_platform_hd_assets.h"
+#include "current_shapesy_bronze356_hd_assets.h"
+#include "current_shapesy_bronze356_source.h"
 static struct { bool valid; unsigned ids[72]; bool seen[28]; Uint8 source[28][672]; } shapesy_registry;
 static struct { bool checked,valid; char root[1024]; Asset members[28]; uint64_t generation; } shapesy_resources;
-static struct { bool live,drew; SDL_Surface *surface; size_t first; unsigned row; int x,y; uint64_t generation; Uint32 palette[256]; const Uint8 *sources[8][12]; unsigned replaced[8]; VideoOutputGeometry geometry; } shapesy_pass;
+/* The optional whole-tile resource is not in the immutable28 contour domain.
+ * Missing/invalid356 cannot revoke an unused old28 contribution. */
+static struct { bool seen,invalid,checked,valid,used; Uint8 source[672]; char root[1024]; Asset member; } shapesy_bronze356;
+static bool shapesy_platform_used;
+static struct { bool live,drew,platform,bronze356; SDL_Surface *surface; size_t first; unsigned row; int x,y; uint64_t generation; Uint32 palette[256]; const Uint8 *sources[8][12]; unsigned replaced[8]; VideoOutputGeometry geometry; } shapesy_pass;
 static struct { bool live; SDL_Surface *surface; uint64_t generation; Uint32 palette[256]; VideoOutputGeometry geometry; } shapesy_frame;
 static struct { bool live; unsigned replaced; int x,y; uint64_t generation; const Uint8 *sources[12]; } shapesy_row_lease;
 /* Typed opaque values written only by the guarded ShapesY layer1/edge path.
@@ -66,7 +73,8 @@ static int shapesy_source_slot(const Uint8 *data)
 }
 void render_mirror_shapesy_row_end(void)
 {memset(&shapesy_row_lease,0,sizeof(shapesy_row_lease));shapesy_draw_lease=NULL;}
-static bool shapesy_context(SDL_Surface *surface),shapesy_cache_valid(void);
+static bool shapesy_context(SDL_Surface *surface),shapesy_cache_valid(void),shapesy_platform_cache_valid(void);
+static bool shapesy_bronze356_sources_valid(void),shapesy_bronze356_cache_valid(void);
 static bool shapesy_geometry(VideoOutputGeometry *out)
 { return video_output_geometry(out) && (out->scale == 2 || out->scale == 4); }
 static bool shapesy_geometry_matches(const VideoOutputGeometry *expected_geometry)
@@ -91,11 +99,12 @@ void render_mirror_shapesy_end(void)
  if(bad||edge_bad)render_mirror_unsupported(edge_bad?edge_bad:"shapesy-pass-final-integrity");
 }
 static void shapesy_frame_reset(void)
-{render_mirror_shapesy_end();shapesy_borrow_retire();memset(&shapesy_frame,0,sizeof(shapesy_frame));}
+{render_mirror_shapesy_end();shapesy_borrow_retire();memset(&shapesy_frame,0,sizeof(shapesy_frame));shapesy_platform_used=shapesy_bronze356.used=false;}
 static void shapesy_map_reset(void)
 {
  shapesy_frame_reset();shapesy_world_reset();
  for(unsigned k=0;k<28;k++)free(shapesy_resources.members[k].rgba);
+ free(shapesy_bronze356.member.rgba);memset(&shapesy_bronze356,0,sizeof(shapesy_bronze356));
  memset(&shapesy_resources,0,sizeof(shapesy_resources));
  memset(&shapesy_registry,0,sizeof(shapesy_registry));shapesy_registry.valid=true;
 }
@@ -107,6 +116,12 @@ static void shapesy_bind(unsigned layer,unsigned id,const Uint8 *data)
  int slot=shapesy_source_slot(data),k=shapesy_member(id);
  if(slot<0||!id||id>600||shapesy_registry.ids[slot]){shapesy_registry.valid=false;return;}
  shapesy_registry.ids[slot]=id;
+ if(id==356){
+  if(asteroid1_stamp(data,672)!=SHAPESY_BRONZE356_SOURCE_FNV||
+     (shapesy_bronze356.seen&&memcmp(data,shapesy_bronze356.source,672)))shapesy_bronze356.invalid=true;
+  else {memcpy(shapesy_bronze356.source,data,672);shapesy_bronze356.seen=true;}
+  return;
+ }
  if(k<0)return;
  if(asteroid1_stamp(data,672)!=shapesy_source_pins[k]){shapesy_registry.valid=false;return;}
  if(shapesy_registry.seen[k]&&memcmp(data,shapesy_registry.source[k],672)){shapesy_registry.valid=false;return;}
@@ -116,7 +131,8 @@ static unsigned shapesy_id(const Uint8 *data)
 {int slot=shapesy_source_slot(data);return slot<0?0:shapesy_registry.ids[slot];}
 static bool shapesy_sources_valid(void)
 {
- if(!shapesy_registry.valid||(terrain_file!='Y'&&terrain_file!='y'))return false;
+ if(!shapesy_registry.valid||(terrain_file!='Y'&&terrain_file!='y')||
+    (shapesy_bronze356.used&&!shapesy_bronze356_sources_valid()))return false;
  /* Every actual alias is rechecked, including offscreen duplicate slots. */
  for(unsigned slot=0;slot<72;slot++) {
   int k=shapesy_member(shapesy_registry.ids[slot]);
@@ -188,12 +204,12 @@ static bool shapesy_family_ready(void)
   shapesy_resources.valid=ok;
  }
  if(!shapesy_resources.valid||strcmp(shapesy_resources.root,game_probe_assets))return false;
- if(!shapesy_cache_valid())return false;
+ if(!shapesy_platform_cache_valid())return false;
  shapesy_resources.generation++;return true;
 }
 /* All resources revalidated before and after every real pass. No per-pixel
  * 4.8MB scans; cached mutation during a pass rejects it before presentation. */
-static bool shapesy_cache_valid(void)
+static bool shapesy_platform_cache_valid(void)
 {
  if(!shapesy_resources.valid||!game_probe_assets||strcmp(shapesy_resources.root,game_probe_assets))return false;
  for(unsigned k=0;k<28;k++) {
@@ -205,10 +221,66 @@ static bool shapesy_cache_valid(void)
  return true;
 }
 
+/* Exact optional356 aliases are independent of old28 source completeness. */
+static bool shapesy_bronze356_sources_valid(void)
+{
+ if(!shapesy_bronze356.seen||shapesy_bronze356.invalid||
+    asteroid1_stamp(shapesy_bronze356.source,672)!=SHAPESY_BRONZE356_SOURCE_FNV)return false;
+ bool found=false;
+ for(unsigned slot=0;slot<72;slot++)if(shapesy_registry.ids[slot]==356){
+  found=true;if(memcmp(megaData1.shapes[slot].sh,shapesy_bronze356.source,672))return false;
+ }
+ return found;
+}
+static bool shapesy_bronze356_rgba_valid(const Uint8 *rgba)
+{
+ if(!rgba||asteroid1_stamp(rgba,192u*224u*4u)!=SHAPESY_BRONZE356_RGBA_FNV)return false;
+ for(unsigned n=0;n<192u*224u;n++)if(rgba[n*4+3]!=255)return false;
+ return true;
+}
+static bool shapesy_bronze356_load(Asset *result)
+{
+ char path[1200];Uint8 header[28],extra;REAR_STAT st;
+ int n=snprintf(path,sizeof(path),"%s/terrain-shapesy-356-8.hda",shapesy_bronze356.root);
+ if(n<0||(size_t)n>=sizeof(path))return false;
+ int fd=REAR_OPEN(path);if(fd<0)return false;
+ const size_t bytes=192u*224u*4u;Uint8 *rgba=NULL;
+ bool ok=!REAR_FSTAT(fd,&st)&&REAR_REGULAR(st.st_mode)&&st.st_size==(long)(28+bytes)&&REAR_READ(fd,header,28)==28&&!memcmp(header,"HDR1",4);
+ uint32_t v[6]={0};
+ if(ok){for(unsigned i=0;i<6;i++)for(unsigned j=0;j<4;j++)v[i]|=(uint32_t)header[4+i*4+j]<<(8*j);
+  ok=v[0]==2020356&&v[1]==8&&v[2]==24&&v[3]==28&&!v[4]&&!v[5];}
+ if(ok){rgba=malloc(bytes);ok=rgba!=NULL;}
+ if(ok)ok=REAR_READ(fd,rgba,bytes)==(int)bytes&&REAR_READ(fd,&extra,1)==0&&shapesy_bronze356_rgba_valid(rgba);
+ if(REAR_CLOSE(fd))ok=false;
+ if(!ok){free(rgba);return false;}
+ *result=(Asset){true,true,ASSET_SHAPESY_PLATFORM,356,24,28,0,0,8,rgba};return true;
+}
+static bool shapesy_bronze356_cache_valid(void)
+{
+ Asset *a=&shapesy_bronze356.member;
+ return shapesy_bronze356.valid&&game_probe_assets&&!strcmp(shapesy_bronze356.root,game_probe_assets)&&
+  shapesy_bronze356_sources_valid()&&a->initialized&&a->valid&&a->bank==ASSET_SHAPESY_PLATFORM&&a->index==356&&
+  a->w==24&&a->h==28&&!a->anchor_x&&!a->anchor_y&&a->density==8&&shapesy_bronze356_rgba_valid(a->rgba);
+}
+static bool shapesy_bronze356_ready(void)
+{
+ if(!game_probe_assets||strlen(game_probe_assets)>=sizeof(shapesy_bronze356.root)||!shapesy_bronze356_sources_valid())return false;
+ if(!shapesy_bronze356.checked){
+  shapesy_bronze356.checked=true;strcpy(shapesy_bronze356.root,game_probe_assets);
+  shapesy_bronze356.valid=shapesy_bronze356_load(&shapesy_bronze356.member);
+ }
+ return shapesy_bronze356_cache_valid();
+}
+static bool shapesy_cache_valid(void)
+{
+ return (!shapesy_platform_used||shapesy_platform_cache_valid())&&
+        (!shapesy_bronze356.used||shapesy_bronze356_cache_valid());
+}
+
 void render_mirror_shapesy_layer1(SDL_Surface *surface,const void *first,int x,int y)
 {
  bool cleared=shapesy_clear_proof;render_mirror_shapesy_end();shapesy_borrow_retire();
- if(cleared)memset(&shapesy_frame,0,sizeof(shapesy_frame));
+ if(cleared){memset(&shapesy_frame,0,sizeof(shapesy_frame));shapesy_platform_used=shapesy_bronze356.used=false;}
  if(!cleared||!shapesy_context(surface)||x<0||x>32||y<-28||y>-1||x!=mapXPos||y!=(int)backPos-28)return;
  uintptr_t base=(uintptr_t)&megaData1.mainmap[0][0],p=(uintptr_t)first;
  if(p<base||p-base>=sizeof(megaData1.mainmap)||(p-base)%sizeof(JE_byte *))return;
@@ -219,7 +291,11 @@ void render_mirror_shapesy_layer1(SDL_Surface *surface,const void *first,int x,i
   if(s&&!shapesy_id(s))return;
  }
  VideoOutputGeometry geometry;
- if(!shapesy_geometry(&geometry)||!shapesy_family_ready()||!shapesy_world_prepare())return;
+ if(!shapesy_geometry(&geometry))return;
+ bool platform=shapesy_family_ready(),bronze356=shapesy_bronze356_ready();
+ if((!platform&&!bronze356)||!shapesy_world_prepare())return;
+ if(!platform)shapesy_resources.generation++;
+ shapesy_pass.platform=platform;shapesy_pass.bronze356=bronze356;
  shapesy_borrow_begin();
  shapesy_pass.geometry=geometry;
  shapesy_pass.live=true;shapesy_pass.surface=surface;shapesy_pass.first=cell;shapesy_pass.x=x;shapesy_pass.y=y;
@@ -247,25 +323,29 @@ static unsigned shapesy_row(SDL_Surface *surface,int x,int y,Uint8 **map,int sty
   render_mirror_shapesy_end();return 0;}
  /* Reject clones/offsets and source mutation before any tile in this row. */
  for(unsigned tile=0;tile<12;tile++)if(map[tile]){
-  unsigned id=shapesy_id(map[tile]);if(!id||(shapesy_member(id)>=0&&!shapesy_zero_underlay(map[tile],x+(int)tile*24,y))){
+  unsigned id=shapesy_id(map[tile]);if(!id||(shapesy_pass.platform&&shapesy_member(id)>=0&&!shapesy_zero_underlay(map[tile],x+(int)tile*24,y))){
    if(shapesy_pass.drew)render_mirror_unsupported("shapesy-source-or-zero");
    render_mirror_shapesy_end();return 0;}
  }
  shapesy_pass.row++;unsigned replaced=0;
  for(unsigned tile=0;tile<12;tile++){
-  int k=shapesy_member(shapesy_id(map[tile]));if(k<0)continue;
-  Asset *a=&shapesy_resources.members[k];shapesy_draw_lease=a;
+  unsigned id=shapesy_id(map[tile]);int k=shapesy_member(id);
+  Asset *a=k>=0&&shapesy_pass.platform?&shapesy_resources.members[k]:
+   id==356&&shapesy_pass.bronze356?&shapesy_bronze356.member:NULL;
+  if(!a)continue;
+  shapesy_draw_lease=a;
   bool mirrored=draw_asset_filtered(x+(int)tile*24,y,a,MIRROR_NORMAL,NULL,0,NULL,NULL,NULL);
   shapesy_draw_lease=NULL;suppress=false;suppress_cloud=false;suppress_green_smoke=false;
   /* Unsupported drawing can reset the pass (including its row ordinal). */
   if(!shapesy_pass.live||reject_reason)return 0;
   if(mirrored){
+   if(id==356)shapesy_bronze356.used=true;else shapesy_platform_used=true;
    replaced|=1u<<tile;shapesy_pass.drew=true;shapesy_frame.live=true;
    shapesy_frame.surface=surface;shapesy_frame.generation=shapesy_pass.generation;
    shapesy_frame.geometry=shapesy_pass.geometry;
    memcpy(shapesy_frame.palette,shapesy_pass.palette,sizeof(shapesy_frame.palette));
   }
-  game_probe_scene_draw(ASSET_SHAPESY_PLATFORM,shapesy_ids[k],x+(int)tile*24,y,0,MIRROR_NORMAL,mirrored);
+  game_probe_scene_draw(ASSET_SHAPESY_PLATFORM,id,x+(int)tile*24,y,0,MIRROR_NORMAL,mirrored);
  }
  shapesy_pass.replaced[shapesy_pass.row-1]=replaced;
  for(unsigned t=0;t<12;t++)shapesy_pass.sources[shapesy_pass.row-1][t]=map[t];
@@ -287,8 +367,9 @@ static bool shapesy_native_water(SDL_Surface *surface,Uint8 *address,Uint8 sourc
  int x=(int)(offset%surface->pitch)-shapesy_row_lease.x,y=(int)(offset/surface->pitch)-shapesy_row_lease.y;
  if(x<0||x>=288||y<0||y>=28)return false;
  unsigned t=(unsigned)x/24;const Uint8 *s=shapesy_row_lease.sources[t];
- int k=shapesy_member(shapesy_id(s));
- if(!(shapesy_row_lease.replaced&(1u<<t))||k<0||!s||s[y*24+x%24]!=source||memcmp(s,shapesy_registry.source[k],672)){
+ unsigned id=shapesy_id(s);int k=shapesy_member(id);
+ const Uint8 *bound=k>=0?shapesy_registry.source[k]:id==356&&shapesy_pass.bronze356?shapesy_bronze356.source:NULL;
+ if(!(shapesy_row_lease.replaced&(1u<<t))||!bound||!s||s[y*24+x%24]!=source||memcmp(s,bound,672)){
   render_mirror_unsupported("shapesy-pixel-identity");render_mirror_shapesy_end();return false;}
  if(qualified)*qualified=true;
  return source>=48&&source<=63;
@@ -302,8 +383,9 @@ static bool shapesy_frame_check(void)
  if(!shapesy_frame.live)return true;
  if(!shapesy_geometry_matches(&shapesy_frame.geometry)||!shapesy_world_check()||shapesy_pass.live||shapesy_row_lease.live||shapesy_frame.surface!=game_screen||
   asteroid_hd_enabled||game_probe_density!=8||game_probe_missing||game_probe_invalid||game_probe_original_reference||
-  !(game_probe_scene_assets&2)||!game_probe_assets||!shapesy_resources.valid||
-  strcmp(game_probe_assets,shapesy_resources.root)||shapesy_frame.generation!=shapesy_resources.generation||
+  !(game_probe_scene_assets&2)||!game_probe_assets||(!shapesy_platform_used&&!shapesy_bronze356.used)||
+  (shapesy_platform_used&&(!shapesy_resources.valid||strcmp(game_probe_assets,shapesy_resources.root)))||
+  (shapesy_bronze356.used&&!shapesy_bronze356_cache_valid())||shapesy_frame.generation!=shapesy_resources.generation||
   filterFade||levelFilter!=-99||levelBrightness!=-99||
   memcmp(shapesy_frame.palette,rgb_palette,sizeof(shapesy_frame.palette))||!shapesy_sources_valid())return false;
  for(unsigned i=0;i<9;i++)if(smoothies[i])return false;

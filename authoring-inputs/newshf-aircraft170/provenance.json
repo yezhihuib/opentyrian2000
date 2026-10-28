@@ -1,0 +1,91 @@
+{
+  "schema": "opentyrian-newshf-aircraft170-art-provenance-v1",
+  "date_utc": "2026-10-28",
+  "family": "NEWSHF record170 green swept-wing dart aircraft",
+  "logical_bank": 10,
+  "record": 170,
+  "bases_in_cycle_order": [
+    53,
+    15,
+    91
+  ],
+  "native_size": [
+    24,
+    28
+  ],
+  "master_size": [
+    192,
+    224
+  ],
+  "native_anchor": [
+    6,
+    7
+  ],
+  "tool": "built-in image_gen",
+  "tool_call_count": 3,
+  "poses": [
+    {
+      "base": 53,
+      "cycle": 1,
+      "pose": "straight",
+      "raw": "raw-base53.png",
+      "raw_sha256": "8bc86d2174ee6dab1046e38f2971f72094e80c135622130eeedfc7dd59f71eaa",
+      "raw_size": [
+        1161,
+        1355
+      ],
+      "original_tool_output": "/workspace/scratch/f67dd347fa0a/generated_images/exec-0fad2f40-5f2c-4e98-8bf4-9416b41d7433.png",
+      "master": "master-base53.png",
+      "master_sha256": "427280b6381fc589faf9d75a8060f75805747cda3c6fbbd62459c69956c64752",
+      "source_mask": "native-mask-base53.png",
+      "source_mask_sha256": "bed503961a19171a8bc8c82f1b73369bfcda06194fa416fcd0b081c4766b8c79",
+      "prompt": "prompt-base53.txt",
+      "prompt_sha256": "750f1e9efe19e1d533d85c4381fa8fc5ab2325a3a436f523227f00d5137b18b6",
+      "generation": "Independent built-in image_gen with original straight pose and immutable mask"
+    },
+    {
+      "base": 15,
+      "cycle": 2,
+      "pose": "banking; direction label unasserted",
+      "raw": "raw-base15.png",
+      "raw_sha256": "1531362fb412867f6b65bc99bb6d3384d637b7202ae2aec8d365d28c88ca8f2c",
+      "raw_size": [
+        1161,
+        1355
+      ],
+      "original_tool_output": "/workspace/scratch/f67dd347fa0a/generated_images/exec-1c580a98-be6e-4bf8-b7fd-8f2b4489b256.png",
+      "master": "master-base15.png",
+      "master_sha256": "f04496167571380d53282f75b21941ece9823a50f657efcefb3862d6a9eb9679",
+      "source_mask": "native-mask-base15.png",
+      "source_mask_sha256": "cf5e5a136061d0bcb8e6a143c79931e25f92bed71f5c3ad7040976c053fb2f08",
+      "prompt": "prompt-base15.txt",
+      "prompt_sha256": "cfc52b481880c8fd106e70b949b958172b774d27518969b6e7aefa13206ef568",
+      "generation": "Independent built-in image_gen with this original pose and immutable mask; straight generated source used for design/material only"
+    },
+    {
+      "base": 91,
+      "cycle": 3,
+      "pose": "banking; direction label unasserted",
+      "raw": "raw-base91.png",
+      "raw_sha256": "c08ec4a3a7f10629534af5443b43f36afa881c96b2161c7d9415e2619f1555a8",
+      "raw_size": [
+        1161,
+        1354
+      ],
+      "original_tool_output": "/workspace/scratch/f67dd347fa0a/generated_images/exec-82649ac1-4f02-4097-b244-33ee9110779a.png",
+      "master": "master-base91.png",
+      "master_sha256": "c25949a7d668067776d0d96b2a63d2c5b759d40a6de7402998d09f58983631bb",
+      "source_mask": "native-mask-base91.png",
+      "source_mask_sha256": "d2ccc71741290067f9880bec0087c9f9a7e63998d515a775e0dc8aa4fe913abb",
+      "prompt": "prompt-base91.txt",
+      "prompt_sha256": "46af225c233818e5fd3c61a148c20222a9f969821cfb99421d33edb0bc791ad6",
+      "generation": "Independent built-in image_gen with this original pose and immutable mask; straight generated source used for design/material only"
+    }
+  ],
+  "registration": "Established record169/166 deterministic recipe adapted only pose identifiers and statistics: crop raw alpha>32 bounds; Lanczos fit to occupied native bounds; intersect generated alpha with conservative inward-antialiased native support; remove disconnected low-alpha dust; zero RGB wherever alpha zero. No painting, rotation, mirroring, mesh warp, shear or transformed straight-pose substitution.",
+  "native_reference_dependency": "Original record170 native/nearest8x/mask images and BRIEF/identity receipt privately inspected from ../next-batch-170-356-preflight/record170. Native color pixels are not bundled; only immutable binary support masks included.",
+  "transparency": "Raw generated RGBA sources preserved byte-for-byte. Masters retain generated alpha via resizing and conservative mask intersection. Native-zero RGBA and alpha-zero RGB are exactly zero. Median visible alpha253 in all poses; originally occupied cells may be empty, requiring existing verified underlay restoration at runtime.",
+  "visual_review": "All three actual native and nearest8x source sprites, immutable masks, raw generations and 4x/8x registered previews inspected. Smooth broad green metal planes with sparse major seams, dark inset cockpit, nose-down swept-wing dart silhouette. Independent opposite bank renders use asymmetric wing faces, canopy/spine perspective and sidewalls. No dense grid or mosaic texture. Green brightness deliberately increased for small-scale readability.",
+  "rebuild_verification": "All three 192x224 RGBA masters, 4x/8x previews, clean art-only preview and stats reproduce byte-for-byte; one visible connected component per master; source masks and copied raw images match exact source bytes.",
+  "scope": "Private art candidate only. No runtime integration, compiler, gameplay, tests, full gate or publication. Frozen newshf169-private and record166 unmodified."
+}

@@ -1,0 +1,27 @@
+{
+  "master": "raw/generated-master-03.png",
+  "master_sha256": "14376ecc60939b4caa85f459442bd27ff7338a364d6d89d23d5fe01ac820a7f2",
+  "master_size": [
+    1161,
+    1354
+  ],
+  "target_size": [
+    192,
+    224
+  ],
+  "crop": [
+    0,
+    0,
+    1161,
+    1354
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "resample": "Pillow LANCZOS",
+  "rule": "entire master rectangle resized once; no crop removal, masking, compositing, color adjustment, source pixel borrowing or synthetic artwork",
+  "border_policy": "generated earth; visual adjacency review, not native equality constraints",
+  "native_data_needed": false,
+  "selected_iteration": 3
+}

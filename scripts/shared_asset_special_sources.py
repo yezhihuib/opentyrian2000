@@ -125,6 +125,30 @@ def records(root):
             notes=['Three registered 24x28 poses retain original bank10 bases87/85/89 and anchor6/7.',
                    'Smooth alpha remains inside immutable original support; every transparent pixel is RGBA0.',
                    'Natural three-pose evidence is kept distinct from controlled diagnostics; no animation, movement or gameplay changes.']))
+    import current_aircraft169_newshf_compatibility as aircraft169
+    for destination,row in aircraft169.load(root).items():
+        sources=[aircraft169.INPUT_ROOT+'/'+n for n in aircraft169.MASTER_NAMES]
+        result.append(dict(family='newshf-aircraft169',identity=row['identity'],density=8,role=210,
+            status='current-editable',editable_inputs=sources,source_inputs=sorted(aircraft169.input_paths(root)-{aircraft169.SELECTION}),selection=aircraft169.SELECTION,
+            recipe=['scripts/build_current_aircraft169_newshf.py','scripts/current_aircraft169_newshf_compatibility.py'],
+            derived_outputs=[row['source_png'],row['source_path']],
+            declared_consumers=[dict(destination=destination,record=169,base=row['base'],evidence=aircraft169.MAPPING)],
+            rebuild_commands=['python3 scripts/build_current_aircraft169_newshf.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>','python3 scripts/build_current_aircraft169_newshf.py --root . apply --destination <external-stage-dir>'],
+            notes=['Three registered 24x28 poses retain original bank10 bases79/77/115 and anchor6/7.',
+                   'Smooth alpha remains inside immutable original support; every transparent pixel is RGBA0.',
+                   'Natural three-pose evidence is kept distinct from controlled diagnostics; no animation, movement or gameplay changes.']))
+    import current_aircraft170_newshf_compatibility as aircraft170
+    for destination,row in aircraft170.load(root).items():
+        sources=[aircraft170.INPUT_ROOT+'/'+n for n in aircraft170.MASTER_NAMES]
+        result.append(dict(family='newshf-aircraft170',identity=row['identity'],density=8,role=210,
+            status='current-editable',editable_inputs=sources,source_inputs=sorted(aircraft170.input_paths(root)-{aircraft170.SELECTION}),selection=aircraft170.SELECTION,
+            recipe=['scripts/build_current_aircraft170_newshf.py','scripts/current_aircraft170_newshf_compatibility.py'],
+            derived_outputs=[row['source_png'],row['source_path']],
+            declared_consumers=[dict(destination=destination,record=170,base=row['base'],evidence=aircraft170.MAPPING)],
+            rebuild_commands=['python3 scripts/build_current_aircraft170_newshf.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>','python3 scripts/build_current_aircraft170_newshf.py --root . apply --destination <external-stage-dir>'],
+            notes=['Three registered 24x28 poses retain original bank10 bases53/15/91 and anchor6/7.',
+                   'Smooth alpha remains inside immutable original support; every transparent pixel is RGBA0.',
+                   'Exact HDT identity only; E4/E5 variation stays classic. No animation, movement or gameplay changes.']))
     import current_shapesy_cyan_compatibility as cyan
     for destination,row in cyan.load(root).items():
         result.append(dict(family='shapesy-cyan',identity=row['identity'],density=8,role=203,
@@ -149,6 +173,17 @@ def records(root):
             notes=['One generated static 48x84 cloud master split into five independently placed 24x28 tiles; no animation.',
                    'Original index0 cells remain transparent RGBA0. Thirty-eight boundary source cells deliberately move fully inward.',
                    'Only verified ShapesY layer2 palette5 normal internal8; other palettes, blend, and true4 stay classic.']))
+    import current_shapesy_bronze356_compatibility as bronze356
+    for destination,row in bronze356.load(root).items():
+        result.append(dict(family='shapesy-bronze356',identity=row['identity'],density=8,role=202,
+            status='current-editable',editable_inputs=[bronze356.INPUT_ROOT+'/raw/generated-master-03.png'],source_inputs=sorted(bronze356.input_paths(root)-{bronze356.SELECTION}),selection=bronze356.SELECTION,
+            recipe=['scripts/current_shapesy_bronze356_compatibility.py','scripts/build_current_shapesy_bronze356.py'],
+            derived_outputs=[row['source_png'],row['source_path']],
+            declared_consumers=[dict(destination=destination,base=356,layer=1,evidence=bronze356.MAPPING)],
+            rebuild_commands=['python3 scripts/build_current_shapesy_bronze356.py --root . stage --selection <candidate.json> --destination <new-external-stage-dir>','python3 scripts/build_current_shapesy_bronze356.py --root . apply --destination <external-stage-dir>'],
+            notes=['One fully opaque generated bronze object and earth collar; master is the sole creative pixel source.',
+                   'Independent optional role202 singleton; not part of old28 gray-platform contours.',
+                   'No native earth borrowing, transparent object overlay, neighbor repaint or water/shore changes.']))
     import current_shapesy_platform_compatibility as shapesy
     for destination,row in shapesy.load(root).items():
         sources=sorted(shapesy.input_paths(root)-{shapesy.SELECTION,shapesy.RECIPE_MODULE})

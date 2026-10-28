@@ -1,0 +1,11 @@
+# NEWSHF record170 — three-pose green HD art candidate
+
+Cycle1 straight base53; cycle2 bank base15; cycle3 opposite bank base91. Left/right bank labels are intentionally unasserted. Masters are 192×224 RGBA for the original 24×28 quartet at native anchor(6,7). Smooth broad green metallic planes, a few structural seams and a dark cockpit replace the original pixel texture without introducing a dense grid or mosaic.
+
+Each pose was rendered independently with built-in `image_gen`; banks are not rotated, flipped, sheared or recolored copies of the straight image. Raw generated PNGs and exact prompts are retained unchanged. `provenance.json` records real tool-output paths, all source/master/prompt hashes and the visual review. `resource-contract.json` links the native preflight identity and bounded future integration proposal; it does not claim integration.
+
+Run `python3 rebuild.py` with Pillow, NumPy and SciPy to regenerate masters, 4×/8× previews, the clean named preview and statistics. Registration uses the established record169/166 recipe: raw-alpha bounding crop, Lanczos fit to native occupied bounds, conservative inward-antialiased mask intersection, disconnected low-alpha dust removal, and zero RGB behind alpha0. No procedural painting or pose deformation was used. `rebuild-verification.json` confirms byte-identical regeneration of all generated outputs.
+
+Native masks remain byte-identical to the audited sources (295/280/280 occupied cells). Every channel outside original coverage is exactly0, as is RGB behind alpha0. Each master has one visible connected component and median visible alpha253. Respectively1/19/11 originally occupied cells are empty in bases53/15/91; existing verified typed-underlay restoration remains a runtime prerequisite. See `stats.json` for complete alpha/coverage measurements.
+
+The clean `NEWSHF170-three-pose-HD-art-preview.png` contains only generated art and pose labels. Original native/8× references were inspected privately but are not bundled as color sprites or included in the preview. `PUBLISHABLE-ALLOWLIST.txt` is a legacy-named selective-import list, not permission to publish. All supplied files are private candidate material. Frozen record169 and166 were not modified. No runtime integration, build, game run, automated test, full gate or public publication was performed.

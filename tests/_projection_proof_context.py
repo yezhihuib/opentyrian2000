@@ -193,7 +193,9 @@ class _ProjectionProofContext:
         self._closed = False
 
     def _module(self, family):
-        if family not in ('interceptor166_newshf', 'fighter165_newshf', 'scout164_newshf', 'shapesy_cyan_secondary', 'shapesy_cyan', 'large_newshi', 'turret_newshf', 'dualmissile_newshf', 'shapesy_platform', 'linked_newshf', 'projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
+        if family == 'shared170_bronze356':
+            family = 'aircraft170_newshf'
+        if family not in ('aircraft170_newshf', 'shapesy_bronze356', 'aircraft169_newshf', 'interceptor166_newshf', 'fighter165_newshf', 'scout164_newshf', 'shapesy_cyan_secondary', 'shapesy_cyan', 'large_newshi', 'turret_newshf', 'dualmissile_newshf', 'shapesy_platform', 'linked_newshf', 'projectile91', 'rear_lobes', 'rear281', 'rear1', 'rear39', 'rear_p7', 'missile', 'mint27', 'newshf', 'guided', 'sonic', 'protron'):
             raise ValueError('Unknown current-proof family')
         scripts = str(self.module_root / 'scripts')
         if scripts not in sys.path:
@@ -205,7 +207,7 @@ class _ProjectionProofContext:
 
     def _discover(self, family):
         c = self._module(family)
-        families = ('rear_p7', 'rear39', 'rear1', 'rear281', 'rear_lobes') if family in ('rear_p7', 'rear39', 'rear1', 'rear281', 'rear_lobes') else (family,)
+        families = ('rear_p7', 'rear39', 'rear1', 'rear281', 'rear_lobes') if family in ('rear_p7', 'rear39', 'rear1', 'rear281', 'rear_lobes') else (('aircraft170_newshf','shapesy_bronze356') if family == 'shared170_bronze356' else (family,))
         modules = tuple(self._module(name) for name in families)
         seeds = {_relative(self.root, m.SELECTION) for m in modules}
         if family == 'newshf':
@@ -236,8 +238,12 @@ class _ProjectionProofContext:
         # All indirect proofs also bind the newest family's directory closure.
         directories |= {_relative(self.root, n) for n in ('authoring-inputs/newshi-large', 'authoring-inputs/newshi-large/derived', 'assets/hd/current-compat/newshi-large')}
         # Every live source projection first validates the finite ShapesY delta.
-        source_chain = ('interceptor166_newshf', 'fighter165_newshf', 'scout164_newshf', 'shapesy_cyan_secondary', 'shapesy_cyan', 'large_newshi', 'turret_newshf', 'dualmissile_newshf', 'shapesy_platform') + source_chain
+        source_chain = ('shared170_bronze356', 'aircraft169_newshf', 'interceptor166_newshf', 'fighter165_newshf', 'scout164_newshf', 'shapesy_cyan_secondary', 'shapesy_cyan', 'large_newshi', 'turret_newshf', 'dualmissile_newshf', 'shapesy_platform') + source_chain
         files.add(self.module_root / 'tests' / 'shapesy_cyan_projection.py')
+        files.add(self.module_root / 'tests' / 'shared170_bronze356_projection.py')
+        directories |= {_relative(self.root,n) for n in ('authoring-inputs/newshf-aircraft170','authoring-inputs/newshf-aircraft170/derived','assets/hd/current-compat/newshf-aircraft170','authoring-inputs/shapesy-bronze356','authoring-inputs/shapesy-bronze356/raw','authoring-inputs/shapesy-bronze356/derived','assets/hd/current-compat/shapesy-bronze356')}
+        files.add(self.module_root / 'tests' / 'aircraft169_newshf_projection.py')
+        directories |= {_relative(self.root,n) for n in ('authoring-inputs/newshf-aircraft169','authoring-inputs/newshf-aircraft169/derived','assets/hd/current-compat/newshf-aircraft169')}
         files.add(self.module_root / 'tests' / 'interceptor166_newshf_projection.py')
         directories |= {_relative(self.root,n) for n in ('authoring-inputs/newshf-interceptor166','authoring-inputs/newshf-interceptor166/derived','assets/hd/current-compat/newshf-interceptor166')}
         files.add(self.module_root / 'tests' / 'fighter165_newshf_projection.py')
@@ -261,7 +267,7 @@ class _ProjectionProofContext:
             spec = json.loads(ledger.read_bytes())
             for source in set(spec['files']) | set(spec.get('added_sources', {})) | set(spec.get('qualified', {})) | set(spec.get('asset_edits', {})):
                 files.add(_relative(self.root, source))
-        scripts = {'current_interceptor166_newshf_compatibility.py','build_current_interceptor166_newshf.py','current_fighter165_newshf_compatibility.py','build_current_fighter165_newshf.py','current_scout164_newshf_compatibility.py','build_current_scout164_newshf.py','current_shapesy_cyan_secondary_compatibility.py','build_current_shapesy_cyan_secondary.py','current_shapesy_cyan_compatibility.py','build_current_shapesy_cyan.py','current_large_newshi_compatibility.py', 'build_current_large_newshi.py', 'current_turret_newshf_compatibility.py', 'current_dualmissile_newshf_compatibility.py', 'current_craft267_compatibility.py', 'package_runtime.py', 'build_current_art.py', 'current_shapesy_platform_compatibility.py', 'build_current_shapesy_platform.py'}
+        scripts = {'current_aircraft170_newshf_compatibility.py','build_current_aircraft170_newshf.py','current_shapesy_bronze356_compatibility.py','build_current_shapesy_bronze356.py','current_aircraft169_newshf_compatibility.py','build_current_aircraft169_newshf.py','current_interceptor166_newshf_compatibility.py','build_current_interceptor166_newshf.py','current_fighter165_newshf_compatibility.py','build_current_fighter165_newshf.py','current_scout164_newshf_compatibility.py','build_current_scout164_newshf.py','current_shapesy_cyan_secondary_compatibility.py','build_current_shapesy_cyan_secondary.py','current_shapesy_cyan_compatibility.py','build_current_shapesy_cyan.py','current_large_newshi_compatibility.py', 'build_current_large_newshi.py', 'current_turret_newshf_compatibility.py', 'current_dualmissile_newshf_compatibility.py', 'current_craft267_compatibility.py', 'package_runtime.py', 'build_current_art.py', 'current_shapesy_platform_compatibility.py', 'build_current_shapesy_platform.py'}
         scripts |= {'current_' + name + '_compatibility.py' for name in families}
         if family == 'projectile91':
             scripts |= {'current_plasma_projectile_compatibility.py'}

@@ -91,7 +91,17 @@ def check_current_inventory(root=ROOT):
     interceptor_added=dict(interceptor['added_sources'])
     interceptor_added.update({n:r['sha256'] for n,r in interceptor['assets'].items()})
     assert not set(interceptor_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added)|set(large_added)|set(cyan_added)|set(secondary_added)|set(scout_added)|set(fighter_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added))
+    from aircraft169_newshf_projection import verified as aircraft_verified
+    aircraft=aircraft_verified(root)
+    aircraft_added=dict(aircraft['added_sources'])
+    aircraft_added.update({n:r['sha256'] for n,r in aircraft['assets'].items()})
+    assert not set(aircraft_added)&(set(expected)|set(added)|set(linked_added)|set(shapesy_added)|set(dual_added)|set(turret_added)|set(large_added)|set(cyan_added)|set(secondary_added)|set(scout_added)|set(fighter_added)|set(interceptor_added))
+    from shared170_bronze356_projection import verified as shared_verified
+    shared=shared_verified(root)
+    shared_added=dict(shared['added_sources'])
+    shared_added.update({n:r['sha256'] for n,r in shared['assets'].items()})
+    assert not set(shared_added)&set(dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

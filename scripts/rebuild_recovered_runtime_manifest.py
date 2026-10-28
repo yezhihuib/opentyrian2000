@@ -239,6 +239,20 @@ def main():
         add(row['source_path'],destination,'newshf-optin')
         rows[destination]['revision']=interceptor166_revision
 
+    from current_aircraft169_newshf_compatibility import load as aircraft169_load, REVISION as aircraft169_revision
+    aircraft169=aircraft169_load(root)
+    if len(aircraft169)!=3 or set(aircraft169)&set(rows):raise ValueError('Unexpected/colliding aircraft169 NEWSHF extension')
+    for destination,row in sorted(aircraft169.items()):
+        add(row['source_path'],destination,'newshf-optin')
+        rows[destination]['revision']=aircraft169_revision
+
+    from current_aircraft170_newshf_compatibility import load as aircraft170_load, REVISION as aircraft170_revision
+    aircraft170=aircraft170_load(root)
+    if len(aircraft170)!=3 or set(aircraft170)&set(rows):raise ValueError('Unexpected/colliding aircraft170 NEWSHF extension')
+    for destination,row in sorted(aircraft170.items()):
+        add(row['source_path'],destination,'newshf-optin')
+        rows[destination]['revision']=aircraft170_revision
+
     from current_shapesy_cyan_compatibility import load as cyan_load, REVISION as cyan_revision
     cyan=cyan_load(root)
     if len(cyan)!=4 or set(cyan)&set(rows):raise ValueError('Unexpected/colliding cyan layer2 extension')
@@ -252,6 +266,13 @@ def main():
     for destination,row in sorted(cyan_secondary.items()):
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']=cyan_secondary_revision
+
+    from current_shapesy_bronze356_compatibility import load as bronze356_load, REVISION as bronze356_revision
+    bronze356=bronze356_load(root)
+    if len(bronze356)!=1 or set(bronze356)&set(rows):raise ValueError('Unexpected/colliding bronze356 extension')
+    for destination,row in sorted(bronze356.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=bronze356_revision
 
     # Independent finite Y terrain family; never aliases Z/coast/water assets.
     from current_shapesy_platform_compatibility import load as shapesy_load, IDS as SHAPESY_IDS, name as shapesy_name, REVISION as SHAPESY_REVISION

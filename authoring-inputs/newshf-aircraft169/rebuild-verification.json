@@ -1,0 +1,19 @@
+{
+  "schema": "opentyrian-aircraft169-art-rebuild-verification-v1",
+  "deterministic": true,
+  "sha256": {
+    "master-base79.png": "e3dde0f021d414ff44eee00f990397ebe7efd3103f02fccd3c7ac5984929227f",
+    "master-base77.png": "aeda6d12ae25f594c5d861b7a837c10e9e0886b58fb1fd7a47c58f701e6c66cf",
+    "master-base115.png": "4cbeac214cd7bbfa0450a62aedc7e9873f463501cced30f9e661be02eb749464",
+    "preview-4x.png": "a826cacbfd44d5f1636d9015b9b2fc96a5ef77b764a0d924772288b17f708761",
+    "preview-8x.png": "2307caf473cb20f97c0abea20987613a674eb66c901146afb9ad7a1d49920b7f",
+    "stats.json": "e7bbec0709501bb5104736ec97282ea377671062c48732ab21bd1c9181ff914a"
+  },
+  "checks": [
+    "192x224 RGBA",
+    "one connected component each",
+    "native-mask SHA256 identical",
+    "zero RGBA outside mask",
+    "zero RGB behind alpha0"
+  ]
+}

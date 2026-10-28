@@ -1,0 +1,55 @@
+{
+  "status": "ART_REBUILD_AND_PIXEL_INVARIANTS_PASS_NOT_RUNTIME_QUALIFICATION",
+  "regenerated_byte_identical": true,
+  "regenerated_outputs": {
+    "master-base53.png": "427280b6381fc589faf9d75a8060f75805747cda3c6fbbd62459c69956c64752",
+    "master-base15.png": "f04496167571380d53282f75b21941ece9823a50f657efcefb3862d6a9eb9679",
+    "master-base91.png": "c25949a7d668067776d0d96b2a63d2c5b759d40a6de7402998d09f58983631bb",
+    "preview-4x.png": "131c6982c1883098a1a8ce79a661b5e68c4842db3865ca44b23d9688f540219c",
+    "preview-8x.png": "6142b5ad86eb02afe54956f9f1394cc73983ffab712a793a1fcceaa27cc1e190",
+    "NEWSHF170-three-pose-HD-art-preview.png": "6142b5ad86eb02afe54956f9f1394cc73983ffab712a793a1fcceaa27cc1e190",
+    "stats.json": "6caeaa1a1dc64dc5a7717c934ebb41e360d2456325e1c72c92e01f0110948bee"
+  },
+  "pose_checks": {
+    "53": {
+      "master_size": [
+        192,
+        224
+      ],
+      "master_mode": "RGBA",
+      "native_mask_byte_identical": true,
+      "raw_byte_identical_to_builtin_output": true,
+      "source_zero_rgba_nonzero_count": 0,
+      "transparent_rgb_nonzero_count": 0,
+      "native_occupied_cells": 295,
+      "master_sha256": "427280b6381fc589faf9d75a8060f75805747cda3c6fbbd62459c69956c64752"
+    },
+    "15": {
+      "master_size": [
+        192,
+        224
+      ],
+      "master_mode": "RGBA",
+      "native_mask_byte_identical": true,
+      "raw_byte_identical_to_builtin_output": true,
+      "source_zero_rgba_nonzero_count": 0,
+      "transparent_rgb_nonzero_count": 0,
+      "native_occupied_cells": 280,
+      "master_sha256": "f04496167571380d53282f75b21941ece9823a50f657efcefb3862d6a9eb9679"
+    },
+    "91": {
+      "master_size": [
+        192,
+        224
+      ],
+      "master_mode": "RGBA",
+      "native_mask_byte_identical": true,
+      "raw_byte_identical_to_builtin_output": true,
+      "source_zero_rgba_nonzero_count": 0,
+      "transparent_rgb_nonzero_count": 0,
+      "native_occupied_cells": 280,
+      "master_sha256": "c25949a7d668067776d0d96b2a63d2c5b759d40a6de7402998d09f58983631bb"
+    }
+  },
+  "native_reference_receipt_sha256": "443e3857d4e817fcc9a43041b004024e3e44eb57fc85eab1296ef96e1e19bc46"
+}

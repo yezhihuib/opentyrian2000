@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 39981,
+      "bytes": 40658,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "3a26b0bce07025bdadf4007ef4dd7a7607c30a0c",
+      "git_blob": "f4e15a2d3b73f4c7f2de9f7d08a6ec8207870157",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "d5aaa394421019a595d5b6e5c692bc73637a3f3eb308f2971d9bf4f371968a92",
+      "sha256": "cba206531a199c2cf1e7196fc8fdc275feebc7a36c571b5f078a103304d643da",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -5127,6 +5127,15 @@
     },
     {
       "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesy-356-8.hda",
+      "git_blob": "3cb18c44dfcda4d1a303b0721d87cad76cb140d5",
+      "group": "gameplay",
+      "revision": "current-single-source-shapesy-bronze356-opaque",
+      "sha256": "cc19368ec441824fdb968c2e0da261894cf953528f48ddf7d3d0f98c65c39c42",
+      "source_path": "assets/hd/current-compat/shapesy-bronze356/terrain-shapesy-356-8.hda"
+    },
+    {
+      "bytes": 172060,
       "destination": "assets/gameplay/terrain-shapesy-361-8.hda",
       "git_blob": "ea9c459ba40e6311e1f6bd38a94c17d7f4b9610f",
       "group": "gameplay",
@@ -7593,6 +7602,60 @@
     },
     {
       "bytes": 172060,
+      "destination": "assets/global/newshf-aircraft169/newshf-role2100037-8.hda",
+      "git_blob": "60be671d9b54a2e8527e741b023b41ee2862e229",
+      "group": "newshf-optin",
+      "revision": "current-single-source-aircraft169-newshf-three",
+      "sha256": "4a4e6eca21734c7f06bcdad331f5a21278bfdd769c028c8cb026f31579decf47",
+      "source_path": "assets/hd/current-compat/newshf-aircraft169/newshf-role2100037-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-aircraft169/newshf-role2100038-8.hda",
+      "git_blob": "b820b34727146fdea63205cd699e5d678f2fc0e9",
+      "group": "newshf-optin",
+      "revision": "current-single-source-aircraft169-newshf-three",
+      "sha256": "a31abaf19205e527dc9d1552a05f06490271ea4f83b2482fdeaeabfab9b78bbc",
+      "source_path": "assets/hd/current-compat/newshf-aircraft169/newshf-role2100038-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-aircraft169/newshf-role2100039-8.hda",
+      "git_blob": "081b2906bee4e6e2eeedafe02a031937f0269997",
+      "group": "newshf-optin",
+      "revision": "current-single-source-aircraft169-newshf-three",
+      "sha256": "ce79ecc1a43dc9352a42dac9b7b4b7bda00b5df215569cedbddbf1f73996b3ea",
+      "source_path": "assets/hd/current-compat/newshf-aircraft169/newshf-role2100039-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-aircraft170/newshf-role2100040-8.hda",
+      "git_blob": "e8a863d4c005bcb11eec2c33ff0e8bed7c25a693",
+      "group": "newshf-optin",
+      "revision": "current-single-source-aircraft170-newshf-three",
+      "sha256": "b0de03067a8f51baff70314762166428d7592c6b67f13147f42b88056353d830",
+      "source_path": "assets/hd/current-compat/newshf-aircraft170/newshf-role2100040-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-aircraft170/newshf-role2100041-8.hda",
+      "git_blob": "1616e8ed7562347aa70a5f531a022336f9d9218e",
+      "group": "newshf-optin",
+      "revision": "current-single-source-aircraft170-newshf-three",
+      "sha256": "adf2a88e69f22b96a5e23687dcbfdf3361903c0962a29b5f2549c88fe2a244ba",
+      "source_path": "assets/hd/current-compat/newshf-aircraft170/newshf-role2100041-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/global/newshf-aircraft170/newshf-role2100042-8.hda",
+      "git_blob": "9c772b8decfe0c563a628e6f7495b6d0d6d6da9e",
+      "group": "newshf-optin",
+      "revision": "current-single-source-aircraft170-newshf-three",
+      "sha256": "16e52e0a3f6b1dd09907edd6a01910842861795a76b0121fec2732ecc9652319",
+      "source_path": "assets/hd/current-compat/newshf-aircraft170/newshf-role2100042-8.hda"
+    },
+    {
+      "bytes": 172060,
       "destination": "assets/global/newshf-dualmissile/newshf-role2100015-8.hda",
       "git_blob": "3bb1a90385245e75ee3fef19734ae3ccb128ead7",
       "group": "newshf-optin",
@@ -9935,7 +9998,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "76465f0a8bf09e6c3f4ba2ae0af412beaca6f844086cf76b589c35ac64e2a19a",
+    "current_production_source_manifest_sha256": "2c313ff614c9871e25ba796d54bae2ea22c4573632de797b234dac92ef94b66e",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

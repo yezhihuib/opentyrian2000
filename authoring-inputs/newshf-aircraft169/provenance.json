@@ -1,0 +1,91 @@
+{
+  "schema": "opentyrian-newshf-aircraft169-art-provenance-v1",
+  "date_utc": "2026-10-27",
+  "family": "NEWSHF record169 blue-gray slim crosswing aircraft",
+  "logical_bank": 10,
+  "record": 169,
+  "bases_in_cycle_order": [
+    79,
+    77,
+    115
+  ],
+  "native_size": [
+    24,
+    28
+  ],
+  "master_size": [
+    192,
+    224
+  ],
+  "native_anchor": [
+    6,
+    7
+  ],
+  "tool": "built-in image_gen",
+  "tool_call_count": 3,
+  "poses": [
+    {
+      "base": 79,
+      "cycle": 1,
+      "pose": "straight",
+      "raw": "raw-base79.png",
+      "raw_sha256": "72106d748394566b9267a67f803d2d548405b6de2b1e6b3ad1224a7001fca730",
+      "raw_size": [
+        1161,
+        1355
+      ],
+      "original_tool_output": "/workspace/scratch/f67dd347fa0a/generated_images/exec-08af9d88-b7e3-482d-9e17-57452d68811f.png",
+      "master": "master-base79.png",
+      "master_sha256": "e3dde0f021d414ff44eee00f990397ebe7efd3103f02fccd3c7ac5984929227f",
+      "source_mask": "native-mask-base79.png",
+      "source_mask_sha256": "debe437781a583146156a5043115ee11a7e6ee2e9756918d830e564543ac889b",
+      "prompt": "prompt-base79.txt",
+      "prompt_sha256": "965eebdd1562a3e77096d0f8b0c5bf42236b61e9a2fc6029e92a4aabef2857e7",
+      "generation": "Independent built-in image_gen with original pose and mask references"
+    },
+    {
+      "base": 77,
+      "cycle": 2,
+      "pose": "banking; direction label unasserted",
+      "raw": "raw-base77.png",
+      "raw_sha256": "324e3dfdb4ed8edb9dc59ef85a3168db335436a20062c87642efb5621db0afb7",
+      "raw_size": [
+        1161,
+        1355
+      ],
+      "original_tool_output": "/workspace/scratch/f67dd347fa0a/generated_images/exec-15ef4b31-2c62-49fc-be1e-2d65f357efc4.png",
+      "master": "master-base77.png",
+      "master_sha256": "aeda6d12ae25f594c5d861b7a837c10e9e0886b58fb1fd7a47c58f701e6c66cf",
+      "source_mask": "native-mask-base77.png",
+      "source_mask_sha256": "38732f69669b1a440c220955ef7e3bfe4d089adc521459ce88d8fd8b7c11d499",
+      "prompt": "prompt-base77.txt",
+      "prompt_sha256": "9ae8c1c9d3664959f4c3a5f7d4f95a7bb69da6903aa791a2ec3817fe69c158fb",
+      "generation": "Independent built-in image_gen with original pose and mask references; straight generated source used for design/material only"
+    },
+    {
+      "base": 115,
+      "cycle": 3,
+      "pose": "banking; direction label unasserted",
+      "raw": "raw-base115.png",
+      "raw_sha256": "2b867b62f574924fe8113ea9f4f5f18bc1260e428c8aa2b872717a1a6910015a",
+      "raw_size": [
+        1161,
+        1355
+      ],
+      "original_tool_output": "/workspace/scratch/f67dd347fa0a/generated_images/exec-cf55a2b2-4081-431e-9b75-1ef0e7f56f5c.png",
+      "master": "master-base115.png",
+      "master_sha256": "4cbeac214cd7bbfa0450a62aedc7e9873f463501cced30f9e661be02eb749464",
+      "source_mask": "native-mask-base115.png",
+      "source_mask_sha256": "faf8dc130cd9cee82545971135c99fae029bc8c41fe5f612415dd2f9e1905757",
+      "prompt": "prompt-base115.txt",
+      "prompt_sha256": "1ee1c129c62a73f9f5ae6760ff09b9b37afa28d797c62db6be08b08ea4435b91",
+      "generation": "Independent built-in image_gen with original pose and mask references; straight generated source used for design/material only"
+    }
+  ],
+  "registration": "Established record166 deterministic recipe, adapted only base identifiers. Crop raw alpha>32 bounds; Lanczos fit to native-mask occupied bounds; intersect generated alpha with conservative inward-antialiased native support; remove disconnected low-alpha dust; zero RGB wherever alpha zero. No painting, rotation, mesh warp, mirroring, or pose substitution.",
+  "native_reference_dependency": "Original bank10 pose PNGs and immutable masks inspected privately from next-art-audit-single. Raw source-bank pixels are not bundled; private comparison preview includes original sprite thumbnails and is not a publication artifact.",
+  "transparency": "Raw generated RGBA alpha is retained intact in raw PNGs. Masters preserve alpha through resizing and conservative mask intersection. Median visible alpha253 in all poses; source-zero native cells and zero-alpha RGB are exact0. Originally occupied cells may be empty; verified underlay restoration remains a runtime prerequisite.",
+  "visual_review": "Inspected all three original nearest8x references, masks, generated renders and registered preview. Broad uninterrupted smooth blue-gray metallic planes, limited seams, dark central canopy, short crosswings, small upper fins and pointed down-facing nose. The two banks have independent opposite sidewall/wing-face shading and foreshortening. No dense mosaic/grid texture. Brightness is intentionally stronger than low-resolution original for readability.",
+  "rebuild_verification": "All three master PNGs, preview4x/8x and stats reproduced byte-for-byte. Each master192x224 RGBA, one connected visible component, immutable mask bytes identical, zero RGBA outside native support and behind alpha0.",
+  "scope": "Private art candidate only; no runtime qualification, gameplay claim, or publication. Frozen166 unmodified."
+}

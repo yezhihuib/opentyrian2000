@@ -549,6 +549,32 @@ def main(argv=None) -> int:
             if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=interceptor166_revision:
                 raise ValueError('Stale interceptor166 NEWSHF runtime selection')
 
+    # Three finite NEWSHF record169 poses, independently optional at runtime.
+    from current_aircraft169_newshf_compatibility import ROOT as aircraft169_prefix, load as aircraft169_load, REVISION as aircraft169_revision, IDS as aircraft169_ids, name as aircraft169_name
+    aircraft169_names={aircraft169_name(i) for i in aircraft169_ids}
+    aircraft169_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(aircraft169_prefix+'/') or r['destination'].casefold().startswith('assets/global/newshf-aircraft169/') or r.get('revision')==aircraft169_revision or Path(r['source_path']).name.casefold() in aircraft169_names or Path(r['destination']).name.casefold() in aircraft169_names]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or aircraft169_rows:
+        selected=aircraft169_load(roots[0])
+        if len(aircraft169_rows)!=3 or {r['destination'] for r in aircraft169_rows}!=set(selected):
+            raise ValueError('Aircraft169 NEWSHF requires exactly three shared poses')
+        for row in aircraft169_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=aircraft169_revision:
+                raise ValueError('Stale aircraft169 NEWSHF runtime selection')
+
+    # Three finite NEWSHF record170 poses, independently optional at runtime.
+    from current_aircraft170_newshf_compatibility import ROOT as aircraft170_prefix, load as aircraft170_load, REVISION as aircraft170_revision, IDS as aircraft170_ids, name as aircraft170_name
+    aircraft170_names={aircraft170_name(i) for i in aircraft170_ids}
+    aircraft170_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(aircraft170_prefix+'/') or r['destination'].casefold().startswith('assets/global/newshf-aircraft170/') or r.get('revision')==aircraft170_revision or Path(r['source_path']).name.casefold() in aircraft170_names or Path(r['destination']).name.casefold() in aircraft170_names]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or aircraft170_rows:
+        selected=aircraft170_load(roots[0])
+        if len(aircraft170_rows)!=3 or {r['destination'] for r in aircraft170_rows}!=set(selected):
+            raise ValueError('Aircraft170 NEWSHF requires exactly three shared poses')
+        for row in aircraft170_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='newshf-optin' or row.get('revision')!=aircraft170_revision:
+                raise ValueError('Stale aircraft170 NEWSHF runtime selection')
+
     # Independent static cyan layer2 closure; no platform/catalog alias.
     from current_shapesy_cyan_compatibility import load as cyan_load, ROOT as cyan_prefix, REVISION as cyan_revision, IDS as cyan_ids, name as cyan_name
     cyan_names={cyan_name(i) for i in cyan_ids}
@@ -575,11 +601,24 @@ def main(argv=None) -> int:
             if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='gameplay' or row.get('revision')!=cyan_secondary_revision:
                 raise ValueError('Stale cyan_secondary layer2 runtime selection')
 
+    # One independent finite opaque Y tile; no admission into the old28 family.
+    from current_shapesy_bronze356_compatibility import ROOT as bronze356_prefix, load as bronze356_load, REVISION as bronze356_revision, name as bronze356_name
+    bronze356_filename=bronze356_name(356)
+    bronze356_rows=[r for r in manifest['files'] if r['source_path'].casefold().startswith(bronze356_prefix+'/') or r.get('revision')==bronze356_revision or Path(r['source_path']).name.casefold()==bronze356_filename or Path(r['destination']).name.casefold()==bronze356_filename]
+    if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or bronze356_rows:
+        selected=bronze356_load(roots[0])
+        if len(bronze356_rows)!=1 or {r['destination'] for r in bronze356_rows}!=set(selected):
+            raise ValueError('Bronze356 requires exactly one whole opaque tile')
+        for row in bronze356_rows:
+            current=selected[row['destination']]
+            if row['source_path']!=current['source_path'] or row.get('sha256')!=current['sha256'] or row.get('group')!='gameplay' or row.get('revision')!=bronze356_revision:
+                raise ValueError('Stale bronze356 runtime selection')
+
     # Current Y family is exact28, with independently regenerated masks/pixels.
     # Absence of all rows cannot silently remove it from the current manifest.
     from current_shapesy_platform_compatibility import load as shapesy_load, REVISION as shapesy_revision
     shapesy_rows=[r for r in manifest['files'] if (('terrain-shapesy-' in r['source_path'].casefold() or
-                  'terrain-shapesy-' in r['destination'].casefold()) and not ('terrain-shapesy-cyan-' in r['source_path'].casefold() or 'terrain-shapesy-cyan-' in r['destination'].casefold())) or r.get('revision')==shapesy_revision]
+                  'terrain-shapesy-' in r['destination'].casefold()) and Path(r['source_path']).name.casefold()!=bronze356_filename and Path(r['destination']).name.casefold()!=bronze356_filename and not ('terrain-shapesy-cyan-' in r['source_path'].casefold() or 'terrain-shapesy-cyan-' in r['destination'].casefold())) or r.get('revision')==shapesy_revision]
     if manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve() or shapesy_rows:
         selected=shapesy_load(roots[0])
         if len(shapesy_rows)!=28 or {r['destination'] for r in shapesy_rows}!=set(selected):

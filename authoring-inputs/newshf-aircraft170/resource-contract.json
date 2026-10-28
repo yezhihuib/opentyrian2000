@@ -1,0 +1,48 @@
+{
+  "status": "ART_CANDIDATE_ONLY",
+  "record": 170,
+  "record_sha256": "a748cb13a7cc08411b625a622a0818b5f95b987329db627760edb28d180c66a4",
+  "logical_bank": 10,
+  "source_sheet": "newshf.shp",
+  "native_canvas": [
+    24,
+    28
+  ],
+  "master_canvas": [
+    192,
+    224
+  ],
+  "anchor": [
+    6,
+    7
+  ],
+  "bases_in_cycle_order": [
+    53,
+    15,
+    91
+  ],
+  "native_occupied_cells": [
+    295,
+    280,
+    280
+  ],
+  "source_mask_sha256": {
+    "53": "bed503961a19171a8bc8c82f1b73369bfcda06194fa416fcd0b081c4766b8c79",
+    "15": "cf5e5a136061d0bcb8e6a143c79931e25f92bed71f5c3ad7040976c053fb2f08",
+    "91": "d2ccc71741290067f9880bec0087c9f9a7e63998d515a775e0dc8aa4fe913abb"
+  },
+  "integration_proposal_only": {
+    "profile": 21,
+    "phases": [
+      40,
+      41,
+      42
+    ],
+    "resource_count": 43,
+    "group_mask": "0x70000000000",
+    "admission": "exact HDT identity only; no alternate E4/E5 identity expansion"
+  },
+  "preflight_receipt": "../next-batch-170-356-preflight/record170/identity-receipt.json",
+  "preflight_receipt_sha256": "443e3857d4e817fcc9a43041b004024e3e44eb57fc85eab1296ef96e1e19bc46",
+  "runtime_prerequisite": "Preserve typed underlay restoration for partial/empty originally occupied cells. Preserve all qualified169/166 behavior; no runtime qualification performed here."
+}
