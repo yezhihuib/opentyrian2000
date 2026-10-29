@@ -30,16 +30,18 @@ def check_current_inventory(root=ROOT):
     qualified_raw = PROJECTILE91_QUALIFIED.read_bytes()
     verify_bytes(qualified_raw, PROJECTILE91_QUALIFIED_SHA256, 'qualified projectile91 receipt')
     qualified = json.loads(qualified_raw)['files']
+    from projectile145_projection import project_if_current as newest_project
     # A coherent new master is editable, but does not inherit visual/native acceptance.
     for name, wanted in qualified.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular qualified file: ' + name
-        verify_bytes(path.read_bytes(), wanted, name)
+        verify_bytes(newest_project(name,path.read_bytes()), wanted, name)
     proof = verified_current_projectile91(root)
     added = dict(proof['added_sources'])
     added[CURRENT_PROJECTILE91_HEADER] = proof['header_sha256']
     added.update({name: row['sha256'] for name, row in proof['assets'].items()})
-    assert added == qualified, 'qualified projectile91 material drift'
+    historical_added=dict(added);historical_added.update(proof['historical_added_sources'])
+    assert historical_added == qualified, 'qualified projectile91 material drift'
     assert len(added) == 6 and not set(added) & set(expected), 'projectile91 extension scope drift'
     from linked_newshf_projection import verified as linked_verified
     linked = linked_verified(root)
@@ -101,7 +103,12 @@ def check_current_inventory(root=ROOT):
     shared_added=dict(shared['added_sources'])
     shared_added.update({n:r['sha256'] for n,r in shared['assets'].items()})
     assert not set(shared_added)&set(dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added))
+    from projectile145_projection import verified as projectile145_verified
+    projectile145=projectile145_verified(root)
+    projectile145_added=dict(projectile145['added_sources'])
+    projectile145_added.update({n:r['sha256'] for n,r in projectile145['assets'].items()})
+    assert not set(projectile145_added)&set(dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

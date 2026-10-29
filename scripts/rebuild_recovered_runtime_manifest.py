@@ -292,6 +292,15 @@ def main():
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']='current-single-source-projectile91'
 
+    # Independent optional shared145 enemy-shot role; no player145 alias.
+    from current_projectile145_compatibility import load as projectile145_load, REVISION as projectile145_revision
+    projectile145=projectile145_load(root)
+    if set(projectile145)!={'assets/gameplay/enemy-projectile145-145-8.hda'} or set(projectile145)&set(rows):
+        raise ValueError('Unexpected/colliding projectile145 runtime extension')
+    for destination,row in projectile145.items():
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=projectile145_revision
+
     # Exactly one private P09 transport; no player227 or duplicate226/244.
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
     for name,raw in protron_derive(root).items():

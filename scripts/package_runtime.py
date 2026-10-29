@@ -233,6 +233,8 @@ def main(argv=None) -> int:
     roots = [args.source_root.resolve()] + [p.resolve() for p in args.asset_root]
     manifest_path = args.manifest or roots[0] / 'packaging/runtime-assets-v1.json'
     manifest = load_manifest(manifest_path)
+    from current_projectile145_compatibility import validate_runtime_rows as projectile145_validate
+    projectile145_validate(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
     # Default deployment and explicit current Sonic references require the
     # complete current quartet. Historical/custom manifests retain their frozen
     # semantics and need no current authoring inputs. This packages resources;

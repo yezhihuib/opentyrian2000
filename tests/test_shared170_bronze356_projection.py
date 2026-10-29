@@ -3,6 +3,7 @@ import copy,json,subprocess,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 import shared170_bronze356_projection as p
+import projectile145_projection as newest
 sys.path.insert(0,str(p.ROOT/'scripts'))
 from verify_current_production import source_inventory
 import current_aircraft170_newshf_compatibility as aircraft
@@ -18,7 +19,7 @@ class Shared170Bronze356Projection(unittest.TestCase):
   self.assertEqual({q['identity'] for q in proof['mapping'].values()},{2100040,2100041,2100042,2020356})
  def test_exact_inverse_and_independent_hunk_preimage_checks(self):
   for name in p.FILES:
-   raw=(p.ROOT/name).read_bytes();old=p.project_source(name,raw)
+   raw=p.checked_read(p.ROOT,name);old=p.project_source(name,raw)
    self.assertEqual(p.sha(old),p.ledger()['files'][name]['previous_sha256'])
    self.assertEqual(p.project_if_current(name,old),old)
    for bad in (raw+b'\n',old):
@@ -31,7 +32,7 @@ class Shared170Bronze356Projection(unittest.TestCase):
   self.assertEqual(p.project_source('unowned',b'exact bytes'),b'exact bytes')
  def test_every_qualified_input_is_rechecked(self):
   read=Path.read_bytes
-  for name in p.qualified_paths()-{p.LEDGER,'tests/shared170_bronze356_projection.py'}:
+  for name in p.qualified_paths()-{p.LEDGER,'tests/shared170_bronze356_projection.py','tests/projectile145_projection.py'}:
    def changed(path):return read(path)+(b'\n' if path==p.ROOT/name else b'')
    with self.subTest(name=name),patch.object(Path,'read_bytes',changed),self.assertRaises((AssertionError,ValueError,OSError)):p.verified()
  def test_stale_live_preimages_rejected(self):
@@ -70,7 +71,7 @@ class Shared170Bronze356Projection(unittest.TestCase):
   with self.assertRaises(AssertionError):p.before_inventory(bad)
  def test_four_complete_runtime_rows_and_order(self):
   rows=json.loads((p.ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files'];proof=p.verified();mapping=proof['mapping']
-  self.assertEqual(p.before_runtime(rows),[r for r in rows if r['destination'] not in mapping])
+  self.assertEqual(p.before_runtime(rows),[r for r in newest.before_runtime(rows) if r['destination'] not in mapping])
   self.assertEqual(sum(r['destination'] in mapping for r in rows),4)
   for dest in mapping:
    for kind in ('missing','duplicate','source_path','sha256','bytes','git_blob','group','revision','extra_field'):

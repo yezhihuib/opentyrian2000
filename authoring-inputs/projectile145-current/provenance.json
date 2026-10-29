@@ -1,0 +1,31 @@
+{
+  "status": "generated artwork; runtime qualification pending",
+  "generator": "built-in image_gen",
+  "master_sha256": "e485f853ae8e4efab03adb852224a58453e20c9629115609c41193cd0fe3e274",
+  "generation": "New drawn metal projectile; second call corrected only heading from generated candidate01. No original image supplied to imagegen.",
+  "original_identity": "ordinary spriteSheet8 selector145; fixed downward-left artwork. Original pixels are not included.",
+  "registration": {
+    "crop": [
+      114,
+      349,
+      854,
+      1163
+    ],
+    "resize": [
+      70,
+      70
+    ],
+    "paste": [
+      0,
+      25
+    ],
+    "native_canvas": [
+      12,
+      14
+    ],
+    "density": 8,
+    "native_mask_occupied": 39
+  },
+  "episode_source_evidence": "HDT weapon4/8 E1-E3 only. E4/E5 embedded tables differ. No level predicate grants runtime HD; actual bank/palette/resource witnesses do.",
+  "runtime_qualification": false
+}

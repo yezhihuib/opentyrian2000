@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 40658,
+      "bytes": 40884,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "f4e15a2d3b73f4c7f2de9f7d08a6ec8207870157",
+      "git_blob": "de00c84ce167aa803841bafe05a08e82ee60f558",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "cba206531a199c2cf1e7196fc8fdc275feebc7a36c571b5f078a103304d643da",
+      "sha256": "81567fe03d12d0e9f256a2f9c206df183be6281b02be261cdc06906707e6f4e5",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2514,6 +2514,15 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "6cbe2e8afc2b4d19204ea5644f9301d14a869de2e73e0a85c2e25f2d58801b6f",
       "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newshe-9-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile145-145-8.hda",
+      "git_blob": "38290a2b02e997fb2b29fb6eef450e5abea166cd",
+      "group": "gameplay",
+      "revision": "current-single-source-projectile145",
+      "sha256": "e4863397d4d7e9874e96e642ce6596c90e99009014b746491016c0423e099c83",
+      "source_path": "assets/hd/current-compat/projectile145/enemy-projectile145-145-8.hda"
     },
     {
       "bytes": 43036,
@@ -9998,7 +10007,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "2c313ff614c9871e25ba796d54bae2ea22c4573632de797b234dac92ef94b66e",
+    "current_production_source_manifest_sha256": "38e3f3ba8fa265326fceab0e07b82811b80bffea691478c661857454795d97d7",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

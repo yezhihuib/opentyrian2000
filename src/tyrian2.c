@@ -1942,7 +1942,7 @@ draw_player_shot_loop_end:
 							}
 							else
 #endif
-							if (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147 || sprite == 304 || sprite == 91)
+							if (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147 || sprite == 304 || sprite == 91 || sprite == 145)
 								draw_enemy_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
 							else
 								blit_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
