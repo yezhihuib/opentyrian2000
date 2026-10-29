@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 40884,
+      "bytes": 41108,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "de00c84ce167aa803841bafe05a08e82ee60f558",
+      "git_blob": "0bdede9f0da3290eac99431cf27f5c49eede9592",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "81567fe03d12d0e9f256a2f9c206df183be6281b02be261cdc06906707e6f4e5",
+      "sha256": "3bb56e7da309ca70356bc7dce3e157170c5f5b53974935f428fb6bc4ff420461",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2523,6 +2523,15 @@
       "revision": "current-single-source-projectile145",
       "sha256": "e4863397d4d7e9874e96e642ce6596c90e99009014b746491016c0423e099c83",
       "source_path": "assets/hd/current-compat/projectile145/enemy-projectile145-145-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile61-61-8.hda",
+      "git_blob": "070f5575112fe882a4d1f6272a6aed641b78e69a",
+      "group": "gameplay",
+      "revision": "current-single-source-projectile61",
+      "sha256": "3530c27302a2cb3d26830711cd4b94a01aacbfad748c91aea219bbc81b0c5c29",
+      "source_path": "assets/hd/current-compat/projectile61/enemy-projectile61-61-8.hda"
     },
     {
       "bytes": 43036,
@@ -10007,7 +10016,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "38e3f3ba8fa265326fceab0e07b82811b80bffea691478c661857454795d97d7",
+    "current_production_source_manifest_sha256": "166eaab1b20c3cbdf1283c85a8d451d87b8390c8df42b1ad94e3683927dd177e",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

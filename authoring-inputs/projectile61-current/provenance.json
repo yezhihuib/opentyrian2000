@@ -1,0 +1,76 @@
+{
+  "schema": "projectile61-generated-art-provenance-v1",
+  "status": "ONE_GENERATED_AUTHORING_CANDIDATE_NOT_RUNTIME_QUALIFIED",
+  "generated_utc_date": "2026-10-29",
+  "method": "Built-in image_gen new transparent image generation, one call, text-only; no CLI fallback.",
+  "tool_output_basename": "exec-a73dd0e0-4a83-417b-b78f-efa0fc6d4a78.png",
+  "prompt": "prompt-01.txt",
+  "prompt_sha256": "c55bfa6ffbf06f1c4b875d09a615c0afbd5c332e253a7c3182a1aa41d62661d4",
+  "master": "raw/generated-master-01.png",
+  "master_sha256": "5940b0956dfb10907632fef4416e13bffcadf2fb38524791a4577cfa5bca53a2",
+  "master_size": [
+    1161,
+    1355
+  ],
+  "master_bytes": 718288,
+  "master_png_chunks": [
+    {
+      "type": "IHDR",
+      "bytes": 13,
+      "sha256": "278160afb595a834eb12523c5904f649eb2dc9d38c1fc31060779ce4d6548efd"
+    },
+    {
+      "type": "caBX",
+      "bytes": 21881,
+      "sha256": "eb2b4125c49da5a9d9aede918265bdb0ed708cf181b7aa8d25f0fa5954db507d"
+    },
+    {
+      "type": "IDAT",
+      "bytes": 696338,
+      "sha256": "76cbe4eadbc0c78cb922a85cf9e5c77873bc2eb4c68b44942ff4470453edd954"
+    },
+    {
+      "type": "IEND",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "input_images_passed_to_generator": false,
+  "original_reference": {
+    "private_original_normal61_and_mask_viewed": true,
+    "original_RGB_not_included_in_candidate_directory": true,
+    "original_RGB_not_used_for_rebuild": true,
+    "normal_decoded_source_sha256": "7e68b24a95554fa6021fbc644466da4cc6960dadc86856fabed8c1f6d40c3f53",
+    "native_binary_occupancy_only_in_registration": true
+  },
+  "art_contract": {
+    "normal_bank8_selector": 61,
+    "native_canvas": [
+      12,
+      14
+    ],
+    "anchor": [
+      0,
+      0
+    ],
+    "pose_count": 1,
+    "native_occupied_cells": 74,
+    "direction": "static downward; dark upper tails and brighter lower heads",
+    "lobes": 2,
+    "central_native_columns4_through7": "transparent",
+    "christmas": "classic fallback, different source not represented",
+    "not_a_nearest_neighbor_original_upscale": true
+  },
+  "registration": "Two fixed generated-master crops, independently LANCZOS32x88 at positions(0,8)/(64,8); canonical RGBA zero outside74 native cells and atalpha0. No generated-alpha promotion. The fixed crop top80 removes8 near-transparent tip pixels compared with the strong-alpha bounding-box top72; no physical coordinates or mask change.",
+  "verification": {
+    "Pillow": "12.3.0",
+    "byte_identical_second_rebuild": true,
+    "all74_native_cells_have_nonzero_generated_alpha": true,
+    "all_unsupported_RGBA_zero": true,
+    "central_32_pixel_RGBA_zero": true,
+    "visual_inspection": "Generated master and actual96x112 registered PNG viewed; two independent red/orange flames with low bright cores; no original image embedded."
+  },
+  "runtime_gameplay_acceptance": "NOT_RUN",
+  "public_authorization": "NOT_REQUESTED_FOR61",
+  "scope": "External authoring only; no production/index/build/gate writes or Library upload."
+}

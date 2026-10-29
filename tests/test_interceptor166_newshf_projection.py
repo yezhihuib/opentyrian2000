@@ -16,7 +16,7 @@ class Interceptor166Projection(unittest.TestCase):
      with self.assertRaises(AssertionError):p.project_source(name,raw)
  def test_every_qualified_input_is_rechecked(self):
   read=Path.read_bytes
-  for name in p.qualified_paths()-{p.LEDGER,'tests/interceptor166_newshf_projection.py','tests/aircraft169_newshf_projection.py','tests/shared170_bronze356_projection.py','tests/projectile145_projection.py'}:
+  for name in p.qualified_paths()-{p.LEDGER,'tests/interceptor166_newshf_projection.py','tests/aircraft169_newshf_projection.py','tests/shared170_bronze356_projection.py','tests/projectile145_projection.py','tests/projectile61_projection.py'}:
    def mutated(path):
     raw=read(path);return raw+b'\n' if path==p.ROOT/name else raw
    with self.subTest(name=name),patch.object(Path,'read_bytes',mutated),self.assertRaises((AssertionError,ValueError,OSError)):p.verified()

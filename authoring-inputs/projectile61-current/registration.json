@@ -1,0 +1,60 @@
+{
+  "schema": "projectile61-generated-registration-v1",
+  "master": "raw/generated-master-01.png",
+  "master_sha256": "5940b0956dfb10907632fef4416e13bffcadf2fb38524791a4577cfa5bca53a2",
+  "master_size": [
+    1161,
+    1355
+  ],
+  "output": "projectile61-registered-96x112.png",
+  "native_size": [
+    12,
+    14
+  ],
+  "density": 8,
+  "anchor": [
+    0,
+    0
+  ],
+  "native_binary_support": "000000000000010000000010011000000110111100001111111100001111111100001111111100001111111100001111111100001111111100001111111100001111011000000110000000000000000000000000",
+  "source_decoded_indices_then_mask_sha256": "7e68b24a95554fa6021fbc644466da4cc6960dadc86856fabed8c1f6d40c3f53",
+  "lobes": [
+    {
+      "crop": [
+        90,
+        80,
+        360,
+        1249
+      ],
+      "resize": [
+        32,
+        88
+      ],
+      "paste": [
+        0,
+        8
+      ]
+    },
+    {
+      "crop": [
+        801,
+        80,
+        1071,
+        1249
+      ],
+      "resize": [
+        32,
+        88
+      ],
+      "paste": [
+        64,
+        8
+      ]
+    }
+  ],
+  "resampling": "Pillow Image.Resampling.LANCZOS",
+  "pillow_version": "12.3.0",
+  "alpha": "Preserve generated alpha through crop/resize, then set RGBA=0 outside fixed native support or where alpha==0. No alpha promotion; no native RGB sampled.",
+  "normal_bank_only": true,
+  "christmas_policy": "classic fallback; no matching artwork"
+}

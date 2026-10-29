@@ -300,6 +300,13 @@ def main():
     for destination,row in projectile145.items():
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']=projectile145_revision
+    from current_projectile61_compatibility import load as projectile61_load, REVISION as projectile61_revision
+    projectile61=projectile61_load(root)
+    if set(projectile61)!={'assets/gameplay/enemy-projectile61-61-8.hda'} or set(projectile61)&set(rows):
+        raise ValueError('Unexpected/colliding projectile61 runtime extension')
+    for destination,row in projectile61.items():
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=projectile61_revision
 
     # Exactly one private P09 transport; no player227 or duplicate226/244.
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
