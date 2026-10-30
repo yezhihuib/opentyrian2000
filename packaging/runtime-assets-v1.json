@@ -12,7 +12,7 @@
       "settings-font-tiny-v1.hda",
       "title-menu-font-v1.hda"
     ],
-    "gameplay_files": 637,
+    "gameplay_files": 694,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 41108,
+      "bytes": 41343,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "0bdede9f0da3290eac99431cf27f5c49eede9592",
+      "git_blob": "8dcb3835f2a4218bf5ca87c03f6a8b1a989bbb80",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "3bb56e7da309ca70356bc7dce3e157170c5f5b53974935f428fb6bc4ff420461",
+      "sha256": "b3bece4dcba91e299097addc970a120f3bafa532f8e6f369311095c59b53352e",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2514,6 +2514,33 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "6cbe2e8afc2b4d19204ea5644f9301d14a869de2e73e0a85c2e25f2d58801b6f",
       "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newshe-9-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile-blue-triplet-101-8.hda",
+      "git_blob": "6364eee3066578dffc199210fc9caff7f66bd2b9",
+      "group": "gameplay",
+      "revision": "current-single-source-projectile-blue-triplet",
+      "sha256": "4f1cb932fa0418f3236d8240a3012ec19d65ab3d33a862190a75f53302db8ac6",
+      "source_path": "assets/hd/current-compat/projectile-blue-triplet/enemy-projectile-blue-triplet-101-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile-blue-triplet-120-8.hda",
+      "git_blob": "747487d249184985efff54e8bbacad4de6b4cbba",
+      "group": "gameplay",
+      "revision": "current-single-source-projectile-blue-triplet",
+      "sha256": "e8935de840d09ed83e65206664ba3a4ddf25b11764ba2b6038ac752140dcb83b",
+      "source_path": "assets/hd/current-compat/projectile-blue-triplet/enemy-projectile-blue-triplet-120-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile-blue-triplet-139-8.hda",
+      "git_blob": "afe59eb381adb07ae44df83f52e62ee4d95bd23a",
+      "group": "gameplay",
+      "revision": "current-single-source-projectile-blue-triplet",
+      "sha256": "47a6941988a2e2a4835859dfc1cf12f2481b2bf29bab18be94307b408cf34942",
+      "source_path": "assets/hd/current-compat/projectile-blue-triplet/enemy-projectile-blue-triplet-139-8.hda"
     },
     {
       "bytes": 43036,
@@ -10016,7 +10043,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "166eaab1b20c3cbdf1283c85a8d451d87b8390c8df42b1ad94e3683927dd177e",
+    "current_production_source_manifest_sha256": "db76a0880ac39a9a4bf00961805c3ff69fc0d25dbb422e6c881d9fda8d850ee6",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

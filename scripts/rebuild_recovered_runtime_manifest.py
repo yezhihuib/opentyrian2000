@@ -308,6 +308,16 @@ def main():
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']=projectile61_revision
 
+    # Exact three current blue enemy-shot resources; not generic role aliases.
+    from current_projectile_blue_triplet_compatibility import load as blue_triplet_load, REVISION as blue_triplet_revision
+    blue_triplet=blue_triplet_load(root)
+    expected_blue={'assets/gameplay/enemy-projectile-blue-triplet-'+str(i)+'-8.hda' for i in (101,120,139)}
+    if set(blue_triplet)!=expected_blue or set(blue_triplet)&set(rows):
+        raise ValueError('Unexpected/colliding blue-triplet runtime extension')
+    for destination,row in sorted(blue_triplet.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=blue_triplet_revision
+
     # Exactly one private P09 transport; no player227 or duplicate226/244.
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
     for name,raw in protron_derive(root).items():
@@ -367,6 +377,8 @@ def main():
         j['source_revision']['current_production_source_manifest_sha256']=current['production_source_manifest_sha256']
     j['closure']['shop_files']=15
     j['closure']['shop_static_canonical_quads']=[169,235,199]
+    # Count the actual verified unique destination rows, not the637 public base.
+    j['closure']['gameplay_files']=sum(row['group']=='gameplay' for row in rows.values())
     j['files']=sorted(rows.values(),key=lambda x:x['destination'])
     j['source_revision']['reconstruction']='Public63a89b33e4ee3f287b422df0ea986b907941cedd plus independently verified shared UI/frontend and fourteen globally source-authenticated player/effect/weapon families; see separate validation records'
     j['closure']['reconstructed_complete_menu_runs']=171

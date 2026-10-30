@@ -1,0 +1,187 @@
+{
+  "schema": "enemy-blue-triplet-generated-provenance-v2",
+  "status": "SELECTED_MULTISOURCE_AUTHORING_EPOCH_NOT_FULLY_QUALIFIED",
+  "created_date": "2026-10-29",
+  "epoch": "101V6+120V4+139original",
+  "sources": [
+    {
+      "selector": 101,
+      "source_png": "authoring-inputs/projectile-blue-triplet-current/raw/generated-master-101-v6.png",
+      "source_sha256": "67f727657296f4c9408e310033b4afe7603b4195f3b738115c8cd397a5b29a00",
+      "source_size": [
+        1160,
+        1355
+      ],
+      "crop": [
+        0,
+        0,
+        1160,
+        1355
+      ],
+      "png_compress_level": 6,
+      "master_bytes": 1660847,
+      "prompt": "prompt-101-v6.txt",
+      "prompt_sha256": "c2d45493652b7283863272aba3cdc0e85b349542657e29cbf42e730d62d2e828",
+      "png_chunks": [
+        {
+          "type": "IHDR",
+          "bytes": 13,
+          "sha256": "ed78337db95ae61dbd5763e05c93d8e37cd950233693269f35b99425b3d3f8a0"
+        },
+        {
+          "type": "caBX",
+          "bytes": 23654,
+          "sha256": "29d215501fcba5ae1446070022e11206894b03d632a803d40a62125e0df3a592"
+        },
+        {
+          "type": "IDAT",
+          "bytes": 1637124,
+          "sha256": "931949880822da1419b07d242c0ac339024e3428807781b1c89eb9105e93fb4c"
+        },
+        {
+          "type": "IEND",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "generation": "Existing built-in image_gen generated artifact; no generation in this epoch."
+    },
+    {
+      "selector": 120,
+      "source_png": "authoring-inputs/projectile-blue-triplet-current/raw/generated-master-120-v2.png",
+      "source_sha256": "1ca347f17ebe894434d0b55698f175bd1dd345b58c87ec3ae0722641b4db3c1b",
+      "source_size": [
+        1160,
+        1355
+      ],
+      "crop": [
+        350,
+        0,
+        810,
+        1355
+      ],
+      "png_compress_level": 6,
+      "master_bytes": 825712,
+      "prompt": "prompt-120-v2.txt",
+      "prompt_sha256": "6784048f6f05b85c14fdc5f04f61451a78f096f885803d91190e2df2c5cb600f",
+      "png_chunks": [
+        {
+          "type": "IHDR",
+          "bytes": 13,
+          "sha256": "ed78337db95ae61dbd5763e05c93d8e37cd950233693269f35b99425b3d3f8a0"
+        },
+        {
+          "type": "caBX",
+          "bytes": 21881,
+          "sha256": "ca89931180d8fad9b42db3ccf5e345756f56cd973965dead203c56e7e951dc32"
+        },
+        {
+          "type": "IDAT",
+          "bytes": 803762,
+          "sha256": "89c6736710d686f4eaba017021db2d0c98bd814877f3e9195f70719483bd028d"
+        },
+        {
+          "type": "IEND",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "generation": "Existing built-in image_gen generated artifact; no generation in this epoch."
+    },
+    {
+      "selector": 139,
+      "source_png": "authoring-inputs/projectile-blue-triplet-current/raw/generated-master-01.png",
+      "source_sha256": "0904cafbedf92ca30f3bc132a7f39eb8febc44a69e4cbdac6f85ff00c511ca57",
+      "source_size": [
+        725,
+        2168
+      ],
+      "crop": [
+        224,
+        1550,
+        502,
+        1870
+      ],
+      "png_compress_level": 9,
+      "master_bytes": 661416,
+      "prompt": "prompt-01.txt",
+      "prompt_sha256": "afd9a8f777449b2338d05cee17a7439269169bc47d22add6f50a0a47ac5118ae",
+      "png_chunks": [
+        {
+          "type": "IHDR",
+          "bytes": 13,
+          "sha256": "4ae7c575ed952c71b82b728d12af8fd78b76b458f65ea275683d2c5b9ada6161"
+        },
+        {
+          "type": "caBX",
+          "bytes": 21881,
+          "sha256": "33b8369826f67a0ed7b8d631827c19410b6968e851361245096f8f949e8d1a8d"
+        },
+        {
+          "type": "IDAT",
+          "bytes": 639466,
+          "sha256": "d0461a8721524a8ee4dadb6bcc61ec7a31bcb1987b5b0b44de30f91aa85da6d2"
+        },
+        {
+          "type": "IEND",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "generation": "Existing built-in image_gen generated artifact; no generation in this epoch."
+    }
+  ],
+  "original_shared_master_generation": {
+    "tool": "built-in image_gen",
+    "successful_calls": 1,
+    "mode": "new text-only transparent image generation; no original reference image passed",
+    "tool_output_basename": "exec-5b71bacc-9af1-40fe-8b49-8814e36a3245.png",
+    "prompt": "prompt-01.txt",
+    "prompt_sha256": "afd9a8f777449b2338d05cee17a7439269169bc47d22add6f50a0a47ac5118ae",
+    "master": "raw/generated-master-01.png",
+    "master_sha256": "0904cafbedf92ca30f3bc132a7f39eb8febc44a69e4cbdac6f85ff00c511ca57",
+    "master_size": [
+      725,
+      2168
+    ],
+    "master_bytes": 661416,
+    "png_chunks": [
+      {
+        "type": "IHDR",
+        "bytes": 13,
+        "sha256": "4ae7c575ed952c71b82b728d12af8fd78b76b458f65ea275683d2c5b9ada6161"
+      },
+      {
+        "type": "caBX",
+        "bytes": 21881,
+        "sha256": "33b8369826f67a0ed7b8d631827c19410b6968e851361245096f8f949e8d1a8d"
+      },
+      {
+        "type": "IDAT",
+        "bytes": 639466,
+        "sha256": "d0461a8721524a8ee4dadb6bcc61ec7a31bcb1987b5b0b44de30f91aa85da6d2"
+      },
+      {
+        "type": "IEND",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "private_reference_policy": {
+    "actual_normal_originals_privately_viewed": true,
+    "only_normal_row_used_for_direction_and_geometry": true,
+    "source_RGB_never_copied_or_upsampled": true,
+    "originals_not_in_this_directory": true,
+    "only_native_binary_occupancy_masks_recorded_in_registration": true,
+    "game_data_required_for_rebuild": false
+  },
+  "registration_sha256": "193e04f50c741211b6bad41229ff3a192679335b620dadbed0cb8878336f7119",
+  "coverage_contract_sha256": "c667b52db7c28fd8d9ee96ffd0531a16b5cb4875c05995c2026bf381ab38d1c9",
+  "selected_changes": "101 full V6 generated canvas;120 V2 generated source with V4 fixed crop;139 unchanged original source/crop/PNG/HDA. No alpha promotion.",
+  "legacy_erratum": "Old single-master seamless-adjacency and every-native-cell>=200 claims apply only to the old epoch. V6 selected101 has six fixed alpha-zero native cells and26low cells;120 has61low cells. Original FAILs remain failed; no old629/fresh/fullgate transfer.",
+  "controlled_observation_scope": "Selected-art observation uses controlled survival invulnerability2000. It is not an unmodified natural survival/state claim, nor new full qualification. Runtime/native evidence remains separately bound.",
+  "Christmas": "classic fallback",
+  "public_authorization": "NOT_GRANTED_FOR_THIS_NEW_TRIPLET",
+  "scope": "Candidate construction only; no source/index apply, native compile, gameplay or full gate performed by this preparation."
+}

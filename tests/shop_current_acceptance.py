@@ -113,7 +113,12 @@ def check_current_inventory(root=ROOT):
     projectile61_added=dict(projectile61['added_sources'])
     projectile61_added.update({n:r['sha256'] for n,r in projectile61['assets'].items()})
     assert not set(projectile61_added)&set(dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added))
+    from projectile_blue_triplet_projection import verified as projectile_blue_triplet_verified
+    projectile_blue_triplet=projectile_blue_triplet_verified(root)
+    projectile_blue_triplet_added=dict(projectile_blue_triplet['added_sources'])
+    projectile_blue_triplet_added.update({n:r['sha256'] for n,r in projectile_blue_triplet['assets'].items()})
+    assert not set(projectile_blue_triplet_added)&set(dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added, **projectile_blue_triplet_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

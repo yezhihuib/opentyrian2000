@@ -9,6 +9,16 @@ import current_projectile91_compatibility as old
 import current_projectile145_compatibility as prior
 from build_current_projectile61 import products
 
+
+def qualified61_source(name):
+ # Preserve this historical source assertion against exact qualified310 bytes.
+ # No sibling checkout/Git/history fallback or arbitrary cached caller map.
+ import projectile_blue_triplet_projection as newest
+ raw=newest.project_source(name,newest.checked_read(ROOT,name))
+ assert newest.sha(raw)==newest.ledger()['base_source_inventory'][name],('qualified61 source drift',name)
+ return raw.decode()
+
+
 class Projectile61Authoring(unittest.TestCase):
  def test_exact_role_geometry_and_payload(self):
   rows=c.load(ROOT);self.assertEqual(set(rows),{'assets/gameplay/enemy-projectile61-61-8.hda'})
@@ -85,12 +95,12 @@ class Projectile61Authoring(unittest.TestCase):
    old.load(t);prior.load(t)
 
  def test_finite_source_dispatch_draft(self):
-  owner=(ROOT/'src/global_projectile91_mirror.inc').read_text()
+  owner=qualified61_source('src/global_projectile91_mirror.inc')
   self.assertIn('index==91?1u:index==145?2u:index==61?4u:0u',owner)
   self.assertIn('global_projectile91_used_members&4u',owner)
   self.assertIn('&&!xmas&&',owner)
-  self.assertIn('sprite == 145 || sprite == 61)',(ROOT/'src/tyrian2.c').read_text())
-  self.assertIn('game_probe_scene_draw(151,index,x,y,0,ENTITY_NORMAL,mirrored)',(ROOT/'src/entity_draw.c').read_text())
+  self.assertIn('sprite == 145 || sprite == 61)',qualified61_source('src/tyrian2.c'))
+  self.assertIn('game_probe_scene_draw(151,index,x,y,0,ENTITY_NORMAL,mirrored)',qualified61_source('src/entity_draw.c'))
  def test_finite_palette_and_complete_normal_bank_guard_draft(self):
   text=(ROOT/'src/enemy_projectile61_mirror.inc').read_text()
   self.assertIn('return index==61&&projectile91_source(bank,91);',text)

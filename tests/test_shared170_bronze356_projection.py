@@ -32,7 +32,7 @@ class Shared170Bronze356Projection(unittest.TestCase):
   self.assertEqual(p.project_source('unowned',b'exact bytes'),b'exact bytes')
  def test_every_qualified_input_is_rechecked(self):
   read=Path.read_bytes
-  for name in p.qualified_paths()-{p.LEDGER,'tests/shared170_bronze356_projection.py','tests/projectile145_projection.py','tests/projectile61_projection.py'}:
+  for name in p.qualified_paths()-{p.LEDGER,'tests/shared170_bronze356_projection.py','tests/projectile145_projection.py','tests/projectile61_projection.py','tests/projectile_blue_triplet_projection.py'}:
    def changed(path):return read(path)+(b'\n' if path==p.ROOT/name else b'')
    with self.subTest(name=name),patch.object(Path,'read_bytes',changed),self.assertRaises((AssertionError,ValueError,OSError)):p.verified()
  def test_stale_live_preimages_rejected(self):

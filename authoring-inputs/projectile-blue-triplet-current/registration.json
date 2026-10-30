@@ -1,0 +1,174 @@
+{
+  "schema": "enemy-blue-triplet-generated-registration-v2",
+  "epoch": "101V6+120V4+139original",
+  "native_canvas": [
+    12,
+    14
+  ],
+  "anchor": [
+    0,
+    0
+  ],
+  "density": 8,
+  "registered_canvas": [
+    96,
+    112
+  ],
+  "pillow_version": "12.3.0",
+  "resampling": "Image.Resampling.LANCZOS",
+  "generated_alpha_policy": "Only fixed crop/LANCZOS plus canonical RGBA0 outside immutable native support or alpha0. No alpha promotion, painted fill, endpoint copy or original RGB.",
+  "sources": [
+    {
+      "selector": 101,
+      "source_png": "authoring-inputs/projectile-blue-triplet-current/raw/generated-master-101-v6.png",
+      "source_sha256": "67f727657296f4c9408e310033b4afe7603b4195f3b738115c8cd397a5b29a00",
+      "source_size": [
+        1160,
+        1355
+      ],
+      "crop": [
+        0,
+        0,
+        1160,
+        1355
+      ],
+      "png_compress_level": 6
+    },
+    {
+      "selector": 120,
+      "source_png": "authoring-inputs/projectile-blue-triplet-current/raw/generated-master-120-v2.png",
+      "source_sha256": "1ca347f17ebe894434d0b55698f175bd1dd345b58c87ec3ae0722641b4db3c1b",
+      "source_size": [
+        1160,
+        1355
+      ],
+      "crop": [
+        350,
+        0,
+        810,
+        1355
+      ],
+      "png_compress_level": 6
+    },
+    {
+      "selector": 139,
+      "source_png": "authoring-inputs/projectile-blue-triplet-current/raw/generated-master-01.png",
+      "source_sha256": "0904cafbedf92ca30f3bc132a7f39eb8febc44a69e4cbdac6f85ff00c511ca57",
+      "source_size": [
+        725,
+        2168
+      ],
+      "crop": [
+        224,
+        1550,
+        502,
+        1870
+      ],
+      "png_compress_level": 9
+    }
+  ],
+  "tiles": [
+    {
+      "selector": 101,
+      "output": "candidate-101-96x112.png",
+      "crop": [
+        0,
+        0,
+        1160,
+        1355
+      ],
+      "native_support_rows": [
+        "001111111100",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111"
+      ],
+      "native_occupied_cells": 164,
+      "normal_decoded_indices_then_mask_sha256": "9daa5ae718292bbe683bfdb2c6345e6d03d19cea7482ec7ff2cce5658d5adbd0",
+      "normal_decoded_fnv1a64": "d441b1469f9cfb78"
+    },
+    {
+      "selector": 120,
+      "output": "candidate-120-96x112.png",
+      "crop": [
+        350,
+        0,
+        810,
+        1355
+      ],
+      "native_support_rows": [
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "111111111111"
+      ],
+      "native_occupied_cells": 168,
+      "normal_decoded_indices_then_mask_sha256": "3d88b075964c99a5d4d3b686553dc66c6048bd24e23c707be1fa31e41d097c40",
+      "normal_decoded_fnv1a64": "03976f9e5103b6d5"
+    },
+    {
+      "selector": 139,
+      "output": "candidate-139-96x112.png",
+      "crop": [
+        224,
+        1550,
+        502,
+        1870
+      ],
+      "native_support_rows": [
+        "111111111111",
+        "111111111111",
+        "111111111111",
+        "011111111110",
+        "011111111110",
+        "011111111110",
+        "011111111110",
+        "011111111110",
+        "001111111100",
+        "001111111100",
+        "001111111100",
+        "001111111100",
+        "000111111000",
+        "000111111000"
+      ],
+      "native_occupied_cells": 130,
+      "normal_decoded_indices_then_mask_sha256": "116440ca915ec6b1417cc69bc7cead55745dda5d91afa2be39e071534c3ae9f2",
+      "normal_decoded_fnv1a64": "542eec77e6ecc0d9"
+    }
+  ],
+  "normal_bank_only": {
+    "filename": "tyrian.shp",
+    "file_sha256": "80cae98e073be6d7f710495920b71497bb23f108ea6631d6faf352c4729474f0",
+    "bank8_range": [
+      350426,
+      382486
+    ],
+    "bank8_bytes": 32060,
+    "bank8_sha256": "9bba1e94d38df61f152412c226bfd6df235e42027c9143c5961d4a5add853a68",
+    "bank8_fnv1a64": "2b63027f74aaa21e"
+  },
+  "christmas_policy": "Classic fallback; different Christmas source artwork is not represented.",
+  "coverage_contract": "coverage-contract.json",
+  "coverage_contract_sha256": "c667b52db7c28fd8d9ee96ffd0531a16b5cb4875c05995c2026bf381ab38d1c9",
+  "legacy_disposition": "This explicit multi-source epoch replaces the former shared-master/contiguous-seam/every-cell>=200 authoring contract only. Historical failed attempts and old epoch remain unchanged; no retroactive qualification."
+}
