@@ -79,7 +79,7 @@ static void enemy_reuse_observe_frame_result(bool,const char *);
 #define enemy_reuse_cache_check() true
 #define enemy_reuse_observe_frame_result(a,b) ((void)0)
 #endif
-enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_SHAPESY_PLATFORM=202, ASSET_SHAPESY_CYAN=203, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ENEMY_PROJECTILE91=149, ASSET_ENEMY_PROJECTILE145=150, ASSET_ENEMY_PROJECTILE61=151, ASSET_ENEMY_BLUE_TRIPLET=152, ASSET_ASTEROID1=108 };
+enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_SHAPESY_PLATFORM=202, ASSET_SHAPESY_CYAN=203, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ENEMY_PROJECTILE91=149, ASSET_ENEMY_PROJECTILE145=150, ASSET_ENEMY_PROJECTILE61=151, ASSET_ENEMY_BLUE_TRIPLET=152, ASSET_ENEMY_GOLD_PULSE=153, ASSET_ASTEROID1=108 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
 static Asset assets[576];
@@ -329,6 +329,10 @@ static bool projectile_blue_triplet_source(Sprite2_array,unsigned);
 static bool projectile_blue_triplet_palette_matches(unsigned);
 static Asset *projectile_blue_triplet_resource(const char *,unsigned);
 static void projectile_blue_triplet_shutdown(void);
+static bool projectile_gold_pulse_source(Sprite2_array,unsigned);
+static bool projectile_gold_pulse_palette_matches(unsigned);
+static Asset *projectile_gold_pulse_resource(const char *,unsigned);
+static void projectile_gold_pulse_shutdown(void);
 #if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
 static bool global_newshf_frame,global_newshf_fault;
 static void global_newshf_shutdown(void);
@@ -3518,7 +3522,7 @@ bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array ban
   return projectile91_draw(surface,x,y,bank,index);
  }
  /* These shared enemy roles do not opt the old level-specific scene mirror in. */
- if(index==145||index==61||index==101||index==120||index==139) {
+ if(index==145||index==61||index==101||index==120||index==139||index==168||index==169) {
   if(global_asset_directory[0]) {global_projectile91_observed_preflight();return global_projectile91_draw(surface,x,y,bank,index)>0;}
   return false;
  }
@@ -3855,6 +3859,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "enemy_projectile145_mirror.inc"
 #include "enemy_projectile61_mirror.inc"
 #include "enemy_blue_triplet_mirror.inc"
+#include "enemy_gold_pulse_mirror.inc"
 #include "asteroid1_enemy_orb112113_mirror.inc"
 #include "asteroid1_firing270_mirror.inc"
 #include "asteroid1_firing285_mirror.inc"

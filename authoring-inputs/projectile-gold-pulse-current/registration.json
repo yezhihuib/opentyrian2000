@@ -1,0 +1,55 @@
+{
+  "schema": "gold-pulse-fixed-registration-v1",
+  "pillow": "12.3.0",
+  "master": {
+    "source_png": "authoring-inputs/projectile-gold-pulse-current/raw/generated-master-epoch2-01.png",
+    "source_sha256": "3c26709606ce7c673fe33799c2480951b2041b829a5123bdacf5c9fb20b3ef75",
+    "source_size": [
+      1774,
+      887
+    ],
+    "prompt_path": "authoring-inputs/projectile-gold-pulse-current/prompt-01.txt",
+    "prompt_sha256": "2c683103adc625695f5d957d6933af9a28a11d143cfaedc4edd00c2f5dbc883f"
+  },
+  "members": [
+    {
+      "selector": 168,
+      "crop": [
+        0,
+        0,
+        887,
+        887
+      ],
+      "resize": [
+        88,
+        88
+      ],
+      "paste": [
+        0,
+        8
+      ],
+      "png_compress_level": 6
+    },
+    {
+      "selector": 169,
+      "crop": [
+        887,
+        0,
+        1774,
+        887
+      ],
+      "resize": [
+        72,
+        72
+      ],
+      "paste": [
+        8,
+        16
+      ],
+      "png_compress_level": 6
+    }
+  ],
+  "canonical_transparency": "RGBA zero outside native mask or when alpha is zero",
+  "source_pixels": "Only the generated master. Original colored game pixels/reference images are not inputs.",
+  "scope": "New portable epoch derived from corrected epoch2 registration; unavailable original gold source/result remains UNKNOWN. Prompts are historical records, not executed."
+}

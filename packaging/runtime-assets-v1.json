@@ -12,7 +12,7 @@
       "settings-font-tiny-v1.hda",
       "title-menu-font-v1.hda"
     ],
-    "gameplay_files": 694,
+    "gameplay_files": 696,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 41343,
+      "bytes": 41574,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "8dcb3835f2a4218bf5ca87c03f6a8b1a989bbb80",
+      "git_blob": "164154de4d791ef1c7e3e8cb258b41ade7df0c8a",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "b3bece4dcba91e299097addc970a120f3bafa532f8e6f369311095c59b53352e",
+      "sha256": "79ac2e285319bb4b8167b39eaef9edb6200864f92f65859a21c0dec39e001c9a",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2541,6 +2541,24 @@
       "revision": "current-single-source-projectile-blue-triplet",
       "sha256": "47a6941988a2e2a4835859dfc1cf12f2481b2bf29bab18be94307b408cf34942",
       "source_path": "assets/hd/current-compat/projectile-blue-triplet/enemy-projectile-blue-triplet-139-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile-gold-pulse-168-8.hda",
+      "git_blob": "c026a0f9476e6c0297c64443d661ae29d9b31d84",
+      "group": "gameplay",
+      "revision": "current-single-source-projectile-gold-pulse",
+      "sha256": "a453142d1d1d5e662a5c36053f5af42b719fa2a2d993e7b2384c5d4231cfdb14",
+      "source_path": "assets/hd/current-compat/projectile-gold-pulse/enemy-projectile-gold-pulse-168-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile-gold-pulse-169-8.hda",
+      "git_blob": "719a5e668b93b0c41dfbbbe5b3fa29aa41d8dcbd",
+      "group": "gameplay",
+      "revision": "current-single-source-projectile-gold-pulse",
+      "sha256": "1dc205caccc8320968389868f844cacd50046a285b2d1e90f5b9073fcfddc831",
+      "source_path": "assets/hd/current-compat/projectile-gold-pulse/enemy-projectile-gold-pulse-169-8.hda"
     },
     {
       "bytes": 43036,
@@ -10043,7 +10061,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "db76a0880ac39a9a4bf00961805c3ff69fc0d25dbb422e6c881d9fda8d850ee6",
+    "current_production_source_manifest_sha256": "6be27890265b5f2ed0a5a9b109572b0e1161d8302e4703d55a9f80acd364287d",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

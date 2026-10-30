@@ -1,0 +1,68 @@
+{
+  "schema": "gold-pulse-runtime-evidence-reference-v1",
+  "historical_original_gold": "UNKNOWN",
+  "retained_epoch2_run01": "FAIL_RETAINED_STANDARD_FNV_PIN_MISMATCH",
+  "fresh_full_gate": "NOT_CLAIMED_BY_THIS_REFERENCE",
+  "native": {
+    "scope": "Controlled internal8 production-TU probe;83 reused sanitized objects plus3 new TUs,not fullfresh game",
+    "cases": 880,
+    "assertions": 50255790,
+    "process_cases": [
+      107,
+      157,
+      365,
+      251
+    ],
+    "original629_byte_exact": true,
+    "receipt_sha256": "d13798411f4dbe0fbd855eb7f761d8afb46078a449cec1ffa1afa7218b27dac3"
+  },
+  "gameplay": {
+    "scope": "Natural enemy schedule under existing deterministic no-player-movement/no-fire debug input,not unrestricted play",
+    "captured_ticks": [
+      364,
+      365
+    ],
+    "completed_ticks": 401,
+    "generation": 29,
+    "slot": 1,
+    "actor": 559,
+    "link": 10,
+    "weapon": 63,
+    "sequence": [
+      169,
+      168
+    ],
+    "native_files_equal": 17,
+    "raw_index8_palette_buffers_equal": 6,
+    "collision_rows": 28,
+    "blend_rows": 0,
+    "fire_rows": 0,
+    "scene_hit_rows": 0,
+    "player_projectile_rows": 0,
+    "terminal": {
+      "tick": 400,
+      "alive": 1,
+      "invulnerable": 0,
+      "armor": 2,
+      "shield": 3,
+      "x": 48,
+      "y": 160
+    },
+    "limits": [
+      "Stationary means no movement input,not invariant position;native damage/push remains",
+      "No invulnerability override;original initial100 unchanged;only terminal400 is0",
+      "Two screenshots andruntime logs,not fullcontinuous-animation smoothness",
+      "Zero rows do not prove those pathways;passive cache flags not activecache reuse",
+      "ExpectedRGB surviving subset,not exclusive last writer"
+    ],
+    "receipt_sha256": "112a354cdc53a33874e425604019a4e9d9103d7bbbdc8f64481790090f13633b",
+    "independent_review_sha256": "8af6eed7a60e945e682a600a813e8886226c473132cd0d005b6c55fcf30346b2"
+  },
+  "private_recoverability": {
+    "delivery_sha256": "e45d9212426fa36b723049dbfe5c599266aa1d607042e9c2f312a6693946fcd6",
+    "archive_library_id": "libfile_a35b8562dacc8191a67e43658737db67",
+    "report_library_id": "libfile_a66d2a086a3c81919e1eb7439d8f2bdd",
+    "actual_tick365_screenshot_library_id": "libfile_2b16d1ba2aa88191a1ee50c325a9c535",
+    "note": "Reference IDs/hashes only. Private originals/game data/screenshots are not packaged here."
+  }
+}

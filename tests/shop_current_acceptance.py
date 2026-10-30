@@ -118,7 +118,12 @@ def check_current_inventory(root=ROOT):
     projectile_blue_triplet_added=dict(projectile_blue_triplet['added_sources'])
     projectile_blue_triplet_added.update({n:r['sha256'] for n,r in projectile_blue_triplet['assets'].items()})
     assert not set(projectile_blue_triplet_added)&set(dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added, **projectile_blue_triplet_added))
+    from projectile_gold_pulse_projection import verified as projectile_gold_pulse_verified
+    projectile_gold_pulse=projectile_gold_pulse_verified(root)
+    projectile_gold_pulse_added=dict(projectile_gold_pulse['added_sources'])
+    projectile_gold_pulse_added.update({n:r['sha256'] for n,r in projectile_gold_pulse['assets'].items()})
+    assert not set(projectile_gold_pulse_added)&set(dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added, **projectile_blue_triplet_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added, **projectile_blue_triplet_added, **projectile_gold_pulse_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

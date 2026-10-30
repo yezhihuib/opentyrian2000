@@ -318,6 +318,16 @@ def main():
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']=blue_triplet_revision
 
+    # Exact two animation frames of weapon63; preserve original shot behavior.
+    from current_projectile_gold_pulse_compatibility import load as gold_pulse_load, REVISION as gold_pulse_revision
+    gold_pulse=gold_pulse_load(root)
+    expected_gold={'assets/gameplay/enemy-projectile-gold-pulse-'+str(i)+'-8.hda' for i in (168,169)}
+    if set(gold_pulse)!=expected_gold or set(gold_pulse)&set(rows):
+        raise ValueError('Unexpected/colliding gold-pulse runtime extension')
+    for destination,row in sorted(gold_pulse.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=gold_pulse_revision
+
     # Exactly one private P09 transport; no player227 or duplicate226/244.
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
     for name,raw in protron_derive(root).items():

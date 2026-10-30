@@ -3,7 +3,11 @@ from pathlib import Path
 import hashlib,re,unittest
 ROOT=Path(__file__).resolve().parents[1]
 class BlueTripletRuntimeContract(unittest.TestCase):
- def text(self,name):return (ROOT/'src'/name).read_text()
+ def text(self,name):
+  import projectile_gold_pulse_projection as newest
+  path='src/'+name;raw=newest.project_source(path,(ROOT/path).read_bytes())
+  assert newest.sha(raw)==newest.ledger()['base_source_inventory'][path],('qualified blue source drift',path)
+  return raw.decode()
  def test_enemy_only_dispatch_has_original_blit_once(self):
   s=self.text('entity_draw.c').split('void draw_enemy_shot_sprite2(',1)[1].split('/* Original sidekick',1)[0]
   self.assertEqual(s.count('blit_sprite2(target,x,y,bank,index);'),1)

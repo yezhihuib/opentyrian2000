@@ -3,6 +3,7 @@ import copy,json,subprocess,sys,unittest
 from pathlib import Path
 from unittest.mock import patch
 import projectile_blue_triplet_projection as p
+import projectile_gold_pulse_projection as newest
 sys.path.insert(0,str(p.ROOT/'scripts'))
 from verify_current_production import source_inventory
 import current_projectile_blue_triplet_compatibility as c
@@ -17,7 +18,7 @@ class ProjectileBlueTripletProjection(unittest.TestCase):
   self.assertEqual({q['identity'] for q in proof['mapping'].values()},{1520101,1520120,1520139})
  def test_exact_inverse_and_independent_hunk_preimage_checks(self):
   for name in p.FILES:
-   raw=(p.ROOT/name).read_bytes();old=p.project_source(name,raw)
+   raw=p.checked_read(p.ROOT,name);old=p.project_source(name,raw)
    self.assertEqual(p.sha(old),p.ledger()['files'][name]['previous_sha256'])
    self.assertEqual(p.project_if_current(name,old),old)
    for bad in (raw+b'\n',old):
@@ -30,7 +31,7 @@ class ProjectileBlueTripletProjection(unittest.TestCase):
   self.assertEqual(p.project_source('unowned',b'exact bytes'),b'exact bytes')
  def test_every_qualified_input_is_rechecked(self):
   read=Path.read_bytes
-  for name in p.qualified_paths()-{p.LEDGER,'tests/projectile_blue_triplet_projection.py'}:
+  for name in p.qualified_paths()-{p.LEDGER,'tests/projectile_blue_triplet_projection.py','tests/projectile_gold_pulse_projection.py'}:
    def changed(path):return read(path)+(b'\n' if path==p.ROOT/name else b'')
    with self.subTest(name=name),patch.object(Path,'read_bytes',changed),self.assertRaises((AssertionError,ValueError,OSError)):p.verified()
  def test_stale_live_preimages_rejected(self):
@@ -58,7 +59,8 @@ class ProjectileBlueTripletProjection(unittest.TestCase):
   with patch.object(Path,'rglob',paths),patch.object(Path,'is_file',regular),patch.object(Path,'read_bytes',content),self.assertRaises(AssertionError):p.verified()
  def test_actual_caller_whole_inventory_and_exact310_stage(self):
   live=source_inventory(p.ROOT)
-  self.assertEqual(len(live),312)
+  self.assertEqual(len(live),314)
+  self.assertEqual(len(newest.before_inventory(live)),312)
   old=p.before_inventory(live);self.assertEqual(old,p.ledger()['base_source_inventory']);self.assertEqual(len(old),310)
   for name in sorted(p.ADDED|p.SRC_FILES|{'src/player.c'}):
    for kind in ('missing','wrong'):
@@ -69,14 +71,16 @@ class ProjectileBlueTripletProjection(unittest.TestCase):
   bad=dict(live);bad['src/unknown.inc']='0'*64
   with self.assertRaises(AssertionError):p.before_inventory(bad)
  def test_three_complete_runtime_rows_and_order(self):
-  manifest=json.loads((p.ROOT/'packaging/runtime-assets-v1.json').read_bytes())
-  rows=manifest['files'];proof=p.verified();mapping=proof['mapping']
-  self.assertEqual(len(rows),1107)
-  self.assertEqual(len({row['destination'] for row in rows}),1107)
-  self.assertEqual(manifest['closure']['gameplay_files'],sum(row['group']=='gameplay' for row in rows))
+  raw=(p.ROOT/'packaging/runtime-assets-v1.json').read_bytes()
+  manifest=json.loads(newest.project_source('packaging/runtime-assets-v1.json',raw))
+  rows=json.loads(raw)['files'];stage_rows=newest.before_runtime(rows)
+  proof=p.verified();mapping=proof['mapping']
+  self.assertEqual(len(stage_rows),1107)
+  self.assertEqual(len({row['destination'] for row in stage_rows}),1107)
+  self.assertEqual(manifest['closure']['gameplay_files'],sum(row['group']=='gameplay' for row in stage_rows))
   self.assertEqual(manifest['closure']['gameplay_files'],694)
-  self.assertEqual(rows,sorted(rows,key=lambda row:row['destination']))
-  self.assertEqual(p.before_runtime(rows),[r for r in rows if r['destination'] not in mapping])
+  self.assertEqual(stage_rows,sorted(stage_rows,key=lambda row:row['destination']))
+  self.assertEqual(p.before_runtime(rows),[r for r in stage_rows if r['destination'] not in mapping])
   self.assertEqual(sum(r['destination'] in mapping for r in rows),3)
   for destination in sorted(mapping):
    for kind in ('missing','duplicate','destination','source_path','sha256','bytes','git_blob','group','revision','extra_field'):
