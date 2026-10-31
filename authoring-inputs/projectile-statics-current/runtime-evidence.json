@@ -1,0 +1,53 @@
+{
+  "schema": "enemy-statics-runtime-evidence-v1",
+  "record_only": true,
+  "registration": {
+    "selected": "registered02",
+    "receipt_sha256": "83eb3b144434ce75233164a616525e4bf57fd1596885dfc327375365a6983ae7",
+    "status": "PASS_FIXED_REGISTRATION_NOT_RUNTIME"
+  },
+  "historical_registration01": {
+    "status": "FAIL_COVERAGE_RETAINED",
+    "receipt_sha256": "835bc66c2cbcfd1637d3eb1e76be9e61b024db5295b296e85f8837fdbb8fa696",
+    "rejected260_raw_sha256": "4c6aefd67ac02218289ea9326e254473ac87a4da35b1682a2b1b8d2b905d092b",
+    "empty_native_cells": 9,
+    "private_backup_retained": true,
+    "failed_raw_included": false
+  },
+  "native": {
+    "status": "PASS_CONTROLLED_INCREMENTAL_PRODUCTION_TU",
+    "receipt_sha256": "53a8ecf47766fd8e822951d8b0c515e348d6bff4bc069ab25d25d235afb39cdd",
+    "review_sha256": "6bb80ec5a10a8e2b8023ea611eba4880c38bfbe18737cc88a78454ecfffb3ade",
+    "cases": 1329,
+    "assertions": 141598648,
+    "old_cases": 880,
+    "old_assertions": 50255790,
+    "new_cases": 449,
+    "new_assertions": 91342858,
+    "process_cases": [
+      107,
+      157,
+      365,
+      251,
+      449
+    ],
+    "scope": "Incremental production-TU controlled internal8; not all-fresh full build."
+  },
+  "gameplay": {
+    "status": "PASS_NATURAL_STATICS_TWO_SITE_SIX_RUN_DIFFERENTIAL",
+    "receipt_sha256": "e9c73c92019f131749dbfeb251854d6151c8f7c062e9f2ebd3fbd8a8f8cd6e0a",
+    "review_sha256": "93b15d9aaad4d7b8b36cc1936fd55c3183cd0ee8ba6107b97f8cc2eea3319f61",
+    "backup_delivery_sha256": "b75bb6c3a7ca3d7dad698653b3ce126751e57eafe976e08b97e244dcaa76f7c0",
+    "runs": 6,
+    "ticks_per_run": 120,
+    "captured_ticks": {
+      "162": 59,
+      "260": 69
+    },
+    "two260_independent_generations": true,
+    "visual_scope": "Root accepted actual captures;162 distinguishable with warning-text overlap, not unobstructed."
+  },
+  "fresh_four_configs": "PENDING_NEW_INSTALLED_SOURCE_EPOCH",
+  "ordered558_suffix_QA": "PENDING_SEPARATE_QA_EPOCH",
+  "runtime_observer_sources_included": false
+}

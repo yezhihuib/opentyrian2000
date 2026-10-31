@@ -1,0 +1,91 @@
+{
+  "schema": "enemy-statics-fixed-registration-v1",
+  "pillow": "12.3.0",
+  "sources": [
+    {
+      "selector": 162,
+      "source_png": "authoring-inputs/projectile-statics-current/raw/generated-162-01.png",
+      "source_sha256": "27dcdfedd7e8c3ec4ad21be7e4d62befc27b6cfe618bb0c259679a40c8164d44",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "prompt_path": "authoring-inputs/projectile-statics-current/prompt-162-01.txt",
+      "prompt_sha256": "909083d64c1af9800544f3c09dc8b5b2644a6ac1cdde3e80b51c7dd7b8df0e1e"
+    },
+    {
+      "selector": 260,
+      "source_png": "authoring-inputs/projectile-statics-current/raw/generated-260-corrected-02.png",
+      "source_sha256": "86e024a8535a22b5229b98c140559ff741db03768f217bdc21113fd7ed200130",
+      "source_size": [
+        887,
+        1774
+      ],
+      "prompt_path": "authoring-inputs/projectile-statics-current/prompt-260-correction-02.txt",
+      "prompt_sha256": "e2c9d3285046d6a135a804e63591eb31eecb6430d8cc52845bacb079191701f4"
+    }
+  ],
+  "historical_prompts": [
+    {
+      "path": "authoring-inputs/projectile-statics-current/prompt-162-01.txt",
+      "sha256": "909083d64c1af9800544f3c09dc8b5b2644a6ac1cdde3e80b51c7dd7b8df0e1e"
+    },
+    {
+      "path": "authoring-inputs/projectile-statics-current/prompt-260-01.txt",
+      "sha256": "0297199b612d2792e9855086a6db64f5f2226cbab4ab1170e17747f398c862b1"
+    },
+    {
+      "path": "authoring-inputs/projectile-statics-current/prompt-260-correction-02.txt",
+      "sha256": "e2c9d3285046d6a135a804e63591eb31eecb6430d8cc52845bacb079191701f4"
+    }
+  ],
+  "members": [
+    {
+      "selector": 162,
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "placements": [
+        [
+          32,
+          16
+        ],
+        [
+          32,
+          56
+        ]
+      ],
+      "resize": [
+        32,
+        32
+      ],
+      "png_compress_level": 6
+    },
+    {
+      "selector": 260,
+      "crop": [
+        0,
+        0,
+        887,
+        1774
+      ],
+      "placements": [
+        [
+          16,
+          0
+        ]
+      ],
+      "resize": [
+        56,
+        112
+      ],
+      "png_compress_level": 6
+    }
+  ],
+  "canonical_transparency": "RGBA zero outside native mask or when alpha is zero",
+  "source_pixels": "Only the two selected generated raws. No original game/reference image is an input.",
+  "scope": "Fixed registered02 bytes:162 is one static shot with two identical separated lobes;260 is one static pellet, with weapon69 multi2 producing independent shots. Prompts are historical, not executed."
+}

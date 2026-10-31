@@ -3,7 +3,11 @@ from pathlib import Path
 import unittest
 ROOT=Path(__file__).resolve().parents[1]
 class GoldRuntimeContract(unittest.TestCase):
- def text(self,n):return (ROOT/'src'/n).read_text()
+ def text(self,n):
+  import projectile_statics_projection as newest
+  path='src/'+n;raw=newest.project_source(path,(ROOT/path).read_bytes())
+  assert newest.sha(raw)==newest.ledger()['base_source_inventory'][path],('qualified gold source drift',path)
+  return raw.decode()
  def test_01_enemy_role_and_original_blit_once(self):
   s=self.text('entity_draw.c').split('void draw_enemy_shot_sprite2(',1)[1].split('/* Original sidekick',1)[0]
   self.assertEqual(s.count('blit_sprite2(target,x,y,bank,index);'),1);self.assertEqual(s.count('render_mirror_entity_end();'),1);self.assertIn('game_probe_scene_draw(153,index,x,y,0,ENTITY_NORMAL,mirrored)',s)

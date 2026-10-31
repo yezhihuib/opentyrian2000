@@ -110,6 +110,8 @@ void draw_enemy_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,
   game_probe_scene_draw(152,index,x,y,0,ENTITY_NORMAL,mirrored);
  else if(bank.data==spriteSheet8.data&&(index==168||index==169))
   game_probe_scene_draw(153,index,x,y,0,ENTITY_NORMAL,mirrored);
+ else if(bank.data==spriteSheet8.data&&(index==162||index==260))
+  game_probe_scene_draw(154,index,x,y,0,ENTITY_NORMAL,mirrored);
  else if(bank.data==spriteSheet8.data&&index==304)
   game_probe_scene_draw(140,index,x,y,0,ENTITY_NORMAL,mirrored);
 #else

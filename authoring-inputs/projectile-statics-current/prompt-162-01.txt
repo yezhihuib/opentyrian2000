@@ -1,0 +1,6 @@
+Use case: stylized-concept
+Asset type: one transparent raster component for a small enemy energy projectile in a vertically scrolling arcade shooter.
+Primary request: a single compact circular warm-gold light kernel, centered on a square truly transparent canvas. This is one orb component; the engine asset will reuse it twice at fixed separated positions. Do not draw a pair, beam, trail, ring, or scene.
+Style: polished hand-painted HD game VFX, smooth continuous subpixel shading, luminous cream-white hot core fading through yellow-gold and warm amber toward soft transparent edges. Preserve a small rounded silhouette, with a subtly brighter upper-right core, not a metallic object.
+Composition: front-facing orthographic sprite, no perspective; exact center of the canvas, round glow occupies nearly the full square but naturally fades at the border. Leave no large empty margin. No hard circular outline or solid border.
+Constraints: genuine transparent background and native soft alpha, no checkerboard painted into pixels, no grid or pixel-art mosaic, no text, no frame, no watermark, no extra sparks or long wisps, no square base, no opaque halo shell. The result is static, not an animation sheet.

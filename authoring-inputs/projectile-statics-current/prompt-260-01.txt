@@ -1,0 +1,6 @@
+Use case: stylized-concept
+Asset type: one transparent raster sprite for a static enemy energy pellet in a vertically scrolling arcade shooter.
+Primary request: a single vertically elongated rounded luminous pellet, centered on a transparent portrait canvas with an intended width:height of1:2. Draw only one pellet; the original game separately emits two identical shots and will handle their positions.
+Style: polished hand-painted HD game VFX. A small cream-gold center fades along the vertical axis through gold and orange, with restrained reddish-amber peripheral shading and a soft transparent outer edge. It is an energy shape, not a solid capsule or bullet casing. Preserve a subtly brighter central region and smoothly rounded upper/lower ends.
+Composition: front-facing orthographic, exact centered vertical alignment, elongated oval/rounded pellet occupies nearly the full1:2 crop but fades naturally at all borders. No perspective or motion trail.
+Constraints: genuine transparent background and native soft alpha; no rigid glowing outline, no bright flat bottom, no opaque rectangular shell, no hard top/bottom cuts, no grid/mosaic/pixel-art blocks, no text, no watermark, no extra sparks, no second pellet, no animation sheet. Do not turn it into a circular orb.

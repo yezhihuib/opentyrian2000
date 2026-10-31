@@ -328,6 +328,16 @@ def main():
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']=gold_pulse_revision
 
+    # Exact two static enemy resources; preserve single-shot lobes and multi2.
+    from current_projectile_statics_compatibility import load as statics_load, REVISION as statics_revision
+    statics=statics_load(root)
+    expected_statics={'assets/gameplay/enemy-projectile-statics-'+str(i)+'-8.hda' for i in (162,260)}
+    if set(statics)!=expected_statics or set(statics)&set(rows):
+        raise ValueError('Unexpected/colliding static-projectile runtime extension')
+    for destination,row in sorted(statics.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=statics_revision
+
     # Exactly one private P09 transport; no player227 or duplicate226/244.
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
     for name,raw in protron_derive(root).items():

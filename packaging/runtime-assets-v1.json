@@ -12,7 +12,7 @@
       "settings-font-tiny-v1.hda",
       "title-menu-font-v1.hda"
     ],
-    "gameplay_files": 696,
+    "gameplay_files": 698,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 41574,
+      "bytes": 41799,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "164154de4d791ef1c7e3e8cb258b41ade7df0c8a",
+      "git_blob": "b6c81cc2f664fcbdbd8300b313c74456d60d218f",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "79ac2e285319bb4b8167b39eaef9edb6200864f92f65859a21c0dec39e001c9a",
+      "sha256": "90c7c624b003c93abea01975c7da3f706d2632c79ce6a5a35c55ddc31ea9c92e",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2559,6 +2559,24 @@
       "revision": "current-single-source-projectile-gold-pulse",
       "sha256": "1dc205caccc8320968389868f844cacd50046a285b2d1e90f5b9073fcfddc831",
       "source_path": "assets/hd/current-compat/projectile-gold-pulse/enemy-projectile-gold-pulse-169-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile-statics-162-8.hda",
+      "git_blob": "d667640aa1a8331035e51c1fb87ee3b4ef530564",
+      "group": "gameplay",
+      "revision": "current-projectile-statics-162-260-generated-v1",
+      "sha256": "2d045f7fc472ed6e2f33f9d742072f3b7ea1c3a606d8f1909bbcd33b57ae0119",
+      "source_path": "assets/hd/current-compat/projectile-statics/enemy-projectile-statics-162-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile-statics-260-8.hda",
+      "git_blob": "267debc80d11697ef8a0cb8f3780da47d5388c84",
+      "group": "gameplay",
+      "revision": "current-projectile-statics-162-260-generated-v1",
+      "sha256": "5545ee065fcf879eb306a6c25dc0b9be8ecf8dcaa5154cdbb69ae907e75adf8e",
+      "source_path": "assets/hd/current-compat/projectile-statics/enemy-projectile-statics-260-8.hda"
     },
     {
       "bytes": 43036,
@@ -10061,7 +10079,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "6be27890265b5f2ed0a5a9b109572b0e1161d8302e4703d55a9f80acd364287d",
+    "current_production_source_manifest_sha256": "41258e165b3699cfb8eaa997693a98a0907df25a8c1df0bb2c28667af6f9b7b0",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

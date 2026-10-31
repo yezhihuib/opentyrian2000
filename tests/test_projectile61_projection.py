@@ -31,7 +31,7 @@ class Projectile61Projection(unittest.TestCase):
   self.assertEqual(p.project_source('unowned',b'exact bytes'),b'exact bytes')
  def test_every_qualified_input_is_rechecked(self):
   read=Path.read_bytes
-  for name in p.qualified_paths()-{p.LEDGER,'tests/projectile61_projection.py','tests/projectile_blue_triplet_projection.py','tests/projectile_gold_pulse_projection.py'}:
+  for name in p.qualified_paths()-{p.LEDGER,'tests/projectile61_projection.py','tests/projectile_blue_triplet_projection.py','tests/projectile_gold_pulse_projection.py','tests/projectile_statics_projection.py'}:
    def changed(path):return read(path)+(b'\n' if path==p.ROOT/name else b'')
    with self.subTest(name=name),patch.object(Path,'read_bytes',changed),self.assertRaises((AssertionError,ValueError,OSError)):p.verified()
  def test_stale_live_preimages_rejected(self):
@@ -60,7 +60,8 @@ class Projectile61Projection(unittest.TestCase):
  def test_actual_caller_whole_inventory_and_exact308_stage(self):
   live=source_inventory(p.ROOT)
   import projectile_gold_pulse_projection as gold
-  self.assertEqual(len(live),314)
+  import projectile_statics_projection as statics
+  self.assertEqual(len(statics.before_inventory(live)),314)
   self.assertEqual(len(gold.before_inventory(live)),312)
   self.assertEqual(len(newest.before_inventory(live)),310)
   old=p.before_inventory(live);self.assertEqual(old,p.ledger()['base_source_inventory']);self.assertEqual(len(old),308)
