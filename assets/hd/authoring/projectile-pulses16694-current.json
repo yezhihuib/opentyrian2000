@@ -1,0 +1,84 @@
+{
+  "schema": "opentyrian-current-projectile-pulses16694-authoring-v1",
+  "version": "selected-pulses16694-registered02-standard-fnv",
+  "sources": [
+    {
+      "selector": 166,
+      "source_png": "authoring-inputs/projectile-pulses16694-current/raw/generated-166-01.png",
+      "source_sha256": "c49e46b754d1e00aec1d684129d57dd830bb0274758ecf4d8cf22547d124aad9",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "prompt_path": "authoring-inputs/projectile-pulses16694-current/prompt-166-01.txt",
+      "prompt_sha256": "a41e97e3164e7a0d830086be18abcb10681395096f4205c02c160b1073c978d0"
+    },
+    {
+      "selector": 94,
+      "source_png": "authoring-inputs/projectile-pulses16694-current/raw/generated-94-corrected-02.png",
+      "source_sha256": "f16260aa15e46d3cff124447017b138047bc9e26af59629d0eb8879b848f742f",
+      "source_size": [
+        1060,
+        1484
+      ],
+      "prompt_path": "authoring-inputs/projectile-pulses16694-current/prompt-94-correction-02.txt",
+      "prompt_sha256": "6a092173c67a607f61c974ccbac5b2fe8e262d09980f783b6c2b5375dbc20c0d"
+    }
+  ],
+  "historical_prompts": [
+    {
+      "path": "authoring-inputs/projectile-pulses16694-current/prompt-166-01.txt",
+      "sha256": "a41e97e3164e7a0d830086be18abcb10681395096f4205c02c160b1073c978d0"
+    },
+    {
+      "path": "authoring-inputs/projectile-pulses16694-current/prompt-94-01.txt",
+      "sha256": "6a35d673500238bc4a8d04c5413efdd6188feeacdd69192487e8301b3701e285"
+    },
+    {
+      "path": "authoring-inputs/projectile-pulses16694-current/prompt-94-correction-02.txt",
+      "sha256": "6a092173c67a607f61c974ccbac5b2fe8e262d09980f783b6c2b5375dbc20c0d"
+    }
+  ],
+  "members": [
+    {
+      "selector": 166,
+      "crop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "placements": [
+        [
+          8,
+          8
+        ]
+      ],
+      "resize": [
+        88,
+        88
+      ],
+      "png_compress_level": 6
+    },
+    {
+      "selector": 94,
+      "crop": [
+        0,
+        0,
+        1060,
+        1484
+      ],
+      "placements": [
+        [
+          8,
+          0
+        ]
+      ],
+      "resize": [
+        80,
+        112
+      ],
+      "png_compress_level": 6
+    }
+  ]
+}

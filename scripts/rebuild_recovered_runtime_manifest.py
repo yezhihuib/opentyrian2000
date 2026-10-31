@@ -338,6 +338,16 @@ def main():
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']=statics_revision
 
+    # Exact two static enemy pulses; preserve player aliases and legacy scope.
+    from current_projectile_pulses16694_compatibility import load as pulses16694_load, REVISION as pulses16694_revision
+    pulses16694=pulses16694_load(root)
+    expected_pulses16694={'assets/gameplay/enemy-projectile-pulses16694-'+str(i)+'-8.hda' for i in (166,94)}
+    if set(pulses16694)!=expected_pulses16694 or set(pulses16694)&set(rows):
+        raise ValueError('Unexpected/colliding pulses16694 runtime extension')
+    for destination,row in sorted(pulses16694.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=pulses16694_revision
+
     # Exactly one private P09 transport; no player227 or duplicate226/244.
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
     for name,raw in protron_derive(root).items():

@@ -1,0 +1,39 @@
+# Fixed enemy pulses166/94 authoring inputs
+
+These are two distinct static enemy projectiles sharing an existing ordinary enemy-shot mechanism, not an animation pair:166 is a near-circular blue ball;94 has a narrow upper end and fuller lower body. Their original native anchors and normal-bank97/108-cell masks are fixed. Christmas art differs and remains classic. The player option25/weapon719 numeric166 alias is not this enemy role and remains classic.
+
+## Fixed inputs and regeneration
+
+Two selected generated raw PNGs and all three original generation/edit prompts are retained byte-for-byte. Their embedded AI-origin metadata is retained; it is not a complete edit history or proof that references were unused. Private native reference images existed during design, but no private reference image or original game bank/palette is a producer input or included here. The initial rejected94 raw is not included; its hash and failed four-empty-cell registration are recorded in `runtime-evidence.json`, with private recovery retained separately.
+
+Use Python with Pillow **12.3.0**:
+
+```sh
+python -B scripts/build_current_projectile_pulses16694.py --root .
+```
+
+The read-only default checks six exact products:two registered PNGs, two HDR1 RGBA files, the compatibility mapping and the independent payload-pin header. `--write` deterministically writes only those six fixed products; it does not invoke generation, select alternatives or alter the recipe. The two raw images are resized exactly once with LANCZOS:166 from1254x1254 to88x88 at(8,8);94 from1060x1484 to80x112 at(8,0), on96x112 canvases. There is no bbox search, mask paste, alpha fill/threshold/dilation, opacity boost or randomization. Only outside-native pixels and existing alpha-zero hidden RGB are cleared. PNG compression level6 and standard FNV-1a64 are fixed.
+
+The complete14x12 max-alpha matrices and all RGBA transport hashes are in `coverage-contract.json`.166 retains5788 soft pixels,0 opaque and420 native-alpha-zero;94 retains6448 soft,40 opaque and424 native-alpha-zero. Low-alpha occupied cells are intentional, with no empty native cells. The correction preserves166 exactly and changes6574 registered94 pixels; it is not merely a patch of four cells.
+
+## Evidence boundary
+
+`runtime-evidence.json` records the completed controlled incremental production-TU native1907 cases/285458804 assertions and the two natural gameplay sites (three variants each). Run01 palette-fixture failure and Run02 successful assertions but failed no-captures postcondition remain historical failures; Run03 passed with a production-parser no-capture wrapper and full palette5 sixth input. This input applies to all578 new setups, not only the legacy subset. The no-capture parser has disclosed diagnostic target/started/fast writes; it does not change the checked tick/RNG/scene/owner conditions.
+
+Gameplay uses166 E5 physical7 (241ticks,capture220) and94 E4 physical15 (161ticks,capture127), preserving natural input. Both `normal15-output-scope` and `normal15-scene-font` remain recorded for94; no guard was removed or scene support broadened. New own pixels were visible, missing assets matched baseline, and changes outside the original-mask union were zero. Natural foreign counts were zero:controlled native own/foreign tests do not become a natural foreign-drop claim. Selected-frame visual acceptance is not continuous animation, wholegame, night or Christmas approval. Ordinary compiler warnings and94's original unknown-event warning remain in private technical evidence.
+
+Four completely fresh configurations and the original ordered716-method suffix are **PENDING** in a separate installed-source/QA epoch. This document and the producer tests do not claim those future outcomes, a single-process whole-repository pass, or CI success. Nothing here authorizes publication of additional private material.
+
+## Completed fresh-build update (source epoch 3)
+
+The earlier pending statement records the prior authoring checkpoint. Four completely fresh configurations are now actually complete: default-off, HD-on, mirror-disabled and HD-on ASan/UBSan. Each compiled all 86 project translation units from this 318-source inventory; no prior project object, executable, depfile or build-source copy was reused. The 346 actual dependency files bind the four builds plus renamed-main and the actual renderer/harness compilation. The sanitized native link uses 84 newly built project objects plus the new renamed-main object and the newly compiled renderer/harness. External system/SDL libraries remain native and leak detection is disabled; this is not a claim that those external libraries were sanitized.
+
+All 12 commands exited zero: four builds, two harness commands and six native processes with 107 + 157 + 365 + 251 + 449 + 578 = 1907 cases and 285458804 assertions. The original five stdout contracts are preserved; the sixth 44-line stdout is byte-exact with successful incremental Run03. The single portable helper supplies the complete 3728-byte no-capture wrapper/inverse chain and all 256 palette5 words for the sixth input only. All 1241 fixture payloads and 148 content links were materialized and checked. No BMP or PNG capture was created. The component stdout's narrower internal8 wording is retained: the separate fresh-object/dependency evidence establishes the fresh-build layer, not a larger gameplay or whole-repository claim.
+
+The three ordinary builds retain compiler-warning stderr of 46995, 47810 and 41376 bytes respectively; the sanitized build and the other eight commands have empty stderr. All 15 final closure checks passed, including complete current-root and protected-root inventories, actual indices, original data, bound inputs, dependency links, generated/new artifacts, native linked objects, fixture links and empty compiler TMPDIR. The separate outer guard checks four root identities and their exact source inventories, not every older root's asset bytes.
+
+The final measured allocation and sampled peak were both 238673920 bytes. The approved limits are 448 MiB peak, 320 MiB final, 48 MiB logs and 250 MiB free reserve; additive class bounds are 444 MiB peak and 316 MiB final. Compiler temporary high-water was 76718080 bytes under its 128 MiB class limit, with TMPDIR empty at completion. Sampling is not a continuous unsampled-peak claim.
+
+Both earlier fresh attempts remain overall failures in private recovery evidence. Fresh01 stopped before a completed build when its monitor rejected a normal GNU make jobserver FIFO. Fresh02 completed the four builds but stopped the harness command when compiler temporary allocation exceeded its former 64 MiB class cap; it ran no native process. Its failing 221552640-byte sample is recorded separately from the earlier 198635520-byte reported peak, without rewriting that receipt. The corrected classifier admits only the exact active make PID's 0600 FIFO under the designated TMPDIR; the budget successor records high-water before enforcing the same checks. No production C, native assertion, game state, artwork or gameplay acceptance was changed to resolve either tooling failure. The final fresh run used new empty build directories and did not reuse the failed attempts' objects.
+
+The installed source epoch also passed 210 focused pure methods and four actual read-only authoring/source-binding/rebuild/package CLIs, preserving canonical 1113 runtime rows and 700 gameplay rows. The original ordered 716-method suffix and the new complete selected qualification are still **PENDING** in a separate QA epoch. Later README/QA-only metadata changes require an explicit fresh-evidence bridge; they must not rewrite this fresh receipt or imply that changed compiler inputs were validated. None of these results is a single-process whole-repository pass or a CI result, and no additional private material is authorized for publication.

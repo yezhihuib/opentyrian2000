@@ -3,11 +3,18 @@ from pathlib import Path
 import hashlib,os,re,unittest
 ROOT=Path(os.environ.get('STATICS_TEST_ROOT',str(Path(__file__).resolve().parents[1])))
 PINS={'entity_draw.c':'177c22892477630908be83ef011013b0490dcd5d343f4c0d68846e70acd51182','global_projectile91_mirror.inc':'0e0088a93502ff55fb086c9a52c841bb3593cb61fd7a44b567ce57771dd5762a','render_mirror.c':'387710a63568932245a7f9f1e87fea004bb28c60fabb487d3dd63ecdcc4a4f19','tyrian2.c':'240a6d6c05d114d34d41d20235ebc1f730ac96f34863a1b4ce01fbbb86a63e19','enemy_statics_mirror.inc':'2aca7e11a03882eea6543640b735a0919fec82462165c24476c2dd231a027c18','current_projectile_statics_payload_pins.h':'2b859dba5213af576fc2aadf76ddacabc59df3fc5e1ca1a8da863ddf2d93f90b'}
+def stage_read(name):
+ import projectile_pulses16694_projection as newest
+ raw=newest.project_source(name,(ROOT/name).read_bytes())
+ if name.startswith('src/'):
+  assert newest.sha(raw)==newest.ledger()['base_source_inventory'][name],('qualified statics source drift',name)
+ return raw
+
 class StaticsRuntimeContract(unittest.TestCase):
  @classmethod
- def setUpClass(cls):cls.s={name:(ROOT/'src'/name).read_text()for name in PINS}
+ def setUpClass(cls):cls.s={name:stage_read('src/'+name).decode()for name in PINS}
  def test_exact_six_qualified_production_bytes(self):
-  for n,p in PINS.items():self.assertEqual(hashlib.sha256((ROOT/'src'/n).read_bytes()).hexdigest(),p)
+  for n,p in PINS.items():self.assertEqual(hashlib.sha256(stage_read('src/'+n)).hexdigest(),p)
  def test_no_gameplay_diagnostic_in_production(self):
   for raw in self.s.values():
    for token in ('STATICSOBS1','staticsobs_','STATICS_SELECTOR','statics-alpha.tsv'):self.assertNotIn(token,raw)
@@ -29,8 +36,8 @@ class StaticsRuntimeContract(unittest.TestCase):
   raw=self.s['entity_draw.c'];self.assertIn('game_probe_scene_draw(154,index,x,y,0,ENTITY_NORMAL,mirrored)',raw);self.assertIn('index==162||index==260',raw)
   self.assertIn('ASSET_ENEMY_STATICS',self.s['render_mirror.c'])
   scripts={'scripts/package_runtime.py': '1552397638791511a70bbe94c0c19455225258ac05aff072ae0defa6432bb50d', 'scripts/rebuild_recovered_runtime_manifest.py': '91d7aeeeff91c98be25f07edfa199049ed7457d4d2d71190752dc45e6115af47'}
-  for name,pin in scripts.items():self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),pin)
-  package=(ROOT/'scripts/package_runtime.py').read_text();rebuild=(ROOT/'scripts/rebuild_recovered_runtime_manifest.py').read_text()
+  for name,pin in scripts.items():self.assertEqual(hashlib.sha256(stage_read(name)).hexdigest(),pin)
+  package=stage_read('scripts/package_runtime.py').decode();rebuild=stage_read('scripts/rebuild_recovered_runtime_manifest.py').decode()
   self.assertLess(package.index('from current_projectile_gold_pulse_compatibility import validate_runtime_rows'),package.index('from current_projectile_statics_compatibility import validate_runtime_rows'))
   self.assertLess(rebuild.index('from current_projectile_gold_pulse_compatibility import load'),rebuild.index('from current_projectile_statics_compatibility import load'))
   self.assertIn('enemy-projectile-statics-',rebuild);self.assertIn('(162,260)',rebuild.replace(' ',''))

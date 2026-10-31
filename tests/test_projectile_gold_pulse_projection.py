@@ -31,7 +31,7 @@ class ProjectileGoldPulseProjection(unittest.TestCase):
   self.assertEqual(p.project_source('unowned',b'exact bytes'),b'exact bytes')
  def test_every_qualified_input_is_rechecked(self):
   read=Path.read_bytes
-  for name in p.qualified_paths()-{p.LEDGER,'tests/projectile_gold_pulse_projection.py','tests/projectile_statics_projection.py'}:
+  for name in p.qualified_paths()-{p.LEDGER,'tests/projectile_gold_pulse_projection.py','tests/projectile_statics_projection.py','tests/projectile_pulses16694_projection.py'}:
    def changed(path):return read(path)+(b'\n' if path==p.ROOT/name else b'')
    with self.subTest(name=name),patch.object(Path,'read_bytes',changed),self.assertRaises((AssertionError,ValueError,OSError)):p.verified()
  def test_stale_live_preimages_rejected(self):

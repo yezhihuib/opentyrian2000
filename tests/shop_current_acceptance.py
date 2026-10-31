@@ -128,7 +128,12 @@ def check_current_inventory(root=ROOT):
     projectile_statics_added=dict(projectile_statics['added_sources'])
     projectile_statics_added.update({n:r['sha256'] for n,r in projectile_statics['assets'].items()})
     assert not set(projectile_statics_added)&set(dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added, **projectile_blue_triplet_added, **projectile_gold_pulse_added))
-    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added, **projectile_blue_triplet_added, **projectile_gold_pulse_added, **projectile_statics_added))
+    from projectile_pulses16694_projection import verified as projectile_pulses16694_verified
+    projectile_pulses16694=projectile_pulses16694_verified(root)
+    projectile_pulses16694_added=dict(projectile_pulses16694['added_sources'])
+    projectile_pulses16694_added.update({n:r['sha256'] for n,r in projectile_pulses16694['assets'].items()})
+    assert not set(projectile_pulses16694_added)&set(dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added, **projectile_blue_triplet_added, **projectile_gold_pulse_added, **projectile_statics_added))
+    check_names(actual, dict(expected, **added, **linked_added, **shapesy_added, **dual_added, **turret_added, **large_added, **cyan_added, **secondary_added, **scout_added, **fighter_added, **interceptor_added, **aircraft_added, **shared_added, **projectile145_added, **projectile61_added, **projectile_blue_triplet_added, **projectile_gold_pulse_added, **projectile_statics_added, **projectile_pulses16694_added))
     for name, wanted in added.items():
         path = root / name
         assert path.is_file() and not path.is_symlink(), 'nonregular extension file: ' + name

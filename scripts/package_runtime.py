@@ -243,6 +243,8 @@ def main(argv=None) -> int:
     gold_pulse_validate(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
     from current_projectile_statics_compatibility import validate_runtime_rows as statics_validate
     statics_validate(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
+    from current_projectile_pulses16694_compatibility import validate_runtime_rows as pulses16694_validate
+    pulses16694_validate(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
     # Default deployment and explicit current Sonic references require the
     # complete current quartet. Historical/custom manifests retain their frozen
     # semantics and need no current authoring inputs. This packages resources;

@@ -1,0 +1,146 @@
+{
+  "schema": "enemy-pulses16694-runtime-evidence-v1",
+  "record_only": true,
+  "registration": {
+    "selected": "registered02",
+    "receipt_sha256": "a4268d456d93e4185ec56d3a086c1d3d5feecdc088d7f2f3a78d1f1f756308de",
+    "status": "PASS_FIXED_REGISTRATION_NOT_RUNTIME",
+    "selectors": [
+      166,
+      94
+    ],
+    "native_cells": [
+      97,
+      108
+    ],
+    "cell_distribution": [
+      {
+        "high_ge200": 69,
+        "low_1_199": 28,
+        "zero": 0
+      },
+      {
+        "high_ge200": 103,
+        "low_1_199": 5,
+        "zero": 0
+      }
+    ],
+    "preserved166_bytes": true,
+    "corrected94_registered_pixels_changed": 6574
+  },
+  "historical_registration01": {
+    "status": "FAIL_COVERAGE_RETAINED",
+    "receipt_sha256": "3332ef13a9b00a6bc6c72809f1d114ea9de9c1399fcfcaacf5d6604c3f49bd62",
+    "rejected94_raw_sha256": "112dace2a7eb01325845ae946ab6d467e993a50af961c180b0fc0723c353b18c",
+    "empty_native_cells": 4,
+    "private_backup_retained": true,
+    "failed_raw_included": false
+  },
+  "native": {
+    "status": "PASS_CONTROLLED_INCREMENTAL_PRODUCTION_TU",
+    "receipt_sha256": "0d0c4beb893342ea5a45857e36181a1274a73c938c993f6297ff25064e2f8d51",
+    "review_sha256": "3c0df6690a766b36e6b5b095660b64e414f331576ca04fb70ccda8c920ddd26a",
+    "cases": 1907,
+    "assertions": 285458804,
+    "old_cases": 1329,
+    "old_assertions": 141598648,
+    "new_cases": 578,
+    "new_assertions": 143860156,
+    "process_cases": [
+      107,
+      157,
+      365,
+      251,
+      449,
+      578
+    ],
+    "sixth_stdout_sha256": "888b7d8a3c5ab2b50ca1bd676f8724620e2e1e6aab3917e47527398a3e5dcf96",
+    "scope": "Incremental production-TU controlled internal8 ASan/UBSan; not all-fresh full build.",
+    "fixture_corrections": {
+      "sixth_complete_palette": "palette5; all578 setups use the full256-color palette",
+      "capture_wrapper": "Production parser positive/negative no-capture guards; enabled/density restored, tick/RNG/scene/owner checked; target/started/fast diagnostic writes disclosed"
+    },
+    "historical_runs": [
+      {
+        "run": 1,
+        "status": "FAIL_RETAINED",
+        "reason": "Sixth input palette0 did not meet the legacy normal15 palette5 precondition; old1329 exact stdout passed; new case567 assertion failed."
+      },
+      {
+        "run": 2,
+        "status": "FAIL_CAPTURE_POSTCONDITION",
+        "reason": "All1907 native assertions completed, but a fixture-enabled probe exported a BMP. Overall FAIL retained with the original BMP; no-capture postcondition was not waived."
+      }
+    ]
+  },
+  "gameplay": {
+    "status": "PASS_NATURAL_PULSES16694_TWO_SITE_SIX_RUN_DIFFERENTIAL",
+    "receipt_sha256": "599e36a7948226c63cce208ee53bee92736bef9bc2db45ca8e67b8ef0ea8f191",
+    "review_sha256": "0540966deb0e52aff34b619c92ecfbca601c2bfe69e0d299cdbdf31f1a84b0ff",
+    "backup_delivery_sha256": "eea2bfaf44f15f2cb38900383652b5cc5e4c58577693522b7feabbabdaccd2ff",
+    "commands": 14,
+    "runs": 6,
+    "total_ticks": 1206,
+    "ticks_per_run_by_site": {
+      "166": 241,
+      "94": 161
+    },
+    "captured_ticks": {
+      "166": 220,
+      "94": 127
+    },
+    "sites": {
+      "166": {
+        "episode": 5,
+        "physical_level": 7,
+        "selected_generation": 6,
+        "own_pixels": 6208,
+        "soft": 5788,
+        "opaque": 0,
+        "native_alpha0": 420
+      },
+      "94": {
+        "episode": 4,
+        "physical_level": 15,
+        "selected_generation": 7,
+        "own_pixels": 6912,
+        "soft": 6448,
+        "opaque": 40,
+        "native_alpha0": 424
+      }
+    },
+    "natural_foreign_pixels": 0,
+    "natural_foreign_drop_positive": false,
+    "legacy94_rejections": [
+      "normal15-output-scope",
+      "normal15-scene-font"
+    ],
+    "initialDifficulty": 0,
+    "night": false,
+    "missing_equals_baseline": true,
+    "changes_outside_native_union": 0,
+    "inherited_hd_coexistence_outside_union": true,
+    "visual_scope": "Selected actual captures accepted:blue ball and warm upper-narrow/lower-full pulse are legible; not continuous animation, all scenes, night or Christmas. Other UI/terrain retain existing behavior.",
+    "ordinary_compile_warning_counts": [
+      32,
+      25,
+      1
+    ],
+    "capture_recovery": {
+      "zip_files": 6,
+      "bmp_files": 18,
+      "bmp_bytes": 105601788,
+      "png_files": 18
+    }
+  },
+  "fresh_four_configs": "PENDING_NEW_INSTALLED_SOURCE_EPOCH",
+  "ordered716_suffix_QA": "PENDING_SEPARATE_QA_EPOCH",
+  "runtime_observer_sources_included": false,
+  "limitations": [
+    "Normal bank only; Christmas differs and remains classic.",
+    "Player option25/weapon719 selector166 is a numeric alias and remains classic.",
+    "Native controlled legacy own/foreign proof is separate from natural gameplay, whose foreign count was zero.",
+    "No scene effect or difficulty changes were made to force HD admission.",
+    "Private references and original game data are not included or required for this fixed producer."
+  ]
+}

@@ -12,7 +12,7 @@
       "settings-font-tiny-v1.hda",
       "title-menu-font-v1.hda"
     ],
-    "gameplay_files": 698,
+    "gameplay_files": 700,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 41799,
+      "bytes": 42032,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "b6c81cc2f664fcbdbd8300b313c74456d60d218f",
+      "git_blob": "441711182576eebaeb4ea19e22bd5799aed458fa",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "90c7c624b003c93abea01975c7da3f706d2632c79ce6a5a35c55ddc31ea9c92e",
+      "sha256": "f0c532d7c1e07a8d59e5baba9c0dc629a9f6b0f97309b0c2340d30fc840da5cf",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2559,6 +2559,24 @@
       "revision": "current-single-source-projectile-gold-pulse",
       "sha256": "1dc205caccc8320968389868f844cacd50046a285b2d1e90f5b9073fcfddc831",
       "source_path": "assets/hd/current-compat/projectile-gold-pulse/enemy-projectile-gold-pulse-169-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile-pulses16694-166-8.hda",
+      "git_blob": "48eea02912b7461c7f4b30289bb4734243dedae4",
+      "group": "gameplay",
+      "revision": "current-projectile-pulses16694-166-94-generated-v1",
+      "sha256": "e14f6cc59d8f0773fa20b840c4ea453bb6c2afebcc4e27806c927c2f9751fb89",
+      "source_path": "assets/hd/current-compat/projectile-pulses16694/enemy-projectile-pulses16694-166-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "destination": "assets/gameplay/enemy-projectile-pulses16694-94-8.hda",
+      "git_blob": "12f6d7acf82970821778be19706459f688dde669",
+      "group": "gameplay",
+      "revision": "current-projectile-pulses16694-166-94-generated-v1",
+      "sha256": "cf6f70641746a3b8eb91d61d5c414af7545e748f6583351972aa76c46f813f93",
+      "source_path": "assets/hd/current-compat/projectile-pulses16694/enemy-projectile-pulses16694-94-8.hda"
     },
     {
       "bytes": 43036,
@@ -10079,7 +10097,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "41258e165b3699cfb8eaa997693a98a0907df25a8c1df0bb2c28667af6f9b7b0",
+    "current_production_source_manifest_sha256": "4bef22a80bea3a8be2cefd5830d5b3e15133560dd984cb4199f7819c161e72a7",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",
