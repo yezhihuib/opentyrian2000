@@ -1,9 +1,9 @@
 """Finite byte-identical global aliases; no image conversion or new material."""
 from pathlib import Path,PurePosixPath
 import hashlib,struct
-SPECS = {112: '84546804885d7c602449fe0c4783d1873e60f30a8abde3e3095356fc3d8bd720', 113: '20a9b6480d91a324a4ca375e79f596504103a80f165512fa33d8c5ffeeac7fba', 226: '231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c', 227: '9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7'}
-IDENTITIES = {112: 1420112, 113: 1420113, 226: 80226, 227: 1470227}
-CANONICAL_SOURCES = {112: 'assets/hd/current-compat/enemy-orb/enemy-orb112113-112-8.hda', 113: 'assets/hd/current-compat/enemy-orb/enemy-orb112113-113-8.hda', 226: 'assets/hd/current-compat/protron/bullet-226-8.hda', 227: 'assets/hd/current-compat/protron/enemy-protron-p09-227-8.hda'}
+SPECS = {112: '84546804885d7c602449fe0c4783d1873e60f30a8abde3e3095356fc3d8bd720', 113: '20a9b6480d91a324a4ca375e79f596504103a80f165512fa33d8c5ffeeac7fba', 226: '231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c', 227: '9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7', 244: '901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452'}
+IDENTITIES = {112: 1420112, 113: 1420113, 226: 80226, 227: 1470227, 244: 80244}
+CANONICAL_SOURCES = {112: 'assets/hd/current-compat/enemy-orb/enemy-orb112113-112-8.hda', 113: 'assets/hd/current-compat/enemy-orb/enemy-orb112113-113-8.hda', 226: 'assets/hd/current-compat/protron/bullet-226-8.hda', 227: 'assets/hd/current-compat/protron/enemy-protron-p09-227-8.hda', 244: 'assets/hd/current-compat/protron/bullet-244-8.hda'}
 REVISION='canonical-enemy-orb-protron-aliases-v1'
 ENCODING='rgba-straight-alpha-v1'
 PREFIX='assets/hd/global-assets-v1/content/'
@@ -61,6 +61,6 @@ def validate_runtime_rows(root,manifest,required=False):
   if match:selected.append(row)
  if not selected and not required:return
  expected=load(root)
- if len(selected)!=4 or {x.get('destination')for x in selected}!=set(expected):raise ValueError('Expected exactly four global canonical aliases')
+ if len(selected)!=5 or {x.get('destination')for x in selected}!=set(expected):raise ValueError('Expected exactly five global canonical aliases')
  for row in selected:
   if type(row.get('identity'))is not int or type(row.get('density'))is not int or row!=expected[row['destination']]:raise ValueError('Changed finite alias metadata')

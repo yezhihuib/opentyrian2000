@@ -21,9 +21,9 @@ def function(s,name):
 class OrbProtronPreparation(unittest.TestCase):
  def src(self,name):return(ROOT/'src'/name).read_text()
  def test_old24_append_only_28bits(self):
-  body=function(self.src('global_projectile91_mirror.inc'),'global_projectile91_member');pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',body)];self.assertEqual(pairs,list(zip(OLD+IDS,[1<<n for n in range(28)])));self.assertEqual(sum(b for a,b in pairs),268435455)
+  body=function(self.src('global_projectile91_mirror.inc'),'global_projectile91_member');pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',body)];self.assertEqual(pairs[:28],list(zip(OLD+IDS,[1<<n for n in range(28)])));self.assertEqual(sum(b for a,b in pairs[:28]),268435455)
  def test_width_and_boolean_owner_separate(self):
-  s=self.src('global_projectile91_mirror.inc');self.assertIn('UINT_MAX < 268435455u',s);self.assertIn('static Uint8 *global_projectile91_owner',self.src('render_mirror.c'));self.assertNotIn('uint8_t global_projectile91_used_members',s)
+  s=self.src('global_projectile91_mirror.inc');self.assertIn('UINT_MAX < 536870911u',s);self.assertIn('static Uint8 *global_projectile91_owner',self.src('render_mirror.c'));self.assertNotIn('uint8_t global_projectile91_used_members',s)
  def test_only227_adds_sparse_contribution(self):
   s=self.src('global_projectile91_mirror.inc');line=next(x for x in s.splitlines()if x.startswith('static const unsigned global_projectile91_sparse_rgba_members='));bits=list(map(int,re.findall(r'(\d+)u',line)));self.assertEqual(bits,[1<<n for n in range(17,24)]+[1<<27]);self.assertIn('global_projectile91_used_members&global_projectile91_sparse_rgba_members',s)
  def test_exact_material_headers_and_bytes(self):
@@ -37,7 +37,7 @@ class OrbProtronPreparation(unittest.TestCase):
   for i,wanted in PALETTES.items():
    body=s.split('if(index==%d){'%i,1)[1].split('return true;}',1)[0];indices=list(map(int,re.search(r'indices\[\d+\]=\{([^}]+)',body)[1].split(',')));colors=[int(x,16)for x in re.search(r'colors\[\d+\]=\{([^}]+)',body)[1].split(',')];self.assertEqual(dict(zip(indices,colors)),wanted)
  def test_strict_independent_four_root_leases(self):
-  s=self.src('enemy_orb_protron_mirror.inc');self.assertIn('resources[4]',s)
+  s=self.src('enemy_orb_protron_mirror.inc');self.assertIn('resources[5]',s)
   for token in ('REAR_REGULAR','st.st_size','REAR_READ(fd,&extra,1)==0','REAR_CLOSE(fd)','strcmp(enemy_orb_protron_resources[k].root,root)','a->bank!=enemy_orb_protron_specs[k].identity/10000u','a->index!=index','a->density!=8','asteroid1_stamp(a->rgba','v[0]==enemy_orb_protron_specs[k].identity'):self.assertIn(token,s)
   self.assertNotIn('80000u+',s);self.assertNotIn('enemy_orb112113_family_ready',s)
  def test_policy_keeps_separate_legacy_regimes(self):
@@ -49,12 +49,12 @@ class OrbProtronPreparation(unittest.TestCase):
   for n,i in enumerate(IDS,24):
    self.assertIn('global_projectile91_used_members&%du'%(1<<n),s);self.assertIn('orb_protron_ordinary_allowed(%d)&&enemy_orb_protron_resource(global_asset_directory,%d)!=NULL'%(i,i),s);self.assertIn('enemy_orb_protron_palette_matches(%d)'%i,s)
  def test_whole_bank_source_and_shutdown(self):
-  s=self.src('enemy_orb_protron_mirror.inc');self.assertIn('orb_protron_ordinary_allowed(index)&&projectile91_source(bank,91)',s);self.assertIn('enemy_orb_protron_shutdown();',self.src('global_projectile91_mirror.inc'));self.assertIn('i<4;i++)free(enemy_orb_protron_resources[i].member.rgba)',s)
+  s=self.src('enemy_orb_protron_mirror.inc');self.assertIn('orb_protron_ordinary_allowed(index)&&projectile91_source(bank,91)',s);self.assertIn('enemy_orb_protron_shutdown();',self.src('global_projectile91_mirror.inc'));self.assertIn('i<5;i++)free(enemy_orb_protron_resources[i].member.rgba)',s)
  def test_existing_rgba_draw_body_unchanged(self):self.assertEqual(hashlib.sha256(function(self.src('global_projectile91_mirror.inc'),'global_projectile91_draw').encode()).hexdigest(),DRAW_SHA)
  def test_old_renderers_players_and_payload_pins_unchanged(self):
   for name,pin in UNCHANGED.items():self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),pin,name)
  def test_original_tyrian2_exact_inverse_no_game_changes(self):
-  s=self.src('tyrian2.c');changes=[('#include "enemy_orb_protron_policy.h"\n',''),('|| (orb_protron_protron_index(sprite) && widget_sonic_legacy_intent()) || sprite == 244)','|| sprite == 226 || sprite == 227 || sprite == 244)'),('|| widget_sonic_member_index(sprite) || orb_protron_protron_index(sprite))','|| widget_sonic_member_index(sprite))')]
+  s=self.src('tyrian2.c');changes=[('#include "enemy_orb_protron_policy.h"\n',''),('|| (orb_protron_protron_index(sprite) && widget_sonic_legacy_intent()))','|| sprite == 226 || sprite == 227 || sprite == 244)'),('|| widget_sonic_member_index(sprite) || orb_protron_protron_index(sprite))','|| widget_sonic_member_index(sprite))')]
   for a,b in changes:self.assertEqual(s.count(a),1);s=s.replace(a,b,1)
   self.assertEqual(hashlib.sha256(s.encode()).hexdigest(),TYRIAN_SHA)
 if __name__=='__main__':unittest.main()

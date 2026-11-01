@@ -5,7 +5,7 @@
 static inline bool orb_protron_orb_index(unsigned index)
 {return index==112||index==113;}
 static inline bool orb_protron_protron_index(unsigned index)
-{return index==226||index==227;}
+{return index==226||index==227||index==244;}
 static inline bool orb_protron_member_index(unsigned index)
 {return orb_protron_orb_index(index)||orb_protron_protron_index(index);}
 static inline bool orb_protron_ordinary_allowed(unsigned index)

@@ -19,7 +19,7 @@ class Bolts745RuntimeContract(unittest.TestCase):
   cls.shared=(ROOT/'src/global_projectile91_mirror.inc').read_text();cls.loader=(ROOT/'src/enemy_bolts745_mirror.inc').read_text();cls.render=(ROOT/'src/render_mirror.c').read_text();cls.entity=(ROOT/'src/entity_draw.c').read_text();cls.game=(ROOT/'src/tyrian2.c').read_text()
  def test_append_only_member_bits(self):
   f=function(self.shared,'global_projectile91_member');pairs=re.findall(r'index==(\d+)\?(\d+)u',f)
-  self.assertEqual([(int(i),int(b))for i,b in pairs],[(i,1<<k)for k,i in enumerate((*OLD_IDS,7,45,153,154,155,70,20,21,105,106,124,125,112,113,226,227))])
+  self.assertEqual([(int(i),int(b))for i,b in pairs],[(i,1<<k)for k,i in enumerate((*OLD_IDS,7,45,153,154,155,70,20,21,105,106,124,125,112,113,226,227,244))])
  def test_old_resource_files_unchanged(self):
   for name,pin in OLD_FILES.items():self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),pin,name)
  def test_new_independent_member_state(self):

@@ -5,19 +5,19 @@ ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('orb_protron_aliases',ROOT/'scripts/current_enemy_orb_protron_aliases.py');a=importlib.util.module_from_spec(spec);spec.loader.exec_module(a)
 class AliasContract(unittest.TestCase):
  def manifest(self):return {'files':a.rows_for(ROOT)}
- def test_exact_four_bytes_headers_paths(self):
-  blobs=a.generate(ROOT);self.assertEqual(len(blobs),4);self.assertEqual(sum(map(len,blobs.values())),172144)
+ def test_exact_five_bytes_headers_paths(self):
+  blobs=a.generate(ROOT);self.assertEqual(len(blobs),5);self.assertEqual(sum(map(len,blobs.values())),215180)
   for i,pin in a.SPECS.items():
    raw=blobs[a.PREFIX+pin+'.hda'];self.assertEqual(raw,(ROOT/a.canonical_source(i)).read_bytes());self.assertEqual(raw,(ROOT/(a.PREFIX+pin+'.hda')).read_bytes());self.assertEqual(struct.unpack('<4s6I',raw[:28]),(b'HDR1',a.IDENTITIES[i],8,12,14,0,0))
  def test_deterministic_byte_copy_rows(self):
   self.assertEqual(a.generate(ROOT),a.generate(ROOT));self.assertEqual(a.rows_for(ROOT),a.rows_for(ROOT));self.assertEqual([r['destination']for r in a.rows_for(ROOT)],sorted(r['destination']for r in a.rows_for(ROOT)))
  def test_valid_exact_rows(self):a.validate_runtime_rows(ROOT,self.manifest(),True)
  def test_missing_each_rejected(self):
-  for n in range(4):
+  for n in range(5):
    m=self.manifest();m['files'].pop(n)
    with self.subTest(n=n),self.assertRaises(ValueError):a.validate_runtime_rows(ROOT,m,True)
  def test_duplicate_each_rejected(self):
-  for n in range(4):
+  for n in range(5):
    m=self.manifest();m['files'].append(dict(m['files'][n]))
    with self.subTest(n=n),self.assertRaises(ValueError):a.validate_runtime_rows(ROOT,m,True)
  def test_extra_family_row_rejected(self):
@@ -60,9 +60,9 @@ class AliasContract(unittest.TestCase):
   a.validate_runtime_rows(ROOT,{'files':[]},False)
   with self.assertRaises(ValueError):a.validate_runtime_rows(ROOT,{'files':[]},True)
  def test_manual_consumers_unmodified_and_collision_closed(self):
-  m=self.manifest();old=json.loads((ROOT/'packaging/runtime-assets-v1.json').read_text());manual=[r for r in old['files']if r['source_path']in {a.canonical_source(i)for i in a.SPECS}];self.assertEqual(len(manual),2);m['files']+=manual;a.validate_runtime_rows(ROOT,m,True)
+  m=self.manifest();old=json.loads((ROOT/'packaging/runtime-assets-v1.json').read_text());manual=[r for r in old['files']if r['source_path']in {a.canonical_source(i)for i in a.SPECS}];self.assertEqual(len(manual),3);m['files']+=manual;a.validate_runtime_rows(ROOT,m,True)
   for key,val in [('identity',80020),('destination','elsewhere.hda')]:
-   bad=copy.deepcopy(m);bad['files'][4][key]=val
+   bad=copy.deepcopy(m);bad['files'][5][key]=val
    with self.assertRaises(ValueError):a.validate_runtime_rows(ROOT,bad,True)
  def test_no_image_conversion_and_explicit_integration(self):
   s=(ROOT/'scripts/current_enemy_orb_protron_aliases.py').read_text();self.assertNotIn('PIL',s);self.assertNotIn('Image',s)

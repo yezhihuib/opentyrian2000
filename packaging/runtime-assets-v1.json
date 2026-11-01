@@ -13,7 +13,7 @@
       "title-menu-font-v1.hda"
     ],
     "gameplay_files": 705,
-    "global_content_hda_files": 130,
+    "global_content_hda_files": 131,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -32,7 +32,7 @@
     ],
     "global_hda_files": 120,
     "global_registry_files": 1,
-    "global_shared_enemy_orb_protron_alias_files": 4,
+    "global_shared_enemy_orb_protron_alias_files": 5,
     "global_shared_enemy_rgba_alias_files": 6,
     "independent_shared_roots": true,
     "reconstructed_complete_menu_runs": 171,
@@ -80,12 +80,12 @@
   },
   "files": [
     {
-      "bytes": 45993,
+      "bytes": 46554,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "9ef12efdf2044b4ada2f65ec399681903bf4281a",
+      "git_blob": "a255b571fa86096428ef01c7a04ec306672d126d",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "e9e6bff00d0b681a5459791fdae0090e68563df7f05c40244deb9d7eb2401c90",
+      "sha256": "1ec33504ccb79fa7bc470cc71d480db700a862138edab0bfe1775025e4106e36",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -7293,6 +7293,19 @@
     },
     {
       "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/protron/bullet-244-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "35c7d552291c9965ad38f3d0dae4b87928704520",
+      "group": "global-source-identity",
+      "identity": 80244,
+      "revision": "canonical-enemy-orb-protron-aliases-v1",
+      "sha256": "901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452",
+      "source_path": "assets/hd/global-assets-v1/content/901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452.hda"
+    },
+    {
+      "bytes": 43036,
       "destination": "assets/global/content/917ebcb0f1044b55e025d9cc160546c96192f5e142e950ccf08415f947cfa7bf.hda",
       "git_blob": "52c3fbd1242d11ed946837ca7f6d0adbfc52cc8c",
       "group": "global-source-identity",
@@ -10290,7 +10303,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "88a20df63c9c7a53863e9777f6b7edbbffc8886d7b2ab61487b1bec9b99dcbbd",
+    "current_production_source_manifest_sha256": "1e3c7731687657e528ed6bd76af8e4fb659f36f93482b642591e174990dfd1fc",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

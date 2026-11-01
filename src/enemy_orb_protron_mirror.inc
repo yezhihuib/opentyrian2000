@@ -1,17 +1,18 @@
 #include "current_enemy_orb_payload_pins.h"
 #include "current_protron_payload_pins.h"
 /* Exact pre-existing materials; physical source bank8 is independent of material identity. */
-static const struct {unsigned index,identity;const char *sha;uint64_t payload;} enemy_orb_protron_specs[4]={
+static const struct {unsigned index,identity;const char *sha;uint64_t payload;} enemy_orb_protron_specs[5]={
  {112u,1420112u,"84546804885d7c602449fe0c4783d1873e60f30a8abde3e3095356fc3d8bd720",CURRENT_ENEMY_ORB_1420112_PAYLOAD_FNV},
  {113u,1420113u,"20a9b6480d91a324a4ca375e79f596504103a80f165512fa33d8c5ffeeac7fba",CURRENT_ENEMY_ORB_1420113_PAYLOAD_FNV},
  {226u,80226u,"231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c",CURRENT_PROTRON_80226_D8_PAYLOAD_FNV},
  {227u,1470227u,"9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7",CURRENT_PROTRON_1470227_D8_PAYLOAD_FNV},
+ {244u,80244u,"901b61b1da6f538d6aac9bbd06a2f7d34e5e9d1e4d9df50c3f3eb01b1cd7b452",CURRENT_PROTRON_80244_D8_PAYLOAD_FNV},
 };
-static struct {bool checked,valid;char root[1024];Asset member;} enemy_orb_protron_resources[4];
+static struct {bool checked,valid;char root[1024];Asset member;} enemy_orb_protron_resources[5];
 static int enemy_orb_protron_member(unsigned index)
-{for(unsigned i=0;i<4;i++)if(enemy_orb_protron_specs[i].index==index)return (int)i;return -1;}
+{for(unsigned i=0;i<5;i++)if(enemy_orb_protron_specs[i].index==index)return (int)i;return -1;}
 static void enemy_orb_protron_shutdown(void)
-{for(unsigned i=0;i<4;i++)free(enemy_orb_protron_resources[i].member.rgba);memset(enemy_orb_protron_resources,0,sizeof(enemy_orb_protron_resources));}
+{for(unsigned i=0;i<5;i++)free(enemy_orb_protron_resources[i].member.rgba);memset(enemy_orb_protron_resources,0,sizeof(enemy_orb_protron_resources));}
 static bool enemy_orb_protron_source(Sprite2_array bank,unsigned index)
 {return orb_protron_member_index(index)&&orb_protron_ordinary_allowed(index)&&projectile91_source(bank,91);}
 static bool enemy_orb_protron_palette_matches(unsigned index)
@@ -32,6 +33,9 @@ static bool enemy_orb_protron_palette_matches(unsigned index)
   static const unsigned indices[12]={129,130,131,132,133,134,135,137,138,139,141,143};
   static const Uint32 colors[12]={0x2c5d75,0x38697d,0x41758a,0x4d8292,0x558e9e,0x619aa6,0x6da6b2,0x8abec7,0x9acbcf,0xa6d3d7,0xcbebeb,0xefffff};
   for(unsigned n=0;n<12;n++)if((rgb_palette[indices[n]]&0xffffffu)!=colors[n])return false;return true;}
+ if(index==244){
+  static const Uint32 colors[16]={0x24556d,0x2c5d75,0x38697d,0x41758a,0x4d8292,0x558e9e,0x619aa6,0x6da6b2,0x7db2ba,0x8abec7,0x9acbcf,0xa6d3d7,0xbadfe3,0xcbebeb,0xdbf7f7,0xefffff};
+  for(unsigned n=0;n<16;n++)if((rgb_palette[128+n]&0xffffffu)!=colors[n])return false;return true;}
  return false;
 }
 static bool enemy_orb_protron_load(unsigned k)
