@@ -13,6 +13,7 @@
       "title-menu-font-v1.hda"
     ],
     "gameplay_files": 705,
+    "global_content_hda_files": 126,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -31,6 +32,7 @@
     ],
     "global_hda_files": 120,
     "global_registry_files": 1,
+    "global_shared_enemy_rgba_alias_files": 6,
     "independent_shared_roots": true,
     "reconstructed_complete_menu_runs": 171,
     "shared_startup_directory": true,
@@ -77,12 +79,12 @@
   },
   "files": [
     {
-      "bytes": 44390,
+      "bytes": 45160,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "3e43943772bd88e1ac20467b5a0f2fef5f5ed228",
+      "git_blob": "dec4b3c20bfe1cd8f89875ace950e5e6beb0a174",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "c348a41c78da7180d94929491184dabb50a574abe880b162e7531f15d35e9070",
+      "sha256": "2de5b488b4aca28ce9e02367c996fecc6d778c28381a3bc56fe6de049aaf377c",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -6771,6 +6773,19 @@
     },
     {
       "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/sonic/bullet-125-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/11ffdf82296ed985ec9534ba19a555eb22594c14e5fc92414531a47e36383752.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "2b0eb8f8000e5093fd3a39efdba4cd5c795ef4fa",
+      "group": "global-source-identity",
+      "identity": 80125,
+      "revision": "canonical-enemy-widget-sonic-aliases-v1",
+      "sha256": "11ffdf82296ed985ec9534ba19a555eb22594c14e5fc92414531a47e36383752",
+      "source_path": "assets/hd/global-assets-v1/content/11ffdf82296ed985ec9534ba19a555eb22594c14e5fc92414531a47e36383752.hda"
+    },
+    {
+      "bytes": 43036,
       "destination": "assets/global/content/15190bfe3a8f8744ae64bc2b7b53261ae49bfd87298f2adc569438f2c3e79b5d.hda",
       "git_blob": "25021a3dcbdcdeb1da804cefd1e4027b1a7fab01",
       "group": "global-source-identity",
@@ -6795,6 +6810,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "17dcd126156a3555b6c157fca2d0353666d1b533d4e770f0aba4d82be2d189a5",
       "source_path": "assets/hd/global-assets-v1/content/17dcd126156a3555b6c157fca2d0353666d1b533d4e770f0aba4d82be2d189a5.hda"
+    },
+    {
+      "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/sonic/bullet-106-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/1a47b5701ecbdef673251cd1de7b975e42291cef29ab9a0bfd10f1c48facb2ba.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "bde984b455ed40a76243a66faebea87a9a0e791f",
+      "group": "global-source-identity",
+      "identity": 80106,
+      "revision": "canonical-enemy-widget-sonic-aliases-v1",
+      "sha256": "1a47b5701ecbdef673251cd1de7b975e42291cef29ab9a0bfd10f1c48facb2ba",
+      "source_path": "assets/hd/global-assets-v1/content/1a47b5701ecbdef673251cd1de7b975e42291cef29ab9a0bfd10f1c48facb2ba.hda"
     },
     {
       "bytes": 43036,
@@ -6840,6 +6868,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "2775f74601f7e3de25daafddf9a11115d0eefe1dbe56a332594c089051305392",
       "source_path": "assets/hd/global-assets-v1/content/2775f74601f7e3de25daafddf9a11115d0eefe1dbe56a332594c089051305392.hda"
+    },
+    {
+      "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/guided/bullet-20-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "fbd79c3a9c8a84c41173ddc99565b9a6f955b1b8",
+      "group": "global-source-identity",
+      "identity": 80020,
+      "revision": "canonical-enemy-widget-sonic-aliases-v1",
+      "sha256": "328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8",
+      "source_path": "assets/hd/global-assets-v1/content/328f9831389399fa7c8d623889732bbc1574dac458a30b97511e2d031dd7aed8.hda"
     },
     {
       "bytes": 43036,
@@ -7329,6 +7370,19 @@
     },
     {
       "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/guided/bullet-21-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "1b32efc165784dd0af9268806264e46576461743",
+      "group": "global-source-identity",
+      "identity": 80021,
+      "revision": "canonical-enemy-widget-sonic-aliases-v1",
+      "sha256": "a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55",
+      "source_path": "assets/hd/global-assets-v1/content/a8fbcb2952ec4a4b3f84388f1b410ec70648052cbaff35487d2ed930c9b5dc55.hda"
+    },
+    {
+      "bytes": 43036,
       "destination": "assets/global/content/ad802ad9b44b6ec9e131b24a0c4046d9150ac49044f60e2953f3f97e5c7a3094.hda",
       "git_blob": "dfa29b3620952b224c80b5fd83d8cf8d4c4cbfc6",
       "group": "global-source-identity",
@@ -7353,6 +7407,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "ae97ccc3056b059c5e8e78da37c1c3cf1dede697fcaeef37d8c7f082b1f49902",
       "source_path": "assets/hd/global-assets-v1/content/ae97ccc3056b059c5e8e78da37c1c3cf1dede697fcaeef37d8c7f082b1f49902.hda"
+    },
+    {
+      "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/sonic/bullet-124-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/b37e9664609365b53a250c0a711b6ae863ab55299904794051091b206aeef158.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "a32c06c1f7703b7c684d7413c81bb01651393861",
+      "group": "global-source-identity",
+      "identity": 80124,
+      "revision": "canonical-enemy-widget-sonic-aliases-v1",
+      "sha256": "b37e9664609365b53a250c0a711b6ae863ab55299904794051091b206aeef158",
+      "source_path": "assets/hd/global-assets-v1/content/b37e9664609365b53a250c0a711b6ae863ab55299904794051091b206aeef158.hda"
     },
     {
       "bytes": 172060,
@@ -7479,6 +7546,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "d06d24e14dc51657c392bf6b2fae142cf7209dea740495a30786231eefdb58ea",
       "source_path": "assets/hd/global-assets-v1/content/d06d24e14dc51657c392bf6b2fae142cf7209dea740495a30786231eefdb58ea.hda"
+    },
+    {
+      "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/sonic/bullet-105-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/d12fde24b67f6b57ede3483e07a155b95cd5f538cf9f96c64e0d80fc2e0eba78.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "6cf24903bdd79a2d8595740f41220b4f833c6e6b",
+      "group": "global-source-identity",
+      "identity": 80105,
+      "revision": "canonical-enemy-widget-sonic-aliases-v1",
+      "sha256": "d12fde24b67f6b57ede3483e07a155b95cd5f538cf9f96c64e0d80fc2e0eba78",
+      "source_path": "assets/hd/global-assets-v1/content/d12fde24b67f6b57ede3483e07a155b95cd5f538cf9f96c64e0d80fc2e0eba78.hda"
     },
     {
       "bytes": 172060,
@@ -10157,7 +10237,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "fae7f528d7e0f0a042bc16708ba82c49ff7ba46d7188b4679de2471c6d38ce08",
+    "current_production_source_manifest_sha256": "6249f86a04f31f9132b59ac0eca965e01ff0f22f8b947cfb5f648b585399dc80",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

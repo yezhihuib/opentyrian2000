@@ -421,6 +421,12 @@ def main():
         if size!=resource['bytes'] or actual!=sha:
             raise ValueError('Global resource content mismatch: '+relative)
         add(source,'assets/global/'+relative,'global-source-identity')
+    # Six exact aliases, outside the unchanged legacy120 registry.
+    from current_enemy_widget_sonic_aliases import load as enemy_widget_sonic_aliases
+    for destination,row in enemy_widget_sonic_aliases(root).items():
+        if destination in rows:raise ValueError('Finite global alias destination collision')
+        add(row['source_path'],destination,row['group'])
+        rows[destination].update(row)
     add('assets/hd/global-assets-v1/registry.json','assets/global/registry.json','global-registry')
     add('packaging/global-validation.json','GLOBAL-VALIDATION.json','global-validation')
     add('packaging/current-production-validation.json','CURRENT-PRODUCTION-VALIDATION.json','current-production-validation')
@@ -445,6 +451,8 @@ def main():
     j['source_revision']['global_registry_sha256']=GLOBAL_REGISTRY_SHA256
     j['closure']['global_hda_files']=120
     j['closure']['global_registry_files']=1
+    j['closure']['global_shared_enemy_rgba_alias_files']=6
+    j['closure']['global_content_hda_files']=126
     j['closure']['global_families']=['Talon13','Shield22','Pulse5','Hitflare7','FrontVulcan2','WhiteSmoke7','SmallExplosion12','Cash25BodyAndValue7','Cash50BodyAndValue7','Cash75BodyAndValue7','Gem100BodyAndValue6','Gem250BodyAndValue6','Rotor5And11Eight','GreenHeadAndTrail11']
     a.output.write_bytes((json.dumps(j,indent=2,sort_keys=True)+'\n').encode('utf-8'))
     print(json.dumps({'files':len(rows),'bytes':sum(x['bytes'] for x in rows.values()),'output':str(a.output)}))

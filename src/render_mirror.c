@@ -17,6 +17,7 @@
 #include "current_protron_payload_pins.h"
 #include "current_sonic_payload_pins.h"
 #include "current_guided_payload_pins.h"
+#include "enemy_widget_sonic_policy.h"
 #include "current_mint27_payload_pins.h"
 #include "current_missile_payload_pins.h"
 #include "hd_front_multi_current.h"
@@ -353,6 +354,10 @@ static bool enemy_vulcan70_source(Sprite2_array,unsigned);
 static bool enemy_vulcan70_palette_matches(void);
 static Asset *enemy_vulcan70_resource(const char *);
 static void enemy_vulcan70_shutdown(void);
+static bool enemy_widget_sonic_source(Sprite2_array,unsigned);
+static bool enemy_widget_sonic_palette_matches(unsigned);
+static Asset *enemy_widget_sonic_resource(const char *,unsigned);
+static void enemy_widget_sonic_shutdown(void);
 #if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
 static bool global_newshf_frame,global_newshf_fault;
 static void global_newshf_shutdown(void);
@@ -3544,7 +3549,8 @@ bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array ban
   return projectile91_draw(surface,x,y,bank,index);
  }
  /* These shared enemy roles do not opt the old level-specific scene mirror in. */
- if(index==145||index==61||index==101||index==120||index==139||index==168||index==169||index==162||index==260||index==166||index==94||index==7||index==45||index==153||index==154||index==155||index==70) {
+ if(widget_sonic_member_index(index)&&widget_sonic_legacy_intent())return false;
+ if(index==145||index==61||index==101||index==120||index==139||index==168||index==169||index==162||index==260||index==166||index==94||index==7||index==45||index==153||index==154||index==155||index==70||widget_sonic_member_index(index)) {
   if(global_asset_directory[0]) {global_projectile91_observed_preflight();return global_projectile91_draw(surface,x,y,bank,index)>0;}
   return false;
  }
@@ -3887,6 +3893,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "enemy_bolts745_mirror.inc"
 #include "enemy_animated153_mirror.inc"
 #include "enemy_vulcan70_mirror.inc"
+#include "enemy_widget_sonic_mirror.inc"
 #include "asteroid1_enemy_orb112113_mirror.inc"
 #include "asteroid1_firing270_mirror.inc"
 #include "asteroid1_firing285_mirror.inc"

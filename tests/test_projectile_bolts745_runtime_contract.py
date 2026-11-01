@@ -19,7 +19,7 @@ class Bolts745RuntimeContract(unittest.TestCase):
   cls.shared=(ROOT/'src/global_projectile91_mirror.inc').read_text();cls.loader=(ROOT/'src/enemy_bolts745_mirror.inc').read_text();cls.render=(ROOT/'src/render_mirror.c').read_text();cls.entity=(ROOT/'src/entity_draw.c').read_text();cls.game=(ROOT/'src/tyrian2.c').read_text()
  def test_append_only_member_bits(self):
   f=function(self.shared,'global_projectile91_member');pairs=re.findall(r'index==(\d+)\?(\d+)u',f)
-  self.assertEqual([(int(i),int(b))for i,b in pairs],[(i,1<<k)for k,i in enumerate((*OLD_IDS,7,45,153,154,155,70))])
+  self.assertEqual([(int(i),int(b))for i,b in pairs],[(i,1<<k)for k,i in enumerate((*OLD_IDS,7,45,153,154,155,70,20,21,105,106,124,125))])
  def test_old_resource_files_unchanged(self):
   for name,pin in OLD_FILES.items():self.assertEqual(hashlib.sha256((ROOT/name).read_bytes()).hexdigest(),pin,name)
  def test_new_independent_member_state(self):
@@ -41,7 +41,7 @@ class Bolts745RuntimeContract(unittest.TestCase):
  def test_role_only_dispatch(self):
   self.assertIn('index==7||index==45',function(self.render,'render_mirror_enemy_shot'))
   self.assertIn('game_probe_scene_draw(156,index,x,y,0,ENTITY_NORMAL,mirrored)',function(self.entity,'draw_enemy_shot_sprite2'))
-  self.assertIn('|| sprite == 7 || sprite == 45 || sprite == 153 || sprite == 154 || sprite == 155 || sprite == 70)',self.game)
+  self.assertIn('|| sprite == 7 || sprite == 45 || sprite == 153 || sprite == 154 || sprite == 155 || sprite == 70 || widget_sonic_member_index(sprite))',self.game)
  def test_retained_layout_source_and_fault_gates(self):
   for token in ('!xmas','surface!=game_screen','surface!=VGAScreen','global_projectile91_source_matches(spriteSheet8)','global_projectile91_surface_matches()','global_projectile91_call.live','global_projectile91_call.mask','global_projectile91_used_members&member','global_projectile91_finish_proof','global_projectile91_check_cache'):self.assertIn(token,self.shared)
  def test_canonical_argb_masks_shifts_losses(self):

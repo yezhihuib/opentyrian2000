@@ -1,23 +1,27 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Finite shared normal bank8/{91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155,70} enemy-shot owner; independent payloads.
+ * Finite shared normal bank8/{91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155,70,20,21,105,106,124,125} enemy-shot owner; independent payloads.
  * Included after decode_tile; no level/episode/map predicate grants this owner. */
 static bool global_projectile91_cached;
 /* Survives ownership transfer (for example to antialiased HUD glyphs). */
 static bool global_projectile91_contributed;
 /* Contribution provenance persists even after all pixels transfer to another
  * owner. Optional members never gate a different, unused member's admission. */
-#if UINT_MAX < 262143u
-#error "Shared projectile member mask requires at least 18 unsigned value bits"
+#if UINT_MAX < 16777215u
+#error "Shared projectile member mask requires at least 24 unsigned value bits"
 #endif
 static unsigned global_projectile91_used_members;
+/* Exact finite contributors whose canonical RGBA extends outside native cells:
+ * Vulcan70 plus Widget20/21 and Sonic105/106/124/125. Not a generic spill grant. */
+static const unsigned global_projectile91_sparse_rgba_members=131072u|262144u|524288u|1048576u|2097152u|4194304u|8388608u;
+static const unsigned global_projectile91_widget_sonic_members=262144u|524288u|1048576u|2097152u|4194304u|8388608u;
 static unsigned global_projectile91_member(unsigned index)
-{return index==91?1u:index==145?2u:index==61?4u:index==101?8u:index==120?16u:index==139?32u:index==168?64u:index==169?128u:index==162?256u:index==260?512u:index==166?1024u:index==94?2048u:index==7?4096u:index==45?8192u:index==153?16384u:index==154?32768u:index==155?65536u:index==70?131072u:0u;}
+{return index==91?1u:index==145?2u:index==61?4u:index==101?8u:index==120?16u:index==139?32u:index==168?64u:index==169?128u:index==162?256u:index==260?512u:index==166?1024u:index==94?2048u:index==7?4096u:index==45?8192u:index==153?16384u:index==154?32768u:index==155?65536u:index==70?131072u:index==20?262144u:index==21?524288u:index==105?1048576u:index==106?2097152u:index==124?4194304u:index==125?8388608u:0u;}
 static Asset *global_projectile91_member_resource(unsigned index)
-{return index==70?enemy_vulcan70_resource(global_asset_directory):index==91?projectile91_resource(global_asset_directory):index==145?projectile145_resource(global_asset_directory):index==61?projectile61_resource(global_asset_directory):(index==168||index==169)?projectile_gold_pulse_resource(global_asset_directory,index):(index==162||index==260)?projectile_statics_resource(global_asset_directory,index):(index==166||index==94)?projectile_pulses16694_resource(global_asset_directory,index):(index==7||index==45)?projectile_bolts745_resource(global_asset_directory,index):(index==153||index==154||index==155)?projectile_animated153_resource(global_asset_directory,index):projectile_blue_triplet_resource(global_asset_directory,index);}
+{return widget_sonic_member_index(index)?enemy_widget_sonic_resource(global_asset_directory,index):index==70?enemy_vulcan70_resource(global_asset_directory):index==91?projectile91_resource(global_asset_directory):index==145?projectile145_resource(global_asset_directory):index==61?projectile61_resource(global_asset_directory):(index==168||index==169)?projectile_gold_pulse_resource(global_asset_directory,index):(index==162||index==260)?projectile_statics_resource(global_asset_directory,index):(index==166||index==94)?projectile_pulses16694_resource(global_asset_directory,index):(index==7||index==45)?projectile_bolts745_resource(global_asset_directory,index):(index==153||index==154||index==155)?projectile_animated153_resource(global_asset_directory,index):projectile_blue_triplet_resource(global_asset_directory,index);}
 static bool global_projectile91_member_palette(unsigned index)
-{return index==70?enemy_vulcan70_palette_matches():index==91?projectile91_palette_matches():index==145?projectile145_palette_matches():index==61?projectile61_palette_matches():(index==168||index==169)?projectile_gold_pulse_palette_matches(index):(index==162||index==260)?projectile_statics_palette_matches(index):(index==166||index==94)?projectile_pulses16694_palette_matches(index):(index==7||index==45)?projectile_bolts745_palette_matches(index):(index==153||index==154||index==155)?projectile_animated153_palette_matches(index):projectile_blue_triplet_palette_matches(index);}
+{return widget_sonic_member_index(index)?enemy_widget_sonic_palette_matches(index):index==70?enemy_vulcan70_palette_matches():index==91?projectile91_palette_matches():index==145?projectile145_palette_matches():index==61?projectile61_palette_matches():(index==168||index==169)?projectile_gold_pulse_palette_matches(index):(index==162||index==260)?projectile_statics_palette_matches(index):(index==166||index==94)?projectile_pulses16694_palette_matches(index):(index==7||index==45)?projectile_bolts745_palette_matches(index):(index==153||index==154||index==155)?projectile_animated153_palette_matches(index):projectile_blue_triplet_palette_matches(index);}
 static bool global_projectile91_member_source(Sprite2_array bank,unsigned index)
-{return index==70?enemy_vulcan70_source(bank,index):index==91?projectile91_source(bank,index):index==145?projectile145_source(bank,index):index==61?projectile61_source(bank,index):(index==168||index==169)?projectile_gold_pulse_source(bank,index):(index==162||index==260)?projectile_statics_source(bank,index):(index==166||index==94)?projectile_pulses16694_source(bank,index):(index==7||index==45)?projectile_bolts745_source(bank,index):(index==153||index==154||index==155)?projectile_animated153_source(bank,index):projectile_blue_triplet_source(bank,index);}
+{return widget_sonic_member_index(index)?enemy_widget_sonic_source(bank,index):index==70?enemy_vulcan70_source(bank,index):index==91?projectile91_source(bank,index):index==145?projectile145_source(bank,index):index==61?projectile61_source(bank,index):(index==168||index==169)?projectile_gold_pulse_source(bank,index):(index==162||index==260)?projectile_statics_source(bank,index):(index==166||index==94)?projectile_pulses16694_source(bank,index):(index==7||index==45)?projectile_bolts745_source(bank,index):(index==153||index==154||index==155)?projectile_animated153_source(bank,index):projectile_blue_triplet_source(bank,index);}
 
 static size_t global_projectile91_capacity;
 static Uint32 global_projectile91_output_palette[256],global_projectile91_underlay_palette[256];
@@ -52,7 +56,13 @@ static bool global_projectile91_palette_matches(void)
         (!(global_projectile91_used_members&16384u)||projectile_animated153_palette_matches(153))&&
         (!(global_projectile91_used_members&32768u)||projectile_animated153_palette_matches(154))&&
         (!(global_projectile91_used_members&65536u)||projectile_animated153_palette_matches(155))&&
-        (!(global_projectile91_used_members&131072u)||enemy_vulcan70_palette_matches());}
+        (!(global_projectile91_used_members&131072u)||enemy_vulcan70_palette_matches())&&
+        (!(global_projectile91_used_members&262144u)||enemy_widget_sonic_palette_matches(20))&&
+        (!(global_projectile91_used_members&524288u)||enemy_widget_sonic_palette_matches(21))&&
+        (!(global_projectile91_used_members&1048576u)||enemy_widget_sonic_palette_matches(105))&&
+        (!(global_projectile91_used_members&2097152u)||enemy_widget_sonic_palette_matches(106))&&
+        (!(global_projectile91_used_members&4194304u)||enemy_widget_sonic_palette_matches(124))&&
+        (!(global_projectile91_used_members&8388608u)||enemy_widget_sonic_palette_matches(125));}
 static bool global_projectile91_underlay_matches(void)
 {
  for(unsigned i=0;i<256;i++)if(global_projectile91_used_colors[i]&&
@@ -63,6 +73,7 @@ static void global_projectile91_use_color(unsigned i)
 {if(!global_projectile91_used_colors[i]){global_projectile91_used_colors[i]=1;global_projectile91_underlay_palette[i]=rgb_palette[i]&0xffffffu;}}
 static bool global_projectile91_source_matches(Sprite2_array bank)
 {return projectile91_source(bank,91)&&
+        (!(global_projectile91_used_members&global_projectile91_widget_sonic_members)||!widget_sonic_legacy_intent())&&
         (!(global_projectile91_used_members&1u)||projectile91_resource(global_asset_directory)!=NULL)&&
         (!(global_projectile91_used_members&2u)||projectile145_resource(global_asset_directory)!=NULL)&&
         (!(global_projectile91_used_members&4u)||projectile61_resource(global_asset_directory)!=NULL)&&
@@ -80,7 +91,13 @@ static bool global_projectile91_source_matches(Sprite2_array bank)
         (!(global_projectile91_used_members&16384u)||projectile_animated153_resource(global_asset_directory,153)!=NULL)&&
         (!(global_projectile91_used_members&32768u)||projectile_animated153_resource(global_asset_directory,154)!=NULL)&&
         (!(global_projectile91_used_members&65536u)||projectile_animated153_resource(global_asset_directory,155)!=NULL)&&
-        (!(global_projectile91_used_members&131072u)||enemy_vulcan70_resource(global_asset_directory)!=NULL);}
+        (!(global_projectile91_used_members&131072u)||enemy_vulcan70_resource(global_asset_directory)!=NULL)&&
+        (!(global_projectile91_used_members&262144u)||enemy_widget_sonic_resource(global_asset_directory,20)!=NULL)&&
+        (!(global_projectile91_used_members&524288u)||enemy_widget_sonic_resource(global_asset_directory,21)!=NULL)&&
+        (!(global_projectile91_used_members&1048576u)||enemy_widget_sonic_resource(global_asset_directory,105)!=NULL)&&
+        (!(global_projectile91_used_members&2097152u)||enemy_widget_sonic_resource(global_asset_directory,106)!=NULL)&&
+        (!(global_projectile91_used_members&4194304u)||enemy_widget_sonic_resource(global_asset_directory,124)!=NULL)&&
+        (!(global_projectile91_used_members&8388608u)||enemy_widget_sonic_resource(global_asset_directory,125)!=NULL);}
 static bool global_projectile91_disjoint(const SDL_Surface *a,const SDL_Surface *b)
 {
  uintptr_t x=(uintptr_t)a->pixels,y=(uintptr_t)b->pixels;
@@ -152,7 +169,7 @@ static void global_projectile91_reset(void)
 static void global_projectile91_shutdown(void)
 {
  global_projectile91_reset();
- projectile91_shutdown();projectile145_shutdown();projectile61_shutdown();projectile_blue_triplet_shutdown();projectile_gold_pulse_shutdown();projectile_statics_shutdown();projectile_pulses16694_shutdown();projectile_bolts745_shutdown();projectile_animated153_shutdown();enemy_vulcan70_shutdown();
+ projectile91_shutdown();projectile145_shutdown();projectile61_shutdown();projectile_blue_triplet_shutdown();projectile_gold_pulse_shutdown();projectile_statics_shutdown();projectile_pulses16694_shutdown();projectile_bolts745_shutdown();projectile_animated153_shutdown();enemy_vulcan70_shutdown();enemy_widget_sonic_shutdown();
  free(global_projectile91_owner);free(global_projectile91_foreign);global_projectile91_owner=global_projectile91_foreign=NULL;global_projectile91_capacity=0;
 }
 static void global_projectile91_frame_begin(void)
@@ -395,10 +412,10 @@ static void global_projectile91_final_pixel(SDL_Surface *s,Uint8 *address)
    size_t n=(size_t)(y*d+sy)*canvas->w+(x+24)*d+sx;
    shared_count+=global_projectile91_owner[n]!=0;hd_count+=hd_owner[n]!=0;
   }
-  /* A whole native cell changed. Sparse/shared or retired-70 foreign ownership
+  /* A whole native cell changed. Sparse/shared or retired sparse-RGBA foreign ownership
      cannot prove a complete cached patch; leave indexed presentation authoritative. */
   if((shared_count&&shared_count<(unsigned)(d*d))||
-     ((global_projectile91_used_members&131072u)&&!shared_count&&hd_count)) {
+     ((global_projectile91_used_members&global_projectile91_sparse_rgba_members)&&!shared_count&&hd_count)) {
    global_projectile91_cache_decline();return;
   }
  }

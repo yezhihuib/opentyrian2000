@@ -18,6 +18,7 @@
  */
 #include "tyrian2.h"
 #include "render_mirror.h"
+#include "enemy_widget_sonic_policy.h"
 #include "common_pause.h"
 #include "entity_draw.h"
 #include "enemy_reuse_identity.h"
@@ -1935,14 +1936,14 @@ draw_player_shot_loop_end:
 						{
 							unsigned int sprite = enemyShot[z].sgr + enemyShot[z].animate;
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
-							if (sprite == 105 || sprite == 106 || sprite == 124 || sprite == 125 || sprite == 20 || sprite == 21 || sprite == 214 || sprite == 215 || sprite == 216 || sprite == 226 || sprite == 227 || sprite == 244)
+							if ((widget_sonic_member_index(sprite) && widget_sonic_legacy_intent()) || sprite == 214 || sprite == 215 || sprite == 216 || sprite == 226 || sprite == 227 || sprite == 244)
 							{
 								enemy_reuse_shot_begin_draw(z);
 								draw_enemy_reuse_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite, z, enemyShot[z].sgr);
 							}
 							else
 #endif
-							if (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147 || sprite == 304 || sprite == 91 || sprite == 145 || sprite == 61 || sprite == 101 || sprite == 120 || sprite == 139 || sprite == 168 || sprite == 169 || sprite == 162 || sprite == 260 || sprite == 166 || sprite == 94 || sprite == 7 || sprite == 45 || sprite == 153 || sprite == 154 || sprite == 155 || sprite == 70)
+							if (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147 || sprite == 304 || sprite == 91 || sprite == 145 || sprite == 61 || sprite == 101 || sprite == 120 || sprite == 139 || sprite == 168 || sprite == 169 || sprite == 162 || sprite == 260 || sprite == 166 || sprite == 94 || sprite == 7 || sprite == 45 || sprite == 153 || sprite == 154 || sprite == 155 || sprite == 70 || widget_sonic_member_index(sprite))
 								draw_enemy_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
 							else
 								blit_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);

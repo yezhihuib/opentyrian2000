@@ -41,15 +41,15 @@ class EnemyVulcan70Preparation(unittest.TestCase):
   self.assertEqual(colors,[0x380000,0x510000,0x6d0400,0x860400,0x9e0800,0xba0c00,0xd31400,0xdf3c00,0xe7610c,0xeb8a18,0xf3ae24,0xfbcb30]);self.assertIn('rgb_palette[113+i]',f);self.assertNotIn('episodeNum',f);self.assertNotIn('lvlFileNum',f)
  def test_append_only_18bit_members(self):
   pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',function(self.shared,'global_projectile91_member'))]
-  self.assertEqual(pairs,[(i,1<<k)for k,i in enumerate((*OLD_IDS,70))]);self.assertEqual(sum(x[1]for x in pairs[:17]),131071);self.assertEqual(sum(x[1]for x in pairs),262143)
+  self.assertEqual(pairs[:18],[(i,1<<k)for k,i in enumerate((*OLD_IDS,70))]);self.assertEqual(sum(x[1]for x in pairs[:17]),131071);self.assertEqual(sum(x[1]for x in pairs[:18]),262143)
  def test_width_guard_rejects_17bit_counterexample(self):
-  self.assertEqual(131071&131072,0);self.assertIn('#if UINT_MAX < 262143u',self.shared);self.assertIn('at least 18 unsigned value bits',self.shared)
+  self.assertEqual(131071&131072,0);self.assertIn('#if UINT_MAX < 16777215u',self.shared);self.assertIn('at least 24 unsigned value bits',self.shared)
  def test_independent_lease_not_player_cache(self):
   self.assertIn('enemy_vulcan70_resource_state',self.loader);self.assertNotIn('global_vulcan_rgba',self.loader);self.assertNotIn('global_vulcan_family_ready',self.loader);self.assertNotIn('global_vulcan_front',self.loader)
  def test_player_and_existing_indexed_loaders_unchanged(self):
   for p,pin in PINNED_UNCHANGED.items():self.assertEqual(hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),pin,p)
  def test_full_bank_and_enemy_only_route(self):
-  self.assertIn('return index==70&&projectile91_source(bank,91);',self.loader);self.assertIn('||index==153||index==154||index==155||index==70)',function(self.render,'render_mirror_enemy_shot'))
+  self.assertIn('return index==70&&projectile91_source(bank,91);',self.loader);self.assertIn('||index==153||index==154||index==155||index==70||widget_sonic_member_index(index))',function(self.render,'render_mirror_enemy_shot'))
   entity=(ROOT/'src/entity_draw.c').read_text();self.assertIn('game_probe_scene_draw(8,index,x,y,0,ENTITY_NORMAL,mirrored);',function(entity,'draw_enemy_shot_sprite2'))
  def test_rgba_not_indexed_dispatch(self):
   f=function(self.shared,'global_projectile91_draw');self.assertIn('}else *p=blend_rgba(*p,a,(int)alpha);',f);self.assertNotIn('index==70',f);self.assertIn('if(!a[3]&&!native)continue;',f)
