@@ -23,10 +23,11 @@
     "Controlled original-event probe is assisted fixed-input replay, not natural playthrough; no new snapshot/time skip or simulation mutation. Normal observer output alias is covered separately by the normal-observer-surface native proof; live normal target events remain unverified.",
     "Normal observer final-surface alias has native production-object proof only; no new live normal-game target-event, Windows/GPU or full-campaign acceptance.",
     "Bank8 7/45 namespace156 payloads encode palette indices, not fixed RGB. Native and assisted scene qualifications are separate; this source binding records candidate bytes only, not a historical PASS.",
-    "Bank8 enemy153/154/155 namespace157 uses three independent indexed payloads. Explicit153 authored coverage73/76 leaves native cells(y5,x0..2) transparent; original simulation/collision masks remain76/88/76. Candidate source binding ONLY: new native/gameplay/scene validation NOT RUN, scene visual acceptance PENDING; previous receipts retain their original scope."
+    "Bank8 enemy153/154/155 namespace157 uses three independent indexed payloads. Explicit153 authored coverage73/76 leaves native cells(y5,x0..2) transparent; original simulation/collision masks remain76/88/76. Candidate source binding ONLY: new native/gameplay/scene validation NOT RUN, scene visual acceptance PENDING; previous receipts retain their original scope.",
+    "Enemy normal bank8/70 adds one independent finite admission/lease for exact existing canonical RGBA asset80070. Player role/cache/assets remain unchanged; 110 alpha texels outside original46-cell mask remain within the original12x14 tile and use the existing shared RGBA owner, not a new spillover algorithm. Exact live source indices113-124 RGB gate is required. Candidate source binding ONLY: new native and natural E5p4 scene validation NOT RUN; no live palette match or gameplay/visual acceptance claimed."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "c4aa4c9fba96312f6bbd86c31040a9179b325de422c4b180f86f0cfc816325ea",
+  "production_source_manifest_sha256": "fae7f528d7e0f0a042bc16708ba82c49ff7ba46d7188b4679de2471c6d38ce08",
   "reviewed_charge_body_changes": {
     "files": [
       "src/entity_draw.c",
@@ -98,6 +99,13 @@
     "integration_base": "6488220464055166c69267abee7b3a11b41fe16b",
     "scope": "Exclusive default-off normal-game enemy-only display session; no simulation or input changes; whole-blob finite inverse and two exact new modules.",
     "source_ledger_sha256": "e8fdb1d7c8e2a38f13e6cdebc3cf226b0de87758e16488c946de2c21fc9f7538"
+  },
+  "reviewed_enemy_vulcan70_preparation": {
+    "integration_base": "7a53a8d9fb7b4c6a693740c7d116deab1541f191",
+    "resource_identity": 80070,
+    "resource_sha256": "eebd525dab58f0fc6708f4f3c7b15a88e67270be877ff250e93c4bb2a2aeb8de",
+    "scope": "Finite enemy role70 reuses exact canonical straight RGBA; source binding only, external validation required. No player gate/cache or image changes.",
+    "sparse_final_write_policy": "Conservative cache decline for partially shared-owned final cells and foreign-owned final cells while the used70 contribution lease remains active; no hole reconstruction. Native validation remains external."
   },
   "reviewed_newshf168_soft_alpha": {
     "integration_base": "0112ec8d3c3fd0b6145463b85a713a79ccd01ac5",
@@ -269,7 +277,8 @@
     "src/enemy_reuse_probe.h": "8ef9d60321bc52cdb7e5e2261e967cf33cec3b0f73302e168bff7387d69457f9",
     "src/enemy_reuse_probe.inc": "7501e2cb27def19e1ad780a8f4e6d175f32ddc12893d1e9587645c4b3207ae01",
     "src/enemy_statics_mirror.inc": "2aca7e11a03882eea6543640b735a0919fec82462165c24476c2dd231a027c18",
-    "src/entity_draw.c": "99d423886b6f608d3e8059f3515afb1a536b77f1f74f141d7326bebfbe71af9f",
+    "src/enemy_vulcan70_mirror.inc": "cf166af9221e9543ca684a89c270e47ceafa401952f72989d043bb57e750ef1f",
+    "src/entity_draw.c": "e16290b936f6212c7ce3b6a63d758c6b66ec9a0af269ebccd2cac889c83b4529",
     "src/entity_draw.h": "2fa761d269860a0da42a5e02c418477a9b874f749ad979291038e2b6806ba827",
     "src/episodes.c": "1430b09faa5c8cabeb95b2d0f84b1b40af0f81ff7f186847d5ae086c3f9c5d8e",
     "src/episodes.h": "e754c9f34372082084752cb2244c132b8ccad1a1e475d22366e5f1e1e2a59ef5",
@@ -314,7 +323,7 @@
     "src/global_green_mirror.inc": "7992448caada923a3e7a4fcc59282c4d86603a503b36dc3ac321b1d84131ca60",
     "src/global_hitflare_mirror.inc": "2ab0900bab0dfa6423f3e3abf84fbbffbfcb21dd205b02d30e6bc54a1261a964",
     "src/global_newshf_mirror.inc": "dac31703056c754329bd1f5835841ad6d77c8f993d9ff423d6a1d58a4a242f4f",
-    "src/global_projectile91_mirror.inc": "3fa44ed7bf3d52c5f8b5de78dc16f0f14761368ae8bcbaa42ac811505b8f359f",
+    "src/global_projectile91_mirror.inc": "c9a85f456007af99d69cd70e7d07ab6c9dccafe7115be8ee319b38b9a230df5d",
     "src/global_pulse_mirror.inc": "3502ad962fbcff5bcd2bcdfc77bf804627e26974f306eedaa6ca94f206492cf6",
     "src/global_rotor_identity.inc": "d09e9a0a111b361bbb44b0c751115147f2a2b4053c01e9a89c52898b02ce28c0",
     "src/global_rotor_mirror.inc": "cd080dc92d308951b37a136035b1e7ae9989abdb0acbf197a190da2bcb43eacb",
@@ -402,7 +411,7 @@
     "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
     "src/rear_multi_p1_mirror.inc": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c",
     "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
-    "src/render_mirror.c": "b6dcaf99be55f048beb7897ed318095929aad4e25da0d6d2a0fd69fe55cb7382",
+    "src/render_mirror.c": "41b447585ba45d669381908d85b4ea285e9c546a5aa8bc380b15e1679fb62e27",
     "src/render_mirror.h": "8887258ab85aed28867b41eef28728a89a4759c786dfc3cf0f725eb9739d410e",
     "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
     "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",
@@ -449,7 +458,7 @@
     "src/title_layers.c": "4e12b9e54ce75bc98a5e36cf2ddad45f24840553cddb8a35969a852a1320a372",
     "src/title_layers.h": "2d5b69d52126174d77ab42edf321c355a08ad15d43fa099a5b0bbc7823a332b7",
     "src/title_menu_font.inc": "4bb6c3d143ce1dcbce71345e9799d499cdde1d962a99bc3d48c9200b84363224",
-    "src/tyrian2.c": "6f7b0fd02c161ad58533121cb820e45d0309ed8b75efa28f1f9d7acf26f67bb3",
+    "src/tyrian2.c": "a2e19cfc5fe71b37016b5ad1b1a6bf439c09b4e9ba305eeb47aef154b609172e",
     "src/tyrian2.h": "1341c4371128fda951031caef18ad6bd154beb9e187bd800a25ebb1ed1c4c32f",
     "src/varz.c": "70014229765dece18d2a15a0a906cb89daf2d0174bc1d1834008bfeb5772de45",
     "src/varz.h": "c0557171c5454d9b6e64c9eb22facf5e9cd5cdefcf54aa743020d5c4ffdde37c",

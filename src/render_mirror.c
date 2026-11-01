@@ -349,6 +349,10 @@ static bool projectile_animated153_source(Sprite2_array,unsigned);
 static bool projectile_animated153_palette_matches(unsigned);
 static Asset *projectile_animated153_resource(const char *,unsigned);
 static void projectile_animated153_shutdown(void);
+static bool enemy_vulcan70_source(Sprite2_array,unsigned);
+static bool enemy_vulcan70_palette_matches(void);
+static Asset *enemy_vulcan70_resource(const char *);
+static void enemy_vulcan70_shutdown(void);
 #if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
 static bool global_newshf_frame,global_newshf_fault;
 static void global_newshf_shutdown(void);
@@ -3540,7 +3544,7 @@ bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array ban
   return projectile91_draw(surface,x,y,bank,index);
  }
  /* These shared enemy roles do not opt the old level-specific scene mirror in. */
- if(index==145||index==61||index==101||index==120||index==139||index==168||index==169||index==162||index==260||index==166||index==94||index==7||index==45||index==153||index==154||index==155) {
+ if(index==145||index==61||index==101||index==120||index==139||index==168||index==169||index==162||index==260||index==166||index==94||index==7||index==45||index==153||index==154||index==155||index==70) {
   if(global_asset_directory[0]) {global_projectile91_observed_preflight();return global_projectile91_draw(surface,x,y,bank,index)>0;}
   return false;
  }
@@ -3882,6 +3886,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "enemy_pulses16694_mirror.inc"
 #include "enemy_bolts745_mirror.inc"
 #include "enemy_animated153_mirror.inc"
+#include "enemy_vulcan70_mirror.inc"
 #include "asteroid1_enemy_orb112113_mirror.inc"
 #include "asteroid1_firing270_mirror.inc"
 #include "asteroid1_firing285_mirror.inc"

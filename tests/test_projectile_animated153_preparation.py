@@ -33,8 +33,8 @@ class Preparation(unittest.TestCase):
  def test_member_width_and_append_only(self):
   s=(ROOT/'src/global_projectile91_mirror.inc').read_text();f=s.split('static unsigned global_projectile91_member(unsigned index)')[1].split('static Asset')[0]
   pairs=[(int(i),int(b))for i,b in re.findall(r'index==(\d+)\?(\d+)u',f)]
-  ids=(91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155)
-  self.assertEqual(pairs,[(i,1<<k)for k,i in enumerate(ids)]);self.assertIn('#if UINT_MAX < 131071u',s)
+  ids=(91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155,70)
+  self.assertEqual(pairs,[(i,1<<k)for k,i in enumerate(ids)]);self.assertIn('#if UINT_MAX < 262143u',s)
   self.assertIn('static Uint8 *global_projectile91_owner,*global_projectile91_foreign;', (ROOT/'src/render_mirror.c').read_text())
  def test_candidate_art_scope(self):
   self.assertIn('#define CURRENT_PROJECTILE_ANIMATED153_ART_QUALIFIED 1',(ROOT/'src/current_projectile_animated153_payload_pins.h').read_text())
@@ -50,7 +50,7 @@ class Preparation(unittest.TestCase):
   # private Git object is needed in a clean public checkout or source archive.
   original_sha256='9982362190cefcc4eee6143d76fce3072808e9bc9f8ac083b8a89a9faf76c2ff'
   old=b'|| sprite == 7 || sprite == 45)\n\t\t\t\t\t\t\t\tdraw_enemy_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);'
-  new=old.replace(b'|| sprite == 45)',b'|| sprite == 45 || sprite == 153 || sprite == 154 || sprite == 155)')
+  new=old.replace(b'|| sprite == 45)',b'|| sprite == 45 || sprite == 153 || sprite == 154 || sprite == 155 || sprite == 70)')
   def assert_original(raw):
    self.assertEqual(raw.count(new),1)
    restored=raw.replace(new,old,1)
