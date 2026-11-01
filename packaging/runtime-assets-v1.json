@@ -12,7 +12,7 @@
       "settings-font-tiny-v1.hda",
       "title-menu-font-v1.hda"
     ],
-    "gameplay_files": 702,
+    "gameplay_files": 705,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 42518,
+      "bytes": 43122,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "5673cee21d61395dcc028847328917a48321c1b0",
+      "git_blob": "3821d89d3e06f006eff62b9856c1d049b747e26c",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "20da26db0c5e66d5083e6a588101d8df21aa6cf1a97d61ecc0db12095e6ac0f1",
+      "sha256": "c8bf704e91d71b8d6f7e15f5db0da44e896230dc8a12427d7989cf1947425f75",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2514,6 +2514,42 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "6cbe2e8afc2b4d19204ea5644f9301d14a869de2e73e0a85c2e25f2d58801b6f",
       "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newshe-9-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "density": 8,
+      "destination": "assets/gameplay/enemy-projectile-animated153-153-8.hda",
+      "encoding": "palette-index-r0-g0-binary-alpha-v1",
+      "git_blob": "64500ed17e49cf3451cbaad2578c425c9efeb430",
+      "group": "gameplay",
+      "identity": 1570153,
+      "revision": "current-single-source-projectile-animated153",
+      "sha256": "457d330314b37e7dd12d927256c0db56f2f66fd017f410f56540d1bd00ff1884",
+      "source_path": "assets/hd/current-compat/projectile-animated153/enemy-projectile-animated153-153-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "density": 8,
+      "destination": "assets/gameplay/enemy-projectile-animated153-154-8.hda",
+      "encoding": "palette-index-r0-g0-binary-alpha-v1",
+      "git_blob": "9e870b5ddd44bbca79f2cc25b3610fb687467f32",
+      "group": "gameplay",
+      "identity": 1570154,
+      "revision": "current-single-source-projectile-animated153",
+      "sha256": "7b5894d8389c3319f52aa8141f70aa2523e590b6ff97bdeca3541a1f36988caf",
+      "source_path": "assets/hd/current-compat/projectile-animated153/enemy-projectile-animated153-154-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "density": 8,
+      "destination": "assets/gameplay/enemy-projectile-animated153-155-8.hda",
+      "encoding": "palette-index-r0-g0-binary-alpha-v1",
+      "git_blob": "407dbdb2807e20e5180a812dc3f2200ee4dad3f2",
+      "group": "gameplay",
+      "identity": 1570155,
+      "revision": "current-single-source-projectile-animated153",
+      "sha256": "e17729835f0b4fc5ea5ff59a52d1369034f22bc24911042f26888898ded9db0e",
+      "source_path": "assets/hd/current-compat/projectile-animated153/enemy-projectile-animated153-155-8.hda"
     },
     {
       "bytes": 43036,
@@ -10121,7 +10157,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "e79fa2a62b26007d1dcc8aa1d2922bacc0a663ad5bc77ec3e2df0ec25b7b0d7a",
+    "current_production_source_manifest_sha256": "c4aa4c9fba96312f6bbd86c31040a9179b325de422c4b180f86f0cfc816325ea",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

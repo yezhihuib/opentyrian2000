@@ -1,0 +1,75 @@
+{
+  "schema": "enemy-animated153-indexed-coverage-v1",
+  "members": {
+    "154": {
+      "opaque_hd_pixels": 4944,
+      "source_cells": 88,
+      "covered_source_cells": 88,
+      "empty_native_cells_yx": [],
+      "palette_allowed": [
+        112,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "payload_sha256": "d4dbcaef03b1479ddb372a4df4d3ac775eeaf8f9b449c2a2b5e496f6f936954d",
+      "payload_fnv1a64": 11026697380802109782,
+      "sha256": "7b5894d8389c3319f52aa8141f70aa2523e590b6ff97bdeca3541a1f36988caf"
+    },
+    "155": {
+      "opaque_hd_pixels": 3777,
+      "source_cells": 76,
+      "covered_source_cells": 76,
+      "empty_native_cells_yx": [],
+      "palette_allowed": [
+        112,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "payload_sha256": "381fbfe3787b807a8a844c32157dd6d0a80b851aaa1918d1467ecc3c06b54f28",
+      "payload_fnv1a64": 12311739024840853719,
+      "sha256": "e17729835f0b4fc5ea5ff59a52d1369034f22bc24911042f26888898ded9db0e"
+    },
+    "153": {
+      "opaque_hd_pixels": 3424,
+      "source_cells": 76,
+      "covered_source_cells": 73,
+      "empty_native_cells_yx": [
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "palette_allowed": [
+        112,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "payload_sha256": "2f737c274a5ebee589b96173930dd345508ecf1bfb0fae82195bbb3619972dd4",
+      "payload_fnv1a64": 10328367883016278006,
+      "sha256": "457d330314b37e7dd12d927256c0db56f2f66fd017f410f56540d1bd00ff1884"
+    }
+  },
+  "authoring_exception": "153 empty y5x0..2 provisionally accepted; no source-mask/collision/safety relaxation; scenevisualpending"
+}

@@ -363,6 +363,18 @@ def main():
         rows[destination]['revision']=bolts745_revision
         rows[destination].update(_bolts745_runtime_metadata(row))
 
+    # Exact independent three-phase indexed banana family; metadata is authority.
+    from current_projectile_animated153_compatibility import load as animated153_load, REVISION as animated153_revision
+    from projectile_animated153_transport import metadata as animated153_metadata
+    animated153=animated153_load(root)
+    expected_animated153={'assets/gameplay/enemy-projectile-animated153-'+str(i)+'-8.hda' for i in (153,154,155)}
+    if set(animated153)!=expected_animated153 or set(animated153)&set(rows):
+        raise ValueError('Unexpected/colliding animated153 runtime extension')
+    for destination,row in sorted(animated153.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=animated153_revision
+        rows[destination].update(animated153_metadata(row))
+
     # Exactly one private P09 transport; no player227 or duplicate226/244.
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY
     for name,raw in protron_derive(root).items():

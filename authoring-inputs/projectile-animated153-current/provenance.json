@@ -1,0 +1,16 @@
+{
+  "tool": "built-in image_gen",
+  "raw_preservation": "byte-identical originalPNG includingC2PA; marker only notcryptographicvalidation",
+  "chain": [
+    "source-reference -> rawv1 withpromptv1",
+    "rawv1+source-reference -> rawv2 withpromptv2",
+    "rawv2+source-reference -> rawv3 withpromptv3-banana",
+    "rawv3 phase153+source153-target-reference -> raw153v4 withpromptv4-153-only"
+  ],
+  "identity": "Banana Blast/Banana Blast Rear ports23/24 weapons506\u2013527; enemyweapon30 reuse per source investigation",
+  "selection": "154/155fromv3;153fromv4; no mirror substitutions",
+  "failed_versions": "v1/v2 fiery-blade interpretation rejected",
+  "alphaedge": "raw153v4 alpha>=8touchesrightboundary; no fabricatedpixels",
+  "scope": "authoring/source invariants qualified with explicit73/76exception; finalscenevisualpending",
+  "original_data": "only3tinyRLEs, originalmask/indexgrids, palette and reference smallimages; noentiregamefiles/privatevalidationlogs"
+}
