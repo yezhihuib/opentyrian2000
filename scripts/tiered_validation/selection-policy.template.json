@@ -1,0 +1,65 @@
+{
+  "schema": "reviewed-batch-selection/v2",
+  "profile_id": "<new reviewed batch identifier>",
+  "source_binding": {
+    "commit": "<actual independently reviewed candidate commit>",
+    "tree": "<actual approved source tree>",
+    "source_entries": 0,
+    "worktree_map_sha256": "<independently approved deployment worktree map SHA256>"
+  },
+  "impact_review": {
+    "status": "DRAFT_REQUIRES_INDEPENDENT_REVIEW",
+    "justification": "<Explain actual producer/source/shared-renderer impact; distinguish additive integration metadata from real dependencies.>"
+  },
+  "policy": {
+    "automatic_full_run": false,
+    "failure_fallback": false,
+    "unknown_binding": "STOP_FULL_REQUIRED_OR_REVIEWED_PROFILE"
+  },
+  "required_segments": [
+    "<each exact retained module name>"
+  ],
+  "deferred_segments": [
+    "<each exact deferred module and replaced original phase name>"
+  ],
+  "deferral_reasons": {
+    "<exact deferred name>": {
+      "reason": "<reviewed reason>",
+      "coverage_not_exercised": "<explicit lost guarantee>",
+      "full_triggers": [
+        "<actual dependency change or release trigger>"
+      ]
+    }
+  },
+  "new_test_ids": [
+    "<every exact new-resource test ID, all must be retained>"
+  ],
+  "additional_methods": [
+    {
+      "id": "test_shop_current_acceptance.ShopCurrentAcceptance.test_current_replay_masks_and_bounds",
+      "method_source_sha256": "<independently reviewed original method source SHA256>"
+    },
+    {
+      "id": "test_shop_current_acceptance.ShopCurrentAcceptance.test_semantic_guard_mutations_rejected_without_hash_gate",
+      "method_source_sha256": "<independently reviewed original method source SHA256>"
+    },
+    {
+      "id": "test_shop_current_acceptance.ShopCurrentAcceptance.test_current_compile_inventory",
+      "method_source_sha256": "<independently reviewed original method source SHA256>"
+    }
+  ],
+  "phase_replacement": {
+    "implementation": "current-state-once/v1",
+    "name": "current-state-once-v1",
+    "call": "current_state_once",
+    "retained_guarantees": [
+      "<current production closure, exact approved map/catalog, default runtime selection>"
+    ],
+    "lost_guarantees": [
+      "<historical inverse proofs and exhaustive global mutations>"
+    ],
+    "full_triggers": [
+      "<explicit release or actual old/shared dependency change>"
+    ]
+  }
+}
