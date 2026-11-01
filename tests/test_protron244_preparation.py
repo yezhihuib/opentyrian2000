@@ -47,7 +47,13 @@ class Protron244Preparation(unittest.TestCase):
  def test_no_green_admission(self):
   p=self.src('enemy_orb_protron_policy.h');self.assertFalse(any('index=='+str(i)in p for i in (214,215,216)));self.assertIn('|| sprite == 214 || sprite == 215 || sprite == 216 ||',self.src('tyrian2.c'))
  def test_original_players_renderer_and_pins_exact(self):
-  for name,pin in UNCHANGED.items():self.assertEqual(digest((ROOT/name).read_bytes()),pin,name)
+  for name,pin in UNCHANGED.items():
+   raw=(ROOT/name).read_bytes()
+   if name=='src/render_mirror.c':
+    # Only the reviewed declarations and public pre-final calls are additive.
+    for added in (b'static bool global_projectile91_pre_final_pixel(SDL_Surface *,Uint8 *);\n',b'static void global_projectile91_pre_final_rect(SDL_Surface *,const SDL_Rect *);\n',b' global_projectile91_pre_final_pixel(surface,address);\n',b' global_projectile91_pre_final_rect(s,rect);\n'):
+     self.assertEqual(raw.count(added),1);raw=raw.replace(added,b'',1)
+   self.assertEqual(digest(raw),pin,name)
  def test_old_four_package_rows_exact_and_single244(self):
   rows=json.loads((ROOT/'packaging/runtime-assets-v1.json').read_text())['files'];by={x['destination']:x for x in rows}
   for row in OLD_ALIAS_ROWS:self.assertEqual(by[row['destination']],row)

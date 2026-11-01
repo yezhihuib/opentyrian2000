@@ -409,13 +409,16 @@ static bool global_projectile91_fade_step_valid(int steps)
 
 static void global_projectile91_fade_palette(void)
 {if(global_projectile91_cached)memcpy(global_projectile91_output_palette,rgb_palette,sizeof(global_projectile91_output_palette));}
-static void global_projectile91_final_pixel(SDL_Surface *s,Uint8 *address)
+/* Inspect ownership before any final-write handler can retire it or advance the
+ * whole-cell indexed snapshot. Decline only; never patch another owner here. */
+static bool global_projectile91_pre_final_pixel(SDL_Surface *s,Uint8 *address)
 {
+ if(!global_projectile91_cached)return true;
  if((!global_projectile91_frame&&!global_projectile91_cached)||s!=VGAScreenSeg||!s||!s->pixels||!s->format||
-  s->format->format!=SDL_PIXELFORMAT_INDEX8||s->w!=320||s->h!=200||s->pitch<320||!global_projectile91_surface_matches()||!global_projectile91_final_surface_matches()||!global_projectile91_owner)return;
- if(global_projectile91_cached&&have_fade_saved&&!global_projectile91_fade_lease_matches()){global_projectile91_cache_decline();return;}
- intptr_t offset=(intptr_t)address-(intptr_t)s->pixels;if(offset<0||offset>=(intptr_t)s->pitch*200)return;
- int y=(int)(offset/s->pitch),x=(int)(offset%s->pitch),d=game_probe_density;if(x>=264||y>=184)return;
+  s->format->format!=SDL_PIXELFORMAT_INDEX8||s->w!=320||s->h!=200||s->pitch<320||!global_projectile91_surface_matches()||!global_projectile91_final_surface_matches()||!global_projectile91_owner)return true;
+ if(global_projectile91_cached&&have_fade_saved&&!global_projectile91_fade_lease_matches()){return global_projectile91_cache_decline();}
+ intptr_t offset=(intptr_t)address-(intptr_t)s->pixels;if(offset<0||offset>=(intptr_t)s->pitch*200)return true;
+ int y=(int)(offset/s->pitch),x=(int)(offset%s->pitch),d=game_probe_density;if(x>=264||y>=184)return true;
  if(global_projectile91_cached) {
   unsigned shared_count=0,hd_count=0;
   for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
@@ -426,9 +429,18 @@ static void global_projectile91_final_pixel(SDL_Surface *s,Uint8 *address)
      cannot prove a complete cached patch; leave indexed presentation authoritative. */
   if((shared_count&&shared_count<(unsigned)(d*d))||
      ((global_projectile91_used_members&global_projectile91_sparse_rgba_members)&&!shared_count&&hd_count)) {
-   global_projectile91_cache_decline();return;
+   return global_projectile91_cache_decline();
   }
  }
+ return true;
+}
+static void global_projectile91_final_pixel(SDL_Surface *s,Uint8 *address)
+{
+ if((!global_projectile91_frame&&!global_projectile91_cached)||s!=VGAScreenSeg||!s||!s->pixels||!s->format||
+  s->format->format!=SDL_PIXELFORMAT_INDEX8||s->w!=320||s->h!=200||s->pitch<320||!global_projectile91_surface_matches()||!global_projectile91_final_surface_matches()||!global_projectile91_owner)return;
+ if(!global_projectile91_pre_final_pixel(s,address))return;
+ intptr_t offset=(intptr_t)address-(intptr_t)s->pixels;if(offset<0||offset>=(intptr_t)s->pitch*200)return;
+ int y=(int)(offset/s->pitch),x=(int)(offset%s->pitch),d=game_probe_density;if(x>=264||y>=184)return;
  bool changed=false;
  for(int sy=0;sy<d;sy++)for(int sx=0;sx<d;sx++) {
   int px=(x+24)*d+sx,py=y*d+sy;size_t n=(size_t)py*canvas->w+px;if(!global_projectile91_owner[n])continue;
@@ -442,14 +454,25 @@ static void global_projectile91_final_pixel(SDL_Surface *s,Uint8 *address)
  }
  if(changed&&global_projectile91_cached)last_output_indices[y*320+x]=*address;
 }
-static void global_projectile91_final_rect(SDL_Surface *s,const SDL_Rect *r)
+static void global_projectile91_final_rect_walk(SDL_Surface *s,const SDL_Rect *r,bool preflight)
 {
+ if(preflight&&(!global_projectile91_cached||!global_projectile91_owner||
+  !global_projectile91_surface_matches()||!global_projectile91_final_surface_matches()))return;
  if((!global_projectile91_frame&&!global_projectile91_cached)||s!=VGAScreenSeg||!s||!s->pixels)return;
  int64_t x=r?r->x:0,y=r?r->y:0,right=r?x+r->w:320,bottom=r?y+r->h:200;
  x=MAX(MAX(x,s->clip_rect.x),0);y=MAX(MAX(y,s->clip_rect.y),0);
  right=MIN(MIN(right,(int64_t)s->clip_rect.x+s->clip_rect.w),264);bottom=MIN(MIN(bottom,(int64_t)s->clip_rect.y+s->clip_rect.h),184);
- for(int yy=(int)y;yy<bottom;yy++)for(int xx=(int)x;xx<right;xx++)global_projectile91_final_pixel(s,(Uint8 *)s->pixels+yy*s->pitch+xx);
+ for(int yy=(int)y;yy<bottom;yy++)for(int xx=(int)x;xx<right;xx++) {
+  Uint8 *address=(Uint8 *)s->pixels+yy*s->pitch+xx;
+  if(preflight) {if(!global_projectile91_pre_final_pixel(s,address))return;}
+  else global_projectile91_final_pixel(s,address);
+ }
 }
+
+static void global_projectile91_final_rect(SDL_Surface *s,const SDL_Rect *r)
+{global_projectile91_final_rect_walk(s,r,false);}
+static void global_projectile91_pre_final_rect(SDL_Surface *s,const SDL_Rect *r)
+{if(global_projectile91_cached)global_projectile91_final_rect_walk(s,r,true);}
 
 static bool global_projectile91_observe_blend(SDL_Surface *s,Uint8 *address)
 {

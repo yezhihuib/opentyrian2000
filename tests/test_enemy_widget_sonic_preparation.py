@@ -32,7 +32,8 @@ class WidgetSonicPreparation(unittest.TestCase):
  def test_exact_seven_sparse_contributors(self):
   for name,want in [('sparse_rgba_members',sum(1<<k for k in range(17,24))+(1<<27)),('widget_sonic_members',sum(1<<k for k in range(18,24)))]:
    expr=re.search(r'global_projectile91_'+name+r'=([^;]+);',self.shared)[1];bits=[int(x)for x in re.findall(r'(\d+)u',expr)];self.assertEqual(sum(bits),want);self.assertEqual(len(bits),8 if name.startswith('sparse')else 6)
-  f=function(self.shared,'global_projectile91_final_pixel');self.assertIn('(global_projectile91_used_members&global_projectile91_sparse_rgba_members)&&!shared_count&&hd_count',f);self.assertLess(f.index('global_projectile91_cache_decline();return;'),f.index('bool changed=false;'))
+  guard=function(self.shared,'global_projectile91_pre_final_pixel');self.assertIn('(global_projectile91_used_members&global_projectile91_sparse_rgba_members)&&!shared_count&&hd_count',guard);self.assertIn('return global_projectile91_cache_decline();',guard)
+  f=function(self.shared,'global_projectile91_final_pixel');self.assertLess(f.index('if(!global_projectile91_pre_final_pixel(s,address))return;'),f.index('bool changed=false;'))
  def test_shared_rgba_algorithm_unchanged(self):
   self.assertEqual(hashlib.sha256(function(self.shared,'global_projectile91_draw').encode()).hexdigest(),"b5f6363262b6032efbe43df1c5a569ce0df187118cd6794a8ff67f2606d611fd")
  def test_canonical_player_legacy_and_entity_bytes_unchanged(self):

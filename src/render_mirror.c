@@ -304,6 +304,8 @@ static void global_projectile91_shutdown(void);
 static void global_projectile91_reset(void);
 static void global_projectile91_frame_begin(void);
 static bool global_projectile91_pixel(int,int,Uint8,Uint8,int);
+static bool global_projectile91_pre_final_pixel(SDL_Surface *,Uint8 *);
+static void global_projectile91_pre_final_rect(SDL_Surface *,const SDL_Rect *);
 static void global_projectile91_final_pixel(SDL_Surface *,Uint8 *);
 static void global_projectile91_final_rect(SDL_Surface *,const SDL_Rect *);
 static void global_projectile91_end(void);
@@ -1675,6 +1677,7 @@ void render_mirror_begin(void)
 
 void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int style)
 {
+ global_projectile91_pre_final_pixel(surface,address);
  shapesy_clear_proof=false;
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
  /* An unrelated indexed write cannot retain an unconsumed enemy witness. */
@@ -1756,6 +1759,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
 
 void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 {
+ global_projectile91_pre_final_rect(s,rect);
  data_frame_rect(s,rect);
  data_portrait_rect(s,rect);
  storm_rect(s,rect);
