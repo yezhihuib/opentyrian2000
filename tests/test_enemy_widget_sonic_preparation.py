@@ -26,12 +26,12 @@ class WidgetSonicPreparation(unittest.TestCase):
  def setUpClass(cls):
   cls.shared=(ROOT/'src/global_projectile91_mirror.inc').read_text();cls.loader=(ROOT/'src/enemy_widget_sonic_mirror.inc').read_text();cls.policy=(ROOT/'src/enemy_widget_sonic_policy.h').read_text();cls.render=(ROOT/'src/render_mirror.c').read_text();cls.game=(ROOT/'src/tyrian2.c').read_text()
  def test_append_only_24_members_and_bits(self):
-  pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',function(self.shared,'global_projectile91_member'))];self.assertEqual(pairs,[(i,1<<k)for k,i in enumerate(OLD+IDS)]);self.assertEqual(sum(b for _,b in pairs[:18]),262143);self.assertEqual(sum(b for _,b in pairs),16777215)
+  pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',function(self.shared,'global_projectile91_member'))];self.assertEqual(pairs[:24],[(i,1<<k)for k,i in enumerate(OLD+IDS)]);self.assertEqual(sum(b for _,b in pairs[:18]),262143);self.assertEqual(sum(b for _,b in pairs[:24]),16777215)
  def test_24bit_guard_boolean_owners_unchanged(self):
-  self.assertIn('#if UINT_MAX < 16777215u',self.shared);self.assertIn('static unsigned global_projectile91_used_members',self.shared);self.assertIn('static Uint8 *global_projectile91_owner,*global_projectile91_foreign;',self.render);self.assertEqual(8388607&8388608,0)
+  self.assertIn('#if UINT_MAX < 268435455u',self.shared);self.assertIn('static unsigned global_projectile91_used_members',self.shared);self.assertIn('static Uint8 *global_projectile91_owner,*global_projectile91_foreign;',self.render);self.assertEqual(8388607&8388608,0)
  def test_exact_seven_sparse_contributors(self):
-  for name,want in [('sparse_rgba_members',sum(1<<k for k in range(17,24))),('widget_sonic_members',sum(1<<k for k in range(18,24)))]:
-   expr=re.search(r'global_projectile91_'+name+r'=([^;]+);',self.shared)[1];bits=[int(x)for x in re.findall(r'(\d+)u',expr)];self.assertEqual(sum(bits),want);self.assertEqual(len(bits),7 if name.startswith('sparse')else 6)
+  for name,want in [('sparse_rgba_members',sum(1<<k for k in range(17,24))+(1<<27)),('widget_sonic_members',sum(1<<k for k in range(18,24)))]:
+   expr=re.search(r'global_projectile91_'+name+r'=([^;]+);',self.shared)[1];bits=[int(x)for x in re.findall(r'(\d+)u',expr)];self.assertEqual(sum(bits),want);self.assertEqual(len(bits),8 if name.startswith('sparse')else 6)
   f=function(self.shared,'global_projectile91_final_pixel');self.assertIn('(global_projectile91_used_members&global_projectile91_sparse_rgba_members)&&!shared_count&&hd_count',f);self.assertLess(f.index('global_projectile91_cache_decline();return;'),f.index('bool changed=false;'))
  def test_shared_rgba_algorithm_unchanged(self):
   self.assertEqual(hashlib.sha256(function(self.shared,'global_projectile91_draw').encode()).hexdigest(),"b5f6363262b6032efbe43df1c5a569ce0df187118cd6794a8ff67f2606d611fd")
@@ -54,7 +54,7 @@ class WidgetSonicPreparation(unittest.TestCase):
  def test_legacy_requested_not_active_and_macrooff(self):
   self.assertIn('game_probe_enabled||enemy_reuse_observe_requested()||enemy_reuse_probe_requested()',self.policy);self.assertNotIn('observe_active()',self.policy);self.assertNotIn('probe_generation()',self.policy);self.assertIn('#else\n return false;',self.policy);self.assertIn('!defined(RENDER_MIRROR_DISABLED)',self.policy)
  def test_one_routing_branch_and_direct_admission_gate(self):
-  text='if ((widget_sonic_member_index(sprite) && widget_sonic_legacy_intent()) || sprite == 214 || sprite == 215 || sprite == 216 || sprite == 226 || sprite == 227 || sprite == 244)';self.assertEqual(self.game.count(text),1);self.assertIn('|| sprite == 70 || widget_sonic_member_index(sprite))',self.game);self.assertIn('if(widget_sonic_member_index(index)&&widget_sonic_legacy_intent())return false;',function(self.render,'render_mirror_enemy_shot'))
+  text='if ((widget_sonic_member_index(sprite) && widget_sonic_legacy_intent()) || sprite == 214 || sprite == 215 || sprite == 216 || (orb_protron_protron_index(sprite) && widget_sonic_legacy_intent()) || sprite == 244)';self.assertEqual(self.game.count(text),1);self.assertIn('|| sprite == 70 || widget_sonic_member_index(sprite) || orb_protron_protron_index(sprite))',self.game);self.assertIn('if(widget_sonic_member_index(index)&&widget_sonic_legacy_intent())return false;',function(self.render,'render_mirror_enemy_shot'))
  def test_used_resource_palette_checks_and_shutdown(self):
   for i,k in zip(IDS,range(18,24)):
    self.assertIn(f'(!(global_projectile91_used_members&{1<<k}u)||enemy_widget_sonic_resource(global_asset_directory,{i})!=NULL)',self.shared);self.assertIn(f'(!(global_projectile91_used_members&{1<<k}u)||enemy_widget_sonic_palette_matches({i}))',self.shared)

@@ -18,6 +18,7 @@
 #include "current_sonic_payload_pins.h"
 #include "current_guided_payload_pins.h"
 #include "enemy_widget_sonic_policy.h"
+#include "enemy_orb_protron_policy.h"
 #include "current_mint27_payload_pins.h"
 #include "current_missile_payload_pins.h"
 #include "hd_front_multi_current.h"
@@ -358,6 +359,10 @@ static bool enemy_widget_sonic_source(Sprite2_array,unsigned);
 static bool enemy_widget_sonic_palette_matches(unsigned);
 static Asset *enemy_widget_sonic_resource(const char *,unsigned);
 static void enemy_widget_sonic_shutdown(void);
+static bool enemy_orb_protron_source(Sprite2_array,unsigned);
+static bool enemy_orb_protron_palette_matches(unsigned);
+static Asset *enemy_orb_protron_resource(const char *,unsigned);
+static void enemy_orb_protron_shutdown(void);
 #if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
 static bool global_newshf_frame,global_newshf_fault;
 static void global_newshf_shutdown(void);
@@ -3548,6 +3553,16 @@ bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array ban
   if(global_asset_directory[0]) {global_projectile91_observed_preflight();return global_projectile91_draw(surface,x,y,bank,index)>0;}
   return projectile91_draw(surface,x,y,bank,index);
  }
+ /* Exact existing orb/Protron materials have independent ordinary leases.
+  * Asteroid intent always keeps its old atomic orb path, even on failure.
+  * A present global root is authoritative: never substitute role8 orb art. */
+ if(orb_protron_member_index(index)&&!(orb_protron_orb_index(index)&&asteroid_hd_enabled)) {
+  if(global_asset_directory[0]) {
+   if(!orb_protron_ordinary_allowed(index))return false;
+   global_projectile91_observed_preflight();return global_projectile91_draw(surface,x,y,bank,index)>0;
+  }
+  if(orb_protron_protron_index(index))return false;
+ }
  /* These shared enemy roles do not opt the old level-specific scene mirror in. */
  if(widget_sonic_member_index(index)&&widget_sonic_legacy_intent())return false;
  if(index==145||index==61||index==101||index==120||index==139||index==168||index==169||index==162||index==260||index==166||index==94||index==7||index==45||index==153||index==154||index==155||index==70||widget_sonic_member_index(index)) {
@@ -3894,6 +3909,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "enemy_animated153_mirror.inc"
 #include "enemy_vulcan70_mirror.inc"
 #include "enemy_widget_sonic_mirror.inc"
+#include "enemy_orb_protron_mirror.inc"
 #include "asteroid1_enemy_orb112113_mirror.inc"
 #include "asteroid1_firing270_mirror.inc"
 #include "asteroid1_firing285_mirror.inc"

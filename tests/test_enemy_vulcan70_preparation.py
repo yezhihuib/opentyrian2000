@@ -43,7 +43,7 @@ class EnemyVulcan70Preparation(unittest.TestCase):
   pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',function(self.shared,'global_projectile91_member'))]
   self.assertEqual(pairs[:18],[(i,1<<k)for k,i in enumerate((*OLD_IDS,70))]);self.assertEqual(sum(x[1]for x in pairs[:17]),131071);self.assertEqual(sum(x[1]for x in pairs[:18]),262143)
  def test_width_guard_rejects_17bit_counterexample(self):
-  self.assertEqual(131071&131072,0);self.assertIn('#if UINT_MAX < 16777215u',self.shared);self.assertIn('at least 24 unsigned value bits',self.shared)
+  self.assertEqual(131071&131072,0);self.assertIn('#if UINT_MAX < 268435455u',self.shared);self.assertIn('at least 28 unsigned value bits',self.shared)
  def test_independent_lease_not_player_cache(self):
   self.assertIn('enemy_vulcan70_resource_state',self.loader);self.assertNotIn('global_vulcan_rgba',self.loader);self.assertNotIn('global_vulcan_family_ready',self.loader);self.assertNotIn('global_vulcan_front',self.loader)
  def test_player_and_existing_indexed_loaders_unchanged(self):

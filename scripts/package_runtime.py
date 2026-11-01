@@ -277,6 +277,8 @@ def main(argv=None) -> int:
     # Guided replaces four existing destinations; no new runtime resources.
     from current_enemy_widget_sonic_aliases import validate_runtime_rows as widget_sonic_alias_rows
     widget_sonic_alias_rows(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
+    from current_enemy_orb_protron_aliases import validate_runtime_rows as orb_protron_alias_rows
+    orb_protron_alias_rows(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
     guided_prefix = 'assets/hd/current-compat/guided/'
     guided_names = {f'bullet-{i}-8.hda' for i in (19,171,20,21)}
     guided_rows = [row for row in manifest['files'] if any(
@@ -734,7 +736,7 @@ def main(argv=None) -> int:
                     row.get('group')!='gameplay' or row.get('revision')!='current-single-source-front-multi'):
                 raise ValueError('Stale Front Multi runtime selection')
     # Ordinary role8 is mandatory only for the default/current selection.
-    # Role142 remains an explicit opt-in pair; historical pack manifests retain
+    # Named manual role142 routes remain an explicit opt-in pair; historical pack manifests retain
     # their frozen semantics and never acquire current authoring dependencies.
     orb_prefix = 'assets/hd/current-compat/enemy-orb/'
     orb_names = {'bullet-112-8.hda', 'bullet-113-8.hda',

@@ -87,7 +87,7 @@ def main():
         art_compat[destination]=dict(row,authoring_family='front-multi')
     from current_enemy_orb_compatibility import load as enemy_orb_load, ORDINARY_IDS
     for destination,row in enemy_orb_load(root).items():
-        # Role142 remains opt-in; it must never enter the default runtime.
+        # Named manual role142 routes remain opt-in; global aliases are selected separately below.
         if row['identity'] not in ORDINARY_IDS:continue
         if destination in art_compat:raise ValueError('Enemy orb compatibility collision')
         art_compat[destination]=dict(row,authoring_family='enemy-orb')
@@ -427,6 +427,12 @@ def main():
         if destination in rows:raise ValueError('Finite global alias destination collision')
         add(row['source_path'],destination,row['group'])
         rows[destination].update(row)
+    # Four exact material aliases, separate from the unchanged manual role gates.
+    from current_enemy_orb_protron_aliases import load as enemy_orb_protron_aliases
+    for destination,row in enemy_orb_protron_aliases(root).items():
+        if destination in rows:raise ValueError('Finite global alias destination collision')
+        add(row['source_path'],destination,row['group'])
+        rows[destination].update(row)
     add('assets/hd/global-assets-v1/registry.json','assets/global/registry.json','global-registry')
     add('packaging/global-validation.json','GLOBAL-VALIDATION.json','global-validation')
     add('packaging/current-production-validation.json','CURRENT-PRODUCTION-VALIDATION.json','current-production-validation')
@@ -452,7 +458,8 @@ def main():
     j['closure']['global_hda_files']=120
     j['closure']['global_registry_files']=1
     j['closure']['global_shared_enemy_rgba_alias_files']=6
-    j['closure']['global_content_hda_files']=126
+    j['closure']['global_content_hda_files']=130
+    j['closure']['global_shared_enemy_orb_protron_alias_files']=4
     j['closure']['global_families']=['Talon13','Shield22','Pulse5','Hitflare7','FrontVulcan2','WhiteSmoke7','SmallExplosion12','Cash25BodyAndValue7','Cash50BodyAndValue7','Cash75BodyAndValue7','Gem100BodyAndValue6','Gem250BodyAndValue6','Rotor5And11Eight','GreenHeadAndTrail11']
     a.output.write_bytes((json.dumps(j,indent=2,sort_keys=True)+'\n').encode('utf-8'))
     print(json.dumps({'files':len(rows),'bytes':sum(x['bytes'] for x in rows.values()),'output':str(a.output)}))

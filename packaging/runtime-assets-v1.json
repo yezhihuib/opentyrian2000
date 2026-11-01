@@ -13,7 +13,7 @@
       "title-menu-font-v1.hda"
     ],
     "gameplay_files": 705,
-    "global_content_hda_files": 126,
+    "global_content_hda_files": 130,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -32,6 +32,7 @@
     ],
     "global_hda_files": 120,
     "global_registry_files": 1,
+    "global_shared_enemy_orb_protron_alias_files": 4,
     "global_shared_enemy_rgba_alias_files": 6,
     "independent_shared_roots": true,
     "reconstructed_complete_menu_runs": 171,
@@ -79,12 +80,12 @@
   },
   "files": [
     {
-      "bytes": 45160,
+      "bytes": 45993,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "dec4b3c20bfe1cd8f89875ace950e5e6beb0a174",
+      "git_blob": "9ef12efdf2044b4ada2f65ec399681903bf4281a",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "2de5b488b4aca28ce9e02367c996fecc6d778c28381a3bc56fe6de049aaf377c",
+      "sha256": "e9e6bff00d0b681a5459791fdae0090e68563df7f05c40244deb9d7eb2401c90",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -6852,6 +6853,32 @@
       "source_path": "assets/hd/global-assets-v1/content/207239469f9c8a76fd2d63f30dfc537263742ecc7683a44d067519272430b691.hda"
     },
     {
+      "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/enemy-orb/enemy-orb112113-113-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/20a9b6480d91a324a4ca375e79f596504103a80f165512fa33d8c5ffeeac7fba.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "e46c6fafe8c1090f3f4964b21d183017dc6ce613",
+      "group": "global-source-identity",
+      "identity": 1420113,
+      "revision": "canonical-enemy-orb-protron-aliases-v1",
+      "sha256": "20a9b6480d91a324a4ca375e79f596504103a80f165512fa33d8c5ffeeac7fba",
+      "source_path": "assets/hd/global-assets-v1/content/20a9b6480d91a324a4ca375e79f596504103a80f165512fa33d8c5ffeeac7fba.hda"
+    },
+    {
+      "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/protron/bullet-226-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "f6ed73ade096e04d14fb7fd6de212845477fb421",
+      "group": "global-source-identity",
+      "identity": 80226,
+      "revision": "canonical-enemy-orb-protron-aliases-v1",
+      "sha256": "231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c",
+      "source_path": "assets/hd/global-assets-v1/content/231a78b2ebc6a2410da297d05703b4c548f38926e7bd6e6b28c4fe6c4fa7071c.hda"
+    },
+    {
       "bytes": 172060,
       "destination": "assets/global/content/2684439fb26d3ba4c0a1cadef9aba5c6baefc641dc8298493f4ea1b232bf9f2f.hda",
       "git_blob": "8ec14219c2b156d189243bd5df1058f1725c1b7b",
@@ -7226,6 +7253,19 @@
     },
     {
       "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/enemy-orb/enemy-orb112113-112-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/84546804885d7c602449fe0c4783d1873e60f30a8abde3e3095356fc3d8bd720.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "505bf63eca854e4003c5e9c796bda6831fdfefbc",
+      "group": "global-source-identity",
+      "identity": 1420112,
+      "revision": "canonical-enemy-orb-protron-aliases-v1",
+      "sha256": "84546804885d7c602449fe0c4783d1873e60f30a8abde3e3095356fc3d8bd720",
+      "source_path": "assets/hd/global-assets-v1/content/84546804885d7c602449fe0c4783d1873e60f30a8abde3e3095356fc3d8bd720.hda"
+    },
+    {
+      "bytes": 43036,
       "destination": "assets/global/content/86956e4f8ba83188e38897eedb7fc7fef6823b331a1036d586cd0b7551c896a9.hda",
       "git_blob": "8cddf0bd6c9eb1b36213e091cde734637e692670",
       "group": "global-source-identity",
@@ -7304,6 +7344,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "9ac46107c7c7f80865e7cb51719572b021d2a8f3d9ffd12c035652313c4c152b",
       "source_path": "assets/hd/global-assets-v1/content/9ac46107c7c7f80865e7cb51719572b021d2a8f3d9ffd12c035652313c4c152b.hda"
+    },
+    {
+      "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/protron/enemy-protron-p09-227-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "368dfb72ff27a62e19fc18c99819fcf15fd42502",
+      "group": "global-source-identity",
+      "identity": 1470227,
+      "revision": "canonical-enemy-orb-protron-aliases-v1",
+      "sha256": "9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7",
+      "source_path": "assets/hd/global-assets-v1/content/9de332ec5d8d7f5c0e7eb56445aabebe22897b27a6fde1ee7f36da822076aac7.hda"
     },
     {
       "bytes": 43036,
@@ -10237,7 +10290,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "6249f86a04f31f9132b59ac0eca965e01ff0f22f8b947cfb5f648b585399dc80",
+    "current_production_source_manifest_sha256": "88a20df63c9c7a53863e9777f6b7edbbffc8886d7b2ab61487b1bec9b99dcbbd",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",
