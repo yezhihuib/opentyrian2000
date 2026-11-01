@@ -1,0 +1,5 @@
+# Ordinary bank8 mirrored bolts7/45 — private candidate
+
+One authored right-facing source, selector7;45 is only a full96x112 horizontal reflection. Raw imagegen output and prompt are provenance, never runtime RGB. Registered canonical PNG is pinned and regenerated from that raw under the fixed registration recipe. Outputs encode original palette indices, zero, zero, binary alpha, resolved against the live engine palette only by namespace156. HDR1 does not imply generic RGBA for this namespace. Both70-cell masks are independently decoded from exact original RLE; Christmas remains distinct/classic. No per-level copies, animation, coordinates or gameplay changes. These products alone establish authoring/transport correctness, NOT native, gameplay, natural reachability or public-release qualification. Assisted-scene evidence is kept separately.
+
+Catalog and runtime rows explicitly require `encoding: palette-index-r0-g0-binary-alpha-v1`, meaning byte order `[palette-index, 0, 0, alpha]`; the two reserved channels are zero and alpha is binary. Missing or mismatched encoding metadata is rejected. These authoring tests are not runtime qualification.

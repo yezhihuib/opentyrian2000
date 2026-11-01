@@ -17,6 +17,10 @@ from current_craft267_compatibility import load as current_craft267_compatibilit
 GLOBAL_REGISTRY_SHA256 = 'b224adfc0b12aee5a4753e32aa12e30c8594eb4237727a983148776239162860'
 from pathlib import Path
 
+def _bolts745_runtime_metadata(row):
+    """Preserve the indexed family's advertised canonical runtime metadata."""
+    return {key:row[key] for key in ('identity','density','encoding')}
+
 def pins(path):
     if path.is_symlink() or not path.is_file():
         raise ValueError('Expected regular selected file: '+str(path))
@@ -347,6 +351,17 @@ def main():
     for destination,row in sorted(pulses16694.items()):
         add(row['source_path'],destination,'gameplay')
         rows[destination]['revision']=pulses16694_revision
+
+    # One canonical palette-index source and exact mirror, enemy-only namespace156.
+    from current_projectile_bolts745_compatibility import load as bolts745_load, REVISION as bolts745_revision
+    bolts745=bolts745_load(root)
+    expected_bolts745={'assets/gameplay/enemy-projectile-bolts745-'+str(i)+'-8.hda' for i in (7,45)}
+    if set(bolts745)!=expected_bolts745 or set(bolts745)&set(rows):
+        raise ValueError('Unexpected/colliding bolts745 runtime extension')
+    for destination,row in sorted(bolts745.items()):
+        add(row['source_path'],destination,'gameplay')
+        rows[destination]['revision']=bolts745_revision
+        rows[destination].update(_bolts745_runtime_metadata(row))
 
     # Exactly one private P09 transport; no player227 or duplicate226/244.
     from build_enemy_protron_p09 import derive as protron_derive, read as protron_read, DIRECTORY as PROTRON_DIRECTORY

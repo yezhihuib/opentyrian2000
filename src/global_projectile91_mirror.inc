@@ -1,5 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Finite shared normal bank8/{91,145,61,101,120,139,168,169,162,260,166,94} enemy-shot owner; independent payloads.
+ * Finite shared normal bank8/{91,145,61,101,120,139,168,169,162,260,166,94,7,45} enemy-shot owner; independent payloads.
  * Included after decode_tile; no level/episode/map predicate grants this owner. */
 static bool global_projectile91_cached;
 /* Survives ownership transfer (for example to antialiased HUD glyphs). */
@@ -8,13 +8,13 @@ static bool global_projectile91_contributed;
  * owner. Optional members never gate a different, unused member's admission. */
 static unsigned global_projectile91_used_members;
 static unsigned global_projectile91_member(unsigned index)
-{return index==91?1u:index==145?2u:index==61?4u:index==101?8u:index==120?16u:index==139?32u:index==168?64u:index==169?128u:index==162?256u:index==260?512u:index==166?1024u:index==94?2048u:0u;}
+{return index==91?1u:index==145?2u:index==61?4u:index==101?8u:index==120?16u:index==139?32u:index==168?64u:index==169?128u:index==162?256u:index==260?512u:index==166?1024u:index==94?2048u:index==7?4096u:index==45?8192u:0u;}
 static Asset *global_projectile91_member_resource(unsigned index)
-{return index==91?projectile91_resource(global_asset_directory):index==145?projectile145_resource(global_asset_directory):index==61?projectile61_resource(global_asset_directory):(index==168||index==169)?projectile_gold_pulse_resource(global_asset_directory,index):(index==162||index==260)?projectile_statics_resource(global_asset_directory,index):(index==166||index==94)?projectile_pulses16694_resource(global_asset_directory,index):projectile_blue_triplet_resource(global_asset_directory,index);}
+{return index==91?projectile91_resource(global_asset_directory):index==145?projectile145_resource(global_asset_directory):index==61?projectile61_resource(global_asset_directory):(index==168||index==169)?projectile_gold_pulse_resource(global_asset_directory,index):(index==162||index==260)?projectile_statics_resource(global_asset_directory,index):(index==166||index==94)?projectile_pulses16694_resource(global_asset_directory,index):(index==7||index==45)?projectile_bolts745_resource(global_asset_directory,index):projectile_blue_triplet_resource(global_asset_directory,index);}
 static bool global_projectile91_member_palette(unsigned index)
-{return index==91?projectile91_palette_matches():index==145?projectile145_palette_matches():index==61?projectile61_palette_matches():(index==168||index==169)?projectile_gold_pulse_palette_matches(index):(index==162||index==260)?projectile_statics_palette_matches(index):(index==166||index==94)?projectile_pulses16694_palette_matches(index):projectile_blue_triplet_palette_matches(index);}
+{return index==91?projectile91_palette_matches():index==145?projectile145_palette_matches():index==61?projectile61_palette_matches():(index==168||index==169)?projectile_gold_pulse_palette_matches(index):(index==162||index==260)?projectile_statics_palette_matches(index):(index==166||index==94)?projectile_pulses16694_palette_matches(index):(index==7||index==45)?projectile_bolts745_palette_matches(index):projectile_blue_triplet_palette_matches(index);}
 static bool global_projectile91_member_source(Sprite2_array bank,unsigned index)
-{return index==91?projectile91_source(bank,index):index==145?projectile145_source(bank,index):index==61?projectile61_source(bank,index):(index==168||index==169)?projectile_gold_pulse_source(bank,index):(index==162||index==260)?projectile_statics_source(bank,index):(index==166||index==94)?projectile_pulses16694_source(bank,index):projectile_blue_triplet_source(bank,index);}
+{return index==91?projectile91_source(bank,index):index==145?projectile145_source(bank,index):index==61?projectile61_source(bank,index):(index==168||index==169)?projectile_gold_pulse_source(bank,index):(index==162||index==260)?projectile_statics_source(bank,index):(index==166||index==94)?projectile_pulses16694_source(bank,index):(index==7||index==45)?projectile_bolts745_source(bank,index):projectile_blue_triplet_source(bank,index);}
 
 static size_t global_projectile91_capacity;
 static Uint32 global_projectile91_output_palette[256],global_projectile91_underlay_palette[256];
@@ -43,7 +43,9 @@ static bool global_projectile91_palette_matches(void)
         (!(global_projectile91_used_members&256u)||projectile_statics_palette_matches(162))&&
         (!(global_projectile91_used_members&512u)||projectile_statics_palette_matches(260))&&
         (!(global_projectile91_used_members&1024u)||projectile_pulses16694_palette_matches(166))&&
-        (!(global_projectile91_used_members&2048u)||projectile_pulses16694_palette_matches(94));}
+        (!(global_projectile91_used_members&2048u)||projectile_pulses16694_palette_matches(94))&&
+        (!(global_projectile91_used_members&4096u)||projectile_bolts745_palette_matches(7))&&
+        (!(global_projectile91_used_members&8192u)||projectile_bolts745_palette_matches(45));}
 static bool global_projectile91_underlay_matches(void)
 {
  for(unsigned i=0;i<256;i++)if(global_projectile91_used_colors[i]&&
@@ -65,11 +67,21 @@ static bool global_projectile91_source_matches(Sprite2_array bank)
         (!(global_projectile91_used_members&256u)||projectile_statics_resource(global_asset_directory,162)!=NULL)&&
         (!(global_projectile91_used_members&512u)||projectile_statics_resource(global_asset_directory,260)!=NULL)&&
         (!(global_projectile91_used_members&1024u)||projectile_pulses16694_resource(global_asset_directory,166)!=NULL)&&
-        (!(global_projectile91_used_members&2048u)||projectile_pulses16694_resource(global_asset_directory,94)!=NULL);}
+        (!(global_projectile91_used_members&2048u)||projectile_pulses16694_resource(global_asset_directory,94)!=NULL)&&
+        (!(global_projectile91_used_members&4096u)||projectile_bolts745_resource(global_asset_directory,7)!=NULL)&&
+        (!(global_projectile91_used_members&8192u)||projectile_bolts745_resource(global_asset_directory,45)!=NULL);}
 static bool global_projectile91_disjoint(const SDL_Surface *a,const SDL_Surface *b)
 {
  uintptr_t x=(uintptr_t)a->pixels,y=(uintptr_t)b->pixels;
  return x<y?y-x>=(size_t)a->pitch*a->h:x-y>=(size_t)b->pitch*b->h;
+}
+/* Numeric canvas writes assume canonical 0xAARRGGBB, not merely a tag. */
+static bool global_projectile91_argb_format(const SDL_PixelFormat *f)
+{
+ return f&&f->format==SDL_PIXELFORMAT_ARGB8888&&f->BitsPerPixel==32&&f->BytesPerPixel==4&&
+  f->Rmask==0x00ff0000u&&f->Gmask==0x0000ff00u&&f->Bmask==0x000000ffu&&f->Amask==0xff000000u&&
+  f->Rshift==16&&f->Gshift==8&&!f->Bshift&&f->Ashift==24&&
+  !f->Rloss&&!f->Gloss&&!f->Bloss&&!f->Aloss;
 }
 static bool global_projectile91_layout(void)
 {
@@ -80,7 +92,7 @@ static bool global_projectile91_layout(void)
  SDL_Surface *surfaces[2]={canvas,output};
  for(unsigned i=0;i<2;i++) {SDL_Surface *v=surfaces[i];if(!v||!v->pixels||!v->format||v->w!=320*d||v->h!=200*d||
   v->pitch<v->w*4||v->pitch%4||(uintptr_t)v->pixels%sizeof(Uint32)||
-  v->format->format!=SDL_PIXELFORMAT_ARGB8888||v->format->BitsPerPixel!=32||v->format->BytesPerPixel!=4)return false;}
+  !global_projectile91_argb_format(v->format))return false;}
  SDL_Surface *f=VGAScreenSeg;
  if(!f||!f->pixels||!f->format||f->w!=320||f->h!=200||f->pitch<320||
   f->format->format!=SDL_PIXELFORMAT_INDEX8||f->format->BitsPerPixel!=8||f->format->BytesPerPixel!=1)return false;
@@ -129,7 +141,7 @@ static void global_projectile91_reset(void)
 static void global_projectile91_shutdown(void)
 {
  global_projectile91_reset();
- projectile91_shutdown();projectile145_shutdown();projectile61_shutdown();projectile_blue_triplet_shutdown();projectile_gold_pulse_shutdown();projectile_statics_shutdown();projectile_pulses16694_shutdown();
+ projectile91_shutdown();projectile145_shutdown();projectile61_shutdown();projectile_blue_triplet_shutdown();projectile_gold_pulse_shutdown();projectile_statics_shutdown();projectile_pulses16694_shutdown();projectile_bolts745_shutdown();
  free(global_projectile91_owner);free(global_projectile91_foreign);global_projectile91_owner=global_projectile91_foreign=NULL;global_projectile91_capacity=0;
 }
 static void global_projectile91_frame_begin(void)
@@ -208,7 +220,13 @@ static int global_projectile91_draw(SDL_Surface *surface,int x,int y,Sprite2_arr
   else if(foreign)for(unsigned i=0;i<256;i++)global_projectile91_use_color(i);
   if(global_talon_owner&&global_talon_owner[n])global_projectile91_talon_dependency=true;
   if(a[3]) {unsigned alpha=a[3];
-   *p=blend_rgba(*p,a,(int)alpha);
+   if(index==7||index==45) {
+    /* Only namespace156 uses [index,0,0,alpha]. Old12 retain straight RGBA. */
+    Uint32 color=rgb_palette[a[0]]&0xffffffu;
+    Uint8 resolved[4]={(Uint8)(color>>16),(Uint8)(color>>8),(Uint8)color,a[3]};
+    global_projectile91_use_color(a[0]);
+    *p=blend_rgba(*p,resolved,(int)alpha);
+   }else *p=blend_rgba(*p,a,(int)alpha);
    if(alpha==255)foreign=false;
   }
   if(global_talon_owner)global_talon_owner[n]=global_talon_foreign[n]=0;
@@ -312,8 +330,7 @@ static bool global_projectile91_fade_buffer_layout(void)
 {
  SDL_Surface *s=fade_saved;int d=game_probe_density;
  if(!s||!s->pixels||!s->format||s->w!=320*d||s->h!=200*d||s->pitch<s->w*4||s->pitch%4||
-  (uintptr_t)s->pixels%sizeof(Uint32)||s->format->format!=SDL_PIXELFORMAT_ARGB8888||
-  s->format->BitsPerPixel!=32||s->format->BytesPerPixel!=4)return false;
+  (uintptr_t)s->pixels%sizeof(Uint32)||!global_projectile91_argb_format(s->format))return false;
  SDL_Surface *others[4]={game_screen,VGAScreenSeg,canvas,output};
  for(unsigned i=0;i<4;i++)if(!global_projectile91_disjoint(s,others[i]))return false;
  return true;

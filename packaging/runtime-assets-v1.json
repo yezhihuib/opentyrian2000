@@ -12,7 +12,7 @@
       "settings-font-tiny-v1.hda",
       "title-menu-font-v1.hda"
     ],
-    "gameplay_files": 700,
+    "gameplay_files": 702,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -77,12 +77,12 @@
   },
   "files": [
     {
-      "bytes": 42032,
+      "bytes": 42518,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "441711182576eebaeb4ea19e22bd5799aed458fa",
+      "git_blob": "5673cee21d61395dcc028847328917a48321c1b0",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "f0c532d7c1e07a8d59e5baba9c0dc629a9f6b0f97309b0c2340d30fc840da5cf",
+      "sha256": "20da26db0c5e66d5083e6a588101d8df21aa6cf1a97d61ecc0db12095e6ac0f1",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2541,6 +2541,30 @@
       "revision": "current-single-source-projectile-blue-triplet",
       "sha256": "47a6941988a2e2a4835859dfc1cf12f2481b2bf29bab18be94307b408cf34942",
       "source_path": "assets/hd/current-compat/projectile-blue-triplet/enemy-projectile-blue-triplet-139-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "density": 8,
+      "destination": "assets/gameplay/enemy-projectile-bolts745-45-8.hda",
+      "encoding": "palette-index-r0-g0-binary-alpha-v1",
+      "git_blob": "0ad9bb8fd41944a94ba620992eca7a3df5c6a752",
+      "group": "gameplay",
+      "identity": 1560045,
+      "revision": "current-single-source-projectile-bolts745",
+      "sha256": "b3137094498d7323a0b7aeaaa93dcd60f00a85129c77edaa0ca97bb29975c3bb",
+      "source_path": "assets/hd/current-compat/projectile-bolts745/enemy-projectile-bolts745-45-8.hda"
+    },
+    {
+      "bytes": 43036,
+      "density": 8,
+      "destination": "assets/gameplay/enemy-projectile-bolts745-7-8.hda",
+      "encoding": "palette-index-r0-g0-binary-alpha-v1",
+      "git_blob": "4b3b78a090bc64e6b5598265c37757075c06e6d7",
+      "group": "gameplay",
+      "identity": 1560007,
+      "revision": "current-single-source-projectile-bolts745",
+      "sha256": "b41e2dc1e0e4453f2ce764df142e8d92f990d185f57c4c042de3fefbe919df0d",
+      "source_path": "assets/hd/current-compat/projectile-bolts745/enemy-projectile-bolts745-7-8.hda"
     },
     {
       "bytes": 43036,
@@ -10097,7 +10121,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "4bef22a80bea3a8be2cefd5830d5b3e15133560dd984cb4199f7819c161e72a7",
+    "current_production_source_manifest_sha256": "e79fa2a62b26007d1dcc8aa1d2922bacc0a663ad5bc77ec3e2df0ec25b7b0d7a",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

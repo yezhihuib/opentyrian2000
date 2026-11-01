@@ -1,0 +1,34 @@
+{
+  "schema": "enemy-bolts745-registration-v1",
+  "canonical_selector": 7,
+  "derived_selector": 45,
+  "density": 8,
+  "canvas": [
+    96,
+    112
+  ],
+  "raw_visible_alpha_threshold": 8,
+  "raw_visible_bbox": [
+    58,
+    281,
+    1116,
+    1034
+  ],
+  "resize": [
+    88,
+    64
+  ],
+  "resample": "Pillow12.3.0/LANCZOS",
+  "placement": [
+    8,
+    16
+  ],
+  "registration_alpha_threshold": 8,
+  "source_support": "exact native RLE union of 8x8 cells",
+  "palette_quantization": "nearest squared RGB among canonical original opaque indices; native encounter order breaks ties",
+  "alpha": "binary0/255; transparent texels allzero",
+  "derived_transform": "full-canvas horizontal flip",
+  "payload_encoding": "palette-index,0,0,alpha; dynamic engine palette; NOT straight RGBA",
+  "transport": "HDR1 namespace156 only",
+  "png_compress_level": 6
+}

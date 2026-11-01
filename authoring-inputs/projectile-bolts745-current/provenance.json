@@ -1,0 +1,25 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "prompt-v1.txt",
+  "reference": "raw/reference-7-16x.png",
+  "raw": "raw/generated-7-v1.png",
+  "raw_sha256": "928fa56d0915122bc7bbc6ae50afba651235977dfc2020cdfa6b2546288619a3",
+  "raw_size": [
+    1161,
+    1355
+  ],
+  "raw_alpha_bbox": [
+    0,
+    74,
+    1133,
+    1355
+  ],
+  "raw_alpha_values_count": 256,
+  "preview_operations": "Use alpha>=8 only to measure visible bbox (58,281,1116,1034); retain original RGBA inside crop; Lanczos resize88x64; paste8,16 on transparent96x112; exact horizontalflip45. Raw unchanged. Preview only, no support/palette registration.",
+  "preview_visible_alpha8_bbox": [
+    58,
+    281,
+    1116,
+    1034
+  ]
+}
