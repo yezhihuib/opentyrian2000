@@ -2,6 +2,8 @@
 function New-CurrentCraft267Pack([string]$RepoRoot, [ValidateSet('preview','debug')][string]$Kind, [string]$Python) {
     $craftPython = $Python
     if (-not $craftPython) { $craftPython = (Get-Command python -ErrorAction Stop).Source }
+    & $craftPython (Join-Path $RepoRoot 'scripts\check_preview_authoring_dependencies.py') --root $RepoRoot | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw 'Source preview authoring prerequisites are unavailable; see preflight diagnostics above. No game was launched.' }
     $craftOutput = Join-Path (Split-Path -Parent $RepoRoot) ('current-craft267-packs\' + $Kind + '-' + [Guid]::NewGuid().ToString('N'))
     $craftResult = & $craftPython (Join-Path $RepoRoot 'scripts\build_current_craft267.py') --root $RepoRoot view --kind $Kind --output $craftOutput
     if ($LASTEXITCODE -ne 0) { throw 'Current craft267 pack validation failed; no game was launched.' }
