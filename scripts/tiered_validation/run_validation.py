@@ -6,6 +6,7 @@ The original controller performs live source/tool/index checks and owns receipts
 """
 from pathlib import Path
 import argparse,hashlib,json,os,subprocess,sys
+from tiered_selection import validate_execution_plan
 
 def checked_plan(protocol,approved,mode,campaign):
  protocol=Path(protocol).resolve();campaign=Path(campaign).absolute()
@@ -19,6 +20,7 @@ def checked_plan(protocol,approved,mode,campaign):
   if Path(name).name!=name or p.is_symlink() or not p.is_file() or hashlib.sha256(p.read_bytes()).hexdigest()!=digest:raise ValueError('Protocol member mismatch: '+name)
  plan=json.loads((protocol/'plan.json').read_bytes())
  if plan['tier_selection']['mode']!=wanted or plan['tier_selection']['automatic_full_run'] is not False:raise ValueError('Mode/fallback mismatch')
+ validate_execution_plan(plan)
  if campaign.exists() or campaign.resolve()!=campaign or campaign==protocol or not campaign.is_relative_to(protocol):raise ValueError('A new, canonical campaign directory below protocol is required; existing attempts are never overwritten or auto-resumed')
  return protocol,plan,campaign
 

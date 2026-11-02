@@ -6,6 +6,7 @@ def sha(b):return hashlib.sha256(b).hexdigest()
 import sys
 sys.path.insert(0,str(ROOT/'scripts'))
 import current_tank_muzzle_source_bridge as bridge
+import current_warning_source_bridge as warning_bridge
 from current_tank_muzzle_source_bridge import BASE_PINS,INVERSE,restore
 
 def availability_write_targets(text):
@@ -62,8 +63,8 @@ class TankMuzzlePreparationTests(unittest.TestCase):
   sources=self.source_inventory_without_generated_header();seen=[]
   def read(name):seen.append(name);return(ROOT/name).read_bytes()
   projected=bridge.project(sources,read)
-  self.assertEqual(seen,list(bridge.MUZZLE_PINS));self.assertEqual(bridge.inventory_digest(projected),bridge.BASE_SOURCE_DIGEST)
-  self.assertEqual({n for n in sources if sources[n]!=projected[n]},set(bridge.MUZZLE_PINS));self.assertEqual(bridge.inventory_digest(sources),bridge.MUZZLE_SOURCE_DIGEST)
+  self.assertEqual(seen,list(warning_bridge.COMBINED_PINS)+[n for n in bridge.MUZZLE_PINS if n not in warning_bridge.COMBINED_PINS]);self.assertEqual(bridge.inventory_digest(projected),bridge.BASE_SOURCE_DIGEST)
+  self.assertEqual({n for n in sources if sources[n]!=projected[n]},set(bridge.MUZZLE_PINS)|set(warning_bridge.COMBINED_PINS));self.assertEqual(bridge.inventory_digest(sources),warning_bridge.COMBINED_SOURCE_DIGEST)
  def test_projection_unknown_mixed_missing_inventory_fail_before_io(self):
   sources=self.source_inventory_without_generated_header();name=next(iter(bridge.MUZZLE_PINS))
   missing=dict(sources);del missing[name]
@@ -73,7 +74,7 @@ class TankMuzzlePreparationTests(unittest.TestCase):
    with self.subTest(inventory=len(bad)),self.assertRaises(ValueError):bridge.project(bad,lambda n:self.fail('Rejected inventory must not read source'))
  def test_projection_actual_bytes_cannot_hide_behind_valid_inventory(self):
   sources=self.source_inventory_without_generated_header()
-  for target in bridge.MUZZLE_PINS:
-   with self.subTest(path=target),self.assertRaisesRegex(ValueError,'Changed muzzle source bytes'):
+  for target in dict.fromkeys((*warning_bridge.COMBINED_PINS,*bridge.MUZZLE_PINS)):
+   with self.subTest(path=target),self.assertRaisesRegex(ValueError,'Changed (muzzle|WARNING) source bytes'):
     bridge.project(sources,lambda name:(ROOT/name).read_bytes()+(b'\n'if name==target else b''))
 if __name__=='__main__':unittest.main()

@@ -27,7 +27,7 @@
     "Enemy normal bank8/70 adds one independent finite admission/lease for exact existing canonical RGBA asset80070. Player role/cache/assets remain unchanged; 110 alpha texels outside original46-cell mask remain within the original12x14 tile and use the existing shared RGBA owner, not a new spillover algorithm. Exact live source indices113-124 RGB gate is required. Candidate source binding ONLY: new native and natural E5p4 scene validation NOT RUN; no live palette match or gameplay/visual acceptance claimed."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "7e40319dd7e18c77a5888c7d076c58a9e13bb7f144901e63eb258f6c4e18b98a",
+  "production_source_manifest_sha256": "c7a9aef504a5df334a179ba3591042e4c2a805d70e521fb6a775d3a5403015d0",
   "reviewed_charge_body_changes": {
     "files": [
       "src/entity_draw.c",
@@ -181,7 +181,7 @@
     "source_ledger_sha256": "d02bc7437e5693b47ed670c94450be97ea984af938db0aa5ffec570f7d8e6607"
   },
   "schema": "opentyrian-current-production-binding-v1",
-  "scope": "Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope. Finite actor194/frame93 birth-bound Tank147 visual registration (+1,-1), retaining original indexed writes and simulation coordinates.",
+  "scope": "Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope. Finite actor194/frame93 birth-bound Tank147 visual registration (+1,-1), retaining original indexed writes and simulation coordinates. Fixed WARNING face-only third font context composed with the existing Tank147 registration; source binding only, combined runtime validation remains external.",
   "source_manifest_encoding": "UTF-8 JSON of source_sha256 only, sort_keys=True, separators=(comma,colon), ensure_ascii=True, no newline",
   "source_sha256": {
     "src/animlib.c": "1340570680ddff3fac80e34785f511657888d72430b47724330331d8c0b7a1de",
@@ -344,7 +344,7 @@
     "src/gameplay_hud_fixed_text.h": "923ada7701b06a8f1dc6d9276e955f8ce3b17853e8d388f5e06eff314984582f",
     "src/gameplay_hud_font.c": "02237476b400f8d7b78e5331000bff4d8cbb5d1f22108f907b388240c74f4221",
     "src/gameplay_hud_font.h": "e960503ca8b7a87e2083fe2f96fb54f06d1a53a2b7d1258ed88a84df93e5a29f",
-    "src/gameplay_hud_font_mirror.inc": "f895ef13ae4e0bc8bb6cf1460ae93acf0c99c762560ee48dbb3d2fbf1725e044",
+    "src/gameplay_hud_font_mirror.inc": "305007e37553f7501da5ef600790732867fc0d3f440dc6a6f8621f6a8fa8687a",
     "src/gameplay_hud_indicators.c": "05d125af540fdfc478141d10a6cb1cd3b06b3ba12c008a28c4941d8954ee1961",
     "src/gameplay_hud_indicators.h": "e19fa83820ace574cdf12cb5a6f8081353edc63bfb7001fac6c14b460c272ff5",
     "src/gameplay_hud_meters.c": "3b1b5bf4e9119cb85aed05cc8690ba46f5ea63249a746b5f31fbc8aeb01c83e4",
@@ -447,8 +447,8 @@
     "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
     "src/rear_multi_p1_mirror.inc": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c",
     "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
-    "src/render_mirror.c": "0959d084a18c11c92f28c316342ae9fc85bf4f805ba93f497ea14b2ae5614392",
-    "src/render_mirror.h": "8bc9c0c5d9af697d2453f3aae5ca2dabbbe05dca06fe136244419bb37358bca6",
+    "src/render_mirror.c": "225d755785776469e426c5362b5c2c6d9e2156536263764794dbcfd46dc18abd",
+    "src/render_mirror.h": "634f252aa56d3c238e563996ec59c1e239626a27f48362e6e3a03254db197bee",
     "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
     "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",
     "src/secret_exit_orb.h": "f9357364dc407e8615668f76ca4376710f4d4c033269e342dc1f09ccb7aaf9c7",
@@ -494,7 +494,7 @@
     "src/title_layers.c": "4e12b9e54ce75bc98a5e36cf2ddad45f24840553cddb8a35969a852a1320a372",
     "src/title_layers.h": "2d5b69d52126174d77ab42edf321c355a08ad15d43fa099a5b0bbc7823a332b7",
     "src/title_menu_font.inc": "4bb6c3d143ce1dcbce71345e9799d499cdde1d962a99bc3d48c9200b84363224",
-    "src/tyrian2.c": "b922abdb25f1441322f614d32e1ea6c9354e93c29cec532509763f6347aff4fd",
+    "src/tyrian2.c": "b6548eda2c7059440cd54adf170f85d021ca2ecefc36e60183dfbe76586728ab",
     "src/tyrian2.h": "1341c4371128fda951031caef18ad6bd154beb9e187bd800a25ebb1ed1c4c32f",
     "src/varz.c": "70014229765dece18d2a15a0a906cb89daf2d0174bc1d1834008bfeb5772de45",
     "src/varz.h": "c0557171c5454d9b6e64c9eb22facf5e9cd5cdefcf54aa743020d5c4ffdde37c",

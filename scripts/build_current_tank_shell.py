@@ -122,7 +122,7 @@ def make_plan(root,outputs,raw,authority="historical"):
     if authority!='historical':
         from current_tank_energy_authority import obsolete
         selected=selection(root,raw)
-        extra={row['source_png'] for row in selected['resources']}|{'scripts/build_current_tank_shell.py','scripts/current_tank_shell_compatibility.py','scripts/current_tank_energy_authority.py','scripts/current_enemy_tank_shared_aliases.py','scripts/current_tank_muzzle_source_bridge.py'}
+        extra={row['source_png'] for row in selected['resources']}|{'scripts/build_current_tank_shell.py','scripts/current_tank_shell_compatibility.py','scripts/current_tank_energy_authority.py','scripts/current_enemy_tank_shared_aliases.py','scripts/current_tank_muzzle_source_bridge.py','scripts/current_warning_source_bridge.py'}
         plan['inputs_sha256'].update({name:sha(read(root,name)) for name in sorted(extra)})
         plan['authority']=authority
         plan['remove']=[dict(path=p,before_sha256=fingerprint(root,p)) for p in obsolete(root)]

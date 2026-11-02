@@ -5221,7 +5221,7 @@ void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
  if(normal15) {
   if(!manual_hd_enabled||!manual_hd_lease||!normal15_scope()||terrain_file!='z')render_mirror_unsupported("normal15-output-scope");
   if(!normal15_palette())render_mirror_unsupported("normal15-output-palette");
-  if(font_history)for(unsigned i=0;i<2;i++)
+  if(font_history)for(unsigned i=0;i<FONT_SCENE_COUNT;i++)
    if(font_scenes[i].canvas_live||font_scenes[i].output_live||font_scene_owned(font_scenes+i,font_owner))
     render_mirror_unsupported("normal15-scene-font");
   if(supported&&!normal15_indices_match(kind,lightx,lighty))render_mirror_unsupported("normal15-output-indices");
@@ -5319,7 +5319,7 @@ void render_mirror_fade_start(const SDL_Color *target,const SDL_Color *solid,uns
  if(!global_newshf_fade_decline())return;
  if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested()) {render_mirror_hud_reset();return;}
  hud_check_mode();
- if(font_cached()&&!font_cached_indices_match())font_clear_cached(15);
+ if(font_cached()&&!font_cached_indices_match())font_clear_cached(31);
  global_talon_check_cache();global_shield_check_cache();global_pulse_check_cache();global_hitflare_check_cache();global_smoke_check_cache();global_green_check_cache();global_small_explosion_check_cache();global_cash25_check_cache();global_rotor_check_cache();global_projectile91_check_cache();global_newshf_check_cache();global_vulcan_check_cache();
  bool cached=last_output_valid;last_output_valid=false;fade_mode=0;ready=false;
  if((!mirror_enabled()&&!(shared_hud_lease&&shared_hud_requested())&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested())||game_probe_density<2||!output||!cached||first!=0||last!=255)return;
@@ -5354,7 +5354,7 @@ void render_mirror_fade_step(int steps)
  hud_check_mode();
  if(!fade_mode||steps<=0)return;
  if(!global_newshf_fade_decline()||!global_talon_fade_step_valid(steps)||!global_shield_fade_step_valid(steps)||!global_pulse_fade_step_valid(steps)||!global_vulcan_fade_step_valid(steps)||!global_hitflare_fade_step_valid(steps)||!global_green_fade_step_valid(steps)||!global_smoke_fade_step_valid(steps)||!global_rotor_fade_step_valid(steps)||!global_projectile91_fade_step_valid(steps)||!global_cash25_fade_step_valid(steps)||!global_small_explosion_fade_step_valid(steps))return;
- if(font_cached()&&!font_cached_indices_match()){font_clear_cached(15);return;}
+ if(font_cached()&&!font_cached_indices_match()){font_clear_cached(31);return;}
  if(fixed_text_output_generation&&!fixed_text_cached_indices_match()) {fixed_text_clear_cached();return;}
  if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches())) {indicators_clear_cached(3);return;}
  if(hud_output_generation&&!hud_cached_indices_match()) {hud_clear_cached();return;}
@@ -5415,7 +5415,7 @@ bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
  render_mirror_shadow_end();
  if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled()&&!shared_hud_lease&&!global_talon_requested()&&!global_newshf_requested()&&!global_projectile91_requested()) {render_mirror_hud_reset();return false;}
  hud_check_mode();
- if(font_cached()&&(!font_cached_indices_match()||memcmp(font_output_palette,rgb_palette,sizeof(font_output_palette))))font_clear_cached(15);
+ if(font_cached()&&(!font_cached_indices_match()||memcmp(font_output_palette,rgb_palette,sizeof(font_output_palette))))font_clear_cached(31);
  if(fixed_text_output_generation&&(!fixed_text_cached_indices_match()||memcmp(fixed_text_output_palette,rgb_palette,sizeof(fixed_text_output_palette))!=0))fixed_text_clear_cached();
  if(indicator_output_generation&&(!indicators_cached_indices_match()||!indicators_underlay_matches()||memcmp(indicator_output_palette,rgb_palette,sizeof(indicator_output_palette))!=0))indicators_clear_cached(3);
  if(hud_output_generation&&(!hud_cached_indices_match()||memcmp(hud_output_palette,rgb_palette,sizeof(hud_output_palette))!=0))hud_clear_cached();

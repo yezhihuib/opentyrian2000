@@ -405,7 +405,7 @@ INVERSE={'src/entity_draw.c': [(' (void)slot;(void)raw;\n'
                     '(orb_protron_protron_index(sprite) && widget_sonic_legacy_intent()))\n'
                     '\t\t\t\t\t\t\t{\n')]}
 
-def restore(name,text):
+def _restore_muzzle(name,text):
  for new,old in INVERSE[name]:
   if text.count(new)!=1:raise ValueError('Missing/duplicate registered hunk: '+name)
   text=text.replace(new,old,1)
@@ -417,7 +417,7 @@ MUZZLE_SOURCE_DIGEST='6f1954d8b4fdd7fb9bd0cbb510b07a68fe2465583473543a06dd4a0849
 BASE_SOURCE_DIGEST='13af5afe2fb1766333932965486d27ded3919c5eddb7b1e748058da3cad2ef89'
 def inventory_digest(inventory):
  return sha(json.dumps(inventory,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode('utf-8'))
-def project(sources,read_source):
+def _project_muzzle(sources,read_source):
  """Project only the exact registered 328-file non-generated-header epoch.
  read_source(name) must return the actual source bytes; metadata alone is not
  authority. Every six-file input is checked before its exact inverse is used.
@@ -430,3 +430,17 @@ def project(sources,read_source):
   result[name]=sha(restore(name,raw.decode('utf-8')).encode('utf-8'))
  if inventory_digest(result)!=BASE_SOURCE_DIGEST:raise ValueError('Unreviewed projected production epoch')
  return result
+
+# Explicit additional finite epoch. The previous inverse and six-file projector
+# above retain their original bodies and final historic hashes. No exception fallback.
+import current_warning_source_bridge as warning_bridge
+def restore(name,text):
+ if name in warning_bridge.COMBINED_PINS and type(text)is str and sha(text.encode('utf-8'))==warning_bridge.COMBINED_PINS[name]:
+  text=warning_bridge.restore(name,text)
+ return _restore_muzzle(name,text)
+
+def project(sources,read_source):
+ if type(sources)is dict and inventory_digest(sources)==warning_bridge.COMBINED_SOURCE_DIGEST:
+  sources,restored=warning_bridge.project(sources,read_source)
+  return _project_muzzle(sources,lambda name:restored[name]if name in restored else read_source(name))
+ return _project_muzzle(sources,read_source)

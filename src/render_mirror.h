@@ -89,6 +89,7 @@ typedef enum {
 #define render_mirror_explosion_initialized(...) ((void)0)
 #define render_mirror_owns_display() false
 #define render_mirror_text_begin(...) ((void)0)
+#define render_mirror_text_warning_begin(...) ((void)0)
 #define render_mirror_text_end(...) ((void)0)
 #define render_mirror_text_glyph_begin(...) ((void)0)
 #define render_mirror_text_glyph_end(...) ((void)0)
@@ -232,6 +233,7 @@ void render_mirror_explosion_allocated(unsigned slot);
 void render_mirror_explosion_initialized(unsigned slot,unsigned type);
 bool render_mirror_owns_display(void);
 void render_mirror_text_begin(SDL_Surface *,unsigned kind,int x,int y,const char *,unsigned hue,int value);
+void render_mirror_text_warning_begin(SDL_Surface *,int value);
 void render_mirror_text_end(void);
 void render_mirror_text_glyph_begin(SDL_Surface *,int x,int y,unsigned table,unsigned id,bool black,unsigned hue,int value);
 void render_mirror_text_glyph_end(void);

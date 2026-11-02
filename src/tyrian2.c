@@ -2209,7 +2209,9 @@ draw_player_shot_loop_end:
 			fill_rectangle_xy(VGAScreen, 175, 181, 287, 183, warningCol);
 			fill_rectangle_xy(VGAScreen, 24, 0, 287, 3, warningCol);
 
+			render_mirror_text_warning_begin(VGAScreen, (warningCol % 16) / 2);
 			JE_outText(VGAScreen, 140, 178, "WARNING", 7, (warningCol % 16) / 2);
+			render_mirror_text_end();
 
 		}
 	}

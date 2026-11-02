@@ -31,6 +31,58 @@ def validate_full(full):
     require(flat==ids,'full order/coverage')
     return ids
 
+def validate_execution_plan(plan):
+    """Pure structural preflight for public module/phase selected plans.
+
+    This is not approval, a live source check, or the private daily runner's
+    methods/current_composite schema. Empty plans retain their existing meaning.
+    Unknown tier-selection versions fail closed; extra metadata is preserved.
+    """
+    require(isinstance(plan,dict),'execution plan type')
+    tier=plan.get('tier_selection')
+    require(isinstance(tier,dict) and tier.get('schema')=='tier-selection-result/v1','execution selection schema')
+    require(tier.get('mode') in ('batch','full'),'execution selection mode')
+    require(tier.get('automatic_full_run') is False and tier.get('historical_pass_reused') is False,'execution fallback/history policy')
+    require(isinstance(plan.get('scope'),str) and bool(plan['scope']),'execution scope')
+    full=plan.get('full_ordered_test_ids');selected=plan.get('ordered_test_ids');deferred=tier.get('deferred_test_ids')
+    for values,label in ((full,'execution full IDs'),(selected,'execution selected IDs'),(deferred,'execution deferred IDs')):
+        unique(values,label)
+        require(all(values),'empty test ID')
+    require(not(set(selected)&set(deferred)) and set(selected)|set(deferred)==set(full),'execution method partition')
+    segments=plan.get('segments')
+    require(isinstance(segments,list),'execution segments type')
+    names=[];flat=[]
+    for index,segment in enumerate(segments):
+        require(isinstance(segment,dict),'execution segment type')
+        require(type(segment.get('index')) is int and segment['index']==index,'execution segment index')
+        name=segment.get('name');kind=segment.get('kind');ids=segment.get('test_ids')
+        require(isinstance(name,str) and bool(name),'execution segment name')
+        names.append(name);unique(ids,'execution segment IDs')
+        require(kind in ('module','phase'),'execution segment kind missing/unknown')
+        if kind=='phase':
+            require(ids==[] and 'slice' not in segment,'execution phase tests')
+            require(isinstance(segment.get('call'),str) and bool(segment['call']),'execution phase call')
+        else:
+            bounds=segment.get('slice')
+            require(isinstance(bounds,list) and len(bounds)==2,'execution original slice shape')
+            lo,hi=bounds
+            require(type(lo) is int and type(hi) is int and 0<=lo<hi<=len(full),'execution original slice bounds')
+            require(ids==full[lo:hi],'execution original slice reference')
+            flat.extend(ids)
+    unique(names,'execution segment names')
+    require(flat==selected,'execution selected order/coverage')
+    additional=tier.get('additional_methods')
+    require(isinstance(additional,list) and all(isinstance(row,dict) for row in additional),'execution additional methods')
+    extra=[row.get('id') for row in additional];unique(extra,'execution additional IDs')
+    require(all(extra) and not(set(extra)&set(full)),'execution additional overlap')
+    require(all(isinstance(row.get('method_source_sha256'),str) and len(row['method_source_sha256'])==64 and all(c in '0123456789abcdef' for c in row['method_source_sha256']) for row in additional),'execution additional source pin')
+    counts={'selected_count':len(selected),'full_count':len(full),'deferred_count':len(deferred),'additional_count':len(extra),'total_executed_method_count':len(selected)+len(extra)}
+    for key,value in counts.items():
+        require(type(tier.get(key)) is int and tier[key]==value,'execution count: '+key)
+    if tier['mode']=='full':
+        require(selected==full and deferred==[] and additional==[],'execution full selection')
+    return {'segments':len(segments),'selected_count':len(selected),'additional_count':len(extra),'deferred_count':len(deferred)}
+
 def validate_profile(full,profile,approved_profile_sha,observed_binding):
     require(digest(profile)==approved_profile_sha,'reviewed profile approval mismatch')
     require(profile['schema'] in ('reviewed-batch-selection/v1','reviewed-batch-selection/v2'),'profile schema')

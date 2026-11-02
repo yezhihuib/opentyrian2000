@@ -16,6 +16,7 @@ import current_tank_shell_compatibility as compatibility
 import current_enemy_tank_shared_aliases as aliases
 import current_tank_energy_authority as authority
 import current_tank_muzzle_source_bridge as muzzle_bridge
+import current_warning_source_bridge as warning_bridge
 
 def digest(raw):return hashlib.sha256(raw).hexdigest()
 def encode(value):return (json.dumps(value,sort_keys=True,indent=2)+'\n').encode()
@@ -32,7 +33,7 @@ class TankEnergyAuthoringTests(unittest.TestCase):
   # Caller may supply a small actual-byte repository fixture via ROOT; no
   # machine-specific paths or historical Git objects are required.
   cls.authority_sources=authority.source_inventory(ROOT)
-  cls.authority_raw={name:authority.read(ROOT,name)for name in {authority.REGISTRY,authority.RUNTIME,*authority.BUILD_INPUTS,*muzzle_bridge.MUZZLE_PINS}}
+  cls.authority_raw={name:authority.read(ROOT,name)for name in {authority.REGISTRY,authority.RUNTIME,*authority.BUILD_INPUTS,*muzzle_bridge.MUZZLE_PINS,*warning_bridge.COMBINED_PINS}}
  def setUp(self):
   self.temp=tempfile.TemporaryDirectory(prefix='tank-energy-unit-');self.addCleanup(self.temp.cleanup);self.root=Path(self.temp.name)
   self.selected=copy.deepcopy(authority.APPROVED_SELECTION);self.blobs={};self.mapping=[];self.pins={};self.hashes={}
@@ -189,21 +190,23 @@ class TankEnergyAuthoringTests(unittest.TestCase):
   # The stage/apply plan binds the newly imported authority bridge as bytes,
   # not merely as an available script in the staging directory.
   import current_sidekick_body_compatibility as sidekick
-  names=('scripts/build_current_tank_shell.py','scripts/current_tank_shell_compatibility.py','scripts/current_tank_energy_authority.py','scripts/current_enemy_tank_shared_aliases.py','scripts/current_tank_muzzle_source_bridge.py')
+  names=('scripts/build_current_tank_shell.py','scripts/current_tank_shell_compatibility.py','scripts/current_tank_energy_authority.py','scripts/current_enemy_tank_shared_aliases.py','scripts/current_tank_muzzle_source_bridge.py','scripts/current_warning_source_bridge.py')
   for name in names:self.put(name,(ROOT/name).read_bytes())
-  bridge_name=names[-1]
-  with mock.patch.object(sidekick,'authoring_input_fingerprints',side_effect=lambda root:{}):
-   plan=builder.make_plan(self.root,{},encode(self.selected),authority.MODE)
-   self.assertEqual(plan['inputs_sha256'][bridge_name],digest((self.root/bridge_name).read_bytes()))
-   self.put(bridge_name,(self.root/bridge_name).read_bytes()+b'\n')
-   changed=builder.make_plan(self.root,{},encode(self.selected),authority.MODE)
-   self.assertNotEqual(plan['inputs_sha256'][bridge_name],changed['inputs_sha256'][bridge_name])
+  for bridge_name in names[-2:]:
+   with mock.patch.object(sidekick,'authoring_input_fingerprints',side_effect=lambda root:{}):
+    plan=builder.make_plan(self.root,{},encode(self.selected),authority.MODE)
+    self.assertEqual(plan['inputs_sha256'][bridge_name],digest((self.root/bridge_name).read_bytes()))
+    original=(self.root/bridge_name).read_bytes();self.put(bridge_name,original+b'\n')
+    changed=builder.make_plan(self.root,{},encode(self.selected),authority.MODE)
+    self.assertNotEqual(plan['inputs_sha256'][bridge_name],changed['inputs_sha256'][bridge_name])
+    self.put(bridge_name,original)
  def test_mixed_epoch_rejected_and_historical_digest_branch_unchanged(self):
   with self.authority_unit('mixed_epoch')as(_,checked):
    with self.assertRaisesRegex(ValueError,'production epoch'):authority.verify(self.root,self.selected)
    checked.assert_not_called()
   # The original digest branch remains exact and does not request a projection.
   original=copy.deepcopy(self.authority_sources)
+  for name,pin in warning_bridge.MUZZLE_PINS.items():original[name]=pin
   for name,pin in muzzle_bridge.BASE_PINS.items():original[name]=pin
   with self.authority_unit()as(_,checked),mock.patch.object(authority,'source_inventory',return_value=original),mock.patch.object(muzzle_bridge,'project',side_effect=AssertionError('Historical branch must not project')):
    authority.verify(self.root,self.selected);self.assertEqual(checked.call_count,1126)
