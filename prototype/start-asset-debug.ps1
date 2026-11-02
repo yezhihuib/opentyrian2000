@@ -48,6 +48,11 @@ foreach ($retiredSelector in $retiredSelectors) {
         throw "Historical -$retiredSelector is retired. Omit this switch to use the current packed-blue-four-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test pack. See docs/RETIRED_HD_PACKS.md for Git recovery or an external historical rebuild."
     }
 }
+function Quote-DebugArgument([string]$Value) {
+    if ($Value -match '["\r\n]') { throw 'Paths cannot contain quotes or line breaks.' }
+    $tail = $Value.Length - $Value.TrimEnd('\').Length
+    return '"' + $Value + ('\' * $tail) + '"'
+}
 function Get-DebugSha256([string]$Path) {
     $debugHasher = [Security.Cryptography.SHA256]::Create()
     $debugStream = [IO.File]::OpenRead($Path)
@@ -102,7 +107,7 @@ try {
         Write-Host "ASSET DEBUG run: $debugRun"
         Write-Host 'Space/P pause/resume; N single tick; R fresh replay; H hit; D destroy; Esc quit.'
         Write-Host "Optional control queue: $debugControl (pause,step,resume,hit SLOT,destroy SLOT,reload,quit)."
-        $debugQuotedArgs = @($debugArgs | ForEach-Object { '"' + $_ + '"' })
+        $debugQuotedArgs = @($debugArgs | ForEach-Object { Quote-DebugArgument $_ })
         $debugStdout = Join-Path $debugRun 'launcher-game-stdout.log'
         $debugStderr = Join-Path $debugRun 'launcher-game-stderr.log'
         $debugProcess = Start-Process -FilePath $debugExe -ArgumentList $debugQuotedArgs -WorkingDirectory $debugRun -WindowStyle Hidden -PassThru -Wait -RedirectStandardOutput $debugStdout -RedirectStandardError $debugStderr
