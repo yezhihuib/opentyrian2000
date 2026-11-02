@@ -19,6 +19,7 @@
 #include "current_guided_payload_pins.h"
 #include "enemy_widget_sonic_policy.h"
 #include "enemy_orb_protron_policy.h"
+#include "enemy_tank_shared_policy.h"
 #include "current_mint27_payload_pins.h"
 #include "current_missile_payload_pins.h"
 #include "hd_front_multi_current.h"
@@ -365,6 +366,10 @@ static bool enemy_orb_protron_source(Sprite2_array,unsigned);
 static bool enemy_orb_protron_palette_matches(unsigned);
 static Asset *enemy_orb_protron_resource(const char *,unsigned);
 static void enemy_orb_protron_shutdown(void);
+static bool enemy_tank_shared_source(Sprite2_array,unsigned);
+static bool enemy_tank_shared_palette_matches(unsigned);
+static Asset *enemy_tank_shared_resource(const char *,unsigned);
+static void enemy_tank_shared_shutdown(void);
 #if defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR
 static bool global_newshf_frame,global_newshf_fault;
 static void global_newshf_shutdown(void);
@@ -3545,6 +3550,19 @@ static bool enemy_tank_shell_family_ready(void)
 #include "enemy_reuse_mirror.inc"
 #endif
 
+bool render_mirror_tank147_muzzle_lane(void)
+{return global_asset_directory[0]&&tank_shared_ordinary_allowed(147);}
+
+/* Fixed muzzle registration; legacy/no-global lanes retain their old renderer. */
+bool render_mirror_tank147_muzzle(SDL_Surface *surface,int x,int y,Sprite2_array bank)
+{
+ if(!render_mirror_tank147_muzzle_lane())
+  return render_mirror_enemy_shot(surface,x,y,bank,147);
+ render_mirror_shadow_end();
+ global_projectile91_observed_preflight();
+ return global_projectile91_draw_registered(surface,x,y,bank,147,true)>0;
+}
+
 /* Enemy-only bindings: the indexed original still executes in the wrapper. */
 bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
@@ -3556,6 +3574,11 @@ bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array ban
  if(index==91) {
   if(global_asset_directory[0]) {global_projectile91_observed_preflight();return global_projectile91_draw(surface,x,y,bank,index)>0;}
   return projectile91_draw(surface,x,y,bank,index);
+ }
+ /* Tank legacy intent retains the original branch below in both macro modes.
+  * An ordinary global selection is authoritative even when its alias fails. */
+ if(tank_shared_member_index(index)&&global_asset_directory[0]&&tank_shared_ordinary_allowed(index)) {
+  global_projectile91_observed_preflight();return global_projectile91_draw(surface,x,y,bank,index)>0;
  }
  /* Exact existing orb/Protron materials have independent ordinary leases.
   * Asteroid intent always keeps its old atomic orb path, even on failure.
@@ -3914,6 +3937,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "enemy_vulcan70_mirror.inc"
 #include "enemy_widget_sonic_mirror.inc"
 #include "enemy_orb_protron_mirror.inc"
+#include "enemy_tank_shared_mirror.inc"
 #include "asteroid1_enemy_orb112113_mirror.inc"
 #include "asteroid1_firing270_mirror.inc"
 #include "asteroid1_firing285_mirror.inc"

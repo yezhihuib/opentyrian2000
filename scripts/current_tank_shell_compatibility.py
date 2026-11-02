@@ -14,9 +14,11 @@ def fnv(raw):
     value=14695981039346656037
     for byte in raw:value=((value^byte)*1099511628211)&((1<<64)-1)
     return f'{value:016x}'
-def payload_header(pins):
+def payload_header(pins, hashes=None):
     text='/* Generated legacy enemy-shell art pins; role/source/geometry stay fixed. */\n#ifndef CURRENT_TANK_SHELL_PAYLOAD_PINS_H\n#define CURRENT_TANK_SHELL_PAYLOAD_PINS_H\n'
     for identity in IDS:text+=f'#define CURRENT_TANK_SHELL_{identity}_PAYLOAD_FNV UINT64_C(0x{pins[identity]})\n'
+    if hashes is not None:
+        for identity in IDS:text+=f'#define CURRENT_TANK_SHELL_{identity}_HDA_SHA256 "{hashes[identity]}"\n'
     return (text+'#endif\n').encode()
 def load(root):
     j=json.loads(contained_file(root,MAPPING).read_bytes())
@@ -24,7 +26,14 @@ def load(root):
         raise ValueError('Invalid tank-shell mapping authority')
     if not isinstance(j['version'],str) or not j['version'] or len(j['version'])>128:raise ValueError('Invalid tank-shell version')
     if not isinstance(j['files'],list) or len(j['files'])!=2:raise ValueError('Expected two tank-shell resources')
-    result={};pins={}
+    # The new energy version proves PNG origin. Historical lightweight loaders
+    # retain their existing HDA/map/header contract without adding PNG/Pillow.
+    energy=j['version'] in ('approved-tank-energy-pulse-v2','approved-tank-energy-pulse-v3')
+    if energy:
+        from build_current_tank_shell import selection, source_blob
+        selected=selection(root,contained_file(root,SELECTION).read_bytes())
+        if selected['version']!=j['version']:raise ValueError('Stale tank-shell selection version')
+    result={};pins={};hashes={}
     for identity,row in zip(IDS,j['files']):
         source=f'{ROOT}/{name(identity)}';destination=f'assets/gameplay/{name(identity)}'
         if set(row)!={'identity','source_path','destination','sha256'} or type(row['identity']) is not int or row['identity']!=identity or row['source_path']!=source or row['destination']!=destination:
@@ -33,6 +42,11 @@ def load(root):
         if not p.is_file() or p.stat().st_size!=28+96*112*4:raise ValueError('Invalid tank-shell length')
         raw=p.read_bytes()
         if hashlib.sha256(raw).hexdigest()!=row['sha256'] or raw[:28]!=b'HDR1'+struct.pack('<6I',identity,8,12,14,0,0):raise ValueError('Stale/malformed tank-shell output')
+        if energy:
+            expected,_=source_blob(root,selected['resources'][IDS.index(identity)])
+            if raw!=expected:raise ValueError('Tank-shell output differs from selected PNG')
+        hashes[identity]=hashlib.sha256(raw).hexdigest()
         pins[identity]=fnv(raw[28:]);result[destination]=row
-    if contained_file(root,HEADER).read_bytes()!=payload_header(pins):raise ValueError('Stale tank-shell payload pins')
+    expected_header=payload_header(pins,hashes) if energy else payload_header(pins)
+    if contained_file(root,HEADER).read_bytes()!=expected_header:raise ValueError('Stale tank-shell payload pins')
     return result

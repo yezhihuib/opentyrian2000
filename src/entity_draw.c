@@ -89,6 +89,19 @@ void draw_player_shot_shadow_sprite2(SDL_Surface *target,int x,int y,Sprite2_arr
  draw_entity_sprite2(target,x,y,bank,index,ENTITY_SHADOW,ENTITY_TILE);
 }
 
+/* Only the immutable birth sidecar may choose this finite registration. */
+void draw_tank147_muzzle_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank)
+{
+ bool mirrored=render_mirror_tank147_muzzle(target,x,y,bank);
+#ifndef RENDER_MIRROR_DISABLED
+ game_probe_scene_draw(122,147,x,y,0,ENTITY_NORMAL,mirrored);
+#else
+ (void)mirrored;
+#endif
+ blit_sprite2(target,x,y,bank,147);
+ render_mirror_entity_end();
+}
+
 /* The indexed original always executes once, even after successful HD output. */
 void draw_enemy_shot_sprite2(SDL_Surface *target,int x,int y,Sprite2_array bank,unsigned int index)
 {

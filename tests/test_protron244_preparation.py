@@ -20,9 +20,9 @@ OLD_ALIAS_ROWS=[{'bytes': 43036, 'canonical_source': 'assets/hd/current-compat/e
 class Protron244Preparation(unittest.TestCase):
  def src(self,n):return(ROOT/'src'/n).read_text()
  def test_append_only29_unsigned(self):
-  s=self.src('global_projectile91_mirror.inc');pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',function(s,'global_projectile91_member'))];self.assertEqual(pairs,[(i,1<<n)for n,i in enumerate(OLD_IDS+(244,))]);self.assertEqual(sum(b for a,b in pairs),536870911);self.assertIn('UINT_MAX < 536870911u',s);self.assertNotIn('1u<<32',s)
+  s=self.src('global_projectile91_mirror.inc');pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',function(s,'global_projectile91_member'))];self.assertEqual(pairs,[(i,1<<n)for n,i in enumerate(OLD_IDS+(244,146,147))]);self.assertEqual(sum(b for a,b in pairs),2147483647);self.assertIn('UINT_MAX < 2147483647u',s);self.assertNotIn('1u<<32',s)
  def test_boolean_owner_and_sparse_unchanged(self):
-  s=self.src('global_projectile91_mirror.inc');line=next(x for x in s.splitlines()if x.startswith('static const unsigned global_projectile91_sparse_rgba_members='));self.assertEqual(list(map(int,re.findall(r'(\d+)u',line))),[1<<n for n in range(17,24)]+[1<<27]);self.assertNotIn('268435456',line);self.assertIn('static Uint8 *global_projectile91_owner',self.src('render_mirror.c'))
+  s=self.src('global_projectile91_mirror.inc');line=next(x for x in s.splitlines()if x.startswith('static const unsigned global_projectile91_sparse_rgba_members='));self.assertEqual(list(map(int,re.findall(r'(\d+)u',line))),[1<<n for n in range(17,24)]+[1<<27,1<<29,1<<30]);self.assertNotIn('268435456',line);self.assertIn('static Uint8 *global_projectile91_owner',self.src('render_mirror.c'))
  def test_exact80244_bytes_one_alias(self):
   raw=(ROOT/'assets/hd/current-compat/protron/bullet-244-8.hda').read_bytes();self.assertEqual(digest(raw),PIN);self.assertEqual(raw,(ROOT/f'assets/hd/global-assets-v1/content/{PIN}.hda').read_bytes());self.assertEqual(struct.unpack('<4s6I',raw[:28]),(b'HDR1',80244,8,12,14,0,0));self.assertEqual(len(raw),43036)
  def test_native97_cells_fractional_no_halo(self):
@@ -50,6 +50,8 @@ class Protron244Preparation(unittest.TestCase):
   for name,pin in UNCHANGED.items():
    raw=(ROOT/name).read_bytes()
    if name=='src/render_mirror.c':
+    from tank_shell_native_validation import reverse_tank_render
+    raw=reverse_tank_render(raw)
     # Only the reviewed declarations and public pre-final calls are additive.
     for added in (b'static bool global_projectile91_pre_final_pixel(SDL_Surface *,Uint8 *);\n',b'static void global_projectile91_pre_final_rect(SDL_Surface *,const SDL_Rect *);\n',b' global_projectile91_pre_final_pixel(surface,address);\n',b' global_projectile91_pre_final_rect(s,rect);\n'):
      self.assertEqual(raw.count(added),1);raw=raw.replace(added,b'',1)

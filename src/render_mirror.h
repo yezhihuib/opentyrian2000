@@ -133,6 +133,8 @@ typedef enum {
 #define render_mirror_fade_start(...) ((void)0)
 #define render_mirror_fade_step(...) ((void)0)
 #define render_mirror_enemy_tile(...) false
+#define render_mirror_tank147_muzzle_lane() false
+#define render_mirror_tank147_muzzle(...) false
 #define render_mirror_enemy_shot(...) false
 #define render_mirror_marlo_body(...) false
 #define render_mirror_mint_body(...) false
@@ -253,6 +255,8 @@ void render_mirror_hud_meter_end(SDL_Surface *surface,unsigned int kind);
 void render_mirror_hud_shield_wiped(SDL_Surface *surface);
 void render_mirror_hud_shield_drawn(SDL_Surface *surface,unsigned int shield,unsigned int maximum);
 void render_mirror_begin(void);
+bool render_mirror_tank147_muzzle_lane(void);
+bool render_mirror_tank147_muzzle(SDL_Surface *,int,int,Sprite2_array);
 bool render_mirror_enemy_shot(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index);
 bool render_mirror_marlo_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index,
                               unsigned int option,unsigned int sidekick_style,unsigned int charge);

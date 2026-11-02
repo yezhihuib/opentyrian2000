@@ -13,7 +13,7 @@
       "title-menu-font-v1.hda"
     ],
     "gameplay_files": 705,
-    "global_content_hda_files": 131,
+    "global_content_hda_files": 133,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -34,6 +34,7 @@
     "global_registry_files": 1,
     "global_shared_enemy_orb_protron_alias_files": 5,
     "global_shared_enemy_rgba_alias_files": 6,
+    "global_shared_enemy_tank_alias_files": 2,
     "independent_shared_roots": true,
     "reconstructed_complete_menu_runs": 171,
     "shared_startup_directory": true,
@@ -80,12 +81,12 @@
   },
   "files": [
     {
-      "bytes": 46554,
+      "bytes": 46919,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "1a3d38c022b24774bce5af04502f4c905f76f784",
+      "git_blob": "f736bbf13fc38ba184f54ed04243f8648e029b02",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "c1861064e353726e3ace0ea4bccef9caaf7696bb93f6fd10145f805fc72543de",
+      "sha256": "515075a40b52e8814bb1df902c074d45ee2576adee55e190ebd4bb9c024ea208",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -2698,19 +2699,19 @@
     {
       "bytes": 43036,
       "destination": "assets/gameplay/enemy-tank-shell-146-8.hda",
-      "git_blob": "7f1215d5d6980014b7c59fd724ae69cd25c91b76",
+      "git_blob": "3615fe2ac400af89a87992e2a7890e9ec42e26be",
       "group": "gameplay",
       "revision": "current-single-source-tank-shell",
-      "sha256": "18cbd40ee58fb30f19c6447d9e144a682ff25f26080c9fd85238447c2071d196",
+      "sha256": "d7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c639653355109afa",
       "source_path": "assets/hd/current-compat/tank-shell/enemy-tank-shell-146-8.hda"
     },
     {
       "bytes": 43036,
       "destination": "assets/gameplay/enemy-tank-shell-147-8.hda",
-      "git_blob": "b706c69c2cfb4e1d9ec61a5404368491cbaedf78",
+      "git_blob": "b91c418cb63c18d36adb85ffdfbfd63c3ef27a7e",
       "group": "gameplay",
       "revision": "current-single-source-tank-shell",
-      "sha256": "4bc2df967eff050ef7823eacd130b7c924fc2a72b60d6a7288460595866c90da",
+      "sha256": "fef0333704fd2afb69fc48a38555e2b892608d590054a9819064cf5cb7fecdbf",
       "source_path": "assets/hd/current-compat/tank-shell/enemy-tank-shell-147-8.hda"
     },
     {
@@ -7664,6 +7665,19 @@
     },
     {
       "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/tank-shell/enemy-tank-shell-146-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/d7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c639653355109afa.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "3615fe2ac400af89a87992e2a7890e9ec42e26be",
+      "group": "global-source-identity",
+      "identity": 1220146,
+      "revision": "canonical-enemy-tank-shared-aliases-v1",
+      "sha256": "d7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c639653355109afa",
+      "source_path": "assets/hd/global-assets-v1/content/d7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c639653355109afa.hda"
+    },
+    {
+      "bytes": 43036,
       "destination": "assets/global/content/d928616c5eb9437e0afabb8422f998725b0c1e1cdd73e09e579c1106d2d292cb.hda",
       "git_blob": "c5d769829a1ca2607f6051795f95771e2dc99a74",
       "group": "global-source-identity",
@@ -7904,6 +7918,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa",
       "source_path": "assets/hd/global-assets-v1/content/fd109402f59404a560ca5da78a84ca34f9cf815a275ec15a0c0fe291596b81aa.hda"
+    },
+    {
+      "bytes": 43036,
+      "canonical_source": "assets/hd/current-compat/tank-shell/enemy-tank-shell-147-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/fef0333704fd2afb69fc48a38555e2b892608d590054a9819064cf5cb7fecdbf.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "b91c418cb63c18d36adb85ffdfbfd63c3ef27a7e",
+      "group": "global-source-identity",
+      "identity": 1220147,
+      "revision": "canonical-enemy-tank-shared-aliases-v1",
+      "sha256": "fef0333704fd2afb69fc48a38555e2b892608d590054a9819064cf5cb7fecdbf",
+      "source_path": "assets/hd/global-assets-v1/content/fef0333704fd2afb69fc48a38555e2b892608d590054a9819064cf5cb7fecdbf.hda"
     },
     {
       "bytes": 172060,
@@ -10303,7 +10330,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "e8d3a31127a70140d86ae445142c470ecdf49dd2320ed299aee05bfc25fc0008",
+    "current_production_source_manifest_sha256": "7e40319dd7e18c77a5888c7d076c58a9e13bb7f144901e63eb258f6c4e18b98a",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

@@ -23,9 +23,9 @@ class OrbProtronPreparation(unittest.TestCase):
  def test_old24_append_only_28bits(self):
   body=function(self.src('global_projectile91_mirror.inc'),'global_projectile91_member');pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',body)];self.assertEqual(pairs[:28],list(zip(OLD+IDS,[1<<n for n in range(28)])));self.assertEqual(sum(b for a,b in pairs[:28]),268435455)
  def test_width_and_boolean_owner_separate(self):
-  s=self.src('global_projectile91_mirror.inc');self.assertIn('UINT_MAX < 536870911u',s);self.assertIn('static Uint8 *global_projectile91_owner',self.src('render_mirror.c'));self.assertNotIn('uint8_t global_projectile91_used_members',s)
+  s=self.src('global_projectile91_mirror.inc');self.assertIn('UINT_MAX < 2147483647u',s);self.assertIn('static Uint8 *global_projectile91_owner',self.src('render_mirror.c'));self.assertNotIn('uint8_t global_projectile91_used_members',s)
  def test_only227_adds_sparse_contribution(self):
-  s=self.src('global_projectile91_mirror.inc');line=next(x for x in s.splitlines()if x.startswith('static const unsigned global_projectile91_sparse_rgba_members='));bits=list(map(int,re.findall(r'(\d+)u',line)));self.assertEqual(bits,[1<<n for n in range(17,24)]+[1<<27]);self.assertIn('global_projectile91_used_members&global_projectile91_sparse_rgba_members',s)
+  s=self.src('global_projectile91_mirror.inc');line=next(x for x in s.splitlines()if x.startswith('static const unsigned global_projectile91_sparse_rgba_members='));bits=list(map(int,re.findall(r'(\d+)u',line)));self.assertEqual(bits,[1<<n for n in range(17,24)]+[1<<27,1<<29,1<<30]);self.assertIn('global_projectile91_used_members&global_projectile91_sparse_rgba_members',s)
  def test_exact_material_headers_and_bytes(self):
   for i,(identity,pin,path)in SPECS.items():
    raw=(ROOT/path).read_bytes();self.assertEqual(hashlib.sha256(raw).hexdigest(),pin);self.assertEqual(raw,(ROOT/'assets/hd/global-assets-v1/content'/(pin+'.hda')).read_bytes());self.assertEqual(struct.unpack('<4s6I',raw[:28]),(b'HDR1',identity,8,12,14,0,0))

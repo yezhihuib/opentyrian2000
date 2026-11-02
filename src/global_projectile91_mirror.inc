@@ -1,27 +1,27 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Finite shared normal bank8/{91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155,70,20,21,105,106,124,125,112,113,226,227,244} enemy-shot owner; independent payloads.
+ * Finite shared normal bank8/{91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155,70,20,21,105,106,124,125,112,113,226,227,244,146,147} enemy-shot owner; independent payloads.
  * Included after decode_tile; no level/episode/map predicate grants this owner. */
 static bool global_projectile91_cached;
 /* Survives ownership transfer (for example to antialiased HUD glyphs). */
 static bool global_projectile91_contributed;
 /* Contribution provenance persists even after all pixels transfer to another
  * owner. Optional members never gate a different, unused member's admission. */
-#if UINT_MAX < 536870911u
-#error "Shared projectile member mask requires at least 29 unsigned value bits"
+#if UINT_MAX < 2147483647u
+#error "Shared projectile member mask requires at least 31 unsigned value bits"
 #endif
 static unsigned global_projectile91_used_members;
 /* Exact finite contributors whose canonical RGBA extends outside native cells:
- * Vulcan70, Widget20/21, Sonic105/106/124/125 and Protron227 only. Not a generic spill grant. */
-static const unsigned global_projectile91_sparse_rgba_members=131072u|262144u|524288u|1048576u|2097152u|4194304u|8388608u|134217728u;
+ * Vulcan70, Widget20/21, Sonic105/106/124/125 Protron227 and tank146/147 only. Not a generic spill grant. */
+static const unsigned global_projectile91_sparse_rgba_members=131072u|262144u|524288u|1048576u|2097152u|4194304u|8388608u|134217728u|536870912u|1073741824u;
 static const unsigned global_projectile91_widget_sonic_members=262144u|524288u|1048576u|2097152u|4194304u|8388608u;
 static unsigned global_projectile91_member(unsigned index)
-{return index==91?1u:index==145?2u:index==61?4u:index==101?8u:index==120?16u:index==139?32u:index==168?64u:index==169?128u:index==162?256u:index==260?512u:index==166?1024u:index==94?2048u:index==7?4096u:index==45?8192u:index==153?16384u:index==154?32768u:index==155?65536u:index==70?131072u:index==20?262144u:index==21?524288u:index==105?1048576u:index==106?2097152u:index==124?4194304u:index==125?8388608u:index==112?16777216u:index==113?33554432u:index==226?67108864u:index==227?134217728u:index==244?268435456u:0u;}
+{return index==91?1u:index==145?2u:index==61?4u:index==101?8u:index==120?16u:index==139?32u:index==168?64u:index==169?128u:index==162?256u:index==260?512u:index==166?1024u:index==94?2048u:index==7?4096u:index==45?8192u:index==153?16384u:index==154?32768u:index==155?65536u:index==70?131072u:index==20?262144u:index==21?524288u:index==105?1048576u:index==106?2097152u:index==124?4194304u:index==125?8388608u:index==112?16777216u:index==113?33554432u:index==226?67108864u:index==227?134217728u:index==244?268435456u:index==146?536870912u:index==147?1073741824u:0u;}
 static Asset *global_projectile91_member_resource(unsigned index)
-{return orb_protron_member_index(index)?enemy_orb_protron_resource(global_asset_directory,index):widget_sonic_member_index(index)?enemy_widget_sonic_resource(global_asset_directory,index):index==70?enemy_vulcan70_resource(global_asset_directory):index==91?projectile91_resource(global_asset_directory):index==145?projectile145_resource(global_asset_directory):index==61?projectile61_resource(global_asset_directory):(index==168||index==169)?projectile_gold_pulse_resource(global_asset_directory,index):(index==162||index==260)?projectile_statics_resource(global_asset_directory,index):(index==166||index==94)?projectile_pulses16694_resource(global_asset_directory,index):(index==7||index==45)?projectile_bolts745_resource(global_asset_directory,index):(index==153||index==154||index==155)?projectile_animated153_resource(global_asset_directory,index):projectile_blue_triplet_resource(global_asset_directory,index);}
+{return tank_shared_member_index(index)?enemy_tank_shared_resource(global_asset_directory,index):orb_protron_member_index(index)?enemy_orb_protron_resource(global_asset_directory,index):widget_sonic_member_index(index)?enemy_widget_sonic_resource(global_asset_directory,index):index==70?enemy_vulcan70_resource(global_asset_directory):index==91?projectile91_resource(global_asset_directory):index==145?projectile145_resource(global_asset_directory):index==61?projectile61_resource(global_asset_directory):(index==168||index==169)?projectile_gold_pulse_resource(global_asset_directory,index):(index==162||index==260)?projectile_statics_resource(global_asset_directory,index):(index==166||index==94)?projectile_pulses16694_resource(global_asset_directory,index):(index==7||index==45)?projectile_bolts745_resource(global_asset_directory,index):(index==153||index==154||index==155)?projectile_animated153_resource(global_asset_directory,index):projectile_blue_triplet_resource(global_asset_directory,index);}
 static bool global_projectile91_member_palette(unsigned index)
-{return orb_protron_member_index(index)?enemy_orb_protron_palette_matches(index):widget_sonic_member_index(index)?enemy_widget_sonic_palette_matches(index):index==70?enemy_vulcan70_palette_matches():index==91?projectile91_palette_matches():index==145?projectile145_palette_matches():index==61?projectile61_palette_matches():(index==168||index==169)?projectile_gold_pulse_palette_matches(index):(index==162||index==260)?projectile_statics_palette_matches(index):(index==166||index==94)?projectile_pulses16694_palette_matches(index):(index==7||index==45)?projectile_bolts745_palette_matches(index):(index==153||index==154||index==155)?projectile_animated153_palette_matches(index):projectile_blue_triplet_palette_matches(index);}
+{return tank_shared_member_index(index)?enemy_tank_shared_palette_matches(index):orb_protron_member_index(index)?enemy_orb_protron_palette_matches(index):widget_sonic_member_index(index)?enemy_widget_sonic_palette_matches(index):index==70?enemy_vulcan70_palette_matches():index==91?projectile91_palette_matches():index==145?projectile145_palette_matches():index==61?projectile61_palette_matches():(index==168||index==169)?projectile_gold_pulse_palette_matches(index):(index==162||index==260)?projectile_statics_palette_matches(index):(index==166||index==94)?projectile_pulses16694_palette_matches(index):(index==7||index==45)?projectile_bolts745_palette_matches(index):(index==153||index==154||index==155)?projectile_animated153_palette_matches(index):projectile_blue_triplet_palette_matches(index);}
 static bool global_projectile91_member_source(Sprite2_array bank,unsigned index)
-{return orb_protron_member_index(index)?enemy_orb_protron_source(bank,index):widget_sonic_member_index(index)?enemy_widget_sonic_source(bank,index):index==70?enemy_vulcan70_source(bank,index):index==91?projectile91_source(bank,index):index==145?projectile145_source(bank,index):index==61?projectile61_source(bank,index):(index==168||index==169)?projectile_gold_pulse_source(bank,index):(index==162||index==260)?projectile_statics_source(bank,index):(index==166||index==94)?projectile_pulses16694_source(bank,index):(index==7||index==45)?projectile_bolts745_source(bank,index):(index==153||index==154||index==155)?projectile_animated153_source(bank,index):projectile_blue_triplet_source(bank,index);}
+{return tank_shared_member_index(index)?enemy_tank_shared_source(bank,index):orb_protron_member_index(index)?enemy_orb_protron_source(bank,index):widget_sonic_member_index(index)?enemy_widget_sonic_source(bank,index):index==70?enemy_vulcan70_source(bank,index):index==91?projectile91_source(bank,index):index==145?projectile145_source(bank,index):index==61?projectile61_source(bank,index):(index==168||index==169)?projectile_gold_pulse_source(bank,index):(index==162||index==260)?projectile_statics_source(bank,index):(index==166||index==94)?projectile_pulses16694_source(bank,index):(index==7||index==45)?projectile_bolts745_source(bank,index):(index==153||index==154||index==155)?projectile_animated153_source(bank,index):projectile_blue_triplet_source(bank,index);}
 
 static size_t global_projectile91_capacity;
 static Uint32 global_projectile91_output_palette[256],global_projectile91_underlay_palette[256];
@@ -67,7 +67,9 @@ static bool global_projectile91_palette_matches(void)
         (!(global_projectile91_used_members&33554432u)||enemy_orb_protron_palette_matches(113))&&
         (!(global_projectile91_used_members&67108864u)||enemy_orb_protron_palette_matches(226))&&
         (!(global_projectile91_used_members&134217728u)||enemy_orb_protron_palette_matches(227))&&
-        (!(global_projectile91_used_members&268435456u)||enemy_orb_protron_palette_matches(244));}
+        (!(global_projectile91_used_members&268435456u)||enemy_orb_protron_palette_matches(244))&&
+        (!(global_projectile91_used_members&536870912u)||enemy_tank_shared_palette_matches(146))&&
+        (!(global_projectile91_used_members&1073741824u)||enemy_tank_shared_palette_matches(147));}
 static bool global_projectile91_underlay_matches(void)
 {
  for(unsigned i=0;i<256;i++)if(global_projectile91_used_colors[i]&&
@@ -107,7 +109,9 @@ static bool global_projectile91_source_matches(Sprite2_array bank)
         (!(global_projectile91_used_members&33554432u)||(orb_protron_ordinary_allowed(113)&&enemy_orb_protron_resource(global_asset_directory,113)!=NULL))&&
         (!(global_projectile91_used_members&67108864u)||(orb_protron_ordinary_allowed(226)&&enemy_orb_protron_resource(global_asset_directory,226)!=NULL))&&
         (!(global_projectile91_used_members&134217728u)||(orb_protron_ordinary_allowed(227)&&enemy_orb_protron_resource(global_asset_directory,227)!=NULL))&&
-        (!(global_projectile91_used_members&268435456u)||(orb_protron_ordinary_allowed(244)&&enemy_orb_protron_resource(global_asset_directory,244)!=NULL));}
+        (!(global_projectile91_used_members&268435456u)||(orb_protron_ordinary_allowed(244)&&enemy_orb_protron_resource(global_asset_directory,244)!=NULL))&&
+        (!(global_projectile91_used_members&536870912u)||(tank_shared_ordinary_allowed(146)&&enemy_tank_shared_resource(global_asset_directory,146)!=NULL))&&
+        (!(global_projectile91_used_members&1073741824u)||(tank_shared_ordinary_allowed(147)&&enemy_tank_shared_resource(global_asset_directory,147)!=NULL));}
 static bool global_projectile91_disjoint(const SDL_Surface *a,const SDL_Surface *b)
 {
  uintptr_t x=(uintptr_t)a->pixels,y=(uintptr_t)b->pixels;
@@ -179,7 +183,7 @@ static void global_projectile91_reset(void)
 static void global_projectile91_shutdown(void)
 {
  global_projectile91_reset();
- projectile91_shutdown();projectile145_shutdown();projectile61_shutdown();projectile_blue_triplet_shutdown();projectile_gold_pulse_shutdown();projectile_statics_shutdown();projectile_pulses16694_shutdown();projectile_bolts745_shutdown();projectile_animated153_shutdown();enemy_vulcan70_shutdown();enemy_widget_sonic_shutdown();enemy_orb_protron_shutdown();
+ projectile91_shutdown();projectile145_shutdown();projectile61_shutdown();projectile_blue_triplet_shutdown();projectile_gold_pulse_shutdown();projectile_statics_shutdown();projectile_pulses16694_shutdown();projectile_bolts745_shutdown();projectile_animated153_shutdown();enemy_vulcan70_shutdown();enemy_widget_sonic_shutdown();enemy_orb_protron_shutdown();enemy_tank_shared_shutdown();
  free(global_projectile91_owner);free(global_projectile91_foreign);global_projectile91_owner=global_projectile91_foreign=NULL;global_projectile91_capacity=0;
 }
 static void global_projectile91_frame_begin(void)
@@ -223,8 +227,10 @@ static void global_projectile91_observed_preflight(void)
     !global_projectile91_final_surface_matches()||!global_projectile91_source_matches(spriteSheet8)||
     !global_projectile91_palette_matches()||!global_projectile91_underlay_matches()))global_projectile91_fail();
 }
-static int global_projectile91_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index)
+static int global_projectile91_draw_registered(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,bool tank_muzzle)
 {
+ /* Reject before acquiring any owner or modifying canvas. No partial union clipping. */
+ if(tank_muzzle&&(index!=147||x<24||x>275||y<1||y>170))return 0;
  unsigned member=global_projectile91_member(index);
  if(!member)return 0;
  if(!global_projectile91_requested()||!global_projectile91_frame||global_projectile91_fault||surface!=game_screen||
@@ -245,12 +251,15 @@ static int global_projectile91_draw(SDL_Surface *surface,int x,int y,Sprite2_arr
  if(!decode_tile(bank,index,global_projectile91_call.source,global_projectile91_call.mask,12,0,0))return 0;
  for(int yy=0;yy<14;yy++)for(int xx=0;xx<12;xx++)if(global_projectile91_call.mask[yy*12+xx]&&y+yy>=0&&y+yy<200)++global_projectile91_call.left;
  global_projectile91_call.x=x;global_projectile91_call.y=y;global_projectile91_call.style=MIRROR_NORMAL;global_projectile91_call.filter=0;global_projectile91_call.live=true;
- font_before_effect((SDL_Rect){x,y,12,14});
+ font_before_effect(tank_muzzle?(SDL_Rect){x,y-1,13,15}:(SDL_Rect){x,y,12,14});
  int d=game_probe_density;const Uint8 *rgba=resource->rgba;
- for(int ay=0;ay<14*d;ay++)for(int ax=0;ax<12*d;ax++) {
+ for(int ay=tank_muzzle?-d:0;ay<14*d;ay++)for(int ax=0;ax<(tank_muzzle?13:12)*d;ax++) {
   int dx=x*d+ax,dy=y*d+ay;if(dy<0||dy>=canvas->h)continue;
-  size_t n=(size_t)dy*canvas->w+dx;const Uint8 *a=rgba+4*(ay*96+ax);
-  bool native=global_projectile91_call.mask[(ay/d)*12+ax/d]!=0;
+  int rx=ax-(tank_muzzle?d:0),ry=ay+(tank_muzzle?d:0);
+  static const Uint8 transparent[4]={0,0,0,0};
+  const Uint8 *a=rx>=0&&rx<12*d&&ry>=0&&ry<14*d?rgba+4*(ry*96+rx):transparent;
+  size_t n=(size_t)dy*canvas->w+dx;
+  bool native=ax<12*d&&ay>=0&&global_projectile91_call.mask[(ay/d)*12+ax/d]!=0;
   if(!a[3]&&!native)continue;
   bool foreign=global_projectile91_owner[n]?global_projectile91_foreign[n]:hd_owner[n]!=0;
   Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+dy*canvas->pitch)+dx;
@@ -285,6 +294,8 @@ static int global_projectile91_draw(SDL_Surface *surface,int x,int y,Sprite2_arr
  }
  ++draws;return 1;
 }
+static int global_projectile91_draw(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index)
+{return global_projectile91_draw_registered(surface,x,y,bank,index,false);}
 static bool global_projectile91_pixel(int x,int y,Uint8 before,Uint8 after,int style)
 {
  if(!global_projectile91_frame||!global_projectile91_owner)return false;

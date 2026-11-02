@@ -25,6 +25,9 @@ void draw_player_shot_shadow_sprite2(SDL_Surface *,int x,int y,Sprite2_array,uns
 
 void draw_enemy_reuse_shot_sprite2(SDL_Surface *,int,int,Sprite2_array,unsigned,unsigned,unsigned);
 
+/* Fixed actor194/frame93 birth registration; original indexed coordinates. */
+void draw_tank147_muzzle_sprite2(SDL_Surface *,int,int,Sprite2_array);
+
 /* Dedicated surviving enemy-shot normal tile; no player-shadow binding. */
 void draw_enemy_shot_sprite2(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index);
 

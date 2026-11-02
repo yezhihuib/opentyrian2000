@@ -28,10 +28,10 @@ class WidgetSonicPreparation(unittest.TestCase):
  def test_append_only_24_members_and_bits(self):
   pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',function(self.shared,'global_projectile91_member'))];self.assertEqual(pairs[:24],[(i,1<<k)for k,i in enumerate(OLD+IDS)]);self.assertEqual(sum(b for _,b in pairs[:18]),262143);self.assertEqual(sum(b for _,b in pairs[:24]),16777215)
  def test_24bit_guard_boolean_owners_unchanged(self):
-  self.assertIn('#if UINT_MAX < 536870911u',self.shared);self.assertIn('static unsigned global_projectile91_used_members',self.shared);self.assertIn('static Uint8 *global_projectile91_owner,*global_projectile91_foreign;',self.render);self.assertEqual(8388607&8388608,0)
+  self.assertIn('#if UINT_MAX < 2147483647u',self.shared);self.assertIn('static unsigned global_projectile91_used_members',self.shared);self.assertIn('static Uint8 *global_projectile91_owner,*global_projectile91_foreign;',self.render);self.assertEqual(8388607&8388608,0)
  def test_exact_seven_sparse_contributors(self):
-  for name,want in [('sparse_rgba_members',sum(1<<k for k in range(17,24))+(1<<27)),('widget_sonic_members',sum(1<<k for k in range(18,24)))]:
-   expr=re.search(r'global_projectile91_'+name+r'=([^;]+);',self.shared)[1];bits=[int(x)for x in re.findall(r'(\d+)u',expr)];self.assertEqual(sum(bits),want);self.assertEqual(len(bits),8 if name.startswith('sparse')else 6)
+  for name,want in [('sparse_rgba_members',sum(1<<k for k in range(17,24))+(1<<27)+(1<<29)+(1<<30)),('widget_sonic_members',sum(1<<k for k in range(18,24)))]:
+   expr=re.search(r'global_projectile91_'+name+r'=([^;]+);',self.shared)[1];bits=[int(x)for x in re.findall(r'(\d+)u',expr)];self.assertEqual(sum(bits),want);self.assertEqual(len(bits),10 if name.startswith('sparse')else 6)
   guard=function(self.shared,'global_projectile91_pre_final_pixel');self.assertIn('(global_projectile91_used_members&global_projectile91_sparse_rgba_members)&&!shared_count&&hd_count',guard);self.assertIn('return global_projectile91_cache_decline();',guard)
   f=function(self.shared,'global_projectile91_final_pixel');self.assertLess(f.index('if(!global_projectile91_pre_final_pixel(s,address))return;'),f.index('bool changed=false;'))
  def test_shared_rgba_algorithm_unchanged(self):

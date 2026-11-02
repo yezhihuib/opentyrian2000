@@ -66,6 +66,54 @@
 
 inline static void blit_enemy(SDL_Surface *surface, unsigned int i, signed int x_offset, signed int y_offset, signed int sprite_offset);
 
+/* Render-only birth registration. Never changes EnemyShot simulation state.
+ * A reused/dead actor cannot move an already-emitted projectile's artwork. */
+static struct { bool valid,rejected; uint64_t generation,birth_generation; int x,y,duration; }
+ tank_muzzle_shots[ENEMY_SHOT_MAX];
+static void tank_muzzle_allocate(unsigned slot)
+{
+ if(slot>=ENEMY_SHOT_MAX)return;
+ tank_muzzle_shots[slot].valid=tank_muzzle_shots[slot].rejected=false;
+ /* Saturation disables this slot until the next level reset; never wrap a tag. */
+ if(tank_muzzle_shots[slot].generation<UINT64_MAX)++tank_muzzle_shots[slot].generation;
+}
+static void tank_muzzle_retire(unsigned slot)
+{if(slot<ENEMY_SHOT_MAX)tank_muzzle_shots[slot].valid=tank_muzzle_shots[slot].rejected=false;}
+static void tank_muzzle_birth(unsigned slot,unsigned actor,unsigned weapon,int turret,int phase)
+{
+ if(slot>=ENEMY_SHOT_MAX||actor>=100)return;
+ tank_muzzle_shots[slot].valid=false;
+ if(!tank_muzzle_shots[slot].generation||tank_muzzle_shots[slot].generation==UINT64_MAX||
+    enemyShotAvail[slot]||enemy[actor].enemytype!=194||enemy[actor].size!=1||
+    enemy[actor].enemycycle<1||enemy[actor].enemycycle>20||
+    enemy[actor].egr[enemy[actor].enemycycle-1]!=93||!enemy[actor].sprite2s||!enemy[actor].sprite2s->data||
+    weapon!=3||turret!=2||phase!=0)return;
+ bool bank20=false;
+ for(unsigned k=0;k<4;k++)if(enemy[actor].sprite2s->data==enemySpriteSheets[k].data&&
+    enemySpriteSheetIds[k]==20)bank20=true;
+ const EnemyShotType *shot=&enemyShot[slot];
+ if(!bank20||shot->sgr!=147||shot->animate||shot->animax||shot->sxm!=3||shot->sym!=3||
+    shot->sxc||shot->syc||shot->tx||shot->ty||shot->duration!=255||weapons[weapon].aim)return;
+ tank_muzzle_shots[slot].x=shot->sx;tank_muzzle_shots[slot].y=shot->sy;
+ tank_muzzle_shots[slot].duration=shot->duration;
+ tank_muzzle_shots[slot].birth_generation=tank_muzzle_shots[slot].generation;
+ tank_muzzle_shots[slot].valid=true;
+}
+static int tank_muzzle_draw(unsigned slot,unsigned index)
+{
+ if(slot>=ENEMY_SHOT_MAX)return 0;
+ if(tank_muzzle_shots[slot].rejected)return -1;
+ if(!tank_muzzle_shots[slot].valid)return 0;
+ const EnemyShotType *shot=&enemyShot[slot];
+ int age=tank_muzzle_shots[slot].duration-shot->duration;
+ bool valid=!enemyShotAvail[slot]&&index==147&&shot->sgr==147&&!shot->animate&&!shot->animax&&
+    tank_muzzle_shots[slot].birth_generation==tank_muzzle_shots[slot].generation&&
+    age>=1&&age<=255&&shot->sxm==3&&shot->sym==3&&!shot->sxc&&!shot->syc&&!shot->tx&&!shot->ty&&
+    shot->sx==tank_muzzle_shots[slot].x+3*age&&shot->sy==tank_muzzle_shots[slot].y+3*age;
+ if(!valid){tank_muzzle_shots[slot].valid=false;tank_muzzle_shots[slot].rejected=true;return -1;}
+ return 1;
+}
+
 boss_bar_t boss_bar[2];
 
 /* Level Event Data */
@@ -475,6 +523,7 @@ enemy_still_exists:
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 								enemy_reuse_shot_retire(b);
 #endif
+								tank_muzzle_allocate(b);
 								enemyShotAvail[b] = !enemyShotAvail[b];
 
 								if (weapons[temp3].sound > 0)
@@ -570,6 +619,7 @@ enemy_still_exists:
 									enemyShot[b].sxm = roundf((float)aimX / maxMagAim * aim);
 									enemyShot[b].sym = roundf((float)aimY / maxMagAim * aim);
 								}
+								tank_muzzle_birth(b,i,temp3,j,tempPos);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 								enemy_reuse_shot_spawn(b,i,temp3,j,tempPos);
 #endif
@@ -1073,6 +1123,7 @@ start_level_first:
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_reset();
 #endif
+	memset(tank_muzzle_shots, 0, sizeof(tank_muzzle_shots));
 	for (uint i = 0; i < COUNTOF(enemyShotAvail); i++)
 		enemyShotAvail[i] = 1;
 
@@ -1880,6 +1931,7 @@ draw_player_shot_loop_end:
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 					enemy_reuse_shot_retire(z);
 #endif
+					tank_muzzle_retire(z);
 					enemyShotAvail[z] = true;
 				}
 				else  // check if shot collided with player
@@ -1900,6 +1952,7 @@ draw_player_shot_loop_end:
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 							enemy_reuse_shot_retire(z);
 #endif
+							tank_muzzle_retire(z);
 							enemyShotAvail[z] = true;
 
 							JE_setupHitflareExplosion(tempX, tempY, 2);
@@ -1931,11 +1984,22 @@ draw_player_shot_loop_end:
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 						enemy_reuse_shot_after_animation(z);
 #endif
+						int muzzle_registration = tank_muzzle_draw(z, enemyShot[z].sgr + enemyShot[z].animate);
+						if (!render_mirror_tank147_muzzle_lane()) muzzle_registration = 0;
 						if (enemyShot[z].sgr >= 500)
 							blit_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet12, enemyShot[z].sgr + enemyShot[z].animate - 500);
 						else
 						{
 							unsigned int sprite = enemyShot[z].sgr + enemyShot[z].animate;
+							if (muzzle_registration < 0)
+							{
+								render_mirror_shadow_end();
+								blit_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
+								render_mirror_entity_end();
+							}
+							else if (muzzle_registration > 0)
+								draw_tank147_muzzle_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8);
+							else
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 							if ((widget_sonic_member_index(sprite) && widget_sonic_legacy_intent()) || sprite == 214 || sprite == 215 || sprite == 216 || (orb_protron_protron_index(sprite) && widget_sonic_legacy_intent()))
 							{

@@ -33,8 +33,8 @@ class Preparation(unittest.TestCase):
  def test_member_width_and_append_only(self):
   s=(ROOT/'src/global_projectile91_mirror.inc').read_text();f=s.split('static unsigned global_projectile91_member(unsigned index)')[1].split('static Asset')[0]
   pairs=[(int(i),int(b))for i,b in re.findall(r'index==(\d+)\?(\d+)u',f)]
-  ids=(91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155,70,20,21,105,106,124,125,112,113,226,227,244)
-  self.assertEqual(pairs,[(i,1<<k)for k,i in enumerate(ids)]);self.assertIn('#if UINT_MAX < 536870911u',s)
+  ids=(91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155,70,20,21,105,106,124,125,112,113,226,227,244,146,147)
+  self.assertEqual(pairs,[(i,1<<k)for k,i in enumerate(ids)]);self.assertIn('#if UINT_MAX < 2147483647u',s)
   self.assertIn('static Uint8 *global_projectile91_owner,*global_projectile91_foreign;', (ROOT/'src/render_mirror.c').read_text())
  def test_candidate_art_scope(self):
   self.assertIn('#define CURRENT_PROJECTILE_ANIMATED153_ART_QUALIFIED 1',(ROOT/'src/current_projectile_animated153_payload_pins.h').read_text())

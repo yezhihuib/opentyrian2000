@@ -279,6 +279,8 @@ def main(argv=None) -> int:
     widget_sonic_alias_rows(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
     from current_enemy_orb_protron_aliases import validate_runtime_rows as orb_protron_alias_rows
     orb_protron_alias_rows(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
+    from current_enemy_tank_shared_aliases import validate_runtime_rows as tank_shared_alias_rows
+    tank_shared_alias_rows(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
     guided_prefix = 'assets/hd/current-compat/guided/'
     guided_names = {f'bullet-{i}-8.hda' for i in (19,171,20,21)}
     guided_rows = [row for row in manifest['files'] if any(
