@@ -7,17 +7,21 @@ from pathlib import Path
 from current_tank194_body_registration import generate,load,sha,verify_original_data
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,required=True);p.add_argument('--proof-root',type=Path);p.add_argument('--output',type=Path);p.add_argument('--check',action='store_true');p.add_argument('--verify-original-data',type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,required=True);p.add_argument('--proof-root',type=Path);p.add_argument('--output',type=Path);p.add_argument('--check',action='store_true');p.add_argument('--verify-original-data',type=Path);p.add_argument('--extra-poses',action='store_true',help='Select only the additional51/55 pair; default remains91/93');a=p.parse_args()
+    selected_generate,selected_load=generate,load
+    if a.extra_poses:
+        if a.verify_original_data:p.error('Extra-pose registration uses public proof; original verification remains the default pair mode')
+        from current_tank194_extra_registration import generate as selected_generate,load as selected_load
     if a.verify_original_data:
         if a.output or a.check:p.error('Original verification is a separate read-only mode')
         print(json.dumps(verify_original_data(a.root,a.verify_original_data,a.proof_root),sort_keys=True));return
     if a.check:
         if a.output:p.error('Check does not write output')
-        rows=load(a.root,a.proof_root);print(json.dumps({'status':'PASS','aliases':len(rows),'scope':'resource and generated-header bytes only'},sort_keys=True));return
+        rows=selected_load(a.root,a.proof_root);print(json.dumps({'status':'PASS','aliases':len(rows),'scope':'resource and generated-header bytes only'},sort_keys=True));return
     if not a.output:p.error('Generation requires a new --output directory')
     target=a.output.absolute();root=a.root.resolve()
     if target.exists() or target.is_symlink() or not target.parent.is_dir() or target.resolve().is_relative_to(root):p.error('Output must be new and outside the source root')
-    data=generate(a.root,a.proof_root) # Validate every input before first output write.
+    data=selected_generate(a.root,a.proof_root) # Validate every input before first output write.
     target.mkdir()
     for name,raw in data.items():
         out=target/name;out.parent.mkdir(parents=True,exist_ok=True)

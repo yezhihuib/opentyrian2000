@@ -239,10 +239,13 @@ def main(argv=None) -> int:
     # This finite body lane is part of every current source-bound manifest,
     # including renamed copies. Unmarked historical manifests stay independent.
     body_hashes = ('8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f',
-                   '7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904')
+                   '7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904',
+                   'faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d',
+                   '5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66')
     body_marked = any(
         (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'canonical-tank194-body-reuse-v1') or
-        row.get('identity') in (1010041, 1010131) or
+        row.get('identity') in (1010041, 1010131, 1010039, 1010043) or
+        (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'canonical-tank194-extra-poses-reuse-v1') or
         any(isinstance(row.get(key), str) and row[key].casefold() in {
             prefix + digest + '.hda' for prefix in ('assets/hd/global-assets-v1/content/', 'assets/global/content/')
             for digest in body_hashes} for key in ('source_path', 'destination'))
@@ -250,9 +253,26 @@ def main(argv=None) -> int:
     if source_binding['status'] == 'PASS' or body_marked:
         from current_tank194_body_registration import validate_runtime_rows as tank194_body_rows
         tank194_body_rows(roots[0], manifest, required=True)
+        from current_tank194_source_bridge import EXTRA_CURRENT_DIGEST
+        extra_hashes = ('faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d',
+                        '5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66')
+        extra_marked = any(
+            row.get('identity') in (1010039, 1010043) or
+            (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'canonical-tank194-extra-poses-reuse-v1') or
+            any(isinstance(row.get(key), str) and row[key].casefold() in {
+                prefix + digest + '.hda' for prefix in ('assets/hd/global-assets-v1/content/', 'assets/global/content/')
+                for digest in extra_hashes} for key in ('source_path', 'destination'))
+            for row in manifest['files'])
+        current_digest = manifest.get('source_revision', {}).get('current_production_source_manifest_sha256')
+        extra_required = current_digest == EXTRA_CURRENT_DIGEST or extra_marked
+        if extra_required:
+            if current_digest != EXTRA_CURRENT_DIGEST:
+                raise ValueError('Unreviewed extra-pose package source epoch')
+            from current_tank194_extra_registration import validate_runtime_rows as tank194_extra_rows
+            tank194_extra_rows(roots[0], manifest, required=True)
         body_count = manifest.get('closure', {}).get('global_tank194_body_alias_files')
-        if type(body_count) is not int or body_count != 2:
-            raise ValueError('Current tank194 body closure requires exactly two aliases')
+        if type(body_count) is not int or body_count != (4 if extra_required else 2):
+            raise ValueError('Current tank194 body closure requires exact registered aliases')
     from current_projectile145_compatibility import validate_runtime_rows as projectile145_validate
     projectile145_validate(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
     from current_projectile61_compatibility import validate_runtime_rows as projectile61_validate

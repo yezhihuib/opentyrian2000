@@ -1,11 +1,13 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * NEW private finite owner for actual bank20 actor194, native frames91/93.
- * Reuses reviewed type15 material IDs1010041/1010131 without changing INDEX8.
+ * NEW private finite owner for actual bank20 actor194, native frames91/93 and51/55.
+ * Reuses reviewed type15 material IDs1010041/1010131 and1010039/1010043 without changing INDEX8.
  * Include after the ordinary shared owners. No projectile member bit is added.
  */
 #include "global_tank194_pins.h"
-static Uint8 *global_tank194_rgba[2],*global_tank194_ever;
+#include "global_tank194_extra_pins.h"
+static Uint8 *global_tank194_rgba[4],*global_tank194_ever;
 static bool global_tank194_loaded,global_tank194_good;
+static bool global_tank194_extra_loaded,global_tank194_extra_good;
 static unsigned global_tank194_used_resources,global_tank194_dependencies;
 static size_t global_tank194_capacity;
 static Uint32 global_tank194_output_palette[256],global_tank194_underlay_palette[256];
@@ -81,6 +83,20 @@ static bool global_tank194_source_matches(Sprite2_array bank)
  }
  return true;
 }
+static bool global_tank194_extra_source_matches(Sprite2_array bank)
+{
+ for(unsigned i=0;i<COUNTOF(global_tank194_extra_source);i++){
+  Uint8 decoded[336]={0};
+  if(!decode_tile(bank,global_tank194_extra_source[i].index,decoded,decoded+168,12,0,0)||
+   global_bytes_hash(decoded,sizeof(decoded))!=global_tank194_extra_source[i].fnv)return false;
+ }
+ return true;
+}
+static bool global_tank194_extra_palette_matches(void)
+{
+ for(unsigned i=0;i<COUNTOF(global_tank194_extra_palette);i++)if((rgb_palette[global_tank194_extra_palette[i].index]&0xffffffu)!=global_tank194_extra_palette[i].rgb)return false;
+ return true;
+}
 static bool global_tank194_palette_matches(void)
 {
  for(unsigned i=0;i<COUNTOF(global_tank194_palette);i++)if((rgb_palette[global_tank194_palette[i].index]&0xffffffu)!=global_tank194_palette[i].rgb)return false;
@@ -137,12 +153,14 @@ static bool global_tank194_surface_matches(void)
 
 
 
+static int global_tank194_member(unsigned base)
+{return base==91?0:base==93?1:base==51?2:base==55?3:-1;}
 static bool global_tank194_resources_match(unsigned used)
 {
- if(!global_tank194_good)return false;
- for(unsigned i=0;i<2;i++)if(used&(1u<<i)){
-  const GlobalAssetResource *r=global_tank194_resources+i;
-  if(r->identity!=(i?1010131u:1010041u)||r->bytes!=172060u||r->density!=8||r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||
+ if((used&~15u)||((used&3u)&&!global_tank194_good)||((used&12u)&&!global_tank194_extra_good))return false;
+ for(unsigned i=0;i<4;i++)if(used&(1u<<i)){
+  const GlobalAssetResource *r=i<2?global_tank194_resources+i:global_tank194_extra_resources+i-2;
+  if(r->identity!=(i==0?1010041u:i==1?1010131u:i==2?1010039u:1010043u)||r->bytes!=172060u||r->density!=8||r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||
    !global_tank194_rgba[i]||global_bytes_hash(global_tank194_rgba[i],172032u)!=r->payload_fnv)return false;
  }
  return true;
@@ -154,6 +172,16 @@ static bool global_tank194_family_ready(void)
   for(unsigned i=0;i<2;i++)if(!(global_tank194_rgba[i]=global_resource_load(global_tank194_resources+i)))global_tank194_good=false;
  }
  return global_tank194_resources_match(3u);
+}
+/* Extra materials are a separate readiness group. Old two-file packs remain
+ * sufficient for91/93; an unused extra-group failure is an ordinary fallback. */
+static bool global_tank194_extra_family_ready(void)
+{
+ if(!global_tank194_extra_loaded){
+  global_tank194_extra_loaded=true;global_tank194_extra_good=COUNTOF(global_tank194_extra_resources)==2;
+  for(unsigned i=0;i<2;i++)if(!(global_tank194_rgba[i+2]=global_resource_load(global_tank194_extra_resources+i)))global_tank194_extra_good=false;
+ }
+ return global_tank194_resources_match(12u);
 }
 static int global_tank194_slot(const void *ptr)
 {
@@ -220,8 +248,8 @@ static void global_tank194_reset(void)
 static void global_tank194_shutdown(void)
 {
  global_tank194_reset();
- for(unsigned i=0;i<2;i++){free(global_tank194_rgba[i]);global_tank194_rgba[i]=NULL;}
- global_tank194_loaded=global_tank194_good=false;
+ for(unsigned i=0;i<4;i++){free(global_tank194_rgba[i]);global_tank194_rgba[i]=NULL;}
+ global_tank194_loaded=global_tank194_good=global_tank194_extra_loaded=global_tank194_extra_good=false;
  free(global_tank194_owner);free(global_tank194_foreign);free(global_tank194_ever);
  global_tank194_owner=global_tank194_foreign=global_tank194_ever=NULL;global_tank194_capacity=0;
 }
@@ -337,7 +365,9 @@ static bool global_tank194_integrity(void)
  return global_tank194_requested()&&!global_tank194_fault&&global_tank194_surface_matches()&&global_tank194_final_surface_matches()&&
   b.data==global_tank194_source_lease.bank_data&&b.size==global_tank194_source_lease.bank_size&&
   global_tank194_source_matches(b)&&global_tank194_resources_match(global_tank194_used_resources)&&
-  global_tank194_palette_matches()&&global_tank194_underlay_matches()&&global_tank194_dependencies_match();
+  global_tank194_palette_matches()&&(!(global_tank194_used_resources&12u)||
+   (global_tank194_extra_source_matches(b)&&global_tank194_extra_palette_matches()))&&
+  global_tank194_underlay_matches()&&global_tank194_dependencies_match();
 }
 static bool global_tank194_identity(int x,int y,Sprite2_array bank,unsigned base,int part,int filter,const G101EnemyContext *c)
 {
@@ -347,7 +377,7 @@ static bool global_tank194_identity(int x,int y,Sprite2_array bank,unsigned base
  if(q==4||c->type!=194||c->availability!=0||c->size!=1||c->score_item||c->damaged||filter||enemyAvail[slot]!=0||
   !global_tank194_slots[slot].role||global_tank194_slots[slot].witnessed!=global_tank194_slots[slot].generation||
   !global_tank194_shape(slot)||e->enemycycle<1||e->enemycycle>e->ani||e->enemycycle>20||
-  (base!=91&&base!=93)||base!=e->egr[e->enemycycle-1]||!b.data||bank.data!=b.data||bank.size!=b.size||
+  global_tank194_member(base)<0||base!=e->egr[e->enemycycle-1]||!b.data||bank.data!=b.data||bank.size!=b.size||
   x!=(int)e->ex+(int)tempMapXOfs+(q&1?6:-6)||y!=(int)e->ey+(q>=2?7:-7))return false;
  int ox=x-(q&1?12:0),oy=y-(q>=2?14:0);
  /* The original caller must issue all four quadrants. Actual visible support
@@ -380,20 +410,29 @@ static int render_mirror_global_tank194_body(SDL_Surface *s,int x,int y,Sprite2_
  if(global_tank194_contributed&&!global_tank194_integrity())global_tank194_fail();
  if(!global_tank194_requested())return -1;
  Sprite2_array b=global_tank194_bank();
- bool candidate=(c&&c->type==194)||(b.data&&bank.data==b.data&&(base==91||base==93));
+ int member=global_tank194_member(base);
+ bool candidate=(c&&c->type==194)||(b.data&&bank.data==b.data&&member>=0);
  if(!candidate){if(global_tank194_quartet.live||global_tank194_call.live)global_tank194_fail();return -1;}
+ if(member<0){if(global_tank194_quartet.live||global_tank194_call.live)global_tank194_fail();return 0;}
  if(global_tank194_fault||!global_tank194_frame||s!=game_screen||global_tank194_call.live||
   !global_tank194_surface_matches()||!global_tank194_source_matches(bank)||!global_tank194_palette_matches()||
-  !global_tank194_underlay_matches()||!global_tank194_family_ready()||global_tank194_peer_calls_live()||suppress||vulcan_shadow.live){
+  !global_tank194_underlay_matches()||global_tank194_peer_calls_live()||suppress||vulcan_shadow.live){
   if(global_tank194_contributed||global_tank194_quartet.live)global_tank194_fail();return 0;}
+ unsigned group=member<2?3u:12u;
+ bool group_ready=member<2?global_tank194_family_ready():
+  global_tank194_extra_source_matches(bank)&&global_tank194_extra_palette_matches()&&global_tank194_extra_family_ready();
+ if(!group_ready){
+  if((global_tank194_used_resources&group)||global_tank194_quartet.live)global_tank194_fail();
+  return 0;
+ }
  bool pending=global_tank194_quartet.live;
- if(part==0&&!global_tank194_support_fits(bank,base,x,y,global_tank194_rgba[base==91?0:1])){
+ if(part==0&&!global_tank194_support_fits(bank,base,x,y,global_tank194_rgba[member])){
   if(pending)global_tank194_fail();return 0;
  }
  if(!global_tank194_identity(x,y,bank,base,part,filter,c)){if(pending)global_tank194_fail();return 0;}
  memset(&global_tank194_call,0,sizeof(global_tank194_call));
  if(!decode_tile(bank,base+(unsigned)part,global_tank194_call.source,global_tank194_call.mask,12,0,0)){global_tank194_fail();return 0;}
- unsigned member=base==91?0:1;int qx=(part==1||part==20)?12:0,qy=(part==19||part==20)?14:0;
+ int qx=(part==1||part==20)?12:0,qy=(part==19||part==20)?14:0;
  const Uint8 *rgba=global_tank194_rgba[member];
  uint64_t platform=shapesy_borrow_ready(),cyan=cyan_borrow_ready();
  font_before_effect((SDL_Rect){x,y,12,14});
@@ -596,7 +635,8 @@ static bool global_tank194_cache_source_matches(void)
  bool ok=global_tank194_requested()&&!global_tank194_fault&&!global_tank194_call.live&&!global_tank194_quartet.live&&
   global_tank194_surface_matches()&&global_tank194_final_surface_matches()&&
   b.data==global_tank194_source_lease.bank_data&&b.size==global_tank194_source_lease.bank_size&&
-  global_tank194_source_matches(b)&&global_tank194_resources_match(global_tank194_used_resources)&&global_tank194_cache_dependencies_match();
+  global_tank194_source_matches(b)&&global_tank194_resources_match(global_tank194_used_resources)&&
+  (!(global_tank194_used_resources&12u)||global_tank194_extra_source_matches(b))&&global_tank194_cache_dependencies_match();
  if(ok)for(int y=0;y<200;y++)if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)){ok=false;break;}
  return ok;
 }

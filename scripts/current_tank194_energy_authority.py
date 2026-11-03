@@ -25,8 +25,17 @@ APPROVED_HDA={146: 'd7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c63965335510
 APPROVED_SELECTION={'schema': 'opentyrian-current-tank-shell-authoring-v1', 'version': 'approved-tank-energy-pulse-v3', 'resources': [{'identity': 1220146, 'source_png': 'assets/hd/artwork/enemy-tank-shell-energy-v2/source/enemy-tank-shell-146-8x.png', 'source_sha256': '73fc3728e5c429deccac4c9ff8ca0887b7ced3eea0755d7dbb2105ccfb3a0ec7'}, {'identity': 1220147, 'source_png': 'assets/hd/artwork/enemy-tank-shell-energy-v2/source/enemy-tank-shell-147-8x.png', 'source_sha256': '5e723b3eacb1d0c43cccae9d142bad4e012046cecbf9fc009cad9c41fabfe754'}]}
 
 def verify(root, selected):
+    return _verify(root, selected, project_sources, project_runtime_rows)
+
+
+def verify_extra(root, selected):
+    from current_tank194_source_bridge import project_extra_sources, project_extra_runtime_rows
+    return _verify(root, selected, project_extra_sources, project_extra_runtime_rows)
+
+
+def _verify(root, selected, source_projector, runtime_projector):
     if selected!=APPROVED_SELECTION:raise ValueError('Unreviewed Tank energy selection')
-    sources,body_restored=project_sources(root)
+    sources,body_restored=source_projector(root)
     if HEADER not in sources:raise ValueError('Missing generated Tank header')
     del sources[HEADER]
     if len(sources)!=328:raise ValueError('Unreviewed Tank production epoch')
@@ -35,7 +44,7 @@ def verify(root, selected):
     if source_manifest_digest(sources)!=SOURCE_DIGEST:raise ValueError('Unreviewed Tank production epoch')
     if sha(read(root,REGISTRY))!=REGISTRY_SHA:raise ValueError('Unrelated registry changed')
     if source_manifest_digest({p:sha(read(root,p)) for p in BUILD_INPUTS})!=BUILD_DIGEST:raise ValueError('Build inputs changed')
-    rows=project_runtime_rows(root,json.loads(read(root,RUNTIME)))
+    rows=runtime_projector(root,json.loads(read(root,RUNTIME)))
     mutable=set(CANONICAL)|set(OLD_ALIASES)|set(NEW_ALIASES)|{BINDING}
     fixed=[row for row in rows if row['source_path'] not in mutable]
     if len(rows)!=1131 or len(fixed)!=1126 or source_manifest_digest(fixed)!=UNCHANGED_ROWS_DIGEST:raise ValueError('Unrelated runtime row changed')

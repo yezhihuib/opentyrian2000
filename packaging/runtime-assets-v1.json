@@ -13,7 +13,7 @@
       "title-menu-font-v1.hda"
     ],
     "gameplay_files": 705,
-    "global_content_hda_files": 135,
+    "global_content_hda_files": 137,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -35,7 +35,7 @@
     "global_shared_enemy_orb_protron_alias_files": 5,
     "global_shared_enemy_rgba_alias_files": 6,
     "global_shared_enemy_tank_alias_files": 2,
-    "global_tank194_body_alias_files": 2,
+    "global_tank194_body_alias_files": 4,
     "independent_shared_roots": true,
     "reconstructed_complete_menu_runs": 171,
     "shared_startup_directory": true,
@@ -82,12 +82,12 @@
   },
   "files": [
     {
-      "bytes": 49778,
+      "bytes": 50410,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "7d97f6256b85ca369dda378636e22e633ab9610d",
+      "git_blob": "92a388d81f9f2f8cf6c87011e495146400e5aa02",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "8682801358d4d294e2e5c0915252de57a0983792456edd79157bcb12344c4354",
+      "sha256": "f5cc565887bb2edcc4ccb26a179447eb13528c49d2b687c6685a3cd5afe5d371",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -7056,6 +7056,19 @@
       "source_path": "assets/hd/global-assets-v1/content/56edfc2111fd372c6466c69b7158e817c65f6f07bf73ef0a26ea83150a266ae9.hda"
     },
     {
+      "bytes": 172060,
+      "canonical_source": "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-43-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "0ef4894e9331ee9e9b9e59b2ad4b9be196e62997",
+      "group": "global-source-identity",
+      "identity": 1010043,
+      "revision": "canonical-tank194-extra-poses-reuse-v1",
+      "sha256": "5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66",
+      "source_path": "assets/hd/global-assets-v1/content/5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66.hda"
+    },
+    {
       "bytes": 43036,
       "destination": "assets/global/content/58e0c512013b9261b36d3c352fc5aee8fa1a5ca209edfe647cb808d93420b2b9.hda",
       "git_blob": "23c28d3e56086fd3810f90bd4215bb29b53b1e3c",
@@ -7909,6 +7922,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5",
       "source_path": "assets/hd/global-assets-v1/content/f763c0112a9c05a139c258451ddf622fd7f8c5bb4f6225b10d348940ac1efbb5.hda"
+    },
+    {
+      "bytes": 172060,
+      "canonical_source": "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-39-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "6ce8c59230fb5ddebbacd3d02f83f1e4a2e763df",
+      "group": "global-source-identity",
+      "identity": 1010039,
+      "revision": "canonical-tank194-extra-poses-reuse-v1",
+      "sha256": "faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d",
+      "source_path": "assets/hd/global-assets-v1/content/faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d.hda"
     },
     {
       "bytes": 43036,
@@ -10357,7 +10383,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "a656cba2dc28926be07507117d3c108e486c9cdf8495151a6dd32cf9cfd46d3a",
+    "current_production_source_manifest_sha256": "155c01a82f047251a49b358aa9cbbfde9abc2bb3695d29e98a744e90cc777aa8",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",
