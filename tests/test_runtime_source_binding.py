@@ -184,12 +184,12 @@ class BindingPreflight(unittest.TestCase):
                 self.assertEqual(entered, [])
                 self.assertFalse((self.root / 'output').exists())
 
-    def test_valid_package_reaches_unchanged_downstream_validation(self):
+    def test_valid_package_reaches_current_body_validation_before_legacy(self):
         actual_import = builtins.__import__
         class ReachedDownstream(Exception):
             pass
         def monitored(name, *args, **kwargs):
-            if name == 'current_projectile145_compatibility':
+            if name == 'current_tank194_body_registration':
                 raise ReachedDownstream
             return actual_import(name, *args, **kwargs)
         for extra in ([], ['--manifest', str(self.path)]):

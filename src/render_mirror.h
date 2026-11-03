@@ -68,6 +68,8 @@ typedef enum {
 #define render_mirror_global_rotor_body(...) (-1)
 #define render_mirror_cash25_enemy_allocated(...) ((void)0)
 #define render_mirror_rotor_enemy_allocated(...) ((void)0)
+#define render_mirror_tank194_enemy_allocated(...) ((void)0)
+#define render_mirror_tank194_enemy_initialized(...) ((void)0)
 #define render_mirror_cash25_enemy_animated(...) ((void)0)
 #define render_mirror_rotor_enemy_animated(...) ((void)0)
 #define render_mirror_cash25_enemy_initialized(...) ((void)0)
@@ -212,6 +214,8 @@ int render_mirror_global_cash25_body(SDL_Surface *,int,int,Sprite2_array,unsigne
 int render_mirror_global_rotor_body(SDL_Surface *,int,int,Sprite2_array,unsigned,int,int,const G101EnemyContext *);
 void render_mirror_cash25_enemy_allocated(void *,unsigned,int);
 void render_mirror_rotor_enemy_allocated(void *,unsigned,int);
+void render_mirror_tank194_enemy_allocated(void *,unsigned,int);
+void render_mirror_tank194_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_cash25_enemy_animated(unsigned);
 void render_mirror_rotor_enemy_animated(unsigned);
 void render_mirror_cash25_enemy_initialized(void *,unsigned,unsigned);

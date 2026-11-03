@@ -1,8 +1,8 @@
 """Finite two-PNG authoring/authority units; never full derive/build/native/game.
 PNG fixtures are the two checked-in selected inputs. Only ~0.3 MiB is copied to a
 private TemporaryDirectory. Authority units read actual source/registry/build/runtime inputs once, then
-mutate copies through an IO-only mock. All digests and fixed authority constants
-remain real. Unrelated checked_source calls are spies, not160MB asset reads.
+mutate actual finite source/metadata copies. All digests and authority readers
+remain real. Only unrelated checked_source calls are spies, not160MB asset reads.
 """
 import copy,hashlib,io,json,struct,sys,tempfile,unittest
 from contextlib import ExitStack,contextmanager
@@ -14,7 +14,10 @@ sys.path.insert(0,str(ROOT/'scripts'))
 import build_current_tank_shell as builder
 import current_tank_shell_compatibility as compatibility
 import current_enemy_tank_shared_aliases as aliases
-import current_tank_energy_authority as authority
+import current_tank194_energy_authority as authority
+import current_tank_energy_authority as legacy_authority
+import current_tank194_source_bridge as body_bridge
+import current_tank194_body_registration as body_registration
 import current_tank_muzzle_source_bridge as muzzle_bridge
 import current_warning_source_bridge as warning_bridge
 
@@ -33,7 +36,11 @@ class TankEnergyAuthoringTests(unittest.TestCase):
   # Caller may supply a small actual-byte repository fixture via ROOT; no
   # machine-specific paths or historical Git objects are required.
   cls.authority_sources=authority.source_inventory(ROOT)
-  cls.authority_raw={name:authority.read(ROOT,name)for name in {authority.REGISTRY,authority.RUNTIME,*authority.BUILD_INPUTS,*muzzle_bridge.MUZZLE_PINS,*warning_bridge.COMBINED_PINS}}
+  body_proof=body_bridge.proof(ROOT)
+  names={authority.REGISTRY,authority.RUNTIME,authority.BINDING,*authority.BUILD_INPUTS,*cls.authority_sources,
+         'packaging/frontend-validation.json','packaging/global-validation.json'}
+  names|=body_bridge.input_paths(ROOT)|{row['source_path']for row in body_proof['body_alias_rows']}
+  cls.authority_raw={name:authority.read(ROOT,name)for name in names}
  def setUp(self):
   self.temp=tempfile.TemporaryDirectory(prefix='tank-energy-unit-');self.addCleanup(self.temp.cleanup);self.root=Path(self.temp.name)
   self.selected=copy.deepcopy(authority.APPROVED_SELECTION);self.blobs={};self.mapping=[];self.pins={};self.hashes={}
@@ -139,25 +146,19 @@ class TankEnergyAuthoringTests(unittest.TestCase):
 
  @contextmanager
  def authority_unit(self,mutation=None):
-  """Actual bytes/digests; only input snapshots and unrelated asset IO mocked.
-  No sha/source_manifest_digest/constants substitution. checked_source is a spy
-  to avoid copying/reading1126 unrelated assets for each mutation unit.
-  """
-  sources=copy.deepcopy(self.authority_sources);raw=copy.deepcopy(self.authority_raw)
-  if mutation=='source':sources[next(name for name in sources if name!=compatibility.HEADER)]='0'*64
+  """Real current331 bytes and guards; only unrelated asset reads are spies."""
+  raw=copy.deepcopy(self.authority_raw)
+  if mutation=='source':raw[next(name for name in self.authority_sources if name!=compatibility.HEADER)]+=b'\n'
   elif mutation=='muzzle_bytes':raw[next(iter(muzzle_bridge.MUZZLE_PINS))]+=b'\n'
-  elif mutation=='mixed_epoch':
-   name=next(iter(muzzle_bridge.MUZZLE_PINS));sources[name]=muzzle_bridge.BASE_PINS[name]
+  elif mutation=='mixed_epoch':raw[next(iter(body_bridge.proof(ROOT)['new_source_sha256']))]+=b'\n'
   elif mutation=='registry':raw[authority.REGISTRY]+=b' changed'
   elif mutation=='build':raw[authority.BUILD_INPUTS[0]]+=b' changed'
   elif mutation=='runtime':
    runtime=json.loads(raw[authority.RUNTIME]);mutable=set(authority.CANONICAL)|set(authority.OLD_ALIASES)|set(authority.NEW_ALIASES)|{authority.BINDING}
-   row=next(row for row in runtime['files']if row['source_path']not in mutable);row['destination']='assets/unreviewed.bin';raw[authority.RUNTIME]=encode(runtime)
-  def unit_read(root,path):
-   self.assertEqual(root,self.root);return raw[path]
-  with ExitStack()as stack:
-   inventory=stack.enter_context(mock.patch.object(authority,'source_inventory',side_effect=lambda root:copy.deepcopy(sources)))
-   stack.enter_context(mock.patch.object(authority,'read',side_effect=unit_read));stack.enter_context(mock.patch.object(authority,'contained_file',side_effect=lambda root,path:root/path));checked=stack.enter_context(mock.patch.object(authority,'checked_source'))
+   row=next(row for row in runtime['files']if row['source_path']not in mutable and row.get('revision')!=body_registration.REVISION)
+   row['destination']='assets/unreviewed.bin';raw[authority.RUNTIME]=encode(runtime)
+  for name,data in raw.items():self.put(name,data)
+  with mock.patch.object(body_bridge,'source_inventory',wraps=body_bridge.source_inventory)as inventory,mock.patch.object(authority,'checked_source')as checked:
    yield inventory,checked
  def test_fixed_authority_unit_valid_checks_all_unrelated_rows(self):
   with self.authority_unit()as(inventory,checked):
@@ -185,14 +186,14 @@ class TankEnergyAuthoringTests(unittest.TestCase):
 
  def test_registered_epoch_actual_six_bytes_mutation_rejected(self):
   with self.authority_unit('muzzle_bytes')as(_,checked):
-   with self.assertRaisesRegex(ValueError,'Changed muzzle source bytes'):authority.verify(self.root,self.selected)
+   with self.assertRaisesRegex(ValueError,'production epoch'):authority.verify(self.root,self.selected)
    checked.assert_not_called()
   # The stage/apply plan binds the newly imported authority bridge as bytes,
   # not merely as an available script in the staging directory.
   import current_sidekick_body_compatibility as sidekick
-  names=('scripts/build_current_tank_shell.py','scripts/current_tank_shell_compatibility.py','scripts/current_tank_energy_authority.py','scripts/current_enemy_tank_shared_aliases.py','scripts/current_tank_muzzle_source_bridge.py','scripts/current_warning_source_bridge.py')
+  names=('scripts/build_current_tank_shell.py','scripts/current_tank_shell_compatibility.py','scripts/current_tank_energy_authority.py','scripts/current_enemy_tank_shared_aliases.py','scripts/current_tank_muzzle_source_bridge.py','scripts/current_warning_source_bridge.py','scripts/current_tank194_source_bridge.py','scripts/current_tank194_energy_authority.py','scripts/current_tank194_body_registration.py')
   for name in names:self.put(name,(ROOT/name).read_bytes())
-  for bridge_name in names[-2:]:
+  for bridge_name in names[-5:]:
    with mock.patch.object(sidekick,'authoring_input_fingerprints',side_effect=lambda root:{}):
     plan=builder.make_plan(self.root,{},encode(self.selected),authority.MODE)
     self.assertEqual(plan['inputs_sha256'][bridge_name],digest((self.root/bridge_name).read_bytes()))
@@ -204,11 +205,26 @@ class TankEnergyAuthoringTests(unittest.TestCase):
   with self.authority_unit('mixed_epoch')as(_,checked):
    with self.assertRaisesRegex(ValueError,'production epoch'):authority.verify(self.root,self.selected)
    checked.assert_not_called()
-  # The original digest branch remains exact and does not request a projection.
-  original=copy.deepcopy(self.authority_sources)
-  for name,pin in warning_bridge.MUZZLE_PINS.items():original[name]=pin
-  for name,pin in muzzle_bridge.BASE_PINS.items():original[name]=pin
-  with self.authority_unit()as(_,checked),mock.patch.object(authority,'source_inventory',return_value=original),mock.patch.object(muzzle_bridge,'project',side_effect=AssertionError('Historical branch must not project')):
-   authority.verify(self.root,self.selected);self.assertEqual(checked.call_count,1126)
+  # Old v3 must reject actual current331. Its historical branch still accepts
+  # only the exact bytes produced by the reviewed body -> warning -> muzzle inverses.
+  with self.authority_unit():
+   with self.assertRaisesRegex(ValueError,'production epoch'):legacy_authority.verify(self.root,self.selected)
+   rows=body_bridge.project_runtime_rows(self.root,json.loads((self.root/authority.RUNTIME).read_bytes()))
+   sources,restored=body_bridge.project_sources(self.root);del sources[compatibility.HEADER]
+   warn_sources,warn_raw=warning_bridge.project(sources,lambda n:restored[n]if n in restored else(self.root/n).read_bytes())
+   all_restored=dict(restored);all_restored.update(warn_raw)
+   for name in muzzle_bridge.MUZZLE_PINS:
+    raw=all_restored[name]if name in all_restored else(self.root/name).read_bytes()
+    all_restored[name]=muzzle_bridge.restore(name,raw.decode()).encode()
+   for name,raw in all_restored.items():self.put(name,raw)
+   for name in body_bridge.proof(ROOT)['new_source_sha256']:(self.root/name).unlink()
+   runtime=json.loads((self.root/authority.RUNTIME).read_bytes());runtime['files']=rows;self.put(authority.RUNTIME,encode(runtime))
+   with mock.patch.object(legacy_authority,'checked_source')as checked,mock.patch.object(muzzle_bridge,'project',side_effect=AssertionError('Historical branch must not project')):
+    legacy_authority.verify(self.root,self.selected);self.assertEqual(checked.call_count,1126)
+
+ def test_old_v3_dispatch_remains_explicit_and_separate(self):
+  with self.no_build()as run,mock.patch.object(builder,'verify_authority',side_effect=AssertionError('Historical fallback forbidden')),mock.patch.object(authority,'verify',side_effect=AssertionError('Body fallback forbidden')),mock.patch.object(legacy_authority,'verify',side_effect=GuardReached('old-v3'))as guard:
+   with self.assertRaisesRegex(GuardReached,'old-v3'):builder.derive(self.root,encode(self.selected),authority=legacy_authority.MODE)
+   guard.assert_called_once_with(self.root,self.selected);run.assert_not_called()
 
 if __name__=='__main__':unittest.main(verbosity=2)

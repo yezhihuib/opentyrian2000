@@ -252,6 +252,7 @@ int render_mirror_global_smoke(SDL_Surface *surface,int x,int y,Sprite2_array ba
   if(global_projectile91_owner)global_projectile91_owner[n]=global_projectile91_foreign[n]=0;
   global_newshf_clear(n);
   if(global_green_owner)global_green_owner[n]=global_green_foreign[n]=0;
+  global_tank194_retire(n);
   global_smoke_owner[n]=1;global_smoke_foreign[n]=foreign;hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;
   selected[(dy/d)*320+dx/d]=1;
  }

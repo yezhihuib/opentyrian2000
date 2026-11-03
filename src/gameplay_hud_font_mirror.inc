@@ -179,6 +179,7 @@ static void font_scene_begin(SDL_Surface *surface,unsigned kind,int x,int y,cons
   box.w>(kind?141:101)||box.h>(kind?10:8))return;
  if(kind==2&&(box.x!=140||box.y!=178||box.w!=34||box.h!=6||font_command_count!=7))return;
  if(!font_allocate())return;
+ global_tank194_font_begin(box);
  r->rect=box;r->surface=surface;r->pixels=surface->pixels;r->format=surface->format;r->pitch=surface->pitch;
  r->used=(unsigned)(box.w*box.h*font_density*font_density);r->canvas_live=true;r->output_live=false;
  memset(font_owner+r->offset,0,r->used);memset(font_saved_owner+r->offset,0,r->used);

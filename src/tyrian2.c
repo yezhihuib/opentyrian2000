@@ -4133,6 +4133,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 {
 	render_mirror_cash25_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_rotor_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
+	render_mirror_tank194_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_newshf_validation_allocated(enemy,eDatI,uniqueShapeTableI);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_actor_allocated(enemy,eDatI,uniqueShapeTableI);
@@ -4425,6 +4426,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 
 	render_mirror_cash25_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_rotor_enemy_initialized(enemy,eDatI,avail);
+	render_mirror_tank194_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_newshf_validation_initialized(enemy,eDatI,avail);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_actor_initialized(enemy,eDatI,avail);

@@ -235,7 +235,24 @@ def main(argv=None) -> int:
     manifest = load_manifest(manifest_path)
     # Reject cheap metadata drift before any artwork producer or output write.
     from check_runtime_source_binding import check as check_source_binding
-    check_source_binding(roots[0], manifest_path)
+    source_binding = check_source_binding(roots[0], manifest_path)
+    # This finite body lane is part of every current source-bound manifest,
+    # including renamed copies. Unmarked historical manifests stay independent.
+    body_hashes = ('8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f',
+                   '7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904')
+    body_marked = any(
+        (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'canonical-tank194-body-reuse-v1') or
+        row.get('identity') in (1010041, 1010131) or
+        any(isinstance(row.get(key), str) and row[key].casefold() in {
+            prefix + digest + '.hda' for prefix in ('assets/hd/global-assets-v1/content/', 'assets/global/content/')
+            for digest in body_hashes} for key in ('source_path', 'destination'))
+        for row in manifest['files'])
+    if source_binding['status'] == 'PASS' or body_marked:
+        from current_tank194_body_registration import validate_runtime_rows as tank194_body_rows
+        tank194_body_rows(roots[0], manifest, required=True)
+        body_count = manifest.get('closure', {}).get('global_tank194_body_alias_files')
+        if type(body_count) is not int or body_count != 2:
+            raise ValueError('Current tank194 body closure requires exactly two aliases')
     from current_projectile145_compatibility import validate_runtime_rows as projectile145_validate
     projectile145_validate(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())
     from current_projectile61_compatibility import validate_runtime_rows as projectile61_validate

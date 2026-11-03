@@ -438,6 +438,12 @@ def main():
     for destination,row in enemy_tank_shared_aliases(root).items():
         if destination in rows:raise ValueError('Finite tank alias destination collision')
         rows[destination]=dict(row)
+    # Two body aliases are separate from the old shell146/147 alias count.
+    from current_tank194_body_registration import load as tank194_body_load
+    for destination, row in tank194_body_load(root).items():
+        if destination in rows:
+            raise ValueError('Finite tank194 body alias destination collision')
+        rows[destination] = dict(row)
     add('assets/hd/global-assets-v1/registry.json','assets/global/registry.json','global-registry')
     add('packaging/global-validation.json','GLOBAL-VALIDATION.json','global-validation')
     add('packaging/current-production-validation.json','CURRENT-PRODUCTION-VALIDATION.json','current-production-validation')
@@ -463,7 +469,8 @@ def main():
     j['closure']['global_hda_files']=120
     j['closure']['global_registry_files']=1
     j['closure']['global_shared_enemy_rgba_alias_files']=6
-    j['closure']['global_content_hda_files']=133
+    j['closure']['global_content_hda_files']=135
+    j['closure']['global_tank194_body_alias_files']=2
     j['closure']['global_shared_enemy_tank_alias_files']=2
     j['closure']['global_shared_enemy_orb_protron_alias_files']=5
     j['closure']['global_families']=['Talon13','Shield22','Pulse5','Hitflare7','FrontVulcan2','WhiteSmoke7','SmallExplosion12','Cash25BodyAndValue7','Cash50BodyAndValue7','Cash75BodyAndValue7','Gem100BodyAndValue6','Gem250BodyAndValue6','Rotor5And11Eight','GreenHeadAndTrail11']

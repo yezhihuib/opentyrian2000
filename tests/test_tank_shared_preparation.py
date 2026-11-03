@@ -5,6 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 import current_enemy_tank_shared_aliases as aliases
 from current_tank_muzzle_source_bridge import INVERSE,restore
+from current_tank194_source_bridge import project_sources,project_runtime_rows
 OLD=(91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155,70,20,21,105,106,124,125,112,113,226,227,244)
 PINS={146:'d7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c639653355109afa',147:'fef0333704fd2afb69fc48a38555e2b892608d590054a9819064cf5cb7fecdbf'}
 UNCHANGED={'src/tyrian2.c': '36b756eb60ccad63b76cf194fb9dc3f30dc5c536be07fc9aaa41c971ede48911', 'src/game_probe.c': '1821fc281c91d70a69e5dbcb6cf0292aa3cb57abfc85697e5aee67b17df9b34d', 'src/entity_draw.c': 'e16290b936f6212c7ce3b6a63d758c6b66ec9a0af269ebccd2cac889c83b4529', 'src/global_green_mirror.inc': '7992448caada923a3e7a4fcc59282c4d86603a503b36dc3ac321b1d84131ca60', 'src/global_vulcan_mirror.inc': '7f07c65ae3628e81a6b0c58f322c799fc9678679ed2f1a5619d6a6acfe652c1f', 'src/enemy_reuse_mirror.inc': 'ed4dce9e3183c7d5dd31962217849ecebfa46e3fa23cc5f8afd50bc06cf34858', 'src/enemy_orb_protron_mirror.inc': '08dc1f4df62e5ec7685235bf94a0b78d423a95f3db7e0a7e1f62e55c8ccba6f7', 'src/current_tank_shell_payload_pins.h': 'c474a33b8af08d772113a015fadca77f446cb49626a66bafbf7e24357326e5f6', 'src/global_asset_registry.h': '0c96a8b30482ecc5224e73de98efbb4e2cf5bbaa3478f717bc9118cf86570b69'}
@@ -32,8 +33,13 @@ def reverse_energy_header(raw):
  return raw
 
 class TankSharedPreparation(unittest.TestCase):
+ @classmethod
+ def setUpClass(cls):
+  cls.body_inventory,cls.body_restored=project_sources(ROOT)
+ def source_bytes(self,path):
+  return self.body_restored[path]if path in self.body_restored else(ROOT/path).read_bytes()
  def src(self,name):
-  path='src/'+name;text=(ROOT/path).read_text()
+  path='src/'+name;text=self.source_bytes(path).decode()
   return restore(path,text)if path in INVERSE else text
  def test_append_only31_unsigned(self):
   source=self.src('global_projectile91_mirror.inc');pairs=[(int(a),int(b))for a,b in re.findall(r'index==(\d+)\?(\d+)u',function(source,'global_projectile91_member'))]
@@ -61,7 +67,7 @@ class TankSharedPreparation(unittest.TestCase):
  def test_old_gameplay_and_player_files_exact(self):
   pins=UNCHANGED
   for path,pin in pins.items():
-   raw=(ROOT/path).read_bytes()
+   raw=self.source_bytes(path)
    if path in INVERSE:raw=restore(path,raw.decode()).encode()
    if path=='src/current_tank_shell_payload_pins.h':raw=reverse_energy_header(raw)
    self.assertEqual(digest(raw),pin,path)
@@ -77,7 +83,7 @@ class TankSharedPreparation(unittest.TestCase):
   source=self.src('global_projectile91_mirror.inc')
   for name,pin in SHARED_FUNCTIONS.items():self.assertEqual(digest(function(source,name).encode()),pin,name)
  def test_old_package_rows_unchanged_except_binding(self):
-  rows=json.loads((ROOT/'packaging/runtime-assets-v1.json').read_bytes())['files'];old=[r for r in rows if r.get('revision')!=aliases.REVISION and r['source_path']!='packaging/current-production-validation.json'];self.assertEqual(len(old),1128)
+  rows=project_runtime_rows(ROOT,json.loads((ROOT/'packaging/runtime-assets-v1.json').read_bytes()));old=[r for r in rows if r.get('revision')!=aliases.REVISION and r['source_path']!='packaging/current-production-validation.json'];self.assertEqual(len(old),1128)
   for index,oldsha,oldblob in ((146,'18cbd40ee58fb30f19c6447d9e144a682ff25f26080c9fd85238447c2071d196','7f1215d5d6980014b7c59fd724ae69cd25c91b76'),(147,'4bc2df967eff050ef7823eacd130b7c924fc2a72b60d6a7288460595866c90da','b706c69c2cfb4e1d9ec61a5404368491cbaedf78')):
    matches=[r for r in old if r['source_path']==aliases.canonical_source(index)];self.assertEqual(len(matches),1);row=matches[0];raw=(ROOT/row['source_path']).read_bytes()
    self.assertEqual(digest(raw),PINS[index]);self.assertEqual(row['sha256'],PINS[index]);self.assertEqual(row['git_blob'],hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest());self.assertEqual(row['bytes'],43036)

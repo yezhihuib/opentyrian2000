@@ -13,7 +13,7 @@
       "title-menu-font-v1.hda"
     ],
     "gameplay_files": 705,
-    "global_content_hda_files": 133,
+    "global_content_hda_files": 135,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -35,6 +35,7 @@
     "global_shared_enemy_orb_protron_alias_files": 5,
     "global_shared_enemy_rgba_alias_files": 6,
     "global_shared_enemy_tank_alias_files": 2,
+    "global_tank194_body_alias_files": 2,
     "independent_shared_roots": true,
     "reconstructed_complete_menu_runs": 171,
     "shared_startup_directory": true,
@@ -81,12 +82,12 @@
   },
   "files": [
     {
-      "bytes": 47078,
+      "bytes": 49778,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "acfe888ebb5b84dc891140bf8f03d4dc0ec09a32",
+      "git_blob": "7d97f6256b85ca369dda378636e22e633ab9610d",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "a9b77e9c6feaac705b706f00b6aa96a0a667b691967ef237671e4a3e690eb967",
+      "sha256": "8682801358d4d294e2e5c0915252de57a0983792456edd79157bcb12344c4354",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -7199,6 +7200,19 @@
       "source_path": "assets/hd/global-assets-v1/content/7512c324cb607c492c673534991a5e05e6e0967ec5a3ee03fb27a97ce292dd60.hda"
     },
     {
+      "bytes": 172060,
+      "canonical_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-131-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "5d8e3c77821775393077a3d0d1687135eda27240",
+      "group": "global-source-identity",
+      "identity": 1010131,
+      "revision": "canonical-tank194-body-reuse-v1",
+      "sha256": "7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904",
+      "source_path": "assets/hd/global-assets-v1/content/7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904.hda"
+    },
+    {
       "bytes": 43036,
       "destination": "assets/global/content/7827f6114f3294c00be8fb73bcd1e299707439b43f5d8bdf81d97918248ab004.hda",
       "git_blob": "e6b992fc31754a75679142b1771a6ab2fc20d56c",
@@ -7282,6 +7296,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "88a24e24a1d715d0dea69085528d09baaa5a670494a854d4db58bf68d4b402b0",
       "source_path": "assets/hd/global-assets-v1/content/88a24e24a1d715d0dea69085528d09baaa5a670494a854d4db58bf68d4b402b0.hda"
+    },
+    {
+      "bytes": 172060,
+      "canonical_source": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/enemy-newsh2-41-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "e19e2a5dbebe00314bb0cb9c0e5a429c2a7fdced",
+      "group": "global-source-identity",
+      "identity": 1010041,
+      "revision": "canonical-tank194-body-reuse-v1",
+      "sha256": "8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f",
+      "source_path": "assets/hd/global-assets-v1/content/8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f.hda"
     },
     {
       "bytes": 43036,
@@ -10330,7 +10357,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "c7a9aef504a5df334a179ba3591042e4c2a805d70e521fb6a775d3a5403015d0",
+    "current_production_source_manifest_sha256": "a656cba2dc28926be07507117d3c108e486c9cdf8495151a6dd32cf9cfd46d3a",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

@@ -630,6 +630,7 @@ static const char *shapesy_edge_aa(void)
       unsigned value=(d[ch]*deck+middle[ch]*(outer-deck)+bg*(255-outer)+127)/255;color|=value<<(16-8*ch);
      }
      Uint32 *dst=(Uint32 *)((Uint8 *)canvas->pixels+gy*canvas->pitch)+gx;*dst=color;
+     global_tank194_retire((size_t)gy*canvas->w+gx);
      shapesy_borrow_mark((size_t)gy*canvas->w+gx,color);
      if(!native_water||outer){hd_owner[gy*canvas->w+gx]=1;selected[y*320+x]=1;}
     }

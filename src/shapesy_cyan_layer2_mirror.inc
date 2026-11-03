@@ -316,7 +316,7 @@ static bool cyan_tile_draw(unsigned k,int x,int y)
    const Uint8 *a=rgba+4*((cy*8+py)*192+cx*8+px);
    Uint32 *dst=(Uint32 *)((Uint8 *)canvas->pixels+(dy*8+py)*canvas->pitch)+dx*8+px;
    if(!hd_owner[n]&&!cloud_owner[n])*dst=palette_rgb(((Uint8 *)game_screen->pixels)[dy*320+dx]);
-   *dst=blend_rgba(*dst,a,a[3]);hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;
+   *dst=blend_rgba(*dst,a,a[3]);global_tank194_retire(n);hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;
    cyan_borrow_mark(n,*dst);
   }
   selected[dy*320+dx]=1;

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Edit the selected enemy shell pair once; preserve its roles and geometry.
 
-Historical mode keeps its original authority. Explicit current-tank-energy-v3
-also updates two exact global aliases and removes only the superseded private
+Historical mode and current-tank-energy-v3 keep their original authority.
+Explicit current-tank-energy-body194-v1 adds one strict source/runtime projection.
+Both energy modes also update two exact global aliases and removes only the superseded private
 aliases. No global registry additions, rotation, scaling or historical edits.
 Apply preflights every source/old/staged hash and replaces files atomically, not
 as a crash-safe multi-file transaction. Restage after interruption.
@@ -65,13 +66,16 @@ def derive(root,raw,authority="historical"):
     elif authority=='current-tank-energy-v3':
         from current_tank_energy_authority import verify as verify_current
         verify_current(root,selected)
+    elif authority=='current-tank-energy-body194-v1':
+        from current_tank194_energy_authority import verify as verify_body_current
+        verify_body_current(root,selected)
     else:raise ValueError('Unknown Tank authority')
     if read(root,LEGACY_HEADER)!=legacy_header(registry['resources']):raise ValueError('Unrelated legacy art pins changed')
     outputs={SELECTION:raw};rows=[];pins={};hashes={}
     for row in selected['resources']:
         identity=row['identity'];data,payload=source_blob(root,row);path=f'{COMPAT}/{name(identity)}'
         outputs[path]=data;pins[identity]=fnv(payload);hashes[identity]=sha(data)
-        if authority=='current-tank-energy-v3':
+        if authority in ('current-tank-energy-v3','current-tank-energy-body194-v1'):
             from current_tank_energy_authority import APPROVED_HDA
             if sha(data)!=APPROVED_HDA[identity-1220000]:raise ValueError('Unreviewed Tank energy pixels')
             outputs['assets/hd/global-assets-v1/content/'+sha(data)+'.hda']=data
@@ -97,6 +101,9 @@ def derive(root,raw,authority="historical"):
     names|={p.relative_to(root).as_posix() for p in (root/'src').rglob('*') if p.is_file() or p.is_symlink()}
     names|={p.relative_to(root).as_posix() for p in (root/'scripts').glob('*.py')}
     names|=rebuild_input_paths(root,selected)
+    if authority=='current-tank-energy-body194-v1':
+        from current_tank194_source_bridge import input_paths as body_epoch_inputs
+        names|=body_epoch_inputs(root)
     names-=removed
     validate_input_closure(root,names-set(outputs))
     with tempfile.TemporaryDirectory(prefix='tank-shell-authoring-build-') as tmp:
@@ -111,6 +118,8 @@ def derive(root,raw,authority="historical"):
         binding=json.loads(read(root,BINDING));binding['production_commit']=None
         binding['source_sha256']=source_inventory(work);binding['production_source_manifest_sha256']=source_manifest_digest(binding['source_sha256'])
         binding['scope']='Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope.'
+        if authority=='current-tank-energy-body194-v1':
+            binding['scope']+=' Includes the exact body194 source epoch and two unchanged canonical aliases; no additional native or artwork qualification.'
         outputs[BINDING]=(json.dumps(binding,indent=2,sort_keys=True)+'\n').encode();(work/BINDING).write_bytes(outputs[BINDING])
         subprocess.run([sys.executable,str(work/REBUILD),'--root',str(work),'--output',str(work/RUNTIME)],check=True,stdout=subprocess.DEVNULL)
         outputs[RUNTIME]=(work/RUNTIME).read_bytes()
@@ -123,6 +132,9 @@ def make_plan(root,outputs,raw,authority="historical"):
         from current_tank_energy_authority import obsolete
         selected=selection(root,raw)
         extra={row['source_png'] for row in selected['resources']}|{'scripts/build_current_tank_shell.py','scripts/current_tank_shell_compatibility.py','scripts/current_tank_energy_authority.py','scripts/current_enemy_tank_shared_aliases.py','scripts/current_tank_muzzle_source_bridge.py','scripts/current_warning_source_bridge.py'}
+        if authority=='current-tank-energy-body194-v1':
+            from current_tank194_source_bridge import input_paths as body_epoch_inputs
+            extra|=body_epoch_inputs(root)|{'scripts/current_tank194_source_bridge.py','scripts/current_tank194_energy_authority.py','scripts/current_tank194_body_registration.py'}
         plan['inputs_sha256'].update({name:sha(read(root,name)) for name in sorted(extra)})
         plan['authority']=authority
         plan['remove']=[dict(path=p,before_sha256=fingerprint(root,p)) for p in obsolete(root)]
@@ -166,7 +178,7 @@ def check(root,authority="historical"):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('mode',choices=('stage','apply','check'));p.add_argument('--selection',type=Path);p.add_argument('--stage',type=Path)
-    p.add_argument('--authority',choices=('historical','current-tank-energy-v3'),default='historical')
+    p.add_argument('--authority',choices=('historical','current-tank-energy-v3','current-tank-energy-body194-v1'),default='historical')
     a=p.parse_args();root=a.root.resolve()
     if a.mode=='check':result=check(root,a.authority)
     else:
