@@ -91,7 +91,7 @@ def protected_paths(policy):
         raise ValueError('Policy must be sorted and unique')
     result = sorted(set(paths) | set(EXISTING))
     digest = hashlib.sha256(('\n'.join(result) + '\n').encode('utf-8')).hexdigest()
-    if len(result) != 2256 or digest != 'fffc5c48b6ffd62bf46014c0c8032462e43b5d6cfe98230201d7efd52bc4b56d':
+    if len(result) != 2264 or digest != 'f3dec4639ec9722e7af125fa3a9d8f038f85b2f431970bcb830c2db7b71fae31':
         raise ValueError('Protected path scope changed')
     return result
 

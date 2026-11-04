@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 import current_enemy_tank_shared_aliases as aliases
 from current_tank_muzzle_source_bridge import INVERSE,restore
-from current_tank194_source_bridge import project_extra_sources as project_sources,project_extra_runtime_rows as project_runtime_rows
+from current_tank194_source_bridge import project_pose89_sources as project_sources,project_pose89_runtime_rows as project_runtime_rows
 OLD=(91,145,61,101,120,139,168,169,162,260,166,94,7,45,153,154,155,70,20,21,105,106,124,125,112,113,226,227,244)
 PINS={146:'d7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c639653355109afa',147:'fef0333704fd2afb69fc48a38555e2b892608d590054a9819064cf5cb7fecdbf'}
 UNCHANGED={'src/tyrian2.c': '36b756eb60ccad63b76cf194fb9dc3f30dc5c536be07fc9aaa41c971ede48911', 'src/game_probe.c': '1821fc281c91d70a69e5dbcb6cf0292aa3cb57abfc85697e5aee67b17df9b34d', 'src/entity_draw.c': 'e16290b936f6212c7ce3b6a63d758c6b66ec9a0af269ebccd2cac889c83b4529', 'src/global_green_mirror.inc': '7992448caada923a3e7a4fcc59282c4d86603a503b36dc3ac321b1d84131ca60', 'src/global_vulcan_mirror.inc': '7f07c65ae3628e81a6b0c58f322c799fc9678679ed2f1a5619d6a6acfe652c1f', 'src/enemy_reuse_mirror.inc': 'ed4dce9e3183c7d5dd31962217849ecebfa46e3fa23cc5f8afd50bc06cf34858', 'src/enemy_orb_protron_mirror.inc': '08dc1f4df62e5ec7685235bf94a0b78d423a95f3db7e0a7e1f62e55c8ccba6f7', 'src/current_tank_shell_payload_pins.h': 'c474a33b8af08d772113a015fadca77f446cb49626a66bafbf7e24357326e5f6', 'src/global_asset_registry.h': '0c96a8b30482ecc5224e73de98efbb4e2cf5bbaa3478f717bc9118cf86570b69'}

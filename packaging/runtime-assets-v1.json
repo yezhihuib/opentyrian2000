@@ -13,7 +13,7 @@
       "title-menu-font-v1.hda"
     ],
     "gameplay_files": 705,
-    "global_content_hda_files": 137,
+    "global_content_hda_files": 140,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -35,7 +35,7 @@
     "global_shared_enemy_orb_protron_alias_files": 5,
     "global_shared_enemy_rgba_alias_files": 6,
     "global_shared_enemy_tank_alias_files": 2,
-    "global_tank194_body_alias_files": 4,
+    "global_tank194_body_alias_files": 7,
     "independent_shared_roots": true,
     "reconstructed_complete_menu_runs": 171,
     "shared_startup_directory": true,
@@ -82,12 +82,12 @@
   },
   "files": [
     {
-      "bytes": 50410,
+      "bytes": 51833,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "92a388d81f9f2f8cf6c87011e495146400e5aa02",
+      "git_blob": "3f9aa863a630cfca0e9ec731e62441d16268b33c",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "f5cc565887bb2edcc4ccb26a179447eb13528c49d2b687c6685a3cd5afe5d371",
+      "sha256": "9ceca6d17491c76bfe82865b089c801b939c0a07080b74e0a3d3741fca78d5db",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -6694,6 +6694,19 @@
       "source_path": "assets/hd/global-assets-v1/content/032b9a95b91fe76016e28cc4416ae965743088b238a6ef1b3119c368788b7fbb.hda"
     },
     {
+      "bytes": 172060,
+      "canonical_source": "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-129-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "d0dc661b7f9f594fbf98fe93d9e0cd4281a2cb3e",
+      "group": "global-source-identity",
+      "identity": 1010129,
+      "revision": "canonical-tank194-pose89-reuse-v1",
+      "sha256": "0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56",
+      "source_path": "assets/hd/global-assets-v1/content/0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56.hda"
+    },
+    {
       "bytes": 43036,
       "destination": "assets/global/content/0378f90c069578635fe9f09f91100493156fda653757a191cfb1fade15d3d27c.hda",
       "git_blob": "c8c3209eb101ca3f893e80483de13e3981b36473",
@@ -6946,6 +6959,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "393d36c4f15a463f6799a967a71911fb0a7aa937bbcfc083497f42a138fd578a",
       "source_path": "assets/hd/global-assets-v1/content/393d36c4f15a463f6799a967a71911fb0a7aa937bbcfc083497f42a138fd578a.hda"
+    },
+    {
+      "bytes": 172060,
+      "canonical_source": "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-45-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "ba4edb248c6c60150b7ddce240f6af9d406a4dd4",
+      "group": "global-source-identity",
+      "identity": 1010045,
+      "revision": "canonical-tank194-poses15-17-reuse-v1",
+      "sha256": "3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5",
+      "source_path": "assets/hd/global-assets-v1/content/3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5.hda"
     },
     {
       "bytes": 43036,
@@ -7590,6 +7616,19 @@
       "revision": "reconstructed-local-unpublished",
       "sha256": "c7dfaef6bcdd206bf3f10b65b224a13e0f992bb69edf4f59d8001951985cf3e9",
       "source_path": "assets/hd/global-assets-v1/content/c7dfaef6bcdd206bf3f10b65b224a13e0f992bb69edf4f59d8001951985cf3e9.hda"
+    },
+    {
+      "bytes": 172060,
+      "canonical_source": "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-93-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "656926e7d299d223cbc1af8025541d9c01f414c1",
+      "group": "global-source-identity",
+      "identity": 1010093,
+      "revision": "canonical-tank194-poses15-17-reuse-v1",
+      "sha256": "c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164",
+      "source_path": "assets/hd/global-assets-v1/content/c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164.hda"
     },
     {
       "bytes": 43036,
@@ -10383,7 +10422,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "155c01a82f047251a49b358aa9cbbfde9abc2bb3695d29e98a744e90cc777aa8",
+    "current_production_source_manifest_sha256": "66d84b7ab6fc4fce626db07ac4833891d42e5643e4f06fac20b99f66d6081b6e",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

@@ -33,6 +33,16 @@ def verify_extra(root, selected):
     return _verify(root, selected, project_extra_sources, project_extra_runtime_rows)
 
 
+def verify_poses15_17(root, selected):
+    from current_tank194_source_bridge import project_poses15_17_sources, project_poses15_17_runtime_rows
+    return _verify(root, selected, project_poses15_17_sources, project_poses15_17_runtime_rows)
+
+
+def verify_pose89(root, selected):
+    from current_tank194_source_bridge import project_pose89_sources, project_pose89_runtime_rows
+    return _verify(root, selected, project_pose89_sources, project_pose89_runtime_rows)
+
+
 def _verify(root, selected, source_projector, runtime_projector):
     if selected!=APPROVED_SELECTION:raise ValueError('Unreviewed Tank energy selection')
     sources,body_restored=source_projector(root)

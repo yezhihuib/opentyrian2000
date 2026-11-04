@@ -155,12 +155,15 @@ def extra_input_paths(root):
 
 
 def project_extra_sources(root):
-    p = extra_proof(root)
-    actual = source_inventory(Path(root))
+    return _project_extra_sources(root, extra_proof(root), source_inventory(Path(root)),
+                                  lambda name: body.regular(root, name, 4 * 1024 * 1024))
+
+
+def _project_extra_sources(root, p, actual, read_source):
     if (len(actual) != 332 or actual != p['source_sha256'] or
             source_manifest_digest(actual) != EXTRA_CURRENT_DIGEST):
         raise ValueError('Unreviewed extra-pose production epoch')
-    raw = {name: body.regular(root, name, 4 * 1024 * 1024) for name in actual}
+    raw = {name: read_source(name) for name in actual}
     if any(body.sha(raw[name]) != pin for name, pin in actual.items()):
         raise ValueError('Changed extra-pose source bytes')
     inverse = p['core_inverse']
@@ -196,3 +199,146 @@ def project_extra_runtime_rows(root, manifest):
     return _project_runtime_rows(root, manifest, p, EXTRA_CURRENT_DIGEST, 1135,
                                  (body.REVISION, extra.REVISION),
                                  (body.validate_runtime_rows, extra.validate_runtime_rows))
+
+
+# A third named epoch; the two earlier public modes remain exact and separate.
+POSES15_17_MODE = 'current-tank-energy-body194-poses15-17-v1'
+POSES15_17_PROOF = 'packaging/tank194-authoring-poses15-17-epoch-v1.json'
+POSES15_17_PROOF_SHA256 = 'f147a0c73c3d20d8d83e44ceb0bfa899c3fe7c9a3bb3da28e873da1b5ab0ab3e'
+POSES15_17_CURRENT_DIGEST = '4fc438e1a4431c2ebfe57e94e13dc9453e0708959b485466fa3b7c1c79d8ea12'
+
+
+def poses15_17_proof(root):
+    raw = body.regular(root, POSES15_17_PROOF, 2 * 1024 * 1024)
+    if body.sha(raw) != POSES15_17_PROOF_SHA256:
+        raise ValueError('Unreviewed poses15/17 authoring epoch proof')
+    p = body.object_bytes(raw)
+    if p['previous_proof_path'] != EXTRA_PROOF or p['previous_proof_sha256'] != EXTRA_PROOF_SHA256:
+        raise ValueError('Changed previous extra-pose authority')
+    extra_proof(root)
+    return p
+
+
+def poses15_17_input_paths(root):
+    import current_tank194_poses15_17_registration as pair
+    poses15_17_proof(root)
+    return extra_input_paths(root) | set(pair.input_paths(root)) | {POSES15_17_PROOF}
+
+
+def project_poses15_17_sources(root):
+    return _project_poses15_17_sources(root, poses15_17_proof(root), source_inventory(Path(root)),
+                                      lambda name: body.regular(root, name, 4 * 1024 * 1024))
+
+
+def _project_poses15_17_sources(root, p, actual, read_source):
+    if (len(actual) != 333 or actual != p['source_sha256'] or
+            source_manifest_digest(actual) != POSES15_17_CURRENT_DIGEST):
+        raise ValueError('Unreviewed poses15/17 production epoch')
+    raw = {name: read_source(name) for name in actual}
+    if any(body.sha(raw[name]) != pin for name, pin in actual.items()):
+        raise ValueError('Changed poses15/17 source bytes')
+    inverse = p['core_inverse']
+    core = p['core_path']
+    if body.sha(raw[core]) != inverse['candidate_sha256']:
+        raise ValueError('Changed poses15/17 core')
+    text = raw[core].decode('utf-8')
+    for edit in reversed(inverse['edits']):
+        if edit['count'] != 1 or text.count(edit['after']) != 1:
+            raise ValueError('Missing unique poses15/17 core inverse')
+        text = text.replace(edit['after'], edit['before'], 1)
+    raw[core] = text.encode('utf-8')
+    if body.sha(raw[core]) != inverse['base_sha256']:
+        raise ValueError('Unrelated poses15/17 core change')
+    header = p['extra_header_path']
+    if body.sha(raw[header]) != p['extra_header_sha256']:
+        raise ValueError('Changed poses15/17 header before removal')
+    del raw[header]
+    previous = {name: body.sha(data) for name, data in raw.items()}
+    if source_manifest_digest(previous) != EXTRA_CURRENT_DIGEST:
+        raise ValueError('Unreviewed previous332 projection')
+    return _project_extra_sources(root, extra_proof(root), previous, raw.__getitem__)
+
+
+def project_poses15_17_runtime_rows(root, manifest):
+    import current_tank194_extra_registration as extra
+    import current_tank194_poses15_17_registration as pair
+    p = poses15_17_proof(root)
+    closure = manifest.get('closure', {}) if type(manifest) is dict else {}
+    if (type(closure) is not dict or type(closure.get('global_tank194_body_alias_files')) is not int or
+            closure['global_tank194_body_alias_files'] != 6 or
+            type(closure.get('global_content_hda_files')) is not int or closure['global_content_hda_files'] != 139):
+        raise ValueError('Expected exact six-body-alias closure')
+    return _project_runtime_rows(root, manifest, p, POSES15_17_CURRENT_DIGEST, 1137,
+                                 (body.REVISION, extra.REVISION, pair.REVISION),
+                                 (body.validate_runtime_rows, extra.validate_runtime_rows, pair.validate_runtime_rows))
+
+
+# A fourth named epoch, dependent on the exact unpublished333 source tree.
+POSE89_MODE = 'current-tank-energy-body194-pose89-v1'
+POSE89_PROOF = 'packaging/tank194-authoring-pose89-epoch-v1.json'
+POSE89_PROOF_SHA256 = '0a85d3e6496433358dca5c6e048af31d06c99e47119a10b267216a6dd38884ab'
+POSE89_CURRENT_DIGEST = '66d84b7ab6fc4fce626db07ac4833891d42e5643e4f06fac20b99f66d6081b6e'
+
+
+def pose89_proof(root):
+    raw = body.regular(root, POSE89_PROOF, 2 * 1024 * 1024)
+    if body.sha(raw) != POSE89_PROOF_SHA256:
+        raise ValueError('Unreviewed pose89 authoring epoch proof')
+    p = body.object_bytes(raw)
+    if p['previous_proof_path'] != POSES15_17_PROOF or p['previous_proof_sha256'] != POSES15_17_PROOF_SHA256:
+        raise ValueError('Changed previous poses15/17 authority')
+    poses15_17_proof(root)
+    return p
+
+
+def pose89_input_paths(root):
+    import current_tank194_pose89_registration as single
+    pose89_proof(root)
+    return poses15_17_input_paths(root) | set(single.input_paths(root)) | {POSE89_PROOF}
+
+
+def project_pose89_sources(root):
+    p = pose89_proof(root)
+    actual = source_inventory(Path(root))
+    if (len(actual) != 334 or actual != p['source_sha256'] or
+            source_manifest_digest(actual) != POSE89_CURRENT_DIGEST):
+        raise ValueError('Unreviewed pose89 production epoch')
+    raw = {name: body.regular(root, name, 4 * 1024 * 1024) for name in actual}
+    if any(body.sha(raw[name]) != pin for name, pin in actual.items()):
+        raise ValueError('Changed pose89 source bytes')
+    inverse = p['core_inverse']
+    core = p['core_path']
+    if body.sha(raw[core]) != inverse['candidate_sha256']:
+        raise ValueError('Changed pose89 core')
+    text = raw[core].decode('utf-8')
+    for edit in reversed(inverse['edits']):
+        if edit['count'] != 1 or text.count(edit['after']) != 1:
+            raise ValueError('Missing unique pose89 core inverse')
+        text = text.replace(edit['after'], edit['before'], 1)
+    raw[core] = text.encode('utf-8')
+    if body.sha(raw[core]) != inverse['base_sha256']:
+        raise ValueError('Unrelated pose89 core change')
+    header = p['extra_header_path']
+    if body.sha(raw[header]) != p['extra_header_sha256']:
+        raise ValueError('Changed pose89 header before removal')
+    del raw[header]
+    previous = {name: body.sha(data) for name, data in raw.items()}
+    if source_manifest_digest(previous) != POSES15_17_CURRENT_DIGEST:
+        raise ValueError('Unreviewed previous333 projection')
+    return _project_poses15_17_sources(root, poses15_17_proof(root), previous, raw.__getitem__)
+
+
+def project_pose89_runtime_rows(root, manifest):
+    import current_tank194_extra_registration as extra
+    import current_tank194_poses15_17_registration as pair
+    import current_tank194_pose89_registration as single
+    p = pose89_proof(root)
+    closure = manifest.get('closure', {}) if type(manifest) is dict else {}
+    if (type(closure) is not dict or type(closure.get('global_tank194_body_alias_files')) is not int or
+            closure['global_tank194_body_alias_files'] != 7 or
+            type(closure.get('global_content_hda_files')) is not int or closure['global_content_hda_files'] != 140):
+        raise ValueError('Expected exact seven-body-alias closure')
+    return _project_runtime_rows(root, manifest, p, POSE89_CURRENT_DIGEST, 1138,
+                                 (body.REVISION, extra.REVISION, pair.REVISION, single.REVISION),
+                                 (body.validate_runtime_rows, extra.validate_runtime_rows, pair.validate_runtime_rows,
+                                  single.validate_runtime_rows))

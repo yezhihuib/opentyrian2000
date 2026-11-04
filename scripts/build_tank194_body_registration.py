@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate two byte-identical aliases and pins into a new isolated directory.
+"""Generate selected byte-identical resource aliases and pins in a new directory.
 No art encoding, no originals required, no overwrite, no source-tree mutation.
 """
 import argparse,json
@@ -7,11 +7,17 @@ from pathlib import Path
 from current_tank194_body_registration import generate,load,sha,verify_original_data
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,required=True);p.add_argument('--proof-root',type=Path);p.add_argument('--output',type=Path);p.add_argument('--check',action='store_true');p.add_argument('--verify-original-data',type=Path);p.add_argument('--extra-poses',action='store_true',help='Select only the additional51/55 pair; default remains91/93');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,required=True);p.add_argument('--proof-root',type=Path);p.add_argument('--output',type=Path);p.add_argument('--check',action='store_true');p.add_argument('--verify-original-data',type=Path);group=p.add_mutually_exclusive_group();group.add_argument('--extra-poses',action='store_true',help='Select only the additional51/55 pair; default remains91/93');group.add_argument('--poses15-17',action='store_true',help='Select only the additional15/17 pair');group.add_argument('--pose89',action='store_true',help='Select only the additional89 resource');a=p.parse_args()
     selected_generate,selected_load=generate,load
     if a.extra_poses:
         if a.verify_original_data:p.error('Extra-pose registration uses public proof; original verification remains the default pair mode')
         from current_tank194_extra_registration import generate as selected_generate,load as selected_load
+    if a.poses15_17:
+        if a.verify_original_data:p.error('15/17 registration uses public proof; original verification remains the default pair mode')
+        from current_tank194_poses15_17_registration import generate as selected_generate,load as selected_load
+    if a.pose89:
+        if a.verify_original_data:p.error('89 registration uses public proof; original verification remains the default pair mode')
+        from current_tank194_pose89_registration import generate as selected_generate,load as selected_load
     if a.verify_original_data:
         if a.output or a.check:p.error('Original verification is a separate read-only mode')
         print(json.dumps(verify_original_data(a.root,a.verify_original_data,a.proof_root),sort_keys=True));return

@@ -241,11 +241,14 @@ def main(argv=None) -> int:
     body_hashes = ('8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f',
                    '7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904',
                    'faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d',
-                   '5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66')
+                   '5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66',
+                   '3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5',
+                   'c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164',
+                   '0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56')
     body_marked = any(
         (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'canonical-tank194-body-reuse-v1') or
-        row.get('identity') in (1010041, 1010131, 1010039, 1010043) or
-        (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'canonical-tank194-extra-poses-reuse-v1') or
+        row.get('identity') in (1010041, 1010131, 1010039, 1010043, 1010045, 1010093, 1010129) or
+        (isinstance(row.get('revision'), str) and row['revision'].casefold() in ('canonical-tank194-extra-poses-reuse-v1', 'canonical-tank194-poses15-17-reuse-v1', 'canonical-tank194-pose89-reuse-v1')) or
         any(isinstance(row.get(key), str) and row[key].casefold() in {
             prefix + digest + '.hda' for prefix in ('assets/hd/global-assets-v1/content/', 'assets/global/content/')
             for digest in body_hashes} for key in ('source_path', 'destination'))
@@ -253,7 +256,7 @@ def main(argv=None) -> int:
     if source_binding['status'] == 'PASS' or body_marked:
         from current_tank194_body_registration import validate_runtime_rows as tank194_body_rows
         tank194_body_rows(roots[0], manifest, required=True)
-        from current_tank194_source_bridge import EXTRA_CURRENT_DIGEST
+        from current_tank194_source_bridge import EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST
         extra_hashes = ('faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d',
                         '5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66')
         extra_marked = any(
@@ -264,14 +267,43 @@ def main(argv=None) -> int:
                 for digest in extra_hashes} for key in ('source_path', 'destination'))
             for row in manifest['files'])
         current_digest = manifest.get('source_revision', {}).get('current_production_source_manifest_sha256')
-        extra_required = current_digest == EXTRA_CURRENT_DIGEST or extra_marked
+        poses15_17_hashes = ('3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5',
+                            'c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164')
+        poses15_17_marked = any(
+            row.get('identity') in (1010045, 1010093) or
+            (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'canonical-tank194-poses15-17-reuse-v1') or
+            any(isinstance(row.get(key), str) and row[key].casefold() in {
+                prefix + digest + '.hda' for prefix in ('assets/hd/global-assets-v1/content/', 'assets/global/content/')
+                for digest in poses15_17_hashes} for key in ('source_path', 'destination'))
+            for row in manifest['files'])
+        pose89_hash = '0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56'
+        pose89_marked = any(
+            row.get('identity') == 1010129 or
+            (isinstance(row.get('revision'), str) and row['revision'].casefold() == 'canonical-tank194-pose89-reuse-v1') or
+            any(isinstance(row.get(key), str) and row[key].casefold() in {
+                prefix + pose89_hash + '.hda' for prefix in ('assets/hd/global-assets-v1/content/', 'assets/global/content/')}
+                for key in ('source_path', 'destination'))
+            for row in manifest['files'])
+        pose89_required = current_digest == POSE89_CURRENT_DIGEST or pose89_marked
+        if pose89_required:
+            if current_digest != POSE89_CURRENT_DIGEST:
+                raise ValueError('Unreviewed pose89 package source epoch')
+            from current_tank194_pose89_registration import validate_runtime_rows as tank194_pose89_rows
+            tank194_pose89_rows(roots[0], manifest, required=True)
+        poses15_17_required = current_digest in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST) or poses15_17_marked
+        if poses15_17_required:
+            if current_digest not in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST):
+                raise ValueError('Unreviewed poses15/17 package source epoch')
+            from current_tank194_poses15_17_registration import validate_runtime_rows as tank194_poses15_17_rows
+            tank194_poses15_17_rows(roots[0], manifest, required=True)
+        extra_required = current_digest in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST) or extra_marked
         if extra_required:
-            if current_digest != EXTRA_CURRENT_DIGEST:
+            if current_digest not in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST):
                 raise ValueError('Unreviewed extra-pose package source epoch')
             from current_tank194_extra_registration import validate_runtime_rows as tank194_extra_rows
             tank194_extra_rows(roots[0], manifest, required=True)
         body_count = manifest.get('closure', {}).get('global_tank194_body_alias_files')
-        if type(body_count) is not int or body_count != (4 if extra_required else 2):
+        if type(body_count) is not int or body_count != (7 if pose89_required else 6 if poses15_17_required else 4 if extra_required else 2):
             raise ValueError('Current tank194 body closure requires exact registered aliases')
     from current_projectile145_compatibility import validate_runtime_rows as projectile145_validate
     projectile145_validate(roots[0],manifest,manifest_path.resolve()==(roots[0]/'packaging/runtime-assets-v1.json').resolve())

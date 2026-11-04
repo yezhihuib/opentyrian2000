@@ -1507,8 +1507,12 @@ tests/fixtures/portable-history-v1/blobs/* -whitespace
 /packaging/start-hd.sh -text
 /packaging/tank194-authoring-epoch-v1.json -text
 /packaging/tank194-authoring-extra-poses-epoch-v1.json -text
+/packaging/tank194-authoring-pose89-epoch-v1.json -text
+/packaging/tank194-authoring-poses15-17-epoch-v1.json -text
 /packaging/tank194-body-source-proof-v1.json -text
 /packaging/tank194-extra-pose-material-proof-v1.json -text
+/packaging/tank194-pose89-material-proof-v1.json -text
+/packaging/tank194-poses15-17-material-proof-v1.json -text
 /prototype/build-shapesy-contour-materials.py -text
 /prototype/build-shapesy-platform-art.py -text
 /scripts/build_current_aircraft169_newshf.py -text
@@ -1623,6 +1627,8 @@ tests/fixtures/portable-history-v1/blobs/* -whitespace
 /scripts/current_tank194_body_registration.py -text
 /scripts/current_tank194_energy_authority.py -text
 /scripts/current_tank194_extra_registration.py -text
+/scripts/current_tank194_pose89_registration.py -text
+/scripts/current_tank194_poses15_17_registration.py -text
 /scripts/current_tank194_source_bridge.py -text
 /scripts/current_tank_energy_authority.py -text
 /scripts/current_tank_muzzle_source_bridge.py -text
@@ -1839,6 +1845,8 @@ tests/fixtures/portable-history-v1/blobs/* -whitespace
 /src/global_tank194_body_mirror.inc -text
 /src/global_tank194_extra_pins.h -text
 /src/global_tank194_pins.h -text
+/src/global_tank194_pose89_pins.h -text
+/src/global_tank194_poses15_17_pins.h -text
 /src/global_vulcan_mirror.inc -text
 /src/ground101_bundle_index.h -text
 /src/ground101_material.c -text

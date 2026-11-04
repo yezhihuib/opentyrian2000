@@ -1,0 +1,197 @@
+{
+  "additional_palette": [
+    {
+      "index": 16,
+      "rgb": "100800"
+    },
+    {
+      "index": 116,
+      "rgb": "860400"
+    }
+  ],
+  "bank20_fnv": "e2413e3aeab4d908",
+  "bank20_sha256": "4bd9a72339e30440c172e385f258c8895b516ff84026a9a6b5a65ada4cf0ab90",
+  "base_commit": "c2d7a1b73f0307eda4099212e4fc49811c3447aa",
+  "base_tree": "723070a14182b98dc1a2e6b0ef0884bbd2036292",
+  "deferred_frames": [
+    89
+  ],
+  "excluded_frames": [
+    13
+  ],
+  "members": [
+    {
+      "base": 15,
+      "canonical_material": {
+        "bytes": 172060,
+        "git_blob": "ba4edb248c6c60150b7ddce240f6af9d406a4dd4",
+        "header": [
+          1010045,
+          8,
+          24,
+          28,
+          6,
+          7
+        ],
+        "path": "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-45-8.hda",
+        "payload_fnv": "33f828b2c95baa5a",
+        "payload_sha256": "50c2a1d850bf2a3a5c9fe78680828d10b7e3356ecdde570dbfac1a32eb8598d1",
+        "sha256": "3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5"
+      },
+      "cycle": 2,
+      "indices_sha256": "a769f06ed657a9a38d1e18315334c04d5d721eb70179fbc222c6cc2185c26198",
+      "mask_sha256": "0ef7992316b5f95cca21882404c34f802aa61edee36988ddfe2528b9609ce636",
+      "member": 4,
+      "native_covered_cells": 161,
+      "source_tiles": [
+        {
+          "decoded_indices_then_coverage_fnv": "965f3d9ae6b143c9",
+          "decoded_sha256": "8eeebb93bda84bb8377246e74cfe46de0e62b7febc3acd2956115d3f123fbbc5",
+          "index": 15,
+          "raw_end_exclusive": 2709,
+          "raw_offset": 2631,
+          "raw_rle_sha256": "b9b2bbe72a96a8b28040ed7d341e6668cb2fb4330007dbd29ea559eb1aee2a69"
+        },
+        {
+          "decoded_indices_then_coverage_fnv": "d60abafdb343b7d3",
+          "decoded_sha256": "7547551b5a8206cc562838b5ab903f43879dc05c28feec884bb89cf30656ebb2",
+          "index": 16,
+          "raw_end_exclusive": 2775,
+          "raw_offset": 2709,
+          "raw_rle_sha256": "1d67d637d819a4e087fb249bb6da3eea04938d5d557857d4ed7623bf4dc1571a"
+        },
+        {
+          "decoded_indices_then_coverage_fnv": "e7221e36bebfda3f",
+          "decoded_sha256": "6d96f20e5e3fa49b6c762c9d5f1ed4a1fe83e9299d1508ac375f527245107e7f",
+          "index": 34,
+          "raw_end_exclusive": 5083,
+          "raw_offset": 5034,
+          "raw_rle_sha256": "8434c341378f86e90b540806c7c596b356593eecf4b1e3ad7946fdfc979d3132"
+        },
+        {
+          "decoded_indices_then_coverage_fnv": "839491559a77c563",
+          "decoded_sha256": "f10667fdedbe764a271b209773fd62e436c429f2d56c9d3b17acd8f056660bc2",
+          "index": 35,
+          "raw_end_exclusive": 5127,
+          "raw_offset": 5083,
+          "raw_rle_sha256": "80b10958bae22e87dfeca8e21f111657895ca6de4ed01d84dac4f2352103e848"
+        }
+      ],
+      "used_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        16,
+        21,
+        22,
+        23,
+        24,
+        25,
+        116,
+        162,
+        163
+      ]
+    },
+    {
+      "base": 17,
+      "canonical_material": {
+        "bytes": 172060,
+        "git_blob": "656926e7d299d223cbc1af8025541d9c01f414c1",
+        "header": [
+          1010093,
+          8,
+          24,
+          28,
+          6,
+          7
+        ],
+        "path": "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-93-8.hda",
+        "payload_fnv": "c8296a713b1af965",
+        "payload_sha256": "e0211943ebbb71735c3a1e6f8854fd2c1a97116d3a7c5a280ce6d58ec2fced58",
+        "sha256": "c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164"
+      },
+      "cycle": 3,
+      "indices_sha256": "22abf69165edafb02d6acbc15bd468f6878c2098eafa246a77d2485bbc478f53",
+      "mask_sha256": "df2393fbc54c2f223a94ba7ef08c0c409a7b22a66826e5bafc418fe87e75c12b",
+      "member": 5,
+      "native_covered_cells": 142,
+      "source_tiles": [
+        {
+          "decoded_indices_then_coverage_fnv": "7c59c8a88ba4071d",
+          "decoded_sha256": "c55aac39e6117b2a3618117aa7067a0517d35cfa7e3d62d717770be0525cc9f3",
+          "index": 17,
+          "raw_end_exclusive": 2820,
+          "raw_offset": 2775,
+          "raw_rle_sha256": "915adaa3760fab2624839595a954433e6fd7d2c64ac95de27af48c968a539850"
+        },
+        {
+          "decoded_indices_then_coverage_fnv": "f4731134e80f860b",
+          "decoded_sha256": "a8ccbfd0415d9df8045b6c7fd541b935fec8f930bf10baf06aa2d1d7baf7d2b4",
+          "index": 18,
+          "raw_end_exclusive": 2903,
+          "raw_offset": 2820,
+          "raw_rle_sha256": "183dae38f0a9ac53e681e004346e8349ea37ec98c449ed1a0cbb61379b60bc39"
+        },
+        {
+          "decoded_indices_then_coverage_fnv": "ab3ed7e7556b7571",
+          "decoded_sha256": "8fcad70a6c92e79e05b3cdf9d758f189caa70b8542440b47dc44ce576186c7d5",
+          "index": 36,
+          "raw_end_exclusive": 5170,
+          "raw_offset": 5127,
+          "raw_rle_sha256": "a1b85147a2d5c48a93f3de425d2aed8432aef0252ff676c6e0c94eb38367be5b"
+        },
+        {
+          "decoded_indices_then_coverage_fnv": "9d850eb2269aa6b1",
+          "decoded_sha256": "7100068d7ec0120c94ae9616372becc9b8797003a36aaf9eeeb2edd2a2d1b70e",
+          "index": 37,
+          "raw_end_exclusive": 5210,
+          "raw_offset": 5170,
+          "raw_rle_sha256": "fde35b17e3b01d30efaed96e52e2f5c020c0329f20eb28958e86707e4ae6bd68"
+        }
+      ],
+      "used_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        16,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        116,
+        162,
+        163
+      ]
+    }
+  ],
+  "new_member_order": [
+    15,
+    17
+  ],
+  "note": "Existing91/93 and51/55 headers remain byte-identical. Third pair independently requires16/116, not10. Source/material identities are verified; actual225/226 live palette and visibility remain pending.",
+  "record194_fnv": "a9beba644b307039",
+  "record194_sha256": "4dea8c644837b7347103a2d5afe31c906ce45291a29dfbfa9746b34007e1115d",
+  "retained_member_order": [
+    91,
+    93,
+    51,
+    55
+  ],
+  "scope": "Private finite runtime15/17 extension only; no authoring/package or new runtime qualification. No original game data bytes included.",
+  "source_contract_sha256": "37c7ba94bcc337165acc07fef8f7b3b44a1bec2f8604cc9a83d50eeae37996ea"
+}
