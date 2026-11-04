@@ -2278,3 +2278,64 @@ tests/fixtures/portable-history-v1/blobs/* -whitespace
 /tests/widget_sonic_native_validation.py -text
 /visualc/opentyrian.vcxproj -text
 # END EXACT BYTE-PRESERVATION PATHS
+
+# Preserve private terrain23 source, finite proofs and authored inputs byte-exact.
+# BEGIN TERRAIN23 EXACT BYTE-PRESERVATION PATHS
+/.gitattributes -text
+/assets/hd/artwork/shapesz-terrain23-v1/OUTPUT-PINS.json -text
+/assets/hd/artwork/shapesz-terrain23-v1/cliff12/PROVENANCE.json -text
+/assets/hd/artwork/shapesz-terrain23-v1/cliff12/prompt-cliff-v1.txt -text
+/assets/hd/artwork/shapesz-terrain23-v1/cliff12/raw-cliff-v1.png -text
+/assets/hd/artwork/shapesz-terrain23-v1/corner366/PROVENANCE.json -text
+/assets/hd/artwork/shapesz-terrain23-v1/corner366/prompt.txt -text
+/assets/hd/artwork/shapesz-terrain23-v1/corner366/raw-v1.png -text
+/assets/hd/artwork/shapesz-terrain23-v1/ground10/PROVENANCE.json -text
+/assets/hd/artwork/shapesz-terrain23-v1/ground10/prompt-family-v2.txt -text
+/assets/hd/artwork/shapesz-terrain23-v1/ground10/raw-family-v2.png -text
+/assets/hd/current-terrain23/terrain-shapesz-361-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-362-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-363-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-364-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-365-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-366-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-367-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-368-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-371-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-372-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-373-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-374-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-375-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-376-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-378-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-380-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-381-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-382-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-383-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-386-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-387-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-388-8.hda -text
+/assets/hd/current-terrain23/terrain-shapesz-390-8.hda -text
+/docs/terrain23/AUTHORING.md -text
+/docs/terrain23/REGISTRATION.md -text
+/packaging/terrain23-authoring-epoch-v1.json -text
+/requirements-terrain23-authoring.txt -text
+/scripts/build_current_terrain23.py -text
+/scripts/build_terrain23_registration.py -text
+/scripts/current_terrain23_registration.py -text
+/scripts/current_terrain23_source_bridge.py -text
+/src/private_cliff_family.inc -text
+/src/private_corner366.inc -text
+/src/private_ground_family.inc -text
+/tests/test_terrain23_authoring.py -text
+/tests/test_terrain23_checkout.py -text
+/tests/test_terrain23_registration.py -text
+# END TERRAIN23 EXACT BYTE-PRESERVATION PATHS
+
+# BEGIN TERRAIN24 EXACT BYTE-PRESERVATION PATHS
+/assets/hd/current-terrain24/terrain-shapesz-340-8.hda -text
+/packaging/terrain24-authoring-epoch-v1.json -text
+/scripts/current_terrain24_registration.py -text
+/scripts/current_terrain24_source_bridge.py -text
+/src/private_static340.inc -text
+/tests/test_terrain24_registration.py -text
+# END TERRAIN24 EXACT BYTE-PRESERVATION PATHS

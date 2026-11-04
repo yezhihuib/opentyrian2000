@@ -12,7 +12,7 @@
       "settings-font-tiny-v1.hda",
       "title-menu-font-v1.hda"
     ],
-    "gameplay_files": 705,
+    "gameplay_files": 729,
     "global_content_hda_files": 141,
     "global_families": [
       "Talon13",
@@ -45,7 +45,20 @@
       235,
       199
     ],
-    "startup_files": 9
+    "startup_files": 9,
+    "terrain23_atomic_groups": {
+      "cliff12": 12,
+      "corner366": 1,
+      "ground10": 10
+    },
+    "terrain23_files": 23,
+    "terrain24_atomic_groups": {
+      "cliff12": 12,
+      "corner366": 1,
+      "ground10": 10,
+      "static340": 1
+    },
+    "terrain24_files": 24
   },
   "excluded": [
     "assets/hd/artwork/**",
@@ -82,12 +95,12 @@
   },
   "files": [
     {
-      "bytes": 53604,
+      "bytes": 55697,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "da7d716a594ba6029544c6c1a84eb14738fe858a",
+      "git_blob": "fb64a5ceaa272e7f2b6409d86502c54da0456dd9",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "378b78caa87fa745856601e1fe2f89f490584e68af95f3e578ef0e3610a6868d",
+      "sha256": "5f9925c665d37a7b6c185c3737190d953bb11099378316bd92e5966d2f8cf457",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -6263,6 +6276,15 @@
     },
     {
       "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-340-8.hda",
+      "git_blob": "8e3bef264ae27216e240866928374783948186d2",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain24-v1",
+      "sha256": "8ffb9abc063632f90edbb420c059b015df3a122dad16e6e69260fe138200786f",
+      "source_path": "assets/hd/current-terrain24/terrain-shapesz-340-8.hda"
+    },
+    {
+      "bytes": 172060,
       "destination": "assets/gameplay/terrain-shapesz-341-8.hda",
       "git_blob": "e54f0d3da092d95605d11cf38f7b8e0cd1938cd7",
       "group": "gameplay",
@@ -6326,12 +6348,147 @@
     },
     {
       "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-361-8.hda",
+      "git_blob": "32f623f333a87fd559a7a5ed7b3d5c38c55b2ffe",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "a20f02a759c2884c83ba0d18cbe44e9904f696adfa49dd5e726466ef189e2750",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-361-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-362-8.hda",
+      "git_blob": "f4c1034e8d422078127fdb32bfb7112e8cf8bd7c",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "1de419778e98e15e05566be926243c72dbefb4b6372af02b7c38719ae44cdf8e",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-362-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-363-8.hda",
+      "git_blob": "4bd425e54c1b83615279d30c178c7a934bae90c0",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "3c454caf59c61548c2a61213f226e95145856d5a41a3a0e183aa3c05a3dcea64",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-363-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-364-8.hda",
+      "git_blob": "95880393a57bdd577be10788e89a1be925366482",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "9316fbf422afe2daab11d70c03dbacbf5a6acc2a1bee5ea4272d65f591f1e3c4",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-364-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-365-8.hda",
+      "git_blob": "7d9117319bd4ee4b7709acc543947527bbf78d61",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "20add347057cd273b8b8f2c03b07173582be990d3ab4c152515f8a9371bfb047",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-365-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-366-8.hda",
+      "git_blob": "7ccabd9d195b6e2daf196cfb2ad22a86c8cea9b0",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "2619106d050582418ee339be9f4df7f0a73ed7f30d9dfe36aedef2038115b2b1",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-366-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-367-8.hda",
+      "git_blob": "2277eb2a54a98de5cfd435edd965c1beab73799f",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "4052ccab0fe192e6ec2c3fd5c475005196d8392897f166fd818fdd529bea285a",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-367-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-368-8.hda",
+      "git_blob": "b9bb26a303bc22a1f2f074605b33f728e3a13f2b",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "5a75aca6f2a95fa7300746cfb27f828eda5b37e0b5ce75acee2338afa96dd099",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-368-8.hda"
+    },
+    {
+      "bytes": 172060,
       "destination": "assets/gameplay/terrain-shapesz-37-8.hda",
       "git_blob": "47d2b1153ff71dacd0661bcb02e68e82550ce4e3",
       "group": "gameplay",
       "revision": "reconstructed-local-unpublished",
       "sha256": "69a79fffbcff1180ec3d7d8089259810405e022479c662a39ba9ba5a65e0de79",
       "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-37-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-371-8.hda",
+      "git_blob": "ffeb26f565bfeba016b055106fa6913e68dd5321",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "4b9c91faa79c473068f2fb6066fef45a3f108c90d786e1ec3db8bd4e8a3c1596",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-371-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-372-8.hda",
+      "git_blob": "eec0922f3d5ef868e06e82250da4df24626ace14",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "4eb33827ff90c31f8a4a009c69b239f47dbf1d3dbbb52156e298c6add0503e63",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-372-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-373-8.hda",
+      "git_blob": "d957518e8c59ae9778532666ede9f6b51c6917f9",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "54ce1a965b9336d14bade90858a69c7bff969f46b73d1cca30c0cc8683811132",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-373-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-374-8.hda",
+      "git_blob": "7dd6a4a9e83d9373165c240b365a5f6b10192664",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "008f4e106935a68b2f825e5065a169a74773125a9fad8ac8c05b63439d1b78e2",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-374-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-375-8.hda",
+      "git_blob": "ca2b627a27bd9e368502207ebc0c9df50420ca7f",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "e7608c155bb9e7989d8e7fb5e80041b6c003cf57b23091ebbabb1c5e86ac0c07",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-375-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-376-8.hda",
+      "git_blob": "f1e76d19cc3476a39e73d1949ac29366af9f3e84",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "a55a1e30ec623c1c9b2e4c607c92be48d1033b3505ea062108d1092b12d72035",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-376-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-378-8.hda",
+      "git_blob": "b4b42e09dd8736b0c4471147f7fff27e0a088203",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "389a7af4d980bc6639043df184c8cdbc866389e5db4665b04a50d6189fec6f6c",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-378-8.hda"
     },
     {
       "bytes": 172060,
@@ -6344,12 +6501,84 @@
     },
     {
       "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-380-8.hda",
+      "git_blob": "ed5682895506613e9fe3a421817ef0f9dac933a0",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "1a11522209be4236be795873f12382fd86a543ad96deafae860cad8455b7168c",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-380-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-381-8.hda",
+      "git_blob": "f404e409bc2ac09a661f82de892e598ef027163c",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "ec414f5c260767032f65ba0d7b8c16cfe156f568bca716c1a1b21620d56ba777",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-381-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-382-8.hda",
+      "git_blob": "7cd6608f0cda59495acb2e0ef4e2631b375c3e47",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "c3089ec29195424c49d87496e7f7da1e4b6bceb0c6435fcef8f09514ca6ca8bf",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-382-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-383-8.hda",
+      "git_blob": "6fbcaa6d30f939923ad24541d9cc8eff2e072b33",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "eb7a3beb4104c220b23820447744b54d82bbb5c7d3b642f5010c59b1b778920f",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-383-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-386-8.hda",
+      "git_blob": "2863e8bb46b7a5cb715bea48dedacc2a922ec1f0",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "e56b66ed92c71f5d320205f45908fb44b10cdb03a76fe6cb7f02e77fbcc95bcf",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-386-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-387-8.hda",
+      "git_blob": "d0e3f1ea2b4caf8b059f1268771ab4f1cf831bcf",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "bf2d66a66e7ae7685eb791c44be658eee4f7d3bda01f7bf1dc478ecff089a7ce",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-387-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-388-8.hda",
+      "git_blob": "6ed1f3dd33f9a7f417a99211f350fbd5ccf1fb09",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "d7986876a5f4091f7d9e61d6d7ec8af0a2c405725e668c176408630b7e40fa59",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-388-8.hda"
+    },
+    {
+      "bytes": 172060,
       "destination": "assets/gameplay/terrain-shapesz-39-8.hda",
       "git_blob": "84f21890f78fa9c57056786fbc2d83a4d2a8c6fd",
       "group": "gameplay",
       "revision": "reconstructed-local-unpublished",
       "sha256": "5ef34310067b2f67c8ade82fc4eb30fc693991eb18c4948ac41b2c50a600eb8e",
       "source_path": "assets/hd/packs/packed-talon13-foundation-type10-death-effects-white-smoke-shield-green-v2-head-v1-test/terrain-shapesz-39-8.hda"
+    },
+    {
+      "bytes": 172060,
+      "destination": "assets/gameplay/terrain-shapesz-390-8.hda",
+      "git_blob": "2060365caeacfda66bb0c3385dfb190a7acea398",
+      "group": "gameplay",
+      "revision": "current-shapesz-terrain23-v1",
+      "sha256": "19f9fc5d27a71f690d8b646a0420127af941388dd4d59753edc65848dd8c5eba",
+      "source_path": "assets/hd/current-terrain23/terrain-shapesz-390-8.hda"
     },
     {
       "bytes": 172060,
@@ -10435,7 +10664,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "48411cd0be1e370a19a09e7711b868e854a7c6338733932356d3695cd31aa6f9",
+    "current_production_source_manifest_sha256": "90ba617c3827677b5d550e407791819e288765f649691a0626d30caff2d37541",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",
@@ -10446,6 +10675,8 @@
     "public_assets": "fedc541cc6b6e93f7748a85e6c40318b6ca9f5a8",
     "reconstruction": "Public63a89b33e4ee3f287b422df0ea986b907941cedd plus independently verified shared UI/frontend and fourteen globally source-authenticated player/effect/weapon families; see separate validation records",
     "shield_integration": "local accepted source; no commit assigned",
-    "shop_static_art": "User accepted 2026-10-21 06:55:18 UTC; exact normalized RGBA encoded in SQC1"
+    "shop_static_art": "User accepted 2026-10-21 06:55:18 UTC; exact normalized RGBA encoded in SQC1",
+    "terrain23_epoch": "current-shapesz-terrain23-v1",
+    "terrain24_epoch": "current-shapesz-terrain24-v1"
   }
 }

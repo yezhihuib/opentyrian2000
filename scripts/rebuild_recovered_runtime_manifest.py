@@ -55,6 +55,14 @@ def main():
     if a.output.resolve()==base:raise ValueError('Output must not overwrite pinned base manifest')
     current=json.loads((root/'packaging/current-production-validation.json').read_text())
     verify(root,current)
+    # Keep current/new binding intact; project only old alias selection policy.
+    import current_terrain23_source_bridge as terrain23
+    import current_terrain24_source_bridge as terrain24
+    terrain_bridge = terrain24 if terrain24.requires_terrain(root, current=current) else terrain23
+    terrain_epoch = (terrain_bridge.verify_source_epoch(root)
+                     if terrain_bridge.requires_terrain(root, current=current) else None)
+    policy_digest = (terrain_epoch['projected_body_policy_epoch'] if terrain_epoch is not None
+                     else current.get('production_source_manifest_sha256'))
     j=json.loads(base.read_text());rows={}
     art_compat={}
     for family in PROFILES:
@@ -445,33 +453,38 @@ def main():
             raise ValueError('Finite tank194 body alias destination collision')
         rows[destination] = dict(row)
     from current_tank194_source_bridge import EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST
-    extra_body = current.get('production_source_manifest_sha256') in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
+    extra_body = policy_digest in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
     if extra_body:
         from current_tank194_extra_registration import load as tank194_extra_load
         for destination, row in tank194_extra_load(root).items():
             if destination in rows:
                 raise ValueError('Finite extra-pose alias destination collision')
             rows[destination] = dict(row)
-    poses15_17_body = current.get('production_source_manifest_sha256') in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
+    poses15_17_body = policy_digest in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
     if poses15_17_body:
         from current_tank194_poses15_17_registration import load as tank194_poses15_17_load
         for destination, row in tank194_poses15_17_load(root).items():
             if destination in rows:
                 raise ValueError('Finite poses15/17 alias destination collision')
             rows[destination] = dict(row)
-    pose89_body = current.get('production_source_manifest_sha256') in (POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
+    pose89_body = policy_digest in (POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
     if pose89_body:
         from current_tank194_pose89_registration import load as tank194_pose89_load
         for destination, row in tank194_pose89_load(root).items():
             if destination in rows:
                 raise ValueError('Finite pose89 alias destination collision')
             rows[destination] = dict(row)
-    pose13_body = current.get('production_source_manifest_sha256') in (POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
+    pose13_body = policy_digest in (POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
     if pose13_body:
         from current_tank194_pose13_registration import load as tank194_pose13_load
         for destination, row in tank194_pose13_load(root).items():
             if destination in rows:
                 raise ValueError('Finite pose13 alias destination collision')
+            rows[destination] = dict(row)
+    if terrain_epoch is not None:
+        for destination, row in terrain_bridge.terrain.load(root).items():
+            if destination in rows:
+                raise ValueError('Finite terrain23 destination collision')
             rows[destination] = dict(row)
     add('assets/hd/global-assets-v1/registry.json','assets/global/registry.json','global-registry')
     add('packaging/global-validation.json','GLOBAL-VALIDATION.json','global-validation')
@@ -503,6 +516,15 @@ def main():
     j['closure']['global_shared_enemy_tank_alias_files']=2
     j['closure']['global_shared_enemy_orb_protron_alias_files']=5
     j['closure']['global_families']=['Talon13','Shield22','Pulse5','Hitflare7','FrontVulcan2','WhiteSmoke7','SmallExplosion12','Cash25BodyAndValue7','Cash50BodyAndValue7','Cash75BodyAndValue7','Gem100BodyAndValue6','Gem250BodyAndValue6','Rotor5And11Eight','GreenHeadAndTrail11']
+    if terrain_epoch is not None:
+        j['source_revision']['terrain23_epoch'] = 'current-shapesz-terrain23-v1'
+        j['closure']['terrain23_files'] = 23
+        j['closure']['terrain23_atomic_groups'] = {'ground10': 10, 'cliff12': 12, 'corner366': 1}
+        if terrain_bridge is terrain24:
+            j['source_revision']['terrain24_epoch'] = 'current-shapesz-terrain24-v1'
+            j['closure']['terrain24_files'] = 24
+            j['closure']['terrain24_atomic_groups'] = {'ground10': 10, 'cliff12': 12, 'corner366': 1, 'static340': 1}
+        terrain_bridge.validate_runtime_rows(root, j, required=True)
     a.output.write_bytes((json.dumps(j,indent=2,sort_keys=True)+'\n').encode('utf-8'))
     print(json.dumps({'files':len(rows),'bytes':sum(x['bytes'] for x in rows.values()),'output':str(a.output)}))
 if __name__=='__main__':main()

@@ -1,0 +1,18 @@
+{
+  "c2pa_container_and_marker_present": true,
+  "c2pa_cryptographic_verification": false,
+  "lineage": {
+    "description": "Built-in image generation edit of the prior generated v1 atlas using the original ten-tile atlas as brightness/geometry reference. Selected output is v2-calibrated, not uncalibrated v2.",
+    "original_reference_sha256": "d45d1b29b43d4be567f6da0ef89be06a6ada9b46c1811aa277a9bc888d6fd903",
+    "previous_prompt_sha256": "48a727a9ad43fac8a39c77e3ba63c069dbead137b2bc5f3f7d99113cf37858a9",
+    "previous_raw_sha256": "ad357ee51e7e5d69e9d684a5b7fcd2c1e926ea60f5e85e7309383ad29161447a",
+    "reference_images_distributed": false
+  },
+  "prompt": "prompt-family-v2.txt",
+  "prompt_sha256": "1f1caa2e84288fdd1035e9dcbc5c7144e257d7de0a9a2f373d6bfd949d3fdbab",
+  "raw": "raw-family-v2.png",
+  "raw_preserved_byte_for_byte": true,
+  "raw_sha256": "14c51a8b55e21846de4afabcb06c8ea61559b7148cddca1ce1d7f7b38bd389fe",
+  "scope": "Private stable terrain23 candidate. Raw is a source-referenced derivative, not a claim of independent geometry or cleared redistribution rights. Prompt is provenance, not a deterministic way to regenerate these raw bytes.",
+  "tool": "built-in image generation"
+}

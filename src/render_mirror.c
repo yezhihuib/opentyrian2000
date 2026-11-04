@@ -85,7 +85,7 @@ static void enemy_reuse_observe_frame_result(bool,const char *);
 enum { ASSET_NEWSH2=101, ASSET_NEWSH4=102, ASSET_NEWSHE=110, ASSET_TALON_BANK=109, ASSET_SHAPESZ=201, ASSET_SHAPESY_PLATFORM=202, ASSET_SHAPESY_CYAN=203, ASSET_EXPLOSION=106, ASSET_ENEMY_ENERGY=111, ASSET_CASH25_BODY=112, ASSET_CASH25_VALUE=113, ASSET_CASH75_BODY=114, ASSET_CASH75_VALUE=115, ASSET_CASH50_BODY=116, ASSET_CASH50_VALUE=117, ASSET_GEM100_BODY=118, ASSET_GEM100_VALUE=119, ASSET_GEM250_BODY=120, ASSET_GEM250_VALUE=121, ASSET_ENEMY_TANK_SHELL=122, ASSET_REAR534_BODY=123, ASSET_DATA513_BODY=124, ASSET_PROTRON_SHADOW=125, ASSET_MARLO_BODY=126, ASSET_MINT_BODY=127, ASSET_FRONTBLASTER_BODY=128, ASSET_PLASMA_BODY=129, ASSET_PLASMA_PROJECTILE=130, ASSET_REAR_MULTI_P1=131, ASSET_DATA_VALUE=132, ASSET_FIXED_PICKUP_FLASH=133, ASSET_SECRET_EXIT_ORB=134, ASSET_ASTEROID1_NEWSHP=135, ASSET_ASTEROID1_NEWSHS=136, ASSET_ASTEROID1_TRIPLE275=137, ASSET_ASTEROID1_COLUMNS276=138, ASSET_ASTEROID1_TURRET273=139, ASSET_ASTEROID1_PROJECTILE304=140, ASSET_ASTEROID1_FIRING270=141, ASSET_ASTEROID1_ENEMY_ORB112113=142, ASSET_ASTEROID1_FIRING285=143, ASSET_ASTEROID1_TERRAIN144=144, ASSET_CHARGE_BODY=145, ASSET_ENEMY_PROTRON_P09_MATERIAL=147, ASSET_ENEMY_PROJECTILE91=149, ASSET_ENEMY_PROJECTILE145=150, ASSET_ENEMY_PROJECTILE61=151, ASSET_ENEMY_BLUE_TRIPLET=152, ASSET_ENEMY_GOLD_PULSE=153, ASSET_ENEMY_STATICS=154, ASSET_ENEMY_PULSES16694=155, ASSET_ENEMY_BOLTS745=156, ASSET_ENEMY_ANIMATED153=157, ASSET_ASTEROID1=108 };
 /* Roads220..226,235..236; installation231..234 and underlay237..240 stay unchanged. */
 /* Slots 507..509 are rear534; slots 510..521 are Data513. */
-static Asset assets[576];
+static Asset assets[600];
 static void plasma_art_reset(void);
 static void rear_p1_frame(void);
 static void rear_p1_shutdown(void);
@@ -177,8 +177,12 @@ void render_mirror_reset_banking(void)
 void render_mirror_set_talon_banking(bool enabled)
 {talon_banking_enabled=enabled;render_mirror_reset_banking();}
 static char terrain_file;
-static struct {const Uint8 *data;unsigned int id;} terrain_sources[199];
+static struct {const Uint8 *data;unsigned int id;} terrain_sources[216];
 static unsigned int terrain_source_count;
+static bool private_ground_source_fault;
+static bool private_cliff_source_fault;
+static bool private_corner_source_fault;
+static bool private_static340_source_fault;
 static bool forest_registry_ok=true;
 static SDL_Surface *canvas,*output;
 static SDL_Surface *fade_saved;
@@ -4351,7 +4355,7 @@ bool render_mirror_enemy_tile(SDL_Surface *surface,int x,int y,Sprite2_array ban
 #include "shapesy_cyan_layer2_mirror.inc"
 
 void render_mirror_map_begin(char shape_file)
-{render_mirror_global_reset();shapesy_map_reset();cyan_map_reset();terrain144_map_reset(0,shape_file);render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;forest_registry_ok=true;render_mirror_reset_banking();}
+{render_mirror_global_reset();shapesy_map_reset();cyan_map_reset();terrain144_map_reset(0,shape_file);render_mirror_rear_p1_reset();plasma_art_reset();ground101_frame_reset();terrain_file=shape_file=='Z'?'z':shape_file;terrain_source_count=0;private_ground_source_fault=false;private_cliff_source_fault=false;private_corner_source_fault=false;private_static340_source_fault=false;forest_registry_ok=true;render_mirror_reset_banking();}
 /* Only shapesZ layer2 cloud IDs; no renderer/filter or game-state changes. */
 static int cloud_terrain_slot(unsigned int id)
 {
@@ -4454,11 +4458,25 @@ static int layer3_linked31_slot(unsigned int id)
  for(int i=0;i<4;i++)if(id==ids[i])return 374+i;
  return -1;
 }
+
+#include "private_ground_family.inc"
+#include "private_cliff_family.inc"
+#include "private_corner366.inc"
+#include "private_static340.inc"
+
 void render_mirror_bind_terrain(unsigned int layer,unsigned int id,const Uint8 *data)
 {
  terrain144_bind(layer,id,data);
  shapesy_bind(layer,id,data);cyan_bind(layer,id,data);
- if(terrain_file=='z'&&((layer==1&&(forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0||layer3_circuit_slot(id)>=0||layer3_mechanical_slot(id)>=0||layer3_linked31_slot(id)>=0)))&&terrain_source_count<199) {
+ if(terrain_file=='z'&&layer==1&&id==340&&
+    (!private_static340_source_matches(id,data)||terrain_source_count>=216))private_static340_source_fault=true;
+ if(terrain_file=='z'&&layer==1&&id==366&&
+    (!private_corner_source_matches(id,data)||terrain_source_count>=216))private_corner_source_fault=true;
+ if(terrain_file=='z'&&layer==1&&private_cliff_member(id)>=0&&
+    (!private_cliff_source_matches(id,data)||terrain_source_count>=216))private_cliff_source_fault=true;
+ if(terrain_file=='z'&&layer==1&&private_ground_member(id)>=0&&
+    (!private_ground_source_matches(id,data)||terrain_source_count>=216))private_ground_source_fault=true;
+ if(terrain_file=='z'&&((layer==1&&((private_static340_source_matches(id,data))||(private_corner_source_matches(id,data))||(private_cliff_source_matches(id,data))||(private_ground_source_matches(id,data))||forest_terrain_slot(id)>=0||grass_sand_slot(id)>=0||stone_foundation_slot(id)>=0||terrain_holes_slot(id)>=0||road_terrain_slot(id)>=0||underlay_terrain_slot(id)>=0||plateau_terrain_slot(id)>=0||ground_terrain_slot(id)>=0||id==101||id==37||id==57||id==49||id==50||id==321||id==322||id==331||id==332))||(layer==2&&cloud_terrain_slot(id)>=0)||(layer==3&&(layer3_gray_slot(id)>=0||layer3_purple_slot(id)>=0||layer3_circuit_slot(id)>=0||layer3_mechanical_slot(id)>=0||layer3_linked31_slot(id)>=0)))&&terrain_source_count<216) {
   terrain_sources[terrain_source_count].data=data;
   terrain_sources[terrain_source_count++].id=id;
  }
@@ -4527,7 +4545,13 @@ unsigned int render_mirror_terrain_row(SDL_Surface *surface,int x,int y,Uint8 **
   unsigned int id=0;
   for(unsigned int k=0;k<terrain_source_count;k++)if(map[tile]&&map[tile]==terrain_sources[k].data) {id=terrain_sources[k].id;break;}
   if(!id)continue;
-  int slot=cloud_terrain_slot(id);
+  if(id==340&&(style!=MIRROR_NORMAL||!private_static340_ready()||!private_static340_source_matches(id,map[tile])))continue;
+  if(id==366&&(style!=MIRROR_NORMAL||!private_corner_ready()||!private_corner_source_matches(id,map[tile])))continue;
+  int cg=private_cliff_member(id);
+  if(cg>=0&&(style!=MIRROR_NORMAL||!private_cliff_ready()||!private_cliff_source_matches(id,map[tile])))continue;
+  int pg=private_ground_member(id);
+  if(pg>=0&&(style!=MIRROR_NORMAL||!private_ground_ready()||!private_ground_source_matches(id,map[tile])))continue;
+  int slot=id==340?599:id==366?598:cg>=0?586+cg:pg>=0?576+pg:cloud_terrain_slot(id);
   if(slot>=0&&style==MIRROR_BLEND)continue; /* Preserve original palette-blended clouds. */
   int ground_slot=ground_terrain_slot(id);
   int plateau_slot=plateau_terrain_slot(id);
@@ -5194,6 +5218,7 @@ static void shared_hud_finish(MirrorOutputKind kind,int lightx,int lighty)
  for(int y=0;y<200;y++)memcpy(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320);
  ready=last_output_valid;shared_hud_frame=false;
 }
+
 
 void render_mirror_finish(MirrorOutputKind kind,int lightx,int lighty)
 {

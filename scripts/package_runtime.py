@@ -236,6 +236,12 @@ def main(argv=None) -> int:
     # Reject cheap metadata drift before any artwork producer or output write.
     from check_runtime_source_binding import check as check_source_binding
     source_binding = check_source_binding(roots[0], manifest_path)
+    # Terrain inheritance is local alias policy, never a replacement current binding.
+    import current_terrain23_source_bridge as terrain23
+    import current_terrain24_source_bridge as terrain24
+    terrain_bridge = terrain24 if terrain24.requires_terrain(roots[0], manifest) else terrain23
+    terrain_epoch = (terrain_bridge.validate_runtime_rows(roots[0], manifest, required=True)
+                     if terrain_bridge.requires_terrain(roots[0], manifest) else None)
     # This finite body lane is part of every current source-bound manifest,
     # including renamed copies. Unmarked historical manifests stay independent.
     body_hashes = ('8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f',
@@ -268,6 +274,8 @@ def main(argv=None) -> int:
                 for digest in extra_hashes} for key in ('source_path', 'destination'))
             for row in manifest['files'])
         current_digest = manifest.get('source_revision', {}).get('current_production_source_manifest_sha256')
+        policy_digest = (terrain_epoch['projected_body_policy_epoch']
+                         if terrain_epoch is not None else current_digest)
         poses15_17_hashes = ('3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5',
                             'c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164')
         poses15_17_marked = any(
@@ -285,9 +293,9 @@ def main(argv=None) -> int:
                 prefix + pose13_hash + '.hda' for prefix in ('assets/hd/global-assets-v1/content/', 'assets/global/content/')}
                 for key in ('source_path', 'destination'))
             for row in manifest['files'])
-        pose13_required = current_digest in (POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST) or pose13_marked
+        pose13_required = policy_digest in (POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST) or pose13_marked
         if pose13_required:
-            if current_digest not in (POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST):
+            if policy_digest not in (POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST):
                 raise ValueError('Unreviewed pose13 package source epoch')
             from current_tank194_pose13_registration import validate_runtime_rows as tank194_pose13_rows
             tank194_pose13_rows(roots[0], manifest, required=True)
@@ -299,21 +307,21 @@ def main(argv=None) -> int:
                 prefix + pose89_hash + '.hda' for prefix in ('assets/hd/global-assets-v1/content/', 'assets/global/content/')}
                 for key in ('source_path', 'destination'))
             for row in manifest['files'])
-        pose89_required = current_digest in (POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST) or pose89_marked
+        pose89_required = policy_digest in (POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST) or pose89_marked
         if pose89_required:
-            if current_digest not in (POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST):
+            if policy_digest not in (POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST):
                 raise ValueError('Unreviewed pose89 package source epoch')
             from current_tank194_pose89_registration import validate_runtime_rows as tank194_pose89_rows
             tank194_pose89_rows(roots[0], manifest, required=True)
-        poses15_17_required = current_digest in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST) or poses15_17_marked
+        poses15_17_required = policy_digest in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST) or poses15_17_marked
         if poses15_17_required:
-            if current_digest not in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST):
+            if policy_digest not in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST):
                 raise ValueError('Unreviewed poses15/17 package source epoch')
             from current_tank194_poses15_17_registration import validate_runtime_rows as tank194_poses15_17_rows
             tank194_poses15_17_rows(roots[0], manifest, required=True)
-        extra_required = current_digest in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST) or extra_marked
+        extra_required = policy_digest in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST) or extra_marked
         if extra_required:
-            if current_digest not in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST):
+            if policy_digest not in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST):
                 raise ValueError('Unreviewed extra-pose package source epoch')
             from current_tank194_extra_registration import validate_runtime_rows as tank194_extra_rows
             tank194_extra_rows(roots[0], manifest, required=True)

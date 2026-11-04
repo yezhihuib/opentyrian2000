@@ -25,10 +25,11 @@
     "Bank8 7/45 namespace156 payloads encode palette indices, not fixed RGB. Native and assisted scene qualifications are separate; this source binding records candidate bytes only, not a historical PASS.",
     "Bank8 enemy153/154/155 namespace157 uses three independent indexed payloads. Explicit153 authored coverage73/76 leaves native cells(y5,x0..2) transparent; original simulation/collision masks remain76/88/76. Candidate source binding ONLY: new native/gameplay/scene validation NOT RUN, scene visual acceptance PENDING; previous receipts retain their original scope.",
     "Enemy normal bank8/70 adds one independent finite admission/lease for exact existing canonical RGBA asset80070. Player role/cache/assets remain unchanged; 110 alpha texels outside original46-cell mask remain within the original12x14 tile and use the existing shared RGBA owner, not a new spillover algorithm. Exact live source indices113-124 RGB gate is required. Candidate source binding ONLY: new native and natural E5p4 scene validation NOT RUN; no live palette match or gameplay/visual acceptance claimed.",
-    "Tank194 body registration adds two unchanged canonical HDR1 aliases. The runtime manifest preserves all previous asset rows. Only the331 source bytes, existing build inputs/historical receipts, finite body recipe and two added resources are byte-verified in this bounded refresh; the other runtime assets have not been re-read."
+    "Tank194 body registration adds two unchanged canonical HDR1 aliases. The runtime manifest preserves all previous asset rows. Only the331 source bytes, existing build inputs/historical receipts, finite body recipe and two added resources are byte-verified in this bounded refresh; the other runtime assets have not been re-read.",
+    "Terrain23 candidate binding only: exact capture-free338 src files and existing build/historical inputs, finite1162 metadata preservation and23 immutable terrain resources are checked separately. The1117 missing old payloads are not re-read or qualified. No full package, compilation, new game run, GPU, campaign or publication acceptance is implied. The unchanged cliff loader retains1008 original-derived reconstructible mask bytes; caller-owned original data is required for authoring and is not bundled."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "48411cd0be1e370a19a09e7711b868e854a7c6338733932356d3695cd31aa6f9",
+  "production_source_manifest_sha256": "90ba617c3827677b5d550e407791819e288765f649691a0626d30caff2d37541",
   "reviewed_charge_body_changes": {
     "files": [
       "src/entity_draw.c",
@@ -266,7 +267,7 @@
     "source_files": 1
   },
   "schema": "opentyrian-current-production-binding-v1",
-  "scope": "Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope. Finite actor194/frame93 birth-bound Tank147 visual registration (+1,-1), retaining original indexed writes and simulation coordinates. Fixed WARNING face-only third font context composed with the existing Tank147 registration; source binding only, combined runtime validation remains external. Reconstructed finite tank194 body uses two byte-identical existing public materials under the ordinary NEWSHF_HD_COMPOSITOR=0 renderer. This receipt binds exact current331 source bytes and public registration metadata only; native/scene qualifications remain separate. Exact extra51/55 reuse extends the body to four poses with independently ready resource pairs. This receipt binds current332 source bytes and four unchanged canonical aliases only; native/scene and authoring qualifications remain separate. Exact15/17 reuse extends the body to six poses with three independently ready resource pairs. This receipt binds current333 source bytes and six unchanged canonical aliases only; native/scene and authoring qualifications remain separate. Exact89 reuse extends the body to seven poses with an independent single resource. This receipt binds current334 source bytes and seven unchanged canonical aliases only; it depends on the unpublished333-source treeaaa41373 and is not publication authority. Deliberate13 visual adaptation extends the body to eight poses with an independent single resource. Native13 differs from donor bank1/91 in12 cells; native INDEX8 stays unchanged. This receipt binds actual335 source bytes and eight unchanged canonical material aliases; it depends on unpublished334 tree2df416d4 and is not publication authority. Top-only clipping changes one body core source while preserving all335 source paths, eight canonical materials and1139 runtime rows. This actual335 receipt is distinct from the prior335 pose13 receipt and depends on its unpublished tree766a2b09; no publication authority is implied.",
+  "scope": "Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope. Finite actor194/frame93 birth-bound Tank147 visual registration (+1,-1), retaining original indexed writes and simulation coordinates. Fixed WARNING face-only third font context composed with the existing Tank147 registration; source binding only, combined runtime validation remains external. Reconstructed finite tank194 body uses two byte-identical existing public materials under the ordinary NEWSHF_HD_COMPOSITOR=0 renderer. This receipt binds exact current331 source bytes and public registration metadata only; native/scene qualifications remain separate. Exact extra51/55 reuse extends the body to four poses with independently ready resource pairs. This receipt binds current332 source bytes and four unchanged canonical aliases only; native/scene and authoring qualifications remain separate. Exact15/17 reuse extends the body to six poses with three independently ready resource pairs. This receipt binds current333 source bytes and six unchanged canonical aliases only; native/scene and authoring qualifications remain separate. Exact89 reuse extends the body to seven poses with an independent single resource. This receipt binds current334 source bytes and seven unchanged canonical aliases only; it depends on the unpublished333-source treeaaa41373 and is not publication authority. Deliberate13 visual adaptation extends the body to eight poses with an independent single resource. Native13 differs from donor bank1/91 in12 cells; native INDEX8 stays unchanged. This receipt binds actual335 source bytes and eight unchanged canonical material aliases; it depends on unpublished334 tree2df416d4 and is not publication authority. Top-only clipping changes one body core source while preserving all335 source paths, eight canonical materials and1139 runtime rows. This actual335 receipt is distinct from the prior335 pose13 receipt and depends on its unpublished tree766a2b09; no publication authority is implied. Private terrain24 successor binds exact339 production files; prior terrain23_binding remains a historical ancestor record. All23 prior terrain bytes and contracts remain unchanged; only the independently guarded static340 slot599 lane is added. This binding is not complete package, Windows, GPU, or campaign acceptance.",
   "source_manifest_encoding": "UTF-8 JSON of source_sha256 only, sort_keys=True, separators=(comma,colon), ensure_ascii=True, no newline",
   "source_sha256": {
     "src/animlib.c": "1340570680ddff3fac80e34785f511657888d72430b47724330331d8c0b7a1de",
@@ -533,12 +534,16 @@
     "src/player.h": "f1c5d26624d1c2b86531e620908701a1a2bfe22a902f4f760672ae52f06446b6",
     "src/pregame_font.c": "106facbec6c610c7758589df59875c14fdf43de2055bbe8aef60b4349f79db7f",
     "src/pregame_font.h": "5d8a1a74967522a0c7d93ff6015b1938e1870a810d5be01c525d45bfe0eca59d",
+    "src/private_cliff_family.inc": "93b96237ce14fc12df23f5cf0714b05839e20a5791ed4e8426bd5228a3d0c2c1",
+    "src/private_corner366.inc": "4b0fe5468f78ad2fc2456fe1e55452fff21589f3d7f62685d898579935d00637",
+    "src/private_ground_family.inc": "497d6e0b8a53e3cd3676bfd1190c880969a7bb24f00edd2592912fd0078511ad",
+    "src/private_static340.inc": "c75b49710f418f3c898b4216fab87a9a09f3b172a663008af5b817c76a6c3521",
     "src/rear_multi_p1.c": "335afe02b0830d082335a4f55e850976c905ba977d65a1a146b2d1a9def232f7",
     "src/rear_multi_p1.h": "b905f8c0530cb0783d2258b855aa8d650f70a586927623faabda6f6f7187c048",
     "src/rear_multi_p11_shadow.inc": "60635f8c2723e7cbba341baf7d4853486d7d850c795a55f02a0cc46a36b02fbb",
     "src/rear_multi_p1_mirror.inc": "b231643815d8e867dd2e01a48c05cb345c251fba1952e9fc7edc24a27c6b144c",
     "src/rear_multi_p1_pins.h": "773d88e3287b44036885804b5d70c6fc6d633a9893504b200891c1509981ffa7",
-    "src/render_mirror.c": "a501a2b8514e73bd114b12614ef46484896b00649928e20d75ded18a04543be6",
+    "src/render_mirror.c": "80f9a1f0312cb57dc41cfda73730ff650a065c59963c3ef423e9d1d4d0e3eeba",
     "src/render_mirror.h": "b0d133231d7e5a9d074d9589971bf747f550762a47ae2589b2674b60eeb4bd5d",
     "src/render_mirror_asteroid_linked338.inc": "738c8c88a7383ca363427b814594f4a0ed8404929dad3188e2d4bde5d2dd5ee0",
     "src/secret_exit_orb.c": "fe0b50818365d5a009bd3db77681a1a2db2fc61bfc889c1f2bc41c9a95f79180",
@@ -604,5 +609,25 @@
     "src/world_material_fast.h": "73462afc02ebc1d2792ea9678c8061ff89e67df8485ffeb8f20cd295892f270b",
     "src/xmas.c": "81510a3554b71e4c1a587b557bbc2c153fcb7c9377b65db0f36f0a4e346cfb7d",
     "src/xmas.h": "fd90770e44fe968fc02207a8bea43bfd6adc00c58a12eaa18d5938dcab0874fd"
+  },
+  "terrain23_binding": {
+    "capture_helper_present": false,
+    "epoch": "current-shapesz-terrain23-v1",
+    "full_package_acceptance": "NOT_ACCEPTED_MISSING_OLD_PAYLOADS",
+    "proof_path": "packaging/terrain23-authoring-epoch-v1.json",
+    "source_binding_only": true,
+    "source_files": 338
+  },
+  "terrain24_binding": {
+    "capture_helper_present": false,
+    "epoch": "current-shapesz-terrain24-v1",
+    "full_package_acceptance": false,
+    "original23_unchanged": true,
+    "predecessor_binding_sha256": "3786445e8c74870400332171bb4f43d38ceaa039455d89435a32e77161f116a1",
+    "predecessor_source_manifest_sha256": "133a44d0b97da36afcfc0520781843c033d23612c5c77d522acad5bba6c99ffa",
+    "proof_path": "packaging/terrain24-authoring-epoch-v1.json",
+    "source_binding_only": true,
+    "source_files": 339,
+    "static340_slot": 599
   }
 }
