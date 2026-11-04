@@ -3,8 +3,10 @@
 No full producer, full package, artwork derivation, compiler or native execution.
 Optional TANK194_EXTRA_PACKAGE_ROOT supplies a repository-layout current fixture;
 TANK194_V1_TEST_ROOT, TANK194_EXTRA_V1_TEST_ROOT and
-TANK194_POSES15_17_V1_TEST_ROOT supply actual frozen331/332/333 trees.
-The333-source baseline is unpublished, not a claimed public commit.
+TANK194_POSES15_17_V1_TEST_ROOT, TANK194_POSE89_V1_TEST_ROOT and
+TANK194_POSE13_V1_TEST_ROOT supply actual frozen331/332/333/334/335 trees.
+The333/334/335-source baselines are unpublished. Current335 has a distinct
+topclip core epoch; all eight material contracts and their counts are unchanged.
 """
 import ast,builtins,copy,json,os,shutil,sys,tempfile,unittest
 from pathlib import Path
@@ -13,6 +15,8 @@ ROOT=Path(os.environ.get('TANK194_EXTRA_PACKAGE_ROOT',Path(__file__).resolve().p
 OLD_ROOT=os.environ.get('TANK194_V1_TEST_ROOT')
 EXTRA_ROOT=os.environ.get('TANK194_EXTRA_V1_TEST_ROOT')
 POSES_ROOT=os.environ.get('TANK194_POSES15_17_V1_TEST_ROOT')
+POSE89_ROOT=os.environ.get('TANK194_POSE89_V1_TEST_ROOT')
+POSE13_ROOT=os.environ.get('TANK194_POSE13_V1_TEST_ROOT')
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 import package_runtime as PACK
 import verify_current_production as V
@@ -20,7 +24,8 @@ import check_runtime_source_binding as C
 import current_tank194_body_registration as B
 import current_tank194_extra_registration as X
 import current_tank194_poses15_17_registration as Y
-import current_tank194_pose89_registration as E
+import current_tank194_pose89_registration as Z
+import current_tank194_pose13_registration as E
 import current_tank194_source_bridge as BR
 
 class ReachedDownstream(Exception):pass
@@ -43,11 +48,11 @@ class ExtraPackage(unittest.TestCase):
             with self.assertRaises(ReachedDownstream if success else (ValueError,OSError)):PACK.main(argv)
         self.assertEqual(seen,['current_projectile145_compatibility'] if success else [])
         self.assertFalse(output.exists())
-    def test_actual334_raw_metadata_and_source_pins(self):
-        self.assertEqual(V.verify(self.root,self.receipt),334)
-        self.assertEqual(C.check(self.root,self.path)['declared_source_files'],334)
-        self.assertEqual(self.receipt['production_source_manifest_sha256'],BR.POSE89_CURRENT_DIGEST)
-        self.assertEqual(V.source_inventory(self.root),BR.pose89_proof(self.root)['source_sha256'])
+    def test_actual_topclip335_raw_metadata_and_source_pins(self):
+        self.assertEqual(V.verify(self.root,self.receipt),335)
+        self.assertEqual(C.check(self.root,self.path)['declared_source_files'],335)
+        self.assertEqual(self.receipt['production_source_manifest_sha256'],BR.TOPCLIP_CURRENT_DIGEST)
+        self.assertEqual(V.source_inventory(self.root),BR.topclip_proof(self.root)['source_sha256'])
         binding=next(r for r in self.manifest['files'] if r['destination']==C.DESTINATION);raw=(self.root/C.SOURCE).read_bytes()
         self.assertEqual((binding['bytes'],binding['sha256'],binding['git_blob']),(len(raw),B.sha(raw),B.blob(raw)))
         for name in ['src/global_tank194_body_mirror.inc',E.HEADER]:
@@ -55,28 +60,28 @@ class ExtraPackage(unittest.TestCase):
             with self.subTest(name=name),self.assertRaises(ValueError):V.verify(self.root,self.receipt)
             p.write_bytes(raw)
     def test_all1130_unrelated_rows_match_prior_public_digest(self):
-        projected=BR.project_pose89_runtime_rows(self.root,self.manifest)
+        projected=BR.project_topclip_runtime_rows(self.root,self.manifest)
         fixed=[r for r in projected if r['source_path']!=BR.BINDING]
-        self.assertEqual(len(self.manifest['files']),1138);self.assertEqual(len(projected),1131);self.assertEqual(len(fixed),1130)
-        old=BR.proof(self.root);extra=BR.pose89_proof(self.root)
+        self.assertEqual(len(self.manifest['files']),1139);self.assertEqual(len(projected),1131);self.assertEqual(len(fixed),1130)
+        old=BR.proof(self.root);extra=BR.topclip_proof(self.root)
         self.assertEqual(V.source_manifest_digest(fixed),old['projected_nonbinding_rows_sha256'])
         self.assertEqual(extra['projected_nonbinding_rows_sha256'],old['projected_nonbinding_rows_sha256'])
-        self.assertEqual(self.manifest['closure']['global_tank194_body_alias_files'],7)
-        self.assertEqual(self.manifest['closure']['global_content_hda_files'],140)
+        self.assertEqual(self.manifest['closure']['global_tank194_body_alias_files'],8)
+        self.assertEqual(self.manifest['closure']['global_content_hda_files'],141)
         self.assertEqual(self.manifest['closure']['global_shared_enemy_tank_alias_files'],2)
-        changed=copy.deepcopy(self.manifest);row=next(r for r in changed['files'] if r['source_path']!=BR.BINDING and r.get('revision') not in (B.REVISION,X.REVISION,Y.REVISION,E.REVISION));row['bytes']+=1
-        with self.assertRaises(ValueError):BR.project_pose89_runtime_rows(self.root,changed)
+        changed=copy.deepcopy(self.manifest);row=next(r for r in changed['files'] if r['source_path']!=BR.BINDING and r.get('revision') not in (B.REVISION,X.REVISION,Y.REVISION,Z.REVISION,E.REVISION));row['bytes']+=1
+        with self.assertRaises(ValueError):BR.project_topclip_runtime_rows(self.root,changed)
     def test_default_explicit_and_renamed_actual_package_gate(self):
         self.package_boundary();self.package_boundary(manifest=self.path)
         renamed=self.root/'renamed-runtime.json';self.save(self.manifest,renamed);self.package_boundary(manifest=renamed)
         alias=self.root/E.rows_for(self.root)[0]['source_path'];alias.unlink()
         for path in [None,self.path,renamed]:
             with self.subTest(path=str(path)):self.package_boundary(manifest=path,success=False)
-    def test_wrong_epoch_count_and_absent_new_resource_cannot_fallback(self):
+    def test_wrong_epoch_count_and_absent_retained_resource_cannot_fallback(self):
         cases=[]
-        for digest in [BR.CURRENT_DIGEST,BR.EXTRA_CURRENT_DIGEST,BR.POSES15_17_CURRENT_DIGEST]:
+        for digest in [BR.CURRENT_DIGEST,BR.EXTRA_CURRENT_DIGEST,BR.POSES15_17_CURRENT_DIGEST,BR.POSE89_CURRENT_DIGEST,BR.POSE13_CURRENT_DIGEST]:
             bad=copy.deepcopy(self.manifest);bad['source_revision'][C.DIGEST]=digest;cases.append(bad)
-        for count in [None,True,2,4,6,8]:
+        for count in [None,True,2,4,6,7,9]:
             bad=copy.deepcopy(self.manifest);bad['closure']['global_tank194_body_alias_files']=count;cases.append(bad)
         bad=copy.deepcopy(self.manifest);bad['files']=[r for r in bad['files'] if r.get('revision')!=E.REVISION];cases.append(bad)
         for i,manifest in enumerate(cases):
@@ -90,19 +95,19 @@ class ExtraPackage(unittest.TestCase):
         start=next(i for i,n in enumerate(main.body) if isinstance(n,ast.ImportFrom) and n.module=='current_tank194_source_bridge')
         stop=next(i for i,n in enumerate(main.body[start:],start) if isinstance(n,ast.Expr) and isinstance(n.value,ast.Call) and isinstance(n.value.func,ast.Name) and n.value.func.id=='add')
         nodes=main.body[start:stop]
-        self.assertEqual(sum(isinstance(n,ast.If) for n in nodes),3)
+        self.assertEqual(sum(isinstance(n,ast.If) for n in nodes),4)
         self.assertTrue(all(isinstance(n,(ast.ImportFrom,ast.Assign,ast.If)) for n in nodes))
         keys={'global_content_hda_files','global_tank194_body_alias_files','global_shared_enemy_tank_alias_files'}
         counts=[n for n in main.body if isinstance(n,ast.Assign) and len(n.targets)==1 and isinstance(n.targets[0],ast.Subscript) and isinstance(n.targets[0].slice,ast.Constant) and n.targets[0].slice.value in keys]
         self.assertEqual(len(counts),3)
         code=compile(ast.fix_missing_locations(ast.Module(body=nodes+counts,type_ignores=[])),str(script),'exec')
-        body=B.load(self.root);extra=X.load(self.root);third=Y.load(self.root);single=E.load(self.root)
+        body=B.load(self.root);extra=X.load(self.root);third=Y.load(self.root);single=Z.load(self.root);adaptation=E.load(self.root)
         env={'root':self.root,'current':self.receipt,'rows':dict(body),'j':{'closure':{}}};exec(code,env)
-        self.assertEqual(env['rows'],{**body,**extra,**third,**single});self.assertEqual(len(env['rows']),7)
-        self.assertEqual(env['j']['closure'],{'global_content_hda_files':140,'global_tank194_body_alias_files':7,'global_shared_enemy_tank_alias_files':2})
-        collision={'root':self.root,'current':self.receipt,'rows':{**body,**single},'j':{'closure':{}}}
+        self.assertEqual(env['rows'],{**body,**extra,**third,**single,**adaptation});self.assertEqual(len(env['rows']),8)
+        self.assertEqual(env['j']['closure'],{'global_content_hda_files':141,'global_tank194_body_alias_files':8,'global_shared_enemy_tank_alias_files':2})
+        collision={'root':self.root,'current':self.receipt,'rows':{**body,**adaptation},'j':{'closure':{}}}
         with self.assertRaisesRegex(ValueError,'collision'):exec(code,collision)
-        for digest,selected,content,count in [(BR.POSES15_17_CURRENT_DIGEST,{**body,**extra,**third},139,6),(BR.EXTRA_CURRENT_DIGEST,{**body,**extra},137,4),(BR.CURRENT_DIGEST,body,135,2)]:
+        for digest,selected,content,count in [(BR.POSE13_CURRENT_DIGEST,{**body,**extra,**third,**single,**adaptation},141,8),(BR.POSE89_CURRENT_DIGEST,{**body,**extra,**third,**single},140,7),(BR.POSES15_17_CURRENT_DIGEST,{**body,**extra,**third},139,6),(BR.EXTRA_CURRENT_DIGEST,{**body,**extra},137,4),(BR.CURRENT_DIGEST,body,135,2)]:
             old={'root':self.root,'current':{'production_source_manifest_sha256':digest},'rows':dict(body),'j':{'closure':{}}};exec(code,old)
             self.assertEqual(old['rows'],selected);self.assertEqual(old['j']['closure'],{'global_content_hda_files':content,'global_tank194_body_alias_files':count,'global_shared_enemy_tank_alias_files':2})
     @unittest.skipUnless(OLD_ROOT,'Set TANK194_V1_TEST_ROOT to the actual frozen prior public tree')
@@ -112,7 +117,7 @@ class ExtraPackage(unittest.TestCase):
         self.assertEqual(V.verify(old,receipt),331);self.assertEqual(C.check(old,old/BR.RUNTIME)['declared_source_files'],331)
         self.assertEqual(receipt['production_source_manifest_sha256'],BR.CURRENT_DIGEST)
         self.assertEqual(len(manifest['files']),1133);self.assertEqual(manifest['closure']['global_tank194_body_alias_files'],2)
-        self.assertEqual(len(B.load(old)),2);self.assertFalse((old/X.HEADER).exists());self.assertFalse((old/Y.HEADER).exists());self.assertFalse((old/E.HEADER).exists())
+        self.assertEqual(len(B.load(old)),2);self.assertFalse((old/X.HEADER).exists());self.assertFalse((old/Y.HEADER).exists());self.assertFalse((old/Z.HEADER).exists());self.assertFalse((old/E.HEADER).exists())
         self.package_boundary(root=old);self.package_boundary(root=old,manifest=old/BR.RUNTIME)
 
     @unittest.skipUnless(EXTRA_ROOT,'Set TANK194_EXTRA_V1_TEST_ROOT to the actual frozen332-source public tree')
@@ -122,7 +127,7 @@ class ExtraPackage(unittest.TestCase):
         self.assertEqual(V.verify(old,receipt),332);self.assertEqual(C.check(old,old/BR.RUNTIME)['declared_source_files'],332)
         self.assertEqual(receipt['production_source_manifest_sha256'],BR.EXTRA_CURRENT_DIGEST)
         self.assertEqual(len(manifest['files']),1135);self.assertEqual(manifest['closure']['global_tank194_body_alias_files'],4)
-        self.assertEqual(len(B.load(old)),2);self.assertEqual(len(X.load(old)),2);self.assertFalse((old/Y.HEADER).exists());self.assertFalse((old/E.HEADER).exists())
+        self.assertEqual(len(B.load(old)),2);self.assertEqual(len(X.load(old)),2);self.assertFalse((old/Y.HEADER).exists());self.assertFalse((old/Z.HEADER).exists());self.assertFalse((old/E.HEADER).exists())
         self.package_boundary(root=old);self.package_boundary(root=old,manifest=old/BR.RUNTIME)
 
     @unittest.skipUnless(POSES_ROOT,'Set TANK194_POSES15_17_V1_TEST_ROOT to the actual frozen333-source unpublished tree')
@@ -132,7 +137,30 @@ class ExtraPackage(unittest.TestCase):
         self.assertEqual(V.verify(old,receipt),333);self.assertEqual(C.check(old,old/BR.RUNTIME)['declared_source_files'],333)
         self.assertEqual(receipt['production_source_manifest_sha256'],BR.POSES15_17_CURRENT_DIGEST)
         self.assertEqual(len(manifest['files']),1137);self.assertEqual(manifest['closure']['global_tank194_body_alias_files'],6)
-        self.assertEqual(len(B.load(old)),2);self.assertEqual(len(X.load(old)),2);self.assertEqual(len(Y.load(old)),2);self.assertFalse((old/E.HEADER).exists())
+        self.assertEqual(len(B.load(old)),2);self.assertEqual(len(X.load(old)),2);self.assertEqual(len(Y.load(old)),2);self.assertFalse((old/Z.HEADER).exists());self.assertFalse((old/E.HEADER).exists())
+        self.package_boundary(root=old);self.package_boundary(root=old,manifest=old/BR.RUNTIME)
+
+    @unittest.skipUnless(POSE89_ROOT,'Set TANK194_POSE89_V1_TEST_ROOT to the actual frozen334-source unpublished tree')
+    def test_actual_prior334_package_stays_seven_poses(self):
+        old=Path(self.tmp.name)/'prior334';shutil.copytree(Path(POSE89_ROOT),old)
+        receipt=json.loads((old/C.SOURCE).read_bytes());manifest=json.loads((old/BR.RUNTIME).read_bytes())
+        self.assertEqual(V.verify(old,receipt),334);self.assertEqual(C.check(old,old/BR.RUNTIME)['declared_source_files'],334)
+        self.assertEqual(receipt['production_source_manifest_sha256'],BR.POSE89_CURRENT_DIGEST)
+        self.assertEqual(len(manifest['files']),1138);self.assertEqual(manifest['closure']['global_tank194_body_alias_files'],7)
+        self.assertEqual(len(B.load(old)),2);self.assertEqual(len(X.load(old)),2);self.assertEqual(len(Y.load(old)),2);self.assertEqual(len(Z.load(old)),1);self.assertFalse((old/E.HEADER).exists())
+        self.package_boundary(root=old);self.package_boundary(root=old,manifest=old/BR.RUNTIME)
+
+    @unittest.skipUnless(POSE13_ROOT,'Set TANK194_POSE13_V1_TEST_ROOT to the actual frozen335-source unpublished pose13 tree')
+    def test_actual_prior335_pose13_package_keeps_same_eight_materials(self):
+        old=Path(self.tmp.name)/'prior335';shutil.copytree(Path(POSE13_ROOT),old)
+        receipt=json.loads((old/C.SOURCE).read_bytes());manifest=json.loads((old/BR.RUNTIME).read_bytes())
+        self.assertEqual(V.verify(old,receipt),335);self.assertEqual(C.check(old,old/BR.RUNTIME)['declared_source_files'],335)
+        self.assertEqual(receipt['production_source_manifest_sha256'],BR.POSE13_CURRENT_DIGEST)
+        self.assertNotEqual(receipt['production_source_manifest_sha256'],BR.TOPCLIP_CURRENT_DIGEST)
+        self.assertEqual(len(manifest['files']),1139);self.assertEqual(manifest['closure']['global_tank194_body_alias_files'],8)
+        self.assertEqual(manifest['closure']['global_content_hda_files'],141)
+        self.assertEqual(len(B.load(old)),2);self.assertEqual(len(X.load(old)),2);self.assertEqual(len(Y.load(old)),2);self.assertEqual(len(Z.load(old)),1);self.assertEqual(len(E.load(old)),1)
+        self.assertFalse((old/BR.TOPCLIP_PROOF).exists())
         self.package_boundary(root=old);self.package_boundary(root=old,manifest=old/BR.RUNTIME)
 
 if __name__=='__main__':unittest.main(verbosity=2)

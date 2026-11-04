@@ -78,13 +78,19 @@ def derive(root,raw,authority="historical"):
     elif authority=='current-tank-energy-body194-pose89-v1':
         from current_tank194_energy_authority import verify_pose89
         verify_pose89(root,selected)
+    elif authority=='current-tank-energy-body194-pose13-adaptation-v1':
+        from current_tank194_energy_authority import verify_pose13
+        verify_pose13(root,selected)
+    elif authority=='current-tank-energy-body194-topclip-v1':
+        from current_tank194_energy_authority import verify_topclip
+        verify_topclip(root,selected)
     else:raise ValueError('Unknown Tank authority')
     if read(root,LEGACY_HEADER)!=legacy_header(registry['resources']):raise ValueError('Unrelated legacy art pins changed')
     outputs={SELECTION:raw};rows=[];pins={};hashes={}
     for row in selected['resources']:
         identity=row['identity'];data,payload=source_blob(root,row);path=f'{COMPAT}/{name(identity)}'
         outputs[path]=data;pins[identity]=fnv(payload);hashes[identity]=sha(data)
-        if authority in ('current-tank-energy-v3','current-tank-energy-body194-v1','current-tank-energy-body194-extra-poses-v1','current-tank-energy-body194-poses15-17-v1','current-tank-energy-body194-pose89-v1'):
+        if authority in ('current-tank-energy-v3','current-tank-energy-body194-v1','current-tank-energy-body194-extra-poses-v1','current-tank-energy-body194-poses15-17-v1','current-tank-energy-body194-pose89-v1','current-tank-energy-body194-pose13-adaptation-v1','current-tank-energy-body194-topclip-v1'):
             from current_tank_energy_authority import APPROVED_HDA
             if sha(data)!=APPROVED_HDA[identity-1220000]:raise ValueError('Unreviewed Tank energy pixels')
             outputs['assets/hd/global-assets-v1/content/'+sha(data)+'.hda']=data
@@ -122,6 +128,12 @@ def derive(root,raw,authority="historical"):
     elif authority=='current-tank-energy-body194-pose89-v1':
         from current_tank194_source_bridge import pose89_input_paths
         names|=pose89_input_paths(root)
+    elif authority=='current-tank-energy-body194-pose13-adaptation-v1':
+        from current_tank194_source_bridge import pose13_input_paths
+        names|=pose13_input_paths(root)
+    elif authority=='current-tank-energy-body194-topclip-v1':
+        from current_tank194_source_bridge import topclip_input_paths
+        names|=topclip_input_paths(root)
     names-=removed
     validate_input_closure(root,names-set(outputs))
     with tempfile.TemporaryDirectory(prefix='tank-shell-authoring-build-') as tmp:
@@ -144,6 +156,10 @@ def derive(root,raw,authority="historical"):
             binding['scope']+=' Includes the exact333 poses15/17 epoch and six unchanged canonical body aliases; no additional native or artwork qualification.'
         if authority=='current-tank-energy-body194-pose89-v1':
             binding['scope']+=' Includes the exact334 pose89 epoch and seven unchanged canonical body aliases; unpublished333 dependency retained, no publication or additional native/artwork qualification.'
+        if authority=='current-tank-energy-body194-pose13-adaptation-v1':
+            binding['scope']+=' Includes the exact335 pose13 adaptation epoch and eight unchanged canonical materials; actual native13 differs from donor91, unpublished334 dependency retained, no publication or additional native/artwork qualification.'
+        if authority=='current-tank-energy-body194-topclip-v1':
+            binding['scope']+=' Includes the separate exact335 topclip source epoch with unchanged eight materials; only the single core inverse projects to unpublished prior335, with no new material or native/artwork qualification.'
         outputs[BINDING]=(json.dumps(binding,indent=2,sort_keys=True)+'\n').encode();(work/BINDING).write_bytes(outputs[BINDING])
         subprocess.run([sys.executable,str(work/REBUILD),'--root',str(work),'--output',str(work/RUNTIME)],check=True,stdout=subprocess.DEVNULL)
         outputs[RUNTIME]=(work/RUNTIME).read_bytes()
@@ -168,6 +184,12 @@ def make_plan(root,outputs,raw,authority="historical"):
         elif authority=='current-tank-energy-body194-pose89-v1':
             from current_tank194_source_bridge import pose89_input_paths
             extra|=pose89_input_paths(root)|{'scripts/current_tank194_source_bridge.py','scripts/current_tank194_energy_authority.py','scripts/current_tank194_body_registration.py','scripts/current_tank194_extra_registration.py','scripts/current_tank194_poses15_17_registration.py','scripts/current_tank194_pose89_registration.py'}
+        elif authority=='current-tank-energy-body194-pose13-adaptation-v1':
+            from current_tank194_source_bridge import pose13_input_paths
+            extra|=pose13_input_paths(root)|{'scripts/current_tank194_source_bridge.py','scripts/current_tank194_energy_authority.py','scripts/current_tank194_body_registration.py','scripts/current_tank194_extra_registration.py','scripts/current_tank194_poses15_17_registration.py','scripts/current_tank194_pose89_registration.py','scripts/current_tank194_pose13_registration.py'}
+        elif authority=='current-tank-energy-body194-topclip-v1':
+            from current_tank194_source_bridge import topclip_input_paths
+            extra|=topclip_input_paths(root)|{'scripts/current_tank194_source_bridge.py','scripts/current_tank194_energy_authority.py','scripts/current_tank194_body_registration.py','scripts/current_tank194_extra_registration.py','scripts/current_tank194_poses15_17_registration.py','scripts/current_tank194_pose89_registration.py','scripts/current_tank194_pose13_registration.py'}
         plan['inputs_sha256'].update({name:sha(read(root,name)) for name in sorted(extra)})
         plan['authority']=authority
         plan['remove']=[dict(path=p,before_sha256=fingerprint(root,p)) for p in obsolete(root)]
@@ -211,7 +233,7 @@ def check(root,authority="historical"):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('mode',choices=('stage','apply','check'));p.add_argument('--selection',type=Path);p.add_argument('--stage',type=Path)
-    p.add_argument('--authority',choices=('historical','current-tank-energy-v3','current-tank-energy-body194-v1','current-tank-energy-body194-extra-poses-v1','current-tank-energy-body194-poses15-17-v1','current-tank-energy-body194-pose89-v1'),default='historical')
+    p.add_argument('--authority',choices=('historical','current-tank-energy-v3','current-tank-energy-body194-v1','current-tank-energy-body194-extra-poses-v1','current-tank-energy-body194-poses15-17-v1','current-tank-energy-body194-pose89-v1','current-tank-energy-body194-pose13-adaptation-v1','current-tank-energy-body194-topclip-v1'),default='historical')
     a=p.parse_args();root=a.root.resolve()
     if a.mode=='check':result=check(root,a.authority)
     else:

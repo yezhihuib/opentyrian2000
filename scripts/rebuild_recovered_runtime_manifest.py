@@ -444,27 +444,34 @@ def main():
         if destination in rows:
             raise ValueError('Finite tank194 body alias destination collision')
         rows[destination] = dict(row)
-    from current_tank194_source_bridge import EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST
-    extra_body = current.get('production_source_manifest_sha256') in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST)
+    from current_tank194_source_bridge import EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST
+    extra_body = current.get('production_source_manifest_sha256') in (EXTRA_CURRENT_DIGEST, POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
     if extra_body:
         from current_tank194_extra_registration import load as tank194_extra_load
         for destination, row in tank194_extra_load(root).items():
             if destination in rows:
                 raise ValueError('Finite extra-pose alias destination collision')
             rows[destination] = dict(row)
-    poses15_17_body = current.get('production_source_manifest_sha256') in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST)
+    poses15_17_body = current.get('production_source_manifest_sha256') in (POSES15_17_CURRENT_DIGEST, POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
     if poses15_17_body:
         from current_tank194_poses15_17_registration import load as tank194_poses15_17_load
         for destination, row in tank194_poses15_17_load(root).items():
             if destination in rows:
                 raise ValueError('Finite poses15/17 alias destination collision')
             rows[destination] = dict(row)
-    pose89_body = current.get('production_source_manifest_sha256') == POSE89_CURRENT_DIGEST
+    pose89_body = current.get('production_source_manifest_sha256') in (POSE89_CURRENT_DIGEST, POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
     if pose89_body:
         from current_tank194_pose89_registration import load as tank194_pose89_load
         for destination, row in tank194_pose89_load(root).items():
             if destination in rows:
                 raise ValueError('Finite pose89 alias destination collision')
+            rows[destination] = dict(row)
+    pose13_body = current.get('production_source_manifest_sha256') in (POSE13_CURRENT_DIGEST, TOPCLIP_CURRENT_DIGEST)
+    if pose13_body:
+        from current_tank194_pose13_registration import load as tank194_pose13_load
+        for destination, row in tank194_pose13_load(root).items():
+            if destination in rows:
+                raise ValueError('Finite pose13 alias destination collision')
             rows[destination] = dict(row)
     add('assets/hd/global-assets-v1/registry.json','assets/global/registry.json','global-registry')
     add('packaging/global-validation.json','GLOBAL-VALIDATION.json','global-validation')
@@ -491,8 +498,8 @@ def main():
     j['closure']['global_hda_files']=120
     j['closure']['global_registry_files']=1
     j['closure']['global_shared_enemy_rgba_alias_files']=6
-    j['closure']['global_content_hda_files']=140 if pose89_body else 139 if poses15_17_body else 137 if extra_body else 135
-    j['closure']['global_tank194_body_alias_files']=7 if pose89_body else 6 if poses15_17_body else 4 if extra_body else 2
+    j['closure']['global_content_hda_files']=141 if pose13_body else 140 if pose89_body else 139 if poses15_17_body else 137 if extra_body else 135
+    j['closure']['global_tank194_body_alias_files']=8 if pose13_body else 7 if pose89_body else 6 if poses15_17_body else 4 if extra_body else 2
     j['closure']['global_shared_enemy_tank_alias_files']=2
     j['closure']['global_shared_enemy_orb_protron_alias_files']=5
     j['closure']['global_families']=['Talon13','Shield22','Pulse5','Hitflare7','FrontVulcan2','WhiteSmoke7','SmallExplosion12','Cash25BodyAndValue7','Cash50BodyAndValue7','Cash75BodyAndValue7','Gem100BodyAndValue6','Gem250BodyAndValue6','Rotor5And11Eight','GreenHeadAndTrail11']

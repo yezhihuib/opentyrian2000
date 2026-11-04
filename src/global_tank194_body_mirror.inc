@@ -1,17 +1,19 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * NEW private finite owner for actual bank20 actor194, native frames91/93,51/55,15/17 and89.
- * Reuses reviewed type15 material IDs1010041/1010131,1010039/1010043,1010045/1010093 and1010129 without changing INDEX8.
+ * NEW private finite owner for actual bank20 actor194, native frames91/93,51/55,15/17,89 and13.
+ * Reuses reviewed type15 material IDs1010041/1010131,1010039/1010043,1010045/1010093 and1010129; deliberately adapts13 to1010091 without changing INDEX8.
  * Include after the ordinary shared owners. No projectile member bit is added.
  */
 #include "global_tank194_pins.h"
 #include "global_tank194_extra_pins.h"
 #include "global_tank194_poses15_17_pins.h"
 #include "global_tank194_pose89_pins.h"
-static Uint8 *global_tank194_rgba[7],*global_tank194_ever;
+#include "global_tank194_pose13_pins.h"
+static Uint8 *global_tank194_rgba[8],*global_tank194_ever;
 static bool global_tank194_loaded,global_tank194_good;
 static bool global_tank194_extra_loaded,global_tank194_extra_good;
 static bool global_tank194_poses15_17_loaded,global_tank194_poses15_17_good;
 static bool global_tank194_pose89_loaded,global_tank194_pose89_good;
+static bool global_tank194_pose13_loaded,global_tank194_pose13_good;
 static unsigned global_tank194_used_resources,global_tank194_dependencies;
 static size_t global_tank194_capacity;
 static Uint32 global_tank194_output_palette[256],global_tank194_underlay_palette[256];
@@ -124,6 +126,20 @@ static bool global_tank194_pose89_source_matches(Sprite2_array bank)
  }
  return true;
 }
+static bool global_tank194_pose13_source_matches(Sprite2_array bank)
+{
+ for(unsigned i=0;i<COUNTOF(global_tank194_pose13_source);i++){
+  Uint8 decoded[336]={0};
+  if(!decode_tile(bank,global_tank194_pose13_source[i].index,decoded,decoded+168,12,0,0)||
+   global_bytes_hash(decoded,sizeof(decoded))!=global_tank194_pose13_source[i].fnv)return false;
+ }
+ return true;
+}
+static bool global_tank194_pose13_palette_matches(void)
+{
+ for(unsigned i=0;i<COUNTOF(global_tank194_pose13_palette);i++)if((rgb_palette[global_tank194_pose13_palette[i].index]&0xffffffu)!=global_tank194_pose13_palette[i].rgb)return false;
+ return true;
+}
 static bool global_tank194_palette_matches(void)
 {
  for(unsigned i=0;i<COUNTOF(global_tank194_palette);i++)if((rgb_palette[global_tank194_palette[i].index]&0xffffffu)!=global_tank194_palette[i].rgb)return false;
@@ -181,14 +197,15 @@ static bool global_tank194_surface_matches(void)
 
 
 static int global_tank194_member(unsigned base)
-{return base==91?0:base==93?1:base==51?2:base==55?3:base==15?4:base==17?5:base==89?6:-1;}
+{return base==91?0:base==93?1:base==51?2:base==55?3:base==15?4:base==17?5:base==89?6:base==13?7:-1;}
 static bool global_tank194_resources_match(unsigned used)
 {
- if((used&~127u)||((used&3u)&&!global_tank194_good)||((used&12u)&&!global_tank194_extra_good)||
-  ((used&48u)&&!global_tank194_poses15_17_good)||((used&64u)&&!global_tank194_pose89_good))return false;
- for(unsigned i=0;i<7;i++)if(used&(1u<<i)){
-  const GlobalAssetResource *r=i<2?global_tank194_resources+i:i<4?global_tank194_extra_resources+i-2:i<6?global_tank194_poses15_17_resources+i-4:global_tank194_pose89_resources;
-  if(r->identity!=(i==0?1010041u:i==1?1010131u:i==2?1010039u:i==3?1010043u:i==4?1010045u:i==5?1010093u:1010129u)||r->bytes!=172060u||r->density!=8||r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||
+ if((used&~255u)||((used&3u)&&!global_tank194_good)||((used&12u)&&!global_tank194_extra_good)||
+  ((used&48u)&&!global_tank194_poses15_17_good)||((used&64u)&&!global_tank194_pose89_good)||
+  ((used&128u)&&!global_tank194_pose13_good))return false;
+ for(unsigned i=0;i<8;i++)if(used&(1u<<i)){
+  const GlobalAssetResource *r=i<2?global_tank194_resources+i:i<4?global_tank194_extra_resources+i-2:i<6?global_tank194_poses15_17_resources+i-4:i==6?global_tank194_pose89_resources:global_tank194_pose13_resources;
+  if(r->identity!=(i==0?1010041u:i==1?1010131u:i==2?1010039u:i==3?1010043u:i==4?1010045u:i==5?1010093u:i==6?1010129u:1010091u)||r->bytes!=172060u||r->density!=8||r->width!=24||r->height!=28||r->anchor_x!=6||r->anchor_y!=7||
    !global_tank194_rgba[i]||global_bytes_hash(global_tank194_rgba[i],172032u)!=r->payload_fnv)return false;
  }
  return true;
@@ -228,6 +245,16 @@ static bool global_tank194_pose89_family_ready(void)
   if(!(global_tank194_rgba[6]=global_resource_load(global_tank194_pose89_resources)))global_tank194_pose89_good=false;
  }
  return global_tank194_resources_match(64u);
+}
+/* Native13 differs from bank1/91. Only its unchanged HD material is reused;
+ * actual13 source and its116 palette dependency are checked independently. */
+static bool global_tank194_pose13_family_ready(void)
+{
+ if(!global_tank194_pose13_loaded){
+  global_tank194_pose13_loaded=true;global_tank194_pose13_good=COUNTOF(global_tank194_pose13_resources)==1;
+  if(!(global_tank194_rgba[7]=global_resource_load(global_tank194_pose13_resources)))global_tank194_pose13_good=false;
+ }
+ return global_tank194_resources_match(128u);
 }
 static int global_tank194_slot(const void *ptr)
 {
@@ -294,10 +321,11 @@ static void global_tank194_reset(void)
 static void global_tank194_shutdown(void)
 {
  global_tank194_reset();
- for(unsigned i=0;i<7;i++){free(global_tank194_rgba[i]);global_tank194_rgba[i]=NULL;}
+ for(unsigned i=0;i<8;i++){free(global_tank194_rgba[i]);global_tank194_rgba[i]=NULL;}
  global_tank194_loaded=global_tank194_good=global_tank194_extra_loaded=global_tank194_extra_good=false;
  global_tank194_poses15_17_loaded=global_tank194_poses15_17_good=false;
  global_tank194_pose89_loaded=global_tank194_pose89_good=false;
+ global_tank194_pose13_loaded=global_tank194_pose13_good=false;
  free(global_tank194_owner);free(global_tank194_foreign);free(global_tank194_ever);
  global_tank194_owner=global_tank194_foreign=global_tank194_ever=NULL;global_tank194_capacity=0;
 }
@@ -417,6 +445,7 @@ static bool global_tank194_integrity(void)
    (global_tank194_extra_source_matches(b)&&global_tank194_extra_palette_matches()))&&
   (!(global_tank194_used_resources&48u)||(global_tank194_poses15_17_source_matches(b)&&global_tank194_poses15_17_palette_matches()))&&
   (!(global_tank194_used_resources&64u)||global_tank194_pose89_source_matches(b))&&
+  (!(global_tank194_used_resources&128u)||(global_tank194_pose13_source_matches(b)&&global_tank194_pose13_palette_matches()))&&
   global_tank194_underlay_matches()&&global_tank194_dependencies_match();
 }
 static bool global_tank194_identity(int x,int y,Sprite2_array bank,unsigned base,int part,int filter,const G101EnemyContext *c)
@@ -445,15 +474,20 @@ static bool global_tank194_identity(int x,int y,Sprite2_array bank,unsigned base
 }
 static bool global_tank194_support_fits(Sprite2_array bank,unsigned base,int ox,int oy,const Uint8 *rgba)
 {
- Uint8 indices[672]={0},mask[672]={0};
+ /* The native blitter clips linear addresses, not horizontal coordinates.
+  * Keep every quadrant physically within a row; only top clipping is allowed. */
+ if(ox<0||ox>320-24)return false;
+ Uint8 indices[672]={0},mask[672]={0};bool visible=false;
  if(!decode_tile(bank,base,indices,mask,24,0,0)||!decode_tile(bank,base+1,indices,mask,24,12,0)||
   !decode_tile(bank,base+19,indices,mask,24,0,14)||!decode_tile(bank,base+20,indices,mask,24,12,14))return false;
  for(int ay=0;ay<224;ay++)for(int ax=0;ax<192;ax++){
   if(!rgba[4*(ay*192+ax)+3]&&!mask[(ay/8)*24+ax/8])continue;
   int64_t dx=(int64_t)ox*8+ax,dy=(int64_t)oy*8+ay;
-  if(dx<24*8||dx>=288*8||dy<0||dy>=184*8)return false;
+  /* Side and bottom support checks also apply to samples above the screen. */
+  if(dx<24*8||dx>=288*8||dy>=184*8)return false;
+  if(dy>=0)visible=true;
  }
- return true;
+ return visible;
 }
 static int render_mirror_global_tank194_body(SDL_Surface *s,int x,int y,Sprite2_array bank,unsigned base,int part,int filter,const G101EnemyContext *c)
 {
@@ -468,11 +502,12 @@ static int render_mirror_global_tank194_body(SDL_Surface *s,int x,int y,Sprite2_
   !global_tank194_surface_matches()||!global_tank194_source_matches(bank)||!global_tank194_palette_matches()||
   !global_tank194_underlay_matches()||global_tank194_peer_calls_live()||suppress||vulcan_shadow.live){
   if(global_tank194_contributed||global_tank194_quartet.live)global_tank194_fail();return 0;}
- unsigned group=member<2?3u:member<4?12u:member<6?48u:64u;
+ unsigned group=member<2?3u:member<4?12u:member<6?48u:member==6?64u:128u;
  bool group_ready=member<2?global_tank194_family_ready():member<4?
   global_tank194_extra_source_matches(bank)&&global_tank194_extra_palette_matches()&&global_tank194_extra_family_ready():member<6?
-  global_tank194_poses15_17_source_matches(bank)&&global_tank194_poses15_17_palette_matches()&&global_tank194_poses15_17_family_ready():
-  global_tank194_pose89_source_matches(bank)&&global_tank194_pose89_family_ready();
+  global_tank194_poses15_17_source_matches(bank)&&global_tank194_poses15_17_palette_matches()&&global_tank194_poses15_17_family_ready():member==6?
+  global_tank194_pose89_source_matches(bank)&&global_tank194_pose89_family_ready():
+  global_tank194_pose13_source_matches(bank)&&global_tank194_pose13_palette_matches()&&global_tank194_pose13_family_ready();
  if(!group_ready){
   if((global_tank194_used_resources&group)||global_tank194_quartet.live)global_tank194_fail();
   return 0;
@@ -488,12 +523,14 @@ static int render_mirror_global_tank194_body(SDL_Surface *s,int x,int y,Sprite2_
  const Uint8 *rgba=global_tank194_rgba[member];
  uint64_t platform=shapesy_borrow_ready(),cyan=cyan_borrow_ready();
  font_before_effect((SDL_Rect){x,y,12,14});
- /* Preflight every sample before the first RGB write of this quadrant. */
+ /* The whole quartet support passed before q0. Preflight visible samples
+  * before this quadrant writes; never form an address for a negative row. */
  for(int ay=0;ay<112;ay++)for(int ax=0;ax<96;ax++){
-  size_t n=(size_t)(y*8+ay)*canvas->w+x*8+ax;
+  int py=y*8+ay;if(py<0)continue;
+  size_t n=(size_t)py*canvas->w+x*8+ax;
   const Uint8 *a=rgba+4*((qy*8+ay)*192+qx*8+ax);
   if(!a[3]&&!global_tank194_call.mask[(ay/8)*12+ax/8])continue;
-  unsigned peers=global_tank194_peer_bits(n);Uint32 color=((Uint32 *)((Uint8 *)canvas->pixels+(y*8+ay)*canvas->pitch))[x*8+ax];
+  unsigned peers=global_tank194_peer_bits(n);Uint32 color=((Uint32 *)((Uint8 *)canvas->pixels+py*canvas->pitch))[x*8+ax];
   if((peers&&(peers&(peers-1)))||(global_tank194_owner[n]&&peers)||hd_owner[n]>1||
    (!hd_owner[n]&&(peers||global_tank194_owner[n]||color!=palette_rgb(((Uint8 *)game_screen->pixels)[(y+ay/8)*320+x+ax/8])))){
    global_tank194_fail();return 0;}
@@ -508,11 +545,14 @@ static int render_mirror_global_tank194_body(SDL_Surface *s,int x,int y,Sprite2_
  if(!global_tank194_dependencies_match()){global_tank194_fail();return 0;}
  global_tank194_used_resources|=1u<<member;
  global_tank194_call.x=x;global_tank194_call.y=y;global_tank194_call.live=true;
- for(unsigned i=0;i<168;i++)if(global_tank194_call.mask[i])global_tank194_call.left++;
+ /* The original blitter emits no pixel callback above the surface. Empty
+  * visible quadrants still have a live call and must receive their own end. */
+ for(unsigned i=0;i<168;i++)if(global_tank194_call.mask[i]&&y+(int)(i/12)>=0)global_tank194_call.left++;
  for(int ay=0;ay<112;ay++)for(int ax=0;ax<96;ax++){
-  size_t n=(size_t)(y*8+ay)*canvas->w+x*8+ax;const Uint8 *a=rgba+4*((qy*8+ay)*192+qx*8+ax);
+  int py=y*8+ay;if(py<0)continue;
+  size_t n=(size_t)py*canvas->w+x*8+ax;const Uint8 *a=rgba+4*((qy*8+ay)*192+qx*8+ax);
   if(!a[3]&&!global_tank194_call.mask[(ay/8)*12+ax/8])continue;
-  Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+(y*8+ay)*canvas->pitch)+x*8+ax;
+  Uint32 *p=(Uint32 *)((Uint8 *)canvas->pixels+py*canvas->pitch)+x*8+ax;
   bool foreign=global_tank194_owner[n]?global_tank194_foreign[n]:hd_owner[n]!=0;
   if(!hd_owner[n])global_tank194_use_color(((Uint8 *)game_screen->pixels)[(y+ay/8)*320+x+ax/8]);
   else if(foreign)for(unsigned i=0;i<256;i++)global_tank194_use_color(i);
@@ -575,9 +615,11 @@ static bool global_tank194_final_preflight_pixel(SDL_Surface *s,Uint8 *address)
  * changing any sample or advancing expected. Native caller remains untouched. */
 static bool global_tank194_pre_native(SDL_Surface *s,Uint8 *address,int style)
 {
+ /* Even an empty top quadrant belongs to the continuous quartet. Before any
+  * body contribution, fault it without swallowing the foreign native write. */
+ if(global_tank194_quartet.live&&!global_tank194_call.live){global_tank194_fail();return !global_tank194_contributed;}
  if(!global_tank194_contributed)return true;
  if(global_tank194_fault)return false;
- if(global_tank194_quartet.live&&!global_tank194_call.live){global_tank194_fail();return false;}
  if(s==VGAScreenSeg)return global_tank194_final_preflight_pixel(s,address);
  if(s!=game_screen)return true;
  if(!global_tank194_requested()||!global_tank194_surface_matches()){global_tank194_fail();return false;}
@@ -690,7 +732,8 @@ static bool global_tank194_cache_source_matches(void)
   global_tank194_source_matches(b)&&global_tank194_resources_match(global_tank194_used_resources)&&
   (!(global_tank194_used_resources&12u)||global_tank194_extra_source_matches(b))&&
   (!(global_tank194_used_resources&48u)||global_tank194_poses15_17_source_matches(b))&&
-  (!(global_tank194_used_resources&64u)||global_tank194_pose89_source_matches(b))&&global_tank194_cache_dependencies_match();
+  (!(global_tank194_used_resources&64u)||global_tank194_pose89_source_matches(b))&&
+  (!(global_tank194_used_resources&128u)||global_tank194_pose13_source_matches(b))&&global_tank194_cache_dependencies_match();
  if(ok)for(int y=0;y<200;y++)if(memcmp(last_output_indices+y*320,(Uint8 *)VGAScreenSeg->pixels+y*VGAScreenSeg->pitch,320)){ok=false;break;}
  return ok;
 }

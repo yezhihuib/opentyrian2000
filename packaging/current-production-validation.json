@@ -28,7 +28,7 @@
     "Tank194 body registration adds two unchanged canonical HDR1 aliases. The runtime manifest preserves all previous asset rows. Only the331 source bytes, existing build inputs/historical receipts, finite body recipe and two added resources are byte-verified in this bounded refresh; the other runtime assets have not been re-read."
   ],
   "production_commit": null,
-  "production_source_manifest_sha256": "66d84b7ab6fc4fce626db07ac4833891d42e5643e4f06fac20b99f66d6081b6e",
+  "production_source_manifest_sha256": "48411cd0be1e370a19a09e7711b868e854a7c6338733932356d3695cd31aa6f9",
   "reviewed_charge_body_changes": {
     "files": [
       "src/entity_draw.c",
@@ -227,6 +227,17 @@
     "scope": "Exact51/55 to existing39/43 materials; no new artwork or original game data",
     "source_files": 2
   },
+  "reviewed_tank194_pose13_adaptation_registration": {
+    "authority": "current-tank-energy-body194-pose13-adaptation-v1",
+    "body_alias_files": 8,
+    "dependency_commit": null,
+    "dependency_is_unpublished": true,
+    "dependency_tree": "2df416d4eac50d4e40f746dab2650ec21506957f",
+    "exact_native_alias": false,
+    "extra_alias_files": 1,
+    "scope": "Actual native13 separately pinned; unchanged HDR1 1010091 visually adapted, no new artwork or original game payload",
+    "source_files": 2
+  },
   "reviewed_tank194_pose89_registration": {
     "authority": "current-tank-energy-body194-pose89-v1",
     "body_alias_files": 7,
@@ -244,8 +255,18 @@
     "scope": "Exact15/17 to existing45/93 materials; no new artwork or original game data",
     "source_files": 2
   },
+  "reviewed_tank194_topclip_source_epoch": {
+    "added_alias_files": 0,
+    "authority": "current-tank-energy-body194-topclip-v1",
+    "body_alias_files": 8,
+    "dependency_commit": null,
+    "dependency_is_unpublished": true,
+    "dependency_tree": "766a2b09fc5bfcf83d6b3c4d6a4599f872fc4c17",
+    "scope": "Complete original four-quadrant transactions only; visible native/alpha clipping above top, unchanged side/bottom/missing-quadrant rejection and native INDEX8. No new material or header.",
+    "source_files": 1
+  },
   "schema": "opentyrian-current-production-binding-v1",
-  "scope": "Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope. Finite actor194/frame93 birth-bound Tank147 visual registration (+1,-1), retaining original indexed writes and simulation coordinates. Fixed WARNING face-only third font context composed with the existing Tank147 registration; source binding only, combined runtime validation remains external. Reconstructed finite tank194 body uses two byte-identical existing public materials under the ordinary NEWSHF_HD_COMPOSITOR=0 renderer. This receipt binds exact current331 source bytes and public registration metadata only; native/scene qualifications remain separate. Exact extra51/55 reuse extends the body to four poses with independently ready resource pairs. This receipt binds current332 source bytes and four unchanged canonical aliases only; native/scene and authoring qualifications remain separate. Exact15/17 reuse extends the body to six poses with three independently ready resource pairs. This receipt binds current333 source bytes and six unchanged canonical aliases only; native/scene and authoring qualifications remain separate. Exact89 reuse extends the body to seven poses with an independent single resource. This receipt binds current334 source bytes and seven unchanged canonical aliases only; it depends on the unpublished333-source treeaaa41373 and is not publication authority.",
+  "scope": "Exact current source binding including the separately reviewed Charge body extension, Plasma projectile and Front Multi payload-pin extractions. Build/package consistency only; historical receipts retain their original scope. Finite actor194/frame93 birth-bound Tank147 visual registration (+1,-1), retaining original indexed writes and simulation coordinates. Fixed WARNING face-only third font context composed with the existing Tank147 registration; source binding only, combined runtime validation remains external. Reconstructed finite tank194 body uses two byte-identical existing public materials under the ordinary NEWSHF_HD_COMPOSITOR=0 renderer. This receipt binds exact current331 source bytes and public registration metadata only; native/scene qualifications remain separate. Exact extra51/55 reuse extends the body to four poses with independently ready resource pairs. This receipt binds current332 source bytes and four unchanged canonical aliases only; native/scene and authoring qualifications remain separate. Exact15/17 reuse extends the body to six poses with three independently ready resource pairs. This receipt binds current333 source bytes and six unchanged canonical aliases only; native/scene and authoring qualifications remain separate. Exact89 reuse extends the body to seven poses with an independent single resource. This receipt binds current334 source bytes and seven unchanged canonical aliases only; it depends on the unpublished333-source treeaaa41373 and is not publication authority. Deliberate13 visual adaptation extends the body to eight poses with an independent single resource. Native13 differs from donor bank1/91 in12 cells; native INDEX8 stays unchanged. This receipt binds actual335 source bytes and eight unchanged canonical material aliases; it depends on unpublished334 tree2df416d4 and is not publication authority. Top-only clipping changes one body core source while preserving all335 source paths, eight canonical materials and1139 runtime rows. This actual335 receipt is distinct from the prior335 pose13 receipt and depends on its unpublished tree766a2b09; no publication authority is implied.",
   "source_manifest_encoding": "UTF-8 JSON of source_sha256 only, sort_keys=True, separators=(comma,colon), ensure_ascii=True, no newline",
   "source_sha256": {
     "src/animlib.c": "1340570680ddff3fac80e34785f511657888d72430b47724330331d8c0b7a1de",
@@ -431,9 +452,10 @@
     "src/global_small_explosion_mirror.inc": "8abc142b1700d466dddb1a26a3c16b40b04376503b511813f02a9633fa3b2d1e",
     "src/global_smoke_mirror.inc": "f1d80ff0d155385657c9eb0f68e61aeb223a9065dff4436fb16af11c4c91c047",
     "src/global_talon_mirror.inc": "3dcb9d6f539713e86f8342d9aa1c413524da93d1d55ab3e733a67b37b27ace0b",
-    "src/global_tank194_body_mirror.inc": "18b5a06985c419227133ed8a271d81451242b7286c6f9075c80be36ba02470cd",
+    "src/global_tank194_body_mirror.inc": "73a9143b5848b96fe0090d15f815cd7e9abfe95db70f27a0ecfed13a07982d19",
     "src/global_tank194_extra_pins.h": "3568d0b6162c121b7153920d7cd94df47bee227a1c945ac161823af7353d82c6",
     "src/global_tank194_pins.h": "bd30437d9203d62f1be0dd5501d24755942bb7fd6d9cfcc4952f96613c671b9a",
+    "src/global_tank194_pose13_pins.h": "bfb184c7ad6cad417cfef935f5dca915c644fbdd32ccd870efa6e1a6636442e9",
     "src/global_tank194_pose89_pins.h": "7d44badcf8e602d97bb584a8eb97fa96d09af6c791db1d5b6a2889030b8dba60",
     "src/global_tank194_poses15_17_pins.h": "7e46b4e006e94c08af040f4bdeca0aed3ffb7cf4b8da364f45b3ab4f5386faea",
     "src/global_vulcan_mirror.inc": "8723875ef64cd5ebe71da7b8c319e6a09bff443c94db44c7715aea0008d7127d",

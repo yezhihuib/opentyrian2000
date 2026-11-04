@@ -1,6 +1,6 @@
 # Tank194 body reuse
 
-This finite renderer reuses seven existing type15 HDR1 files without changing any
+This finite renderer reuses eight existing type15 HDR1 files without changing any
 artwork bytes or resource identity:
 
 | Native body pose | Existing material | HDR1 identity | SHA256 |
@@ -12,10 +12,11 @@ artwork bytes or resource identity:
 | 15 | enemy-newsh2-45-8.hda | 1010045 | 3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5 |
 | 17 | enemy-newsh2-93-8.hda | 1010093 | c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164 |
 | 89 | enemy-newsh2-129-8.hda | 1010129 | 0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56 |
+| 13 (deliberate adaptation) | enemy-newsh2-91-8.hda | 1010091 | e2c3aaa833db864ae73b4cd611305043ddcefd89dda19d22a1b1d5d577b2c29f |
 
-The seven global content aliases are complete, byte-identical copies of those
+The eight global content aliases are complete, byte-identical copies of those
 canonical files. The legacy global registry remains 120 resources in 14 families.
-Original gameplay consumers 39/41/43/45/93/129/131 and the separate Tank147 muzzle path remain
+Original gameplay consumers 39/41/43/45/91/93/129/131 and the separate Tank147 muzzle path remain
 unchanged. No original game data is included or needed to reproduce the aliases
 and generated pins. Optional original-data fingerprint verification requires
 the caller's own files and does not copy them into outputs.
@@ -23,7 +24,7 @@ the caller's own files and does not copy them into outputs.
 ## Finite runtime scope
 
 Admission is limited to the actual loaded bank20, canonical actor194, native
-poses 91/93/51/55/15/17/89 and their original four quadrants at tile offsets 0,1,19,20. It uses
+poses 91/93/51/55/15/17/89/13 and their original four quadrants at tile offsets 0,1,19,20. It uses
 the ordinary global density8 lane with NEWSHF disabled. NEWSHF-enabled builds,
 legacy/selected packs, other actors, sources, poses and unsupported conditions
 retain the existing path. Source, record, palette, slot-generation, resource,
@@ -36,7 +37,12 @@ palette and material dependencies remain required. The15/17 pair independently
 checks indices16/116 in addition to the original18 colors; it does not require
 index10 or the51/55 pair to have loaded. Pose89 has one independently ready
 resource, not a synthetic two-resource pair. Its16 used palette indices are
-already within the original18-color gate. Frame13 stays excluded.
+already within the original18-color gate. Pose13 is an independent single
+material adaptation, requiring116=860400 beyond original18 even if the older
+extra groups never load. Its native source is not identical to donor bank1/91:7
+covered cells are added,2 removed and3 have changed indices. Its actual native13
+tiles and142-cell coverage are independently pinned. The unchanged HD91 RGBA is
+blended over the actual native13/HD union; native INDEX8 is not substituted.
 
 Each reused HDR1 has logical size 24×28 and anchor 6,7. The caller's quadrant
 top-left is already adjusted from the actor reference by that anchor. Therefore
@@ -66,26 +72,33 @@ option keep their original outputs.
 The mutually exclusive `--pose89` option reproduces one additional129 alias and
 single-pose pins. All earlier registration options retain their exact outputs.
 
-The explicit authority for the334-source/seven-alias epoch is
-`current-tank-energy-body194-pose89-v1`, selected through
-`python scripts/build_current_tank_shell.py check --authority current-tank-energy-body194-pose89-v1`.
-This check requires the full declared producer inputs. It validates all334 source
-bytes and all seven aliases, restores only the exact89 core delta, and reuses the
-earlier strict source/runtime projections. The actual current334 source receipt
-stays current throughout the projection.
+The mutually exclusive `--pose13-adaptation` option reproduces one additional91
+material alias and independently pinned native13 header. All earlier registration
+options retain their exact outputs. This is deliberate visual adaptation, not an
+exact native-source alias or newly generated art.
+
+The explicit authority for the335-source/eight-material epoch is
+`current-tank-energy-body194-pose13-adaptation-v1`, selected through
+`python scripts/build_current_tank_shell.py check --authority current-tank-energy-body194-pose13-adaptation-v1`.
+This check requires the full declared producer inputs. It validates all335 source
+bytes and all eight aliases, restores only the exact13 core delta, and reuses the
+earlier strict source/runtime projections. The actual current335 source receipt
+stays current throughout the projection. Its exact material proof binds the
+native13 composite/four tiles, donor91 composite and all12 differences.
 
 The earlier modes remain exact: `current-tank-energy-body194-v1` for331 sources,
-`current-tank-energy-body194-extra-poses-v1` for332 sources, and
-`current-tank-energy-body194-poses15-17-v1` for333 sources. All reject this newer
+`current-tank-energy-body194-extra-poses-v1` for332 sources,
+`current-tank-energy-body194-poses15-17-v1` for333 sources, and
+`current-tank-energy-body194-pose89-v1` for334 sources. All reject this newer
 epoch. Historical mode and `current-tank-energy-v3` remain separate. No failed
 check selects another mode automatically. Every selected-art, payload, registry,
 build-input and unrelated-asset check remains.
 
-This change was prepared on the unpublished15/17 dependency tree
-`aaa41373f96ec70a57dbc314a30264c2a669f78d`, not a new public commit. Publishing
-this delta alone must not bypass approval of that dependency. Tests use genuine
-frozen331/332/333 input trees for compatibility positives, without constructing
-substitute receipts.
+This change was prepared on the unpublished89 dependency tree
+`2df416d4eac50d4e40f746dab2650ec21506957f`, not a new public commit. Publishing
+this delta alone must not bypass approval of that dependency and its unpublished
+15/17 predecessor. Tests use genuine frozen331/332/333/334 input trees for
+compatibility positives, without constructing substitute receipts.
 
 The registration receipt retains its historical `deferred_authoring` field.
 That field describes the earlier registration-only stage, before the explicit
@@ -99,3 +112,31 @@ this finite change. Authoring unit tests spy on unrelated asset reads; they do
 not prove the complete asset tree or a full producer/package run. Renderer
 qualification is separate from metadata and authoring checks. No general enemy,
 arbitrary-transform, full-campaign, GPU or Windows qualification is implied.
+
+## Top-only clipping source epoch
+
+`current-tank-energy-body194-topclip-v1` explicitly selects the new335-source
+clipping epoch. It has the same1139 runtime rows and eight material aliases as
+pose13 adaptation, but a different exact source digest. The previous pose13 mode
+continues to accept only its own335 bytes. All earlier modes remain strict;
+no failed check selects a fallback. The new source proof reverses only the body
+core delta, then reuses all earlier authority checks with the actual current
+receipt unchanged. No material, header, palette entry or artwork was added.
+
+Only original complete four-quadrant calls can clip above the top. Physical row
+safety and the prior native/alpha support side and bottom bounds are retained;
+missing or interrupted quadrants still reject. RGB addresses are formed only
+for visible rows, and native callback counts omit rows the original blitter
+skips. Even a wholly invisible quadrant must complete its normal call/end.
+Native INDEX8, collision, shots and gameplay are unchanged.
+
+The bounded natural witness is an upward exit at ticks495/496, not entry from
+the top. Old91 at origin(118,-15) then(118,-16) stayed HD for its visible support.
+The retained pre-fix495 comparison changed4199 samples within4264 visible
+support, with zero changes outside or in the central already-HD body. The next
+frame changed3488 samples. These finite witnesses and targeted native tests do
+not qualify every offscreen path, side/bottom clipping, incomplete quartets or
+an entire level. This delta depends on unpublished pose13 tree
+`766a2b09fc5bfcf83d6b3c4d6a4599f872fc4c17` and its predecessors; it is not
+permission to publish those dependencies. Genuine prior335 fixtures are used
+alongside earlier source epochs, without manufacturing historical receipts.

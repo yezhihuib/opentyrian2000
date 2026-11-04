@@ -13,7 +13,7 @@
       "title-menu-font-v1.hda"
     ],
     "gameplay_files": 705,
-    "global_content_hda_files": 140,
+    "global_content_hda_files": 141,
     "global_families": [
       "Talon13",
       "Shield22",
@@ -35,7 +35,7 @@
     "global_shared_enemy_orb_protron_alias_files": 5,
     "global_shared_enemy_rgba_alias_files": 6,
     "global_shared_enemy_tank_alias_files": 2,
-    "global_tank194_body_alias_files": 7,
+    "global_tank194_body_alias_files": 8,
     "independent_shared_roots": true,
     "reconstructed_complete_menu_runs": 171,
     "shared_startup_directory": true,
@@ -82,12 +82,12 @@
   },
   "files": [
     {
-      "bytes": 51833,
+      "bytes": 53604,
       "destination": "CURRENT-PRODUCTION-VALIDATION.json",
-      "git_blob": "3f9aa863a630cfca0e9ec731e62441d16268b33c",
+      "git_blob": "da7d716a594ba6029544c6c1a84eb14738fe858a",
       "group": "current-production-validation",
       "revision": "reconstructed-local-unpublished",
-      "sha256": "9ceca6d17491c76bfe82865b089c801b939c0a07080b74e0a3d3741fca78d5db",
+      "sha256": "378b78caa87fa745856601e1fe2f89f490584e68af95f3e578ef0e3610a6868d",
       "source_path": "packaging/current-production-validation.json"
     },
     {
@@ -7801,6 +7801,19 @@
       "source_path": "assets/hd/global-assets-v1/content/e00642f40bf7c7b890f4edd40eacaf7087be5576976adfbace6277d927a749d9.hda"
     },
     {
+      "bytes": 172060,
+      "canonical_source": "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-91-8.hda",
+      "density": 8,
+      "destination": "assets/global/content/e2c3aaa833db864ae73b4cd611305043ddcefd89dda19d22a1b1d5d577b2c29f.hda",
+      "encoding": "rgba-straight-alpha-v1",
+      "git_blob": "9134a627bd6841b5f171fc33b6620be71c83b5d0",
+      "group": "global-source-identity",
+      "identity": 1010091,
+      "revision": "canonical-tank194-pose13-adaptation-v1",
+      "sha256": "e2c3aaa833db864ae73b4cd611305043ddcefd89dda19d22a1b1d5d577b2c29f",
+      "source_path": "assets/hd/global-assets-v1/content/e2c3aaa833db864ae73b4cd611305043ddcefd89dda19d22a1b1d5d577b2c29f.hda"
+    },
+    {
       "bytes": 43036,
       "destination": "assets/global/content/e373dd69863cf6f741ac095ace46183a3af045dad42dc6fc292b00c9774bf612.hda",
       "git_blob": "15cc0b6a461fe18a2e852b1ec208bbd160f89c8f",
@@ -10422,7 +10435,7 @@
   "schema": "opentyrian-runtime-package-v1",
   "source_revision": {
     "current_production_commit": null,
-    "current_production_source_manifest_sha256": "66d84b7ab6fc4fce626db07ac4833891d42e5643e4f06fac20b99f66d6081b6e",
+    "current_production_source_manifest_sha256": "48411cd0be1e370a19a09e7711b868e854a7c6338733932356d3695cd31aa6f9",
     "data_frame_integration": "local reviewed Data-only DFM1 static frame; no commit assigned",
     "data_portrait_integration": "local reviewed source-authenticated all18 DPR1 portraits",
     "data_text_integration": "local reviewed Data-only Chinese source; no commit assigned",

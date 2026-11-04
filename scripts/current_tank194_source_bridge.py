@@ -298,12 +298,15 @@ def pose89_input_paths(root):
 
 
 def project_pose89_sources(root):
-    p = pose89_proof(root)
-    actual = source_inventory(Path(root))
+    return _project_pose89_sources(root, pose89_proof(root), source_inventory(Path(root)),
+                                  lambda name: body.regular(root, name, 4 * 1024 * 1024))
+
+
+def _project_pose89_sources(root, p, actual, read_source):
     if (len(actual) != 334 or actual != p['source_sha256'] or
             source_manifest_digest(actual) != POSE89_CURRENT_DIGEST):
         raise ValueError('Unreviewed pose89 production epoch')
-    raw = {name: body.regular(root, name, 4 * 1024 * 1024) for name in actual}
+    raw = {name: read_source(name) for name in actual}
     if any(body.sha(raw[name]) != pin for name, pin in actual.items()):
         raise ValueError('Changed pose89 source bytes')
     inverse = p['core_inverse']
@@ -342,3 +345,145 @@ def project_pose89_runtime_rows(root, manifest):
                                  (body.REVISION, extra.REVISION, pair.REVISION, single.REVISION),
                                  (body.validate_runtime_rows, extra.validate_runtime_rows, pair.validate_runtime_rows,
                                   single.validate_runtime_rows))
+
+
+# Deliberate13 adaptation has its own exact epoch; it is not a native alias.
+POSE13_MODE = 'current-tank-energy-body194-pose13-adaptation-v1'
+POSE13_PROOF = 'packaging/tank194-authoring-pose13-adaptation-epoch-v1.json'
+POSE13_PROOF_SHA256 = 'a05d8f34f181a1fbe5e5736dd2ba44c48f3e98fb2104fbbfdeb8c098d607a243'
+POSE13_CURRENT_DIGEST = 'fe9ca37a4c9026b2f5655fe58d7e017f5bbb9deee71f804733af034626639428'
+
+
+def pose13_proof(root):
+    raw = body.regular(root, POSE13_PROOF, 2 * 1024 * 1024)
+    if body.sha(raw) != POSE13_PROOF_SHA256:
+        raise ValueError('Unreviewed pose13 adaptation authoring epoch proof')
+    p = body.object_bytes(raw)
+    if p['previous_proof_path'] != POSE89_PROOF or p['previous_proof_sha256'] != POSE89_PROOF_SHA256:
+        raise ValueError('Changed previous pose89 authority')
+    pose89_proof(root)
+    return p
+
+
+def pose13_input_paths(root):
+    import current_tank194_pose13_registration as single
+    pose13_proof(root)
+    return pose89_input_paths(root) | set(single.input_paths(root)) | {POSE13_PROOF}
+
+
+def project_pose13_sources(root):
+    return _project_pose13_sources(root, pose13_proof(root), source_inventory(Path(root)),
+                                  lambda name: body.regular(root, name, 4 * 1024 * 1024))
+
+
+def _project_pose13_sources(root, p, actual, read_source):
+    if (len(actual) != 335 or actual != p['source_sha256'] or
+            source_manifest_digest(actual) != POSE13_CURRENT_DIGEST):
+        raise ValueError('Unreviewed pose13 production epoch')
+    raw = {name: read_source(name) for name in actual}
+    if any(body.sha(raw[name]) != pin for name, pin in actual.items()):
+        raise ValueError('Changed pose13 source bytes')
+    inverse = p['core_inverse']
+    core = p['core_path']
+    if body.sha(raw[core]) != inverse['candidate_sha256']:
+        raise ValueError('Changed pose13 core')
+    text = raw[core].decode('utf-8')
+    for edit in reversed(inverse['edits']):
+        if edit['count'] != 1 or text.count(edit['after']) != 1:
+            raise ValueError('Missing unique pose13 core inverse')
+        text = text.replace(edit['after'], edit['before'], 1)
+    raw[core] = text.encode('utf-8')
+    if body.sha(raw[core]) != inverse['base_sha256']:
+        raise ValueError('Unrelated pose13 core change')
+    header = p['extra_header_path']
+    if body.sha(raw[header]) != p['extra_header_sha256']:
+        raise ValueError('Changed pose13 header before removal')
+    del raw[header]
+    previous = {name: body.sha(data) for name, data in raw.items()}
+    if source_manifest_digest(previous) != POSE89_CURRENT_DIGEST:
+        raise ValueError('Unreviewed previous334 projection')
+    return _project_pose89_sources(root, pose89_proof(root), previous, raw.__getitem__)
+
+
+def project_pose13_runtime_rows(root, manifest):
+    import current_tank194_extra_registration as extra
+    import current_tank194_poses15_17_registration as pair
+    import current_tank194_pose89_registration as prior_single
+    import current_tank194_pose13_registration as single
+    p = pose13_proof(root)
+    closure = manifest.get('closure', {}) if type(manifest) is dict else {}
+    if (type(closure) is not dict or type(closure.get('global_tank194_body_alias_files')) is not int or
+            closure['global_tank194_body_alias_files'] != 8 or
+            type(closure.get('global_content_hda_files')) is not int or closure['global_content_hda_files'] != 141):
+        raise ValueError('Expected exact eight-body-alias closure')
+    return _project_runtime_rows(root, manifest, p, POSE13_CURRENT_DIGEST, 1139,
+                                 (body.REVISION, extra.REVISION, pair.REVISION, prior_single.REVISION, single.REVISION),
+                                 (body.validate_runtime_rows, extra.validate_runtime_rows, pair.validate_runtime_rows,
+                                  prior_single.validate_runtime_rows, single.validate_runtime_rows))
+
+
+# Top-only clipping is a distinct same-count source epoch, not a material epoch.
+TOPCLIP_MODE = 'current-tank-energy-body194-topclip-v1'
+TOPCLIP_PROOF = 'packaging/tank194-authoring-topclip-epoch-v1.json'
+TOPCLIP_PROOF_SHA256 = 'f643a6fbefaa29c1700873475c1759aa4c8565805e973d9f0c7e488b0bd646a0'
+TOPCLIP_CURRENT_DIGEST = '48411cd0be1e370a19a09e7711b868e854a7c6338733932356d3695cd31aa6f9'
+
+
+def topclip_proof(root):
+    raw = body.regular(root, TOPCLIP_PROOF, 2 * 1024 * 1024)
+    if body.sha(raw) != TOPCLIP_PROOF_SHA256:
+        raise ValueError('Unreviewed topclip authoring epoch proof')
+    p = body.object_bytes(raw)
+    if p['previous_proof_path'] != POSE13_PROOF or p['previous_proof_sha256'] != POSE13_PROOF_SHA256:
+        raise ValueError('Changed previous pose13 authority')
+    pose13_proof(root)
+    return p
+
+
+def topclip_input_paths(root):
+    topclip_proof(root)
+    return pose13_input_paths(root) | {TOPCLIP_PROOF}
+
+
+def project_topclip_sources(root):
+    p = topclip_proof(root)
+    actual = source_inventory(Path(root))
+    if (len(actual) != 335 or actual != p['source_sha256'] or
+            source_manifest_digest(actual) != TOPCLIP_CURRENT_DIGEST):
+        raise ValueError('Unreviewed topclip production epoch')
+    raw = {name: body.regular(root, name, 4 * 1024 * 1024) for name in actual}
+    if any(body.sha(raw[name]) != pin for name, pin in actual.items()):
+        raise ValueError('Changed topclip source bytes')
+    inverse = p['core_inverse']
+    core = p['core_path']
+    if body.sha(raw[core]) != inverse['candidate_sha256']:
+        raise ValueError('Changed topclip core')
+    text = raw[core].decode('utf-8')
+    for edit in reversed(inverse['edits']):
+        if edit['count'] != 1 or text.count(edit['after']) != 1:
+            raise ValueError('Missing unique topclip core inverse')
+        text = text.replace(edit['after'], edit['before'], 1)
+    raw[core] = text.encode('utf-8')
+    if body.sha(raw[core]) != inverse['base_sha256']:
+        raise ValueError('Unrelated topclip core change')
+    previous = {name: body.sha(data) for name, data in raw.items()}
+    if source_manifest_digest(previous) != POSE13_CURRENT_DIGEST:
+        raise ValueError('Unreviewed previous335 pose13 projection')
+    return _project_pose13_sources(root, pose13_proof(root), previous, raw.__getitem__)
+
+
+def project_topclip_runtime_rows(root, manifest):
+    import current_tank194_extra_registration as extra
+    import current_tank194_poses15_17_registration as pair
+    import current_tank194_pose89_registration as prior_single
+    import current_tank194_pose13_registration as single
+    p = topclip_proof(root)
+    closure = manifest.get('closure', {}) if type(manifest) is dict else {}
+    if (type(closure) is not dict or type(closure.get('global_tank194_body_alias_files')) is not int or
+            closure['global_tank194_body_alias_files'] != 8 or
+            type(closure.get('global_content_hda_files')) is not int or closure['global_content_hda_files'] != 141):
+        raise ValueError('Expected exact eight-body-alias closure')
+    return _project_runtime_rows(root, manifest, p, TOPCLIP_CURRENT_DIGEST, 1139,
+                                 (body.REVISION, extra.REVISION, pair.REVISION, prior_single.REVISION, single.REVISION),
+                                 (body.validate_runtime_rows, extra.validate_runtime_rows, pair.validate_runtime_rows,
+                                  prior_single.validate_runtime_rows, single.validate_runtime_rows))
