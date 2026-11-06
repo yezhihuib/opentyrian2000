@@ -39,3 +39,12 @@ tyrian.sav
 # Local Python fixture caches
 __pycache__/
 *.py[cod]
+
+# Optional level-2 family canvas build and local diagnostics
+/.level2-family-build/
+/opentyrian2000-family
+/opentyrian2000-family.tmp
+/.level2-family-profile/
+/building313-*.json
+/building313-*.json.tmp
+/frame-facts.jsonl

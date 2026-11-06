@@ -2339,3 +2339,12 @@ tests/fixtures/portable-history-v1/blobs/* -whitespace
 /src/private_static340.inc -text
 /tests/test_terrain24_registration.py -text
 # END TERRAIN24 EXACT BYTE-PRESERVATION PATHS
+
+# Optional level-2 family overlay: preserve authored inputs and source bytes.
+/experimental/level2-family/** -text
+/assets/hd/level2-family-v1/** -text
+/scripts/build_level2_family.py -text
+/scripts/launch_level2_family.py -text
+/tests/test_level2_family_release.py -text
+/docs/level2-family/README.md -text
+/.gitignore -text
