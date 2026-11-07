@@ -1,0 +1,6 @@
+ {"gameplay-hud-v1.hda",4160064,UINT64_C(0x3a851b3477c37ef2)},
+ {"gameplay-hud-meters-v2.hda",621920,UINT64_C(0x52667536bbd9a9a8)},
+ {"gameplay-hud-font-v1.hda",163952,UINT64_C(0x719b391a4a5b73a5)},
+ {"gameplay-hud-components-v1.hda",38592,UINT64_C(0xca45d0284bb72682)},
+ {"gameplay-hud-indicators-v1.hda",29072,UINT64_C(0x59a95fbd7c3b63fd)},
+ {"gameplay-hud-fixed-text-v1.hda",23744,UINT64_C(0x3e6e0736cd91b19b)},

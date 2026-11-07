@@ -1,0 +1,7 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later
+ * New epoch2 generated payload identities; no old-gold identity claim. */
+#ifndef CURRENT_PROJECTILE_GOLD_PULSE_PAYLOAD_PINS_H
+#define CURRENT_PROJECTILE_GOLD_PULSE_PAYLOAD_PINS_H
+#define CURRENT_PROJECTILE_GOLD_PULSE_1530168_PAYLOAD_FNV UINT64_C(0xd35eb01e52fbf3a5)
+#define CURRENT_PROJECTILE_GOLD_PULSE_1530169_PAYLOAD_FNV UINT64_C(0x28baab1d924b1433)
+#endif
