@@ -1,4 +1,4 @@
-/* Private first-event triple-lamp adapter. Default OFF. No HdRegion draw or restore.
+/* Private exact-origin triple-lamp adapter. Default OFF. No HdRegion draw or restore.
  * Art is written only on actual native indexed writer callbacks. */
 static const char *triple275_root(void){const char *p=getenv("TRIPLE275_FAMILY_ASSET_DIR");return p?p:"";}
 static uint64_t triple275_blend_retirements;
@@ -9,24 +9,169 @@ static void triple275_clear(unsigned off){if(off<64000)triple275_owned[off]=0;}
 static unsigned triple275_image,triple275_part,triple275_pixels;
 static int triple275_x,triple275_y;
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Private E1 physical2 first-event reuse. Never an asteroid/manual-campaign lease.
+ * Private E1 physical2 original plus independently gated later reuse. Never an asteroid/manual-campaign lease.
  * All hooks below write sidecar state only, never actor, event, palette or RNG.
  * TRIPLE275_FAMILY_CANVAS_ENABLE=1 enables only the ordered canvas adapter.
  * No environment flag means no new draws and no trace. Assets remain immutable
  * for a selected-root lifetime: disk hot reload is deliberately not supported.
  */
 #include "triple275_native.inc"
+#include "triple275_later132_scope.inc"
 static const struct {unsigned base;uint64_t rgba;} private_triple275_images[6]={
  {153,UINT64_C(0xd18a4aef60739d9c)},{155,UINT64_C(0xc3ad0a413839574f)},
  {157,UINT64_C(0x88262ba9d6ddc180)},{159,UINT64_C(0x10b801d1a503d951)},
  {161,UINT64_C(0xa6a0478233b9ff2b)},{163,UINT64_C(0xcaf3a3760e161829)}
 };
+/* Ordinals, never raw event shifts: one consumed byte per finite origin. */
+static const struct {unsigned event,time;int x;} private_triple275_origins[133]={
+ {150,1224,114},
+ {293,2540,258},
+ {294,2540,42},
+ {298,2568,42},
+ {299,2568,258},
+ {302,2596,42},
+ {303,2596,258},
+ {305,2624,42},
+ {306,2624,258},
+ {307,2652,42},
+ {308,2652,258},
+ {309,2680,42},
+ {310,2680,258},
+ {312,2708,258},
+ {313,2708,42},
+ {316,2736,258},
+ {317,2736,42},
+ {320,2764,42},
+ {321,2764,258},
+ {322,2792,42},
+ {323,2792,258},
+ {328,2848,42},
+ {329,2848,258},
+ {330,2876,42},
+ {331,2876,258},
+ {332,2904,42},
+ {333,2904,258},
+ {334,2932,42},
+ {335,2932,258},
+ {336,2960,42},
+ {337,2960,258},
+ {338,2988,42},
+ {339,2988,258},
+ {340,3016,42},
+ {341,3016,258},
+ {342,3044,42},
+ {343,3044,258},
+ {344,3072,42},
+ {345,3072,258},
+ {348,3128,42},
+ {352,3128,258},
+ {354,3156,42},
+ {355,3156,258},
+ {356,3184,42},
+ {357,3184,258},
+ {358,3212,42},
+ {359,3212,258},
+ {360,3240,42},
+ {361,3240,258},
+ {362,3268,42},
+ {363,3268,258},
+ {364,3296,42},
+ {365,3296,258},
+ {366,3324,42},
+ {367,3324,258},
+ {368,3352,42},
+ {369,3352,258},
+ {372,3408,42},
+ {373,3408,258},
+ {374,3436,42},
+ {375,3436,258},
+ {376,3464,42},
+ {377,3464,258},
+ {378,3492,42},
+ {379,3492,258},
+ {380,3520,42},
+ {381,3520,258},
+ {382,3548,42},
+ {383,3548,258},
+ {384,3576,42},
+ {385,3576,258},
+ {386,3604,42},
+ {387,3604,258},
+ {388,3632,42},
+ {389,3632,258},
+ {392,3688,42},
+ {393,3688,258},
+ {394,3716,42},
+ {395,3716,258},
+ {396,3772,42},
+ {397,3772,258},
+ {399,3800,42},
+ {400,3800,258},
+ {401,3828,42},
+ {402,3828,258},
+ {403,3856,42},
+ {404,3856,258},
+ {405,3884,42},
+ {406,3884,258},
+ {407,3912,42},
+ {408,3912,258},
+ {411,3968,42},
+ {412,3968,258},
+ {413,3996,42},
+ {414,3996,258},
+ {415,4024,42},
+ {416,4024,258},
+ {417,4052,42},
+ {418,4052,258},
+ {420,4080,42},
+ {421,4080,258},
+ {422,4108,42},
+ {423,4108,258},
+ {424,4136,42},
+ {425,4136,258},
+ {426,4164,42},
+ {427,4164,258},
+ {428,4192,42},
+ {429,4192,258},
+ {432,4248,42},
+ {433,4248,258},
+ {434,4276,42},
+ {435,4276,258},
+ {436,4304,42},
+ {437,4304,258},
+ {438,4332,42},
+ {439,4332,258},
+ {440,4360,42},
+ {441,4360,258},
+ {442,4388,42},
+ {443,4388,258},
+ {444,4416,42},
+ {445,4416,258},
+ {446,4444,42},
+ {447,4444,258},
+ {448,4472,42},
+ {449,4472,258},
+ {468,4584,42},
+ {469,4584,258},
+ {473,4612,258},
+ {474,4612,42},
+ {477,4640,42},
+ {478,4640,258}
+};
+static int private_triple275_origin(unsigned event)
+{
+ unsigned lo=0,hi=COUNTOF(private_triple275_origins);
+ while(lo<hi){unsigned mid=lo+(hi-lo)/2;
+  if(private_triple275_origins[mid].event<event)lo=mid+1;else hi=mid;
+ }
+ return lo<COUNTOF(private_triple275_origins)&&private_triple275_origins[lo].event==event?(int)lo:-1;
+}
 static struct {
  uint64_t generation,witness,epoch;bool exhausted,pending,initialized,live;
  unsigned event;Sprite2_array *bank;const Uint8 *data;size_t bytes;
 } private_triple275_slots[100];
 static struct {
- uint64_t epoch,serial;bool exhausted,loaded;unsigned consumed,mode;char root[1024];
+ uint64_t epoch,serial;bool exhausted,loaded;unsigned char consumed[133];unsigned mode;char root[1024];
  const struct JE_EventRecType *events; /* Read-only actual table supplied at load. */
  struct {bool live;uint64_t token,epoch,generation;unsigned event;int slot;} call;
 } private_triple275_life;
@@ -39,7 +184,8 @@ static unsigned private_triple275_mode(void)
 {
  const char *v=getenv("TRIPLE275_FAMILY_CANVAS_ENABLE");
  const char *f=getenv("BUILDING313_FAMILY_CANVAS_ENABLE");
- return B313_FAMILY_CANVAS_DIAGNOSTIC&&f&&!strcmp(f,"1")&&v&&!strcmp(v,"1")?2:0;
+ return B313_FAMILY_CANVAS_DIAGNOSTIC&&f&&!strcmp(f,"1")?
+  ((v&&!strcmp(v,"1")?2u:0u)|(triple275_later132_requested()?4u:0u)):0;
 }
 static bool private_triple275_level_scope(void)
 {
@@ -58,6 +204,11 @@ static bool private_triple275_scope(void)
   triple275_root()&&
   !strcmp(private_triple275_life.root,triple275_root());
 }
+static bool private_triple275_origin_enabled(int origin)
+{
+ return origin>=0&&origin<(int)COUNTOF(private_triple275_origins)&&
+  (private_triple275_life.mode&(origin==0?2u:4u));
+}
 static int private_triple275_slot(const void *ptr)
 {
  uintptr_t p=(uintptr_t)ptr,b=(uintptr_t)enemy;
@@ -73,7 +224,7 @@ static void private_triple275_log(const char *phase,int slot,unsigned event,unsi
   game_probe_tick,(unsigned long long)mirror_logic_tick,(unsigned long long)private_triple275_life.epoch,phase,event,slot,base,part,ok);
  fprintf(stderr,"\tepisode=%u\tphysical=%u\tprobe=%d\tasset_debug=%d\tplay_demo=%d\tdemo_file=%p\tstopped=%d\tconstant=%d,%d,%d\teventLoc=%u\tcurLoc=%u",
   episodeNum,lvlFileNum,game_probe_enabled,asset_debug_enabled,play_demo,(void *)demo_file,stopped_demo,constantPlay,constantDie,richMode,eventLoc,curLoc);
- if(private_triple275_life.events&&event==150){const struct JE_EventRecType *r=private_triple275_life.events+event;
+ if(private_triple275_life.events&&private_triple275_origin(event)>=0){const struct JE_EventRecType *r=private_triple275_life.events+event;
   fprintf(stderr,"\torigin=%u,%u,%d,%d,%d,%u,%d,%d",r->eventtime,r->eventtype,r->eventdat,r->eventdat2,r->eventdat3,r->eventdat4,r->eventdat5,r->eventdat6);}
  if(slot>=0&&slot<100){const struct JE_SingleEnemyType *e=enemy+slot;
   fprintf(stderr,"\tgen=%llu\twitness=%llu\tlive=%d\tavail=%u\ttype=%u\trecord275=%d\tbank_object=%p\tbank_data=%p\tbank_bytes=%lu\tsize=%u\tani=%u,%u,%u,%u,%u,%u\tarmor=%u\tfilter=%u\tflags=%d,%d,%d,%d\tlink_death=%u,%u\tpos=%d,%d,%u\tmotion=%d,%d,%d,%d,%d,%u,%u\taccel_aux=%d,%d,%d,%d,%d,%d,%u,%u\trev=%d,%d\tground_explode=%d,%u\ttur=%u,%u,%u\tfreq=%u,%u,%u\tlaunch=%u,%u,%u,%u\tdamage=%u,%d,%d\ticed=%u\tegr=",
@@ -120,17 +271,19 @@ static void private_triple275_reset(void)
 }
 static bool private_triple275_event_matches(unsigned index)
 {
- if(!private_triple275_life.events||index!=150)return false;
+ int origin=private_triple275_origin(index);
+ if(!private_triple275_life.events||maxEvent!=731||origin<0)return false;
  const struct JE_EventRecType *r=private_triple275_life.events+index;
- return maxEvent==731&&r->eventtime==1224&&r->eventtype==6&&r->eventdat==275&&
-  r->eventdat2==114&&!r->eventdat3&&!r->eventdat4&&!r->eventdat5&&!r->eventdat6;
+ return r->eventtime==private_triple275_origins[origin].time&&r->eventtype==6&&r->eventdat==275&&
+  r->eventdat2==private_triple275_origins[origin].x&&!r->eventdat3&&!r->eventdat4&&!r->eventdat5&&!r->eventdat6;
 }
 void render_mirror_triple275_level_begin(char map,char shape,const struct JE_EventRecType *events)
 {
- private_triple275_reset();private_triple275_life.loaded=false;private_triple275_life.consumed=0;
+ private_triple275_reset();private_triple275_life.loaded=false;memset(private_triple275_life.consumed,0,sizeof private_triple275_life.consumed);
  private_triple275_life.mode=private_triple275_mode();private_triple275_life.events=events;
  if(!private_triple275_level_scope()||map!='D'||shape!='Z'||mapX!=1||mapX2!=1||mapX3!=1||
   !private_triple275_event_matches(150)||
+  ((private_triple275_life.mode&4u)&&!triple275_later132_stream_matches(events))||
   !triple275_root()||!triple275_root()[0]||strlen(triple275_root())>=sizeof(private_triple275_life.root)){private_triple275_life.events=NULL;return;}
  strcpy(private_triple275_life.root,triple275_root());private_triple275_life.loaded=true;
  private_triple275_log("level-load",-1,0,0,-1,1);
@@ -176,10 +329,10 @@ uint64_t render_mirror_triple275_event_begin(unsigned eventloc,unsigned typeofs,
  /* Called only at the actual case6 direct call site, not inferred in make. */
  if(private_triple275_life.call.live){private_triple275_life.call.live=false;private_triple275_fail();return 0;}
  if(!private_triple275_scope()||eventloc!=eventLoc||eventloc<1||typeofs||pool!=25||unique||
-  curLoc!=1224||!private_triple275_event_matches(eventloc-1))return 0;
- unsigned index=eventloc-1,bit=1u;
- if(private_triple275_life.consumed&bit)return 0;
- private_triple275_life.consumed|=bit; /* Allocation failure also consumes origin. */
+  !private_triple275_event_matches(eventloc-1))return 0;
+ unsigned index=eventloc-1;int origin=private_triple275_origin(index);
+ if(!private_triple275_origin_enabled(origin)||curLoc!=private_triple275_origins[origin].time||private_triple275_life.consumed[origin])return 0;
+ private_triple275_life.consumed[origin]=1; /* Allocation failure also consumes origin. */
  if(private_triple275_life.serial==UINT64_MAX){private_triple275_life.exhausted=true;return 0;}
  private_triple275_life.call.live=true;private_triple275_life.call.token=++private_triple275_life.serial;
  private_triple275_life.call.epoch=private_triple275_life.epoch;private_triple275_life.call.event=index;
@@ -215,11 +368,12 @@ void render_mirror_triple275_enemy_initialized(void *ptr,unsigned record,unsigne
 void render_mirror_triple275_event_commit(uint64_t token,unsigned allocated_one_based)
 {
  if(!token)return;
- int slot=private_triple275_life.call.slot;
+ int slot=private_triple275_life.call.slot;int origin=private_triple275_origin(private_triple275_life.call.event);
  bool ok=private_triple275_life.call.live&&token==private_triple275_life.call.token&&
   private_triple275_life.call.epoch==private_triple275_life.epoch&&private_triple275_scope()&&
   slot>=25&&slot<50&&allocated_one_based==(unsigned)slot+1&&eventLoc==private_triple275_life.call.event+1&&
-  private_triple275_event_matches(private_triple275_life.call.event)&&curLoc==1224;
+  private_triple275_origin_enabled(origin)&&private_triple275_event_matches(private_triple275_life.call.event)&&
+  private_triple275_life.consumed[origin]&&curLoc==private_triple275_origins[origin].time;
  if(ok)ok=private_triple275_slots[slot].pending&&private_triple275_slots[slot].initialized&&
   private_triple275_life.call.generation==private_triple275_slots[slot].generation&&enemyAvail[slot]==0&&
   private_triple275_shape((unsigned)slot,true)&&enemy[slot].ey==-28&&
@@ -240,10 +394,13 @@ void render_mirror_triple275_bank_changed(Sprite2_array *bank)
 }
 static bool private_triple275_witness(unsigned slot)
 {
+ if(slot>=100)return false;
+ int origin=private_triple275_origin(private_triple275_slots[slot].event);
  return slot>=25&&slot<50&&private_triple275_slots[slot].live&&!private_triple275_slots[slot].exhausted&&
   private_triple275_slots[slot].epoch==private_triple275_life.epoch&&
   private_triple275_slots[slot].generation==private_triple275_slots[slot].witness&&
-  private_triple275_slots[slot].event==150&&enemyAvail[slot]==0&&
+  private_triple275_origin_enabled(origin)&&private_triple275_event_matches(private_triple275_slots[slot].event)&&
+  private_triple275_life.consumed[origin]&&enemyAvail[slot]==0&&
   private_triple275_slots[slot].bank==enemy[slot].sprite2s&&enemy[slot].sprite2s&&
   private_triple275_slots[slot].data==enemy[slot].sprite2s->data&&private_triple275_slots[slot].bytes==enemy[slot].sprite2s->size;
 }
@@ -286,7 +443,7 @@ static bool private_triple275_load(unsigned k)
 }
 static bool private_triple275_ready(void)
 {
- if(!private_triple275_scope()||private_triple275_mode()!=2||game_probe_missing||game_probe_invalid||game_probe_original_reference)return false;
+ if(!private_triple275_scope()||!private_triple275_mode()||game_probe_missing||game_probe_invalid||game_probe_original_reference)return false;
  if(!private_triple275_resources.checked){private_triple275_resources.checked=true;private_triple275_resources.valid=true;
   strcpy(private_triple275_resources.root,private_triple275_life.root);
   for(unsigned i=0;i<6;i++)if(!private_triple275_load(i))private_triple275_resources.valid=false;}
