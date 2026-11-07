@@ -137,6 +137,11 @@ def build_plan(args, inherited=None, root=ROOT):
         "XDG_STATE_HOME": str(profile / "state"),
     }
     family = hd_environment(root) if args.hd else {}
+    later_lamps = getattr(args, "later_lamps", False)
+    if later_lamps:
+        if not args.hd:
+            raise ValueError("--later-lamps requires --hd; it cannot enable the parent itself")
+        family["LAMP272_LATER_SIXTEEN_ENABLE"] = "1"
     redvent = getattr(args, "redvent_pair", None)
     if redvent:
         if not args.hd:
@@ -154,6 +159,7 @@ def build_plan(args, inherited=None, root=ROOT):
         "environment_overrides": overrides,
         "inherited_controls_removed": sorted(key for key in inherited if controlled_name(key)),
         "assets_sha256_verified": checked,
+        "later_lamps_enabled": bool(later_lamps),
         "redvent_pair_enabled": bool(redvent), "redvent_assets_sha256_verified": 2 if redvent else 0,
         "game_data_check": "Directory exists; original game-file validity is not verified.",
         "binary_check": "Executable file exists; build options and gameplay are not verified.",
@@ -171,6 +177,7 @@ def parser():
     result.add_argument("--profile", help="Separate profile directory (default: repository/.level2-family-profile)")
     result.add_argument("--hd", action="store_true", help="Enable the 23 fixed family environment settings")
     result.add_argument("--redvent-pair", help="Opt-in private 339/348 candidate directory; requires --hd and matching assets; not gameplay-validated")
+    result.add_argument("--later-lamps", action="store_true", help="Opt in to 16 exact later lamp origins using existing public art; requires --hd, not scene-qualified")
     mode = result.add_mutually_exclusive_group()
     mode.add_argument("--launch", action="store_true", help="Actually start the game with normal input and no timeout")
     mode.add_argument("--check-only", "--dry-run", action="store_true", help="Only check and print the plan (the default)")

@@ -1,3 +1,4 @@
+#include "lamp272_later16_scope.inc"
 /* Private exact-origin lamp adapter. Default OFF. No HdRegion draw or restore.
  * Art is written only on actual native indexed writer callbacks. */
 static const char *lamp272_root(void){const char *p=getenv("LAMP272_FAMILY_ASSET_DIR");return p?p:"";}
@@ -11,6 +12,7 @@ static int lamp272_x,lamp272_y;
 /* SPDX-License-Identifier: GPL-2.0-or-later
  * Private E1 physical2 first-pair plus three later and two middle origins. Never an
  * asteroid/manual-campaign lease.
+ * LAMP272_LATER_SIXTEEN_ENABLE=1 independently admits the appended 16 origins.
  * All hooks below write sidecar state only, never actor, event, palette or RNG.
  * LAMP272_FAMILY_CANVAS_ENABLE=1 enables only the ordered canvas adapter.
  * LAMP272_LATER_THREE_ENABLE=1 additionally admits only the three listed later
@@ -23,11 +25,27 @@ static const struct {unsigned base;uint64_t rgba;} private_lamp272_images[4]={
  {229,UINT64_C(0x380d60ca088b66cb)},{231,UINT64_C(0xa93168621d007ae5)},
  {233,UINT64_C(0xfd9c43c2ba04eef7)},{235,UINT64_C(0x9301528dceb12189)}
 };
-/* Compact ordinals, not event indexes, own the seven consumed-once bits.
- * Preserve the original five bits; append middle origins independently. */
-static const struct {unsigned event,time;int x;} private_lamp272_origins[7]={
+/* Compact ordinals, not event indexes, own the bounded23 consumed-once bits.
+ * Preserve the original five bits; append middle origins and independently gated later16 origins. */
+static const struct {unsigned event,time;int x;} private_lamp272_origins[23]={
  {22,356,66},{23,356,138},{137,1168,138},{146,1196,138},{147,1196,114},
- {49,440,138},{50,440,66}
+ {49,440,138},{50,440,66},
+ {267,2176,114},
+ {268,2176,138},
+ {481,4668,114},
+ {482,4668,138},
+ {483,4668,162},
+ {484,4668,186},
+ {486,4696,114},
+ {487,4696,138},
+ {488,4696,162},
+ {489,4696,186},
+ {572,6124,162},
+ {573,6124,138},
+ {586,6152,162},
+ {587,6152,138},
+ {604,6208,186},
+ {605,6208,114}
 };
 static int private_lamp272_origin(unsigned event)
 {
@@ -70,7 +88,8 @@ static unsigned private_lamp272_mode(void)
 {
  const char *v=getenv("LAMP272_FAMILY_CANVAS_ENABLE");
  const char *f=getenv("BUILDING313_FAMILY_CANVAS_ENABLE");
- return B313_FAMILY_CANVAS_DIAGNOSTIC&&f&&!strcmp(f,"1")&&v&&!strcmp(v,"1")?2:0;
+ return B313_FAMILY_CANVAS_DIAGNOSTIC&&f&&!strcmp(f,"1")?
+  ((v&&!strcmp(v,"1")?2u:0u)|(lamp272_later16_requested()?4u:0u)):0;
 }
 static bool private_lamp272_level_scope(void)
 {
@@ -100,7 +119,8 @@ static bool private_lamp272_frame_scope(void)
 static bool private_lamp272_origin_enabled(int origin)
 {
  return origin>=0&&origin<(int)COUNTOF(private_lamp272_origins)&&
-  (origin<2||(origin<5?private_lamp272_life.later_three:private_lamp272_life.middle_pair));
+  (origin>=7?(private_lamp272_life.mode&4u):
+   ((private_lamp272_life.mode&2u)&&(origin<2||(origin<5?private_lamp272_life.later_three:private_lamp272_life.middle_pair))));
 }
 static int private_lamp272_slot(const void *ptr)
 {
@@ -187,6 +207,7 @@ void render_mirror_lamp272_level_begin(char map,char shape,const struct JE_Event
  private_lamp272_life.middle_pair=private_lamp272_middle_requested();
  if(!private_lamp272_level_scope()||map!='D'||shape!='Z'||mapX!=1||mapX2!=1||mapX3!=1||
   !private_lamp272_origins_match()||
+  ((private_lamp272_life.mode&4u)&&!lamp272_later16_stream_matches(events))||
   !lamp272_root()||!lamp272_root()[0]||strlen(lamp272_root())>=sizeof(private_lamp272_life.root)){private_lamp272_life.events=NULL;return;}
  strcpy(private_lamp272_life.root,lamp272_root());private_lamp272_life.loaded=true;
  private_lamp272_log("level-load",-1,0,0,-1,1);
@@ -231,7 +252,7 @@ uint64_t render_mirror_lamp272_event_begin(unsigned eventloc,unsigned typeofs,un
  unsigned index=eventloc-1;int origin=private_lamp272_origin(index);
  if(!private_lamp272_origin_enabled(origin)||!private_lamp272_event_matches(index)||
   curLoc!=private_lamp272_origins[origin].time)return 0;
- unsigned bit=1u<<(unsigned)origin; /* origin is proven to be 0..6. */
+ unsigned bit=1u<<(unsigned)origin; /* bounded compact ordinal0..22, never raw event index. */
  if(private_lamp272_life.consumed&bit)return 0;
  private_lamp272_life.consumed|=bit; /* Allocation failure also consumes origin. */
  if(private_lamp272_life.serial==UINT64_MAX){private_lamp272_life.exhausted=true;return 0;}
@@ -347,7 +368,7 @@ static bool private_lamp272_load(unsigned k)
 }
 static bool private_lamp272_ready(void)
 {
- if(!private_lamp272_scope()||private_lamp272_mode()!=2||game_probe_missing||game_probe_invalid||game_probe_original_reference)return false;
+ if(!private_lamp272_scope()||!private_lamp272_mode()||game_probe_missing||game_probe_invalid||game_probe_original_reference)return false;
  if(!private_lamp272_resources.checked){private_lamp272_resources.checked=true;private_lamp272_resources.valid=true;
   strcpy(private_lamp272_resources.root,private_lamp272_life.root);
   for(unsigned i=0;i<4;i++)if(!private_lamp272_load(i))private_lamp272_resources.valid=false;}

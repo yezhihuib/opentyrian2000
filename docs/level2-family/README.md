@@ -79,6 +79,10 @@ An additional [private 339/348 red-vent integration candidate](REDVENT-PAIR-CAND
 is available only with an explicit `--redvent-pair` path and `--hd`. It is off by
 default, adds two separately verified private assets, and is not scene-qualified.
 
+A separate [later 16 lamp-origin candidate](LATER-LAMPS-CANDIDATE.md) reuses four
+existing lamp images only when `--later-lamps` is explicitly selected with `--hd`.
+The original seven origins keep their existing defaults; later scenes are unverified.
+
 ## Asset identity and provenance
 
 `assets/hd/level2-family-v1/MANIFEST.json` lists SHA-256 hashes for the exact 52
