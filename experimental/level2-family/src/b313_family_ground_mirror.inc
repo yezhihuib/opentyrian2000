@@ -8,6 +8,7 @@ static const unsigned fg_ids[10]={372,380,390,367,368,376,378,386,387,388};
 static const uint64_t fg_source_pins[10]={UINT64_C(0xe5ab487b1d777c88),UINT64_C(0xeaf92ca7e66b6029),UINT64_C(0x18e7b1576b2c866f),UINT64_C(0xb5c43e4d37eef3c1),UINT64_C(0xfbf4027a212bc257),UINT64_C(0xf164c0ad2583443f),UINT64_C(0x526beca231fd766a),UINT64_C(0x59cae4c3dc8ff0ee),UINT64_C(0x8bdf81b6fdfa4f28),UINT64_C(0x812a9162941357b3)};
 static const uint64_t fg_payload_pins[10]={UINT64_C(0x979842c7fb07f657),UINT64_C(0x1319d37af0fcbb79),UINT64_C(0x5c79d31ca0640d11),UINT64_C(0x7f6d7c512bff04e6),UINT64_C(0xcae428fe01fd2a26),UINT64_C(0xcd88af59096f5597),UINT64_C(0xae8597271faf9c31),UINT64_C(0x360f6c61766416ad),UINT64_C(0x300e49764e3a21c7),UINT64_C(0x49817f3e5b941434)};
 #include "b313_family_cliff_pins.inc"
+#include "b313_redvent_pair.inc"
 static struct {
  bool enabled,frame_requested,cache_ready,cache_failed,source_fault,support_ready;
  unsigned setting,first_reason;
@@ -60,6 +61,8 @@ enum {FG_CONFIG=1,FG_CACHE=2,FG_SOURCE=3,FG_PASS=4,FG_ROW=5,FG_CALLBACK=6,FG_END
 static int fg_member(unsigned id){for(int i=0;i<10;i++)if(id==fg_ids[i])return i;return -1;}
 static uint64_t fg_hash(const Uint8 *p,size_t n)
 {uint64_t h=UINT64_C(0xcbf29ce484222325);while(n--){h^=*p++;h*=UINT64_C(0x100000001b3);}return h;}
+static int fg_effective_member(unsigned slot)
+{int m=fg.sources[slot].member,r=rp_member(fg.sources[slot].id);return m>=0?m:rp.enabled&&r>=0?10+r:-1;}
 static void fg_fault(unsigned reason)
 {
  if(fg.frame_requested&&!fg.first_reason)fg.first_reason=reason;
@@ -115,7 +118,7 @@ static bool fg_static340_requested(void){return render_mirror_family_requested()
 static int fg_cliff_member(unsigned id){for(int i=0;i<12;i++)if(id==fg_cliff_ids[i])return i;return -1;}
 static bool fg_cliff_solid(unsigned member,unsigned off)
 {return (fg_cliff_masks[member][off/8]>>(off%8))&1;}
-static void fg_revoke(void){fs340.enabled=fs340.support_ready=false;fk.enabled=fk.support_ready=false;fl.enabled=fl.support_ready=false;fg.in_pixel=fg.pass=fg.row=fg.done=fg.enabled=false;fg.first=NULL;fg.row_map=NULL;fg.surface=NULL;}
+static void fg_revoke(void){rp.enabled=false;fs340.enabled=fs340.support_ready=false;fk.enabled=fk.support_ready=false;fl.enabled=fl.support_ready=false;fg.in_pixel=fg.pass=fg.row=fg.done=fg.enabled=false;fg.first=NULL;fg.row_map=NULL;fg.surface=NULL;}
 static void fg_free_ground_cache(void)
 {
  fg_revoke(); /* Revoke the shared transaction before freeing this family. */
@@ -138,7 +141,7 @@ static void fg_free_static340_cache(void)
  fg_revoke();
  free((void *)fs340.rgba);fs340.rgba=NULL;fs340.cache_ready=false;
 }
-static void fg_free_cache(void){fg_free_ground_cache();fg_free_cliff_cache();fg_free_corner_cache();fg_free_static340_cache();}
+static void fg_free_cache(void){rp_free();fg_free_ground_cache();fg_free_cliff_cache();fg_free_corner_cache();fg_free_static340_cache();}
 static Uint32 fg_le32(const Uint8 *p){return (Uint32)p[0]|(Uint32)p[1]<<8|(Uint32)p[2]<<16|(Uint32)p[3]<<24;}
 static bool fg_cache_load(void)
 {
@@ -227,7 +230,7 @@ static bool fg_static340_config_current(void)
  fg_fault(FG_CONFIG);fg_free_static340_cache();return false;
 }
 static bool fg_config_current(void)
-{return fg_cliff_config_current()&&fg_corner_config_current()&&fg_static340_config_current();}
+{if(render_mirror_family_requested()&&!rp_current()){fg_fault(FG_CONFIG);return false;}return fg_cliff_config_current()&&fg_corner_config_current()&&fg_static340_config_current();}
 static void fg_reset(void)
 {
  if(fg.enabled&&(fg.pass||fg.row||fc.ready))fg_fault(FG_RESET);
@@ -239,6 +242,7 @@ static void fg_reset(void)
 }
 static void fg_map_begin(char shape)
 {
+ rp_map_begin();
  fg_reset();
  if(fg.epoch==UINT64_MAX){fg.source_fault=true;return;}
  ++fg.epoch;fg.source_count=0;fg.source_fault=false;fl.source_fault=false;fk.source_fault=false;fs340.source_fault=false;fg.map_z=shape=='Z'||shape=='z';
@@ -254,6 +258,7 @@ static void fg_bind(unsigned layer,unsigned id,const Uint8 *data)
  unsigned n=fg.source_count++;int member=fg_member(id);
  fg.sources[n].data=data;fg.sources[n].id=id;fg.sources[n].member=member;fg.sources[n].cliff_member=fg_cliff_member(id);fg.sources[n].corner_member=id==366;fg.sources[n].static340_member=id==340;
  memcpy(fg.sources[n].bytes,data,FG_SOURCE_BYTES);
+ rp_bind(id,data);
  if(member>=0) {
   if(fg_hash(data,FG_SOURCE_BYTES)!=fg_source_pins[member])fg.source_fault=true;
   for(unsigned k=0;k<FG_SOURCE_BYTES;k++)if(!data[k])fg.source_fault=true;
@@ -302,6 +307,7 @@ static void fg_frame_begin(void)
  if(corner&&!ground){fk.enabled=true;++fk.frames;fg_fault(FG_CONFIG);fg_free_corner_cache();return;}
  if(fs340.setting==2&&render_mirror_family_requested()){fs340.frame_requested=fg.enabled=fs340.enabled=true;++fs340.frames;fg_fault(FG_CONFIG);fg_free_static340_cache();return;}
  if(static340&&!ground){fs340.enabled=true;++fs340.frames;fg_fault(FG_CONFIG);fg_free_static340_cache();return;}
+ if(!rp_begin(render_mirror_family_requested(),ground)){fg.frame_requested=fg.enabled=true;fg_fault(FG_CACHE);return;}
  if(!ground)return;
  fg.enabled=true;fl.enabled=cliff;fk.enabled=corner;fs340.enabled=static340;
  ++fg.frames;
@@ -316,7 +322,7 @@ static bool fg_current(void)
 {
  if(!fg_config_current())return false;
  if(fg.enabled&&!fg_requested()){fg_fault(FG_CONFIG);fg_free_ground_cache();return false;}
- return fg.enabled&&fg_requested()&&fg.cache_ready&&!fg.cache_failed&&(!fl.enabled||(fg_cliff_requested()&&fl.cache_ready&&!fl.cache_failed&&!fl.source_fault))&&(!fk.enabled||(fg_corner_requested()&&fk.cache_ready&&!fk.cache_failed&&!fk.source_fault))&&(!fs340.enabled||(fg_static340_requested()&&fs340.cache_ready&&!fs340.cache_failed&&!fs340.source_fault))&&fg.map_z&&!fg.source_fault&&fg.frame_epoch==fg.epoch&&fg.frame_generation==fc_generation&&family_geometry(false)&&!memcmp(fc_palette,rgb_palette,sizeof fc_palette);
+ return rp_current()&&fg.enabled&&fg_requested()&&fg.cache_ready&&!fg.cache_failed&&(!fl.enabled||(fg_cliff_requested()&&fl.cache_ready&&!fl.cache_failed&&!fl.source_fault))&&(!fk.enabled||(fg_corner_requested()&&fk.cache_ready&&!fk.cache_failed&&!fk.source_fault))&&(!fs340.enabled||(fg_static340_requested()&&fs340.cache_ready&&!fs340.cache_failed&&!fs340.source_fault))&&fg.map_z&&!fg.source_fault&&fg.frame_epoch==fg.epoch&&fg.frame_generation==fc_generation&&family_geometry(false)&&!memcmp(fc_palette,rgb_palette,sizeof fc_palette);
 }
 static int fg_slot(const Uint8 *p)
 {for(unsigned i=0;i<fg.source_count;i++)if(fg.sources[i].data==p)return (int)i;return -1;}
@@ -354,7 +360,7 @@ static void fg_row_begin(SDL_Surface *s,int x,int y,Uint8 **map,int style)
   int n=fg_slot(map[t]);
   if(n<0||memcmp(fg.sources[n].data,fg.sources[n].bytes,FG_SOURCE_BYTES)){fg_fault(FG_SOURCE);return;}
   fg.row_slots[t]=n;fg.used[n]=true;
-  if(fg.sources[n].member>=0){fg.row_expected[t]=(unsigned)visible*24;++fg.target_tiles;}
+  if(fg_effective_member((unsigned)n)>=0){fg.row_expected[t]=(unsigned)visible*24;++fg.target_tiles;}
   else if(fl.enabled&&fg.sources[n].cliff_member>=0) {
    /* Native INDEX0 never has a callback. Count only visible nonzero support. */
    for(unsigned sy=0;sy<28;sy++)if(y+(int)sy>=0&&y+(int)sy<200)
@@ -381,8 +387,8 @@ static void fg_pixel(SDL_Surface *s,Uint8 *address,Uint8 source,int style,bool r
 {
  unsigned t=0,off=0,screen=0;int n=-1,member=-1,cliff=-1;bool corner=false,static340=false;
  if(fg.enabled&&fg.pass&&!fc.frame_failed) {
-  if(!fg.row||!fg.cache_ready||(fl.enabled&&(!fl.cache_ready||fl.source_fault))||(fk.enabled&&(!fk.cache_ready||fk.source_fault))||(fs340.enabled&&(!fs340.cache_ready||fs340.cache_failed||fs340.source_fault))||fg.source_fault||fg.frame_epoch!=fg.epoch||fg.frame_generation!=fc_generation||!family_geometry(false)||s!=fg.surface||style!=MIRROR_NORMAL||replaced||!fg_next(&t,&off,&screen)||(uintptr_t)address!=(uintptr_t)fc_source_pixels+screen){fg_fault(FG_CALLBACK);return;}
-  n=fg.row_slots[t];member=fg.sources[n].member;cliff=fl.enabled?fg.sources[n].cliff_member:-1;corner=fk.enabled&&fg.sources[n].corner_member;static340=fs340.enabled&&fg.sources[n].static340_member;
+  if(!rp_current()||!fg.row||!fg.cache_ready||(fl.enabled&&(!fl.cache_ready||fl.source_fault))||(fk.enabled&&(!fk.cache_ready||fk.source_fault))||(fs340.enabled&&(!fs340.cache_ready||fs340.cache_failed||fs340.source_fault))||fg.source_fault||fg.frame_epoch!=fg.epoch||fg.frame_generation!=fc_generation||!family_geometry(false)||s!=fg.surface||style!=MIRROR_NORMAL||replaced||!fg_next(&t,&off,&screen)||(uintptr_t)address!=(uintptr_t)fc_source_pixels+screen){fg_fault(FG_CALLBACK);return;}
+  n=fg.row_slots[t];member=fg_effective_member((unsigned)n);cliff=fl.enabled?fg.sources[n].cliff_member:-1;corner=fk.enabled&&fg.sources[n].corner_member;static340=fs340.enabled&&fg.sources[n].static340_member;
   if(fg.row_map[t]!=fg.sources[n].data||source!=fg.sources[n].bytes[off]||source!=fg.sources[n].data[off]||*address!=source){fg_fault(FG_SOURCE);return;}
  }
  fg.in_pixel=n>=0;
@@ -393,7 +399,7 @@ static void fg_pixel(SDL_Surface *s,Uint8 *address,Uint8 source,int style,bool r
  if(member<0&&cliff<0&&!corner&&!static340)return;
  if(!family_prepare_canvas()||fc.frame_failed){fg_fault(FG_LEASE);return;}
  unsigned x=screen%320,y=screen/320,sx0=off%24,sy0=off/24;
- const Uint8 *rgba=member>=0?fg.rgba[member]:cliff>=0?fl.rgba[cliff]:corner?fk.rgba:fs340.rgba;
+ const Uint8 *rgba=member>=0?(member<10?fg.rgba[member]:rp.rgba[member-10]):cliff>=0?fl.rgba[cliff]:corner?fk.rgba:fs340.rgba;
  for(unsigned sy=0;sy<8;sy++)for(unsigned sx=0;sx<8;sx++) {
   const Uint8 *p=rgba+((sy0*8+sy)*192+sx0*8+sx)*4;
   size_t dst=(size_t)(y*8+sy)*2560+x*8+sx;
@@ -428,7 +434,7 @@ static bool fg_final_check(void)
  return true;
 }
 static bool fg_writer_entry(void)
-{if(fg.enabled&&fg.pass&&!fg.in_pixel){fg_fault(FG_CALLBACK);return false;}return true;}
+{if(!fg_config_current())return false;if(fg.enabled&&fg.pass&&!fg.in_pixel){fg_fault(FG_CALLBACK);return false;}return true;}
 static void fg_before_actor(void)
 {if(!fg_config_current())return;if(fg.enabled&&(fg.pass||fg.row||!fg_final_check()))fg_fault(FG_ORDER);}
 static void fg_native_written(unsigned off,int style)
@@ -437,7 +443,7 @@ static void fg_native_written(unsigned off,int style)
  * receipt. No fault, cache freeing or change to historical ground statistics. */
 static bool fg_terrain_snapshot_current(void)
 {
- return fg.enabled&&fg_requested()&&fg.cache_ready&&!fg.cache_failed&&fg.map_z&&!fg.source_fault&&
+ return rp_current()&&fg.enabled&&fg_requested()&&fg.cache_ready&&!fg.cache_failed&&fg.map_z&&!fg.source_fault&&
   fl.setting==fg_cliff_setting()&&fk.setting==fg_corner_setting()&&fs340.setting==fg_static340_setting()&&
   (!fl.enabled||(fg_cliff_requested()&&fl.cache_ready&&!fl.cache_failed&&!fl.source_fault))&&
   (!fk.enabled||(fg_corner_requested()&&fk.cache_ready&&!fk.cache_failed&&!fk.source_fault))&&
@@ -449,7 +455,7 @@ static bool fg_terrain_snapshot_current(void)
  * Historical draw counts cannot stand in for a surviving cropped cell. */
 static bool fg_terrain_cell_survives(unsigned off)
 {
- if(off>=64000||!fg.enabled||!fg.done||fg.pass||fg.row||!fc_canvas_ready||fc.frame_failed)return false;
+ if(!rp_current()||off>=64000||!fg.enabled||!fg.done||fg.pass||fg.row||!fc_canvas_ready||fc.frame_failed)return false;
  unsigned x=off%320,y=off/320;
  if(y>=184||x<24||x>=288||(!fg.ground_mask[off]&&!(fl.enabled&&fl.mask[off])&&!(fk.enabled&&fk.mask[off])&&!(fs340.enabled&&fs340.mask[off])))return false;
  for(unsigned sy=0;sy<8;sy++)for(unsigned sx=0;sx<8;sx++)
@@ -530,7 +536,7 @@ static bool fg_static340_snapshot_current(void)
 }
 static bool fg_cliff_support_current(void)
 {
- return fl.support_ready&&fg_corner_snapshot_current()&&fg_static340_snapshot_current()&&render_mirror_family_requested()&&fg_requested()&&fg.enabled&&fg.cache_ready&&!fg.cache_failed&&!fg.source_fault&&
+ return rp_current()&&fl.support_ready&&fg_corner_snapshot_current()&&fg_static340_snapshot_current()&&render_mirror_family_requested()&&fg_requested()&&fg.enabled&&fg.cache_ready&&!fg.cache_failed&&!fg.source_fault&&
   fl.enabled&&fl.cache_ready&&!fl.cache_failed&&!fl.source_fault&&!fc.frame_failed&&fl.setting==1&&fg_cliff_setting()==1&&
   fg.done&&!fg.pass&&!fg.row&&fl.support_session==fc_session&&fl.support_frame==fc_frame&&
   fl.support_generation==fc_generation&&fl.support_epoch==fg.epoch&&fg.frame_epoch==fg.epoch&&
@@ -559,7 +565,7 @@ bool render_mirror_family_cliff_support(uint8_t *out,size_t bytes)
 }
 static bool fg_corner_support_current(void)
 {
- return fk.support_ready&&fg_static340_snapshot_current()&&render_mirror_family_requested()&&fg_requested()&&fg.enabled&&fg.cache_ready&&!fg.cache_failed&&!fg.source_fault&&
+ return rp_current()&&fk.support_ready&&fg_static340_snapshot_current()&&render_mirror_family_requested()&&fg_requested()&&fg.enabled&&fg.cache_ready&&!fg.cache_failed&&!fg.source_fault&&
   fk.enabled&&fk.setting==1&&fg_corner_snapshot_current()&&!fc.frame_failed&&
   fl.setting==fg_cliff_setting()&&(fl.setting==0||(fl.setting==1&&fl.enabled&&fl.cache_ready&&!fl.cache_failed&&!fl.source_fault))&&
   fg.done&&!fg.pass&&!fg.row&&fk.support_session==fc_session&&fk.support_frame==fc_frame&&
@@ -602,7 +608,7 @@ static void fg_corner_report(void)
 }
 static bool fg_static340_support_current(void)
 {
- return fs340.support_ready&&fg_corner_snapshot_current()&&render_mirror_family_requested()&&fg_requested()&&fg.enabled&&fg.cache_ready&&!fg.cache_failed&&!fg.source_fault&&
+ return rp_current()&&fs340.support_ready&&fg_corner_snapshot_current()&&render_mirror_family_requested()&&fg_requested()&&fg.enabled&&fg.cache_ready&&!fg.cache_failed&&!fg.source_fault&&
   fs340.enabled&&fs340.setting==1&&fg_static340_snapshot_current()&&!fc.frame_failed&&
   fl.setting==fg_cliff_setting()&&(fl.setting==0||(fl.setting==1&&fl.enabled&&fl.cache_ready&&!fl.cache_failed&&!fl.source_fault))&&
   fg.done&&!fg.pass&&!fg.row&&fs340.support_session==fc_session&&fs340.support_frame==fc_frame&&

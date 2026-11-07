@@ -75,6 +75,10 @@ POSIX launch support is provided. Windows packaging is not tested, and this
 launcher rejects Windows execution because the game's Windows profile handling
 does not honor the isolated HOME/XDG settings.
 
+An additional [private 339/348 red-vent integration candidate](REDVENT-PAIR-CANDIDATE.md)
+is available only with an explicit `--redvent-pair` path and `--hd`. It is off by
+default, adds two separately verified private assets, and is not scene-qualified.
+
 ## Asset identity and provenance
 
 `assets/hd/level2-family-v1/MANIFEST.json` lists SHA-256 hashes for the exact 52

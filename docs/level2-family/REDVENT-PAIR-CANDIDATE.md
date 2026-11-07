@@ -5,11 +5,12 @@ two small, opaque industrial ground tiles: the three horizontal recesses in 339
 and the single vertical recess in 348. Previously rejected high-frequency rock
 walls and the paused four-tile pit group are not changed.
 
-**Stage: static art candidate only.** Neither runtime source nor the public
-52-asset manifest is changed. The public integrated terrain count stays at 24.
+**Stage: opt-in integration candidate, not gameplay-qualified.** The private
+art has a separately disabled loader in the optional level-2 build. The public
+52-asset manifest and default 24-terrain selection remain unchanged.
 No gameplay, entity occlusion, animation, map-neighbor closure, frame rate or
-Windows display acceptance is claimed. The files must not be put into an enabled
-runtime pack until their identity, loader, neighbors and visible scene are checked.
+Windows display acceptance is claimed. Only use the explicit private-candidate option for subsequent validation; do not
+promote it to default coverage before visible scene and occlusion checks.
 
 ## Private inputs and deterministic registration
 
@@ -54,3 +55,42 @@ Unit checks cover malformed inputs, hash/size and symlink rejection, no-overwrit
 no partial output on bad inputs, full opacity and the exact border count. A second
 independent output directory can verify byte-for-byte reproduction against the
 private checkpoint's hashes. Neither check runs the game or promotes the art.
+
+## Map identity and optional integration
+
+The targeted map is **episode 1, physical level 2, ASTEROID2**, map character D,
+shape set Z. It is a branch after TYRIAN, not the mandatory second campaign stage.
+Its layer 1 has 133 stored occurrences of 339 (loader slot 37), and 23 of 348
+(slot 45); neither is used on layer 2/3. There are 44/22 distinct eight-neighbor
+patterns respectively. Eight sampled 4x neighborhoods had no obvious new edge
+displacement; this is not exhaustive neighbor or runtime acceptance. Both IDs
+are reused in other maps, so the existing episode/physical-level family guard
+remains mandatory. No target-specific tile-byte animation or event-64 filter
+switch was found in this map; unsupported global contexts retain existing guards.
+
+The optional family build accepts `--redvent-pair` only together with `--hd`:
+
+```sh
+python3 scripts/launch_level2_family.py --data /path/to/game-data --hd \
+  --redvent-pair /path/to/private-candidate --check-only
+```
+
+This read-only command verifies both exact HDA hashes in addition to the unchanged
+52 public assets. Omit the option to leave the pair off, even if inherited
+environment variables request it. A later `--launch` is a separate gameplay step.
+The source-only `experimental/late-level` package is not changed by this update.
+
+The loader requires exact `BUILDING313_REDVENT_PAIR_ENABLE=1`, the parent family
+and ground prerequisites, matching native source/payload identities, exact
+headers/file length and full opacity. It keeps its own two-file cache. Toggle or
+directory changes during a frame invalidate the shared terrain transaction and
+pure support snapshots. Normal native stores, map/event data and draw order are
+unchanged. Optional cells use the existing ground ownership/retirement pathway,
+which remains unverified in real red-vent gameplay. Bad or missing enabled assets
+reject the shared frame instead of partially presenting the pair.
+
+Loader tests cover default-off, compilation-disabled behavior, prerequisites,
+malformed/missing data, explicit launcher selection, callback and snapshot guards.
+A private isolated C run also loads both real assets against real source pins,
+then verifies mid-frame directory/toggle rejection and cache release. These are
+not a rendered frame or input/save/performance test.

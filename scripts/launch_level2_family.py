@@ -95,6 +95,23 @@ def hd_environment(root):
     return values
 
 
+REDVENT_PINS = {339: "5eb2706b6dac539478274343c83739071839a8d30cd87bbd8b21046abc39cf29",
+                348: "0cc51907884a740a339ceffa10a6c421d648eb6f4cf11982d5e3ae06ac0d5bff"}
+
+
+def verify_redvent_pair(directory):
+    directory = Path(directory).expanduser().resolve()
+    if not directory.is_dir():
+        raise ValueError("--redvent-pair must name the private candidate directory")
+    for tile, expected in REDVENT_PINS.items():
+        path = directory / f"terrain-shapesz-{tile}-8.hda"
+        if not path.is_file() or path.stat().st_size != 172060:
+            raise ValueError("Missing or wrong-size red-vent asset: " + path.name)
+        if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+            raise ValueError("Changed red-vent asset: " + path.name)
+    return directory
+
+
 def build_plan(args, inherited=None, root=ROOT):
     """Return a public plan and the process environment without changing either CWD or files."""
     root = root.resolve()
@@ -120,6 +137,13 @@ def build_plan(args, inherited=None, root=ROOT):
         "XDG_STATE_HOME": str(profile / "state"),
     }
     family = hd_environment(root) if args.hd else {}
+    redvent = getattr(args, "redvent_pair", None)
+    if redvent:
+        if not args.hd:
+            raise ValueError("--redvent-pair requires --hd; it cannot enable the parent itself")
+        directory = verify_redvent_pair(redvent)
+        family.update({"BUILDING313_REDVENT_PAIR_ENABLE": "1",
+                       "BUILDING313_REDVENT_PAIR_ASSET_DIR": str(directory)})
     overrides.update(family)
     environment.update(overrides)
     plan = {
@@ -130,6 +154,7 @@ def build_plan(args, inherited=None, root=ROOT):
         "environment_overrides": overrides,
         "inherited_controls_removed": sorted(key for key in inherited if controlled_name(key)),
         "assets_sha256_verified": checked,
+        "redvent_pair_enabled": bool(redvent), "redvent_assets_sha256_verified": 2 if redvent else 0,
         "game_data_check": "Directory exists; original game-file validity is not verified.",
         "binary_check": "Executable file exists; build options and gameplay are not verified.",
         "profile_created": False, "game_started": False,
@@ -145,6 +170,7 @@ def parser():
     result.add_argument("--binary", help="Executable to use (default: repository/opentyrian2000-family)")
     result.add_argument("--profile", help="Separate profile directory (default: repository/.level2-family-profile)")
     result.add_argument("--hd", action="store_true", help="Enable the 23 fixed family environment settings")
+    result.add_argument("--redvent-pair", help="Opt-in private 339/348 candidate directory; requires --hd and matching assets; not gameplay-validated")
     mode = result.add_mutually_exclusive_group()
     mode.add_argument("--launch", action="store_true", help="Actually start the game with normal input and no timeout")
     mode.add_argument("--check-only", "--dry-run", action="store_true", help="Only check and print the plan (the default)")
