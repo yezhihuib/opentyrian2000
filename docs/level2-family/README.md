@@ -137,3 +137,7 @@ retirement's final support exclusion, triple effects, and some lamp/ember shadow
 or blend cases also remain unverified. This package does not claim ordinary menu
 navigation, save/reload, GPU rendering, Windows packaging, performance, or the
 entire second level has been validated.
+
+A separate [later five ember-origin candidate](LATER-EMBERS-CANDIDATE.md) reuses
+four public images behind independent `--hd --later-embers`; it is off by
+default and is not real-scene qualified.

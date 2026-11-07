@@ -1,4 +1,4 @@
-/* Private first-event ember adapter. Default OFF. No HdRegion draw or restore.
+/* Private exact-origin ember adapter. Default OFF. No HdRegion draw or restore.
  * Art is written only on actual native indexed writer callbacks. */
 static const char *private_ember269_root(void){const char *p=getenv("EMBER269_FAMILY_ASSET_DIR");return p?p:"";}
 static uint64_t private_ember269_blend_retirements;
@@ -9,23 +9,41 @@ static void private_ember269_clear(unsigned off){if(off<64000)private_ember269_o
 static unsigned private_ember269_image,private_ember269_part,private_ember269_pixels;
 static int private_ember269_x,private_ember269_y;
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Private E1 physical2 first-event reuse. Never an asteroid/manual-campaign lease.
+ * Private E1 physical2 original plus independently gated later reuse. Never an asteroid/manual-campaign lease.
  * All hooks below write sidecar state only, never actor, event, palette or RNG.
  * EMBER269_FAMILY_CANVAS_ENABLE=1 enables only the ordered canvas adapter.
  * No environment flag means no new draws and no trace. Assets remain immutable
  * for a selected-root lifetime: disk hot reload is deliberately not supported.
  */
 #include "ember269_native.inc"
+#include "ember269_later5_scope.inc"
 static const struct {unsigned base;uint64_t rgba;} private_ember269_images[4]={
  {267,UINT64_C(0xd0e4ab5ba04e3363)},{269,UINT64_C(0xb685e8af26bab976)},
  {271,UINT64_C(0x54d5868a234306d5)},{273,UINT64_C(0xd45268a1da451f08)}
 };
+/* Ordinals, never raw event shifts: one consumed byte per finite origin. */
+static const struct {unsigned event,time;int x;} private_ember269_origins[6]={
+ {157,1252,114},
+ {349,3128,114},
+ {351,3128,186},
+ {479,4668,42},
+ {480,4668,66},
+ {485,4668,258}
+};
+static int private_ember269_origin(unsigned event)
+{
+ unsigned lo=0,hi=COUNTOF(private_ember269_origins);
+ while(lo<hi){unsigned mid=lo+(hi-lo)/2;
+  if(private_ember269_origins[mid].event<event)lo=mid+1;else hi=mid;
+ }
+ return lo<COUNTOF(private_ember269_origins)&&private_ember269_origins[lo].event==event?(int)lo:-1;
+}
 static struct {
  uint64_t generation,witness,epoch;bool exhausted,pending,initialized,live;
  unsigned event;Sprite2_array *bank;const Uint8 *data;size_t bytes;
 } private_ember269_slots[100];
 static struct {
- uint64_t epoch,serial;bool exhausted,loaded;unsigned consumed,mode;char root[1024];
+ uint64_t epoch,serial;bool exhausted,loaded;unsigned char consumed[6];unsigned mode;char root[1024];
  const struct JE_EventRecType *events; /* Read-only actual table supplied at load. */
  struct {bool live;uint64_t token,epoch,generation;unsigned event;int slot;} call;
 } private_ember269_life;
@@ -38,7 +56,8 @@ static unsigned private_ember269_mode(void)
 {
  const char *v=getenv("EMBER269_FAMILY_CANVAS_ENABLE");
  const char *f=getenv("BUILDING313_FAMILY_CANVAS_ENABLE");
- return B313_FAMILY_CANVAS_DIAGNOSTIC&&f&&!strcmp(f,"1")&&v&&!strcmp(v,"1")?2:0;
+ return B313_FAMILY_CANVAS_DIAGNOSTIC&&f&&!strcmp(f,"1")?
+  ((v&&!strcmp(v,"1")?2u:0u)|(ember269_later5_requested()?4u:0u)):0;
 }
 static bool private_ember269_level_scope(void)
 {
@@ -57,6 +76,11 @@ static bool private_ember269_scope(void)
   private_ember269_root()&&
   !strcmp(private_ember269_life.root,private_ember269_root());
 }
+static bool private_ember269_origin_enabled(int origin)
+{
+ return origin>=0&&origin<(int)COUNTOF(private_ember269_origins)&&
+  (private_ember269_life.mode&(origin==0?2u:4u));
+}
 static int private_ember269_slot(const void *ptr)
 {
  uintptr_t p=(uintptr_t)ptr,b=(uintptr_t)enemy;
@@ -72,7 +96,7 @@ static void private_ember269_log(const char *phase,int slot,unsigned event,unsig
   game_probe_tick,(unsigned long long)mirror_logic_tick,(unsigned long long)private_ember269_life.epoch,phase,event,slot,base,part,ok);
  fprintf(stderr,"\tepisode=%u\tphysical=%u\tprobe=%d\tasset_debug=%d\tplay_demo=%d\tdemo_file=%p\tstopped=%d\tconstant=%d,%d,%d\teventLoc=%u\tcurLoc=%u",
   episodeNum,lvlFileNum,game_probe_enabled,asset_debug_enabled,play_demo,(void *)demo_file,stopped_demo,constantPlay,constantDie,richMode,eventLoc,curLoc);
- if(private_ember269_life.events&&event==157){const struct JE_EventRecType *r=private_ember269_life.events+event;
+ if(private_ember269_life.events&&private_ember269_origin(event)>=0){const struct JE_EventRecType *r=private_ember269_life.events+event;
   fprintf(stderr,"\torigin=%u,%u,%d,%d,%d,%u,%d,%d",r->eventtime,r->eventtype,r->eventdat,r->eventdat2,r->eventdat3,r->eventdat4,r->eventdat5,r->eventdat6);}
  if(slot>=0&&slot<100){const struct JE_SingleEnemyType *e=enemy+slot;
   fprintf(stderr,"\tgen=%llu\twitness=%llu\tlive=%d\tavail=%u\ttype=%u\trecord269=%d\tbank_object=%p\tbank_data=%p\tbank_bytes=%lu\tsize=%u\tani=%u,%u,%u,%u,%u,%u\tarmor=%u\tfilter=%u\tflags=%d,%d,%d,%d\tlink_death=%u,%u\tpos=%d,%d,%u\tmotion=%d,%d,%d,%d,%d,%u,%u\taccel_aux=%d,%d,%d,%d,%d,%d,%u,%u\trev=%d,%d\tground_explode=%d,%u\ttur=%u,%u,%u\tfreq=%u,%u,%u\tlaunch=%u,%u,%u,%u\tdamage=%u,%d,%d\ticed=%u\tegr=",
@@ -119,17 +143,19 @@ static void private_ember269_reset(void)
 }
 static bool private_ember269_event_matches(unsigned index)
 {
- if(!private_ember269_life.events||index!=157)return false;
+ int origin=private_ember269_origin(index);
+ if(!private_ember269_life.events||maxEvent!=731||origin<0)return false;
  const struct JE_EventRecType *r=private_ember269_life.events+index;
- return maxEvent==731&&r->eventtime==1252&&r->eventtype==6&&r->eventdat==269&&
-  r->eventdat2==114&&!r->eventdat3&&!r->eventdat4&&!r->eventdat5&&!r->eventdat6;
+ return r->eventtime==private_ember269_origins[origin].time&&r->eventtype==6&&r->eventdat==269&&
+  r->eventdat2==private_ember269_origins[origin].x&&!r->eventdat3&&!r->eventdat4&&!r->eventdat5&&!r->eventdat6;
 }
 void render_mirror_ember269_level_begin(char map,char shape,const struct JE_EventRecType *events)
 {
- private_ember269_reset();private_ember269_life.loaded=false;private_ember269_life.consumed=0;
+ private_ember269_reset();private_ember269_life.loaded=false;memset(private_ember269_life.consumed,0,sizeof private_ember269_life.consumed);
  private_ember269_life.mode=private_ember269_mode();private_ember269_life.events=events;
  if(!private_ember269_level_scope()||map!='D'||shape!='Z'||mapX!=1||mapX2!=1||mapX3!=1||
   !private_ember269_event_matches(157)||
+  ((private_ember269_life.mode&4u)&&!ember269_later5_stream_matches(events))||
   !private_ember269_root()||!private_ember269_root()[0]||strlen(private_ember269_root())>=sizeof(private_ember269_life.root)){private_ember269_life.events=NULL;return;}
  strcpy(private_ember269_life.root,private_ember269_root());private_ember269_life.loaded=true;
  private_ember269_log("level-load",-1,0,0,-1,1);
@@ -174,10 +200,10 @@ uint64_t render_mirror_ember269_event_begin(unsigned eventloc,unsigned typeofs,u
  /* Called only at the actual case6 direct call site, not inferred in make. */
  if(private_ember269_life.call.live){private_ember269_life.call.live=false;private_ember269_fail();return 0;}
  if(!private_ember269_scope()||eventloc!=eventLoc||eventloc<1||typeofs||pool!=25||unique||
-  curLoc!=1252||!private_ember269_event_matches(eventloc-1))return 0;
- unsigned index=eventloc-1,bit=1u;
- if(private_ember269_life.consumed&bit)return 0;
- private_ember269_life.consumed|=bit; /* Allocation failure also consumes origin. */
+  !private_ember269_event_matches(eventloc-1))return 0;
+ unsigned index=eventloc-1;int origin=private_ember269_origin(index);
+ if(!private_ember269_origin_enabled(origin)||curLoc!=private_ember269_origins[origin].time||private_ember269_life.consumed[origin])return 0;
+ private_ember269_life.consumed[origin]=1; /* Allocation failure also consumes origin. */
  if(private_ember269_life.serial==UINT64_MAX){private_ember269_life.exhausted=true;return 0;}
  private_ember269_life.call.live=true;private_ember269_life.call.token=++private_ember269_life.serial;
  private_ember269_life.call.epoch=private_ember269_life.epoch;private_ember269_life.call.event=index;
@@ -213,11 +239,12 @@ void render_mirror_ember269_enemy_initialized(void *ptr,unsigned record,unsigned
 void render_mirror_ember269_event_commit(uint64_t token,unsigned allocated_one_based)
 {
  if(!token)return;
- int slot=private_ember269_life.call.slot;
+ int slot=private_ember269_life.call.slot;int origin=private_ember269_origin(private_ember269_life.call.event);
  bool ok=private_ember269_life.call.live&&token==private_ember269_life.call.token&&
   private_ember269_life.call.epoch==private_ember269_life.epoch&&private_ember269_scope()&&
   slot>=25&&slot<50&&allocated_one_based==(unsigned)slot+1&&eventLoc==private_ember269_life.call.event+1&&
-  private_ember269_event_matches(private_ember269_life.call.event)&&curLoc==1252;
+  private_ember269_origin_enabled(origin)&&private_ember269_event_matches(private_ember269_life.call.event)&&
+  private_ember269_life.consumed[origin]&&curLoc==private_ember269_origins[origin].time;
  if(ok)ok=private_ember269_slots[slot].pending&&private_ember269_slots[slot].initialized&&
   private_ember269_life.call.generation==private_ember269_slots[slot].generation&&enemyAvail[slot]==0&&
   private_ember269_shape((unsigned)slot,true)&&enemy[slot].ey==-28&&
@@ -238,10 +265,13 @@ void render_mirror_ember269_bank_changed(Sprite2_array *bank)
 }
 static bool private_ember269_witness(unsigned slot)
 {
+ if(slot>=100)return false;
+ int origin=private_ember269_origin(private_ember269_slots[slot].event);
  return slot>=25&&slot<50&&private_ember269_slots[slot].live&&!private_ember269_slots[slot].exhausted&&
   private_ember269_slots[slot].epoch==private_ember269_life.epoch&&
   private_ember269_slots[slot].generation==private_ember269_slots[slot].witness&&
-  private_ember269_slots[slot].event==157&&enemyAvail[slot]==0&&
+  private_ember269_origin_enabled(origin)&&private_ember269_event_matches(private_ember269_slots[slot].event)&&
+  private_ember269_life.consumed[origin]&&enemyAvail[slot]==0&&
   private_ember269_slots[slot].bank==enemy[slot].sprite2s&&enemy[slot].sprite2s&&
   private_ember269_slots[slot].data==enemy[slot].sprite2s->data&&private_ember269_slots[slot].bytes==enemy[slot].sprite2s->size;
 }
@@ -284,7 +314,7 @@ static bool private_ember269_load(unsigned k)
 }
 static bool private_ember269_ready(void)
 {
- if(!private_ember269_scope()||private_ember269_mode()!=2||game_probe_missing||game_probe_invalid||game_probe_original_reference)return false;
+ if(!private_ember269_scope()||!private_ember269_mode()||game_probe_missing||game_probe_invalid||game_probe_original_reference)return false;
  if(!private_ember269_resources.checked){private_ember269_resources.checked=true;private_ember269_resources.valid=true;
   strcpy(private_ember269_resources.root,private_ember269_life.root);
   for(unsigned i=0;i<4;i++)if(!private_ember269_load(i))private_ember269_resources.valid=false;}
