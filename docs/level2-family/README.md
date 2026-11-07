@@ -5,6 +5,8 @@ selected 272 lamps, gray 325, normal-state longface 573–576, triple 275, and
 the first 269 ember device. Unsupported identities or states retain native
 rendering. It does not replace all second-level graphics.
 
+For a fresh checkout or a user-local dependency build, see [Rebuilding the public baseline](REBUILD.md).
+
 ## Build and runtime switches are separate
 
 Install a C compiler, pkg-config, SDL2/SDL2_net development packages, and OpenSSL
