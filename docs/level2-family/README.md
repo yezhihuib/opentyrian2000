@@ -145,3 +145,7 @@ default and is not real-scene qualified.
 A separate [later 132 triple-origin candidate](LATER-TRIPLES-CANDIDATE.md) reuses
 six public images behind independent `--hd --later-triples`; it is off by
 default and is not real-scene qualified.
+
+The [fork284 offline preflight](FORK284-PREFLIGHT.md) checks original level input
+and the existing transparent public image without enabling rendering or changing
+the 52-file family manifest.
