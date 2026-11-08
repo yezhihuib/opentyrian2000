@@ -432,6 +432,7 @@ void JE_drawEnemy(int enemyOffset) // actually does a whole lot more than just d
 				render_mirror_turret273_enemy_animated(i);
 				render_mirror_linked_prop287288_enemy_animated(i);
 				render_mirror_linked338_normal_enemy_animated(i);
+				render_mirror_late_actor_enemy_animated(i);
 				render_mirror_newshf_validation_observe(i);
 
 				if (enemy[i].egr[enemy[i].enemycycle - 1] == 999)
@@ -526,6 +527,7 @@ enemy_gone:
 			render_mirror_turret273_retired((unsigned)i);
 			render_mirror_linked_prop287288_retired((unsigned)i,LP287_OFFSCREEN,100);
 			render_mirror_linked338_normal_retired((unsigned)i);
+			render_mirror_late_actor_retired((unsigned)i);
 			render_mirror_fork284_retired((unsigned)i);
 			render_mirror_gray325_retired((unsigned)i);
 			render_mirror_longface573_retired((unsigned)i);
@@ -679,6 +681,7 @@ enemy_still_exists:
 								{
 									enemy[i].aniactive = 1;
 									render_mirror_gray325_shot_fired(i);
+                                    render_mirror_late_actor_shot_fired(i,temp3,j,b);
 								}
 
 								if (++enemy[i].eshotmultipos[j-1] > weapons[temp3].max)
@@ -1891,6 +1894,7 @@ level_loop:
 											else
 											{
 												render_mirror_linked_prop287288_retired(temp3,LP287_DAMAGE_TRANSFORM,b);
+												render_mirror_late_actor_retired(temp3);
                                                 enemyAvail[temp3] = 1;
 												enemyKilled++;
 											}
@@ -1998,6 +2002,7 @@ level_loop:
 										else
 										{
 											render_mirror_linked_prop287288_retired(temp2,temp2==b?LP287_DIRECT_LETHAL:LP287_LINKED_LETHAL,b);
+											render_mirror_late_actor_retired(temp2);
                                             enemyAvail[temp2] = 1;
 											enemyKilled++;
 										}
@@ -3462,6 +3467,7 @@ new_game:
 	render_mirror_turret273_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_linked_prop287288_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_linked338_normal_level_begin(char_mapFile,char_shapeFile,eventRec);
+	render_mirror_late_actor_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_fork284_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_gray325_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_longface573_level_begin(char_mapFile,char_shapeFile,eventRec);
@@ -4355,6 +4361,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_turret273_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_linked_prop287288_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_linked338_normal_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
+	render_mirror_late_actor_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_fork284_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_gray325_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_longface573_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
@@ -4657,6 +4664,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_turret273_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_linked_prop287288_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_linked338_normal_enemy_initialized(enemy,eDatI,avail);
+	render_mirror_late_actor_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_fork284_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_gray325_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_longface573_enemy_initialized(enemy,eDatI,avail);
@@ -4790,6 +4798,7 @@ void JE_eventSystem(void)
 {
  const unsigned facts_event_entry=eventLoc;
  render_mirror_linked338_normal_script_before(facts_event_entry);
+ render_mirror_late_actor_script_before(facts_event_entry);
  const unsigned tail_event_type=eventRec[eventLoc-1].eventtype;
  const int tail_event_args[6]={eventRec[eventLoc-1].eventdat,eventRec[eventLoc-1].eventdat2,eventRec[eventLoc-1].eventdat3,eventRec[eventLoc-1].eventdat4,eventRec[eventLoc-1].eventdat5,eventRec[eventLoc-1].eventdat6};
  b313_family_observer_event();
@@ -4903,9 +4912,11 @@ void JE_eventSystem(void)
 
 	case 7: /* Top Enemy */
 	{
-		const uint64_t fork284_call=render_mirror_fork284_event_begin(eventLoc,0,50,0);
+		const uint64_t late282_call=render_mirror_late_actor_event_begin(eventLoc,0,50,0);
+        const uint64_t fork284_call=render_mirror_fork284_event_begin(eventLoc,0,50,0);
 		JE_createNewEventEnemy(0, 50, 0);
 		render_mirror_fork284_event_commit(fork284_call,b);
+        render_mirror_late_actor_event_commit(late282_call,b);
 		break;
 	}
 
@@ -5013,8 +5024,12 @@ void JE_eventSystem(void)
 		break;
 
 	case 15: /* Sky Enemy */
-		JE_createNewEventEnemy(0, 0, 0);
-		break;
+    {
+        const uint64_t late285_call=render_mirror_late_actor_event_begin(eventLoc,0,0,0);
+        JE_createNewEventEnemy(0, 0, 0);
+        render_mirror_late_actor_event_commit(late285_call,b);
+        break;
+    }
 
 	case 16:
 		if (eventRec[eventLoc-1].eventdat > 9)
@@ -5364,12 +5379,12 @@ void JE_eventSystem(void)
 		if (eventRec[eventLoc-1].eventdat == 0)
 		{
 			for(unsigned lp=0;lp<100;lp++)render_mirror_linked_prop287288_retired(lp,LP287_EVENT_RETIRE,100);
+			for(unsigned lp=0;lp<100;lp++)render_mirror_late_actor_retired(lp);
             memset(enemyAvail, 1, sizeof(enemyAvail));
 		}
 		else
 		{
-			for (x = 0; x <= 24; x++)
-				enemyAvail[x] = 1;
+			for (x = 0; x <= 24; x++) { render_mirror_late_actor_retired(x); enemyAvail[x] = 1; }
 		}
 		break;
 
@@ -5533,6 +5548,7 @@ void JE_eventSystem(void)
 				}
 
 				render_mirror_linked_prop287288_retired(temp,LP287_EVENT_RETIRE,100);
+				render_mirror_late_actor_retired(temp);
                 enemyAvail[temp] = 1;
 			}			
 		}
@@ -5765,6 +5781,7 @@ void JE_eventSystem(void)
 	}
 
  render_mirror_linked338_normal_script_after(facts_event_entry);
+ render_mirror_late_actor_script_after(facts_event_entry);
  b313_tail414_event_after(game_probe_tick,facts_event_entry,tail_event_type,tail_event_args);
  b313_facts_snapshot("event_after",facts_event_entry);
 	eventLoc++;

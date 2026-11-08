@@ -3,6 +3,7 @@
 #define RENDER_MIRROR_H
 #include "sprite.h"
 #include "linked_prop287288_family.h"
+#include "late_actor_family.h"
 #include "ground101_material.h"
 #include "gameplay_hud_meters.h"
 /* Diagnostic identity observer only. Default-off and mirror-disabled builds
@@ -78,8 +79,12 @@ typedef enum {
 #define render_mirror_linked_prop287288_hit_begin(...) ((void)0)
 #define render_mirror_linked_prop287288_hit_end(...) ((void)0)
 #define render_mirror_linked338_normal_enemy_animated(...) ((void)0)
+#define render_mirror_late_actor_enemy_animated(...) ((void)0)
+#define render_mirror_late_actor_shot_fired(...) ((void)0)
 #define render_mirror_linked338_normal_script_before(...) ((void)0)
+#define render_mirror_late_actor_script_before(...) ((void)0)
 #define render_mirror_linked338_normal_script_after(...) ((void)0)
+#define render_mirror_late_actor_script_after(...) ((void)0)
 #define render_mirror_cash25_enemy_initialized(...) ((void)0)
 #define render_mirror_rotor_enemy_initialized(...) ((void)0)
 #define render_mirror_cash25_value_allocated(...) ((void)0)
@@ -158,6 +163,7 @@ typedef enum {
 #define render_mirror_turret273_level_begin(...) ((void)0)
 #define render_mirror_linked_prop287288_level_begin(...) ((void)0)
 #define render_mirror_linked338_normal_level_begin(...) ((void)0)
+#define render_mirror_late_actor_level_begin(...) ((void)0)
 #define render_mirror_fork284_level_begin(...) ((void)0)
 #define render_mirror_gray325_level_begin(...) ((void)0)
 #define render_mirror_longface573_level_begin(...) ((void)0)
@@ -167,6 +173,7 @@ typedef enum {
 #define render_mirror_turret273_event_begin(...) (UINT64_C(0))
 #define render_mirror_linked_prop287288_event_begin(...) (UINT64_C(0))
 #define render_mirror_linked338_normal_event_begin(...) (UINT64_C(0))
+#define render_mirror_late_actor_event_begin(...) (UINT64_C(0))
 #define render_mirror_fork284_event_begin(...) (UINT64_C(0))
 #define render_mirror_gray325_event_begin(...) (UINT64_C(0))
 #define render_mirror_longface573_event_begin(...) (UINT64_C(0))
@@ -176,6 +183,7 @@ typedef enum {
 #define render_mirror_turret273_event_commit(...) ((void)0)
 #define render_mirror_linked_prop287288_event_commit(...) ((void)0)
 #define render_mirror_linked338_normal_event_commit(...) ((void)0)
+#define render_mirror_late_actor_event_commit(...) ((void)0)
 #define render_mirror_fork284_event_commit(...) ((void)0)
 #define render_mirror_gray325_event_commit(...) ((void)0)
 #define render_mirror_longface573_event_commit(...) ((void)0)
@@ -185,6 +193,7 @@ typedef enum {
 #define render_mirror_turret273_enemy_allocated(...) ((void)0)
 #define render_mirror_linked_prop287288_enemy_allocated(...) ((void)0)
 #define render_mirror_linked338_normal_enemy_allocated(...) ((void)0)
+#define render_mirror_late_actor_enemy_allocated(...) ((void)0)
 #define render_mirror_fork284_enemy_allocated(...) ((void)0)
 #define render_mirror_gray325_enemy_allocated(...) ((void)0)
 #define render_mirror_longface573_enemy_allocated(...) ((void)0)
@@ -194,6 +203,7 @@ typedef enum {
 #define render_mirror_turret273_enemy_initialized(...) ((void)0)
 #define render_mirror_linked_prop287288_enemy_initialized(...) ((void)0)
 #define render_mirror_linked338_normal_enemy_initialized(...) ((void)0)
+#define render_mirror_late_actor_enemy_initialized(...) ((void)0)
 #define render_mirror_fork284_enemy_initialized(...) ((void)0)
 #define render_mirror_gray325_enemy_initialized(...) ((void)0)
 #define render_mirror_longface573_enemy_initialized(...) ((void)0)
@@ -203,6 +213,7 @@ typedef enum {
 #define render_mirror_turret273_retired(...) ((void)0)
 #define render_mirror_linked_prop287288_retired(...) ((void)0)
 #define render_mirror_linked338_normal_retired(...) ((void)0)
+#define render_mirror_late_actor_retired(...) ((void)0)
 #define render_mirror_fork284_retired(...) ((void)0)
 #define render_mirror_gray325_retired(...) ((void)0)
 #define render_mirror_longface573_retired(...) ((void)0)
@@ -212,6 +223,7 @@ typedef enum {
 #define render_mirror_turret273_bank_changed(...) ((void)0)
 #define render_mirror_linked_prop287288_bank_changed(...) ((void)0)
 #define render_mirror_linked338_normal_bank_changed(...) ((void)0)
+#define render_mirror_late_actor_bank_changed(...) ((void)0)
 #define render_mirror_fork284_bank_changed(...) ((void)0)
 #define render_mirror_gray325_bank_changed(...) ((void)0)
 #define render_mirror_longface573_bank_changed(...) ((void)0)
@@ -298,8 +310,12 @@ void render_mirror_linked_prop287288_enemy_animated(unsigned);
 void render_mirror_linked_prop287288_hit_begin(unsigned,unsigned,unsigned);
 void render_mirror_linked_prop287288_hit_end(void);
 void render_mirror_linked338_normal_enemy_animated(unsigned);
+void render_mirror_late_actor_enemy_animated(unsigned);
+void render_mirror_late_actor_shot_fired(unsigned,unsigned,unsigned,unsigned);
 void render_mirror_linked338_normal_script_before(unsigned);
+void render_mirror_late_actor_script_before(unsigned);
 void render_mirror_linked338_normal_script_after(unsigned);
+void render_mirror_late_actor_script_after(unsigned);
 void render_mirror_cash25_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_rotor_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_cash25_value_allocated(unsigned,int,int,int,int,bool,bool);
@@ -385,6 +401,7 @@ void render_mirror_ember269_level_begin(char,char,const struct JE_EventRecType *
 void render_mirror_turret273_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_linked_prop287288_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_linked338_normal_level_begin(char,char,const struct JE_EventRecType *);
+void render_mirror_late_actor_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_fork284_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_gray325_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_longface573_level_begin(char,char,const struct JE_EventRecType *);
@@ -394,6 +411,7 @@ uint64_t render_mirror_ember269_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_turret273_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_linked_prop287288_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_linked338_normal_event_begin(unsigned,unsigned,unsigned,int);
+uint64_t render_mirror_late_actor_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_fork284_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_gray325_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_longface573_event_begin(unsigned,unsigned,unsigned,int);
@@ -403,6 +421,7 @@ void render_mirror_ember269_event_commit(uint64_t,unsigned);
 void render_mirror_turret273_event_commit(uint64_t,unsigned);
 void render_mirror_linked_prop287288_event_commit(uint64_t,unsigned);
 void render_mirror_linked338_normal_event_commit(uint64_t,unsigned);
+void render_mirror_late_actor_event_commit(uint64_t,unsigned);
 void render_mirror_fork284_event_commit(uint64_t,unsigned);
 void render_mirror_gray325_event_commit(uint64_t,unsigned);
 void render_mirror_longface573_event_commit(uint64_t,unsigned);
@@ -412,6 +431,7 @@ void render_mirror_ember269_enemy_allocated(void *,unsigned,int);
 void render_mirror_turret273_enemy_allocated(void *,unsigned,int);
 void render_mirror_linked_prop287288_enemy_allocated(void *,unsigned,int);
 void render_mirror_linked338_normal_enemy_allocated(void *,unsigned,int);
+void render_mirror_late_actor_enemy_allocated(void *,unsigned,int);
 void render_mirror_fork284_enemy_allocated(void *,unsigned,int);
 void render_mirror_gray325_enemy_allocated(void *,unsigned,int);
 void render_mirror_longface573_enemy_allocated(void *,unsigned,int);
@@ -421,6 +441,7 @@ void render_mirror_ember269_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_turret273_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_linked_prop287288_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_linked338_normal_enemy_initialized(void *,unsigned,unsigned);
+void render_mirror_late_actor_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_fork284_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_gray325_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_longface573_enemy_initialized(void *,unsigned,unsigned);
@@ -430,6 +451,7 @@ void render_mirror_ember269_retired(unsigned);
 void render_mirror_turret273_retired(unsigned);
 void render_mirror_linked_prop287288_retired(unsigned,unsigned,unsigned);
 void render_mirror_linked338_normal_retired(unsigned);
+void render_mirror_late_actor_retired(unsigned);
 void render_mirror_fork284_retired(unsigned);
 void render_mirror_gray325_retired(unsigned);
 void render_mirror_longface573_retired(unsigned);
@@ -439,6 +461,7 @@ void render_mirror_ember269_bank_changed(Sprite2_array *);
 void render_mirror_turret273_bank_changed(Sprite2_array *);
 void render_mirror_linked_prop287288_bank_changed(Sprite2_array *);
 void render_mirror_linked338_normal_bank_changed(Sprite2_array *);
+void render_mirror_late_actor_bank_changed(Sprite2_array *);
 void render_mirror_fork284_bank_changed(Sprite2_array *);
 void render_mirror_gray325_bank_changed(Sprite2_array *);
 void render_mirror_longface573_bank_changed(Sprite2_array *);

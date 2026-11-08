@@ -230,7 +230,7 @@ int main(void){
         for name in ('f284','tp','ln'):
             self.assertLess(canvas.index(name+'_retire((unsigned)off,style)'),canvas.index('if(f284_pixel'))
             self.assertIn(name+'_before_tile(slot,part)',canvas)
-        self.assertIn('!linked_owned&&!linked_prop_owned&&!terrain_retire',canvas)
+        self.assertIn('!linked_owned&&!linked_prop_owned&&!late_actor_owned&&!terrain_retire',canvas)
         self.assertIn('ln_write_current()',canvas);self.assertIn('!ln_finish()',canvas);self.assertIn('!ln_guard()',canvas)
         self.assertIn('!f284_stream_matches(events)',TEXT)
         before=native.index('render_mirror_linked338_normal_script_before(facts_event_entry);')

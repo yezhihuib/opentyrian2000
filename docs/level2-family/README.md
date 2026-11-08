@@ -168,3 +168,7 @@ The [linked props287/288 candidate](LINKED-PROPS287288-CANDIDATE.md) independent
 covers six original events using three public NEWSHD images, only with
 `--hd --linked-props`. Native allocation and linked damage remain authoritative;
 no partner-survival rule is added. Actual scene validation remains pending.
+
+The [late282/285 body candidate](LATE282285-CANDIDATE.md) covers eight
+original events with six public images, only with `--hd --late282285`.
+Record283 and projectile art are excluded. Actual scene validation is pending.
