@@ -7,7 +7,7 @@
 
 #if B313_FAMILY_CACHE_DIAGNOSTIC
 #include "b313_v6_catalog.h"
-#include <openssl/sha.h>
+#include "b313_platform.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -71,9 +71,8 @@ static unsigned char *read_immutable_phase(const char *path,unsigned phase,
  increment(&state.read_calls);
  FILE *file=fopen(path,"rb");
  if(!file){*reason=B313FC_IO;return NULL;}
- struct stat info;
- if(fstat(fileno(file),&info)||!S_ISREG(info.st_mode)||
-    info.st_size!=B313FC_PHASE_BYTES){
+ uint64_t file_size;
+ if(!b313_regular_file_size(file,&file_size)||file_size!=B313FC_PHASE_BYTES){
   fclose(file);*reason=B313FC_LAYOUT;return NULL;
  }
  unsigned char *raw=malloc(B313FC_PHASE_BYTES);
@@ -83,14 +82,14 @@ static unsigned char *read_immutable_phase(const char *path,unsigned phase,
  bool read_ok=got==B313FC_PHASE_BYTES&&tail==EOF&&!ferror(file);
  int closed=fclose(file);
  if(!read_ok||closed){free(raw);*reason=B313FC_IO;return NULL;}
- unsigned char digest[SHA256_DIGEST_LENGTH];
+ unsigned char digest[B313_SHA256_BYTES];
  char hex[65];
  static const char digits[]="0123456789abcdef";
  increment(&state.hash_calls);
- if(!SHA256(raw,B313FC_PHASE_BYTES,digest)){
+ if(!b313_sha256(raw,B313FC_PHASE_BYTES,digest)){
   free(raw);*reason=B313FC_DIGEST;return NULL;
  }
- for(unsigned i=0;i<SHA256_DIGEST_LENGTH;i++){
+ for(unsigned i=0;i<B313_SHA256_BYTES;i++){
   hex[2*i]=digits[digest[i]>>4];
   hex[2*i+1]=digits[digest[i]&15];
  }

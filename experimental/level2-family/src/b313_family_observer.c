@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include "b313_family_observer.h"
 #include "b313_terrain_context.h"
 #include "b313_family_input.h"
@@ -11,7 +12,7 @@
 #include "video.h"
 #include "backgrnd.h"
 #include "game_probe.h"
-#include <openssl/sha.h>
+#include "b313_platform.h"
 #include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -103,9 +104,9 @@ static bool source_matches(unsigned pool,bool verify)
  if(v->verified)return v->epoch==s.resource_epoch[pool]&&v->data==bank->data&&v->size==bank->size;
  if(!verify)return false;
  static const char expected[]="4bd9a72339e30440c172e385f258c8895b516ff84026a9a6b5a65ada4cf0ab90";
- unsigned char digest[SHA256_DIGEST_LENGTH];char hex[65];static const char digits[]="0123456789abcdef";
- ++s.source_hash_calls;if(!SHA256(bank->data,bank->size,digest))return false;
- for(unsigned i=0;i<SHA256_DIGEST_LENGTH;i++){hex[2*i]=digits[digest[i]>>4];hex[2*i+1]=digits[digest[i]&15];}hex[64]=0;
+ unsigned char digest[B313_SHA256_BYTES];char hex[65];static const char digits[]="0123456789abcdef";
+ ++s.source_hash_calls;if(!b313_sha256(bank->data,bank->size,digest))return false;
+ for(unsigned i=0;i<B313_SHA256_BYTES;i++){hex[2*i]=digits[digest[i]>>4];hex[2*i+1]=digits[digest[i]&15];}hex[64]=0;
  if(strcmp(hex,expected))return false;
  v->verified=true;v->epoch=s.resource_epoch[pool];v->data=bank->data;v->size=bank->size;return true;
 }

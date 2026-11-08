@@ -8,7 +8,7 @@
 #include <errno.h>
 #include <time.h>
 #include <fcntl.h>
-#include <unistd.h>
+#include "b313_platform.h"
 static BcoReportStatus r;
 static bool busy,identified,finish_mark_seen,halt_seen;
 static unsigned halt_code;
@@ -26,8 +26,8 @@ static bool io_fail(unsigned stage,int error)
 static bool identify(void)
 {
  if(identified)return true;
- struct timespec t;if(clock_gettime(CLOCK_MONOTONIC,&t)||t.tv_sec<0||t.tv_nsec<0||t.tv_nsec>=1000000000L)return io_fail(BCO_IO_CLOCK,errno);
- r.process_id=(uint64_t)getpid();r.monotonic_sec=(uint64_t)t.tv_sec;r.monotonic_nsec=(uint64_t)t.tv_nsec;identified=true;return true;
+ uint64_t sec,nsec;if(!b313_monotonic_time(&sec,&nsec))return io_fail(BCO_IO_CLOCK,errno);
+ r.process_id=b313_process_id();r.monotonic_sec=sec;r.monotonic_nsec=nsec;identified=true;return true;
 }
 static bool serialize(FILE *f,unsigned stage,unsigned tick,bool tick_known,const BcoStatus *s)
 {
@@ -62,17 +62,17 @@ bool bco_report_emit(unsigned stage,unsigned tick,bool tick_known)
   ((r.published_mask&2u)&&s.birth_closed&&!s.birth_pending&&!s.failed);
  if(!ordered||!identify()){if(!r.io_failed)io_fail(BCO_IO_ORDER,0);busy=false;return false;}
  char path[100],tmp[104];snprintf(path,sizeof(path),"building313-continuity-%s.json",names[stage]);snprintf(tmp,sizeof(tmp),"%s.tmp",path);
- errno=0;int fd=open(tmp,O_WRONLY|O_CREAT|O_EXCL,0600);
+ errno=0;int fd=b313_open_exclusive(tmp);
  if(fd<0){io_fail(BCO_IO_OPEN,errno);busy=false;return false;}
- FILE *f=fdopen(fd,"w");if(!f){int e=errno;close(fd);unlink(tmp);io_fail(BCO_IO_STREAM,e);busy=false;return false;}
+ FILE *f=b313_fdopen_write(fd);if(!f){int e=errno;b313_close(fd);b313_unlink(tmp);io_fail(BCO_IO_STREAM,e);busy=false;return false;}
  unsigned error_stage=0;int error=0;
  errno=0;if(!serialize(f,stage,tick,tick_known,&s)){error_stage=BCO_IO_WRITE;error=errno;}
  if(!error_stage&&fflush(f)){error_stage=BCO_IO_FLUSH;error=errno;}
- if(!error_stage&&fsync(fileno(f))){error_stage=BCO_IO_SYNC;error=errno;}
+ if(!error_stage&&b313_sync_file(f)){error_stage=BCO_IO_SYNC;error=errno;}
  if(fclose(f)&&!error_stage){error_stage=BCO_IO_CLOSE;error=errno;}
  if(!error_stage&&r.io_failed){error_stage=r.io_stage;error=(int)r.io_error;}
- if(!error_stage&&link(tmp,path)){error_stage=BCO_IO_PUBLISH;error=errno;}
- if(unlink(tmp)&&!error_stage){error_stage=BCO_IO_CLEANUP;error=errno;}
+ if(!error_stage&&b313_publish_no_replace(tmp,path)){error_stage=BCO_IO_PUBLISH;error=errno;}
+ if(b313_unlink(tmp)&&!error_stage){error_stage=BCO_IO_CLEANUP;error=errno;}
  if(!error_stage&&r.io_failed){error_stage=r.io_stage;error=(int)r.io_error;}
  if(error_stage){io_fail(error_stage,error);busy=false;return false;}
  r.published_seq=r.attempted_seq;r.published_mask|=1u<<stage;busy=false;return true;

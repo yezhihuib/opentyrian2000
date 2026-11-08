@@ -12,7 +12,7 @@ static B313V6PreparationStatus result;
 #include "building313_precommit.h"
 #include "native_writer_scope.h"
 #include "native_writer_lineage.h"
-#include <openssl/sha.h>
+#include "b313_platform.h"
 #include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -75,18 +75,18 @@ bool b313_v6_material_load(const char *path)
  if(!path){reject(V6P_IO);return false;}
  ++result.file_read_calls;FILE *f=fopen(path,"rb");
  if(!f){reject(V6P_IO);return false;}
- struct stat info;
- if(fstat(fileno(f),&info)||!S_ISREG(info.st_mode)||info.st_size!=PHASE_BYTES){fclose(f);reject(V6P_LAYOUT);return false;}
+ uint64_t file_size;
+ if(!b313_regular_file_size(f,&file_size)||file_size!=PHASE_BYTES){fclose(f);reject(V6P_LAYOUT);return false;}
  unsigned char *candidate=malloc(PHASE_BYTES);
  if(!candidate){fclose(f);reject(V6P_IO);return false;}
  size_t got=fread(candidate,1,PHASE_BYTES,f);int tail=fgetc(f);bool read_ok=got==PHASE_BYTES&&tail==EOF&&!ferror(f);
  int closed=fclose(f);
  if(!read_ok||closed){free(candidate);reject(V6P_IO);return false;}
- unsigned char digest[SHA256_DIGEST_LENGTH];char hex[65];
+ unsigned char digest[B313_SHA256_BYTES];char hex[65];
  ++result.sha256_calls;
- if(!SHA256(candidate,PHASE_BYTES,digest)){free(candidate);reject(V6P_DIGEST);return false;}
+ if(!b313_sha256(candidate,PHASE_BYTES,digest)){free(candidate);reject(V6P_DIGEST);return false;}
  static const char digits[]="0123456789abcdef";
- for(unsigned i=0;i<SHA256_DIGEST_LENGTH;i++){hex[2*i]=digits[digest[i]>>4];hex[2*i+1]=digits[digest[i]&15];}hex[64]=0;
+ for(unsigned i=0;i<B313_SHA256_BYTES;i++){hex[2*i]=digits[digest[i]>>4];hex[2*i+1]=digits[digest[i]&15];}hex[64]=0;
  if(!b313_slice_payload_sha()||strcmp(hex,b313_slice_payload_sha())){free(candidate);reject(V6P_DIGEST);return false;}
  for(unsigned p=0;p<PHASE_BYTES;p+=4){
   uint32_t argb=(uint32_t)candidate[p]|((uint32_t)candidate[p+1]<<8)|((uint32_t)candidate[p+2]<<16)|((uint32_t)candidate[p+3]<<24);
@@ -106,16 +106,16 @@ static unsigned char *read_immutable_phase(const char *path,unsigned phase,unsig
  if(!path||phase>=3){*why=V6P_IO;return NULL;}
  ++result.file_read_calls;FILE *f=fopen(path,"rb");
  if(!f){*why=V6P_IO;return NULL;}
- struct stat info;
- if(fstat(fileno(f),&info)||!S_ISREG(info.st_mode)||info.st_size!=PHASE_BYTES){fclose(f);*why=V6P_LAYOUT;return NULL;}
+ uint64_t file_size;
+ if(!b313_regular_file_size(f,&file_size)||file_size!=PHASE_BYTES){fclose(f);*why=V6P_LAYOUT;return NULL;}
  unsigned char *candidate=malloc(PHASE_BYTES);
  if(!candidate){fclose(f);*why=V6P_IO;return NULL;}
  size_t got=fread(candidate,1,PHASE_BYTES,f);int tail=fgetc(f);bool ok=got==PHASE_BYTES&&tail==EOF&&!ferror(f);int closed=fclose(f);
  if(!ok||closed){free(candidate);*why=V6P_IO;return NULL;}
- unsigned char digest[SHA256_DIGEST_LENGTH];char hex[65];static const char digits[]="0123456789abcdef";
+ unsigned char digest[B313_SHA256_BYTES];char hex[65];static const char digits[]="0123456789abcdef";
  ++result.sha256_calls;
- if(!SHA256(candidate,PHASE_BYTES,digest)){free(candidate);*why=V6P_DIGEST;return NULL;}
- for(unsigned i=0;i<SHA256_DIGEST_LENGTH;i++){hex[2*i]=digits[digest[i]>>4];hex[2*i+1]=digits[digest[i]&15];}hex[64]=0;
+ if(!b313_sha256(candidate,PHASE_BYTES,digest)){free(candidate);*why=V6P_DIGEST;return NULL;}
+ for(unsigned i=0;i<B313_SHA256_BYTES;i++){hex[2*i]=digits[digest[i]>>4];hex[2*i+1]=digits[digest[i]&15];}hex[64]=0;
  if(strcmp(hex,expected[phase])){free(candidate);*why=V6P_DIGEST;return NULL;}
  for(unsigned p=0;p<PHASE_BYTES;p+=4)if(candidate[p+3]!=255){free(candidate);*why=V6P_LAYOUT;return NULL;}
  return candidate;
