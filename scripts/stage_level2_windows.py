@@ -28,7 +28,7 @@ def stage(repo,destination,sdl2,sdl_net,sdk='10.0.26100.0',toolset='v143'):
  for n in tree.body:
   if isinstance(n,ast.Assign) and any(isinstance(x,ast.Name) and x.id=='DEFINES' for x in n.targets):defines=ast.literal_eval(n.value)
  if not defines:raise ValueError('Missing reviewed defines')
- defs=['TARGET_WIN32','WITH_NETWORK','_CRT_SECURE_NO_WARNINGS','_WINDOWS','NDEBUG','NEWSHF_HD_COMPOSITOR=0','OPENTYRIAN_VERSION="level2-family-windows-candidate"']+[x+'=1' for x in defines]
+ defs=['TARGET_WIN32',r'TYRIAN_DIR="C:\\TYRIAN"','WITH_NETWORK','_CRT_SECURE_NO_WARNINGS','_WINDOWS','NDEBUG','NEWSHF_HD_COMPOSITOR=0','OPENTYRIAN_VERSION="level2-family-windows-candidate"']+[x+'=1' for x in defines]
  ns='http://schemas.microsoft.com/developer/msbuild/2003';ET.register_namespace('',ns)
  def e(parent,tag,text=None,**attrs):
   x=ET.SubElement(parent,'{'+ns+'}'+tag,attrs)

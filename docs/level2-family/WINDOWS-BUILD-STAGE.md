@@ -1,15 +1,24 @@
 # Isolated Windows build candidate
 
-This source checkpoint adds a portability header for four experimental overlay
-units, an isolated MSVC staging/build workflow and offline tests. It is **not a
-verified Windows build or playable Windows package**. The Windows build could
-not be attempted because the available Windows computer went offline before
-source transfer. No game, graphics or save/load acceptance was performed.
+This source checkpoint now has a real MSVC x64 build of all 112 production-plus-
+overlay translation units. It is **not a playable Windows package or gameplay
+acceptance claim**. The game executable was not started.
 
-The 68-test offline aggregate and complete 112-unit POSIX build pass. The three
-staging tests were repeated after the final script-only fixes. These results do
-not prove MSVC compatibility or Windows runtime behavior. The ordinary launcher
-continues to reject Windows execution; its safety check has not been removed.
+The first native attempt stopped at the missing `TYRIAN_DIR` definition. The
+staging generator now supplies the same `C:\TYRIAN` default as the canonical
+Windows project; explicit runtime `--data` still takes precedence. A fresh
+independent stage then built successfully with MSVC 14.44.35207, SDK 10.0.26100.0,
+SDL2 2.32.10 and SDL2_net 2.4.0. All 448 staged inputs were unchanged after build,
+and the output was verified as AMD64 PE (3,700,224 bytes). No old installation,
+project, runtime resources or saved games were modified.
+
+A separate native executable passed SHA256 known-vector and file-lifecycle /
+non-overwriting publication assertions using system BCrypt. This small test is
+not the game. Six focused portability/staging tests pass after the macro fix;
+the preceding 68-test offline aggregate and 112-unit POSIX build also passed.
+The ordinary launcher still rejects Windows execution; its safety check has not
+been removed. DLL resolution, actual graphics, input, audio and save/load remain
+unverified.
 
 ## Separate source stage
 
@@ -50,7 +59,7 @@ and non-overwriting, using a hard link after flushing and synchronizing the
 completed temporary file. Unsupported file systems fail rather than falling
 back to a replacing copy. No security settings or existing ACLs are changed.
 
-A successful future build will still require DLL-resolution checks and a new
+The successful native build still requires DLL-resolution checks and a new
 isolated run/profile layout. Windows saves currently use the working directory,
 while family terrain paths are relative, so simply removing the launcher guard
 or changing the working directory is unsafe. Runtime art, original game data,
