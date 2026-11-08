@@ -49,6 +49,7 @@ def stage(repo,destination,sdl2,sdl_net,sdk='10.0.26100.0',toolset='v143'):
  e(project,'Import',Project='$(VCTargetsPath)\\Microsoft.Cpp.props')
  g=e(project,'PropertyGroup');e(g,'OutDir','$(MSBuildProjectDirectory)\\bin\\');e(g,'IntDir','$(MSBuildProjectDirectory)\\obj\\');e(g,'TargetName','opentyrian2000-ordinary');e(g,'SDL2BaseDir',sdl2);e(g,'SDL2netBaseDir',sdl_net)
  g=e(project,'ItemDefinitionGroup');cc=e(g,'ClCompile');e(cc,'LanguageStandard_C','stdc17');e(cc,'CompileAs','CompileAsC');e(cc,'WarningLevel','Level3');e(cc,'Optimization','MaxSpeed');e(cc,'RuntimeLibrary','MultiThreadedDLL');e(cc,'PreprocessorDefinitions',';'.join(defs));e(cc,'AdditionalIncludeDirectories','$(MSBuildProjectDirectory)\\src;$(MSBuildProjectDirectory)\\assets;$(SDL2BaseDir)\\include;$(SDL2netBaseDir)\\include')
+ e(cc,'AdditionalOptions','/source-charset:utf-8 %(AdditionalOptions)')
  rc=e(g,'ResourceCompile');e(rc,'AdditionalIncludeDirectories','$(MSBuildProjectDirectory)\\visualc')
  link=e(g,'Link');e(link,'SubSystem','Windows');e(link,'TargetMachine','MachineX64');e(link,'AdditionalLibraryDirectories','$(SDL2BaseDir)\\lib\\x64;$(SDL2netBaseDir)\\lib\\x64');e(link,'AdditionalDependencies','SDL2.lib;SDL2main.lib;SDL2_net.lib;user32.lib;gdi32.lib;winmm.lib;imm32.lib;ole32.lib;oleaut32.lib;version.lib;uuid.lib;advapi32.lib;shell32.lib;setupapi.lib;ws2_32.lib')
  group=e(project,'ItemGroup')

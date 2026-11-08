@@ -51,3 +51,19 @@ remove those files to bypass checks. Existing classic/family roots stay untouche
 The default first-play window is 1280x800 (4x), not640x400 (2x). This restores the
 previous display sampling size; it does not widen any renderer admission or promise
 full-scene HD. Existing prepared profiles/receipts are not modified.
+
+
+## Explicit source encoding
+
+The isolated ordinary MSVC project uses `/source-charset:utf-8` for all C units.
+`CharacterSet=MultiByte` is not a source-file decoding setting. On a CP936 host,
+a UTF-8 line comment in the unchanged font table was misdecoded, changing the
+compiled `font_ascii[160]` from 118 to -1. The resulting map hash rejected the
+optional MAIN7 menu at its existing admission check, despite correct resources.
+
+This sets source decoding only, not `/execution-charset` or `/utf-8`: narrow
+execution-string encoding and all resource/source pins remain unchanged. Build
+into a new isolated stage; older binaries and historical validation receipts
+are not retroactively fixed. The generated project hash binds this option.
+The XML regression checks the option; actual compiled-map and no-window MAIN7
+A/B checks remain separate Windows evidence, not implied by that unit test.

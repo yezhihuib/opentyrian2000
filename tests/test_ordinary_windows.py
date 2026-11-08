@@ -20,6 +20,18 @@ class OrdinaryWindowsTests(unittest.TestCase):
    for bad in ['experimental/','BUILDING313_FAMILY_CANVAS_ENABLE','CopyPropsTemplates','user.props','bcrypt.lib']:self.assertNotIn(bad,text)
    for name,source in r['source_origins'].items():self.assertEqual((dest/'src'/name).read_bytes(),(ROOT/source).read_bytes())
    with self.assertRaises(ValueError):stage.stage(ROOT,dest,r'C:\deps\SDL2',r'C:\deps\SDL2_net')
+ def test_source_charset_is_explicit_without_changing_execution_charset(self):
+  import xml.etree.ElementTree as ET
+  with tempfile.TemporaryDirectory() as tmp:
+   dest=Path(tmp)/'build';stage.stage(ROOT,dest,r'C:\deps\SDL2',r'C:\deps\SDL2_net')
+   project=ET.parse(dest/'ordinary-production.vcxproj')
+   ns={'m':'http://schemas.microsoft.com/developer/msbuild/2003'}
+   options=project.findall('.//m:ItemDefinitionGroup/m:ClCompile/m:AdditionalOptions',ns)
+   self.assertEqual([x.text for x in options],['/source-charset:utf-8 %(AdditionalOptions)'])
+   text=(dest/'ordinary-production.vcxproj').read_text()
+   self.assertNotIn('/execution-charset',text);self.assertNotIn('/utf-8',text)
+   self.assertEqual(project.find('.//m:CharacterSet',ns).text,'MultiByte')
+   self.assertEqual((dest/'src/fonthand.c').read_bytes(),(ROOT/'src/fonthand.c').read_bytes())
  def inputs(self,base):
   a=fixtures.WindowsRuntimeTests().inputs(base);a.hd=True;a.assets=str(base/'package')
   for file in ('stage_receipt','build_receipt'):
