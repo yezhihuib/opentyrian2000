@@ -52,13 +52,13 @@ def controlled_name(name):
 
 
 def expected_asset_paths():
-    paths = {str(FAMILY_ROOT / "building" / f"phase{n}.argb32le") for n in range(3)}
+    paths = {(FAMILY_ROOT / "building" / f"phase{n}.argb32le").as_posix() for n in range(3)}
     for bank, bases in (("newshd", (155, 163, 165, 167)),
                         ("newshp", (123, 125, 127, 129))):
-        paths.update(str(FAMILY_ROOT / "longface" / f"enemy-{bank}-{n}-8.hda") for n in bases)
+        paths.update((FAMILY_ROOT / "longface" / f"enemy-{bank}-{n}-8.hda").as_posix() for n in bases)
     for bank, bases in (("newshs", (11, 125, 277, 153, 155, 157, 159, 161, 163, 229, 231, 233, 235)),
                         ("newshd", (267, 269, 271, 273))):
-        paths.update(str(REUSED_ROOT / f"enemy-{bank}-{n}-8.hda") for n in bases)
+        paths.update((REUSED_ROOT / f"enemy-{bank}-{n}-8.hda").as_posix() for n in bases)
     ground = (372, 380, 390, 367, 368, 376, 378, 386, 387, 388)
     cliff = (361, 362, 363, 364, 365, 371, 373, 374, 375, 381, 382, 383)
     paths.update(f"assets/hd/current-terrain23/terrain-shapesz-{n}-8.hda"
