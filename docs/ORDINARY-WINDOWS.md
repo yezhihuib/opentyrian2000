@@ -43,7 +43,11 @@ normally. Exact hashes, paths, AMD64 roles, build flavor and source binding are
 rechecked; new root cwd isolates Windows '.' saves. External original data is not
 copied or modified. All inherited family/probe and SDL dummy overrides are removed
 from child environment only. Startup/common-menu/manual/global/HUD/Data text/frame/
-portrait CLI paths point to the new immutable assets. Fresh config is windowed2x
+portrait CLI paths point to the new immutable assets. Fresh config is windowed4x
 Integer scaling. It is not copied from an existing profile. First launch only: logs
 and saves thereafter deliberately block reusing the first-launch receipt. Do not
 remove those files to bypass checks. Existing classic/family roots stay untouched.
+
+The default first-play window is 1280x800 (4x), not640x400 (2x). This restores the
+previous display sampling size; it does not widen any renderer admission or promise
+full-scene HD. Existing prepared profiles/receipts are not modified.

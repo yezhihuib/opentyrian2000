@@ -9,7 +9,7 @@ EXE='opentyrian2000-ordinary.exe'
 MANIFEST_SHA='4db5778fd0f8372469f01b121abc23ee25f501dcbdfffadb1fb78143f8004236'
 VALIDATION_SHA='5f9925c665d37a7b6c185c3737190d953bb11099378316bd92e5966d2f8cf457'
 TOOLS=('windows_ordinary_runtime.py','windows_classic_runtime.py','runtime-assets-v1.json')
-CONFIG=b"section 'video'\n    item 'fullscreen' '-1'\n    item 'scaler' '2x'\n    item 'scaling_mode' 'Integer'\n"
+CONFIG=b"section 'video'\n    item 'fullscreen' '-1'\n    item 'scaler' '4x'\n    item 'scaling_mode' 'Integer'\n"
 ASSET_ARGUMENTS={'manual-hd-assets':'assets/gameplay','startup-assets':'assets/startup','common-menu-assets':'assets/startup','global-assets':'assets/global','hud-assets':'assets/shared-ui','data-text-assets':'assets/data-text-zh-CN-v1','data-frame-assets':'assets/data-frame-v1','data-portrait-assets':'assets/data-portrait-v1'}
 
 def resources():

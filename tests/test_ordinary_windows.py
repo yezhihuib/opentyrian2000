@@ -39,6 +39,8 @@ class OrdinaryWindowsTests(unittest.TestCase):
    checked=runtime.run(b);self.assertEqual(len(checked['argv']),10);self.assertEqual(checked['cwd'],str(root))
    self.assertIn('--startup-assets='+str(root/'assets/startup'),checked['argv'])
    self.assertEqual((root/'opentyrian.cfg').read_bytes(),runtime.CONFIG)
+   self.assertIn(b"item 'scaler' '4x'",runtime.CONFIG)
+   self.assertNotIn(b"item 'scaler' '2x'",runtime.CONFIG)
    self.assertFalse((root/'tyrian1.lvl').exists())
    env={k:v for k,v in os.environ.items() if k.upper() not in ('PYTHONDONTWRITEBYTECODE','PYTHONPYCACHEPREFIX','PYTHONPATH')}
    command=[sys.executable,str(root/'tools/windows_ordinary_runtime.py'),'run','--root',str(root),'--trust-sha256',b.trust_sha256,'--hd']

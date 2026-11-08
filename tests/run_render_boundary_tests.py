@@ -31,6 +31,7 @@ def extract(text, name):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source-ref')
+    parser.add_argument('--no-leak-check', '--no-lsan', action='store_true', help='Explicitly disable LeakSanitizer on traced executors; ASan/UBSan stay enabled')
     parser.add_argument('--msvc', type=Path, help='Existing cl.exe in an initialized MSVC environment; ASan without UBSan.')
     parser.add_argument('--case-group', choices=['all','cache','clips'], default='all')
     parser.add_argument('--mode', choices=['all','optimized','asan'], default='all')
@@ -66,10 +67,11 @@ def main():
               'data_value_draw', 'cash25_surface_ready', 'cash25_family_ready', 'cash75_family_ready',
               'cash50_family_ready', 'gem100_family_ready', 'gem250_family_ready', 'draw_vulcan_shadow']
     families = ['talon', 'shield', 'pulse', 'hitflare', 'smoke', 'green', 'small_explosion',
-                'cash25', 'rotor', 'vulcan']
+                'cash25', 'rotor', 'vulcan', 'tank194', 'projectile91', 'newshf']
     for family in families:
         voids += ['global_' + family + '_final_pixel', 'global_' + family + '_end']
         falses += ['global_' + family + '_pixel', 'global_' + family + '_is_index']
+    voids += ['global_tank194_unsafe_sample', 'global_tank194_retire', 'shapesy_borrow_mark', 'global_projectile91_pre_final_pixel']
     stubs = ['#define ' + name + '(...) ((void)0)' for name in voids]
     stubs += ['#define ' + name + '(...) (false)' for name in falses]
     for name in sorted(set(re.findall(r'\b(sonic_\w+|mint27_source_matches|explosion_asset_slot)\(', bodies['get_asset']))):
@@ -80,6 +82,7 @@ def main():
                  'explosion_asset_blend_rgba', 'green_background_snapshot', 'blit_sprite2_blend',
                  'blit_sprite2_darken', 'blit_sprite2x2_blend', 'blit_sprite2x2_darken']:
         stubs.append('#define ' + name + '(...) assert(!"unexpected unrelated effect")')
+    stubs += ['static Asset *projectile91_draw_lease,*shapesy_draw_lease;', 'static bool shapesy_clear_proof,global_projectile91_frame,global_tank194_frame,global_newshf_frame;', '#define global_tank194_pre_native(...) (true)']
     enums = re.search(r'enum \{ ASSET_NEWSH2=.*?\};', mirror).group()
     code = (ROOT / 'tests/render_boundary_test.c').read_text(encoding='utf-8')
     code = code.replace('/* PRODUCTION_ENUMS */', enums).replace('/* FEATURE_STUBS */', '\n'.join(stubs))
@@ -88,12 +91,12 @@ def main():
     report = {'source_ref': args.source_ref or 'working-tree', 'expected_baseline_defects': args.expect_baseline_defects,
               'case_group':args.case_group, 'sanitizers':'MSVC ASan; UBSan/LSan unavailable' if args.msvc else 'ASan+UBSan',
               'scope': 'Actual generic cache, compositor, pixel observer, wrapper and original indexed blitter; synthetic RLE; SDL structural shim; other owners disabled. No gameplay/native SDL acceptance.',
-              'function_sha256_lf_utf8': {name: hashlib.sha256(body.encode()).hexdigest() for name, body in bodies.items()}, 'runs': []}
+              'function_sha256_lf_utf8': {name: hashlib.sha256(body.encode()).hexdigest() for name, body in bodies.items()}, 'runs': [], 'leak_check_enabled':not (args.msvc or args.no_leak_check), 'fixture_adaptation':'Add only disabled unrelated owners introduced after original fixture. Production functions unchanged. Use explicit --no-leak-check only where LeakSanitizer is unsupported; ASan/UBSan active.'}
     with tempfile.TemporaryDirectory(prefix='render-boundary-') as temporary:
         directory = Path(temporary)
         c = directory / 'test.c'
         c.write_text(code, encoding='utf-8')
-        env = dict(os.environ, ASAN_OPTIONS=('detect_leaks=0' if args.msvc else 'detect_leaks=1')+':halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')
+        env = dict(os.environ, ASAN_OPTIONS=('detect_leaks=0' if args.msvc or args.no_leak_check else 'detect_leaks=1')+':halt_on_error=1', UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')
         for mode in ['optimized','asan']:
             if args.mode not in ('all',mode):continue
             exe = directory / (mode + ('.exe' if args.msvc else ''))
