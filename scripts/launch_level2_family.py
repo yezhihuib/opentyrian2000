@@ -18,9 +18,10 @@ FAMILY_ROOT = Path("assets/hd/level2-family-v1")
 REUSED_ROOT = Path("assets/hd/packs/asteroid1-ten-v1")
 CONTROL_PREFIXES = (
     "BUILDING313_", "B313_", "LAMP272_", "GRAY325_", "LONGFACE573_",
-    "TRIPLE275_", "EMBER269_", "FORK284_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
+    "TRIPLE275_", "EMBER269_", "FORK284_", "TURRET273_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
     "ASSET_DEBUG_", "GAME_PROBE_",
 )
+TURRET273_SHA256 = {169: '0650b5ef93849d23b757eb76c9ccbcc222dbdfbed7e23f872cf0990873543639', 193: 'b09b304729ccb04ba569ddc0383d9934ac7de562c5402494b9c3c8db451d3b4c', 195: 'ba9005d5a19616a1425b04164c3b3e59193f1db8e01bca0805ac3382dfef1652', 197: 'aa3f8b90ab19c1160647be14264df73678b763064cdc8d8abc22aba2ecfe347a', 199: '1812680982e5b22242cedfb1c7d378a4c53073d548e27dbbd7f0c63250c1ada2', 201: 'bae10e8a4dce967a6d19868dbb527fc6ff2d0a4be5a7a6e3256ae0a56b6f9c31', 203: 'dae8ebc5b00ae7815432827ba352998fa4d387a77e327dea790bdf02523bb5fc', 205: 'dc8ceeba073abd35e508b1004b77c022d298027fd01f99accc563640b20ebac4', 207: '48da35b8f1240d938296c9fdfeb3118335f8dc8faa246f731a722bf445874071'}
 CONTROL_NAMES = {"TYRIAN_CYAN_BORROW_TRACE"}
 HD_ENABLE_KEYS = (
     "BUILDING313_FAMILY_OBSERVER_ENABLE",
@@ -160,6 +161,15 @@ def build_plan(args, inherited=None, root=ROOT):
         if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != "65609c1c9d7cc981faecc914ada8e1100c550047733967ba7ae4b3635fdd1dad":
             raise ValueError("Changed Fork284 asset")
         family.update({"FORK284_ENABLE": "1", "FORK284_ASSET_DIR": str(root / REUSED_ROOT)})
+    turret273 = getattr(args, "turret273", False)
+    if turret273:
+        if not args.hd:
+            raise ValueError("--turret273 requires --hd; it cannot enable the parent itself")
+        for base, digest in TURRET273_SHA256.items():
+            asset = root / REUSED_ROOT / f"enemy-newshd-{base}-8.hda"
+            if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
+                raise ValueError("Changed Turret273 asset: " + asset.name)
+        family.update({"TURRET273_COMBAT_ENABLE": "1", "TURRET273_BODY_ASSET_DIR": str(root / REUSED_ROOT)})
     redvent = getattr(args, "redvent_pair", None)
     if redvent:
         if not args.hd:
@@ -177,6 +187,8 @@ def build_plan(args, inherited=None, root=ROOT):
         "environment_overrides": overrides,
         "inherited_controls_removed": sorted(key for key in inherited if controlled_name(key)),
         "assets_sha256_verified": checked,
+        "turret273_enabled": bool(turret273),
+        "turret273_assets_sha256_verified": 9 if turret273 else 0,
         "fork284_enabled": bool(fork284),
         "fork284_assets_sha256_verified": 1 if fork284 else 0,
         "later_triples_enabled": bool(later_triples),
@@ -203,6 +215,7 @@ def parser():
     result.add_argument("--later-embers", action="store_true", help="Opt in to 5 exact later ember origins using existing public art; requires --hd, not scene-qualified")
     result.add_argument("--later-triples", action="store_true", help="Opt in to 132 exact later triple origins using existing public art; requires --hd, not scene-qualified")
     result.add_argument("--fork284", action="store_true", help="Opt in to four exact sparse Fork284 origins; requires --hd, not scene-qualified")
+    result.add_argument("--turret273", action="store_true", help="Opt in to normal nine-image turret273 body at two exact origins; requires --hd, not scene-qualified")
     mode = result.add_mutually_exclusive_group()
     mode.add_argument("--launch", action="store_true", help="Actually start the game with normal input and no timeout")
     mode.add_argument("--check-only", "--dry-run", action="store_true", help="Only check and print the plan (the default)")

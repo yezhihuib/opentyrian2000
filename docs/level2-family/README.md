@@ -153,3 +153,8 @@ the 52-file family manifest.
 The [Fork284 sparse candidate](FORK284-CANDIDATE.md) reuses one additional public
 asset for four exact early origins only with `--hd --fork284`. It remains
 default-off and has not passed actual gameplay/scene validation.
+
+The [normal Turret273 candidate](TURRET273-CANDIDATE.md) independently enables
+nine existing public body images at two exact origins with `--hd --turret273`.
+It preserves the original continuous animation and does not include projectiles
+or damage states; it is not scene-qualified.
