@@ -96,36 +96,39 @@ def copy_preserving_streams(source,target):
 
 def prepare(args):
  output,receipt,inputs,sources=prepare_plan(args)
- if not args.prepare:return {'status':'CHECK_ONLY','output':str(output),'immutable_files':list(inputs),'mode':'classic','game_started':False,'output_created':False}
+ return materialize(args,output,receipt,inputs,sources)
+
+def materialize(args,output,receipt,inputs,sources):
+ if not args.prepare:return {'status':'CHECK_ONLY','output':str(output),'immutable_files':list(inputs),'mode':receipt['mode'],'game_started':False,'output_created':False}
  output.mkdir(exist_ok=False)
  for name,raw in inputs.items():
-  target=output/name;target.parent.mkdir(exist_ok=True)
+  target=output/name;target.parent.mkdir(parents=True,exist_ok=True)
   safe_path(target.parent)
   copy_preserving_streams(sources[name],target)
   if sha(target.read_bytes())!=sha(raw):raise OSError('Copied byte mismatch: '+name)
  raw=(json.dumps(receipt,sort_keys=True,indent=2)+'\n').encode()
  with (output/'RUNTIME.json').open('xb') as f:f.write(raw)
- return {'status':'PREPARED_NOT_RUN','root':str(output),'runtime_receipt_sha256':sha(raw),'immutable_files':len(inputs),'mode':'classic','game_started':False,'output_created':True,'trust_note':'Preserve receipt digest independently; launch requires it explicitly'}
+ return {'status':'PREPARED_NOT_RUN','root':str(output),'runtime_receipt_sha256':sha(raw),'immutable_files':len(inputs),'mode':receipt['mode'],'game_started':False,'output_created':True,'trust_note':'Preserve receipt digest independently; launch requires it explicitly'}
 
-def verify_run(root,trusted_sha256):
+def verify_run(root,trusted_sha256,*,mode='classic',allowed_files=ALLOWED_FILES,script_path=None):
  root=safe_path(root)
  if not root.is_dir():raise ValueError('Runroot missing')
  _,raw=read_trusted(root/'RUNTIME.json',trusted_sha256);receipt=json_bytes(raw)
- if receipt.get('schema')!=SCHEMA or receipt.get('mode')!='classic' or receipt.get('single_launch_only') is not True:raise ValueError('Unsupported runtime receipt')
+ if receipt.get('schema')!=SCHEMA or receipt.get('mode')!=mode or receipt.get('single_launch_only') is not True:raise ValueError('Unsupported runtime receipt')
  files=receipt.get('files',{})
- if set(files)!=ALLOWED_FILES or len({x.casefold() for x in files})!=len(files):raise ValueError('Unexpected immutable manifest')
+ if set(files)!=allowed_files or len({x.casefold() for x in files})!=len(files):raise ValueError('Unexpected immutable manifest')
  for relative,entry in files.items():
   p=PurePosixPath(relative)
   if p.is_absolute() or '..' in p.parts or '\\' in relative or ':' in relative:raise ValueError('Unsafe manifest path')
   _,content=read_trusted(root/relative,entry['sha256'])
   if len(content)!=entry['bytes']:raise ValueError('Changed length: '+relative)
   if relative.startswith('bin/'):pe_amd64(content,relative.lower().endswith('.dll'))
- expected=ALLOWED_FILES|{'RUNTIME.json'}
+ expected=set(allowed_files)|{'RUNTIME.json'}
  # First launch only. No preexisting saves, extra executable/DLL or stale logs.
  for p in root.rglob('*'):
   safe_path(p)
   if p.is_file() and p.relative_to(root).as_posix() not in expected:raise ValueError('Unexpected/preexisting run file: '+str(p))
- self_path=safe_path(Path(__file__).absolute())
+ self_path=safe_path(Path(script_path or __file__).absolute())
  if sha(self_path.read_bytes())!=receipt['launcher_sha256'] or receipt['launcher_sha256']!=files[SCRIPT]['sha256']:raise ValueError('Launcher identity mismatch')
  data,inventory=data_inventory(receipt['data_directory'])
  if inventory!=receipt['data_files']:raise ValueError('Original data changed since preparation')
@@ -145,12 +148,16 @@ def child_environment(root,inherited):
 
 def run(args):
  root,receipt,data=verify_run(args.root,args.trust_sha256)
- plan={'status':'CHECK_ONLY','mode':'classic','argv':[str(root/'bin/opentyrian2000-level2.exe'),'--data='+str(data)],'cwd':str(root),'game_started':False,'runtime_acceptance':False}
+ return run_verified(args,root,receipt,data)
+
+def run_verified(args,root,receipt,data,*,environment_overrides=None):
+ plan={'status':'CHECK_ONLY','mode':receipt['mode'],'argv':[str(root/'bin/opentyrian2000-level2.exe'),'--data='+str(data)],'cwd':str(root),'game_started':False,'runtime_acceptance':False}
  if not args.launch:return plan
  if not WINDOWS:raise ValueError('Actual launch supported only on Windows; no emulation or permission bypass')
  env=child_environment(root,dict(os.environ))
+ if environment_overrides:env.update(environment_overrides)
  # No mutation of process cwd/environment; child inherits ordinary console handles.
- started={'status':'STARTING','started_utc':time.time(),'receipt_sha256':args.trust_sha256.lower(),'mode':'classic','runtime_acceptance':False}
+ started={'status':'STARTING','started_utc':time.time(),'receipt_sha256':args.trust_sha256.lower(),'mode':receipt['mode'],'runtime_acceptance':False}
  with (root/'launch-start.json').open('x',encoding='utf-8') as f:json.dump(started,f,indent=2)
  try:
   child=subprocess.Popen(plan['argv'],cwd=root,env=env)
