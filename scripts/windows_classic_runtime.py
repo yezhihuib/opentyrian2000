@@ -53,7 +53,7 @@ def data_inventory(path):
   files[name]={'bytes':f.stat().st_size,'sha256':h.hexdigest()}
  return p,files
 
-def prepare_plan(args):
+def prepare_plan(args,*,stage_units=112,stage_flavor=None,exe_name='opentyrian2000-level2.exe'):
  if getattr(args,'hd',False) or getattr(args,'public_candidates',False):raise ValueError('This isolated launcher is classic-only; HD resource preparation is not yet supported')
  output=safe_path(args.output,False)
  if output.exists():raise ValueError('Output must be new; never adopt an existing profile')
@@ -61,11 +61,11 @@ def prepare_plan(args):
  stagepath,stageraw=read_trusted(args.stage_receipt,args.stage_sha256)
  buildpath,buildraw=read_trusted(args.build_receipt,args.build_sha256)
  stage=json_bytes(stageraw);build=json_bytes(buildraw)
- if stage.get('schema')!=1 or stage.get('status')!='STAGED_NOT_BUILT' or stage.get('translation_units')!=112:raise ValueError('Unsupported source stage receipt')
+ if stage.get('schema')!=1 or stage.get('status')!='STAGED_NOT_BUILT' or stage.get('translation_units')!=stage_units or (stage_flavor is not None and stage.get('build_flavor')!=stage_flavor):raise ValueError('Unsupported source stage receipt')
  if build.get('schema')!=1 or build.get('status')!='BUILT_NOT_RUN' or build.get('exit_code')!=0 or build.get('pe_machine')!='AMD64' or build.get('inputs_unchanged_after_build') is not True:raise ValueError('Build is not verified successful AMD64')
  if build.get('stage_sha256')!=sha(stageraw) or build.get('source_digest')!=stage.get('source_digest'):raise ValueError('Stage/build identity mismatch')
  inputs={};sources={};source_paths=[]
- for attr,name,dll in (('exe','opentyrian2000-level2.exe',False),('sdl2','SDL2.dll',True),('sdl_net','SDL2_net.dll',True)):
+ for attr,name,dll in (('exe',exe_name,False),('sdl2','SDL2.dll',True),('sdl_net','SDL2_net.dll',True)):
   p,raw=read_trusted(getattr(args,attr),getattr(args,attr+'_sha256'));pe_amd64(raw,dll)
   source_paths.append(p);inputs['bin/'+name]=raw;sources['bin/'+name]=p
   if attr=='exe' and build.get('binary',{}).get('sha256')!=sha(raw):raise ValueError('EXE differs from trusted build receipt')
@@ -110,7 +110,7 @@ def materialize(args,output,receipt,inputs,sources):
  with (output/'RUNTIME.json').open('xb') as f:f.write(raw)
  return {'status':'PREPARED_NOT_RUN','root':str(output),'runtime_receipt_sha256':sha(raw),'immutable_files':len(inputs),'mode':receipt['mode'],'game_started':False,'output_created':True,'trust_note':'Preserve receipt digest independently; launch requires it explicitly'}
 
-def verify_run(root,trusted_sha256,*,mode='classic',allowed_files=ALLOWED_FILES,script_path=None):
+def verify_run(root,trusted_sha256,*,mode='classic',allowed_files=ALLOWED_FILES,script_path=None,exe_name='opentyrian2000-level2.exe'):
  root=safe_path(root)
  if not root.is_dir():raise ValueError('Runroot missing')
  _,raw=read_trusted(root/'RUNTIME.json',trusted_sha256);receipt=json_bytes(raw)
@@ -133,7 +133,7 @@ def verify_run(root,trusted_sha256,*,mode='classic',allowed_files=ALLOWED_FILES,
  data,inventory=data_inventory(receipt['data_directory'])
  if inventory!=receipt['data_files']:raise ValueError('Original data changed since preparation')
  build=json_bytes((root/'trust/BUILD-WINDOWS.json').read_bytes());stage=(root/'trust/STAGE.json').read_bytes()
- if sha(stage)!=receipt['stage_sha256'] or sha((root/'trust/BUILD-WINDOWS.json').read_bytes())!=receipt['build_sha256'] or build.get('binary',{}).get('sha256')!=files['bin/opentyrian2000-level2.exe']['sha256']:raise ValueError('Broken build chain')
+ if sha(stage)!=receipt['stage_sha256'] or sha((root/'trust/BUILD-WINDOWS.json').read_bytes())!=receipt['build_sha256'] or build.get('binary',{}).get('sha256')!=files['bin/'+exe_name]['sha256']:raise ValueError('Broken build chain')
  return root,receipt,data
 
 def child_environment(root,inherited):
@@ -150,8 +150,8 @@ def run(args):
  root,receipt,data=verify_run(args.root,args.trust_sha256)
  return run_verified(args,root,receipt,data)
 
-def run_verified(args,root,receipt,data,*,environment_overrides=None):
- plan={'status':'CHECK_ONLY','mode':receipt['mode'],'argv':[str(root/'bin/opentyrian2000-level2.exe'),'--data='+str(data)],'cwd':str(root),'game_started':False,'runtime_acceptance':False}
+def run_verified(args,root,receipt,data,*,environment_overrides=None,exe_name='opentyrian2000-level2.exe',extra_arguments=()):
+ plan={'status':'CHECK_ONLY','mode':receipt['mode'],'argv':[str(root/'bin'/exe_name),'--data='+str(data)]+list(extra_arguments),'cwd':str(root),'game_started':False,'runtime_acceptance':False}
  if not args.launch:return plan
  if not WINDOWS:raise ValueError('Actual launch supported only on Windows; no emulation or permission bypass')
  env=child_environment(root,dict(os.environ))
