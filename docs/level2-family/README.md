@@ -163,3 +163,8 @@ The [normal Linked338–342 candidate](LINKED338-NORMAL-CANDIDATE.md) uses seven
 public NEWSHP images for four exact events / ten native allocation attempts,
 only with `--hd --linked338`. The original linked-group behavior is unchanged;
 damage graphic121 is excluded. Actual scene validation remains pending.
+
+The [linked props287/288 candidate](LINKED-PROPS287288-CANDIDATE.md) independently
+covers six original events using three public NEWSHD images, only with
+`--hd --linked-props`. Native allocation and linked damage remain authoritative;
+no partner-survival rule is added. Actual scene validation remains pending.

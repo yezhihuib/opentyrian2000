@@ -62,7 +62,7 @@ static void family_fault(unsigned reason)
 {if(!fc.frame_active&&!fc.ready)return;if(!fc.first_reason)fc.first_reason=reason;if(!fbr.first_reason)fbr.first_reason=reason;fc.frame_failed=true;fc.ready=false;ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;}
 static void family_reset(void)
 {
- private_lamp272_reset();private_triple275_reset();private_ember269_reset();f284_reset();tp_reset();ln_reset();private_gray325_reset();private_longface573_reset();
+ private_lamp272_reset();private_triple275_reset();private_ember269_reset();f284_reset();tp_reset();ln_reset();lp287_reset();private_gray325_reset();private_longface573_reset();
  fg_reset();
  memset(fbr_retired,0,sizeof fbr_retired);fbr.frame=0;fbr.frame_eligible=fbr.frame_retired=0;fbr.first_reason=0;fbr.first_x=fbr.first_y=-1;
  fct.mode=FCT_NONE;fct.has_context=false;
@@ -112,7 +112,7 @@ static bool family_geometry(bool rgb)
 }
 static void family_begin(void)
 {
- private_lamp272_tick();private_triple275_tick();private_ember269_tick();f284_tick();tp_tick();ln_tick();private_gray325_tick();private_longface573_tick();
+ private_lamp272_tick();private_triple275_tick();private_ember269_tick();f284_tick();tp_tick();ln_tick();lp287_tick();private_gray325_tick();private_longface573_tick();
  memset(&fct,0,sizeof fct);fct.requested=family_terrain_requested();
  if(fct.requested)++fct_status.frames;
  B313FamilyObserverStatus s=b313_family_observer_status();
@@ -156,6 +156,7 @@ static bool family_prepare_canvas(void)
 static void family_pixel(SDL_Surface *s,Uint8 *address,int style)
 {
  if(!fc.frame_active||fc.frame_failed)return;
+ if(!lp287_write_current()){lp287_fail(20);family_fault(FC_SOURCE);return;}
  if(!ln_write_current()){ln_fail(20);family_fault(FC_SOURCE);return;}
  if(!tp_write_current()){tp_fail(20);family_fault(FC_SOURCE);return;}
  if(!f284_write_current()){f284_fail(20);family_fault(FC_SOURCE);return;}
@@ -180,9 +181,11 @@ static void family_pixel(SDL_Surface *s,Uint8 *address,int style)
  bool fork_owned=f284_retire((unsigned)off,style);
  bool turret_owned=tp_retire((unsigned)off,style);
  bool linked_owned=ln_retire((unsigned)off,style);
+ bool linked_prop_owned=lp287_retire((unsigned)off,style);
  if(f284_pixel(x,y,style))return;
  if(tp_pixel(x,y,style))return;
  if(ln_pixel(x,y,style))return;
+ if(lp287_pixel(x,y,style))return;
  if(lamp272_pixel(x,y,style))return;
  if(triple275_pixel(x,y,style))return;
  if(private_ember269_pixel(x,y,style))return;
@@ -215,7 +218,7 @@ static void family_pixel(SDL_Surface *s,Uint8 *address,int style)
  if(selected[off]){++fc.occlusions;selected[off]=0;}
  for(unsigned sy=0;sy<8;sy++)for(unsigned sx=0;sx<8;sx++){
   size_t n=(y*8+sy)*2560+x*8+sx;Uint32 *pixel=(Uint32 *)canvas->pixels+n;
-  if(style==MIRROR_BLEND&&hd_owner[n]&&!lamp_owned&&!gray_owned&&!longface_owned&&!triple_owned&&!ember_owned&&!fork_owned&&!turret_owned&&!linked_owned&&!terrain_retire){++fc.blend_fallbacks;family_fault(FC_EFFECT);return;}
+  if(style==MIRROR_BLEND&&hd_owner[n]&&!lamp_owned&&!gray_owned&&!longface_owned&&!triple_owned&&!ember_owned&&!fork_owned&&!turret_owned&&!linked_owned&&!linked_prop_owned&&!terrain_retire){++fc.blend_fallbacks;family_fault(FC_EFFECT);return;}
   if(style==MIRROR_SHADOW&&hd_owner[n]){
    if(*address!=(Uint8)((before&240)|((before&15)/2))){family_fault(FC_EFFECT);return;}
    *pixel=darken_rgba(*pixel,255);++fc.shadow_pixels;
@@ -223,6 +226,7 @@ static void family_pixel(SDL_Surface *s,Uint8 *address,int style)
   cloud_owner[n]=0;green_first[n]=0;
  }
  /* Record only a completed 64-pixel retirement, never an attempted write. */
+ if(style==MIRROR_SHADOW&&linked_prop_owned)lp287_shadow((unsigned)off);
  if(style==MIRROR_SHADOW&&linked_owned)ln_shadow((unsigned)off);
  if(style==MIRROR_SHADOW&&turret_owned)tp_shadow((unsigned)off);
  if(style==MIRROR_SHADOW&&fork_owned)f284_shadow((unsigned)off);
@@ -243,7 +247,8 @@ bool render_mirror_family_tile(SDL_Surface *s,unsigned slot,int x,int y,Sprite2_
  if(!render_mirror_family_requested())return false;
  if(fct.requested&&(fc.frame_active||fc.ready)&&slot<100&&enemy[slot].enemytype>=313&&enemy[slot].enemytype<=316)fct.actor_attempt=true;
  if(!fc.frame_active||fc.frame_failed||!sheet)return false;
- if(!f284_before_tile(slot,part)||!tp_before_tile(slot,part)||!ln_before_tile(slot,part))return false;
+ if(!f284_before_tile(slot,part)||!tp_before_tile(slot,part)||!ln_before_tile(slot,part)||!lp287_before_tile(slot,part))return false;
+ if(slot>=25&&slot<50&&(enemy[slot].enemytype==287||enemy[slot].enemytype==288))return lp287_tile(s,slot,x,y,sheet,base,part,filter);
  if(slot<100&&enemy[slot].enemytype>=338&&enemy[slot].enemytype<=342)return ln_tile(s,slot,x,y,sheet,base,part,filter);
  if(slot<100&&enemy[slot].enemytype==273)return tp_tile(s,slot,x,y,sheet,base,part,filter);
  if(slot>=50&&slot<75&&enemy[slot].enemytype==284)return f284_tile(s,slot,x,y,sheet,base,part,filter);
@@ -267,7 +272,7 @@ bool render_mirror_family_tile(SDL_Surface *s,unsigned slot,int x,int y,Sprite2_
 }
 static void family_entity_end(void)
 {
- lamp272_end();triple275_end();private_ember269_end();f284_end();tp_end();ln_end();gray325_end();longface573_end();
+ lamp272_end();triple275_end();private_ember269_end();f284_end();tp_end();ln_end();lp287_end();gray325_end();longface573_end();
  if(fc_native_call&&(!b313_family_writer_draw_ready(fc_frame)||fc_call_pixels!=168))family_fault(FC_ORDER);
  fc_native_call=false;fc_draw_lease=NULL;suppress=suppress_green_smoke=suppress_cloud=false;
 }
@@ -275,7 +280,7 @@ static void family_entity_end(void)
  * neither this helper nor a support receipt can create/upgrade admission. */
 static bool family_terrain_snapshot_current(void)
 {
- if((!private_lamp272_finish()||!private_triple275_finish()||!private_ember269_finish()||!f284_finish()||!tp_finish()||!ln_finish()||!private_gray325_finish()||!private_longface573_finish()))return false;
+ if((!private_lamp272_finish()||!private_triple275_finish()||!private_ember269_finish()||!f284_finish()||!tp_finish()||!ln_finish()||!lp287_finish()||!private_gray325_finish()||!private_longface573_finish()))return false;
  if(!fct.requested||!fct.has_context||fct.actor_attempt||fc_frame_draws||fc_has_identity||
     fc.frame_failed||!family_terrain_blend_config_current()||!family_terrain_requested()||!fc_canvas_ready||
     !b313_family_observer_terrain_context_current(fc_source,&fct.context)||
@@ -295,7 +300,7 @@ static void family_finish(MirrorOutputKind kind)
 {
  if(!fc.frame_active)return;
  if(!family_terrain_blend_config_current())family_fault(FC_CONFIG);
- if((!private_lamp272_finish()||!private_triple275_finish()||!private_ember269_finish()||!f284_guard()||!tp_guard()||!ln_guard()||!private_gray325_finish()||!private_longface573_finish()))family_fault(FC_SOURCE);
+ if((!private_lamp272_finish()||!private_triple275_finish()||!private_ember269_finish()||!f284_guard()||!tp_guard()||!ln_guard()||!lp287_guard()||!private_gray325_finish()||!private_longface573_finish()))family_fault(FC_SOURCE);
  if(!fg_final_check())family_fault(FC_GROUND);
  if(fc_native_call||suppress)family_fault(FC_ORDER);
  if(!fc.frame_failed&&(!b313_family_writer_seal(fc_frame)||!family_geometry(fc_canvas_ready)))family_fault(FC_WRITER);
@@ -318,7 +323,7 @@ static void family_finish(MirrorOutputKind kind)
    fct.mode=FCT_TERRAIN;fc.ready=true;++fc.accepted_frames;++fct_status.accepted_frames;fg_on_accept();
   }
  }
- lamp272_accept();triple275_accept();private_ember269_accept();f284_accept();tp_accept();ln_accept();gray325_accept();longface573_accept();
+ lamp272_accept();triple275_accept();private_ember269_accept();f284_accept();tp_accept();ln_accept();lp287_accept();gray325_accept();longface573_accept();
  if(!fc.ready)++fc.fallback_frames;
  if(game_probe_capture_tick()&&fc.ready){char name[64];snprintf(name,sizeof name,"family-display-%04u.bmp",game_probe_tick);game_probe_export(output,name);}
  fc.frame_active=false;active=ready=false;last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;
@@ -358,7 +363,7 @@ static bool family_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
  if((fc.ready||fc.frame_active)&&!family_terrain_blend_config_current()){family_fault(FC_CONFIG);return false;}
  if(fct.mode==FCT_TERRAIN)return family_terrain_present(renderer,src,dst);
  if(!fc.ready||fc.frame_failed)return false;
- if((!private_lamp272_finish()||!private_triple275_finish()||!private_ember269_finish()||!f284_guard()||!tp_guard()||!ln_guard()||!private_gray325_finish()||!private_longface573_finish())){family_fault(FC_SOURCE);return false;}
+ if((!private_lamp272_finish()||!private_triple275_finish()||!private_ember269_finish()||!f284_guard()||!tp_guard()||!ln_guard()||!lp287_guard()||!private_gray325_finish()||!private_longface573_finish())){family_fault(FC_SOURCE);return false;}
  if(!fg_final_check())return false;
  if(!renderer||!dst||dst->w<=0||dst->h<=0||src!=fc_output||!family_geometry(true)||memcmp(fc_palette,rgb_palette,sizeof fc_palette)||!b313_family_writer_current(fc_frame)||!b313_family_observer_frame_current(fc_source,&fc_identity)){family_fault(FC_PRESENT);return false;}
  int rw=0,rh=0;if(SDL_GetRendererOutputSize(renderer,&rw,&rh)||dst->x<0||dst->y<0||(int64_t)dst->x+dst->w>rw||(int64_t)dst->y+dst->h>rh){family_fault(FC_PRESENT);return false;}
@@ -367,7 +372,7 @@ static bool family_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
  Uint32 format=0;int access=0,w=0,h=0;
  if(!texture||SDL_QueryTexture(texture,&format,&access,&w,&h)||format!=SDL_PIXELFORMAT_ARGB8888||access!=SDL_TEXTUREACCESS_STREAMING||w!=2560||h!=1600||SDL_SetTextureScaleMode(texture,SDL_ScaleModeNearest)||SDL_SetTextureBlendMode(texture,SDL_BLENDMODE_NONE)){family_fault(FC_PRESENT);return false;}
  void *pixels=NULL;int pitch=0;if(SDL_LockTexture(texture,NULL,&pixels,&pitch)){family_fault(FC_PRESENT);return false;}
- if(!pixels||pitch<10240||(!private_lamp272_finish()||!private_triple275_finish()||!private_ember269_finish()||!f284_finish()||!tp_finish()||!ln_finish()||!private_gray325_finish()||!private_longface573_finish())||!fc.ready||fc.frame_failed||
+ if(!pixels||pitch<10240||(!private_lamp272_finish()||!private_triple275_finish()||!private_ember269_finish()||!f284_finish()||!tp_finish()||!ln_finish()||!lp287_finish()||!private_gray325_finish()||!private_longface573_finish())||!fc.ready||fc.frame_failed||
     !family_terrain_blend_config_current()||!family_geometry(true)||memcmp(fc_palette,rgb_palette,sizeof fc_palette)||
     !b313_family_writer_current(fc_frame)||!b313_family_observer_frame_current(fc_source,&fc_identity)){SDL_UnlockTexture(texture);family_fault(FC_PRESENT);return false;}
  for(int y=0;y<1600;y++)memcpy((Uint8 *)pixels+y*pitch,(Uint8 *)output->pixels+y*10240,10240);

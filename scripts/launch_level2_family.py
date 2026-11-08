@@ -18,11 +18,12 @@ FAMILY_ROOT = Path("assets/hd/level2-family-v1")
 REUSED_ROOT = Path("assets/hd/packs/asteroid1-ten-v1")
 CONTROL_PREFIXES = (
     "BUILDING313_", "B313_", "LAMP272_", "GRAY325_", "LONGFACE573_",
-    "TRIPLE275_", "EMBER269_", "FORK284_", "TURRET273_", "LINKED338_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
+    "TRIPLE275_", "EMBER269_", "FORK284_", "TURRET273_", "LINKED338_", "LINKED_PROP287288_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
     "ASSET_DEBUG_", "GAME_PROBE_",
 )
 TURRET273_SHA256 = {169: '0650b5ef93849d23b757eb76c9ccbcc222dbdfbed7e23f872cf0990873543639', 193: 'b09b304729ccb04ba569ddc0383d9934ac7de562c5402494b9c3c8db451d3b4c', 195: 'ba9005d5a19616a1425b04164c3b3e59193f1db8e01bca0805ac3382dfef1652', 197: 'aa3f8b90ab19c1160647be14264df73678b763064cdc8d8abc22aba2ecfe347a', 199: '1812680982e5b22242cedfb1c7d378a4c53073d548e27dbbd7f0c63250c1ada2', 201: 'bae10e8a4dce967a6d19868dbb527fc6ff2d0a4be5a7a6e3256ae0a56b6f9c31', 203: 'dae8ebc5b00ae7815432827ba352998fa4d387a77e327dea790bdf02523bb5fc', 205: 'dc8ceeba073abd35e508b1004b77c022d298027fd01f99accc563640b20ebac4', 207: '48da35b8f1240d938296c9fdfeb3118335f8dc8faa246f731a722bf445874071'}
 LINKED338_SHA256 = {115: 'f3990602fa3c9199cf15c85e62d96954d414d08cea7171c1ba07172c9f44322c', 117: '951364ebd06145962cde9e6d0f676e547bffc36777297d98a4f9a3ce349d2519', 119: '09b0bd98f62a7c5ee16114cbd71c2a09e34a03a17aca23387ce5033fe0930c0e', 229: '74efdec8ff95e20ab7c47f2aa8ec4e40a963551da6396392d04d4c6e0be7b89c', 231: 'c97be4c67e41aa129be53aec9cdbe31b23f9b93b5cc657be69f80556d4c26c1a', 267: '1eb0fe96fd5c86a967fa4bc73ab97bac2d9cc360cf8db570b294d12951984678', 269: '7ef0d2edc92cec157b49d7346dada16e430dc9942276b4bfaa0968c82aa9aaaf'}
+LINKED_PROPS_SHA256 = {245: '71f5abb6edef89f4f151eca6aec54d5d6e517e17db48875d1bfcc2672b283f5e', 281: '0669e8e3ea3a50752f2e645dd72c6ae5ad1bc5af8931cc3b039fd12a43a07b23', 283: '9e8d91e67d142ec4351001aebe9dc33fb70dcc91123dbe353ce84f6bf5b8a658'}
 CONTROL_NAMES = {"TYRIAN_CYAN_BORROW_TRACE"}
 HD_ENABLE_KEYS = (
     "BUILDING313_FAMILY_OBSERVER_ENABLE",
@@ -180,6 +181,15 @@ def build_plan(args, inherited=None, root=ROOT):
             if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
                 raise ValueError("Changed Linked338 asset: " + asset.name)
         family.update({"LINKED338_NORMAL_ENABLE": "1", "LINKED338_NORMAL_ASSET_DIR": str(root / REUSED_ROOT)})
+    linked_props = getattr(args, "linked_props", False)
+    if linked_props:
+        if not args.hd:
+            raise ValueError("--linked-props requires --hd; it cannot enable the parent itself")
+        for base, digest in LINKED_PROPS_SHA256.items():
+            asset = root / REUSED_ROOT / f"enemy-newshd-{base}-8.hda"
+            if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
+                raise ValueError("Changed linked-props asset: " + asset.name)
+        family.update({"LINKED_PROP287288_ENABLE": "1", "LINKED_PROP287288_ASSET_DIR": str(root / REUSED_ROOT)})
     redvent = getattr(args, "redvent_pair", None)
     if redvent:
         if not args.hd:
@@ -197,6 +207,8 @@ def build_plan(args, inherited=None, root=ROOT):
         "environment_overrides": overrides,
         "inherited_controls_removed": sorted(key for key in inherited if controlled_name(key)),
         "assets_sha256_verified": checked,
+        "linked_props_enabled": bool(linked_props),
+        "linked_props_assets_sha256_verified": 3 if linked_props else 0,
         "linked338_enabled": bool(linked338),
         "linked338_assets_sha256_verified": 7 if linked338 else 0,
         "turret273_enabled": bool(turret273),
@@ -229,6 +241,7 @@ def parser():
     result.add_argument("--fork284", action="store_true", help="Opt in to four exact sparse Fork284 origins; requires --hd, not scene-qualified")
     result.add_argument("--turret273", action="store_true", help="Opt in to normal nine-image turret273 body at two exact origins; requires --hd, not scene-qualified")
     result.add_argument("--linked338", action="store_true", help="Opt in to normal linked338-342 group; seven public images, four exact events; requires --hd, not scene-qualified")
+    result.add_argument("--linked-props", action="store_true", help="Opt in to six exact independent linked props287/288 origins; requires --hd, not scene-qualified")
     mode = result.add_mutually_exclusive_group()
     mode.add_argument("--launch", action="store_true", help="Actually start the game with normal input and no timeout")
     mode.add_argument("--check-only", "--dry-run", action="store_true", help="Only check and print the plan (the default)")
