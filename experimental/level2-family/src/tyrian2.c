@@ -430,6 +430,7 @@ void JE_drawEnemy(int enemyOffset) // actually does a whole lot more than just d
 				render_mirror_cash25_enemy_animated(i);
 				render_mirror_rotor_enemy_animated(i);
 				render_mirror_turret273_enemy_animated(i);
+				render_mirror_linked338_normal_enemy_animated(i);
 				render_mirror_newshf_validation_observe(i);
 
 				if (enemy[i].egr[enemy[i].enemycycle - 1] == 999)
@@ -522,6 +523,7 @@ enemy_gone:
 			render_mirror_triple275_retired((unsigned)i);
 			render_mirror_ember269_retired((unsigned)i);
 			render_mirror_turret273_retired((unsigned)i);
+			render_mirror_linked338_normal_retired((unsigned)i);
 			render_mirror_fork284_retired((unsigned)i);
 			render_mirror_gray325_retired((unsigned)i);
 			render_mirror_longface573_retired((unsigned)i);
@@ -3452,6 +3454,7 @@ new_game:
 	render_mirror_triple275_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_ember269_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_turret273_level_begin(char_mapFile,char_shapeFile,eventRec);
+	render_mirror_linked338_normal_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_fork284_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_gray325_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_longface573_level_begin(char_mapFile,char_shapeFile,eventRec);
@@ -4343,6 +4346,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_triple275_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_ember269_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_turret273_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
+	render_mirror_linked338_normal_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_fork284_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_gray325_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_longface573_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
@@ -4643,6 +4647,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_triple275_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_ember269_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_turret273_enemy_initialized(enemy,eDatI,avail);
+	render_mirror_linked338_normal_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_fork284_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_gray325_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_longface573_enemy_initialized(enemy,eDatI,avail);
@@ -4775,6 +4780,7 @@ bool JE_searchFor/*enemy*/(JE_byte PLType, JE_byte* out_index)
 void JE_eventSystem(void)
 {
  const unsigned facts_event_entry=eventLoc;
+ render_mirror_linked338_normal_script_before(facts_event_entry);
  const unsigned tail_event_type=eventRec[eventLoc-1].eventtype;
  const int tail_event_args[6]={eventRec[eventLoc-1].eventdat,eventRec[eventLoc-1].eventdat2,eventRec[eventLoc-1].eventdat3,eventRec[eventLoc-1].eventdat4,eventRec[eventLoc-1].eventdat5,eventRec[eventLoc-1].eventdat6};
  b313_family_observer_event();
@@ -4872,12 +4878,14 @@ void JE_eventSystem(void)
 		const uint64_t triple275_call=render_mirror_triple275_event_begin(eventLoc,0,25,0);
 		const uint64_t ember269_call=render_mirror_ember269_event_begin(eventLoc,0,25,0);
 		const uint64_t turret273_call=render_mirror_turret273_event_begin(eventLoc,0,25,0);
+		const uint64_t linked338_normal_call=render_mirror_linked338_normal_event_begin(eventLoc,0,25,0);
 		const uint64_t gray325_call=render_mirror_gray325_event_begin(eventLoc,0,25,0);
 		JE_createNewEventEnemy(0,25,0);
 		render_mirror_lamp272_event_commit(lamp272_call,b);
 		render_mirror_triple275_event_commit(triple275_call,b);
 		render_mirror_ember269_event_commit(ember269_call,b);
 		render_mirror_turret273_event_commit(turret273_call,b);
+		render_mirror_linked338_normal_event_commit(linked338_normal_call,b);
 		render_mirror_gray325_event_commit(gray325_call,b);
 		break;
 	}
@@ -4940,12 +4948,15 @@ void JE_eventSystem(void)
    if(continuity_attempt)bco_birth_bind(continuity_attempt,b313_group);
 			eventRec[eventLoc-1].eventdat6 = 0;   /* We use EVENTDAT6 for the background */
    const uint64_t longface_call0=render_mirror_longface573_event_begin(eventLoc,0,temp,0);
+   const uint64_t linked338_call0=render_mirror_linked338_normal_event_begin(eventLoc,0,temp,0);
 			JE_createNewEventEnemy(0, temp, 0);
 			const unsigned b313_slot0=b;
 			b313_bind_component(b313_group,0,b313_slot0);
    b313_family_observer_birth_member(family_group,0,b313_slot0);
    render_mirror_longface573_event_commit(longface_call0,b313_slot0);
+   render_mirror_linked338_normal_event_commit(linked338_call0,b313_slot0);
    const uint64_t longface_call1=render_mirror_longface573_event_begin(eventLoc,1,temp,0);
+   const uint64_t linked338_call1=render_mirror_linked338_normal_event_begin(eventLoc,1,temp,0);
 			JE_createNewEventEnemy(1, temp, 0);
 			const unsigned b313_slot1=b;
 			if (b > 0)
@@ -4953,7 +4964,9 @@ void JE_eventSystem(void)
 			b313_bind_component(b313_group,1,b313_slot1);
    b313_family_observer_birth_member(family_group,1,b313_slot1);
    render_mirror_longface573_event_commit(longface_call1,b313_slot1);
+   render_mirror_linked338_normal_event_commit(linked338_call1,b313_slot1);
    const uint64_t longface_call2=render_mirror_longface573_event_begin(eventLoc,2,temp,0);
+   const uint64_t linked338_call2=render_mirror_linked338_normal_event_begin(eventLoc,2,temp,0);
 			JE_createNewEventEnemy(2, temp, 0);
 			const unsigned b313_slot2=b;
 			if (b > 0)
@@ -4961,7 +4974,9 @@ void JE_eventSystem(void)
 			b313_bind_component(b313_group,2,b313_slot2);
    b313_family_observer_birth_member(family_group,2,b313_slot2);
    render_mirror_longface573_event_commit(longface_call2,b313_slot2);
+   render_mirror_linked338_normal_event_commit(linked338_call2,b313_slot2);
    const uint64_t longface_call3=render_mirror_longface573_event_begin(eventLoc,3,temp,0);
+   const uint64_t linked338_call3=render_mirror_linked338_normal_event_begin(eventLoc,3,temp,0);
 			JE_createNewEventEnemy(3, temp, 0);
 			const unsigned b313_slot3=b;
 			if (b > 0)
@@ -4972,6 +4987,7 @@ void JE_eventSystem(void)
 			b313_bind_component(b313_group,3,b313_slot3);
    b313_family_observer_birth_member(family_group,3,b313_slot3);
    render_mirror_longface573_event_commit(longface_call3,b313_slot3);
+   render_mirror_linked338_normal_event_commit(linked338_call3,b313_slot3);
    b313_family_observer_birth_end(family_group);
 			b313_group_end(b313_group);
    if(continuity_attempt)bco_birth_end(continuity_attempt,b313_group);
@@ -5735,6 +5751,7 @@ void JE_eventSystem(void)
 		break;
 	}
 
+ render_mirror_linked338_normal_script_after(facts_event_entry);
  b313_tail414_event_after(game_probe_tick,facts_event_entry,tail_event_type,tail_event_args);
  b313_facts_snapshot("event_after",facts_event_entry);
 	eventLoc++;

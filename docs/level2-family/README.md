@@ -158,3 +158,8 @@ The [normal Turret273 candidate](TURRET273-CANDIDATE.md) independently enables
 nine existing public body images at two exact origins with `--hd --turret273`.
 It preserves the original continuous animation and does not include projectiles
 or damage states; it is not scene-qualified.
+
+The [normal Linked338–342 candidate](LINKED338-NORMAL-CANDIDATE.md) uses seven
+public NEWSHP images for four exact events / ten native allocation attempts,
+only with `--hd --linked338`. The original linked-group behavior is unchanged;
+damage graphic121 is excluded. Actual scene validation remains pending.

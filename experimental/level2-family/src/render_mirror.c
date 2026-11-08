@@ -3,6 +3,7 @@
 #include "triple275_family.h"
 #include "fork284_family.h"
 #include "turret273_family.h"
+#include "linked338_normal_family.h"
 #include "ember269_family.h"
 #include "b313_terrain_blend_retire.h"
 #include "gray325_family.h"
@@ -14,6 +15,7 @@ static void private_triple275_shutdown(void);
 static void private_ember269_shutdown(void);
 static void f284_shutdown(void);
 static void tp_shutdown(void);
+static void ln_shutdown(void);
 #ifndef RENDER_MIRROR_DISABLED
 /* SPDX-License-Identifier: GPL-2.0-or-later
  * Display-only ordered mirror. The engine always executes original 1x writes.
@@ -1495,7 +1497,7 @@ void render_mirror_hud_shutdown(void)
  enemy_reuse_shutdown();
  render_mirror_newshf_validation_reset();
  global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_tank194_shutdown();global_rotor_shutdown();global_projectile91_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();private_gray325_shutdown();private_longface573_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();ln_shutdown();private_gray325_shutdown();private_longface573_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -3152,6 +3154,10 @@ static bool tp_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,int,
 static bool tp_pixel(unsigned,unsigned,int),tp_retire(unsigned,int),tp_before_tile(unsigned,int);
 static void tp_shadow(unsigned),tp_end(void),tp_tick(void),tp_reset(void),tp_accept(void),tp_fail(unsigned);
 static bool tp_finish(void),tp_guard(void),tp_write_current(void);
+static bool ln_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,int,int);
+static bool ln_pixel(unsigned,unsigned,int),ln_retire(unsigned,int),ln_before_tile(unsigned,int);
+static void ln_shadow(unsigned),ln_end(void),ln_tick(void),ln_reset(void),ln_accept(void),ln_fail(unsigned);
+static bool ln_finish(void),ln_guard(void),ln_write_current(void);
 static void private_ember269_accept(void);
 static bool gray325_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,int,int);
 static bool gray325_pixel(unsigned,unsigned,int);
@@ -4068,6 +4074,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "ember269_family_mirror.inc"
 #include "fork284_family_mirror.inc"
 #include "turret273_family_mirror.inc"
+#include "linked338_normal_family_mirror.inc"
 #include "gray325_family_mirror.inc"
 #include "longface573_family_mirror.inc"
 #include "asteroid1_triple275_mirror.inc"
