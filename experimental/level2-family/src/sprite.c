@@ -552,6 +552,7 @@ void JE_loadCompShapesB(Sprite2_array *sprite2s, FILE *f)
 	render_mirror_ember269_bank_changed(sprite2s);
 	render_mirror_turret273_bank_changed(sprite2s);
 	render_mirror_linked_prop287288_bank_changed(sprite2s);
+	render_mirror_normal270_bank_changed(sprite2s);
 	render_mirror_linked338_normal_bank_changed(sprite2s);
 	render_mirror_late_actor_bank_changed(sprite2s);
 	render_mirror_fork284_bank_changed(sprite2s);
@@ -576,6 +577,7 @@ void free_sprite2s(Sprite2_array *sprite2s)
 	render_mirror_ember269_bank_changed(sprite2s);
 	render_mirror_turret273_bank_changed(sprite2s);
 	render_mirror_linked_prop287288_bank_changed(sprite2s);
+	render_mirror_normal270_bank_changed(sprite2s);
 	render_mirror_linked338_normal_bank_changed(sprite2s);
 	render_mirror_late_actor_bank_changed(sprite2s);
 	render_mirror_fork284_bank_changed(sprite2s);

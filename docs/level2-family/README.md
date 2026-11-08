@@ -172,3 +172,7 @@ no partner-survival rule is added. Actual scene validation remains pending.
 The [late282/285 body candidate](LATE282285-CANDIDATE.md) covers eight
 original events with six public images, only with `--hd --late282285`.
 Record283 and projectile art are excluded. Actual scene validation is pending.
+
+For one explicit public-only combined command, see [public candidates](PUBLIC-CANDIDATES.md).
+It includes the bounded [normal270 body candidate](NORMAL270-CANDIDATE.md);
+this is not combined gameplay qualification and never launches by default.

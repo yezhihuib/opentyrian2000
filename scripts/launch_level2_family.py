@@ -18,13 +18,15 @@ FAMILY_ROOT = Path("assets/hd/level2-family-v1")
 REUSED_ROOT = Path("assets/hd/packs/asteroid1-ten-v1")
 CONTROL_PREFIXES = (
     "BUILDING313_", "B313_", "LAMP272_", "GRAY325_", "LONGFACE573_",
-    "TRIPLE275_", "EMBER269_", "FORK284_", "TURRET273_", "LINKED338_", "LINKED_PROP287288_", "LATE_ACTORS_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
+    "TRIPLE275_", "EMBER269_", "FORK284_", "TURRET273_", "LINKED338_", "LINKED_PROP287288_", "LATE_ACTORS_", "NORMAL270_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
     "ASSET_DEBUG_", "GAME_PROBE_",
 )
 TURRET273_SHA256 = {169: '0650b5ef93849d23b757eb76c9ccbcc222dbdfbed7e23f872cf0990873543639', 193: 'b09b304729ccb04ba569ddc0383d9934ac7de562c5402494b9c3c8db451d3b4c', 195: 'ba9005d5a19616a1425b04164c3b3e59193f1db8e01bca0805ac3382dfef1652', 197: 'aa3f8b90ab19c1160647be14264df73678b763064cdc8d8abc22aba2ecfe347a', 199: '1812680982e5b22242cedfb1c7d378a4c53073d548e27dbbd7f0c63250c1ada2', 201: 'bae10e8a4dce967a6d19868dbb527fc6ff2d0a4be5a7a6e3256ae0a56b6f9c31', 203: 'dae8ebc5b00ae7815432827ba352998fa4d387a77e327dea790bdf02523bb5fc', 205: 'dc8ceeba073abd35e508b1004b77c022d298027fd01f99accc563640b20ebac4', 207: '48da35b8f1240d938296c9fdfeb3118335f8dc8faa246f731a722bf445874071'}
 LINKED338_SHA256 = {115: 'f3990602fa3c9199cf15c85e62d96954d414d08cea7171c1ba07172c9f44322c', 117: '951364ebd06145962cde9e6d0f676e547bffc36777297d98a4f9a3ce349d2519', 119: '09b0bd98f62a7c5ee16114cbd71c2a09e34a03a17aca23387ce5033fe0930c0e', 229: '74efdec8ff95e20ab7c47f2aa8ec4e40a963551da6396392d04d4c6e0be7b89c', 231: 'c97be4c67e41aa129be53aec9cdbe31b23f9b93b5cc657be69f80556d4c26c1a', 267: '1eb0fe96fd5c86a967fa4bc73ab97bac2d9cc360cf8db570b294d12951984678', 269: '7ef0d2edc92cec157b49d7346dada16e430dc9942276b4bfaa0968c82aa9aaaf'}
 LINKED_PROPS_SHA256 = {245: '71f5abb6edef89f4f151eca6aec54d5d6e517e17db48875d1bfcc2672b283f5e', 281: '0669e8e3ea3a50752f2e645dd72c6ae5ad1bc5af8931cc3b039fd12a43a07b23', 283: '9e8d91e67d142ec4351001aebe9dc33fb70dcc91123dbe353ce84f6bf5b8a658'}
 LATE282285_SHA256 = {'enemy-newshd-79-8.hda': '58ec2fbe2fb605cef591dda33e373283dd35974e9e160cff0c4f3509c1dba298', 'enemy-newshd-81-8.hda': 'a657626679cbe322680394f4489443efed4532548ead118f4794699b9ec1cb56', 'enemy-newshd-83-8.hda': '3f103041cc41eaa52d53b8f06d53056204a7f76ed38d56eca63064b4d354c901', 'enemy-newshd-157-8.hda': '4cbf65176d6536c148a4f7a1b8f5a54e565bca47fae24a82a9c0e8345c1c0ebd', 'enemy-newshd-159-8.hda': 'f19c34174c2a17a0c2386de06c4ba497996122122dc67c50bd9fd8677cb7c07e', 'enemy-newshd-161-8.hda': 'ad178825c48d9a2e0946c848e2c38c747a391b876ef8b4e8944295654b01e5b5'}
+NORMAL270_SHA256 = {'enemy-newshd-127-8.hda': '0fe44c1bc3a533f0f771a45705df0c07f66d662f51c0beb67fcae8ec7c30ffb5', 'enemy-newshd-129-8.hda': 'fbdca2d2609801fa3dd89c0f3458c981f3c515f9de2f25f07111f8111a3d3b0b', 'enemy-newshd-131-8.hda': 'd6629214cb77a7bebf3b4753caa473d6653048bfa548147e61fb1c0e0b5bfb8f'}
+PUBLIC_CANDIDATE_FLAGS = ("later_lamps", "later_embers", "later_triples", "fork284", "turret273", "linked338", "linked_props", "late282285", "normal270")
 CONTROL_NAMES = {"TYRIAN_CYAN_BORROW_TRACE"}
 HD_ENABLE_KEYS = (
     "BUILDING313_FAMILY_OBSERVER_ENABLE",
@@ -118,6 +120,16 @@ def verify_redvent_pair(directory):
 
 def build_plan(args, inherited=None, root=ROOT):
     """Return a public plan and the process environment without changing either CWD or files."""
+    # Copy the namespace: public preset expansion must not mutate caller input.
+    args = argparse.Namespace(**vars(args))
+    public_candidates = getattr(args, "public_candidates", False)
+    if public_candidates:
+        if not args.hd:
+            raise ValueError("--public-candidates requires explicit --hd")
+        if getattr(args, "redvent_pair", None):
+            raise ValueError("--public-candidates excludes private --redvent-pair")
+        for flag in PUBLIC_CANDIDATE_FLAGS:
+            setattr(args, flag, True)
     root = root.resolve()
     data = Path(args.data).expanduser().resolve()
     binary = (Path(args.binary).expanduser() if args.binary else root / "opentyrian2000-family").resolve()
@@ -200,6 +212,15 @@ def build_plan(args, inherited=None, root=ROOT):
             if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
                 raise ValueError("Changed late282285 asset: " + name)
         family.update({"LATE_ACTORS_ENABLE": "1", "LATE_ACTORS_ASSET_DIR": str(root / REUSED_ROOT)})
+    normal270 = bool(public_candidates)
+    if normal270:
+        if not args.hd:
+            raise ValueError("normal270 public candidate requires --hd")
+        for name, digest in NORMAL270_SHA256.items():
+            asset = root / REUSED_ROOT / name
+            if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
+                raise ValueError("Changed normal270 asset: " + name)
+        family.update({"NORMAL270_ENABLE": "1", "NORMAL270_ASSET_DIR": str(root / REUSED_ROOT)})
     redvent = getattr(args, "redvent_pair", None)
     if redvent:
         if not args.hd:
@@ -217,6 +238,12 @@ def build_plan(args, inherited=None, root=ROOT):
         "environment_overrides": overrides,
         "inherited_controls_removed": sorted(key for key in inherited if controlled_name(key)),
         "assets_sha256_verified": checked,
+        "public_candidates_enabled": bool(public_candidates),
+        "public_candidate_flags": list(PUBLIC_CANDIDATE_FLAGS) if public_candidates else [],
+        "qualification": "Experimental offline candidate; actual combined scene/gameplay is unverified.",
+        "normal270_enabled": bool(normal270),
+        "normal270_assets_sha256_verified": 3 if normal270 else 0,
+        "normal270_scope": "events244/245 only; curLoc<1960 and eventLoc<=259; body only" if normal270 else None,
         "late282285_enabled": bool(late282285),
         "late282285_assets_sha256_verified": 6 if late282285 else 0,
         "linked_props_enabled": bool(linked_props),
@@ -255,6 +282,7 @@ def parser():
     result.add_argument("--linked338", action="store_true", help="Opt in to normal linked338-342 group; seven public images, four exact events; requires --hd, not scene-qualified")
     result.add_argument("--linked-props", action="store_true", help="Opt in to six exact independent linked props287/288 origins; requires --hd, not scene-qualified")
     result.add_argument("--late282285", action="store_true", help="Opt in to eight original282/285 bodies; excludes283 and projectiles; requires --hd")
+    result.add_argument("--public-candidates", action="store_true", help="Experimental combination of all supported public extensions; requires explicit --hd; excludes private redvent")
     mode = result.add_mutually_exclusive_group()
     mode.add_argument("--launch", action="store_true", help="Actually start the game with normal input and no timeout")
     mode.add_argument("--check-only", "--dry-run", action="store_true", help="Only check and print the plan (the default)")

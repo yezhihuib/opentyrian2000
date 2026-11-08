@@ -5,6 +5,7 @@
 #include "turret273_family.h"
 #include "linked338_normal_family.h"
 #include "linked_prop287288_family.h"
+#include "normal270_family.h"
 #include "late_actor_family.h"
 #include "ember269_family.h"
 #include "b313_terrain_blend_retire.h"
@@ -19,6 +20,7 @@ static void f284_shutdown(void);
 static void tp_shutdown(void);
 static void ln_shutdown(void);
 static void lp287_shutdown(void);
+static void f270_shutdown(void);
 static void la_shutdown(void);
 #ifndef RENDER_MIRROR_DISABLED
 /* SPDX-License-Identifier: GPL-2.0-or-later
@@ -1501,7 +1503,7 @@ void render_mirror_hud_shutdown(void)
  enemy_reuse_shutdown();
  render_mirror_newshf_validation_reset();
  global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_tank194_shutdown();global_rotor_shutdown();global_projectile91_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();ln_shutdown();lp287_shutdown();la_shutdown();private_gray325_shutdown();private_longface573_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();ln_shutdown();lp287_shutdown();f270_shutdown();la_shutdown();private_gray325_shutdown();private_longface573_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -3166,6 +3168,10 @@ static bool lp287_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,i
 static bool lp287_pixel(unsigned,unsigned,int),lp287_retire(unsigned,int),lp287_before_tile(unsigned,int);
 static void lp287_shadow(unsigned),lp287_end(void),lp287_tick(void),lp287_reset(void),lp287_accept(void),lp287_fail(unsigned);
 static bool lp287_finish(void),lp287_guard(void),lp287_write_current(void);
+static bool f270_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,int,int);
+static bool f270_pixel(unsigned,unsigned,int),f270_retire(unsigned,int),f270_before_tile(unsigned,int);
+static void f270_shadow(unsigned),f270_end(void),f270_tick(void),f270_reset(void),f270_accept(void),f270_fail(unsigned);
+static bool f270_finish(void),f270_guard(void),f270_write_current(void);
 static bool la_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,int,int);
 static bool la_pixel(unsigned,unsigned,int),la_retire(unsigned,int),la_before_tile(unsigned,int);
 static void la_shadow(unsigned),la_end(void),la_tick(void),la_reset(void),la_accept(void),la_fail(unsigned);
@@ -4088,6 +4094,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "turret273_family_mirror.inc"
 #include "linked338_normal_family_mirror.inc"
 #include "linked_prop287288_family_mirror.inc"
+#include "normal270_family_mirror.inc"
 #include "late_actor_family_mirror.inc"
 #include "gray325_family_mirror.inc"
 #include "longface573_family_mirror.inc"

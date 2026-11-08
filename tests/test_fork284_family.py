@@ -200,7 +200,7 @@ int main(void){
         canvas=(SRC/'b313_family_canvas_mirror.inc').read_text()
         self.assertLess(canvas.index('f284_retire((unsigned)off,style)'),canvas.index('if(lamp272_pixel'))
         self.assertLess(canvas.index('f284_before_tile(slot,part)'),canvas.index('return lamp272_tile'))
-        for token in ('f284_reset();','f284_tick();','f284_end();','f284_accept();','!f284_finish()','!f284_guard()','f284_write_current()','!fork_owned&&!turret_owned&&!linked_owned&&!linked_prop_owned&&!late_actor_owned&&!terrain_retire'):
+        for token in ('f284_reset();','f284_tick();','f284_end();','f284_accept();','!f284_finish()','!f284_guard()','f284_write_current()','!fork_owned&&!turret_owned&&!linked_owned&&!linked_prop_owned&&!late_actor_owned&&!normal270_owned&&!terrain_retire'):
             self.assertIn(token,canvas)
         t=(SRC/'tyrian2.c').read_text(); self.assertIn('f284_stream_matches(events)',TEXT)
         for suffix in ('retired','level_begin','enemy_allocated','enemy_initialized','event_begin','event_commit'):

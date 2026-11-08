@@ -155,7 +155,7 @@ int main(void){
         canvas=(SRC/'b313_family_canvas_mirror.inc').read_text();native=(SRC/'tyrian2.c').read_text()
         for prefix in ('tp_','f284_'):
             self.assertLess(canvas.index(prefix+'retire((unsigned)off,style)'),canvas.index('if(f284_pixel'))
-        self.assertIn('!turret_owned&&!linked_owned&&!linked_prop_owned&&!late_actor_owned&&!terrain_retire',canvas)
+        self.assertIn('!turret_owned&&!linked_owned&&!linked_prop_owned&&!late_actor_owned&&!normal270_owned&&!terrain_retire',canvas)
         self.assertIn('tp_write_current()',canvas);self.assertIn('!tp_finish()',canvas);self.assertIn('!tp_guard()',canvas)
         self.assertIn('tp_before_tile(slot,part)',canvas)
         self.assertIn('!f284_stream_matches(events)',TEXT)
