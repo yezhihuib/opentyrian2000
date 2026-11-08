@@ -1,9 +1,9 @@
 # Fork284 offline input preflight
 
-This batch adds **only a read-only checker**, not a renderer integration or new
-launch flag. The existing 52-file family manifest and runtime remain unchanged.
-The public fork image is available, but transparent sparse ownership, native
-case-7/pool-50 lifetime hooks and canvas retirement still need separate work.
+This tool is **only a read-only checker**, not a renderer or launch flag.
+It leaves the existing 52-file family manifest and runtime unchanged. A separate
+[default-off integration candidate](FORK284-CANDIDATE.md) now supplies sparse
+ownership and lifetime hooks; this checker does not activate or qualify it.
 
 ```sh
 python3 scripts/preflight_fork284.py --data /path/to/original/game-data

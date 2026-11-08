@@ -520,6 +520,7 @@ enemy_gone:
 			render_mirror_lamp272_retired((unsigned)i);
 			render_mirror_triple275_retired((unsigned)i);
 			render_mirror_ember269_retired((unsigned)i);
+			render_mirror_fork284_retired((unsigned)i);
 			render_mirror_gray325_retired((unsigned)i);
 			render_mirror_longface573_retired((unsigned)i);
 			/* enemy[i].egr[10] &= 0x00ff; <MXD> madness? */
@@ -3448,6 +3449,7 @@ new_game:
 	render_mirror_lamp272_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_triple275_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_ember269_level_begin(char_mapFile,char_shapeFile,eventRec);
+	render_mirror_fork284_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_gray325_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_longface573_level_begin(char_mapFile,char_shapeFile,eventRec);
 	sprintf(tempStr, "shapes%c.dat", tolower((unsigned char)char_shapeFile));
@@ -4337,6 +4339,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_lamp272_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_triple275_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_ember269_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
+	render_mirror_fork284_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_gray325_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_longface573_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_newshf_validation_allocated(enemy,eDatI,uniqueShapeTableI);
@@ -4635,6 +4638,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_lamp272_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_triple275_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_ember269_enemy_initialized(enemy,eDatI,avail);
+	render_mirror_fork284_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_gray325_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_longface573_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_newshf_validation_initialized(enemy,eDatI,avail);
@@ -4872,8 +4876,12 @@ void JE_eventSystem(void)
 	}
 
 	case 7: /* Top Enemy */
+	{
+		const uint64_t fork284_call=render_mirror_fork284_event_begin(eventLoc,0,50,0);
 		JE_createNewEventEnemy(0, 50, 0);
+		render_mirror_fork284_event_commit(fork284_call,b);
 		break;
+	}
 
 	case 8:
 		starActive = false;

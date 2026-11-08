@@ -18,7 +18,7 @@ FAMILY_ROOT = Path("assets/hd/level2-family-v1")
 REUSED_ROOT = Path("assets/hd/packs/asteroid1-ten-v1")
 CONTROL_PREFIXES = (
     "BUILDING313_", "B313_", "LAMP272_", "GRAY325_", "LONGFACE573_",
-    "TRIPLE275_", "EMBER269_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
+    "TRIPLE275_", "EMBER269_", "FORK284_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
     "ASSET_DEBUG_", "GAME_PROBE_",
 )
 CONTROL_NAMES = {"TYRIAN_CYAN_BORROW_TRACE"}
@@ -152,6 +152,14 @@ def build_plan(args, inherited=None, root=ROOT):
         if not args.hd:
             raise ValueError("--later-triples requires --hd; it cannot enable the parent itself")
         family["TRIPLE275_LATER_132_ENABLE"] = "1"
+    fork284 = getattr(args, "fork284", False)
+    if fork284:
+        if not args.hd:
+            raise ValueError("--fork284 requires --hd; it cannot enable the parent itself")
+        asset = root / REUSED_ROOT / "enemy-newshd-121-8.hda"
+        if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != "65609c1c9d7cc981faecc914ada8e1100c550047733967ba7ae4b3635fdd1dad":
+            raise ValueError("Changed Fork284 asset")
+        family.update({"FORK284_ENABLE": "1", "FORK284_ASSET_DIR": str(root / REUSED_ROOT)})
     redvent = getattr(args, "redvent_pair", None)
     if redvent:
         if not args.hd:
@@ -169,6 +177,8 @@ def build_plan(args, inherited=None, root=ROOT):
         "environment_overrides": overrides,
         "inherited_controls_removed": sorted(key for key in inherited if controlled_name(key)),
         "assets_sha256_verified": checked,
+        "fork284_enabled": bool(fork284),
+        "fork284_assets_sha256_verified": 1 if fork284 else 0,
         "later_triples_enabled": bool(later_triples),
         "later_embers_enabled": bool(later_embers),
         "later_lamps_enabled": bool(later_lamps),
@@ -192,6 +202,7 @@ def parser():
     result.add_argument("--later-lamps", action="store_true", help="Opt in to 16 exact later lamp origins using existing public art; requires --hd, not scene-qualified")
     result.add_argument("--later-embers", action="store_true", help="Opt in to 5 exact later ember origins using existing public art; requires --hd, not scene-qualified")
     result.add_argument("--later-triples", action="store_true", help="Opt in to 132 exact later triple origins using existing public art; requires --hd, not scene-qualified")
+    result.add_argument("--fork284", action="store_true", help="Opt in to four exact sparse Fork284 origins; requires --hd, not scene-qualified")
     mode = result.add_mutually_exclusive_group()
     mode.add_argument("--launch", action="store_true", help="Actually start the game with normal input and no timeout")
     mode.add_argument("--check-only", "--dry-run", action="store_true", help="Only check and print the plan (the default)")

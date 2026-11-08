@@ -149,3 +149,7 @@ default and is not real-scene qualified.
 The [fork284 offline preflight](FORK284-PREFLIGHT.md) checks original level input
 and the existing transparent public image without enabling rendering or changing
 the 52-file family manifest.
+
+The [Fork284 sparse candidate](FORK284-CANDIDATE.md) reuses one additional public
+asset for four exact early origins only with `--hd --fork284`. It remains
+default-off and has not passed actual gameplay/scene validation.

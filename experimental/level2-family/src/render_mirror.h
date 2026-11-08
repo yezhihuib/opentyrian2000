@@ -147,36 +147,43 @@ typedef enum {
 #define render_mirror_lamp272_level_begin(...) ((void)0)
 #define render_mirror_triple275_level_begin(...) ((void)0)
 #define render_mirror_ember269_level_begin(...) ((void)0)
+#define render_mirror_fork284_level_begin(...) ((void)0)
 #define render_mirror_gray325_level_begin(...) ((void)0)
 #define render_mirror_longface573_level_begin(...) ((void)0)
 #define render_mirror_lamp272_event_begin(...) (UINT64_C(0))
 #define render_mirror_triple275_event_begin(...) (UINT64_C(0))
 #define render_mirror_ember269_event_begin(...) (UINT64_C(0))
+#define render_mirror_fork284_event_begin(...) (UINT64_C(0))
 #define render_mirror_gray325_event_begin(...) (UINT64_C(0))
 #define render_mirror_longface573_event_begin(...) (UINT64_C(0))
 #define render_mirror_lamp272_event_commit(...) ((void)0)
 #define render_mirror_triple275_event_commit(...) ((void)0)
 #define render_mirror_ember269_event_commit(...) ((void)0)
+#define render_mirror_fork284_event_commit(...) ((void)0)
 #define render_mirror_gray325_event_commit(...) ((void)0)
 #define render_mirror_longface573_event_commit(...) ((void)0)
 #define render_mirror_lamp272_enemy_allocated(...) ((void)0)
 #define render_mirror_triple275_enemy_allocated(...) ((void)0)
 #define render_mirror_ember269_enemy_allocated(...) ((void)0)
+#define render_mirror_fork284_enemy_allocated(...) ((void)0)
 #define render_mirror_gray325_enemy_allocated(...) ((void)0)
 #define render_mirror_longface573_enemy_allocated(...) ((void)0)
 #define render_mirror_lamp272_enemy_initialized(...) ((void)0)
 #define render_mirror_triple275_enemy_initialized(...) ((void)0)
 #define render_mirror_ember269_enemy_initialized(...) ((void)0)
+#define render_mirror_fork284_enemy_initialized(...) ((void)0)
 #define render_mirror_gray325_enemy_initialized(...) ((void)0)
 #define render_mirror_longface573_enemy_initialized(...) ((void)0)
 #define render_mirror_lamp272_retired(...) ((void)0)
 #define render_mirror_triple275_retired(...) ((void)0)
 #define render_mirror_ember269_retired(...) ((void)0)
+#define render_mirror_fork284_retired(...) ((void)0)
 #define render_mirror_gray325_retired(...) ((void)0)
 #define render_mirror_longface573_retired(...) ((void)0)
 #define render_mirror_lamp272_bank_changed(...) ((void)0)
 #define render_mirror_triple275_bank_changed(...) ((void)0)
 #define render_mirror_ember269_bank_changed(...) ((void)0)
+#define render_mirror_fork284_bank_changed(...) ((void)0)
 #define render_mirror_gray325_bank_changed(...) ((void)0)
 #define render_mirror_longface573_bank_changed(...) ((void)0)
 #define render_mirror_gray325_shot_fired(...) ((void)0)
@@ -339,36 +346,43 @@ struct JE_EventRecType;
 void render_mirror_lamp272_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_triple275_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_ember269_level_begin(char,char,const struct JE_EventRecType *);
+void render_mirror_fork284_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_gray325_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_longface573_level_begin(char,char,const struct JE_EventRecType *);
 uint64_t render_mirror_lamp272_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_triple275_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_ember269_event_begin(unsigned,unsigned,unsigned,int);
+uint64_t render_mirror_fork284_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_gray325_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_longface573_event_begin(unsigned,unsigned,unsigned,int);
 void render_mirror_lamp272_event_commit(uint64_t,unsigned);
 void render_mirror_triple275_event_commit(uint64_t,unsigned);
 void render_mirror_ember269_event_commit(uint64_t,unsigned);
+void render_mirror_fork284_event_commit(uint64_t,unsigned);
 void render_mirror_gray325_event_commit(uint64_t,unsigned);
 void render_mirror_longface573_event_commit(uint64_t,unsigned);
 void render_mirror_lamp272_enemy_allocated(void *,unsigned,int);
 void render_mirror_triple275_enemy_allocated(void *,unsigned,int);
 void render_mirror_ember269_enemy_allocated(void *,unsigned,int);
+void render_mirror_fork284_enemy_allocated(void *,unsigned,int);
 void render_mirror_gray325_enemy_allocated(void *,unsigned,int);
 void render_mirror_longface573_enemy_allocated(void *,unsigned,int);
 void render_mirror_lamp272_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_triple275_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_ember269_enemy_initialized(void *,unsigned,unsigned);
+void render_mirror_fork284_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_gray325_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_longface573_enemy_initialized(void *,unsigned,unsigned);
 void render_mirror_lamp272_retired(unsigned);
 void render_mirror_triple275_retired(unsigned);
 void render_mirror_ember269_retired(unsigned);
+void render_mirror_fork284_retired(unsigned);
 void render_mirror_gray325_retired(unsigned);
 void render_mirror_longface573_retired(unsigned);
 void render_mirror_lamp272_bank_changed(Sprite2_array *);
 void render_mirror_triple275_bank_changed(Sprite2_array *);
 void render_mirror_ember269_bank_changed(Sprite2_array *);
+void render_mirror_fork284_bank_changed(Sprite2_array *);
 void render_mirror_gray325_bank_changed(Sprite2_array *);
 void render_mirror_longface573_bank_changed(Sprite2_array *);
 void render_mirror_gray325_shot_fired(unsigned);
