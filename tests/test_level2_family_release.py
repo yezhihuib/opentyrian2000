@@ -126,12 +126,12 @@ class Level2FamilyReleaseTests(unittest.TestCase):
         self.assertTrue(output.write.called)
         self.assertFalse(self.profile.exists())
 
-    def test_damaged_longface_is_manifested_but_not_runtime_claimed(self):
+    def test_damaged_longface_is_manifested_as_unqualified_candidate(self):
         document = json.loads((ROOT / launcher.MANIFEST).read_text())
         longface = [f for f in document["files"] if f["provenance"] == "longface"]
         self.assertEqual(len(longface), 8)
         self.assertEqual(sum(f["runtime_use"] == "normal state" for f in longface), 4)
-        self.assertEqual(sum(f["runtime_use"].startswith("preflight-only") for f in longface), 4)
+        self.assertEqual(sum(f["runtime_use"] == "damaged state candidate; first-group full-body only; gameplay unverified" for f in longface), 4)
 
     def test_builder_check_only_snapshots_overlay_without_building(self):
         output = io.StringIO()

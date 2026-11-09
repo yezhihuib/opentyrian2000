@@ -329,9 +329,9 @@ static bool private_longface573_finish(void)
 static bool longface573_tile(SDL_Surface *surface,unsigned slot,int x,int y,Sprite2_array *sheet,unsigned base,int part,int filter)
 {
  if(!private_longface573_mode()||slot>=100||(enemy[slot].enemytype<573||enemy[slot].enemytype>576))return false;
- /* This release admits only the normal state observed in the bounded scene.
-  * Damaged artwork stays cached for integrity checks but renders natively. */
- if(enemy[slot].edamaged)return false;
+ /* The existing shape contract binds normal/damaged state to the exact base.
+  * A damage transition after drawing still invalidates this provisional frame
+  * through the recorded gate/base checks; the next tick may draw the new state. */
  if(!fc.frame_active||fc.frame_failed||!private_longface573_witness(slot))return false;
  if(private_longface573_frame.contributed&&!private_longface573_dependencies()){private_longface573_fail();return false;}
  if(x<0||x>308||y<0||y>186||(part!=0&&part!=1&&part!=19&&part!=20))return false;

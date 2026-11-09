@@ -1,7 +1,8 @@
 # Experimental level-2 family canvas
 
 This opt-in batch combines the building 313–316 canvas, 24 terrain members,
-selected 272 lamps, gray 325, normal-state longface 573–576, triple 275, and
+selected 272 lamps, gray 325, first-group longface 573–576 (including a
+damaged-state candidate), triple 275, and
 the first 269 ember device. Unsupported identities or states retain native
 rendering. It does not replace all second-level graphics.
 
@@ -87,13 +88,15 @@ The original seven origins keep their existing defaults; later scenes are unveri
 
 `assets/hd/level2-family-v1/MANIFEST.json` lists SHA-256 hashes for the exact 52
 required assets: 11 new files and 41 byte-identical reused files. Both on and off
-plans verify this complete set, including the four dormant damaged-longface files.
+plans verify this complete set, including the four damaged-longface candidate files.
 This checks package identity, not legal ownership or gameplay correctness.
 
 - Building: three 384 × 448 ARGB32LE phase payloads, assembled from vector-authored
   components aligned to original-game landmarks. Disk byte order is B, G, R, A.
 - Longface: eight HDR1 components from image-generated normal/damaged artwork,
-  deterministically registered and clipped to the original silhouettes.
+  deterministically registered and clipped to the original silhouettes. The
+  [damaged-state candidate](LONGFACE573-DAMAGED-CANDIDATE.md) reuses those four
+  damaged components only for the existing witnessed first group.
 - Lamps, gray devices, triple lamps, and ember devices reuse existing HDR1 files
   in `assets/hd/packs/asteroid1-ten-v1`.
 - Terrain reuses `assets/hd/current-terrain23` and `current-terrain24`.
@@ -130,9 +133,10 @@ regeneration differs from its stored asset. The same mismatch was independently
 reproduced on the unchanged public baseline; this batch does not alter that asset
 or relax its check. Do not describe this as a fully rebuilt legacy runtime pack.
 
-Damaged longface rendering is explicitly rejected before a tile write; all eight
-assets remain available for package preflight, but only the four normal-state
-components are eligible. Damaged gameplay appearance is unverified. Terrain
+A later [damaged-longface candidate](LONGFACE573-DAMAGED-CANDIDATE.md) now permits
+the four damaged components under the existing first-group/full-body guards.
+The earlier scene evidence above covers normal states only; damaged gameplay
+appearance remains unverified. Terrain
 retirement's final support exclusion, triple effects, and some lamp/ember shadow
 or blend cases also remain unverified. This package does not claim ordinary menu
 navigation, save/reload, GPU rendering, Windows packaging, performance, or the
