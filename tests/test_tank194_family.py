@@ -1,4 +1,4 @@
-"""Extract the eleven-origin tank birth selector and actual sparse writer/finish guards.
+"""Extract the eighteen-origin tank birth selector and actual sparse writer/finish guards.
 
 Event steps, actor/lifetime receipts and draw setup are synthetic. Scope,
 witness/shape, source/palette/resource readiness and other-owner clears are
@@ -18,7 +18,7 @@ class Tank194Tests(unittest.TestCase):
     def test_actual_minimal_birth_selector_and_eight_pose_writers(self):
         source = (SRC / 'tank194_family_mirror.inc').read_text()
         declarations = source[source.index('typedef struct {'):source.index('static const char *t194_root')]
-        self.assertIn('(event>148u)', source)
+        self.assertIn('(event>258u)', source)
         self.assertNotIn('TANK194_REPEAT8_ENABLE', source)
         names = ('t194_birth_index', 't194_event_matches', 't194_events_current', 't194_fail',
                  'render_mirror_tank194_family_event_before', 'render_mirror_tank194_family_event_after',
@@ -94,18 +94,18 @@ static Uint32 reference_blend(Uint32 before,const uint8_t *rgba){
  }
  return result;
 }
-static struct JE_EventRecType rows[148];
+static struct JE_EventRecType rows[258];
 static void prepare_events(void){
  memset(&t194_life,0,sizeof t194_life);memset(t194_slots,0,sizeof t194_slots);
  t194_life.epoch=7;t194_life.loaded=true;t194_life.events=rows;
- for(unsigned n=0;n<148;n++){
+ for(unsigned n=0;n<258;n++){
   const int *d=t194_events[n].d;
   rows[n]=(struct JE_EventRecType){t194_events[n].time,t194_events[n].type,d[0],d[1],d[2],d[3],d[4],d[5]};
  }
  eventLoc=t194_life.next_event=106;curLoc=t194_events[105].time;
 }
 int main(int argc,char **argv){
- assert(argc==9);assert(sizeof t194_events/sizeof t194_events[0]==148);
+ assert(argc==9);assert(sizeof t194_events/sizeof t194_events[0]==258);
  prepare_events();
  render_mirror_tank194_family_event_before(106);assert(t194_life.step.live&&t194_life.step.d[5]==4);
  rows[105].eventdat6=0;render_mirror_tank194_family_event_after(106);
@@ -130,16 +130,48 @@ int main(int argc,char **argv){
   render_mirror_tank194_family_event_after(106);
   assert(t194_life.stream_broken&&!t194_life.mutated106_epoch);
  }
- prepare_events();eventLoc=t194_life.next_event=149;
- render_mirror_tank194_family_event_before(149);assert(t194_life.stream_broken&&!t194_life.step.live);
+ /* Each later type12 row needs its own actual same-epoch receipt. */
+ const unsigned receipt_rows[2]={230,240};
+ for(unsigned k=0;k<2;k++){
+  unsigned event=receipt_rows[k],other=receipt_rows[1-k];
+  prepare_events();eventLoc=t194_life.next_event=event;curLoc=t194_events[event-1].time;
+  render_mirror_tank194_family_event_before(event);assert(t194_life.step.live&&t194_life.step.d[5]==4);
+  rows[event-1].eventdat6=0;render_mirror_tank194_family_event_after(event);
+  assert(!t194_life.stream_broken&&t194_life.next_event==event+1&&t194_life.mutated_next7_epoch[k]==7);
+  assert(!t194_life.mutated_next7_epoch[1-k]);
+  assert(t194_event_matches(event,false)&&!t194_event_matches(event,true));
+  rows[other-1].eventdat6=0;assert(!t194_event_matches(other,false));rows[other-1].eventdat6=4;
+  ++t194_life.epoch;assert(!t194_event_matches(event,false));
+  prepare_events();eventLoc=t194_life.next_event=event;curLoc=t194_events[event-1].time;
+  rows[event-1].eventdat6=0;render_mirror_tank194_family_event_before(event);
+  assert(t194_life.stream_broken&&!t194_life.step.live&&!t194_life.mutated_next7_epoch[k]);
+  for(unsigned bad=0;bad<9;bad++){
+   prepare_events();eventLoc=t194_life.next_event=event;curLoc=t194_events[event-1].time;
+   render_mirror_tank194_family_event_before(event);assert(t194_life.step.live);
+   struct JE_EventRecType *r=&rows[event-1];r->eventdat6=0;
+   if(bad==0)++t194_life.step.epoch;
+   else if(bad==1)++curLoc;
+   else if(bad==2)++r->eventtime;
+   else if(bad==3)++r->eventtype;
+   else if(bad==4)++r->eventdat;
+   else if(bad==5)++r->eventdat2;
+   else if(bad==6)++r->eventdat3;
+   else if(bad==7)++r->eventdat4;
+   else ++r->eventdat5;
+   render_mirror_tank194_family_event_after(event);
+   assert(t194_life.stream_broken&&!t194_life.mutated_next7_epoch[k]);
+  }
+ }
+ prepare_events();eventLoc=t194_life.next_event=259;
+ render_mirror_tank194_family_event_before(259);assert(t194_life.stream_broken&&!t194_life.step.live);
  prepare_events();
  for(unsigned event=0;event<=259;event++){
-  const unsigned allowed[]={6,25,26,36,37,76,77,78,89,90,91};
-  int wanted=-1;for(unsigned n=0;n<11;n++)if(event==allowed[n])wanted=(int)n;
+  const unsigned allowed[]={6,25,26,36,37,76,77,78,89,90,91,177,208,209,210,211,246,247};
+  int wanted=-1;for(unsigned n=0;n<18;n++)if(event==allowed[n])wanted=(int)n;
   assert(t194_birth_index(event)==wanted);
  }
- const unsigned births[11]={6,25,26,36,37,76,77,78,89,90,91};
- for(unsigned i=0;i<11;i++){
+ const unsigned births[18]={6,25,26,36,37,76,77,78,89,90,91,177,208,209,210,211,246,247};
+ for(unsigned i=0;i<18;i++){
   unsigned event=births[i];eventLoc=event;curLoc=t194_events[event-1].time;
   t194_life.step.live=true;t194_life.step.event=event;
   assert(!render_mirror_tank194_family_event_begin(event,1,75,0));
@@ -151,9 +183,9 @@ int main(int argc,char **argv){
   t194_life.call.live=false;
   assert(!render_mirror_tank194_family_event_begin(event,0,75,0));
  }
- assert(t194_life.consumed==2047);
- eventLoc=177;t194_life.step.event=177;
- assert(!render_mirror_tank194_family_event_begin(177,0,75,0));
+ assert(t194_life.consumed==262143);
+ eventLoc=248;t194_life.step.event=248;
+ assert(!render_mirror_tank194_family_event_begin(248,0,75,0));
  uint8_t bank_bytes[1]={0};Sprite2_array bank={bank_bytes,1};
  canvas->pixels=malloc(4096000*sizeof(Uint32));assert(canvas->pixels);
  unsigned writes=0,alpha_zero=0,partial_alpha=0;
@@ -205,7 +237,7 @@ int main(int argc,char **argv){
  assert(t194_retire(cell,MIRROR_BLEND)&&!t194_owned[cell]&&!t194_shadows[cell]);
  t194_owned[cell]=76;assert(t194_retire(cell,MIRROR_NORMAL)&&!t194_owned[cell]);assert(!t194_retire(64000,MIRROR_NORMAL));
  free(canvas->pixels);
- printf("PASS: 11 pinned births / event106 receipt / stop149, 8 pose materials, %u writes, %u alpha0 / %u partial-alpha subpixels; order/retirement\n",writes,alpha_zero,partial_alpha);
+ printf("PASS: 18 pinned births / event106+230+240 receipts / stop259, 8 pose materials, %u writes, %u alpha0 / %u partial-alpha subpixels; order/retirement\n",writes,alpha_zero,partial_alpha);
  return 0;
 }
 '''

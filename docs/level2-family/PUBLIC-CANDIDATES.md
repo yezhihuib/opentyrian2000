@@ -103,7 +103,7 @@ off; inherited `PLAYER_SHIP_FAMILY_` controls are cleared. Invulnerable poses
 and blend/shadow body calls are not admitted by this candidate. No new CLI
 option or material is added; actual scenes and gameplay remain unverified.
 
-The public preset also selects the bounded [tank194 initial encounter](TANK194-CANDIDATE.md):
-eleven births6/25/26/36/37/76/77/78/89/90/91, eight existing poses, whole-body-only, and a strict stop
-before event149. It excludes simultaneous global asset rendering. No later tank
+The public preset also selects the bounded [tank194 bounded encounters](TANK194-CANDIDATE.md):
+eighteen births6/25/26/36/37/76/77/78/89/90/91/177/208/209/210/211/246/247, eight existing poses, whole-body-only, and a strict stop
+before event259. It excludes simultaneous global asset rendering. No later tank
 births or real-scene acceptance are implied.

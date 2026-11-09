@@ -1,4 +1,4 @@
-# Tank194 initial encounter candidate
+# Tank194 bounded encounters candidate
 
 Only `--hd --public-candidates` selects this default-off candidate. Plain `--hd`
 does not. No new command-line option is added; inherited `TANK194_*` settings
@@ -7,13 +7,16 @@ are removed. Eight existing public NEWsh2 images are reused byte-for-byte from
 checks each full-file SHA256 and size, and the adapter checks header/payload pins.
 
 Scope is ordinary Episode1 physical level2 ASTEROID2, record194, pool75..99,
-and only the eleven original event6/25/26/36/37/76/77/78/89/90/91 births. The first148 event tuples must match;
-before event149 or any later event is processed the candidate stops and retires
-its witnesses. No repeat8/next7 settings are exposed; no later258-event scope or births are implemented.
+and only the eighteen original event6/25/26/36/37/76/77/78/89/90/91/177/208/209/210/211/246/247 births. The first258 event tuples must match;
+before event259 or any later event is processed the candidate stops and retires
+its witnesses. No repeat8/next7 settings are exposed; no births or scripts beyond event258 are admitted.
 Event31's native type33 result is observed after execution, never generated or
 written by this adapter. Event106 type12 must enter with the original dat6=4;
 only its actual same-epoch after-receipt permits dat6=0, with all other fields
-unchanged. Precleared or otherwise mutated rows fall back. Failed allocations consume their birth opportunity.
+unchanged. Events230 and240 have separate same-epoch receipts for their
+original type12 pool selectors, with exact event times1616/1750 and original
+links19/18. A receipt for one row never admits a change to the other. Precleared
+or otherwise mutated rows fall back. Failed allocations consume their birth opportunity.
 
 Eight native poses13/15/17/51/55/89/91/93 use exact archived indexed callback
 triples and map to existing artwork91/45/93/39/43/129/41/131. Only whole bodies

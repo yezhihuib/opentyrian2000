@@ -186,7 +186,7 @@ For one explicit public-only combined command, see [public candidates](PUBLIC-CA
 It includes the bounded [normal270 body candidate](NORMAL270-CANDIDATE.md);
 this is not combined gameplay qualification and never launches by default.
 
-Public candidate extension: [tank194 initial encounter](TANK194-CANDIDATE.md)
-reuses eight existing poses for only births6/25/26/36/37/76/77/78/89/90/91; stops before event149 and
+Public candidate extension: [tank194 bounded encounters](TANK194-CANDIDATE.md)
+reuses eight existing poses for only births6/25/26/36/37/76/77/78/89/90/91/177/208/209/210/211/246/247; stops before event259 and
 remains absent from plain `--hd`. This is a fail-closed code candidate, not a
 live-scene qualification.
