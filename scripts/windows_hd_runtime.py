@@ -7,7 +7,7 @@ sys.dont_write_bytecode=True
 import windows_classic_runtime as core
 import launch_level2_family as family
 HERE=Path(__file__).absolute().parent
-PINS_SHA='341aa0d68dcfa5b1aa66defa0ab52517099f54976b6c3825d505d0f49af23dbe'
+PINS_SHA='7fe6be044d8e5d681fbeeb1de9edee52ed2bb4a3d02e1f16400a5e878311e166'
 FAMILY_SHA='63f27ca5e875d1fd2847c9305db9e66afe2591cacbcd310c4161874abaf14aa9'
 TOOLS=('windows_hd_runtime.py','windows_classic_runtime.py','launch_level2_family.py','HD-ASSET-PINS.json')
 FAMILY_MANIFEST='assets/hd/level2-family-v1/MANIFEST.json'
@@ -22,7 +22,7 @@ def pins():
   if not name.startswith('assets/hd/') or p.is_absolute() or '..' in p.parts or '\\' in name or ':' in name or name.casefold() in {x.casefold() for x in result}:raise ValueError('Unsafe/duplicate pinned asset')
   result[name]={'sha256':core.valid_digest(item['sha256']),'bytes':item['bytes']}
  if type(document.get('total_files')) is not int or type(document.get('total_bytes')) is not int or document['total_files']!=len(result) or document['total_bytes']!=sum(x['bytes'] for x in result.values()):raise ValueError('Resource inventory totals mismatch')
- if len(result)!=101 or sum(x['bytes'] for x in result.values())!=18410168:raise ValueError('Wrong public resource set')
+ if len(result)!=103 or sum(x['bytes'] for x in result.values())!=18496240:raise ValueError('Wrong public resource set')
  return result
 
 def exact_files():return core.ALLOWED_FILES|{'tools/'+x for x in TOOLS}|set(pins())|{FAMILY_MANIFEST}
@@ -57,7 +57,7 @@ def prepare(args):
   path=core.safe_path(HERE/name);relative='tools/'+name
   inputs[relative]=path.read_bytes();sources[relative]=path
  receipt.update(mode='hd',public_candidates=bool(args.public_candidates),observer_required=True,
-  environment=controls(plan,assets,output),menu_assets='Native UI fallback; 101 pinned public world/player assets',
+  environment=controls(plan,assets,output),menu_assets='Native UI fallback; 103 pinned public world/player/projectile assets',
   files={name:{'bytes':len(raw),'sha256':core.sha(raw)} for name,raw in sorted(inputs.items())},
   launcher_sha256=core.sha(inputs[core.SCRIPT]))
  if set(inputs)!=exact_files():raise ValueError('Internal exact manifest mismatch')

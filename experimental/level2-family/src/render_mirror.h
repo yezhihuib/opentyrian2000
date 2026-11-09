@@ -161,6 +161,16 @@ typedef enum {
 #define render_mirror_tank147_muzzle_lane() false
 #define render_mirror_tank147_muzzle(...) false
 #define render_mirror_enemy_shot(...) false
+#define render_mirror_enemy_shot_pool_begin(...) ((void)0)
+#define render_mirror_enemy_shot_actor_allocated(...) ((void)0)
+#define render_mirror_enemy_shot_allocated(...) ((void)0)
+#define render_mirror_enemy_shot_initialized(...) ((void)0)
+#define render_mirror_enemy_shot_before_motion(...) ((void)0)
+#define render_mirror_enemy_shot_after_motion(...) ((void)0)
+#define render_mirror_enemy_shot_retired(...) ((void)0)
+#define render_mirror_enemy_shot_after_animation(...) ((void)0)
+#define render_mirror_enemy_shot_before_draw(...) ((void)0)
+#define render_mirror_enemy_shot_after_draw(...) ((void)0)
 #define render_mirror_marlo_body(...) false
 #define render_mirror_mint_body(...) false
 #define render_mirror_frontblaster_body(...) false
@@ -406,6 +416,16 @@ void render_mirror_hud_shield_drawn(SDL_Surface *surface,unsigned int shield,uns
 void render_mirror_begin(void);
 bool render_mirror_tank147_muzzle_lane(void);
 bool render_mirror_tank147_muzzle(SDL_Surface *,int,int,Sprite2_array);
+void render_mirror_enemy_shot_pool_begin(void);
+void render_mirror_enemy_shot_actor_allocated(void *);
+void render_mirror_enemy_shot_allocated(unsigned);
+void render_mirror_enemy_shot_initialized(unsigned,unsigned,unsigned,unsigned,unsigned,int,int,int);
+void render_mirror_enemy_shot_before_motion(unsigned);
+void render_mirror_enemy_shot_after_motion(unsigned);
+void render_mirror_enemy_shot_retired(unsigned,unsigned,unsigned);
+void render_mirror_enemy_shot_after_animation(unsigned);
+void render_mirror_enemy_shot_before_draw(unsigned);
+void render_mirror_enemy_shot_after_draw(void);
 bool render_mirror_enemy_shot(SDL_Surface *, int x, int y, Sprite2_array, unsigned int index);
 bool render_mirror_marlo_body(SDL_Surface *,int x,int y,Sprite2_array,unsigned int index,
                               unsigned int option,unsigned int sidekick_style,unsigned int charge);

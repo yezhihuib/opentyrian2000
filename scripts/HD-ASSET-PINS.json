@@ -1,6 +1,6 @@
 {
   "schema": "opentyrian-level2-public-resource-handoff-plan-v1",
-  "source_commit": "4e0150f958a608f0686ee90b6fbdde4210a594bf",
+  "source_commit": "562e8fc4ad0f7916734bc40624b867a152d89b0c",
   "files": [
     {
       "path": "assets/hd/artwork/type15-eightheading-smooth-contour-v2/output/enemy-newsh2-129-8.hda",
@@ -66,6 +66,16 @@
       "path": "assets/hd/current-compat/talon/ship-237-8.hda",
       "sha256": "a375ba8f0cf276a2eb2e8be75165f96ea9b67edf37a6dca9f29fd8aef07bd7dc",
       "bytes": 172060
+    },
+    {
+      "path": "assets/hd/current-compat/tank-shell/enemy-tank-shell-146-8.hda",
+      "sha256": "d7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c639653355109afa",
+      "bytes": 43036
+    },
+    {
+      "path": "assets/hd/current-compat/tank-shell/enemy-tank-shell-147-8.hda",
+      "sha256": "fef0333704fd2afb69fc48a38555e2b892608d590054a9819064cf5cb7fecdbf",
+      "bytes": 43036
     },
     {
       "path": "assets/hd/current-terrain23/terrain-shapesz-361-8.hda",
@@ -508,8 +518,8 @@
       "bytes": 172060
     }
   ],
-  "total_files": 101,
-  "total_bytes": 18410168,
+  "total_files": 103,
+  "total_bytes": 18496240,
   "status": "inventory_only_not_packaged",
   "original_data_included": false,
   "private_redvent_included": false

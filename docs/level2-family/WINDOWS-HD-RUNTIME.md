@@ -7,10 +7,10 @@ are required. No game executable or original game data is included in the art pa
 The package must contain `tools/windows_hd_runtime.py`, `windows_classic_runtime.py`,
 `launch_level2_family.py`, `HD-ASSET-PINS.json`, and the original relative `assets/`
 layout. Keep package provenance/license notices. Art is not collectively claimed GPL.
-The fixed set is 101 public art files (18,410,168 bytes) plus baseline MANIFEST metadata. Private redvent
+The fixed set is 103 public art files (18,496,240 bytes) plus baseline MANIFEST metadata. Private redvent
 and unsupported candidates are not enabled. This includes the current bounded
 longface normal/damaged, five normal player poses, smallrocks, random props,
-and tank194 candidates when the public preset is explicitly selected.
+tank194 and its two bounded shell materials when the public preset is explicitly selected.
 
 Use `python tools/windows_hd_runtime.py prepare` with the same required binary,
 DLL, build/STAGE receipt paths and independently verified SHA256 values as the classic
@@ -56,3 +56,7 @@ all public controls. It also rejects deletion of a newly required image. This
 uses synthetic PE fixtures on the cloud host: no Windows executable or game is
 run and no screenshot/scene acceptance is claimed. Build staging remains source
 only; it is not a substitute for this verified resource preparation.
+
+The current pinned set additionally includes shell146/147, keeping the public
+projectile candidate resource-complete. This does not qualify a Windows binary
+or an actual gameplay frame; the previous101-file package is not this version.

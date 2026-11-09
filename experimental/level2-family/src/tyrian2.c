@@ -671,6 +671,7 @@ enemy_still_exists:
 								enemy_reuse_shot_retire(b);
 #endif
 								tank_muzzle_allocate(b);
+ render_mirror_enemy_shot_allocated(b);
 								enemyShotAvail[b] = !enemyShotAvail[b];
 
 								if (weapons[temp3].sound > 0)
@@ -772,6 +773,7 @@ enemy_still_exists:
 									enemyShot[b].sym = roundf((float)aimY / maxMagAim * aim);
 								}
 								tank_muzzle_birth(b,i,temp3,j,tempPos);
+ render_mirror_enemy_shot_initialized(b,i,temp3,j,tempPos,tempX,tempY,tempMapXOfs);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 								enemy_reuse_shot_spawn(b,i,temp3,j,tempPos);
 #endif
@@ -1286,6 +1288,7 @@ start_level_first:
 	enemy_reuse_reset();
 #endif
 	memset(tank_muzzle_shots, 0, sizeof(tank_muzzle_shots));
+	render_mirror_enemy_shot_pool_begin();
 	for (uint i = 0; i < COUNTOF(enemyShotAvail); i++)
 		enemyShotAvail[i] = 1;
 
@@ -2088,6 +2091,7 @@ draw_player_shot_loop_end:
 		{
 			if (enemyShotAvail[z] == 0)
 			{
+				render_mirror_enemy_shot_before_motion(z);
 				enemyShot[z].sxm += enemyShot[z].sxc;
 				enemyShot[z].sx += enemyShot[z].sxm;
 
@@ -2122,12 +2126,14 @@ draw_player_shot_loop_end:
 					}
 				}
 
+				render_mirror_enemy_shot_after_motion(z);
 				if (enemyShot[z].duration-- == 0 || enemyShot[z].sy > 190 || enemyShot[z].sy <= -14 || enemyShot[z].sx > 275 || enemyShot[z].sx <= 0)
 				{
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 					enemy_reuse_shot_retire(z);
 #endif
 					tank_muzzle_retire(z);
+					render_mirror_enemy_shot_retired(z,2,0);
 					enemyShotAvail[z] = true;
 				}
 				else  // check if shot collided with player
@@ -2140,6 +2146,7 @@ draw_player_shot_loop_end:
 						    enemyShot[z].sy > player[i].y - (signed)player[i].shot_hit_area_y &&
 						    enemyShot[z].sy < player[i].y + (signed)player[i].shot_hit_area_y)
 						{
+							render_mirror_enemy_shot_retired(z,3,i);
 							game_probe_collision("enemy-shot", z, (int)i, enemyShot[z].sdmg);
 							JE_integer tempX = enemyShot[z].sx;
 							JE_integer tempY = enemyShot[z].sy;
@@ -2180,6 +2187,7 @@ draw_player_shot_loop_end:
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 						enemy_reuse_shot_after_animation(z);
 #endif
+						render_mirror_enemy_shot_after_animation(z);
 						int muzzle_registration = tank_muzzle_draw(z, enemyShot[z].sgr + enemyShot[z].animate);
 						if (!render_mirror_tank147_muzzle_lane()) muzzle_registration = 0;
 						if (enemyShot[z].sgr >= 500)
@@ -2205,7 +2213,9 @@ draw_player_shot_loop_end:
 							else
 #endif
 							if (sprite == 112 || sprite == 113 || sprite == 77 || sprite == 58 || sprite == 182 || sprite == 163 || sprite == 1 || sprite == 183 || sprite == 164 || sprite == 146 || sprite == 147 || sprite == 304 || sprite == 91 || sprite == 145 || sprite == 61 || sprite == 101 || sprite == 120 || sprite == 139 || sprite == 168 || sprite == 169 || sprite == 162 || sprite == 260 || sprite == 166 || sprite == 94 || sprite == 7 || sprite == 45 || sprite == 153 || sprite == 154 || sprite == 155 || sprite == 70 || widget_sonic_member_index(sprite) || orb_protron_protron_index(sprite))
-								draw_enemy_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
+								{ render_mirror_enemy_shot_before_draw(z);
+ draw_enemy_shot_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
+ render_mirror_enemy_shot_after_draw(); }
 							else
 								blit_sprite2(VGAScreen, enemyShot[z].sx, enemyShot[z].sy, spriteSheet8, sprite);
 						}
@@ -4387,6 +4397,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_smallrocks_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_random_props_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
  render_mirror_tank194_family_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
+ render_mirror_enemy_shot_actor_allocated(enemy);
 	render_mirror_newshf_validation_allocated(enemy,eDatI,uniqueShapeTableI);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_actor_allocated(enemy,eDatI,uniqueShapeTableI);

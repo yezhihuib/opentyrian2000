@@ -19,7 +19,7 @@ REUSED_ROOT = Path("assets/hd/packs/asteroid1-ten-v1")
 CONTROL_PREFIXES = (
     "BUILDING313_", "B313_", "LAMP272_", "GRAY325_", "LONGFACE573_",
     "TRIPLE275_", "EMBER269_", "FORK284_", "TURRET273_", "LINKED338_", "LINKED_PROP287288_", "LATE_ACTORS_", "NORMAL270_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
-    "ASSET_DEBUG_", "GAME_PROBE_", "SMALLROCKS_", "RANDOM_PROPS_", "TANK194_", "PLAYER_SHIP_FAMILY_",
+    "ASSET_DEBUG_", "GAME_PROBE_", "SMALLROCKS_", "RANDOM_PROPS_", "TANK194_", "PLAYER_SHIP_FAMILY_", "ENEMY_SHOT_FAMILY_",
 )
 TURRET273_SHA256 = {169: '0650b5ef93849d23b757eb76c9ccbcc222dbdfbed7e23f872cf0990873543639', 193: 'b09b304729ccb04ba569ddc0383d9934ac7de562c5402494b9c3c8db451d3b4c', 195: 'ba9005d5a19616a1425b04164c3b3e59193f1db8e01bca0805ac3382dfef1652', 197: 'aa3f8b90ab19c1160647be14264df73678b763064cdc8d8abc22aba2ecfe347a', 199: '1812680982e5b22242cedfb1c7d378a4c53073d548e27dbbd7f0c63250c1ada2', 201: 'bae10e8a4dce967a6d19868dbb527fc6ff2d0a4be5a7a6e3256ae0a56b6f9c31', 203: 'dae8ebc5b00ae7815432827ba352998fa4d387a77e327dea790bdf02523bb5fc', 205: 'dc8ceeba073abd35e508b1004b77c022d298027fd01f99accc563640b20ebac4', 207: '48da35b8f1240d938296c9fdfeb3118335f8dc8faa246f731a722bf445874071'}
 LINKED338_SHA256 = {115: 'f3990602fa3c9199cf15c85e62d96954d414d08cea7171c1ba07172c9f44322c', 117: '951364ebd06145962cde9e6d0f676e547bffc36777297d98a4f9a3ce349d2519', 119: '09b0bd98f62a7c5ee16114cbd71c2a09e34a03a17aca23387ce5033fe0930c0e', 229: '74efdec8ff95e20ab7c47f2aa8ec4e40a963551da6396392d04d4c6e0be7b89c', 231: 'c97be4c67e41aa129be53aec9cdbe31b23f9b93b5cc657be69f80556d4c26c1a', 267: '1eb0fe96fd5c86a967fa4bc73ab97bac2d9cc360cf8db570b294d12951984678', 269: '7ef0d2edc92cec157b49d7346dada16e430dc9942276b4bfaa0968c82aa9aaaf'}
@@ -32,6 +32,8 @@ TANK194_ROOT = Path("assets/hd/artwork/type15-eightheading-smooth-contour-v2/out
 TANK194_SHA256 = {91: 'e2c3aaa833db864ae73b4cd611305043ddcefd89dda19d22a1b1d5d577b2c29f', 45: '3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5', 93: 'c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164', 39: 'faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d', 43: '5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66', 129: '0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56', 41: '8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f', 131: '7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904'}
 RANDOM_PROPS_SHA256 = {5: 'bc4fe34b0ce8f43351b37a7c7af9c57ac100e13697aa03fe48458112be16c322', 43: 'd32bab72c7e674a43aa35a548fbd192c3924a8de9aad142e6f00582458f9cda5', 85: '6ea525685fc9b898c4054b93bca8e1f64fce0c1914ed18b41727b9d1fe2a7935'}
 PLAYER_SHIP_SHA256 = {229: '5cfa025cce0d662d0d92f1f1371cd0153910175a5956e4ed02ae7dc6fc3bafc7', 231: 'ec6c662bc5a8f596a0e8b1023530636b3cdf1a9b608382c7d8ee37337d9cfefb', 233: 'd1fe9bfe2dd84207fceb2f453c862eeaea802d9832fd14c1e1c3290622a53964', 235: '692b9a7cc8455798a1dda8a1dfe4aba10bb9872cacc790fd26ac5b246fa91350', 237: 'a375ba8f0cf276a2eb2e8be75165f96ea9b67edf37a6dca9f29fd8aef07bd7dc'}
+TANK_SHELL_ROOT = Path("assets/hd/current-compat/tank-shell")
+TANK_SHELL_SHA256 = {146: 'd7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c639653355109afa', 147: 'fef0333704fd2afb69fc48a38555e2b892608d590054a9819064cf5cb7fecdbf'}
 CONTROL_NAMES = {"TYRIAN_CYAN_BORROW_TRACE"}
 HD_ENABLE_KEYS = (
     "BUILDING313_FAMILY_OBSERVER_ENABLE",
@@ -167,6 +169,11 @@ def build_plan(args, inherited=None, root=ROOT):
             family[control] = "1"
     if public_candidates:
         family["LONGFACE573_LATER230240_ENABLE"] = "1"
+        for index, digest in TANK_SHELL_SHA256.items():
+            asset = root / TANK_SHELL_ROOT / f"enemy-tank-shell-{index}-8.hda"
+            if asset.stat().st_size != 43036 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
+                raise ValueError("Changed tank shell asset: " + asset.name)
+        family.update({"ENEMY_SHOT_FAMILY_ENABLE": "1", "ENEMY_SHOT_FAMILY_ASSET_DIR": str(root / TANK_SHELL_ROOT)})
         for pose, digest in TANK194_SHA256.items():
             asset = root / TANK194_ROOT / f"enemy-newsh2-{pose}-8.hda"
             if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
@@ -293,6 +300,8 @@ def build_plan(args, inherited=None, root=ROOT):
         "later_embers_enabled": bool(later_embers),
         "later_lamps_enabled": bool(later_lamps),
         "later_longface_groups_enabled": bool(public_candidates),
+        "tank_shells_enabled": bool(public_candidates),
+        "tank_shell_assets_sha256_verified": len(TANK_SHELL_SHA256) if public_candidates else 0,
         "player_ship_normal_enabled": bool(public_candidates),
         "player_ship_assets_sha256_verified": 5 if public_candidates else 0,
         "random_props_enabled": bool(public_candidates),

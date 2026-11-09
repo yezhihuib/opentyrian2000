@@ -107,3 +107,12 @@ The public preset also selects the bounded [tank194 bounded encounters](TANK194-
 eighteen births6/25/26/36/37/76/77/78/89/90/91/177/208/209/210/211/246/247, eight existing poses, whole-body-only, and a strict stop
 before event259. It excludes simultaneous global asset rendering. No later tank
 births or real-scene acceptance are implied.
+
+## Tank shells146/147
+
+The public preset also selects [two tank-shell materials](TANK-SHELLS-CANDIDATE.md).
+Only native births bound to the existing tank194 witnesses qualify; this is not
+a generic weapon or global-projectile switch. The two existing images are
+individually size/SHA-256 checked, and the Windows pinned resource set includes
+both. Plain `--hd` remains off; inherited `ENEMY_SHOT_FAMILY_` settings are
+removed. No new CLI option or artwork is added.

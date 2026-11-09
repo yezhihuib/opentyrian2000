@@ -69,6 +69,27 @@ class PublicCandidateTests(unittest.TestCase):
             with patch.object(Path,'read_bytes',corrupt),self.assertRaisesRegex(ValueError,'Changed tank194'):
                 launcher.build_plan(args,{})
 
+    def test_tank_shell_scope_and_assets(self):
+        with tempfile.TemporaryDirectory() as temp:
+            inherited={'ENEMY_SHOT_FAMILY_ENABLE':'1','ENEMY_SHOT_FAMILY_ASSET_DIR':'bad'}
+            for flags in ([],['--hd']):
+                plan,env=launcher.build_plan(self.setup_args(temp,flags),inherited)
+                self.assertFalse(plan['tank_shells_enabled'])
+                self.assertFalse(any(k.startswith('ENEMY_SHOT_FAMILY_') for k in env))
+            args=self.setup_args(temp,['--hd','--public-candidates'])
+            plan,env=launcher.build_plan(args,inherited)
+            self.assertTrue(plan['tank_shells_enabled'])
+            self.assertEqual(plan['tank_shell_assets_sha256_verified'],2)
+            self.assertEqual(env['ENEMY_SHOT_FAMILY_ENABLE'],'1')
+            self.assertEqual(Path(env['ENEMY_SHOT_FAMILY_ASSET_DIR']),launcher.ROOT/launcher.TANK_SHELL_ROOT)
+            real=Path.read_bytes
+            for index in (146,147):
+                def corrupt(path):
+                    raw=real(path)
+                    return raw[:-1]+bytes([raw[-1]^1]) if path.name==f'enemy-tank-shell-{index}-8.hda' else raw
+                with patch.object(Path,'read_bytes',corrupt),self.assertRaisesRegex(ValueError,'Changed tank shell'):
+                    launcher.build_plan(args,{})
+
     def test_bad_player_ship_asset_fails_closed(self):
         with tempfile.TemporaryDirectory() as temp:
             args=self.setup_args(temp,['--hd','--public-candidates'])

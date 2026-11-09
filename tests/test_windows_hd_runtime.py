@@ -27,7 +27,7 @@ class WindowsHDRuntimeTests(unittest.TestCase):
  def test_exact_art_and_relative_terrain_rebased_controls(self):
   with tempfile.TemporaryDirectory() as tmp:
    a,b,r=self.prepared(Path(tmp));root,receipt,data,env=hd.verify(b)
-   self.assertEqual(r['immutable_files'],111);self.assertEqual(set(receipt['files']),hd.exact_files())
+   self.assertEqual(r['immutable_files'],113);self.assertEqual(set(receipt['files']),hd.exact_files())
    self.assertTrue((root/'assets/hd/current-terrain24/terrain-shapesz-340-8.hda').is_file())
    self.assertNotIn('NORMAL270_ENABLE',env);self.assertFalse((root/'tyrian1.lvl').exists())
    for key,value in env.items():
@@ -103,12 +103,15 @@ class WindowsHDRuntimeTests(unittest.TestCase):
    self.assertFalse(result['game_started'])
    controls=result['environment_overrides']
    for key in ('TANK194_FAMILY_ENABLE','PLAYER_SHIP_FAMILY_ENABLE','RANDOM_PROPS_ENABLE',
-               'SMALLROCKS_ENABLE','LONGFACE573_LATER230240_ENABLE'):
+               'SMALLROCKS_ENABLE','LONGFACE573_LATER230240_ENABLE','ENEMY_SHOT_FAMILY_ENABLE'):
     self.assertEqual(controls[key],'1')
    for key,value in controls.items():
     if key.endswith('_ASSET_DIR'):
      self.assertTrue(Path(value).is_relative_to(root))
    self.assertFalse(any(root.rglob('__pycache__')))
+   # Newly enabled shells must also be present in this independent package.
+   for index in (146,147):
+    self.assertTrue((root/f'assets/hd/current-compat/tank-shell/enemy-tank-shell-{index}-8.hda').is_file())
    # A missing newly-required asset is an error, never partial HD acceptance.
    (root/'assets/hd/current-compat/talon/ship-233-8.hda').unlink()
    failed=subprocess.run(command,cwd=tmp,env=env,text=True,capture_output=True)
@@ -126,7 +129,7 @@ class WindowsHDRuntimeTests(unittest.TestCase):
      with self.assertRaisesRegex(ValueError,'inventory totals mismatch'):hd.pins()
 
  def test_public_pins_and_metadata_are_independently_fixed(self):
-  self.assertEqual(len(hd.pins()),101);self.assertEqual(sum(x['bytes'] for x in hd.pins().values()),18410168)
+  self.assertEqual(len(hd.pins()),103);self.assertEqual(sum(x['bytes'] for x in hd.pins().values()),18496240)
   self.assertEqual(hd.core.sha((ROOT/hd.FAMILY_MANIFEST).read_bytes()),hd.FAMILY_SHA)
-  self.assertEqual(len(hd.exact_files()),111)
+  self.assertEqual(len(hd.exact_files()),113)
 if __name__=='__main__':unittest.main()

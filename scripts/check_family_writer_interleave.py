@@ -10,8 +10,8 @@ SRC=ROOT/'experimental/level2-family/src'
 def extract(file,name):
  text=(SRC/file).read_text()
  return re.search(r'static (?:bool|void) '+name+r'\([^\n]*\)\n\{.*?\n\}',text,re.S).group()
-prefixes=['t194','ps','rp','sr','f284','tp','ln','lp287','la']
-files=['tank194','player_ship','random_props','smallrocks','fork284','turret273','linked338_normal','linked_prop287288','late_actor']
+prefixes=['es','t194','ps','rp','sr','f284','tp','ln','lp287','la']
+files=['enemy_shot','tank194','player_ship','random_props','smallrocks','fork284','turret273','linked338_normal','linked_prop287288','late_actor']
 if (SRC/'normal270_family_mirror.inc').exists():
  prefixes.insert(4,'f270');files.insert(4,'normal270')
 c=r'''
@@ -53,6 +53,10 @@ static Uint32 palette_rgb(Uint8 i){return 0xff000000u|i;}
 static Uint32 darken_rgba(Uint32 rgb,unsigned alpha){(void)alpha;return 0xff000000u|((rgb&0xfefefeu)>>1);}
 '''
 for p,f in zip(prefixes,files):
+ if p=='es':
+  c+='static uint8_t es_native_owner[64000],es_extra_cell[64000],es_extra_owner[4096000],es_shadows[64000];\n#define es_owned es_native_owner\nstatic uint64_t es_normal_retirements,es_blend_retirements,es_extra_retirements,es_shadow_cells;\n'
+  c+=extract('enemy_shot_family_mirror.inc','es_retire')+'\n'+extract('enemy_shot_family_mirror.inc','es_extra')+'\n'
+  continue
  c+=f'''static uint8_t {p}_owned[64000],{p}_shadows[64000];
 static uint64_t {p}_blend_retirements,{p}_normal_retirements;
 #define {p}_write_current() true
@@ -85,7 +89,7 @@ for p in ['lamp272','triple275','private_ember269','gray325','longface573']:
 c+=extract('b313_family_canvas_mirror.inc','family_pixel')
 c+=r'''
 static void reset(void){
- memset(&fc,0,sizeof fc);fc.frame_active=true;faults=0;active=-1;
+ memset(&fc,0,sizeof fc);fc.frame_active=true;faults=0;active=-1;es_shadow_cells=0;memset(es_extra_cell,0,sizeof es_extra_cell);memset(es_extra_owner,0,sizeof es_extra_owner);
  memset(native,0,sizeof native);memset(expected,0,sizeof expected);
  memset(hd_owner,0,sizeof hd_owner);memset(rgb,0,sizeof rgb);
  for(unsigned i=0;i<N_FAMILIES;i++){memset(owners[i],0,64000);memset(shadows[i],0,64000);}
@@ -100,7 +104,7 @@ int main(void){
   assert(!owners[next][off+1]&&rgb[n+8]==0&&expected[off+1]==0);
   active=-1;native[off]=23; /* 31 -> shadow luminance 15/2 */
   family_pixel(&source,native+off,MIRROR_SHADOW);assert(!faults);
-  assert(owners[next][off]==1&&shadows[next][off]==1&&rgb[n]==0xff404040&&hd_owner[n]);
+  assert(owners[next][off]==1&&(next==0?es_shadow_cells==1:shadows[next][off]==1)&&rgb[n]==0xff404040&&hd_owner[n]);
   native[off]=8;family_pixel(&source,native+off,MIRROR_BLEND);assert(!faults);
   for(unsigned j=0;j<N_FAMILIES;j++)assert(!owners[j][off]);
   assert(!hd_owner[n]&&rgb[n]==palette_rgb(8));
@@ -110,9 +114,18 @@ int main(void){
   family_pixel(&source,native+off,MIRROR_NORMAL);assert(!faults&&!owners[old][off]&&!hd_owner[n]);
   assert(rgb[n]==palette_rgb(4));
  }
+ /* Extra authored shell subpixel in a native hole retains no native ownership.
+  * A shadow darkens it; a later normal writer retires it before early return. */
+ reset();es_extra_cell[off]=1;es_extra_owner[n]=1;rgb[n]=0xff808080;
+ expected[off]=31;native[off]=23;family_pixel(&source,native+off,MIRROR_SHADOW);
+ assert(!faults&&es_extra_owner[n]&&rgb[n]==0xff404040&&!hd_owner[n]&&!es_native_owner[off]);
+ active=1;native[off]=12;family_pixel(&source,native+off,MIRROR_NORMAL);
+ assert(!faults&&!es_extra_owner[n]&&!es_extra_cell[off]&&owners[1][off]);
+ reset();es_extra_cell[off]=1;es_extra_owner[n]=1;rgb[n]=0xff808080;native[off]=7;
+ family_pixel(&source,native+off,MIRROR_BLEND);assert(!faults&&!es_extra_owner[n]&&rgb[n]==palette_rgb(7));
  /* Invalid native shadow must fail closed, not claim a successful receipt. */
- reset();owners[0][off]=1;hd_owner[n]=1;expected[off]=31;native[off]=99;
- family_pixel(&source,native+off,MIRROR_SHADOW);assert(faults==FC_EFFECT&&!shadows[0][off]);
+ reset();owners[1][off]=1;hd_owner[n]=1;expected[off]=31;native[off]=99;
+ family_pixel(&source,native+off,MIRROR_SHADOW);assert(faults==FC_EFFECT&&!shadows[1][off]);
  return 0;
 }
 '''

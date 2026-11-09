@@ -14,6 +14,8 @@
 #include "smallrocks_family.h"
 #include "random_props_family.h"
 #include "tank194_family.h"
+#include "enemy_shot_family.h"
+static void es_shutdown(void);
 static void t194_shutdown(void);
 #include "player_ship_family.h"
 static void ps_shutdown(void);
@@ -1513,7 +1515,7 @@ void render_mirror_hud_shutdown(void)
  enemy_reuse_shutdown();
  render_mirror_newshf_validation_reset();
  global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_tank194_shutdown();global_rotor_shutdown();global_projectile91_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();ln_shutdown();lp287_shutdown();f270_shutdown();la_shutdown();private_gray325_shutdown();private_longface573_shutdown();smallrocks_shutdown();rp_shutdown();ps_shutdown();t194_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();ln_shutdown();lp287_shutdown();f270_shutdown();la_shutdown();private_gray325_shutdown();private_longface573_shutdown();smallrocks_shutdown();rp_shutdown();ps_shutdown();t194_shutdown();es_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -3201,6 +3203,9 @@ static void ps_shadow(unsigned),ps_end(void),ps_tick(void),ps_reset(void),ps_acc
 static bool rp_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,int,int);
 static bool rp_pixel(unsigned,unsigned,int),rp_retire(unsigned,int),rp_finish(void),rp_guard(void),rp_before_tile(unsigned,int);
 static void rp_shadow(unsigned),rp_end(void),rp_tick(void),rp_reset(void),rp_accept(void);
+static void es_tick(void),es_reset(void),es_end(void),es_accept(void);
+static bool es_finish(void),es_guard(void),es_pixel(unsigned,unsigned,int),es_retire(unsigned,int),es_extra(size_t);
+static bool es_draw(SDL_Surface *,int,int,Sprite2_array,unsigned);
 static bool t194_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,int,int);
 static bool t194_pixel(unsigned,unsigned,int),t194_retire(unsigned,int),t194_finish(void),t194_guard(void),t194_before_tile(unsigned,int);
 static void t194_shadow(unsigned),t194_end(void),t194_tick(void),t194_reset(void),t194_accept(void);
@@ -3754,6 +3759,7 @@ bool render_mirror_tank147_muzzle(SDL_Surface *surface,int x,int y,Sprite2_array
 /* Enemy-only bindings: the indexed original still executes in the wrapper. */
 bool render_mirror_enemy_shot(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned int index)
 {
+ if(render_mirror_family_requested())return es_draw(surface,x,y,bank,index);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
  if(enemy_reuse_observe_requested())return false;
 #endif
@@ -4123,6 +4129,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "smallrocks_family_mirror.inc"
 #include "random_props_family_mirror.inc"
 #include "tank194_family_mirror.inc"
+#include "enemy_shot_family_mirror.inc"
 #include "player_ship_family_mirror.inc"
 #include "asteroid1_triple275_mirror.inc"
 #include "asteroid1_columns276_mirror.inc"
