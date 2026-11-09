@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Candidate E1 physical2 record194: only births6/25/26, first75 event witnesses.
- * Eight original poses, full body only. No repeat/later admission. Default OFF.
+ * Candidate E1 physical2 record194: eleven pinned births through91, first148 event witnesses.
+ * Eight original poses, full body only. No later258-event admission. Default OFF.
  */
 #include "tank194_native.inc"
 typedef struct {
@@ -11,7 +11,7 @@ static struct {uint64_t generation,witness,script_serial;bool exhausted,pending,
  T194Script script;unsigned script_event,birth_armor;int birth_value;
 } t194_slots[100];
 static struct {uint64_t epoch,serial;bool exhausted,loaded,stream_broken;unsigned consumed,next_event;
- char root[1024];const struct JE_EventRecType *events;unsigned mutated31;
+ char root[1024];const struct JE_EventRecType *events;unsigned mutated31,mutated106;uint64_t mutated106_epoch;
  struct {bool live;uint64_t token,epoch,generation;unsigned event;int slot,x,y,map1;} call;
  struct {bool live;unsigned event,type;int d[6];uint64_t epoch,generation[25];bool live_slot[25];} step;
 } t194_life;
@@ -40,7 +40,7 @@ static bool t194_level_scope(void)
 }
 static bool t194_event_matches(unsigned event,bool original)
 {
- if(!t194_life.events||event<1||event>75u||maxEvent!=731)return false;
+ if(!t194_life.events||event<1||event>148u||maxEvent!=731)return false;
  const struct JE_EventRecType *r=t194_life.events+event-1;
  const int d[6]={r->eventdat,r->eventdat2,r->eventdat3,r->eventdat4,r->eventdat5,r->eventdat6};
  if(r->eventtime!=t194_events[event-1].time||r->eventtype!=t194_events[event-1].type)return false;
@@ -49,13 +49,16 @@ static bool t194_event_matches(unsigned event,bool original)
   /* This exception exists only after the actual epoch-local type33 operation.
    * At level begin and at original entry the row must still contain533. */
   if(!original&&event==31&&i==0&&t194_life.mutated31)v=(int)t194_life.mutated31;
+  /* Only the actual same-epoch type12 receipt can clear the pool selector. */
+  if(!original&&event==106&&i==5&&t194_life.mutated106_epoch&&
+   t194_life.mutated106_epoch==t194_life.epoch)v=(int)t194_life.mutated106;
   if(d[i]!=v)return false;
  }
  return true;
 }
 static bool t194_events_current(void)
 {
- for(unsigned e=1;e<=75u;e++)if(!t194_event_matches(e,false))return false;
+ for(unsigned e=1;e<=148u;e++)if(!t194_event_matches(e,false))return false;
  return true;
 }
 static bool t194_scope(void)
@@ -90,7 +93,7 @@ static void t194_reset(void)
 void render_mirror_tank194_family_level_begin(char map,char shape,const struct JE_EventRecType *events)
 {
  t194_reset();t194_life.loaded=false;t194_life.events=events;t194_life.consumed=0;
- t194_life.mutated31=0;t194_life.next_event=1;t194_life.stream_broken=false;
+ t194_life.mutated31=0;t194_life.mutated106=0;t194_life.mutated106_epoch=0;t194_life.next_event=1;t194_life.stream_broken=false;
  for(unsigned i=0;i<100;i++)memset(&t194_slots[i].birth,0,sizeof t194_slots[i].birth);
  if(!t194_level_scope()||map!='D'||shape!='Z'||mapX!=1||mapX2!=1||mapX3!=1||!t194_events_current()||
  !t194_root()[0]||strlen(t194_root())>=sizeof t194_life.root){t194_life.events=NULL;return;}
@@ -106,7 +109,8 @@ static int t194_birth_index(unsigned event)
  if(event==6)return 0;
  if(event==25)return 1;
  if(event==26)return 2;
- return -1;
+ switch(event){case 36:return 3;case 37:return 4;case 76:return 5;case 77:return 6;
+ case 78:return 7;case 89:return 8;case 90:return 9;case 91:return 10;default:return -1;}
 }
 static bool t194_source(Sprite2_array *bank)
 {
@@ -188,9 +192,9 @@ void render_mirror_tank194_family_event_before(unsigned event)
 {
  if(!t194_life.loaded)return;
  if(t194_life.step.live||!t194_scope()||event!=eventLoc||event!=t194_life.next_event||event<1||event>maxEvent||
- /* This candidate stops before processing ANY event beyond the pinned75. */
- (event>75u)||
- (event<=75u&&(!t194_event_matches(event,true)||curLoc!=t194_events[event-1].time))){
+ /* This candidate stops before processing ANY event beyond the pinned148. */
+ (event>148u)||
+ (event<=148u&&(!t194_event_matches(event,true)||curLoc!=t194_events[event-1].time))){
   ++t194_script_losses;t194_life.stream_broken=true;
   for(unsigned s=75;s<100;s++)render_mirror_tank194_family_retired(s);
   t194_life.step.live=false;return;
@@ -202,7 +206,7 @@ void render_mirror_tank194_family_event_before(unsigned event)
  for(unsigned s=75;s<100;s++){
   if(t194_slots[s].live&&(!t194_witness(s)||!t194_shape(s,0)))render_mirror_tank194_family_retired(s);
   bool target=t194_slots[s].live&&t194_targets(r->eventtype,d,s);
-  if(target&&(event>75u||(r->eventtype!=19&&r->eventtype!=31&&r->eventtype!=33))){
+  if(target&&(event>148u||(r->eventtype!=19&&r->eventtype!=31&&r->eventtype!=33))){
    ++t194_script_losses;render_mirror_tank194_family_retired(s);
   }
   t194_life.step.live_slot[s-75]=t194_slots[s].live;
@@ -220,13 +224,26 @@ void render_mirror_tank194_family_event_after(unsigned event)
   ok=type==33&&d[0]==533&&(v==533||(v>=829&&v<=834));
   if(ok)t194_life.mutated31=v; /* Native return value only; no RNG/life access. */
  }
+ if(ok&&event==106){
+  const struct JE_EventRecType *r=t194_life.events+105;
+  const int after[6]={r->eventdat,r->eventdat2,r->eventdat3,r->eventdat4,r->eventdat5,r->eventdat6};
+  /* Native type12 clears only dat6 after reading its original pool selector.
+   * Require the exact original before-row and actual after-row in this epoch. */
+  ok=t194_life.step.epoch==t194_life.epoch&&!t194_life.mutated106_epoch&&
+   type==12&&r->eventtype==12&&curLoc==1084&&r->eventtime==1084;
+  for(unsigned i=0;i<6;i++)if(d[i]!=t194_events[105].d[i]||
+   after[i]!=(i==5?0:t194_events[105].d[i]))ok=false;
+  if(ok){t194_life.mutated106=(unsigned)r->eventdat6;t194_life.mutated106_epoch=t194_life.epoch;}
+ }
  ok=ok&&t194_scope();
  for(unsigned s=75;s<100;s++)if(t194_life.step.live_slot[s-75]&&t194_slots[s].live){
   bool current=ok&&t194_life.step.generation[s-75]==t194_slots[s].generation&&t194_witness(s);
   T194Script next=t194_slots[s].script;bool target=t194_targets(type,d,s);
   if(current&&target){
    if(type==19){if(d[0]!=-99)next.exc=d[0];if(d[1]!=-99)next.eyc=d[1];
-    if(d[5])next.fixedmovey=d[5];if(d[5]==-99)next.fixedmovey=0;if(d[4]>0)next.cycle=(unsigned)d[4];}
+    if(d[5])next.fixedmovey=d[5];
+    if(d[5]==-99)next.fixedmovey=0;
+    if(d[4]>0)next.cycle=(unsigned)d[4];}
    else if(type==31){for(unsigned j=0;j<3;j++){next.freq[j]=(unsigned)d[j];if(enemy[s].eshotwait[j]!=1)current=false;}}
    else if(type==33)next.die=event==31?t194_life.mutated31:(unsigned)d[0];
    else current=false;

@@ -7,11 +7,13 @@ are removed. Eight existing public NEWsh2 images are reused byte-for-byte from
 checks each full-file SHA256 and size, and the adapter checks header/payload pins.
 
 Scope is ordinary Episode1 physical level2 ASTEROID2, record194, pool75..99,
-and only the original event6/25/26 births. The first75 event tuples must match;
-before event76 or any later event is processed the candidate stops and retires
-its witnesses. No repeat8/next7 settings or later births are implemented.
+and only the eleven original event6/25/26/36/37/76/77/78/89/90/91 births. The first148 event tuples must match;
+before event149 or any later event is processed the candidate stops and retires
+its witnesses. No repeat8/next7 settings are exposed; no later258-event scope or births are implemented.
 Event31's native type33 result is observed after execution, never generated or
-written by this adapter. Failed allocations consume their birth opportunity.
+written by this adapter. Event106 type12 must enter with the original dat6=4;
+only its actual same-epoch after-receipt permits dat6=0, with all other fields
+unchanged. Precleared or otherwise mutated rows fall back. Failed allocations consume their birth opportunity.
 
 Eight native poses13/15/17/51/55/89/91/93 use exact archived indexed callback
 triples and map to existing artwork91/45/93/39/43/129/41/131. Only whole bodies

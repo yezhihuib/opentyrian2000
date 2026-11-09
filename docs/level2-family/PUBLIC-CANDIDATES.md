@@ -104,6 +104,6 @@ and blend/shadow body calls are not admitted by this candidate. No new CLI
 option or material is added; actual scenes and gameplay remain unverified.
 
 The public preset also selects the bounded [tank194 initial encounter](TANK194-CANDIDATE.md):
-three births6/25/26, eight existing poses, whole-body-only, and a strict stop
-before event76. It excludes simultaneous global asset rendering. No later tank
+eleven births6/25/26/36/37/76/77/78/89/90/91, eight existing poses, whole-body-only, and a strict stop
+before event149. It excludes simultaneous global asset rendering. No later tank
 births or real-scene acceptance are implied.

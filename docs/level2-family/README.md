@@ -187,6 +187,6 @@ It includes the bounded [normal270 body candidate](NORMAL270-CANDIDATE.md);
 this is not combined gameplay qualification and never launches by default.
 
 Public candidate extension: [tank194 initial encounter](TANK194-CANDIDATE.md)
-reuses eight existing poses for only births6/25/26; stops before event76 and
+reuses eight existing poses for only births6/25/26/36/37/76/77/78/89/90/91; stops before event149 and
 remains absent from plain `--hd`. This is a fail-closed code candidate, not a
 live-scene qualification.
