@@ -1,5 +1,6 @@
 #include "lamp272_later16_scope.inc"
 static void lamp272_top_clip_reset(void),lamp272_top_clip_tick(void);
+static void lamp272_bottom_clip_reset(void),lamp272_bottom_clip_tick(void);
 /* Private exact-origin lamp adapter. Default OFF. No HdRegion draw or restore.
  * Art is written only on actual native indexed writer callbacks. */
 static const char *lamp272_root(void){const char *p=getenv("LAMP272_FAMILY_ASSET_DIR");return p?p:"";}
@@ -177,6 +178,7 @@ void render_mirror_lamp272_retired(unsigned slot)
 static void private_lamp272_reset(void)
 {
  lamp272_top_clip_reset();
+ lamp272_bottom_clip_reset();
  private_lamp272_frame.accepted=false;
  if(private_lamp272_frame.contributed||private_lamp272_frame.quartet)private_lamp272_fail();
  for(unsigned i=0;i<100;i++)render_mirror_lamp272_retired(i);
@@ -340,6 +342,7 @@ static void private_lamp272_lifecycle(void)
 static void private_lamp272_tick(void)
 {
  lamp272_top_clip_tick();
+ lamp272_bottom_clip_tick();
  lamp272_native=false;memset(lamp272_owned,0,sizeof lamp272_owned);
  /* A new tick cannot inherit cached lamp pixels across an early-return path. */
  if(private_lamp272_frame.contributed){ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;}

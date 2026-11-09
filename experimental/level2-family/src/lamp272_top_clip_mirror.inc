@@ -93,15 +93,19 @@ static void lamp272_top_clip_end(void)
  }
  lamp272_top_clip.native=false;lamp272_native=false;
 }
+#include "lamp272_bottom_clip_mirror.inc"
+
 static bool lamp272_tile(SDL_Surface *s,unsigned slot,int x,int y,Sprite2_array *sheet,unsigned base,int part,int filter)
-{return lamp272_top_clip_tile(s,slot,x,y,sheet,base,part,filter)||lamp272_full_tile(s,slot,x,y,sheet,base,part,filter);}
+{return lamp272_bottom_clip_tile(s,slot,x,y,sheet,base,part,filter)||lamp272_top_clip_tile(s,slot,x,y,sheet,base,part,filter)||lamp272_full_tile(s,slot,x,y,sheet,base,part,filter);}
 static bool lamp272_pixel(unsigned x,unsigned y,int style)
-{return lamp272_top_clip_pixel(x,y,style)||lamp272_full_pixel(x,y,style);}
+{return lamp272_bottom_clip_pixel(x,y,style)||lamp272_top_clip_pixel(x,y,style)||lamp272_full_pixel(x,y,style);}
 static void lamp272_end(void)
-{if(lamp272_top_clip.native)lamp272_top_clip_end();else lamp272_full_end();}
+{if(lamp272_bottom_clip.native)lamp272_bottom_clip_end();else if(lamp272_top_clip.native)lamp272_top_clip_end();else lamp272_full_end();}
 static bool private_lamp272_finish(void)
 {
  return (!lamp272_top_clip.contributed||(!lamp272_top_clip.native&&
          lamp272_top_clip.enabled&&lamp272_top_clip_requested()&&lamp272_top_clip.frame==fc_frame))&&
+        (!lamp272_bottom_clip.contributed||(!lamp272_bottom_clip.native&&
+         lamp272_bottom_clip.enabled&&lamp272_bottom_clip_requested()&&lamp272_bottom_clip.frame==fc_frame))&&
         private_lamp272_full_finish();
 }
