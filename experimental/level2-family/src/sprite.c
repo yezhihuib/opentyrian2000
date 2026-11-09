@@ -559,6 +559,7 @@ void JE_loadCompShapesB(Sprite2_array *sprite2s, FILE *f)
 	render_mirror_gray325_bank_changed(sprite2s);
 	render_mirror_longface573_bank_changed(sprite2s);
 	render_mirror_smallrocks_bank_changed(sprite2s);
+	render_mirror_random_props_bank_changed(sprite2s);
 	render_mirror_newshf_validation_bank_changed(sprite2s);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_bank_changed(sprite2s);
@@ -585,6 +586,7 @@ void free_sprite2s(Sprite2_array *sprite2s)
 	render_mirror_gray325_bank_changed(sprite2s);
 	render_mirror_longface573_bank_changed(sprite2s);
 	render_mirror_smallrocks_bank_changed(sprite2s);
+	render_mirror_random_props_bank_changed(sprite2s);
 	render_mirror_newshf_validation_bank_changed(sprite2s);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_bank_changed(sprite2s);

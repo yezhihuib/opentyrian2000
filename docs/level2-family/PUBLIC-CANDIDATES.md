@@ -85,3 +85,12 @@ witnessed random births317–324. Plain `--hd` keeps this adapter off and inheri
 `SMALLROCKS_` variables are cleared. No new CLI option or asset was added.
 Its sparse native writes and alpha/ownership contracts have offline evidence;
 actual scenes and gameplay remain unverified.
+
+## Six-record random props
+
+The preset selects the [random props candidate](RANDOM-PROPS-CANDIDATE.md) for
+records135/136,260/261,263/265 using three separately size/SHA-256-verified
+existing images. Plain `--hd` does not enable it and inherited `RANDOM_PROPS_`
+controls are removed. Four-block native transactions and alpha/ownership have
+offline checks; actual scenes remain unverified. Sibling137/262/264 and base123
+are not admitted. No new CLI option or material was added.

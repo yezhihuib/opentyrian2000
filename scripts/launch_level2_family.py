@@ -19,7 +19,7 @@ REUSED_ROOT = Path("assets/hd/packs/asteroid1-ten-v1")
 CONTROL_PREFIXES = (
     "BUILDING313_", "B313_", "LAMP272_", "GRAY325_", "LONGFACE573_",
     "TRIPLE275_", "EMBER269_", "FORK284_", "TURRET273_", "LINKED338_", "LINKED_PROP287288_", "LATE_ACTORS_", "NORMAL270_", "NATIVE_WRITER_", "OLD_HD_SAMPLE_",
-    "ASSET_DEBUG_", "GAME_PROBE_", "SMALLROCKS_",
+    "ASSET_DEBUG_", "GAME_PROBE_", "SMALLROCKS_", "RANDOM_PROPS_",
 )
 TURRET273_SHA256 = {169: '0650b5ef93849d23b757eb76c9ccbcc222dbdfbed7e23f872cf0990873543639', 193: 'b09b304729ccb04ba569ddc0383d9934ac7de562c5402494b9c3c8db451d3b4c', 195: 'ba9005d5a19616a1425b04164c3b3e59193f1db8e01bca0805ac3382dfef1652', 197: 'aa3f8b90ab19c1160647be14264df73678b763064cdc8d8abc22aba2ecfe347a', 199: '1812680982e5b22242cedfb1c7d378a4c53073d548e27dbbd7f0c63250c1ada2', 201: 'bae10e8a4dce967a6d19868dbb527fc6ff2d0a4be5a7a6e3256ae0a56b6f9c31', 203: 'dae8ebc5b00ae7815432827ba352998fa4d387a77e327dea790bdf02523bb5fc', 205: 'dc8ceeba073abd35e508b1004b77c022d298027fd01f99accc563640b20ebac4', 207: '48da35b8f1240d938296c9fdfeb3118335f8dc8faa246f731a722bf445874071'}
 LINKED338_SHA256 = {115: 'f3990602fa3c9199cf15c85e62d96954d414d08cea7171c1ba07172c9f44322c', 117: '951364ebd06145962cde9e6d0f676e547bffc36777297d98a4f9a3ce349d2519', 119: '09b0bd98f62a7c5ee16114cbd71c2a09e34a03a17aca23387ce5033fe0930c0e', 229: '74efdec8ff95e20ab7c47f2aa8ec4e40a963551da6396392d04d4c6e0be7b89c', 231: 'c97be4c67e41aa129be53aec9cdbe31b23f9b93b5cc657be69f80556d4c26c1a', 267: '1eb0fe96fd5c86a967fa4bc73ab97bac2d9cc360cf8db570b294d12951984678', 269: '7ef0d2edc92cec157b49d7346dada16e430dc9942276b4bfaa0968c82aa9aaaf'}
@@ -28,6 +28,7 @@ LATE282285_SHA256 = {'enemy-newshd-79-8.hda': '58ec2fbe2fb605cef591dda33e373283d
 NORMAL270_SHA256 = {'enemy-newshd-127-8.hda': '0fe44c1bc3a533f0f771a45705df0c07f66d662f51c0beb67fcae8ec7c30ffb5', 'enemy-newshd-129-8.hda': 'fbdca2d2609801fa3dd89c0f3458c981f3c515f9de2f25f07111f8111a3d3b0b', 'enemy-newshd-131-8.hda': 'd6629214cb77a7bebf3b4753caa473d6653048bfa548147e61fb1c0e0b5bfb8f'}
 PUBLIC_CANDIDATE_FLAGS = ("later_lamps", "later_embers", "later_triples", "fork284", "turret273", "linked338", "linked_props", "late282285", "normal270")
 SMALLROCKS_SHA256 = {95: '3d099619cd2f520caaa3b0bb54457780bbc86cb74f1affd76d14794e8f9bf6d7', 114: '594d8d8ae896e2145bfbe269418bc7f3182cab4892e59aa8525822d96c1bbfbc', 133: '6365fe3258b918f3a3257b5a92963c917564cfdae5a045ea932995b0da293532', 152: '7c346971170ca612506af55d50c1c7cd2150830fa6ec2b0043caa6e8104c410b'}
+RANDOM_PROPS_SHA256 = {5: 'bc4fe34b0ce8f43351b37a7c7af9c57ac100e13697aa03fe48458112be16c322', 43: 'd32bab72c7e674a43aa35a548fbd192c3924a8de9aad142e6f00582458f9cda5', 85: '6ea525685fc9b898c4054b93bca8e1f64fce0c1914ed18b41727b9d1fe2a7935'}
 CONTROL_NAMES = {"TYRIAN_CYAN_BORROW_TRACE"}
 HD_ENABLE_KEYS = (
     "BUILDING313_FAMILY_OBSERVER_ENABLE",
@@ -168,6 +169,11 @@ def build_plan(args, inherited=None, root=ROOT):
             if asset.stat().st_size != 43036 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
                 raise ValueError("Changed smallrocks asset: " + asset.name)
         family.update({"SMALLROCKS_ENABLE": "1", "SMALLROCKS_ASSET_DIR": str(root / REUSED_ROOT)})
+        for base, digest in RANDOM_PROPS_SHA256.items():
+            asset = root / REUSED_ROOT / f"enemy-newshd-{base}-8.hda"
+            if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
+                raise ValueError("Changed random props asset: " + asset.name)
+        family.update({"RANDOM_PROPS_ENABLE": "1", "RANDOM_PROPS_ASSET_DIR": str(root / REUSED_ROOT)})
     later_lamps = getattr(args, "later_lamps", False)
     if later_lamps:
         if not args.hd:
@@ -273,6 +279,8 @@ def build_plan(args, inherited=None, root=ROOT):
         "later_embers_enabled": bool(later_embers),
         "later_lamps_enabled": bool(later_lamps),
         "later_longface_groups_enabled": bool(public_candidates),
+        "random_props_enabled": bool(public_candidates),
+        "random_props_assets_sha256_verified": 3 if public_candidates else 0,
         "smallrocks_enabled": bool(public_candidates),
         "smallrocks_assets_sha256_verified": 4 if public_candidates else 0,
         "lamp_top_clip_enabled": bool(getattr(args, "lamp_top_clip", False)),

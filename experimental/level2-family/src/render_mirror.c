@@ -12,6 +12,8 @@
 #include "gray325_family.h"
 #include "longface573_family.h"
 #include "smallrocks_family.h"
+#include "random_props_family.h"
+static void rp_shutdown(void);
 static void smallrocks_shutdown(void);
 static void private_longface573_shutdown(void);
 static void private_gray325_shutdown(void);
@@ -1505,7 +1507,7 @@ void render_mirror_hud_shutdown(void)
  enemy_reuse_shutdown();
  render_mirror_newshf_validation_reset();
  global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_tank194_shutdown();global_rotor_shutdown();global_projectile91_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();ln_shutdown();lp287_shutdown();f270_shutdown();la_shutdown();private_gray325_shutdown();private_longface573_shutdown();smallrocks_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();ln_shutdown();lp287_shutdown();f270_shutdown();la_shutdown();private_gray325_shutdown();private_longface573_shutdown();smallrocks_shutdown();rp_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -3187,6 +3189,9 @@ static void gray325_blend_retired(void);
 static void gray325_end(void),private_gray325_tick(void),private_gray325_reset(void),private_gray325_shutdown(void);
 static bool private_gray325_finish(void);
 static void gray325_accept(void);
+static bool rp_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,int,int);
+static bool rp_pixel(unsigned,unsigned,int),rp_retire(unsigned,int),rp_finish(void),rp_guard(void),rp_before_tile(unsigned,int);
+static void rp_shadow(unsigned),rp_end(void),rp_tick(void),rp_reset(void),rp_accept(void);
 static bool smallrocks_tile(SDL_Surface *,unsigned,int,int,Sprite2_array *,unsigned,int,int);
 static bool smallrocks_pixel(unsigned,unsigned,int),smallrocks_retire(unsigned,int),smallrocks_finish(void);
 static void smallrocks_shadow(unsigned),smallrocks_end(void),smallrocks_tick(void),smallrocks_reset(void),smallrocks_accept(void);
@@ -4104,6 +4109,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "gray325_family_mirror.inc"
 #include "longface573_family_mirror.inc"
 #include "smallrocks_family_mirror.inc"
+#include "random_props_family_mirror.inc"
 #include "asteroid1_triple275_mirror.inc"
 #include "asteroid1_columns276_mirror.inc"
 #include "asteroid1_turret273_mirror.inc"
