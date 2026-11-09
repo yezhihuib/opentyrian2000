@@ -1,3 +1,4 @@
+#include "lamp272_bottom_clip_contract.h"
 #include "lamp272_later16_scope.inc"
 static void lamp272_top_clip_reset(void),lamp272_top_clip_tick(void);
 static void lamp272_bottom_clip_reset(void),lamp272_bottom_clip_tick(void);
@@ -84,7 +85,7 @@ static struct {
 static struct {bool checked,valid;char root[1024];Asset member[4];} private_lamp272_resources;
 static struct {
  bool contributed,fault,quartet,accepted,later_three,middle_pair;unsigned slot,base,next,used;int x,y;
- uint64_t generation,epoch;unsigned mask[100];uint64_t generations[100];
+ uint64_t generation,epoch;unsigned mask[100];int completed_bottom_tail_y[100];uint64_t generations[100];
 } private_lamp272_frame;
 static unsigned private_lamp272_mode(void)
 {
@@ -421,7 +422,7 @@ static bool private_lamp272_full_finish(void)
  if(private_lamp272_frame.fault||private_lamp272_frame.quartet||!private_lamp272_frame_scope()||
   !private_lamp272_colors()||!lamp272_resources_current())return false;
  for(unsigned i=0;i<100;i++)if(private_lamp272_frame.mask[i]&&
-  (private_lamp272_frame.mask[i]!=15||!private_lamp272_witness(i)||!private_lamp272_shape(i,false)||
+  (!lamp272_bottom_clip_complete(private_lamp272_frame.mask[i],private_lamp272_frame.completed_bottom_tail_y[i])||!private_lamp272_witness(i)||!private_lamp272_shape(i,false)||
    private_lamp272_frame.generations[i]!=private_lamp272_slots[i].generation||
    !private_lamp272_source(*enemy[i].sprite2s)))return false;
  return true;

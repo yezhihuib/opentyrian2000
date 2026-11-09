@@ -44,7 +44,7 @@ static bool lamp272_bottom_clip_tile(SDL_Surface *surface,unsigned slot,int x,in
   private_lamp272_frame.x=plan.body_x;private_lamp272_frame.y=plan.body_y;private_lamp272_frame.next=0;
  }
  if(private_lamp272_frame.slot!=slot||private_lamp272_frame.base!=base||
-    private_lamp272_frame.next>=4||part!=parts[private_lamp272_frame.next]||
+    private_lamp272_frame.next>=plan.parts||part!=parts[private_lamp272_frame.next]||
     plan.body_x!=private_lamp272_frame.x||plan.body_y!=private_lamp272_frame.y){family_fault(FC_ORDER);return false;}
  unsigned k=0;while(k<4&&private_lamp272_images[k].base!=base)++k;
  if(k==4){family_fault(FC_SOURCE);return false;}
@@ -89,7 +89,11 @@ static void lamp272_bottom_clip_end(void)
     !b313_family_writer_draw_ready(fc_frame)){family_fault(FC_ORDER);}
  else {
   private_lamp272_frame.mask[slot]|=1u<<private_lamp272_frame.next;
-  if(++private_lamp272_frame.next==4)private_lamp272_frame.quartet=false;
+  if(++private_lamp272_frame.next==lamp272_bottom_clip.plan.parts){
+   private_lamp272_frame.quartet=false;
+   if(lamp272_bottom_clip.plan.parts==2)
+    private_lamp272_frame.completed_bottom_tail_y[slot]=lamp272_bottom_clip.plan.body_y;
+  }
  }
  lamp272_bottom_clip.native=false;lamp272_native=false;
 }
