@@ -10,8 +10,8 @@ SRC=ROOT/'experimental/level2-family/src'
 def extract(file,name):
  text=(SRC/file).read_text()
  return re.search(r'static (?:bool|void) '+name+r'\([^\n]*\)\n\{.*?\n\}',text,re.S).group()
-prefixes=['rp','sr','f284','tp','ln','lp287','la']
-files=['random_props','smallrocks','fork284','turret273','linked338_normal','linked_prop287288','late_actor']
+prefixes=['ps','rp','sr','f284','tp','ln','lp287','la']
+files=['player_ship','random_props','smallrocks','fork284','turret273','linked338_normal','linked_prop287288','late_actor']
 if (SRC/'normal270_family_mirror.inc').exists():
  prefixes.insert(4,'f270');files.insert(4,'normal270')
 c=r'''

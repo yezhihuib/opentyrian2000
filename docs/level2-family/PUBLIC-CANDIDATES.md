@@ -94,3 +94,11 @@ existing images. Plain `--hd` does not enable it and inherited `RANDOM_PROPS_`
 controls are removed. Four-block native transactions and alpha/ownership have
 offline checks; actual scenes remain unverified. Sibling137/262/264 and base123
 are not admitted. No new CLI option or material was added.
+
+## Normal player ship
+
+The preset selects a [five-pose normal player-ship candidate](PLAYER-SHIP-NORMAL-CANDIDATE.md)
+using five separately size/SHA-256-verified Talon images. Plain `--hd` keeps it
+off; inherited `PLAYER_SHIP_FAMILY_` controls are cleared. Invulnerable poses
+and blend/shadow body calls are not admitted by this candidate. No new CLI
+option or material is added; actual scenes and gameplay remain unverified.
