@@ -334,10 +334,11 @@ static bool longface573_tile(SDL_Surface *surface,unsigned slot,int x,int y,Spri
   * through the recorded gate/base checks; the next tick may draw the new state. */
  if(!fc.frame_active||fc.frame_failed||!private_longface573_witness(slot))return false;
  if(private_longface573_frame.contributed&&!private_longface573_dependencies()){private_longface573_fail();return false;}
- if(x<0||x>308||y<0||y>186||(part!=0&&part!=1&&part!=19&&part!=20))return false;
+ if(x<0||x>308||y< -13||y>186||(part!=0&&part!=1&&part!=19&&part!=20))return false;
  int px=(part==1||part==20)?12:0,py=part>=19?14:0;
- /* Entire body must be visible; native clipping remains classic. */
- if(x-px<24||x-px>264||y-py<0||y-py>156)return false;
+ /* Only the first thirteen top-entry rows may clip. All four native calls
+  * still occur; side/bottom clipping and wholly hidden top tiles stay classic. */
+ if(x-px<24||x-px>264||y-py< -13||y-py>156)return false;
  if((int64_t)x-px!=(int64_t)enemy[slot].ex+enemy[slot].mapoffset-6||
     (int64_t)y-py!=(int64_t)enemy[slot].ey-7)return false;
  if(!private_longface573_scope()||sheet!=enemy[slot].sprite2s||!sheet||filter||
@@ -360,7 +361,10 @@ static bool longface573_tile(SDL_Surface *surface,unsigned slot,int x,int y,Spri
     x-px!=private_longface573_frame.x||y-py!=private_longface573_frame.y){family_fault(FC_ORDER);return false;}
  unsigned k=0;while(k<8&&(private_longface573_images[k].base!=base||private_longface573_images[k].actor!=enemy[slot].enemytype))++k;
  if(k==8){family_fault(FC_SOURCE);return false;}
- longface573_native=true;longface573_image=k;longface573_part=part;longface573_x=x;longface573_y=y;longface573_pixels=0;
+ longface573_native=true;longface573_image=k;longface573_part=part;longface573_x=x;longface573_y=y;
+ /* Native blit_sprite2 consumes negative rows without issuing pixel callbacks.
+  * Geometry above bounds y >= -13, so negation and the skip are safe. */
+ longface573_pixels=y<0?(unsigned)(-y)*12u:0;
  private_longface573_frame.contributed=true;
  private_longface573_frame.generations[slot]=private_longface573_slots[slot].generation;
  private_longface573_frame.used|=1u<<k;
@@ -371,12 +375,12 @@ static bool longface573_pixel(unsigned x,unsigned y,int style)
  if(!longface573_native)return false;
  unsigned px=(longface573_part==1||longface573_part==20)?12:0,py=longface573_part>=19?14:0;
  while(longface573_pixels<168&&!private_longface573_indices[longface573_image][(py+longface573_pixels/12)*24+px+longface573_pixels%12])++longface573_pixels;
- if(style!=MIRROR_NORMAL||longface573_pixels>=168||x!=(unsigned)longface573_x+longface573_pixels%12||y!=(unsigned)longface573_y+longface573_pixels/12||
+ if(style!=MIRROR_NORMAL||longface573_pixels>=168||(int64_t)x!=(int64_t)longface573_x+longface573_pixels%12||(int64_t)y!=(int64_t)longface573_y+longface573_pixels/12||
  expected[y*320+x]!=private_longface573_indices[longface573_image][(py+longface573_pixels/12)*24+px+longface573_pixels%12]){family_fault(FC_ORDER);return true;}
  const Asset *a=private_longface573_resources.member+longface573_image;
  for(unsigned sy=0;sy<8;sy++)for(unsigned sx=0;sx<8;sx++){
   size_t n=(y*8+sy)*2560+x*8+sx;
-  const Uint8 *p=a->rgba+(((py+y-longface573_y)*8+sy)*192+(px+x-longface573_x)*8+sx)*4;
+  const Uint8 *p=a->rgba+(((py+longface573_pixels/12)*8+sy)*192+(px+longface573_pixels%12)*8+sx)*4;
   ((Uint32 *)canvas->pixels)[n]=0xff000000u|((Uint32)p[0]<<16)|((Uint32)p[1]<<8)|p[2];
   hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;
  }

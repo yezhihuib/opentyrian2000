@@ -134,7 +134,8 @@ reproduced on the unchanged public baseline; this batch does not alter that asse
 or relax its check. Do not describe this as a fully rebuilt legacy runtime pack.
 
 A later [damaged-longface candidate](LONGFACE573-DAMAGED-CANDIDATE.md) now permits
-the four damaged components under the existing first-group/full-body guards.
+the four damaged components under the existing first-group guards, and bounded
+top entry at body y-13..-1 for all eight components.
 The earlier scene evidence above covers normal states only; damaged gameplay
 appearance remains unverified. Terrain
 retirement's final support exclusion, triple effects, and some lamp/ember shadow

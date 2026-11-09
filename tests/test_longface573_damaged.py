@@ -36,7 +36,13 @@ class LongfaceDamagedTests(unittest.TestCase):
         tile = function(source, 'longface573_tile(')
         self.assertNotIn('if(enemy[slot].edamaged)return false;', tile)
         self.assertIn('!private_longface573_shape(slot,1)', tile)
+        geometry = tile[tile.index(' if(x<0'):tile.index(' if((int64_t)x-px')]
+        initial = re.search(r'longface573_pixels=y<0[^;]+;', tile).group()
         damage_source = (SRC / 'tyrian2.c').read_text()
+        self.assertIn('if (enemy[i].ey > -13)', damage_source)
+        self.assertIn('if (enemy[i].ey > -26 && enemy[i].ey < 182)', damage_source)
+        blit = (SRC / 'sprite.c').read_text()
+        self.assertIn('if (pixels >= pixels_ll)', blit)
         a = damage_source.index('enemy[temp3].enemycycle = 1;')
         b = damage_source.index('JE_integer tempX', a)
         damage = damage_source[a:b]
@@ -74,6 +80,8 @@ typedef struct {uint8_t *rgba;} Asset;
 static struct {Asset member[8];} private_longface573_resources;
 static struct {unsigned slot,next,mask[100];bool quartet;} private_longface573_frame;
 static unsigned fc_frame;
+static bool geometry(int x,int y,int part){ GEOMETRY return true;}
+static void initialize_pixels(int y){ INITIAL }
 #define MIRROR_NORMAL 0
 #define FC_ORDER 1
 static void family_fault(int cause){(void)cause;++faults;}
@@ -102,6 +110,10 @@ int main(int argc,char **argv){
  }
  canvas->pixels=calloc(4096000,sizeof(Uint32));assert(canvas->pixels);
  unsigned total=0;const unsigned parts[]={0,1,19,20};
+ for(int by=-14;by<=157;by++)for(unsigned q=0;q<4;q++){
+  assert(geometry(24+(q%2)*12,by+(int)(q/2)*14,(int)parts[q])==(by>=-13&&by<=156));
+ }
+ assert(!geometry(23,0,0)&&!geometry(265,0,0)&&!geometry(24,0,2));
  for(unsigned k=0;k<8;k++){
   uint8_t header[28];FILE *f=fopen(argv[k+1],"rb");assert(f);
   assert(fread(header,1,28,f)==28&&!memcmp(header,"HDR1",4));
@@ -109,24 +121,28 @@ int main(int argc,char **argv){
   private_longface573_resources.member[k].rgba=rgba;
   for(unsigned y=0;y<224;y++)for(unsigned x=0;x<192;x++)
    assert(rgba[(y*192+x)*4+3]==(private_longface573_indices[k][(y/8)*24+x/8]?255:0));
+  for(int by=-13;by<=0;by++){
+  int body_y=by?by:40;
   memset(canvas->pixels,0,4096000*sizeof(Uint32));memset(&private_longface573_frame,0,sizeof private_longface573_frame);
   private_longface573_frame.quartet=true;
   for(unsigned q=0;q<4;q++){
    unsigned px=(q%2)*12,py=(q/2)*14;
-   longface573_native=true;longface573_image=k;longface573_part=parts[q];longface573_pixels=0;
-   longface573_x=24+px;longface573_y=40+py;
+   longface573_native=true;longface573_image=k;longface573_part=parts[q];
+   longface573_x=24+px;longface573_y=body_y+(int)py;initialize_pixels(longface573_y);
    for(unsigned n=0;n<168;n++){
     unsigned index=(py+n/12)*24+px+n%12;uint8_t v=private_longface573_indices[k][index];
-    if(!v)continue;
-    unsigned x=longface573_x+n%12,y=longface573_y+n/12;expected[y*320+x]=v;
+    if(!v||longface573_y+(int)(n/12)<0)continue;
+    unsigned x=longface573_x+n%12,y=(unsigned)(longface573_y+(int)(n/12));expected[y*320+x]=v;
     assert(longface573_pixel(x,y,0));++total;
    }
    longface573_end();assert(!faults&&!longface573_native);
   }
   assert(!private_longface573_frame.quartet&&private_longface573_frame.mask[0]==15);
   for(unsigned y=0;y<224;y++)for(unsigned x=0;x<192;x++){
+   if(body_y*8+(int)y<0)continue;
    unsigned off=(y*192+x)*4;uint32_t want=rgba[off+3]?0xff000000u|((uint32_t)rgba[off]<<16)|((uint32_t)rgba[off+1]<<8)|rgba[off+2]:0;
-   assert(((Uint32*)canvas->pixels)[(40*8+y)*2560+24*8+x]==want);
+   assert(((Uint32*)canvas->pixels)[((unsigned)(body_y*8+(int)y))*2560+24*8+x]==want);
+  }
   }
   /* An incomplete nonempty native quadrant cannot finish successfully. */
   longface573_native=true;longface573_image=k;longface573_part=0;longface573_pixels=0;
@@ -139,7 +155,7 @@ int main(int argc,char **argv){
 '''
         for key, value in [('FIELDS', declarations), ('DAMAGE', damage), ('SHAPE', shape),
                            ('NATIVE', (SRC / 'longface573_native.inc').read_text()),
-                           ('PIXEL', pixel), ('END', end)]:
+                           ('PIXEL', pixel), ('END', end), ('GEOMETRY', geometry), ('INITIAL', initial)]:
             harness = re.sub(r'\b' + key + r'\b', lambda _: value, harness)
         assets = [('newshd',165),('newshd',167),('newshp',127),('newshp',129),
                   ('newshd',155),('newshd',163),('newshp',123),('newshp',125)]
