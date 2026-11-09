@@ -3,7 +3,9 @@
 This opt-in batch combines the building 313–316 canvas, 24 terrain members,
 selected 272 lamps, gray 325, longface 573–576 (first group by default, including a
 damaged-state candidate; two later groups in the public preset), triple 275, and
-the first 269 ember device. Unsupported identities or states retain native
+the first 269 ember device. The public preset additionally selects a
+[random smallrocks candidate](SMALLROCKS-CANDIDATE.md) using four existing images.
+Unsupported identities or states retain native
 rendering. It does not replace all second-level graphics.
 
 For a fresh checkout or a user-local dependency build, see [Rebuilding the public baseline](REBUILD.md).

@@ -5,6 +5,7 @@
 #include "linked_prop287288_family.h"
 #include "normal270_family.h"
 #include "late_actor_family.h"
+#include "smallrocks_family.h"
 #include "ground101_material.h"
 #include "gameplay_hud_meters.h"
 /* Diagnostic identity observer only. Default-off and mirror-disabled builds
@@ -174,6 +175,13 @@ typedef enum {
 #define render_mirror_late_actor_level_begin(...) ((void)0)
 #define render_mirror_fork284_level_begin(...) ((void)0)
 #define render_mirror_gray325_level_begin(...) ((void)0)
+#define render_mirror_smallrocks_level_begin(...) ((void)0)
+#define render_mirror_smallrocks_spawn_begin(...) (UINT64_C(0))
+#define render_mirror_smallrocks_spawn_commit(...) ((void)0)
+#define render_mirror_smallrocks_enemy_allocated(...) ((void)0)
+#define render_mirror_smallrocks_enemy_initialized(...) ((void)0)
+#define render_mirror_smallrocks_retired(...) ((void)0)
+#define render_mirror_smallrocks_bank_changed(...) ((void)0)
 #define render_mirror_longface573_level_begin(...) ((void)0)
 #define render_mirror_lamp272_event_begin(...) (UINT64_C(0))
 #define render_mirror_triple275_event_begin(...) (UINT64_C(0))
@@ -425,6 +433,13 @@ void render_mirror_linked338_normal_level_begin(char,char,const struct JE_EventR
 void render_mirror_late_actor_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_fork284_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_gray325_level_begin(char,char,const struct JE_EventRecType *);
+void render_mirror_smallrocks_level_begin(char,char);
+uint64_t render_mirror_smallrocks_spawn_begin(unsigned,unsigned,int);
+void render_mirror_smallrocks_spawn_commit(uint64_t,unsigned);
+void render_mirror_smallrocks_enemy_allocated(void *,unsigned,int);
+void render_mirror_smallrocks_enemy_initialized(void *,unsigned,unsigned);
+void render_mirror_smallrocks_retired(unsigned);
+void render_mirror_smallrocks_bank_changed(Sprite2_array *);
 void render_mirror_longface573_level_begin(char,char,const struct JE_EventRecType *);
 uint64_t render_mirror_lamp272_event_begin(unsigned,unsigned,unsigned,int);
 uint64_t render_mirror_triple275_event_begin(unsigned,unsigned,unsigned,int);

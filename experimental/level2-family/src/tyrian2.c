@@ -533,6 +533,7 @@ enemy_gone:
 			render_mirror_fork284_retired((unsigned)i);
 			render_mirror_gray325_retired((unsigned)i);
 			render_mirror_longface573_retired((unsigned)i);
+	render_mirror_smallrocks_retired((unsigned)i);
 			/* enemy[i].egr[10] &= 0x00ff; <MXD> madness? */
 			enemyAvail[i] = 1;
 			goto draw_enemy_end;
@@ -1685,7 +1686,9 @@ level_loop:
 		tempW = levelEnemy[mt_rand() % levelEnemyMax];
 		if (tempW == 2)
 			soundQueue[3] = S_WEAPON_7;
+		const uint64_t smallrocks_call=render_mirror_smallrocks_spawn_begin(tempW,0,0);
 		b = JE_newEnemy(0, tempW, 0);
+		render_mirror_smallrocks_spawn_commit(smallrocks_call,b);
 	}
 
 	if (processorType > 1 && smoothies[3-1])
@@ -3479,6 +3482,7 @@ new_game:
 	render_mirror_fork284_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_gray325_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_longface573_level_begin(char_mapFile,char_shapeFile,eventRec);
+	render_mirror_smallrocks_level_begin(char_mapFile,char_shapeFile);
 	sprintf(tempStr, "shapes%c.dat", tolower((unsigned char)char_shapeFile));
 	FILE *shpFile = dir_fopen_die(data_dir(), tempStr, "rb");
 
@@ -4374,6 +4378,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_fork284_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_gray325_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_longface573_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
+	render_mirror_smallrocks_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_newshf_validation_allocated(enemy,eDatI,uniqueShapeTableI);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_actor_allocated(enemy,eDatI,uniqueShapeTableI);
@@ -4678,6 +4683,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_fork284_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_gray325_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_longface573_enemy_initialized(enemy,eDatI,avail);
+	render_mirror_smallrocks_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_newshf_validation_initialized(enemy,eDatI,avail);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_actor_initialized(enemy,eDatI,avail);

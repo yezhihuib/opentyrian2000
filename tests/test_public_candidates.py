@@ -14,8 +14,8 @@ class PublicCandidateTests(unittest.TestCase):
     def test_explicit_hd_default_and_private_rejection(self):
         with tempfile.TemporaryDirectory() as temp:
             for flags in ([],['--hd']):
-                args=self.setup_args(temp,flags);plan,env=launcher.build_plan(args,{'NORMAL270_ENABLE':'1','LONGFACE573_LATER230240_ENABLE':'1'})
-                self.assertFalse(plan['public_candidates_enabled']);self.assertFalse(plan['normal270_enabled']);self.assertNotIn('NORMAL270_ENABLE',env);self.assertNotIn('LONGFACE573_LATER230240_ENABLE',env);self.assertFalse(plan['later_longface_groups_enabled'])
+                args=self.setup_args(temp,flags);plan,env=launcher.build_plan(args,{'NORMAL270_ENABLE':'1','LONGFACE573_LATER230240_ENABLE':'1','SMALLROCKS_ENABLE':'1','SMALLROCKS_ASSET_DIR':'bad'})
+                self.assertFalse(plan['public_candidates_enabled']);self.assertFalse(plan['normal270_enabled']);self.assertNotIn('NORMAL270_ENABLE',env);self.assertNotIn('LONGFACE573_LATER230240_ENABLE',env);self.assertFalse(plan['later_longface_groups_enabled']);self.assertFalse(plan['smallrocks_enabled']);self.assertNotIn('SMALLROCKS_ENABLE',env);self.assertNotIn('SMALLROCKS_ASSET_DIR',env)
             for flags in (['--public-candidates'],['--hd','--public-candidates','--redvent-pair',temp]):
                 with self.assertRaises(ValueError):launcher.build_plan(self.setup_args(temp,flags),{})
     def test_combo_all_flags_idempotent_and_no_side_effects(self):
@@ -24,7 +24,7 @@ class PublicCandidateTests(unittest.TestCase):
             plan,env=launcher.build_plan(args,{'LATE_ACTORS_ASSET_DIR':'bad','GAME_PROBE_ENABLE':'1','NORMAL270_ASSET_DIR':'bad','UNRELATED':'kept'})
             self.assertEqual(vars(args),original);self.assertEqual(plan['status'],'CHECK_ONLY');self.assertFalse(plan['game_started']);self.assertFalse(plan['profile_created'])
             self.assertEqual(env['UNRELATED'],'kept');self.assertNotIn('GAME_PROBE_ENABLE',env)
-            self.assertTrue(plan['later_longface_groups_enabled']);self.assertEqual(env['LONGFACE573_LATER230240_ENABLE'],'1');self.assertEqual(plan['normal270_assets_sha256_verified'],3);self.assertEqual(len(plan['public_candidate_flags']),9)
+            self.assertTrue(plan['smallrocks_enabled']);self.assertEqual(plan['smallrocks_assets_sha256_verified'],4);self.assertEqual(env['SMALLROCKS_ENABLE'],'1');self.assertTrue(plan['later_longface_groups_enabled']);self.assertEqual(env['LONGFACE573_LATER230240_ENABLE'],'1');self.assertEqual(plan['normal270_assets_sha256_verified'],3);self.assertEqual(len(plan['public_candidate_flags']),9)
             for flag in launcher.PUBLIC_CANDIDATE_FLAGS:
                 key={'linked_props':'linked_props','later_triples':'later_triples','later_embers':'later_embers','later_lamps':'later_lamps'}.get(flag,flag)+'_enabled'
                 self.assertTrue(plan[key])
@@ -50,6 +50,16 @@ class PublicCandidateTests(unittest.TestCase):
             plan, env = launcher.build_plan(self.setup_args(temp, ['--hd', '--public-candidates']), dict.fromkeys(controls, '1'))
             for key in controls:
                 self.assertNotIn(key, env)
+
+    def test_bad_smallrocks_asset_fails_closed(self):
+        with tempfile.TemporaryDirectory() as temp:
+            args=self.setup_args(temp,['--hd','--public-candidates'])
+            real=Path.read_bytes
+            def corrupt(path):
+                raw=real(path)
+                return raw[:-1]+bytes([raw[-1]^1]) if path.name=='enemy-newshd-95-8.hda' else raw
+            with patch.object(Path,'read_bytes',corrupt),self.assertRaisesRegex(ValueError,'Changed smallrocks'):
+                launcher.build_plan(args,{})
 
     def test_bad_normal270_asset_fails_closed(self):
         with tempfile.TemporaryDirectory() as temp:

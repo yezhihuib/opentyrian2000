@@ -76,3 +76,12 @@ which reuses the same eight verified longface materials for two narrowly pinned
 later groups. `--hd` alone still admits only the first group; inherited longface
 controls are discarded. No new CLI flag or asset is added. See the
 [longface candidate and evidence limits](LONGFACE573-DAMAGED-CANDIDATE.md).
+
+## Random smallrocks
+
+The preset also requests the [smallrocks candidate](SMALLROCKS-CANDIDATE.md),
+using four separately size/SHA-256-verified existing public images for exact
+witnessed random births317–324. Plain `--hd` keeps this adapter off and inherited
+`SMALLROCKS_` variables are cleared. No new CLI option or asset was added.
+Its sparse native writes and alpha/ownership contracts have offline evidence;
+actual scenes and gameplay remain unverified.

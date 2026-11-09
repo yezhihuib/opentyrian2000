@@ -10,8 +10,8 @@ SRC=ROOT/'experimental/level2-family/src'
 def extract(file,name):
  text=(SRC/file).read_text()
  return re.search(r'static (?:bool|void) '+name+r'\([^\n]*\)\n\{.*?\n\}',text,re.S).group()
-prefixes=['f284','tp','ln','lp287','la']
-files=['fork284','turret273','linked338_normal','linked_prop287288','late_actor']
+prefixes=['sr','f284','tp','ln','lp287','la']
+files=['smallrocks','fork284','turret273','linked338_normal','linked_prop287288','late_actor']
 if (SRC/'normal270_family_mirror.inc').exists():
  prefixes.insert(4,'f270');files.insert(4,'normal270')
 c=r'''
@@ -60,7 +60,7 @@ static uint64_t {p}_blend_retirements,{p}_normal_retirements;
 #define {p}_shadow(off) (++{p}_shadows[off])
 '''
  if p in ['tp','ln','la']:c+=f'static struct {{bool contributed;}} {p}_frame={{true}};\n'
- c+=extract(f+'_family_mirror.inc',p+'_retire')+'\n'
+ c+=extract(f+'_family_mirror.inc','smallrocks_retire' if p=='sr' else p+'_retire')+'\n'
 c+=f'#define N_FAMILIES {len(prefixes)}\n'
 c+='static uint8_t *owners[]={'+','.join(p+'_owned' for p in prefixes)+'};\n'
 c+='static uint8_t *shadows[]={'+','.join(p+'_shadows' for p in prefixes)+'};\n'
@@ -79,6 +79,7 @@ static bool acquire(unsigned who,unsigned x,unsigned y,int style){
 }
 '''
 for i,p in enumerate(prefixes):c+=f'#define {p}_pixel(x,y,s) acquire({i},x,y,s)\n'
+c+='#define smallrocks_pixel(x,y,s) sr_pixel(x,y,s)\n#define smallrocks_shadow(off) sr_shadow(off)\n'
 for p in ['lamp272','triple275','private_ember269','gray325','longface573']:
  c+=f'#define {p}_pixel(x,y,s) false\n#define {p}_clear(off) ((void)0)\n#define {p}_cell(off) false\n#define {p}_blend_retired() ((void)0)\n'
 c+=extract('b313_family_canvas_mirror.inc','family_pixel')
