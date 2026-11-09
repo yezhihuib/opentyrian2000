@@ -39,3 +39,45 @@ all91 extras, ownership and captured-birth survival; source/scope/constructor
 readiness are modeled. Central dispatch tests cover121 ordered family pairs
 and extra shadow/overwrite behavior. No original RLE stream or real game was
 executed by these tests, and no final visible-image acceptance is claimed.
+
+## Native lifecycle regression
+
+`tests/test_tank_shell_lifecycle.py` now extracts the actual native shot-pool
+allocation/initialization and full shot-update blocks from the experimental
+`tyrian2.c`, together with the actual mirror lifecycle functions and native
+record declarations. It does not replace those blocks with a movement model.
+
+The finite harness checks both shells through emitter death, actor-slot reuse,
+and the real event259 cutoff handler. Existing shells keep moving after those
+changes while new births reject. It also covers all 60 shot slots, pool
+exhaustion/reset, replacement generations, same-frame and next-frame first
+motion, missed/duplicate steps, stale state and draw-lease invalidation. Native
+expiry, exact boundary limits, strict collision edges, invulnerability and
+collision-before-lethal-damage ordering are exercised. Retirement receipts must
+match the entire final native state. Ten enabled/disabled pairs compare native
+shot/availability/player state and draw, damage and RNG-call counts.
+
+Run the bounded checks without starting a game:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p test_tank_shell_lifecycle.py -v
+```
+
+Inputs remain synthetic: weapon records, tank birth receipts, players, frame
+numbers and the event-prefix state are prepared by the fixture. Source-hash,
+body-shape and outer level-admission gates are stubbed. The cutoff check does
+not traverse events1–258. Renderer completion, audio, RNG and damage effects are
+stubbed; no original-data replay, full enemy constructor, native RLE, clipping,
+HD presentation, Windows build or actual game acceptance is established.
+
+The cloud regression pass ran 48 focused family/lifecycle/package tests and
+the 121-pair central-writer check. Four temporary source mutations (parent
+coupling, cutoff coupling, missing slot-generation advance, and off-by-one
+expiry) were each rejected by the new harness. ASan/UBSan passed with leak
+checking disabled because LeakSanitizer cannot run under the executor's ptrace
+wrapper. Two pre-existing fork/turret source assertions were updated to allow
+the additional negative ownership gates before terrain retirement, preserving
+their required older gates. No runtime, artwork, launcher or gameplay code
+changed. The 339-file canonical production binding and runtime-source metadata
+checks passed. A full SDL build was not rerun in this cloud pass because its
+development dependencies were absent.
