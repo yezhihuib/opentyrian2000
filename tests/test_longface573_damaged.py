@@ -15,7 +15,7 @@ SRC = ROOT / 'experimental/level2-family/src'
 
 
 def function(source, name):
-    start = source.index('static ', source.index(name) - 40)
+    start = re.search(r'^(?:static )?(?:bool|void|uint64_t|unsigned) ' + re.escape(name), source, re.M).start()
     # Locate the definition's opening brace, then count nested bodies.
     opening = source.index('{', source.index(name, start))
     depth = 1
@@ -46,17 +46,27 @@ class LongfaceDamagedTests(unittest.TestCase):
         a = damage_source.index('enemy[temp3].enemycycle = 1;')
         b = damage_source.index('JE_integer tempX', a)
         damage = damage_source[a:b]
-        fields = set(re.findall(r'e->(\w+)', shape)) - {'sprite2s', 'enemydatofs', 'egr', 'tur', 'freq', 'edgr'}
-        declarations = 'int ' + ','.join(sorted(fields)) + '; unsigned edgr;'
+        life = source[source.index('static struct {\n uint64_t generation,witness'):source.index('static struct {bool checked,valid')]
+        origins = source[source.index('static const struct {unsigned index,time,x,link;}'):source.index('static unsigned private_longface573_origin')]
+        origin_functions = '\n'.join(function(source, name+'(') for name in (
+            'private_longface573_later_requested', 'private_longface573_origin',
+            'private_longface573_scope', 'private_longface573_event_matches',
+            'render_mirror_longface573_level_begin'))
+        attempts = '\n'.join(function(source, name+'(') for name in (
+            'render_mirror_longface573_event_begin', 'render_mirror_longface573_event_commit',
+            'private_longface573_witness'))
+        fields = set(re.findall(r'e->(\w+)', shape)) - {'sprite2s', 'enemydatofs', 'egr', 'tur', 'freq', 'edgr', 'linknum', 'enemytype'}
+        declarations = 'int ' + ','.join(sorted(fields)) + '; unsigned edgr,linknum,enemytype; int64_t ex; int ey,mapoffset;'
         harness = r'''
 #include <assert.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 typedef uint8_t Uint8; typedef uint32_t Uint32;
-typedef struct {int unused;} Sprite2_array;
+typedef struct {uint8_t *data;size_t size;} Sprite2_array;
 struct JE_SingleEnemyType {FIELDS unsigned egr[20]; int tur[3],freq[3]; Sprite2_array *sprite2s; void *enemydatofs;};
 static struct JE_SingleEnemyType enemy[100];
 static int enemyDat[600],enemyAvail[100],enemyKilled;
@@ -69,7 +79,23 @@ static bool private_longface573_source(Sprite2_array bank){(void)bank;return tru
 #define render_mirror_normal270_retired(...) assert(0)
 #define render_mirror_late_actor_retired(...) assert(0)
 static void apply_damage(unsigned temp3){ DAMAGE }
+struct JE_EventRecType {unsigned eventtime,eventtype,eventdat,eventdat2,eventdat3,eventdat4,eventdat5,eventdat6;};
+LIFE
+static const char *later_value;
+static const char *test_getenv(const char *key){assert(!strcmp(key,"LONGFACE573_LATER230240_ENABLE"));return later_value;}
+#define getenv test_getenv
+static unsigned maxEvent=731,curLoc,eventLoc;
+static int mapX=1,mapX2=1,mapX3=1;static char terrain_file='z';
+static unsigned private_longface573_mode(void){return 2;}
+static bool private_longface573_level_scope(void){return true;}
+static const char *longface573_root(void){return "test-assets";}
+static void private_longface573_fail(void){assert(0);}
+static void private_longface573_reset(void){++private_longface573_life.epoch;private_longface573_life.call.live=false;}
+#define private_longface573_log(...) ((void)0)
+ORIGINS
+ORIGIN_FUNCTIONS
 SHAPE
+ATTEMPTS
 NATIVE
 static bool longface573_native, writer_ready=true;
 static unsigned longface573_image,longface573_part,longface573_pixels;
@@ -94,6 +120,36 @@ PIXEL
 END
 int main(int argc,char **argv){
  assert(argc==9);(void)private_longface573_palette;
+ struct JE_EventRecType rows[731]={0};
+ for(unsigned k=0;k<3;k++){
+  unsigned i=private_longface573_origins[k].index;
+  rows[i]=(struct JE_EventRecType){private_longface573_origins[k].time,12,573,private_longface573_origins[k].x,0,private_longface573_origins[k].link,0,4};
+ }
+ later_value=NULL;render_mirror_longface573_level_begin('D','Z',rows);
+ assert(private_longface573_scope()&&private_longface573_origin(229)==UINT_MAX);
+ later_value="1";assert(!private_longface573_scope());
+ render_mirror_longface573_level_begin('D','Z',rows);assert(private_longface573_scope());
+ for(unsigned k=0;k<3;k++){
+  unsigned i=private_longface573_origins[k].index;rows[i].eventdat6=0;
+  eventLoc=i+1;curLoc=rows[i].eventtime;
+  assert(!render_mirror_longface573_event_begin(eventLoc,0,25,0));
+  assert(!private_longface573_life.consumed[k]);
+  for(unsigned c=0;c<4;c++){
+   uint64_t token=render_mirror_longface573_event_begin(eventLoc,c,75,0);assert(token);
+   render_mirror_longface573_event_commit(token,0); /* failed allocation consumes only this origin/component */
+   assert(!render_mirror_longface573_event_begin(eventLoc,c,75,0));
+  }
+  assert(private_longface573_life.consumed[k]==15);
+ }
+ later_value="0";assert(!private_longface573_scope());later_value="1";
+ rows[239].eventdat4=19;assert(!private_longface573_event_matches(239));rows[239].eventdat4=18;
+ assert(private_longface573_event_matches(239));
+ /* Restore initial rows for a real level-begin reset, then prepare synthetic live slots. */
+ for(unsigned k=0;k<3;k++)rows[private_longface573_origins[k].index].eventdat6=4;
+ render_mirror_longface573_level_begin('D','Z',rows);assert(private_longface573_scope());
+ for(unsigned k=0;k<3;k++)assert(!private_longface573_life.consumed[k]);
+ for(unsigned k=0;k<3;k++)rows[private_longface573_origins[k].index].eventdat6=0;
+ private_longface573_slots[75].event=105;
  static const unsigned normal[]={165,127,155,123},damaged[]={167,129,163,125};
  for(unsigned c=0;c<4;c++){
   struct JE_SingleEnemyType *e=&enemy[75];memset(e,0,sizeof *e);
@@ -107,6 +163,18 @@ int main(int argc,char **argv){
   e->egr[0]=normal[c];assert(!private_longface573_shape(75,1));e->egr[0]=damaged[c];
   e->armorleft=0;assert(!private_longface573_shape(75,1));e->armorleft=10;
   e->linknum=20;assert(!private_longface573_shape(75,1));
+  for(unsigned k=0;k<3;k++){
+   unsigned i=private_longface573_origins[k].index;private_longface573_slots[75].event=i;
+   e->linknum=private_longface573_origins[k].link;assert(private_longface573_shape(75,1));
+   e->linknum=e->linknum==19?18:19;assert(!private_longface573_shape(75,1));
+  }
+  private_longface573_slots[75].event=105;
+  private_longface573_slots[75].live=true;private_longface573_slots[75].generation=private_longface573_slots[75].witness=1;
+  private_longface573_slots[75].epoch=private_longface573_life.epoch;
+  private_longface573_slots[75].bank=e->sprite2s;private_longface573_slots[75].data=e->sprite2s->data;private_longface573_slots[75].bytes=e->sprite2s->size;
+  assert(private_longface573_witness(75));
+  private_longface573_slots[75].event=106;assert(!private_longface573_witness(75));
+  private_longface573_slots[75].event=105;
  }
  canvas->pixels=calloc(4096000,sizeof(Uint32));assert(canvas->pixels);
  unsigned total=0;const unsigned parts[]={0,1,19,20};
@@ -155,7 +223,7 @@ int main(int argc,char **argv){
 '''
         for key, value in [('FIELDS', declarations), ('DAMAGE', damage), ('SHAPE', shape),
                            ('NATIVE', (SRC / 'longface573_native.inc').read_text()),
-                           ('PIXEL', pixel), ('END', end), ('GEOMETRY', geometry), ('INITIAL', initial)]:
+                           ('PIXEL', pixel), ('END', end), ('GEOMETRY', geometry), ('INITIAL', initial), ('LIFE', life), ('ORIGINS', origins), ('ORIGIN_FUNCTIONS', origin_functions), ('ATTEMPTS', attempts)]:
             harness = re.sub(r'\b' + key + r'\b', lambda _: value, harness)
         assets = [('newshd',165),('newshd',167),('newshp',127),('newshp',129),
                   ('newshd',155),('newshd',163),('newshp',123),('newshp',125)]

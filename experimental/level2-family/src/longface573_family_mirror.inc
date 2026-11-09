@@ -1,4 +1,4 @@
-/* Private first-group long-face adapter. Default OFF. No HdRegion draw or restore.
+/* Private exact-origin long-face adapter. Default OFF. No HdRegion draw or restore.
  * Art is written only on actual native indexed writer callbacks. */
 static const char *longface573_root(void){const char *p=getenv("LONGFACE573_FAMILY_ASSET_DIR");return p?p:"";}
 static uint64_t longface573_blend_retirements;
@@ -9,9 +9,11 @@ static void longface573_clear(unsigned off){if(off<64000)longface573_owned[off]=
 static unsigned longface573_image,longface573_part,longface573_pixels;
 static int longface573_x,longface573_y;
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Private E1 physical2 first-event reuse. Never an asteroid/manual-campaign lease.
+ * Private E1 physical2 exact-event reuse. Never an asteroid/manual-campaign lease.
  * All hooks below write sidecar state only, never actor, event, palette or RNG.
  * LONGFACE573_FAMILY_CANVAS_ENABLE=1 enables only the ordered canvas adapter.
+ * LONGFACE573_LATER230240_ENABLE=1 separately adds original events230/240;
+ * it defaults OFF, requires that family flag, and latches for the level.
  * No environment flag means no new draws and no trace. Assets remain immutable
  * for a selected-root lifetime: disk hot reload is deliberately not supported.
  */
@@ -25,7 +27,7 @@ static struct {
  unsigned event;Sprite2_array *bank;const Uint8 *data;size_t bytes;
 } private_longface573_slots[100];
 static struct {
- uint64_t epoch,serial;bool exhausted,loaded;unsigned consumed,mode;char root[1024];
+ uint64_t epoch,serial;bool exhausted,loaded,later230240;unsigned consumed[3],mode;char root[1024];
  const struct JE_EventRecType *events; /* Read-only actual table supplied at load. */
  struct {bool live;uint64_t token,epoch,generation;unsigned event,component;int slot;} call;
 } private_longface573_life;
@@ -39,6 +41,21 @@ static unsigned private_longface573_mode(void)
  const char *v=getenv("LONGFACE573_FAMILY_CANVAS_ENABLE");
  const char *f=getenv("BUILDING313_FAMILY_CANVAS_ENABLE");
  return B313_FAMILY_CANVAS_DIAGNOSTIC&&f&&!strcmp(f,"1")&&v&&!strcmp(v,"1")?2:0;
+}
+static bool private_longface573_later_requested(void)
+{
+ const char *v=getenv("LONGFACE573_LATER230240_ENABLE");return v&&!strcmp(v,"1");
+}
+/* Zero-based script indices. All three native type12 rows choose pool75 with
+ * dat6=4, then clear it to0 before the existing component hooks. */
+static const struct {unsigned index,time,x,link;} private_longface573_origins[3]={
+ {105,1084,42,19},{229,1616,138,19},{239,1750,138,18}
+};
+static unsigned private_longface573_origin(unsigned index)
+{
+ for(unsigned k=0;k<(private_longface573_life.later230240?3u:1u);k++)
+  if(index==private_longface573_origins[k].index)return k;
+ return UINT_MAX;
 }
 static bool private_longface573_level_scope(void)
 {
@@ -54,6 +71,7 @@ static bool private_longface573_scope(void)
 {
  return private_longface573_life.loaded&&!private_longface573_life.exhausted&&private_longface573_level_scope()&&
   terrain_file=='z'&&private_longface573_mode()==private_longface573_life.mode&&
+  private_longface573_later_requested()==private_longface573_life.later230240&&
   longface573_root()&&
   !strcmp(private_longface573_life.root,longface573_root());
 }
@@ -97,21 +115,28 @@ static void private_longface573_reset(void)
  if(private_longface573_life.epoch==UINT64_MAX)private_longface573_life.exhausted=true;
  else ++private_longface573_life.epoch;
  /* Consumed event bits survive renderer/bank changes. Only a real level load
-  * may authorize a fresh first group; returning to an event never rearms it. */
+  * may authorize fresh origins; returning to any event never rearms it. */
 }
 static bool private_longface573_event_matches(unsigned index)
 {
- if(!private_longface573_life.events||index!=105)return false;
+ unsigned k=private_longface573_origin(index);
+ if(!private_longface573_life.events||k==UINT_MAX)return false;
  const struct JE_EventRecType *r=private_longface573_life.events+index;
- return maxEvent==731&&r->eventtime==1084&&r->eventtype==12&&r->eventdat==573&&
-  r->eventdat2==42&&!r->eventdat3&&r->eventdat4==19&&!r->eventdat5&&(r->eventdat6==4||r->eventdat6==0);
+ return maxEvent==731&&r->eventtime==private_longface573_origins[k].time&&r->eventtype==12&&r->eventdat==573&&
+  r->eventdat2==private_longface573_origins[k].x&&!r->eventdat3&&r->eventdat4==private_longface573_origins[k].link&&
+  !r->eventdat5&&(r->eventdat6==4||r->eventdat6==0);
 }
 void render_mirror_longface573_level_begin(char map,char shape,const struct JE_EventRecType *events)
 {
- private_longface573_reset();private_longface573_life.loaded=false;private_longface573_life.consumed=0;
+ private_longface573_reset();private_longface573_life.loaded=false;
+ memset(private_longface573_life.consumed,0,sizeof(private_longface573_life.consumed));
+ private_longface573_life.later230240=private_longface573_later_requested();
  private_longface573_life.mode=private_longface573_mode();private_longface573_life.events=events;
  if(!private_longface573_level_scope()||map!='D'||shape!='Z'||mapX!=1||mapX2!=1||mapX3!=1||
   !private_longface573_event_matches(105)||events[105].eventdat6!=4||
+  (private_longface573_life.later230240&&
+   (!private_longface573_event_matches(229)||events[229].eventdat6!=4||
+    !private_longface573_event_matches(239)||events[239].eventdat6!=4))||
   !longface573_root()||!longface573_root()[0]||strlen(longface573_root())>=sizeof(private_longface573_life.root)){private_longface573_life.events=NULL;return;}
  strcpy(private_longface573_life.root,longface573_root());private_longface573_life.loaded=true;
  private_longface573_log("level-load",-1,0,0,-1,1);
@@ -147,7 +172,11 @@ static bool private_longface573_shape(unsigned slot,unsigned stage)
  e->enemyground||e->explonum!=12||e->tur[0]||e->tur[1]||e->tur[2]||e->freq[0]||e->freq[1]||e->freq[2]||
  e->launchfreq||e->launchtype||e->launchspecial||e->edgr!=damaged[component]||e->edlevel!=10||e->edani)return false;
  if(stage==0&&(e->edamaged||e->linknum||e->enemydie))return false;
- if(stage!=0&&(e->linknum!=19||(e->enemydie!=0&&e->enemydie!=628)))return false;
+ if(stage!=0){
+  unsigned origin=private_longface573_origin(private_longface573_slots[slot].event);
+  if(origin==UINT_MAX||e->linknum!=private_longface573_origins[origin].link||
+     (e->enemydie!=0&&e->enemydie!=628))return false;
+ }
  if(e->egr[0]!=(e->edamaged?damaged[component]:normal[component]))return false;
  for(unsigned i=1;i<20;i++)if(e->egr[i])return false;
  return true;
@@ -158,10 +187,11 @@ uint64_t render_mirror_longface573_event_begin(unsigned eventloc,unsigned typeof
  /* Called only at the actual case12 component call sites, not inferred in make. */
  if(private_longface573_life.call.live){private_longface573_life.call.live=false;private_longface573_fail();return 0;}
  if(!private_longface573_scope()||eventloc!=eventLoc||eventloc<1||typeofs>3||pool!=75||unique||
-  curLoc!=1084||!private_longface573_event_matches(eventloc-1))return 0;
- unsigned index=eventloc-1,bit=1u<<typeofs;
- if(private_longface573_life.consumed&bit)return 0;
- private_longface573_life.consumed|=bit; /* Allocation failure also consumes origin. */
+  !private_longface573_event_matches(eventloc-1)||private_longface573_life.events[eventloc-1].eventdat6!=0||
+  curLoc!=private_longface573_life.events[eventloc-1].eventtime)return 0;
+ unsigned index=eventloc-1,origin=private_longface573_origin(index),bit=1u<<typeofs;
+ if(private_longface573_life.consumed[origin]&bit)return 0;
+ private_longface573_life.consumed[origin]|=bit; /* Allocation failure also consumes this component origin. */
  if(private_longface573_life.serial==UINT64_MAX){private_longface573_life.exhausted=true;return 0;}
  private_longface573_life.call.live=true;private_longface573_life.call.token=++private_longface573_life.serial;
  private_longface573_life.call.epoch=private_longface573_life.epoch;private_longface573_life.call.event=index;private_longface573_life.call.component=typeofs;
@@ -201,7 +231,9 @@ void render_mirror_longface573_event_commit(uint64_t token,unsigned allocated_on
  bool ok=private_longface573_life.call.live&&token==private_longface573_life.call.token&&
   private_longface573_life.call.epoch==private_longface573_life.epoch&&private_longface573_scope()&&
   slot>=75&&slot<100&&allocated_one_based==(unsigned)slot+1&&eventLoc==private_longface573_life.call.event+1&&
-  private_longface573_event_matches(private_longface573_life.call.event)&&curLoc==1084;
+  private_longface573_event_matches(private_longface573_life.call.event)&&
+  private_longface573_life.events[private_longface573_life.call.event].eventdat6==0&&
+  curLoc==private_longface573_life.events[private_longface573_life.call.event].eventtime;
  if(ok)ok=private_longface573_slots[slot].pending&&private_longface573_slots[slot].initialized&&
   private_longface573_life.call.generation==private_longface573_slots[slot].generation&&enemyAvail[slot]==0&&
   private_longface573_shape((unsigned)slot,1)&&enemy[slot].enemytype==573+private_longface573_life.call.component&&enemy[slot].ey==-28-(private_longface573_life.call.component>=2?28:0)&&
@@ -225,7 +257,8 @@ static bool private_longface573_witness(unsigned slot)
  return slot>=75&&slot<100&&private_longface573_slots[slot].live&&!private_longface573_slots[slot].exhausted&&
   private_longface573_slots[slot].epoch==private_longface573_life.epoch&&
   private_longface573_slots[slot].generation==private_longface573_slots[slot].witness&&
-  private_longface573_slots[slot].event==105&&enemyAvail[slot]==0&&
+  private_longface573_event_matches(private_longface573_slots[slot].event)&&
+  private_longface573_life.events[private_longface573_slots[slot].event].eventdat6==0&&enemyAvail[slot]==0&&
   private_longface573_slots[slot].bank==enemy[slot].sprite2s&&enemy[slot].sprite2s&&
   private_longface573_slots[slot].data==enemy[slot].sprite2s->data&&private_longface573_slots[slot].bytes==enemy[slot].sprite2s->size;
 }

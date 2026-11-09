@@ -1,8 +1,8 @@
 # Experimental level-2 family canvas
 
 This opt-in batch combines the building 313–316 canvas, 24 terrain members,
-selected 272 lamps, gray 325, first-group longface 573–576 (including a
-damaged-state candidate), triple 275, and
+selected 272 lamps, gray 325, longface 573–576 (first group by default, including a
+damaged-state candidate; two later groups in the public preset), triple 275, and
 the first 269 ember device. Unsupported identities or states retain native
 rendering. It does not replace all second-level graphics.
 
@@ -96,7 +96,7 @@ This checks package identity, not legal ownership or gameplay correctness.
 - Longface: eight HDR1 components from image-generated normal/damaged artwork,
   deterministically registered and clipped to the original silhouettes. The
   [damaged-state candidate](LONGFACE573-DAMAGED-CANDIDATE.md) reuses those four
-  damaged components only for the existing witnessed first group.
+  damaged components only for explicitly admitted witnessed origins.
 - Lamps, gray devices, triple lamps, and ember devices reuse existing HDR1 files
   in `assets/hd/packs/asteroid1-ten-v1`.
 - Terrain reuses `assets/hd/current-terrain23` and `current-terrain24`.
@@ -134,7 +134,7 @@ reproduced on the unchanged public baseline; this batch does not alter that asse
 or relax its check. Do not describe this as a fully rebuilt legacy runtime pack.
 
 A later [damaged-longface candidate](LONGFACE573-DAMAGED-CANDIDATE.md) now permits
-the four damaged components under the existing first-group guards, and bounded
+the four damaged components under exact-origin guards, and bounded
 top entry at body y-13..-1 for all eight components.
 The earlier scene evidence above covers normal states only; damaged gameplay
 appearance remains unverified. Terrain

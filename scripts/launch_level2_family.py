@@ -160,6 +160,8 @@ def build_plan(args, inherited=None, root=ROOT):
             if not args.hd:
                 raise ValueError("--" + option.replace("_", "-") + " requires explicit --hd")
             family[control] = "1"
+    if public_candidates:
+        family["LONGFACE573_LATER230240_ENABLE"] = "1"
     later_lamps = getattr(args, "later_lamps", False)
     if later_lamps:
         if not args.hd:
@@ -264,6 +266,7 @@ def build_plan(args, inherited=None, root=ROOT):
         "later_triples_enabled": bool(later_triples),
         "later_embers_enabled": bool(later_embers),
         "later_lamps_enabled": bool(later_lamps),
+        "later_longface_groups_enabled": bool(public_candidates),
         "lamp_top_clip_enabled": bool(getattr(args, "lamp_top_clip", False)),
         "lamp_bottom_clip_enabled": bool(getattr(args, "lamp_bottom_clip", False)),
         "lamp_clip_qualification": "Top: one bounded visible sample only. Bottom: offline checks only; real scene unverified.",

@@ -68,3 +68,11 @@ These flags expose existing renderer coverage, not newly qualified artwork.
 Top has one bounded final-visible sample, not full gameplay acceptance. Bottom
 has offline contract/build evidence only. No game starts without `--launch`;
 POSIX launch support and Windows limitations above remain unchanged.
+
+## Later longface groups
+
+The public preset additionally requests `LONGFACE573_LATER230240_ENABLE=1`,
+which reuses the same eight verified longface materials for two narrowly pinned
+later groups. `--hd` alone still admits only the first group; inherited longface
+controls are discarded. No new CLI flag or asset is added. See the
+[longface candidate and evidence limits](LONGFACE573-DAMAGED-CANDIDATE.md).

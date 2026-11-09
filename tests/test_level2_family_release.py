@@ -131,7 +131,7 @@ class Level2FamilyReleaseTests(unittest.TestCase):
         longface = [f for f in document["files"] if f["provenance"] == "longface"]
         self.assertEqual(len(longface), 8)
         self.assertEqual(sum(f["runtime_use"] == "normal state" for f in longface), 4)
-        self.assertEqual(sum(f["runtime_use"] == "damaged state candidate; first-group full-body/top-entry only; gameplay unverified" for f in longface), 4)
+        self.assertEqual(sum(f["runtime_use"] == "damaged state candidate; exact-group full-body/top-entry only; gameplay unverified" for f in longface), 4)
 
     def test_builder_check_only_snapshots_overlay_without_building(self):
         output = io.StringIO()
