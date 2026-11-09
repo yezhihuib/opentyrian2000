@@ -31,7 +31,7 @@ class PlayerShipTests(unittest.TestCase):
     def test_actual_normal_pose_affine_writer_and_retirement(self):
         source = (SRC / 'player_ship_family_mirror.inc').read_text()
         declarations = source[source.index('static struct {PlayerShipDraw'):source.index('static const char *ps_root')]
-        self.assertNotIn('ps_sprite2_blend_pixel(', source)
+        self.assertIn('ps_sprite2_blend_pixel(', source)
         names = ('ps_fail', 'ps_reset', 'ps_art_current', 'ps_sample', 'ps_pose',
                  'ps_current', 'ps_body', 'ps_retire', 'ps_pixel', 'ps_shadow', 'ps_end', 'ps_finish')
         functions = '\n'.join(function(source, name) for name in names)
@@ -60,6 +60,7 @@ static unsigned fc_palette[256],rgb_palette[256];
 static unsigned faults;
 static const char *ps_root(void){return "test-assets";}
 static bool ps_requested(void){return requested;}
+static bool ps_invulnerable_requested(void){return false;}
 static bool ps_scope(void){return scope_ok;}
 static bool ps_source(Sprite2_array bank){return source_ok&&bank.data==spriteSheet9.data&&bank.size==spriteSheet9.size;}
 static bool global_talon_palette_matches(void){return palette_ok;}

@@ -1,12 +1,13 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Private five-pose intact normal-only player ship family. Default OFF. Original pose -> original body call ->
+ * Five-pose intact player ship family. Invulnerability is separately opt-in.
+ * Original pose -> original body call ->
  * four original tiles -> ordered physical-store callbacks -> original end.
  * No actor admission, gameplay write, new lifetime, or native-hole ownership.
  * Unchanged HDA bytes, affine turn texture coordinates only. Neutral233 is
  * bit-identical. Every store remains inside the exact original pose callbacks.
  */
 #include "player_ship_native.inc"
-static struct {PlayerShipDraw draw;bool active;unsigned count,reason;PlayerShipWrite writes[266];} ps;
+static struct {PlayerShipDraw draw;bool active,blend_callback;Uint8 blend_after;unsigned count,reason;PlayerShipWrite writes[266];} ps;
 static struct {bool checked,valid;char root[1024];Uint8 *rgba[5];} ps_art;
 static uint8_t ps_owned[64000],ps_shadows[64000];
 static uint64_t ps_normal_retirements,ps_blend_retirements,ps_shadow_writes;
@@ -19,6 +20,13 @@ static bool ps_requested(void)
 #else
  return false;
 #endif
+}
+/* The established public preset stays normal-only. This gate never grants
+ * parent family admission or changes the original invulnerability countdown. */
+static bool ps_invulnerable_requested(void)
+{
+ const char *e=getenv("PLAYER_SHIP_FAMILY_INVULNERABLE_ENABLE");
+ return ps_requested()&&e&&!strcmp(e,"1");
 }
 static bool ps_scope(void)
 {
@@ -37,7 +45,7 @@ static bool ps_source(Sprite2_array bank)
 static void ps_fail(unsigned reason)
 {
  if(!ps.reason)ps.reason=reason;
- ps.draw.failed=true;ps.draw.accepted=false;ps.active=false;
+ ps.draw.failed=true;ps.draw.accepted=false;ps.active=false;ps.blend_callback=false;
  if(ps.draw.contributed)family_fault(FC_SOURCE);
 }
 static void ps_reset(void)
@@ -99,7 +107,7 @@ static void ps_pose(unsigned pnum,Sprite2_array bank,int base,int index,unsigned
 {
  if(!ps_requested())return;
  if(ps.draw.pose_seen||ps.draw.contributed){ps_fail(2);return;}
- if(!fc.frame_active||fc.frame_failed||!ps_scope()||pnum!=1||base!=233||invulnerable||!ps_spec((unsigned)index)||invulnerable!=player[0].invulnerable_ticks||
+ if(!fc.frame_active||fc.frame_failed||!ps_scope()||pnum!=1||base!=233||(invulnerable&&!ps_invulnerable_requested())||!ps_spec((unsigned)index)||invulnerable!=player[0].invulnerable_ticks||
  !family_geometry(false)||!ps_source(bank)||!global_talon_palette_matches())return;
  ps.draw=(PlayerShipDraw){.frame=fc_frame,.session=fc_session,.generation=fc_generation,
  .bank_data=(uintptr_t)bank.data,.bank_bytes=(unsigned)bank.size,.ship_record=1,.index=(unsigned)index,
@@ -108,7 +116,7 @@ static void ps_pose(unsigned pnum,Sprite2_array bank,int base,int index,unsigned
 }
 static bool ps_current(void)
 {
- return !ps.draw.failed&&!ps.draw.invulnerable_ticks&&ps.draw.pose_seen&&ps_spec(ps.draw.index)&&ps_scope()&&ps_source(spriteSheet9)&&global_talon_palette_matches()&&
+ return !ps.draw.failed&&(!ps.draw.invulnerable_ticks||ps_invulnerable_requested())&&ps.draw.pose_seen&&ps_spec(ps.draw.index)&&ps_scope()&&ps_source(spriteSheet9)&&global_talon_palette_matches()&&
  ps.draw.frame==fc_frame&&ps.draw.session==fc_session&&ps.draw.generation==fc_generation&&
  ps.draw.bank_data==(uintptr_t)spriteSheet9.data&&ps.draw.bank_bytes==spriteSheet9.size&&
  ps.draw.x==player[0].x-5&&ps.draw.y==player[0].y-7&&
@@ -118,7 +126,7 @@ static bool ps_current(void)
 static int ps_body(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,int style,unsigned pnum,int base)
 {
  /* Unsupported/shadow calls retain their exact existing path. */
- if(!ps_requested()||base!=233||!ps_spec(index)||style!=MIRROR_NORMAL||pnum!=1)return -1;
+ if(!ps_requested()||base!=233||!ps_spec(index)||(style!=MIRROR_NORMAL&&(style!=MIRROR_BLEND||!ps_invulnerable_requested()))||pnum!=1)return -1;
  if(!fc.frame_active||fc.frame_failed||!ps_current()||style!=ps.draw.style||index!=ps.draw.index||!ps_source(bank)||x!=ps.draw.x||y!=ps.draw.y||
  x<24||x>264||y<0||y>156||surface!=game_screen||surface!=VGAScreen||!ps_load())return 0;
  if(ps.active||ps.draw.contributed){ps_fail(3);return 0;}
@@ -142,15 +150,16 @@ static bool ps_pixel(unsigned x,unsigned y,int style)
  const PlayerShipSpec *spec=ps_spec(ps.draw.index);
  if(!spec||ps.count>=spec->count){ps_fail(6);family_fault(FC_ORDER);return true;}
  const PlayerShipWrite *w=spec->writes+ps.count;
- if(style!=MIRROR_NORMAL||style!=ps.draw.style||x!=(unsigned)ps.draw.x+w->x||y!=(unsigned)ps.draw.y+w->y||
- ((const Uint8 *)fc_source_pixels)[y*320+x]!=w->index||
- expected[y*320+x]!=w->index){
+ if(style!=ps.draw.style||(style==MIRROR_BLEND&&!ps.blend_callback)||x!=(unsigned)ps.draw.x+w->x||y!=(unsigned)ps.draw.y+w->y||
+ ((const Uint8 *)fc_source_pixels)[y*320+x]!=(style==MIRROR_BLEND?ps.blend_after:w->index)||
+ expected[y*320+x]!=(style==MIRROR_BLEND?ps.blend_after:w->index)){
  ps_fail(6);family_fault(FC_ORDER);return true;}
+ ps.blend_callback=false;
  for(unsigned sy=0;sy<8;sy++)for(unsigned sx=0;sx<8;sx++){
  size_t n=(y*8+sy)*2560+x*8+sx;Uint32 *dst=(Uint32 *)canvas->pixels+n;
  const Uint8 *art=ps_sample(spec,(unsigned)w->x*8+sx,(unsigned)w->y*8+sy);
- /* Normal-only authored coverage; invulnerable calls retain their old path. */
- *dst=blend_rgba(*dst,art,art[3]);hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;green_under_owner[n]=0;
+ /* Existing Talon HD operator: half authored coverage, no new blink. */
+ *dst=blend_rgba(*dst,art,style==MIRROR_BLEND?(art[3]+1)/2:art[3]);hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;green_under_owner[n]=0;
  OHS_SURVIVAL_WRITE(canvas,dst,PLAYER_SHIP_HD_STORE_TAG);
  }
  unsigned off=y*320+x;
@@ -160,20 +169,47 @@ static bool ps_pixel(unsigned x,unsigned y,int style)
  for(unsigned part=0;part<4;part++)if(ps.count==spec->ends[part])ps.draw.part_mask|=1u<<part;
  return true;
 }
+/* Validate the actual original blend before family_pixel updates expected.
+ * No source inference from the resulting index: check actual callback source,
+ * tile, origin, order and address; family_pixel still requires physical proof.
+ * The one-callback token cannot authorize generic blend/shadow writers. */
+static void ps_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,
+ Sprite2_array bank,unsigned index,int origin_x,int origin_y)
+{
+ if(ps.active){
+  const PlayerShipSpec *spec=ps_spec(ps.draw.index);
+  unsigned part=0;while(spec&&part<4&&ps.count>=spec->ends[part])++part;
+  static const unsigned parts[4]={0,1,19,20};
+  if(!spec||part>=4||ps.blend_callback||ps.draw.style!=MIRROR_BLEND||surface!=fc_source||
+   bank.data!=(Uint8 *)ps.draw.bank_data||bank.size!=ps.draw.bank_bytes||index!=ps.draw.index+parts[part]||
+   origin_x!=ps.draw.x+(int)(part%2)*12||origin_y!=ps.draw.y+(int)(part/2)*14){
+   ps_fail(6);family_fault(FC_ORDER);
+  }else{
+   const PlayerShipWrite *w=spec->writes+ps.count;
+   unsigned off=(ps.draw.y+w->y)*320+ps.draw.x+w->x;
+   if(address!=(Uint8 *)fc_source_pixels+off||source!=w->index||
+    *address!=(Uint8)((source&240)|(((source&15)+(expected[off]&15))/2))){
+    ps_fail(6);family_fault(FC_ORDER);
+   }else{ps.blend_after=*address;ps.blend_callback=true;}
+  }
+ }
+ family_pixel(surface,address,MIRROR_BLEND);
+ if(ps.blend_callback){ps.blend_callback=false;ps_fail(6);family_fault(FC_ORDER);}
+}
 static void ps_shadow(unsigned off)
 {if(off<64000&&ps_owned[off]){if(ps_shadows[off]<255)++ps_shadows[off];++ps_shadow_writes;}}
 static void ps_end(void)
 {
  if(!ps.active)return;
  const PlayerShipSpec *spec=ps_spec(ps.draw.index);
- if(!spec||ps.count!=spec->count||ps.draw.part_mask!=15||!b313_family_writer_draw_ready(fc_frame)||!ps_current()){
+ if(!spec||ps.blend_callback||ps.count!=spec->count||ps.draw.part_mask!=15||!b313_family_writer_draw_ready(fc_frame)||!ps_current()){
  ps_fail(7);family_fault(FC_ORDER);return;}
  ps.draw.complete=true;ps.active=false;
 }
 static bool ps_finish(void)
 {
  const PlayerShipSpec *spec=ps_spec(ps.draw.index);
- return !ps.draw.contributed||(spec&&!ps.active&&ps.draw.complete&&ps.draw.callback_count==spec->count&&ps.draw.part_mask==15&&
+ return !ps.draw.contributed||(spec&&!ps.active&&!ps.blend_callback&&ps.draw.complete&&ps.draw.callback_count==spec->count&&ps.draw.part_mask==15&&
  ps_current()&&ps_art_current());
 }
 static void ps_accept(void){ps.draw.accepted=ps.draw.contributed&&fc.ready&&!fc.frame_failed&&ps_finish();}

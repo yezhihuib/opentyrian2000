@@ -137,6 +137,9 @@ def build_plan(args, inherited=None, root=ROOT):
             raise ValueError("--public-candidates excludes private --redvent-pair")
         for flag in PUBLIC_CANDIDATE_FLAGS:
             setattr(args, flag, True)
+    player_invulnerable = bool(getattr(args, "player_invulnerable", False))
+    if player_invulnerable and not (args.hd and public_candidates):
+        raise ValueError("--player-invulnerable requires explicit --hd --public-candidates")
     root = root.resolve()
     data = Path(args.data).expanduser().resolve()
     binary = (Path(args.binary).expanduser() if args.binary else root / "opentyrian2000-family").resolve()
@@ -195,6 +198,8 @@ def build_plan(args, inherited=None, root=ROOT):
             if asset.stat().st_size != 172060 or hashlib.sha256(asset.read_bytes()).hexdigest() != digest:
                 raise ValueError("Changed player ship asset: " + asset.name)
         family.update({"PLAYER_SHIP_FAMILY_ENABLE": "1", "PLAYER_SHIP_FAMILY_ASSET_DIR": str(ship_root)})
+    if player_invulnerable:
+        family["PLAYER_SHIP_FAMILY_INVULNERABLE_ENABLE"] = "1"
     later_lamps = getattr(args, "later_lamps", False)
     if later_lamps:
         if not args.hd:
@@ -303,6 +308,7 @@ def build_plan(args, inherited=None, root=ROOT):
         "tank_shells_enabled": bool(public_candidates),
         "tank_shell_assets_sha256_verified": len(TANK_SHELL_SHA256) if public_candidates else 0,
         "player_ship_normal_enabled": bool(public_candidates),
+        "player_ship_invulnerable_enabled": player_invulnerable,
         "player_ship_assets_sha256_verified": 5 if public_candidates else 0,
         "random_props_enabled": bool(public_candidates),
         "random_props_assets_sha256_verified": 3 if public_candidates else 0,
@@ -339,6 +345,7 @@ def parser():
     result.add_argument("--linked-props", action="store_true", help="Opt in to six exact independent linked props287/288 origins; requires --hd, not scene-qualified")
     result.add_argument("--late282285", action="store_true", help="Opt in to eight original282/285 bodies; excludes283 and projectiles; requires --hd")
     result.add_argument("--public-candidates", action="store_true", help="Experimental public body preset (excludes lamp edge candidates); requires explicit --hd; excludes private redvent")
+    result.add_argument("--player-invulnerable", action="store_true", help="Opt in to five-pose HD player translucency; requires --hd --public-candidates; real scene unverified")
     mode = result.add_mutually_exclusive_group()
     mode.add_argument("--launch", action="store_true", help="Actually start the game with normal input and no timeout")
     mode.add_argument("--check-only", "--dry-run", action="store_true", help="Only check and print the plan (the default)")

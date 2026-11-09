@@ -5204,7 +5204,7 @@ static bool have_supported_talon(void)
 
 void render_mirror_sprite2_blend_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,Sprite2_array bank,unsigned int index,int origin_x,int origin_y)
 {
- if(render_mirror_family_requested()){family_pixel(surface,address,MIRROR_BLEND);return;}
+ if(render_mirror_family_requested()){ps_sprite2_blend_pixel(surface,address,source,bank,index,origin_x,origin_y);return;}
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
  if(enemy_reuse_observe_requested()) {render_mirror_pixel(surface,address,source,MIRROR_BLEND);return;}
 #endif

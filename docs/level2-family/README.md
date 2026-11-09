@@ -8,7 +8,10 @@ the first 269 ember device. The public preset additionally selects a
 and [six-record random props](RANDOM-PROPS-CANDIDATE.md) using three more, plus
 a [five-pose normal player ship](PLAYER-SHIP-NORMAL-CANDIDATE.md).
 Unsupported identities or states retain native
-rendering. It does not replace all second-level graphics.
+rendering. It does not replace all second-level graphics. An independently selected
+[player invulnerability candidate](PLAYER-SHIP-INVULNERABLE-CANDIDATE.md)
+keeps the same HD ship during its native translucent period; it is excluded
+from the ordinary public preset.
 
 For a fresh checkout or a user-local dependency build, see [Rebuilding the public baseline](REBUILD.md).
 

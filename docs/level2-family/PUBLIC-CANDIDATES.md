@@ -100,8 +100,10 @@ are not admitted. No new CLI option or material was added.
 The preset selects a [five-pose normal player-ship candidate](PLAYER-SHIP-NORMAL-CANDIDATE.md)
 using five separately size/SHA-256-verified Talon images. Plain `--hd` keeps it
 off; inherited `PLAYER_SHIP_FAMILY_` controls are cleared. Invulnerable poses
-and blend/shadow body calls are not admitted by this candidate. No new CLI
-option or material is added; actual scenes and gameplay remain unverified.
+and blend/shadow body calls are not admitted by this candidate. The separate
+[`--player-invulnerable` opt-in](PLAYER-SHIP-INVULNERABLE-CANDIDATE.md)
+adds only native invulnerability translucency; the preset alone stays unchanged.
+No new material is added; actual scenes and gameplay remain unverified.
 
 The public preset also selects the bounded [tank194 bounded encounters](TANK194-CANDIDATE.md):
 eighteen births6/25/26/36/37/76/77/78/89/90/91/177/208/209/210/211/246/247, eight existing poses, whole-body-only, and a strict stop

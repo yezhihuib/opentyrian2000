@@ -3,7 +3,10 @@
 `--hd --public-candidates` now selects normal Talon player-body materials for
 poses229/231/233/235/237. Plain `--hd` does not enable them. The launcher clears
 inherited `PLAYER_SHIP_FAMILY_` controls and supplies the existing family enable
-and asset-root controls only for the public preset. There is no new CLI option.
+and asset-root controls only for the public preset. There is no new CLI option for the normal path. A separate, explicit
+[`--player-invulnerable` candidate](PLAYER-SHIP-INVULNERABLE-CANDIDATE.md)
+can additionally keep HD art during native invulnerability translucency. The
+normal-only behavior described here remains the default public preset.
 
 The five unchanged files are `assets/hd/current-compat/talon/ship-{pose}-8.hda`.
 All are 172,060 bytes, HDR1 24x28 at density8 with anchor5,7. Their payload
