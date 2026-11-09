@@ -176,6 +176,15 @@ typedef enum {
 #define render_mirror_late_actor_level_begin(...) ((void)0)
 #define render_mirror_fork284_level_begin(...) ((void)0)
 #define render_mirror_gray325_level_begin(...) ((void)0)
+#define render_mirror_tank194_family_level_begin(...) ((void)0)
+#define render_mirror_tank194_family_event_before(...) ((void)0)
+#define render_mirror_tank194_family_event_after(...) ((void)0)
+#define render_mirror_tank194_family_event_begin(...) (UINT64_C(0))
+#define render_mirror_tank194_family_event_commit(...) ((void)0)
+#define render_mirror_tank194_family_enemy_allocated(...) ((void)0)
+#define render_mirror_tank194_family_enemy_initialized(...) ((void)0)
+#define render_mirror_tank194_family_retired(...) ((void)0)
+#define render_mirror_tank194_family_bank_changed(...) ((void)0)
 #define render_mirror_random_props_level_begin(...) ((void)0)
 #define render_mirror_random_props_spawn_begin(...) (UINT64_C(0))
 #define render_mirror_random_props_spawn_commit(...) ((void)0)
@@ -441,6 +450,16 @@ void render_mirror_linked338_normal_level_begin(char,char,const struct JE_EventR
 void render_mirror_late_actor_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_fork284_level_begin(char,char,const struct JE_EventRecType *);
 void render_mirror_gray325_level_begin(char,char,const struct JE_EventRecType *);
+struct JE_EventRecType;
+void render_mirror_tank194_family_level_begin(char,char,const struct JE_EventRecType *);
+void render_mirror_tank194_family_event_before(unsigned);
+void render_mirror_tank194_family_event_after(unsigned);
+uint64_t render_mirror_tank194_family_event_begin(unsigned,unsigned,unsigned,int);
+void render_mirror_tank194_family_event_commit(uint64_t,unsigned);
+void render_mirror_tank194_family_enemy_allocated(void *,unsigned,int);
+void render_mirror_tank194_family_enemy_initialized(void *,unsigned,unsigned);
+void render_mirror_tank194_family_retired(unsigned);
+void render_mirror_tank194_family_bank_changed(Sprite2_array *);
 void render_mirror_random_props_level_begin(char,char);
 uint64_t render_mirror_random_props_spawn_begin(unsigned,unsigned,int);
 void render_mirror_random_props_spawn_commit(uint64_t,unsigned);

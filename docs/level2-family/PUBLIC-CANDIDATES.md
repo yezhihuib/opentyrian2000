@@ -102,3 +102,8 @@ using five separately size/SHA-256-verified Talon images. Plain `--hd` keeps it
 off; inherited `PLAYER_SHIP_FAMILY_` controls are cleared. Invulnerable poses
 and blend/shadow body calls are not admitted by this candidate. No new CLI
 option or material is added; actual scenes and gameplay remain unverified.
+
+The public preset also selects the bounded [tank194 initial encounter](TANK194-CANDIDATE.md):
+three births6/25/26, eight existing poses, whole-body-only, and a strict stop
+before event76. It excludes simultaneous global asset rendering. No later tank
+births or real-scene acceptance are implied.

@@ -51,6 +51,24 @@ class PublicCandidateTests(unittest.TestCase):
             for key in controls:
                 self.assertNotIn(key, env)
 
+    def test_tank194_scope_and_assets(self):
+        with tempfile.TemporaryDirectory() as temp:
+            inherited={'TANK194_FAMILY_ENABLE':'1','TANK194_REPEAT8_ENABLE':'1','TANK194_NEXT7_ENABLE':'1','TANK194_FAMILY_ASSET_DIR':'bad'}
+            for flags in ([],['--hd']):
+                _, env=launcher.build_plan(self.setup_args(temp,flags),inherited)
+                self.assertFalse(any(k.startswith('TANK194_') for k in env))
+            args=self.setup_args(temp,['--hd','--public-candidates'])
+            _,env=launcher.build_plan(args,inherited)
+            self.assertEqual(env['TANK194_FAMILY_ENABLE'],'1')
+            self.assertNotIn('TANK194_REPEAT8_ENABLE',env)
+            self.assertNotIn('TANK194_NEXT7_ENABLE',env)
+            real=Path.read_bytes
+            def corrupt(path):
+                raw=real(path)
+                return raw[:-1]+bytes([raw[-1]^1]) if path.name=='enemy-newsh2-91-8.hda' else raw
+            with patch.object(Path,'read_bytes',corrupt),self.assertRaisesRegex(ValueError,'Changed tank194'):
+                launcher.build_plan(args,{})
+
     def test_bad_player_ship_asset_fails_closed(self):
         with tempfile.TemporaryDirectory() as temp:
             args=self.setup_args(temp,['--hd','--public-candidates'])

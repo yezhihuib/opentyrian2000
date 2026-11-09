@@ -535,6 +535,7 @@ enemy_gone:
 			render_mirror_longface573_retired((unsigned)i);
 	render_mirror_smallrocks_retired((unsigned)i);
 	render_mirror_random_props_retired((unsigned)i);
+ render_mirror_tank194_family_retired((unsigned)i);
 			/* enemy[i].egr[10] &= 0x00ff; <MXD> madness? */
 			enemyAvail[i] = 1;
 			goto draw_enemy_end;
@@ -3487,6 +3488,7 @@ new_game:
 	render_mirror_longface573_level_begin(char_mapFile,char_shapeFile,eventRec);
 	render_mirror_smallrocks_level_begin(char_mapFile,char_shapeFile);
 	render_mirror_random_props_level_begin(char_mapFile,char_shapeFile);
+ render_mirror_tank194_family_level_begin(char_mapFile,char_shapeFile,eventRec);
 	sprintf(tempStr, "shapes%c.dat", tolower((unsigned char)char_shapeFile));
 	FILE *shpFile = dir_fopen_die(data_dir(), tempStr, "rb");
 
@@ -4384,6 +4386,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_longface573_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_smallrocks_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_random_props_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
+ render_mirror_tank194_family_enemy_allocated(enemy,eDatI,uniqueShapeTableI);
 	render_mirror_newshf_validation_allocated(enemy,eDatI,uniqueShapeTableI);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_actor_allocated(enemy,eDatI,uniqueShapeTableI);
@@ -4690,6 +4693,7 @@ uint JE_makeEnemy(struct JE_SingleEnemyType *enemy, Uint16 eDatI, Sint16 uniqueS
 	render_mirror_longface573_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_smallrocks_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_random_props_enemy_initialized(enemy,eDatI,avail);
+ render_mirror_tank194_family_enemy_initialized(enemy,eDatI,avail);
 	render_mirror_newshf_validation_initialized(enemy,eDatI,avail);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 	enemy_reuse_actor_initialized(enemy,eDatI,avail);
@@ -4820,6 +4824,7 @@ void JE_eventSystem(void)
 {
  const unsigned facts_event_entry=eventLoc;
  render_mirror_linked338_normal_script_before(facts_event_entry);
+ render_mirror_tank194_family_event_before(facts_event_entry);
  render_mirror_late_actor_script_before(facts_event_entry);
  render_mirror_normal270_script_before(facts_event_entry);
  const unsigned tail_event_type=eventRec[eventLoc-1].eventtype;
@@ -4954,8 +4959,12 @@ void JE_eventSystem(void)
 		break;
 
 	case 10: /* Ground Enemy 2 */
-		JE_createNewEventEnemy(0, 75, 0);
-		break;
+ {
+ const uint64_t tank194_call=render_mirror_tank194_family_event_begin(eventLoc,0,75,0);
+ JE_createNewEventEnemy(0,75,0);
+ render_mirror_tank194_family_event_commit(tank194_call,b);
+ break;
+ }
 
 	case 11:
 		if (allPlayersGone || eventRec[eventLoc-1].eventdat == 1)
@@ -5808,6 +5817,7 @@ void JE_eventSystem(void)
 	}
 
  render_mirror_linked338_normal_script_after(facts_event_entry);
+ render_mirror_tank194_family_event_after(facts_event_entry);
  render_mirror_late_actor_script_after(facts_event_entry);
  render_mirror_normal270_script_after(facts_event_entry);
  b313_tail414_event_after(game_probe_tick,facts_event_entry,tail_event_type,tail_event_args);
