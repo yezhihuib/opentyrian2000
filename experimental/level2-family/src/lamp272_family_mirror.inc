@@ -1,4 +1,5 @@
 #include "lamp272_later16_scope.inc"
+static void lamp272_top_clip_reset(void),lamp272_top_clip_tick(void);
 /* Private exact-origin lamp adapter. Default OFF. No HdRegion draw or restore.
  * Art is written only on actual native indexed writer callbacks. */
 static const char *lamp272_root(void){const char *p=getenv("LAMP272_FAMILY_ASSET_DIR");return p?p:"";}
@@ -175,6 +176,7 @@ void render_mirror_lamp272_retired(unsigned slot)
 }
 static void private_lamp272_reset(void)
 {
+ lamp272_top_clip_reset();
  private_lamp272_frame.accepted=false;
  if(private_lamp272_frame.contributed||private_lamp272_frame.quartet)private_lamp272_fail();
  for(unsigned i=0;i<100;i++)render_mirror_lamp272_retired(i);
@@ -337,6 +339,7 @@ static void private_lamp272_lifecycle(void)
 }
 static void private_lamp272_tick(void)
 {
+ lamp272_top_clip_tick();
  lamp272_native=false;memset(lamp272_owned,0,sizeof lamp272_owned);
  /* A new tick cannot inherit cached lamp pixels across an early-return path. */
  if(private_lamp272_frame.contributed){ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;}
@@ -409,7 +412,7 @@ static bool lamp272_resources_current(void)
  }
  return true;
 }
-static bool private_lamp272_finish(void)
+static bool private_lamp272_full_finish(void)
 {
  if(!private_lamp272_frame.contributed)return true;
  if(private_lamp272_frame.fault||private_lamp272_frame.quartet||!private_lamp272_frame_scope()||
@@ -421,7 +424,7 @@ static bool private_lamp272_finish(void)
  return true;
 }
 
-static bool lamp272_tile(SDL_Surface *surface,unsigned slot,int x,int y,Sprite2_array *sheet,unsigned base,int part,int filter)
+static bool lamp272_full_tile(SDL_Surface *surface,unsigned slot,int x,int y,Sprite2_array *sheet,unsigned base,int part,int filter)
 {
  if(!private_lamp272_mode()||slot>=100||enemy[slot].enemytype!=272)return false;
  if(!fc.frame_active||fc.frame_failed||!private_lamp272_witness(slot))return false;
@@ -456,7 +459,7 @@ static bool lamp272_tile(SDL_Surface *surface,unsigned slot,int x,int y,Sprite2_
  private_lamp272_frame.used|=1u<<k;
  return true;
 }
-static bool lamp272_pixel(unsigned x,unsigned y,int style)
+static bool lamp272_full_pixel(unsigned x,unsigned y,int style)
 {
  if(!lamp272_native)return false;
  if(style!=MIRROR_NORMAL||x!=(unsigned)lamp272_x+lamp272_pixels%12||
@@ -471,7 +474,7 @@ static bool lamp272_pixel(unsigned x,unsigned y,int style)
  }
  longface573_clear(y*320+x);gray325_clear(y*320+x);lamp272_owned[y*320+x]=1;triple275_clear(y*320+x);private_ember269_clear(y*320+x);selected[y*320+x]=1;++lamp272_pixels;return true;
 }
-static void lamp272_end(void)
+static void lamp272_full_end(void)
 {
  if(!lamp272_native)return;
  if(lamp272_pixels!=168||!b313_family_writer_draw_ready(fc_frame)){family_fault(FC_ORDER);lamp272_native=false;return;}
@@ -480,6 +483,8 @@ static void lamp272_end(void)
  if(++private_lamp272_frame.next==4)private_lamp272_frame.quartet=false;
  lamp272_native=false;
 }
+
+#include "lamp272_top_clip_mirror.inc"
 
 Lamp272FamilyStatus render_mirror_lamp272_family_status(void)
 {
