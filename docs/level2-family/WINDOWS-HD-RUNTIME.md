@@ -7,8 +7,10 @@ are required. No game executable or original game data is included in the art pa
 The package must contain `tools/windows_hd_runtime.py`, `windows_classic_runtime.py`,
 `launch_level2_family.py`, `HD-ASSET-PINS.json`, and the original relative `assets/`
 layout. Keep package provenance/license notices. Art is not collectively claimed GPL.
-The fixed set is 81 public art files plus baseline MANIFEST metadata. Private redvent
-and unsupported/damaged candidates are not enabled.
+The fixed set is 101 public art files (18,410,168 bytes) plus baseline MANIFEST metadata. Private redvent
+and unsupported candidates are not enabled. This includes the current bounded
+longface normal/damaged, five normal player poses, smallrocks, random props,
+and tank194 candidates when the public preset is explicitly selected.
 
 Use `python tools/windows_hd_runtime.py prepare` with the same required binary,
 DLL, build/STAGE receipt paths and independently verified SHA256 values as the classic
@@ -37,3 +39,20 @@ prevent accidental repeated launch under the first-launch policy. Do not delete 
 files to bypass that protection. Existing classic roots and their original scripts
 remain untouched. Normal270 still has its bounded events244/245 pre1960 candidate
 window; the public preset is not a promise of full-scene replacement or game validation.
+
+
+## Resource closure repair
+
+The older 81-file delivery list omitted 20 files required by the newer public
+preset: eight tank images, five player poses, three random props and four
+smallrocks. Its baseline MANIFEST checksum was also stale. These caused verified
+preparation/checks to fail; they do not establish what a previous Windows run
+actually displayed. The fixed list retains all original81 byte pins, adds only
+those20 existing public assets, and pins the current baseline metadata.
+
+An offline regression prepares from a package containing only these declared
+resources, removes that source package, and runs the copied check-only CLI with
+all public controls. It also rejects deletion of a newly required image. This
+uses synthetic PE fixtures on the cloud host: no Windows executable or game is
+run and no screenshot/scene acceptance is claimed. Build staging remains source
+only; it is not a substitute for this verified resource preparation.

@@ -7,8 +7,8 @@ sys.dont_write_bytecode=True
 import windows_classic_runtime as core
 import launch_level2_family as family
 HERE=Path(__file__).absolute().parent
-PINS_SHA='e3d7f645b19f23fac79fa007a85fb1e4c124bb7f5676af97e38ca131a2a2a92a'
-FAMILY_SHA='62afbe480f354c42c6531a5763b2cdcc5cfcedefc44ecbd1deea9ac508b0cfe0'
+PINS_SHA='2bee49fd8337909796b401426ba88e04de19c6e6a3f3995c9dd40264cd2872cb'
+FAMILY_SHA='63f27ca5e875d1fd2847c9305db9e66afe2591cacbcd310c4161874abaf14aa9'
 TOOLS=('windows_hd_runtime.py','windows_classic_runtime.py','launch_level2_family.py','HD-ASSET-PINS.json')
 FAMILY_MANIFEST='assets/hd/level2-family-v1/MANIFEST.json'
 
@@ -20,7 +20,7 @@ def pins():
   name=item['path'];p=core.PurePosixPath(name)
   if not name.startswith('assets/hd/') or p.is_absolute() or '..' in p.parts or '\\' in name or ':' in name or name.casefold() in {x.casefold() for x in result}:raise ValueError('Unsafe/duplicate pinned asset')
   result[name]={'sha256':core.valid_digest(item['sha256']),'bytes':item['bytes']}
- if len(result)!=81 or sum(x['bytes'] for x in result.values())!=15485064:raise ValueError('Wrong public resource set')
+ if len(result)!=101 or sum(x['bytes'] for x in result.values())!=18410168:raise ValueError('Wrong public resource set')
  return result
 
 def exact_files():return core.ALLOWED_FILES|{'tools/'+x for x in TOOLS}|set(pins())|{FAMILY_MANIFEST}
@@ -55,7 +55,7 @@ def prepare(args):
   path=core.safe_path(HERE/name);relative='tools/'+name
   inputs[relative]=path.read_bytes();sources[relative]=path
  receipt.update(mode='hd',public_candidates=bool(args.public_candidates),observer_required=True,
-  environment=controls(plan,assets,output),menu_assets='Native UI fallback; 81 pinned public world assets',
+  environment=controls(plan,assets,output),menu_assets='Native UI fallback; 101 pinned public world/player assets',
   files={name:{'bytes':len(raw),'sha256':core.sha(raw)} for name,raw in sorted(inputs.items())},
   launcher_sha256=core.sha(inputs[core.SCRIPT]))
  if set(inputs)!=exact_files():raise ValueError('Internal exact manifest mismatch')
