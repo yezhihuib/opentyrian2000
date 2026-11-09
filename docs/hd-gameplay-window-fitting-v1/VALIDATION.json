@@ -1,0 +1,59 @@
+{
+  "schema": "opentyrian-hd-gameplay-fitting-validation-v1",
+  "base_commit": "00c54fdf2698b327f4172dcc1ad7ed3e49a8da2e",
+  "scope": "Development overlay final HD gameplay and paused-snapshot fitting only",
+  "source_sha256": {
+    "experimental/level2-family/src/hd_gameplay_scaling.h": "133f088dd4fc58870e1f3ad5bb1d40ea63031e482440c516a831809cbfda964d",
+    "experimental/level2-family/src/render_mirror.c": "d954d8c848a1675df1fc1c8d143708a4df2710d5aea71cc570ff042c1a7570d7",
+    "experimental/level2-family/src/common_pause.c": "05a507c23fb23ff4f42f155fc104f58cc1f07c5e2cbbdeb60de4c13414657b73",
+    "tests/hd_gameplay_scaling_test.c": "04c6710e958509d88b095daa7ea6e6c673337ec83db8ee2444b18ec960cf8b4a",
+    "tests/run_hd_gameplay_scaling_tests.sh": "d9b666c02dcf1c34b7fea3432b2e11c58bd21a71ad5ddc8888c7db81515b75aa",
+    "tests/test_hd_gameplay_scaling.py": "e863df0d4095d437954861bd5522e6ccda288e4912831925a42a70959e6e237f"
+  },
+  "build": {
+    "status": "PASS",
+    "translation_units": 112,
+    "binary_sha256": "232707713ccc28fcf3618ce793dd6059518aae2aa57ec74a38a3f43ec3c1b38a",
+    "game_started": false
+  },
+  "tests": {
+    "sdl_software": {
+      "status": "PASS",
+      "source_densities": [
+        4,
+        8
+      ],
+      "output_cases": 26,
+      "integer_unchanged_cases": 12,
+      "fractional_cases": 14,
+      "plain_checks": 2860817,
+      "ubsan_checks": 2860817,
+      "image_input": "synthetic opaque HD pattern; no original game data"
+    },
+    "counted_integration_tests": 4,
+    "development_package_tests": 8,
+    "runtime_metadata_tests": 20,
+    "strict_helper_compile": "C99, -pedantic, -Wall, -Wextra, -Werror"
+  },
+  "independent_review": {
+    "status": "NO_BLOCKING_FINDINGS",
+    "regressions_fixed": [
+      "Float-product rounding at scale 2/3",
+      "SDL software extent truncation at scale 1.001"
+    ],
+    "focused_tests_independently_repeated": 4
+  },
+  "preserved": {
+    "canonical_source_files": 339,
+    "canonical_binding_sha256": "5f9925c665d37a7b6c185c3737190d953bb11099378316bd92e5966d2f8cf457",
+    "canonical_source_diff": false,
+    "runtime_assets_changed": false,
+    "windows_scripts_changed": false
+  },
+  "limits": [
+    "No actual game run or game screenshot.",
+    "No motion-quality, accelerated GPU or Windows runtime acceptance.",
+    "Linear filtering is bilinear, not area-filtered downsampling.",
+    "Frozen Windows build and canonical 86-unit source remain unchanged."
+  ]
+}

@@ -13,6 +13,7 @@
 #include "palette.h"
 #include "sprite.h"
 #include "video.h"
+#include "hd_gameplay_scaling.h"
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
@@ -386,7 +387,7 @@ bool common_pause_present(SDL_Renderer *renderer,SDL_Texture *reference,SDL_Surf
   (cp.kind==COMMON_PAUSE_ESC&&(!provider.validate(provider.context)||memcmp(cp.backup->pixels,cp.saved,N)))){reject();return false;}
  if(cp.renderer!=renderer)common_pause_release_texture();
  if(!cp.texture){cp.texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,cp.width,cp.height);cp.renderer=renderer;}
- if(!cp.texture||SDL_SetTextureBlendMode(cp.texture,SDL_BLENDMODE_NONE)||SDL_SetTextureScaleMode(cp.texture,SDL_ScaleModeNearest)||SDL_UpdateTexture(cp.texture,NULL,cp.work,cp.width*4)||
+ if(!cp.texture||SDL_SetTextureBlendMode(cp.texture,SDL_BLENDMODE_NONE)||video_hd_set_texture_scale(cp.texture,renderer,dst)||SDL_UpdateTexture(cp.texture,NULL,cp.work,cp.width*4)||
   SDL_SetRenderDrawColor(renderer,0,0,0,255)||SDL_RenderClear(renderer)||SDL_RenderCopy(renderer,cp.texture,NULL,dst)){reject();return false;}
  SDL_Rect support={0,0,CW,CH};if(!selector_font_output_overlay(renderer,dst,cp.layer,&support)){reject();return false;}
  SDL_RenderPresent(renderer);if(cp.stage==CURSOR_DONE)cp.cursor_presented=true;return true;

@@ -60,6 +60,7 @@ static void la_shutdown(void);
 #include "data_frame.h"
 #include "data_portrait.h"
 #include "render_mirror.h"
+#include "hd_gameplay_scaling.h"
 #include "b313_family_canvas.h"
 #include "b313_family_ground.h"
 #include "b313_family_cliff.h"
@@ -5706,7 +5707,7 @@ bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
  if(game_probe_skip) { uint64_t rng=mt_state_fingerprint();game_probe_present(0,rng,rng);ohs_revoke(OHS_REASON_PRESENT);return true; }
  if(!texture) texture=SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,SDL_TEXTUREACCESS_STREAMING,output->w,output->h);
  if(!texture)return ohs_present_fail();
- if(SDL_SetTextureScaleMode(texture,SDL_ScaleModeNearest)!=0||SDL_SetTextureBlendMode(texture,SDL_BLENDMODE_NONE)!=0)return ohs_present_fail();
+ if(video_hd_set_texture_scale(texture,renderer,dst)!=0||SDL_SetTextureBlendMode(texture,SDL_BLENDMODE_NONE)!=0)return ohs_present_fail();
  void *pixels=NULL;int pitch=0;
  if(SDL_LockTexture(texture,NULL,&pixels,&pitch)!=0)return ohs_present_fail();
  const uint64_t v6_lock=b313_v6_lock_open(game_probe_tick,renderer,texture,pixels,pitch,output->w,output->h,(unsigned)game_probe_density,game_probe_repeat);
