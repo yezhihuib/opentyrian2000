@@ -153,6 +153,13 @@ def build_plan(args, inherited=None, root=ROOT):
         "XDG_STATE_HOME": str(profile / "state"),
     }
     family = hd_environment(root) if args.hd else {}
+    # Boundary candidates are deliberately excluded from the public preset.
+    for option, control in (("lamp_top_clip", "LAMP272_TOP_CLIP_ENABLE"),
+                            ("lamp_bottom_clip", "LAMP272_BOTTOM_CLIP_ENABLE")):
+        if getattr(args, option, False):
+            if not args.hd:
+                raise ValueError("--" + option.replace("_", "-") + " requires explicit --hd")
+            family[control] = "1"
     later_lamps = getattr(args, "later_lamps", False)
     if later_lamps:
         if not args.hd:
@@ -257,6 +264,9 @@ def build_plan(args, inherited=None, root=ROOT):
         "later_triples_enabled": bool(later_triples),
         "later_embers_enabled": bool(later_embers),
         "later_lamps_enabled": bool(later_lamps),
+        "lamp_top_clip_enabled": bool(getattr(args, "lamp_top_clip", False)),
+        "lamp_bottom_clip_enabled": bool(getattr(args, "lamp_bottom_clip", False)),
+        "lamp_clip_qualification": "Top: one bounded visible sample only. Bottom: offline checks only; real scene unverified.",
         "redvent_pair_enabled": bool(redvent), "redvent_assets_sha256_verified": 2 if redvent else 0,
         "game_data_check": "Directory exists; original game-file validity is not verified.",
         "binary_check": "Executable file exists; build options and gameplay are not verified.",
@@ -274,6 +284,8 @@ def parser():
     result.add_argument("--profile", help="Separate profile directory (default: repository/.level2-family-profile)")
     result.add_argument("--hd", action="store_true", help="Enable the 23 fixed family environment settings")
     result.add_argument("--redvent-pair", help="Opt-in private 339/348 candidate directory; requires --hd and matching assets; not gameplay-validated")
+    result.add_argument("--lamp-top-clip", action="store_true", help="Opt in to bounded lamp top-edge writes; requires --hd; only one visible sample qualified")
+    result.add_argument("--lamp-bottom-clip", action="store_true", help="Opt in to bounded lamp bottom-edge writes; requires --hd; real scene unverified")
     result.add_argument("--later-lamps", action="store_true", help="Opt in to 16 exact later lamp origins using existing public art; requires --hd, not scene-qualified")
     result.add_argument("--later-embers", action="store_true", help="Opt in to 5 exact later ember origins using existing public art; requires --hd, not scene-qualified")
     result.add_argument("--later-triples", action="store_true", help="Opt in to 132 exact later triple origins using existing public art; requires --hd, not scene-qualified")
@@ -282,7 +294,7 @@ def parser():
     result.add_argument("--linked338", action="store_true", help="Opt in to normal linked338-342 group; seven public images, four exact events; requires --hd, not scene-qualified")
     result.add_argument("--linked-props", action="store_true", help="Opt in to six exact independent linked props287/288 origins; requires --hd, not scene-qualified")
     result.add_argument("--late282285", action="store_true", help="Opt in to eight original282/285 bodies; excludes283 and projectiles; requires --hd")
-    result.add_argument("--public-candidates", action="store_true", help="Experimental combination of all supported public extensions; requires explicit --hd; excludes private redvent")
+    result.add_argument("--public-candidates", action="store_true", help="Experimental public body preset (excludes lamp edge candidates); requires explicit --hd; excludes private redvent")
     mode = result.add_mutually_exclusive_group()
     mode.add_argument("--launch", action="store_true", help="Actually start the game with normal input and no timeout")
     mode.add_argument("--check-only", "--dry-run", action="store_true", help="Only check and print the plan (the default)")

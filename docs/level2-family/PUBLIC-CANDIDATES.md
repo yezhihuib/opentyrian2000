@@ -46,3 +46,25 @@ the real central writer dispatch and real sparse-retirement functions. It tests
 ordered family interleaving and generic normal/blend/shadow handling. Ownership
 acquisition is modeled by narrow test adapters, not real enemy gameplay; each
 family's native-pixel/alpha routines have separate tests.
+
+## Explicit lamp boundary candidates
+
+The standard launcher can now select the existing boundary adapters independently:
+
+```sh
+python scripts/launch_level2_family.py --data /path/to/game-data \
+  --binary /path/to/opentyrian2000-family --hd --lamp-top-clip --check-only
+```
+
+Add `--lamp-bottom-clip` only when intentionally testing the unqualified bottom
+candidate. Both flags may be combined; neither enables the parent HD family or
+additional later origins. They reuse the manifest-verified lamp materials.
+`--public-candidates` alone does not enable either boundary flag. Inherited
+boundary variables are discarded, so a prior shell session cannot enable them.
+The printed plan records each selection separately. Use a binary built from
+`c8622ce` or later; the planner cannot certify executable provenance.
+
+These flags expose existing renderer coverage, not newly qualified artwork.
+Top has one bounded final-visible sample, not full gameplay acceptance. Bottom
+has offline contract/build evidence only. No game starts without `--launch`;
+POSIX launch support and Windows limitations above remain unchanged.

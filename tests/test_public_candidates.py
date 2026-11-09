@@ -32,6 +32,25 @@ class PublicCandidateTests(unittest.TestCase):
             flags=['--hd','--public-candidates']+['--'+x.replace('_','-') for x in launcher.PUBLIC_CANDIDATE_FLAGS if x!='normal270']
             plan2,env2=launcher.build_plan(self.setup_args(temp,flags),{})
             self.assertEqual(plan2['environment_overrides'],plan['environment_overrides'])
+    def test_lamp_edges_explicit_independent_and_not_in_preset(self):
+        controls = ('LAMP272_TOP_CLIP_ENABLE', 'LAMP272_BOTTOM_CLIP_ENABLE')
+        with tempfile.TemporaryDirectory() as temp:
+            for top, bottom in ((False, False), (True, False), (False, True), (True, True)):
+                flags = ['--hd'] + (['--lamp-top-clip'] if top else []) + (['--lamp-bottom-clip'] if bottom else [])
+                args = self.setup_args(temp, flags)
+                plan, env = launcher.build_plan(args, dict.fromkeys(controls, '1'))
+                for key, enabled in zip(controls, (top, bottom)):
+                    self.assertEqual(env.get(key), '1' if enabled else None)
+                self.assertEqual(plan['lamp_top_clip_enabled'], top)
+                self.assertEqual(plan['lamp_bottom_clip_enabled'], bottom)
+                self.assertFalse(plan['game_started'])
+            for option in ('--lamp-top-clip', '--lamp-bottom-clip'):
+                with self.assertRaisesRegex(ValueError, 'requires explicit --hd'):
+                    launcher.build_plan(self.setup_args(temp, [option]), {})
+            plan, env = launcher.build_plan(self.setup_args(temp, ['--hd', '--public-candidates']), dict.fromkeys(controls, '1'))
+            for key in controls:
+                self.assertNotIn(key, env)
+
     def test_bad_normal270_asset_fails_closed(self):
         with tempfile.TemporaryDirectory() as temp:
             args=self.setup_args(temp,['--hd','--public-candidates'])

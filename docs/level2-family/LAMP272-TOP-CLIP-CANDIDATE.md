@@ -17,11 +17,13 @@ ownership retirement rules. No simulation or shared admission rule is changed.
 the existing base 23 family values and manifest-verified 52 assets. It is sampled
 at tick begin and checked again while writing and at finish. No control enables
 the parent family. The existing launcher clears inherited `LAMP272_` controls;
-this change adds no launcher preset. Use a separately reviewed, isolated bounded
-test entry, with the actual Windows child CWD as its new native profile root.
+the standard launcher now offers explicit `--hd --lamp-top-clip` selection,
+excluded from the public preset. See [launcher scope](PUBLIC-CANDIDATES.md).
+Windows test entries still require a separately reviewed isolated profile.
 
 The saved 600-tick audit contained 564 complete-body calls and 106 clipped-body
-calls: **52 top calls and 54 bottom calls**. Bottom calls remain unsupported.
+calls: **52 top calls and 54 bottom calls**. Bottom calls were unsupported in that audit; a later independent
+[bottom candidate](LAMP272-BOTTOM-CLIP-CANDIDATE.md) now exists but is not scene-qualified.
 Offline checks replayed all 52 top samples / 208 quadrant calls through the
 original native blit body: 26,208 visible stores and 1,677,312 independently
 decoded HD sample positions matched. All four existing art states were checked

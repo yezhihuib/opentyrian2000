@@ -33,4 +33,6 @@ Cloud contract checks and an integrated build are recorded separately from
 runtime qualification. Synthetic contracts and compilation do not prove native
 RLE replay, runtime admission, final displayed pixels, performance, or gameplay.
 No game or laptop was run. The parent family and this adapter both remain
-opt-in; no launcher preset enables the bottom flag.
+opt-in; the public preset does not enable the bottom flag. Explicit
+`--hd --lamp-bottom-clip` selection is now available in the standard launcher;
+see [launcher scope](PUBLIC-CANDIDATES.md).
