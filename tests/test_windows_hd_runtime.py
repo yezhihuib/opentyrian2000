@@ -114,6 +114,17 @@ class WindowsHDRuntimeTests(unittest.TestCase):
    failed=subprocess.run(command,cwd=tmp,env=env,text=True,capture_output=True)
    self.assertNotEqual(failed.returncode,0)
 
+ def test_declared_inventory_totals_match_actual_entries(self):
+  raw=(ROOT/'scripts/HD-ASSET-PINS.json').read_bytes();document=json.loads(raw)
+  self.assertEqual(document['total_files'],len(document['files']))
+  self.assertEqual(document['total_bytes'],sum(x['bytes'] for x in document['files']))
+  for key,bad in [('total_files',81),('total_bytes',15485064),('total_files','101'),('total_bytes',None)]:
+   with self.subTest(key=key,bad=bad):
+    changed=dict(document);changed[key]=bad
+    # Bypass only the outer file hash to exercise the semantic inventory gate.
+    with patch.object(hd.core,'read_trusted',return_value=(ROOT,json.dumps(changed).encode())):
+     with self.assertRaisesRegex(ValueError,'inventory totals mismatch'):hd.pins()
+
  def test_public_pins_and_metadata_are_independently_fixed(self):
   self.assertEqual(len(hd.pins()),101);self.assertEqual(sum(x['bytes'] for x in hd.pins().values()),18410168)
   self.assertEqual(hd.core.sha((ROOT/hd.FAMILY_MANIFEST).read_bytes()),hd.FAMILY_SHA)

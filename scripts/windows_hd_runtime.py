@@ -7,19 +7,21 @@ sys.dont_write_bytecode=True
 import windows_classic_runtime as core
 import launch_level2_family as family
 HERE=Path(__file__).absolute().parent
-PINS_SHA='2bee49fd8337909796b401426ba88e04de19c6e6a3f3995c9dd40264cd2872cb'
+PINS_SHA='341aa0d68dcfa5b1aa66defa0ab52517099f54976b6c3825d505d0f49af23dbe'
 FAMILY_SHA='63f27ca5e875d1fd2847c9305db9e66afe2591cacbcd310c4161874abaf14aa9'
 TOOLS=('windows_hd_runtime.py','windows_classic_runtime.py','launch_level2_family.py','HD-ASSET-PINS.json')
 FAMILY_MANIFEST='assets/hd/level2-family-v1/MANIFEST.json'
 
 def pins():
  _,raw=core.read_trusted(HERE/'HD-ASSET-PINS.json',PINS_SHA)
- entries=core.json_bytes(raw)['files']
+ document=core.json_bytes(raw)
+ entries=document['files']
  result={}
  for item in entries:
   name=item['path'];p=core.PurePosixPath(name)
   if not name.startswith('assets/hd/') or p.is_absolute() or '..' in p.parts or '\\' in name or ':' in name or name.casefold() in {x.casefold() for x in result}:raise ValueError('Unsafe/duplicate pinned asset')
   result[name]={'sha256':core.valid_digest(item['sha256']),'bytes':item['bytes']}
+ if type(document.get('total_files')) is not int or type(document.get('total_bytes')) is not int or document['total_files']!=len(result) or document['total_bytes']!=sum(x['bytes'] for x in result.values()):raise ValueError('Resource inventory totals mismatch')
  if len(result)!=101 or sum(x['bytes'] for x in result.values())!=18410168:raise ValueError('Wrong public resource set')
  return result
 
