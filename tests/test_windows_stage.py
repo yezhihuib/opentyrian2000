@@ -19,6 +19,10 @@ class WindowsStageTests(unittest.TestCase):
             for forbidden in ('CopyPropsTemplates','user.props','sdl_paths.props','opentyrian.sln','libcrypto','OpenSSL'):
                 self.assertNotIn(forbidden,text)
             self.assertIn('ImportDirectoryBuildProps',text);self.assertIn('ImportDirectoryBuildTargets',text)
+            options=xml.findall('.//m:ItemDefinitionGroup/m:ClCompile/m:AdditionalOptions',ns)
+            self.assertEqual([x.text for x in options],['/source-charset:utf-8 %(AdditionalOptions)'])
+            self.assertNotIn('/execution-charset',text);self.assertNotIn('/utf-8',text)
+            self.assertEqual(xml.find('.//m:CharacterSet',ns).text,'MultiByte')
             rc=xml.find('.//m:ResourceCompile/m:AdditionalIncludeDirectories',ns)
             self.assertEqual(rc.text,'$(MSBuildProjectDirectory)\\visualc')
             self.assertIn('bcrypt.lib',text);self.assertIn('TARGET_WIN32',text);self.assertNotIn('TARGET_UNIX',text)

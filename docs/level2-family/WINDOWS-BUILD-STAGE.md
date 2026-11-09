@@ -65,3 +65,21 @@ while family terrain paths are relative, so simply removing the launcher guard
 or changing the working directory is unsafe. Runtime art, original game data,
 menu/input/audio, combined scenes, performance and save/reload must be checked
 separately before claiming a playable release.
+
+## Source encoding across Windows entry points
+
+The generated 112-unit family project now uses `/source-charset:utf-8`, matching the ordinary 86-unit generator. The shared
+font table contains UTF-8 comments: decoding as CP936 previously changed the
+compiled table and correctly caused authenticated HD font admission to fail.
+`CharacterSet` alone does not select source decoding. Execution-string encoding,
+font data, renderer guards and source pins are not changed.
+
+Generated-project XML checks cover the option and unchanged
+source copies. They are not a new native compilation or window acceptance result.
+Existing EXEs, prepared directories and build receipts remain untouched; rebuild
+in a fresh stage to use the option.
+
+The historical checked-in Visual Studio project is bound by the existing
+production-validation receipt and is not modified by this patch. Use one of the
+explicitly source-encoded isolated generators for new Windows builds; updating
+that historical project requires a separately revalidated production binding.
