@@ -70,10 +70,14 @@ and runtime source-binding checks pass, and the full 112-unit Linux development
 build succeeds. An independent source review found no introduced actionable
 defects in the implementation, but does not certify visible game output.
 
-Original game data was not available in this cloud workspace. Actual gameplay,
-ship motion, scene admission, fades/pause/return-to-title, accelerated GPU output
-and Windows runtime remain unverified. Any supplied material preview is an
-offline rendering on a synthetic background, not a screenshot or scene pass.
+The initial checkpoint above had no original game data. A later
+[original-input scene check](PLAYER-SHIP-ORIGINAL-SCENE.md) now verifies actual
+ASTEROID2 admission, native movement/firing and software-rendered output at
+2×/4×, including all five translucent poses and the final 1-to-0 tick.
+It uses a diagnostic scene bootstrap and sampled keyboard input, not ordinary
+menu navigation or physical input. Pause/return-to-title, accelerated GPU output,
+Windows and a complete level remain unverified. Earlier material previews remain
+offline renderings, not game screenshots.
 
 ```sh
 python3 -m unittest discover -s tests -p 'test_player_ship*.py' -v

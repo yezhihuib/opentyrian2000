@@ -11,7 +11,8 @@ Unsupported identities or states retain native
 rendering. It does not replace all second-level graphics. An independently selected
 [player invulnerability candidate](PLAYER-SHIP-INVULNERABLE-CANDIDATE.md)
 keeps the same HD ship during its native translucent period; it is excluded
-from the ordinary public preset.
+from the ordinary public preset. A [bounded original-input 2×/4× scene check](PLAYER-SHIP-ORIGINAL-SCENE.md)
+now covers that candidate, without qualifying the full level or Windows.
 
 For a fresh checkout or a user-local dependency build, see [Rebuilding the public baseline](REBUILD.md).
 
