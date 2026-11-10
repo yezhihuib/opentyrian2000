@@ -1,0 +1,600 @@
+{
+  "schema": "level2-terrain-completion-v1",
+  "scale": 8,
+  "source_shapes_sha256": "3ecc9b59c82e8e7d9c91889aac7d337ca28a59519c4970e256250e4603a9b248",
+  "generated_master_pins": {
+    "broken-pit": "2594c03e2ea494ddefeedfbbe047d49c8678f36c23b21aa4863820dcccb0f8cc",
+    "fixtures": "ba3d0e601324639be2642f3d03d94156ecf6b09941a26e3eeb8ec8b06341fd3f",
+    "architecture": "3b2d844f7b72649bf29381387fa43ad83070d791baf6241dbe9e6cf569d86bda",
+    "cross-pit": "69736da9eec094d3ae08514adf8ee273268ec49200fe33c6e84051fce742eae0",
+    "bronze-pit": "602b601956c9868cdeda4bf497de8d8dd16b390db094bf31b2f8df98a68c4fb3",
+    "bronze-column": "f6027c511bb6b090b0160d18ac1492084860de7733f9406e99a11e6dade4e368",
+    "twin-shafts": "aebe232b6b0eeded3f226f40bf524c95686e49d7c5a5413764c5cacd6de6d5ee"
+  },
+  "generated_master_sizes": {
+    "bronze-pit": [
+      1161,
+      1355
+    ],
+    "broken-pit": [
+      1161,
+      1355
+    ],
+    "cross-pit": [
+      1161,
+      1355
+    ],
+    "bronze-column": [
+      821,
+      1915
+    ],
+    "twin-shafts": [
+      1642,
+      958
+    ],
+    "fixtures": [
+      1642,
+      958
+    ],
+    "architecture": [
+      1642,
+      958
+    ]
+  },
+  "build_versions": {
+    "Pillow": "13.0.0",
+    "numpy": "2.3.5"
+  },
+  "group_layouts": {
+    "bronze-pit": [
+      [
+        299,
+        300
+      ],
+      [
+        309,
+        310
+      ]
+    ],
+    "broken-pit": [
+      [
+        306,
+        307
+      ],
+      [
+        316,
+        317
+      ]
+    ],
+    "cross-pit": [
+      [
+        319,
+        320
+      ],
+      [
+        329,
+        330
+      ]
+    ],
+    "bronze-column": [
+      [
+        318
+      ],
+      [
+        328
+      ]
+    ],
+    "twin-shafts": [
+      [
+        423,
+        424,
+        421,
+        422
+      ],
+      [
+        433,
+        434,
+        431,
+        432
+      ]
+    ],
+    "fixtures": [
+      [
+        339,
+        347,
+        348,
+        357
+      ],
+      [
+        358,
+        359,
+        385,
+        389
+      ]
+    ],
+    "architecture": [
+      [
+        410,
+        400,
+        384,
+        419
+      ],
+      [
+        416,
+        417,
+        418,
+        420
+      ]
+    ]
+  },
+  "ids": [
+    299,
+    300,
+    306,
+    307,
+    309,
+    310,
+    316,
+    317,
+    318,
+    319,
+    320,
+    328,
+    329,
+    330,
+    339,
+    347,
+    348,
+    357,
+    358,
+    359,
+    384,
+    385,
+    389,
+    400,
+    410,
+    416,
+    417,
+    418,
+    419,
+    420,
+    421,
+    422,
+    423,
+    424,
+    431,
+    432,
+    433,
+    434
+  ],
+  "resource_count": 38,
+  "art_tool": "built-in image generation",
+  "coverage": "Exact caller-derived zero/nonzero coverage; transparent RGB is zero.",
+  "rgb": "Only resized image-generated masters. No copied native RGB or native perimeter.",
+  "status": "complete resource candidate batch; NOT gameplay-qualified",
+  "runtime_integrated": false,
+  "integration_scope": "This resource producer does not establish runtime admission; see separate adapter validation.",
+  "all_neighbor_joins_verified": false,
+  "source_data_included": false,
+  "source_derived_geometry": true,
+  "tiles": [
+    {
+      "id": 299,
+      "family": "bronze-pit",
+      "source_sha256": "a12f6adb3c1cbdc832bb2f12f5866971065dde4ed7212981ca89853dfb391a44",
+      "source_zero_cells": 0,
+      "hda_sha256": "c79667aec8a208eb1358882203e058946c56e21a124c8893ae15e775ed7742fe",
+      "rgba_sha256": "17f5baee2e661e506562475003316e7bdc2bf0ca97fb84807d56b88b572ead40",
+      "png_sha256": "1367d7b2228b4a8dde665e2cb1ce53c1369d5803274d82e68acf3ae1d5d51521",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 300,
+      "family": "bronze-pit",
+      "source_sha256": "a86289fb4083223342bf46ed6a283c6a027e86bd7a8220274d7a74bb6d510f38",
+      "source_zero_cells": 31,
+      "hda_sha256": "ca4c066480cae271bf94b703df960712232c7f4bbb890fb68709e0473eca6cf3",
+      "rgba_sha256": "6b58af50e874350f0eff62a9ea1af4f35a8242c928203c21a6ffcaf754053d69",
+      "png_sha256": "c75714c0c0dff8779d63b8c4b1818336ead31557f5aeb483a89cb76ecfab5068",
+      "opaque_hd_pixels": 41024,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 306,
+      "family": "broken-pit",
+      "source_sha256": "a4c9b0f9aca71f78ab7f5ab5976313d9541a815f54802a6eab2535b927b8445e",
+      "source_zero_cells": 0,
+      "hda_sha256": "e1d37518f308c23f9a151cb5d582cfebb6c6ea3bee32532fddd586d7d7f33bc8",
+      "rgba_sha256": "ebf4ac7f7dc2cb346dd67f511f8d4845800afa480ea408f7cdc9cb60805f45fb",
+      "png_sha256": "5bfb8f348f001a2443da95e3af39f6ed19ee989504cdd009cdec1b5843f65ae3",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 307,
+      "family": "broken-pit",
+      "source_sha256": "8f53292bb8f638829cd0a5c5706e9c7a5678229284070234b59b36444ebf50c9",
+      "source_zero_cells": 0,
+      "hda_sha256": "a4d87b93bccb884e9e1b96b0c4b27e10020f8793bde07b6ff18a21a9d072c036",
+      "rgba_sha256": "36f76cc97bc038c6e1f709121f2388f6f2bd2142532fab5458c1a8f5eb5a19fe",
+      "png_sha256": "641006d5a9b177f80e96e296c16ea9c4bd7ba1857f46a6a9ccaf38a59b217869",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 309,
+      "family": "bronze-pit",
+      "source_sha256": "f380c270e4955a461a28caa19980b78193ff082f6c3c84912b5b9bf0e7de4371",
+      "source_zero_cells": 36,
+      "hda_sha256": "ad22d6c52897e75921e8c053572724fa8f34e8be5a39d265db0e3ba5d1aa028e",
+      "rgba_sha256": "0fd9f6c47a33655ee419e81b7db04e77a076d4f705fd2dde07c6539bff66ab33",
+      "png_sha256": "dadb6eb9b3272967c3517572acc2948d9ee653b5474adab0439138c0a2bb5ab9",
+      "opaque_hd_pixels": 40704,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 310,
+      "family": "bronze-pit",
+      "source_sha256": "2484beabf005debdd1e61ebdc5605aaead40e3a1ace31fad2cccba273c444c41",
+      "source_zero_cells": 82,
+      "hda_sha256": "87346c076d182ad8cb7ee00f4aaffd6b637d1b0f6161802e9634fc85627d9d06",
+      "rgba_sha256": "223a5f6f926e5ff009ffd69cdc287dc041fc08b4e7649ccb39c942bb71c60f30",
+      "png_sha256": "24ec530468002e98867879ab2bd43e508e08d3b0826e300fc9e95ca2f41bfd8b",
+      "opaque_hd_pixels": 37760,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 316,
+      "family": "broken-pit",
+      "source_sha256": "2d62d0248aefa651f06fc31ee70bc4f762400d2d2c9f894aff834fdce0e5d015",
+      "source_zero_cells": 0,
+      "hda_sha256": "e29890e3992f3a563a521c35ea1585e32cffa9c959942ef030aa3980da68c531",
+      "rgba_sha256": "a6a1582829de23adf70a27745bcdf4180679e8715282f01009267de951e23278",
+      "png_sha256": "c975f1c368d59923cb8e4ca4aca90d5b155c70a5fe0743005f959069d6f4d058",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 317,
+      "family": "broken-pit",
+      "source_sha256": "2c6e38417e5bd63e906bc21c1b52829edf56cd182d0ee4a6bd0a96205deeb3e4",
+      "source_zero_cells": 0,
+      "hda_sha256": "949b163f0ea172243be4ea3bad771315c4eabc50ecca5b14af7f160e587c9c56",
+      "rgba_sha256": "feec171f23caa548b9eb05a2f90c8644d3aa4750df7991df453b7e5b90d5fe0c",
+      "png_sha256": "cac299ec46295e9a4c81abbf3229b4cfd5947c24c7bf521088db5582c8846122",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 318,
+      "family": "bronze-column",
+      "source_sha256": "a0abe389e7bb7746f4fea47372ceee808bb42e7b1c2fe252034506b8c267b9ea",
+      "source_zero_cells": 2,
+      "hda_sha256": "7caab104e74b3cf64ecfd94b7414aba689f0295e89111a0accfce539e99554a8",
+      "rgba_sha256": "beed469541b47ff1b1966cbcd8bffed43a4f9266fac0a119be0bd2cc00a99e6b",
+      "png_sha256": "bee71746fdfeb2086a4d57d0371156cd5b0460c750c20605d773bc3d4fe0d27d",
+      "opaque_hd_pixels": 42880,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 319,
+      "family": "cross-pit",
+      "source_sha256": "bfd1902422d37a01db3c2c14b0e9410ca107ccfebef5a6abbf8d88eb93f6d5d3",
+      "source_zero_cells": 0,
+      "hda_sha256": "0b1d62e417c682ce5ba31ae68f256bfe023c314e1af06c47d11cd097911c262c",
+      "rgba_sha256": "d72c0a57729346dc64509cabf2c2cf65f055ad2c34f31281619ee176a19d426c",
+      "png_sha256": "bd40813f8269f157de92989c822195be0bac817a65da7326294b10d8deafb5f3",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 320,
+      "family": "cross-pit",
+      "source_sha256": "39585ea3ea705560ef0a3356a518d294d9da0a9c16a6fece84666a70092726ab",
+      "source_zero_cells": 0,
+      "hda_sha256": "da028160160ffa416bac358490cebcd5d149faa59f91d68ad9e0e60bcc997906",
+      "rgba_sha256": "44ac22e7faab66486931b075967a55dba91a0b46c51fd9fcd98e98595512a729",
+      "png_sha256": "d8275c45d073482a860ed107049b561c5cc49f984e757c9fe6b3c22d98e61827",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 328,
+      "family": "bronze-column",
+      "source_sha256": "bd11bd19562aa173a4e7046069d7488f575fa2b25daad73e2cfede606f9b7283",
+      "source_zero_cells": 3,
+      "hda_sha256": "e6f9ffeb9b9a0336aed0f56586f5f4dfcdf460b4657e88b9085e464be15e117f",
+      "rgba_sha256": "32973d3323397cf3206849b3c87120e2e845965635d0c5cb49a7849f7c26c052",
+      "png_sha256": "87e836acf8f3f7a402352b1d59cf15cc84ca95ff9f168e0ce97c377b0612b400",
+      "opaque_hd_pixels": 42816,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 329,
+      "family": "cross-pit",
+      "source_sha256": "018f7dfec2249193e1f5f8b750a63eaa5964431d7db0c7e582d8194b9748c835",
+      "source_zero_cells": 0,
+      "hda_sha256": "cf7feaac6cac7dbfba6e2e35c3eed954c6488431adda76e02830e5a9075a3205",
+      "rgba_sha256": "5eb198e43dda336f4ef2f7e83e64d9f7da6495a5e43d4724a8f008994bfc34d4",
+      "png_sha256": "688be2927fb235be268a9c5c0cee9ab054fc0f239f33bdc0073e0a74b228de97",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 330,
+      "family": "cross-pit",
+      "source_sha256": "5795f6e8e28225efd25751f253432936400888499c1c481a850af90ca4b8dc4f",
+      "source_zero_cells": 0,
+      "hda_sha256": "b1bf919f31c8663e7e7a861b0f6c4c30bdb8c8f409de357a1cde0efb0211e7d5",
+      "rgba_sha256": "0e45643846aa613a37d012ccd180f7ce4eda8a0ff9191afc14062dcf8d43ac43",
+      "png_sha256": "8b60e2fd3c780d0a995fa6c6b30a79c6b8bfc47efd17ac7c3654177655db4630",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 339,
+      "family": "fixtures",
+      "source_sha256": "663b24291ae278489f600abe5a6a504b50531e8f0de48d370ffb3ce3e2053fa1",
+      "source_zero_cells": 0,
+      "hda_sha256": "fc594edfe37ad52d28b02777da6dc1d4bed5a640adb3add05975298165559cf4",
+      "rgba_sha256": "3fef63b00d1ccbaa14af1ee1ecf3876dd46b20948a8ca465a4bb2e1056d9d3b3",
+      "png_sha256": "30b3170507352bba18a0b0f36e906fe3772a413e46e4a9389cf9955e3247cb25",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 347,
+      "family": "fixtures",
+      "source_sha256": "e41c14258514b1038d9a8f8fbed10026ab723c5493b24a4065035e595dbd8abf",
+      "source_zero_cells": 0,
+      "hda_sha256": "3d8c8763b8e094028ab2018498c5fe467ee5c26f215a988521db33c927490bb6",
+      "rgba_sha256": "602c9bbfdefd80f56c812e87c8ba87cbc9a0094939945ee6988591430e0b172a",
+      "png_sha256": "7ff254462c7d8f29f2dbf311851f4de991a82d6d80fe117eadab4c6c27f96128",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 348,
+      "family": "fixtures",
+      "source_sha256": "bcdbfda687097431890c712e6f7b19f568d1579040ab08ef1c38e82728dd4d45",
+      "source_zero_cells": 0,
+      "hda_sha256": "4deebb2797fd502c80934b9f95600b8f388a99f8dde74d3b71b35160b99c68ab",
+      "rgba_sha256": "3194785de0f6f8d277548a450993651a376447c6b784b56eff77a134ee2e2854",
+      "png_sha256": "c9877c3fef4f67d3a25570974fd60e45b4803cc6a4bf50c42e20d778d056247a",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 357,
+      "family": "fixtures",
+      "source_sha256": "cb225d8f0987c2c591a4ae71c9fe200458364962ad1f3d0a3bb44317a72db701",
+      "source_zero_cells": 0,
+      "hda_sha256": "de93d4b449c245b2e5b01318fa311badbdf5c978dd5f345d27ea2832e3c2dc3b",
+      "rgba_sha256": "437784416e884541d7484d39f1c20ad9472442fd514247ddb1cb3bca4b9470ce",
+      "png_sha256": "a0bd3e07fcf0f699c15c38cadf33b15078a3943c1bc46c3a062fd23aa0fd4891",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 358,
+      "family": "fixtures",
+      "source_sha256": "e4de74376ba53fd8849737ce29336e619703647f46eb820bc29bb7c45dd476d4",
+      "source_zero_cells": 0,
+      "hda_sha256": "780625ee8df65112895ba27ab4daa3d5ac4b0b7637ee87777dc73a3b0d4c0d29",
+      "rgba_sha256": "5c8bbe3de2c30eca42a8af8dbf5b373d6cb5895a49a4655d9df5788af4356755",
+      "png_sha256": "af951b7e7c057f79f39533136c4ecc14d4c57557d6c0f161f842831b3be00747",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 359,
+      "family": "fixtures",
+      "source_sha256": "a685bbb95f90e0e4e3962605acd0f70fda9080c0a5af0c9713bf8e2699be0c8b",
+      "source_zero_cells": 15,
+      "hda_sha256": "919d90cc24581d7e6265a9598378e85e39547002e307271d6a8a2dfbfed0ba21",
+      "rgba_sha256": "08742e06d7cb67500a695aef191d301592645346d5d1c99202ef433c691543d4",
+      "png_sha256": "b09322c2124bdd8f0ec80798b3466e1d101dacd5394d022dea005f44bbafaab8",
+      "opaque_hd_pixels": 42048,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 384,
+      "family": "architecture",
+      "source_sha256": "27d46a044660ff5aeb3397882454d2a1ede9e8cee93f238b3f6373c5e1fd4441",
+      "source_zero_cells": 0,
+      "hda_sha256": "52a02bfca74d41b9e7811ae02e865223719bc99ad508b5a24cc817da85743447",
+      "rgba_sha256": "79336fefb1833992d2a81a8542f14a5d19e8607b51654fb457457515b6441153",
+      "png_sha256": "cce2c455fb26ba51a85174b362f43ca946a30dd7176957621c6b47c69339a128",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 385,
+      "family": "fixtures",
+      "source_sha256": "6b802f84e9e65752d67ed2785903604c077a768eab80c1f0841d95b4b9c37f60",
+      "source_zero_cells": 0,
+      "hda_sha256": "667aeb5d2b56965ae01acda6bd51119c610eefd824a7d79d81212cd4c7c479e9",
+      "rgba_sha256": "23bf4f0073b3e48f69c156e860cb54b7b63277f4ff3572a7a240c0a155cc970a",
+      "png_sha256": "3976a9a4a2d8c3522480f261ed7f3dc6d673c856f689d8e86e4f4bcc24e9d790",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 389,
+      "family": "fixtures",
+      "source_sha256": "d13e922bdf405e32299da1219a79454d02c033a2e656265f2451f0f23f59fbda",
+      "source_zero_cells": 0,
+      "hda_sha256": "c8662dffca8e964a3a9e1c2a81e058832b6985688076383bbef7b38bf4302048",
+      "rgba_sha256": "3167f5d79ae04e861c0080bd3a5ca2d5b233f55b02b89381cb179912c0bdc148",
+      "png_sha256": "2838e682d7ad2b1272657107961dc4112062f422a75c9cb41b6d147dc49e09a5",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 400,
+      "family": "architecture",
+      "source_sha256": "fad7bcd663fac3e64bd11c3b4967d4f09cdee51e818ba8372c3fe615db853da1",
+      "source_zero_cells": 0,
+      "hda_sha256": "768c5ed9e6aa01fc31474e8bc0d8e533e94f44c9989a21f615e6a21dd9c77adc",
+      "rgba_sha256": "d372053471e8d6e737a279c9454ece27ce68336533b1d2997ca2d3eaeb00cc40",
+      "png_sha256": "c8b9f752fe26017e814559c3702b64e2907ddd8d8c6b01b237c54c87c08547df",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 410,
+      "family": "architecture",
+      "source_sha256": "288dc40cbcac189ff0926404af49ae890af0e25c28a737100b92f940f32df769",
+      "source_zero_cells": 0,
+      "hda_sha256": "929d5592494464ae1df3000d2a3e7ab82dbd513774b45ead5b12cac915ba7302",
+      "rgba_sha256": "1c7f8f129e41223dfd23a342eb255c7d261a734f677161116f57ad08064ff9c3",
+      "png_sha256": "12eea90f8cdafa031573865012d7554ef23b69392ba545a4e9bd37c0bdf8dd20",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 416,
+      "family": "architecture",
+      "source_sha256": "80c66705f0d60331532a5f34c65727f11eb992ef343faf9cbdeb051ca8fdc2ef",
+      "source_zero_cells": 0,
+      "hda_sha256": "c22bfa745aef0b05c39faebdeee8d8d52df156ee32338b799f3f15d7e4494a78",
+      "rgba_sha256": "c6783025163a4e6243adabbfc1230698b2e14a9ea229d5c7aefeb64f4e8423f1",
+      "png_sha256": "fa1784dfe12f119786738354f35dacb0f4f159564111647f88fbc34ebe463525",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 417,
+      "family": "architecture",
+      "source_sha256": "f0a0e5ff124cdcd23c551e26328431d79301c2dae9425213c408045feb4340b7",
+      "source_zero_cells": 0,
+      "hda_sha256": "3769a295cb0be55cde33cb06fb9bdae886a8269ff113f179e3a1f54092ff2f1d",
+      "rgba_sha256": "b205d02ede297cd9905aa7abe11bc5ad9887a3492b3a4184a3ff7a4a79570832",
+      "png_sha256": "50ae943e3745eca24d8e222be4059194ac8853e27d936cb5566c3ac399e3b06d",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 418,
+      "family": "architecture",
+      "source_sha256": "47c06ee88b660abfdafca4d46cea0802521910a450e48198b68d17fede6c5f3a",
+      "source_zero_cells": 0,
+      "hda_sha256": "e9be53953c961c619af239cc3cf6bca7979e7c3ef0d7810c52615a4486dc38fe",
+      "rgba_sha256": "eef57faff209ee497215fee43858ecbcfb4ea65b500c2d4745853dbccf53c195",
+      "png_sha256": "44cd89131dce30e3c21f6e7b6b203dcf80f10c1fada063e2c95513ed857b6bfb",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 419,
+      "family": "architecture",
+      "source_sha256": "9b5424843b20662b61e03fdcbbc392b4cfa5f99932079a3bd956eb6f78412ede",
+      "source_zero_cells": 0,
+      "hda_sha256": "126ed79abb11b3ca0bfa6cedd33f1f262a866c14c53b6ae960904e642e375898",
+      "rgba_sha256": "f8729f939d487b4ce4292af1c437f2f12b5388f4d91a9331c7e17515bcd7880c",
+      "png_sha256": "b0f3ab2e17116d7f27b3630b7f2ebae4b96d8cb15480dd4cb6ace6297a33ce54",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 420,
+      "family": "architecture",
+      "source_sha256": "9c2d2ae6f915fc9fdb9e1d3a89917bc59b8a0b069e7ebbdbb8e04b9e9ded727d",
+      "source_zero_cells": 0,
+      "hda_sha256": "f6a311038329875b678d91f09e725bcef5e2d2200bcfe28c05641ddc00ba1e7c",
+      "rgba_sha256": "5120a49026ae594a2a49aa95a719dcdd7cb3e38a13669fd4d3f795a73012d8bf",
+      "png_sha256": "b585487d9b9a3b04d689ba8bd04db08f5d052ddd26519cf909075945fdde719b",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 421,
+      "family": "twin-shafts",
+      "source_sha256": "5fd29018e838a023529f851e4b47a9cffcfd54b3bd6a5f6c7ec96328532ad901",
+      "source_zero_cells": 0,
+      "hda_sha256": "0b4abaeaa2f188653a5b76b8a86016a4beae2de0ab005bbf515c60cfc60f26ba",
+      "rgba_sha256": "ffa572979cce7e7d14cc6c3d35b657f38916ce6539659bf6efe701960709d412",
+      "png_sha256": "f7bfd90baf949127588fe23b2a1e257054dcab7bb6806f19cd0bc315d9e14ac5",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 422,
+      "family": "twin-shafts",
+      "source_sha256": "2b76f842c8e9adaa16e816b64784b5e08b119e50dbbe18811bbee964d498465d",
+      "source_zero_cells": 0,
+      "hda_sha256": "c4db67bae083399ca9d8df478e19eaeb4ed626200d64adecdd55e6d565b2bdc9",
+      "rgba_sha256": "3eafcce9270474584895d525b0c1d47f399ee2ed107f43165d127d6144f16f75",
+      "png_sha256": "6686e6b24d1e6700010f1803ad98563870c10100df9be355d5285aaa2fc9f3e7",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 423,
+      "family": "twin-shafts",
+      "source_sha256": "049f16602a5908b9cdfe10ef144a0b1934e0c93af1cbd032149cf4f1bb501e37",
+      "source_zero_cells": 0,
+      "hda_sha256": "fd4c108a0b2381fc3b7052b701d7258e76c81e236c81face993dd04c5b702fa5",
+      "rgba_sha256": "0da20b4ff1c8e4a19da29bd9204f2f40273e14491619c96f19c64f550f98f7fa",
+      "png_sha256": "bc30c6bffc648f767a164c6bcb47ed557b05fa98e53ed2a83f4331f767633c9c",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 424,
+      "family": "twin-shafts",
+      "source_sha256": "69bf4c3343ed742ac266964387939c380aadc3f99873d611a68b68db72a9a7f5",
+      "source_zero_cells": 0,
+      "hda_sha256": "9cf8b397a7d9113805ff31d6cd22037e6ce484461bf2abac6239901effa86930",
+      "rgba_sha256": "b74c4f14d9eec84b90e1197bd092e8b414600d7ad2aad980613f663aae10d663",
+      "png_sha256": "97036987da1fe36ea55ced84b59f4806ce028484426dc8174aea7726cc0460e2",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 431,
+      "family": "twin-shafts",
+      "source_sha256": "1d6e6dba0176b8b41cdb519600a1789a7b0e937a05018bf2f95c5a05b58f8a67",
+      "source_zero_cells": 0,
+      "hda_sha256": "fbcb85a284dc5079228e7ec236c64fe81f3876b7a3e246f476b27aed5264c529",
+      "rgba_sha256": "d57fc91376fb45d090d15009a97635161ff96af31bcd617b9af406887ec00fe2",
+      "png_sha256": "f4513843a26519131da0b51c27024d51920b2d0029d71b58521921462c094d4e",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 432,
+      "family": "twin-shafts",
+      "source_sha256": "a2c4c796f0022004e6b0fd4e1943c43398f920d00618bef23fb870013686d471",
+      "source_zero_cells": 0,
+      "hda_sha256": "1b389bb096542bb5067740e264365c226be1f19470c288e26c6f566be7c84b29",
+      "rgba_sha256": "3dca9521afc94eca842193ba0365ede6086ec480341e57c4ce182f58e6b38e1b",
+      "png_sha256": "7a3797dbc205ec19986a84d46bce8eb937bae886881d5ba33b96c15390ad6b90",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 433,
+      "family": "twin-shafts",
+      "source_sha256": "ffb3bf1f05685e2aac635fb11374b00de61b3d7807ae836d02ec90a0c181a6df",
+      "source_zero_cells": 0,
+      "hda_sha256": "1aad6eb9edc4dc21064d0def0e8e0b708354498ef793c6b7fb8af8caf5c8bb05",
+      "rgba_sha256": "2c840ac5b771de52c5c5cfaf46bdb965f1216163b2eb745118a4ebf582c87729",
+      "png_sha256": "af053eb6c39c23626ff996133ea1f571534703bf89f97728d9d3da4c24865f9b",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    },
+    {
+      "id": 434,
+      "family": "twin-shafts",
+      "source_sha256": "3f707dbf3f30794bfed5e7bb9c70f65f44d6514cee1c928334920d15daca79c0",
+      "source_zero_cells": 0,
+      "hda_sha256": "07e91bc342896a4cb43e92078a4ef25010dd2090371ae99f81d4d3ed5ddabf00",
+      "rgba_sha256": "6c321bd498ec09f7c3e75127cad5dfd0a02e66059e095451bacb5e6cb723b70d",
+      "png_sha256": "e195f711a3cf8c397f47e1c8288c9add4bca5502c2655e08aafc622b0bdf17ae",
+      "opaque_hd_pixels": 43008,
+      "original_rgb_copied_pixels": 0
+    }
+  ]
+}
