@@ -2348,3 +2348,11 @@ tests/fixtures/portable-history-v1/blobs/* -whitespace
 /tests/test_level2_family_release.py -text
 /docs/level2-family/README.md -text
 /.gitignore -text
+
+# Reproducible experimental completion terrain masters, resources and recipes.
+/assets/hd/artwork/level2-terrain-completion-v1/** -text
+/assets/hd/packs/level2-terrain-completion-v1/** -text
+/scripts/build_level2_terrain_completion.py -text
+/scripts/audit_level2_terrain_completion.py -text
+/tests/test_level2_terrain_completion.py -text
+/docs/level2-family/TERRAIN-COMPLETION-CANDIDATE.md -text
