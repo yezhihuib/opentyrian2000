@@ -10,6 +10,7 @@
 #include "ground101_material.h"
 #include "gameplay_hud_meters.h"
 const uint8_t *render_mirror_family_dynamic_hud_sample(int,int,int,int,uint8_t);
+const uint32_t *render_mirror_family_hud_font_sample(int,int,int,int,uint8_t);
 /* Diagnostic identity observer only. Default-off and mirror-disabled builds
  * compile every call to a no-op; no gameplay or rendering eligibility changes. */
 #if ((defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION) || (defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR)) && !defined(RENDER_MIRROR_DISABLED)
