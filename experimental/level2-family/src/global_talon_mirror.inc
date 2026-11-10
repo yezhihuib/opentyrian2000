@@ -187,6 +187,7 @@ static void global_talon_fail(void)
 }
 int render_mirror_global_player_ship(SDL_Surface *surface,int x,int y,Sprite2_array bank,unsigned index,int style,unsigned pnum,int base)
 {
+ pf_body(surface,x,y,bank,index,style,pnum,base);
  int family=ps_body(surface,x,y,bank,index,style,pnum,base);
  if(family>=0)return family;
  if(!global_asset_directory[0]||base!=233)return -1;

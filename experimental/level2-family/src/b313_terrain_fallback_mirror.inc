@@ -26,11 +26,13 @@ static bool tf_requested(void)
 static void tf_fail(unsigned reason)
 {
  if(!tf.enabled)return;
+ pf_shared_fail();
  if(tf.valid){++tf_status.rejected;if(!tf_status.first_reason)tf_status.first_reason=reason;}
  tf.valid=false;tf.ready=false;
 }
 static void tf_reset(void)
 {
+ pf_reset();
  /* Lifecycle retirement is not a proof rejection. Never retain a candidate. */
  tf.enabled=tf.valid=tf.captured=tf.ready=tf.presenting=false;
  memset(tf.mask,0,sizeof tf.mask);
@@ -49,7 +51,7 @@ static void tf_begin(void)
  tf_status.surviving_cells=0;
  tf.enabled=tf.valid=true;tf.generation=fc_generation;tf.frame=fc_frame;
  memcpy(tf.palette,rgb_palette,sizeof tf.palette);
- memcpy(tf.expected,fc_source_pixels,sizeof tf.expected);++tf_status.frames;
+ memcpy(tf.expected,fc_source_pixels,sizeof tf.expected);++tf_status.frames;pf_begin();
 }
 /* Called before the legacy actor-failure early return. This is the ONLY
  * writer-ledger consumption when enabled, even after this candidate fails. */
@@ -63,6 +65,7 @@ static bool tf_pixel(SDL_Surface *s,Uint8 *address,int style)
  if(s!=fc_source)return true;
  uintptr_t off=(uintptr_t)address-(uintptr_t)fc_source_pixels;
  if(off>=64000){tf_fail(TF_CONTEXT);return true;}
+ pf_pixel((unsigned)off,style);
  tf.expected[off]=*address;
  if(tf.mask[off]){tf.mask[off]=0;++tf_status.retired;}
  return true;
@@ -119,7 +122,7 @@ static void tf_finish(MirrorOutputKind kind)
  }
  tf_status.surviving_cells=cells;
  if(!cells)return;
- tf.ready=true;++tf_status.prepared;
+ tf.ready=true;++tf_status.prepared;pf_finish();
 }
 static bool tf_destination(SDL_Renderer *renderer,const SDL_Rect *dst)
 {
@@ -142,17 +145,18 @@ static bool tf_present(SDL_Renderer *renderer,SDL_Surface *source,const SDL_Rect
   !SDL_QueryTexture(target,&format,&access,&w,&h)&&format==SDL_PIXELFORMAT_ARGB8888&&access==SDL_TEXTUREACCESS_STREAMING&&w==2560&&h==1600&&
   !SDL_GetTextureScaleMode(target,&scale)&&scale==SDL_ScaleModeNearest&&!SDL_GetTextureBlendMode(target,&blend)&&blend==SDL_BLENDMODE_NONE&&tf_current();
  if(!current){SDL_UnlockTexture(target);tf_fail(TF_PRESENT);return false;}
+ bool player_used=pf_compose();
  family_static_hud_compose_surface(tf.result);
  for(int y=0;y<1600;y++)memcpy((Uint8 *)pixels+(size_t)y*(size_t)pitch,(Uint8 *)tf.result->pixels+(size_t)y*10240,10240);
  SDL_UnlockTexture(target);
  tf.ready=false; /* Single use, including renderer failure. */
  if(SDL_SetRenderDrawColor(renderer,0,0,0,255)||SDL_RenderClear(renderer)||SDL_RenderCopy(renderer,target,NULL,dst)){tf_fail(TF_PRESENT);return false;}
- tf.presenting=true;asset_debug_readback(renderer);SDL_RenderPresent(renderer);tf.presenting=false;++tf_status.presents;
+ tf.presenting=true;pf_present_begin(player_used);asset_debug_readback(renderer);SDL_RenderPresent(renderer);pf_present_end();tf.presenting=false;++tf_status.presents;
  return true;
 }
 static void tf_release(void)
 {
- tf_reset();if(tf.texture)SDL_DestroyTexture(tf.texture);tf.texture=NULL;tf.renderer=NULL;
+ tf_reset();pf_release();if(tf.texture)SDL_DestroyTexture(tf.texture);tf.texture=NULL;tf.renderer=NULL;
  if(tf.terrain)SDL_FreeSurface(tf.terrain);
  if(tf.result)SDL_FreeSurface(tf.result);
  tf.terrain=tf.result=NULL;

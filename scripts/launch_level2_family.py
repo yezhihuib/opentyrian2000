@@ -170,6 +170,11 @@ def build_plan(args, inherited=None, root=ROOT):
         if getattr(args, "redvent_pair", None):
             raise ValueError("--terrain-fallback excludes the unqualified private red-vent extension")
         family["BUILDING313_TERRAIN_FALLBACK_ENABLE"] = "1"
+    player_fallback = bool(getattr(args, "player_fallback", False))
+    if player_fallback:
+        if not (args.hd and public_candidates and terrain_fallback):
+            raise ValueError("--player-fallback requires --hd --public-candidates --terrain-fallback")
+        family["BUILDING313_PLAYER_FALLBACK_ENABLE"] = "1"
     static_hud = bool(getattr(args, "static_hud", False))
     if static_hud:
         if not args.hd:
@@ -303,6 +308,7 @@ def build_plan(args, inherited=None, root=ROOT):
         "public_candidates_enabled": bool(public_candidates),
         "static_hud_enabled": static_hud,
         "terrain_fallback_enabled": terrain_fallback,
+        "player_fallback_enabled": player_fallback,
         "static_hud_assets_sha256_verified": 1 if static_hud else 0,
         "public_candidate_flags": list(PUBLIC_CANDIDATE_FLAGS) if public_candidates else [],
         "qualification": "Experimental offline candidate; actual combined scene/gameplay is unverified.",
@@ -352,6 +358,7 @@ def parser():
     result.add_argument("--profile", help="Separate profile directory (default: repository/.level2-family-profile)")
     result.add_argument("--hd", action="store_true", help="Enable the 23 fixed family environment settings")
     result.add_argument("--terrain-fallback", action="store_true", help="Retain independently proven untouched terrain when actor HD rejects; requires --hd")
+    result.add_argument("--player-fallback", action="store_true", help="Keep a separately validated normal player ship on terrain fallback; requires --hd --public-candidates --terrain-fallback")
     result.add_argument("--static-hud", action="store_true", help="Opt in to the existing HD static border only; requires --hd; text and gauges stay native")
     result.add_argument("--redvent-pair", help="Opt-in private 339/348 candidate directory; requires --hd and matching assets; not gameplay-validated")
     result.add_argument("--lamp-top-clip", action="store_true", help="Opt in to bounded lamp top-edge writes; requires --hd; only one visible sample qualified")

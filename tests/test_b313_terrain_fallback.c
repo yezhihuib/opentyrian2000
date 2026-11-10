@@ -53,6 +53,17 @@ static void asset_debug_readback(SDL_Renderer *r)
 {
  CHECK(render_mirror_terrain_fallback_status().presenting);CHECK(r==renderer);++readbacks;
 }
+/* This fixture isolates terrain; the independent player adapter is covered
+ * by test_b313_player_fallback with its real include and native writer. */
+static void pf_shared_fail(void){}
+static void pf_reset(void){}
+static void pf_begin(void){}
+static void pf_pixel(unsigned off,int style){(void)off;(void)style;}
+static void pf_finish(void){}
+static bool pf_compose(void){return false;}
+static void pf_present_begin(bool used){(void)used;}
+static void pf_present_end(void){}
+static void pf_release(void){}
 static int injected_lock(SDL_Texture *,const SDL_Rect *,void **,int *);
 #define SDL_LockTexture injected_lock
 #include "b313_terrain_fallback_mirror.inc"

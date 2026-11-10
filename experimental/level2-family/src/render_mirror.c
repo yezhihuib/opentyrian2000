@@ -70,6 +70,7 @@ static void la_shutdown(void);
 #include "b313_terrain_context.h"
 #include "b313_family_writer.h"
 #include "b313_terrain_fallback.h"
+#include "b313_player_fallback.h"
 #include "old_hd_sample_observer.h"
 #include "building313_precommit.h"
 #include "building313_snapshot_transaction.h"
@@ -121,6 +122,11 @@ static Asset *fc_draw_lease;
 static void family_begin(void),family_reset(void),family_fault(unsigned),family_entity_end(void);
 static void tf_begin(void),tf_reset(void),tf_fail(unsigned),tf_capture(void),tf_finish(MirrorOutputKind),tf_release(void);
 static bool tf_tracking(void),tf_pixel(SDL_Surface *,Uint8 *,int),tf_present(SDL_Renderer *,SDL_Surface *,const SDL_Rect *);
+static void pf_begin(void),pf_reset(void),pf_shared_fail(void),pf_end(void),pf_finish(void),pf_release(void);
+static void pf_pose(unsigned,Sprite2_array,int,int,unsigned);
+static void pf_body(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,int);
+static void pf_pixel(unsigned,int),pf_present_begin(bool),pf_present_end(void);
+static bool pf_compose(void);
 static void family_static_hud_reset(void),family_static_hud_invalidate_frame(void);
 static void family_static_hud_release_texture(void);
 static void family_pixel(SDL_Surface *,Uint8 *,int),family_rect(SDL_Surface *,const SDL_Rect *);
@@ -2968,6 +2974,7 @@ static bool talon_frames_ready(void)
 
 void render_mirror_player_pose(unsigned int pnum,Sprite2_array bank,int base,int index,unsigned int invulnerable)
 {
+ pf_pose(pnum,bank,base,index,invulnerable);
  ps_pose(pnum,bank,base,index,invulnerable);
  global_talon_pose(pnum,bank,base,index,invulnerable);
  if((manual_hd_enabled||asteroid_hd_enabled)&&!mirror_enabled())return;
@@ -4144,6 +4151,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "tank194_family_mirror.inc"
 #include "enemy_shot_family_mirror.inc"
 #include "player_ship_family_mirror.inc"
+#include "b313_player_fallback_mirror.inc"
 #include "asteroid1_triple275_mirror.inc"
 #include "asteroid1_columns276_mirror.inc"
 #include "asteroid1_turret273_mirror.inc"
