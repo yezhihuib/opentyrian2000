@@ -1,16 +1,16 @@
-# Six-record random props candidate
+# Eight-record random props candidate
 
 The existing `--hd --public-candidates` preset now selects the bounded random
-props adapter for records135/136,260/261,263/265. Plain `--hd` keeps it off, and
+props adapter for records135/136,260/261,263/265,266/268. Plain `--hd` keeps it off, and
 inherited `RANDOM_PROPS_` variables are cleared. No new CLI option, asset, random
-number draw or gameplay write is introduced. Records137/262/264 and base123
+number draw or gameplay write is introduced. Records137/262/264/267
 remain unsupported; matching a similar image is not sufficient for admission.
 
 ## Reused material and identity
 
-Three existing files in `assets/hd/packs/asteroid1-ten-v1` are used:
-`enemy-newshd-{5,43,85}-8.hda`. Each is 172,060 bytes, HDR1 24x28 at density8.
-All three RGBA hashes match the archived adapter's pins. The public launcher
+Four existing files in `assets/hd/packs/asteroid1-ten-v1` are used:
+`enemy-newshd-{5,43,85,123}-8.hda`. Each is 172,060 bytes, HDR1 24x28 at density8.
+All four RGBA hashes match the archived adapter's pins. The public launcher
 verifies their exact size and SHA-256 in addition to all existing checks; the
 runtime checks HDR1 fields and payload identity. Asset bytes are unchanged.
 
@@ -19,10 +19,9 @@ The adapter/header/native tables are selected from the public source archive
 current family rather than replacing existing source files. The only change
 inside the archived adapter is renaming its private `rp_load` helper and call
 to `rp_material_load`, avoiding a collision with the existing redvent loader.
-The redvent implementation is unchanged. There was no
-original game-data bank or independent random-table dump in this workspace.
-The archived table/source/record/palette pins therefore remain assumptions
-verified against actual data at runtime, not newly audited original data.
+The redvent implementation is unchanged. The later cloud audit independently checked the original bank, random table,
+record stamps and ordered callback sequences; see the extension audit below.
+Palette identity remains guarded at runtime.
 
 Ordinary E1 physical-level2 ASTEROID2, mapD/shapeZ, the exact 33-entry random
 enemy table and the parent family controls are required. Begin/commit surround
@@ -36,8 +35,8 @@ slot reuse, bank replacement, death and scope loss revoke the existing witness.
 
 A body must be fully supported at x24..264/y0..156. No top, side or bottom
 clipping is added. Native parts0/1/19/20 must arrive in that order, for one slot
-and body origin, with exact sparse callback counts. The three total counts are
-355/345/461. A pre-tile check runs before every family's dispatch, preventing
+and body origin, with exact sparse callback counts. The four total counts are
+355/345/461/433. A pre-tile check runs before every family's dispatch, preventing
 another tile from silently interleaving with a pending four-block body.
 Missing blocks, missing writes, duplicate bodies, foreign callbacks and altered
 identity fail closed. Existing display admission is unchanged: random props
@@ -70,3 +69,19 @@ with normal/blend/shadow/hole behavior; its acquisition adapters remain modeled.
 Launcher tests cover preset-only selection, inherited-control removal and
 changed-asset rejection. These are offline candidate checks, not actual scene,
 final-pixel or GUI acceptance. The complete second level remains unqualified.
+
+## Original-data extension audit
+
+The cloud audit independently decoded the actual physical-level2 random table,
+all eight selected 77-byte records, and all four ordered RLE callback sequences.
+Records266/268 use base123 at native downward speeds4/6. Siblings137/262/264/267
+are absent from this level’s random table and remain rejected. The new material
+is existing artwork, not a new generation or source upscale. All nonzero alpha
+remains inside actual native writes. No source identity or clipping guard changed.
+
+Run `ORIGINAL_GAME_DATA=/private/data python3 -m unittest discover -s tests -p
+ test_random_props_source.py` (join the command onto one line). The original-data
+audit skips when no private data directory is provided; artifact checks still run.
+The extracted runtime test now covers8 births,4 materials,1594 ordered writes,
+alpha/underlay, holes, writer ordering and native retirement. This does not
+qualify complete-level gameplay or make the remaining artwork gaps complete.

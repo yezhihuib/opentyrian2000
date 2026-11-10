@@ -1,7 +1,8 @@
 """Production central dispatch + retirement regression; no SDL/game execution.
 Pixel adapters deliberately model ownership acquisition only. Actual family
 alpha/native-hole codecs remain covered by their separate production tests.
-Run: python central_writer_test.py /path/to/repository
+Terrain fallback authority is modeled as an independent acceptance callback.
+Run: python scripts/check_family_writer_interleave.py [/path/to/repository]
 """
 from pathlib import Path
 import re, subprocess, tempfile, sys
@@ -36,13 +37,17 @@ static struct {bool frame_active,frame_failed;unsigned native_pixels,occlusions,
 static struct {bool requested;} fct;
 static struct {bool frame_enabled;unsigned frame_eligible,total_eligible,frame_retired,total_retired;int first_x,first_y;} fbr;
 static bool fc_canvas_ready=true,fc_native_call,suppress;
-static struct {int x,y;} fc_call_rect;static unsigned fc_call_pixels;
+static struct {int x,y,w,h;} fc_call_rect;static unsigned fc_call_pixels;
 static uint8_t native[64000],expected[64000],selected[64000],fbr_retired[64000];
 static uint8_t hd_owner[4096000],cloud_owner[4096000],green_first[4096000];
 static Uint32 rgb[4096000];static SDL_Surface source={native},cv={rgb},*canvas=&cv,*fc_source=&source;
 static void *fc_source_pixels=native;
 static unsigned faults;static int active=-1;
+static bool tracking,terrain_write_ok=true;static unsigned terrain_writes;
+#define tf_tracking() tracking
+#define tf_pixel(s,a,style) (++terrain_writes,terrain_write_ok)
 static void family_fault(unsigned reason){faults=reason;fc.frame_failed=true;}
+#define family_scene_fault(reason) family_fault(reason)
 #define family_terrain_blend_config_current() true
 #define fg_writer_entry() true
 #define b313_family_writer_pixel(s,a) true
@@ -89,7 +94,7 @@ for p in ['lamp272','triple275','private_ember269','gray325','longface573']:
 c+=extract('b313_family_canvas_mirror.inc','family_pixel')
 c+=r'''
 static void reset(void){
- memset(&fc,0,sizeof fc);fc.frame_active=true;faults=0;active=-1;es_shadow_cells=0;memset(es_extra_cell,0,sizeof es_extra_cell);memset(es_extra_owner,0,sizeof es_extra_owner);
+ memset(&fc,0,sizeof fc);fc.frame_active=true;tracking=false;terrain_write_ok=true;terrain_writes=0;fc_call_rect.h=14;faults=0;active=-1;es_shadow_cells=0;memset(es_extra_cell,0,sizeof es_extra_cell);memset(es_extra_owner,0,sizeof es_extra_owner);
  memset(native,0,sizeof native);memset(expected,0,sizeof expected);
  memset(hd_owner,0,sizeof hd_owner);memset(rgb,0,sizeof rgb);
  for(unsigned i=0;i<N_FAMILIES;i++){memset(owners[i],0,64000);memset(shadows[i],0,64000);}
@@ -114,6 +119,16 @@ int main(void){
   family_pixel(&source,native+off,MIRROR_NORMAL);assert(!faults&&!owners[old][off]&&!hd_owner[n]);
   assert(rgb[n]==palette_rgb(4));
  }
+ /* Terrain observation precedes actor ownership, including a failed actor frame. */
+ reset();tracking=true;active=1;native[off]=12;
+ family_pixel(&source,native+off,MIRROR_NORMAL);
+ assert(!faults&&terrain_writes==1&&owners[1][off]);
+ reset();tracking=true;terrain_write_ok=false;active=1;native[off]=12;
+ family_pixel(&source,native+off,MIRROR_NORMAL);
+ assert(faults==FC_WRITER&&terrain_writes==1&&!owners[1][off]);
+ reset();tracking=true;fc.frame_failed=true;native[off]=12;
+ family_pixel(&source,native+off,MIRROR_NORMAL);
+ assert(!faults&&terrain_writes==1&&!owners[1][off]);
  /* Extra authored shell subpixel in a native hole retains no native ownership.
   * A shadow darkens it; a later normal writer retires it before early return. */
  reset();es_extra_cell[off]=1;es_extra_owner[n]=1;rgb[n]=0xff808080;

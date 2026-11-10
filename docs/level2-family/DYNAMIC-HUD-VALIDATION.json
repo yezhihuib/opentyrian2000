@@ -1,0 +1,107 @@
+{
+  "schema": "level2-hd-batch-validation-v1",
+  "baseline_commit": "691c79b66c429363d7e34736c803c2ab6f259f9a",
+  "scope": "Dynamic material HUD and random266/268 integration; not complete level2 HD",
+  "source_digest": "f1b9c2e1fe28eb5eecf39980fac014cfc89ec517aa95325ddcee3dd146f2c401",
+  "build_units": 112,
+  "native_4x": {
+    "status": "PASS_BOUNDED_NATIVE_ENTRY_SDL_EVENTS",
+    "frames": 240,
+    "scale": 4,
+    "final": {
+      "frame": 239,
+      "x": 256,
+      "y": 160,
+      "invulnerable": 0,
+      "armor": 10,
+      "shield": 10,
+      "shots": 4,
+      "family_presents": 204,
+      "terrain_presents": 13,
+      "player_presents": 8,
+      "tank_presents": 5,
+      "hud_owned": 108336,
+      "hud_mismatches": 0,
+      "native_hud_mismatches": 0,
+      "dynamic_hud_owned": 33616,
+      "dynamic_hud_mismatches": 0
+    },
+    "physical_input_qualified": false,
+    "single_session_abandon": true
+  },
+  "deterministic_2x": {
+    "status": "PASS_BOUNDED_CONTINUITY_MEASURED",
+    "visible_presents": 355,
+    "hd_presents": 355,
+    "classic_presents": 0,
+    "mode_switches": 0,
+    "native_streams_equal": {
+      "state.tsv": true,
+      "collisions.tsv": true,
+      "player-projectiles.tsv": true,
+      "player-shot-emissions.tsv": true,
+      "player-shot-results.tsv": true,
+      "scene-hits.tsv": true
+    },
+    "native_stream_sha256": {
+      "state.tsv": "f5ac1fcb5f562b447774963cbfa1aa70aae30522005bfc444ed679d08074b815",
+      "collisions.tsv": "ed7e80f54377ca8d91560df15ff3b399de05f9e0b0d2ae01f63ad4dc25088a40",
+      "player-projectiles.tsv": "f35d4e13530c805452e232e0e4f43568260d294d32c4495f29a3c02b38b650b3",
+      "player-shot-emissions.tsv": "1b8f5e1683f214c972a0c4862c18b915b8254659fc499bb97622a0fed2d366bd",
+      "player-shot-results.tsv": "8c12ff2d97786edaee0163ab65fdee09e16c50ce1af550bfdb6b7465f7f131d5",
+      "scene-hits.tsv": "ed631ce85173213f812f3fc8b06d6c8681b16b80bb4afe7d003bdf68254776b6"
+    }
+  },
+  "checks": {
+    "actual_input_inventory": 11,
+    "shared_asset_inventory": 2,
+    "native_preview_unit": 7,
+    "family_release": 8,
+    "hud_launchers": 5,
+    "random_props_source": 2,
+    "random_props_lifecycle": "8 births,4 materials,1594 native writes",
+    "central_writer": "121 pairwise family transitions plus independent terrain authority"
+  },
+  "known_baseline_failures": [
+    {
+      "check": "scripts/verify_current_production.py",
+      "files": [
+        "src/data_text.c",
+        "src/opentyr.c",
+        "src/params.c",
+        "src/params.h",
+        "src/tyrian2.c"
+      ],
+      "reproduced_on_clean_baseline": true,
+      "reason": "pre-existing production-binding receipt does not match these files at691c79b; unchanged by this batch"
+    }
+  ],
+  "original_game_data_included": false,
+  "full_level_hd_complete": false,
+  "windows_gpu_qualified": false,
+  "native_2x": {
+    "status": "PASS_BOUNDED_NATIVE_ENTRY_SDL_EVENTS",
+    "frames": 540,
+    "scale": 2,
+    "final": {
+      "frame": 539,
+      "x": 256,
+      "y": 160,
+      "invulnerable": 0,
+      "armor": 10,
+      "shield": 10,
+      "shots": 5,
+      "family_presents": 431,
+      "terrain_presents": 86,
+      "player_presents": 85,
+      "tank_presents": 81,
+      "hud_owned": 27084,
+      "hud_mismatches": 0,
+      "native_hud_mismatches": 0,
+      "dynamic_hud_owned": 8404,
+      "dynamic_hud_mismatches": 0
+    },
+    "physical_input_qualified": false,
+    "single_session_abandon": true
+  }
+}

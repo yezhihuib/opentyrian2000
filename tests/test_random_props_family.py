@@ -113,12 +113,12 @@ static unsigned feed_part(unsigned image,unsigned part){
  rp_end();assert(!faults&&!rp_frame.active);return rp_counts[image][part];
 }
 int main(int argc,char **argv){
- assert(argc==4);reset_test();uint8_t bank_bytes[1]={0};Sprite2_array bank={bank_bytes,1};
- const unsigned excluded[]={137,262,264,266,268,317};
+ assert(argc==5);reset_test();uint8_t bank_bytes[1]={0};Sprite2_array bank={bank_bytes,1};
+ const unsigned excluded[]={137,262,264,267,317};
  for(unsigned i=0;i<sizeof excluded/sizeof excluded[0];i++)assert(!render_mirror_random_props_spawn_begin(excluded[i],0,0));
  assert(!render_mirror_random_props_spawn_begin(135,25,0));assert(!render_mirror_random_props_spawn_begin(135,0,1));
- for(unsigned r=0;r<6;r++){birth(rp_records[r].record,&bank);assert(rp_slots[0].generation==r+1);enemyAvail[0]=1;}
- assert(rp_witnessed_records==63);
+ for(unsigned r=0;r<8;r++){birth(rp_records[r].record,&bank);assert(rp_slots[0].generation==r+1);enemyAvail[0]=1;}
+ assert(rp_witnessed_records==255);
  render_mirror_random_props_enemy_allocated(&enemy[0],999,0);assert(!rp_witness(0));
  uint64_t failed=render_mirror_random_props_spawn_begin(135,0,0);assert(failed);
  render_mirror_random_props_spawn_commit(failed,0);assert(!rp_life.call.live);
@@ -128,12 +128,12 @@ int main(int argc,char **argv){
  render_mirror_random_props_spawn_commit(failed,1);assert(!rp_witness(0)&&!rp_life.call.live);
  canvas->pixels=malloc(4096000*sizeof(Uint32));assert(canvas->pixels);
  unsigned writes=0,zero_indices=0,alpha_zero=0,partial_alpha=0;
- for(unsigned image=0;image<3;image++){
+ for(unsigned image=0;image<4;image++){
   uint8_t header[28];FILE *f=fopen(argv[image+1],"rb");assert(f);
   assert(fread(header,1,28,f)==28&&!memcmp(header,"HDR1",4));
   uint8_t *rgba=malloc(172032);assert(rgba);assert(fread(rgba,1,172032,f)==172032&&fgetc(f)==EOF);fclose(f);
   rp_resources.member[image].rgba=rgba;
-  reset_test();unsigned record=0;for(unsigned r=0;r<6;r++)if(rp_records[r].image==image){record=rp_records[r].record;break;}
+  reset_test();unsigned record=0;for(unsigned r=0;r<8;r++)if(rp_records[r].image==image){record=rp_records[r].record;break;}
   birth(record,&bank);
   for(unsigned n=0;n<4096000;n++)((Uint32*)canvas->pixels)[n]=0xff204060u;
   memset(hd_owner,0,sizeof hd_owner);memset(rp_owned,0,sizeof rp_owned);
@@ -176,13 +176,13 @@ int main(int argc,char **argv){
   assert(rp_pixel(24,40,MIRROR_NORMAL)&&rp_frame.fault);
   free(rgba);
  }
- assert(writes==1161&&alpha_zero&&partial_alpha);
+ assert(writes==1594&&alpha_zero&&partial_alpha);
  unsigned cell=40*320+24;rp_owned[cell]=1;rp_shadows[cell]=0;
  assert(rp_retire(cell,MIRROR_SHADOW)&&rp_owned[cell]);for(unsigned n=0;n<300;n++)rp_shadow(cell);assert(rp_shadows[cell]==255);
  assert(rp_retire(cell,MIRROR_BLEND)&&!rp_owned[cell]&&!rp_shadows[cell]);
  rp_owned[cell]=1;assert(rp_retire(cell,MIRROR_NORMAL)&&!rp_owned[cell]);assert(!rp_retire(64000,MIRROR_NORMAL));
  free(canvas->pixels);
- printf("PASS: 6 births, 3 four-part materials, %u writes (%u zero indices), %u alpha0 / %u partial-alpha subpixels; ordering/retirement\n",writes,zero_indices,alpha_zero,partial_alpha);
+ printf("PASS: 8 births, 4 four-part materials, %u writes (%u zero indices), %u alpha0 / %u partial-alpha subpixels; ordering/retirement\n",writes,zero_indices,alpha_zero,partial_alpha);
  return 0;
 }
 '''
@@ -195,7 +195,7 @@ int main(int argc,char **argv){
             subprocess.run(['cc', '-std=c99', '-Wall', '-Wextra', '-Werror', '-Wno-unused-variable',
                             '-pedantic', '-I', str(SRC), str(c), '-o', str(binary)], check=True)
             subprocess.run([str(binary)]+[str(ROOT/'assets/hd/packs/asteroid1-ten-v1'/f'enemy-newshd-{base}-8.hda')
-                                          for base in (5,43,85)], check=True)
+                                          for base in (5,43,85,123)], check=True)
 
 
 if __name__ == '__main__':

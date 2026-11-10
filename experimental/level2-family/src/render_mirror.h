@@ -9,6 +9,7 @@
 #include "random_props_family.h"
 #include "ground101_material.h"
 #include "gameplay_hud_meters.h"
+const uint8_t *render_mirror_family_dynamic_hud_sample(int,int,int,int,uint8_t);
 /* Diagnostic identity observer only. Default-off and mirror-disabled builds
  * compile every call to a no-op; no gameplay or rendering eligibility changes. */
 #if ((defined(NEWSHF_IDENTITY_VALIDATION) && NEWSHF_IDENTITY_VALIDATION) || (defined(NEWSHF_HD_COMPOSITOR) && NEWSHF_HD_COMPOSITOR)) && !defined(RENDER_MIRROR_DISABLED)
@@ -27,6 +28,7 @@ bool render_mirror_newshf_validation_tile(SDL_Surface *,int,int,Sprite2_array,un
 #define render_mirror_newshf_validation_initialized(...) ((void)0)
 #define render_mirror_newshf_validation_observe(...) ((void)0)
 #define render_mirror_newshf_validation_tile(...) (false)
+
 #endif
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE && !defined(RENDER_MIRROR_DISABLED)
 bool render_mirror_enemy_reuse_shot(SDL_Surface *,int,int,Sprite2_array,unsigned,unsigned,unsigned);

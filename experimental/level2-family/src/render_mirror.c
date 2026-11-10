@@ -132,6 +132,8 @@ static void kf_begin(void),kf_reset(void),kf_shared_fail(void),kf_end(void),kf_f
 static void kf_pixel(unsigned,int),kf_present_begin(uint32_t),kf_present_end(void);
 static uint32_t kf_compose(void);
 static void family_static_hud_reset(void),family_static_hud_invalidate_frame(void);
+static void fdh_mode_drawn(SDL_Surface *,unsigned),fdh_shield_wiped(SDL_Surface *),fdh_shield_drawn(SDL_Surface *,unsigned,unsigned);
+static void fdh_meter_begin(SDL_Surface *,SDL_Surface *,unsigned,unsigned,unsigned),fdh_meter_end(SDL_Surface *,unsigned);
 static void family_static_hud_release_texture(void);
 static void family_pixel(SDL_Surface *,Uint8 *,int),family_rect(SDL_Surface *,const SDL_Rect *);
 static void family_finish(MirrorOutputKind);
@@ -1149,6 +1151,7 @@ static void indicators_begin(void)
 }
 void render_mirror_hud_mode_drawn(SDL_Surface *surface,unsigned int mode)
 {
+ if(render_mirror_family_requested()){fdh_mode_drawn(surface,mode);return;}
  if(!indicator_gameplay)return;
  indicators_check_mode();if(!indicator_gameplay)return;
  if(surface!=VGAScreenSeg||(mode!=1&&mode!=2)) {
@@ -1324,6 +1327,7 @@ static void components_begin(void)
 
 void render_mirror_hud_shield_wiped(SDL_Surface *surface)
 {
+ if(render_mirror_family_requested()){fdh_shield_wiped(surface);return;}
  if(!component_gameplay)return;
  components_check_mode();
  if(!component_gameplay)return;
@@ -1335,6 +1339,7 @@ void render_mirror_hud_shield_wiped(SDL_Surface *surface)
 
 void render_mirror_hud_shield_drawn(SDL_Surface *surface,unsigned int shield,unsigned int maximum)
 {
+ if(render_mirror_family_requested()){fdh_shield_drawn(surface,shield,maximum);return;}
  if(!component_gameplay)return;
  components_check_mode();
  if(!component_gameplay)return;
@@ -1349,6 +1354,7 @@ void render_mirror_hud_shield_drawn(SDL_Surface *surface,unsigned int shield,uns
 /* Shared PIC3 lease, independent HUC1/HUM2 readiness and per-field history. */
 void render_mirror_hud_meter_begin(SDL_Surface *surface,SDL_Surface *draw_surface,unsigned int kind,unsigned int a,unsigned int b)
 {
+ if(render_mirror_family_requested()){fdh_meter_begin(surface,draw_surface,kind,a,b);return;}
  if(!component_gameplay||!hud_meters_ready())return;
  components_check_mode();if(!component_gameplay)return;
  unsigned bits=hud_meters_event_bits(kind);if(!bits)bits=HUD_METERS_ALL;
@@ -1358,6 +1364,7 @@ void render_mirror_hud_meter_begin(SDL_Surface *surface,SDL_Surface *draw_surfac
 }
 void render_mirror_hud_meter_end(SDL_Surface *surface,unsigned int kind)
 {
+ if(render_mirror_family_requested()){fdh_meter_end(surface,kind);return;}
  if(!component_gameplay||!hud_meters_ready())return;
  components_check_mode();if(!component_gameplay)return;
  unsigned bits=hud_meters_event_bits(kind);if(!bits)bits=HUD_METERS_ALL;

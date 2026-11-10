@@ -24,7 +24,11 @@ def main():
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--scale',type=int,choices=(2,4),default=2)
     parser.add_argument('--frames',type=int,choices=(240,540),default=540)
+    parser.add_argument('--dynamic-hud',action='store_true',help='Check the explicit source-verified dynamic HUD adapter')
+    parser.add_argument('--capture-frame',type=int,help='Save one private actual-Present BMP for visual review')
     args=parser.parse_args()
+    if args.capture_frame is not None and not 0<=args.capture_frame<args.frames:
+        parser.error('--capture-frame must be inside the requested run')
     data,out=args.data.resolve(),args.out.resolve()
     if not data.is_dir() or out.exists() or out==ROOT or ROOT in out.parents or out==data or data in out.parents or out in data.parents:
         raise ValueError('Require existing original data and a new separate output outside the checkout.')
@@ -40,7 +44,7 @@ def main():
     out.mkdir(mode=0o700)
     observer=ROOT/'tests/fixtures/native_level2_preview_observer.c';obj=out/'observer.o';exe=out/'native-preview-check'
     report={'status':'RUNNING','scope':__doc__,'source_digest':build['source_digest'],'native_binary_sha256':build['binary_sha256'],
-            'observer_sha256':sha(observer),'original_data_sha256':before,'scale':args.scale,'frames_requested':args.frames}
+            'observer_sha256':sha(observer),'original_data_sha256':before,'scale':args.scale,'frames_requested':args.frames,'dynamic_hud_requested':args.dynamic_hud,'capture_frame':args.capture_frame}
     receipt=out/'receipt.json'
     def save():receipt.write_text(json.dumps(report,indent=2)+'\n')
     save()
@@ -55,8 +59,11 @@ def main():
         launcher=importlib.util.module_from_spec(spec);spec.loader.exec_module(launcher)
         flags=['--data',str(data),'--binary',str(exe),'--profile',str(profile),'--hd','--public-candidates',
                '--terrain-fallback','--player-fallback','--tank-fallback','--static-hud']
+        if args.dynamic_hud:flags.append('--dynamic-hud')
         launch,env=launcher.build_plan(launcher.parser().parse_args(flags),os.environ)
         env.update(SDL_VIDEODRIVER='dummy',SDL_AUDIODRIVER='dummy',SDL_RENDER_DRIVER='software',NATIVE_PREVIEW_TEST_FRAMES=str(args.frames))
+        env.pop('NATIVE_PREVIEW_TEST_CAPTURE_FRAME',None)
+        if args.capture_frame is not None:env['NATIVE_PREVIEW_TEST_CAPTURE_FRAME']=str(args.capture_frame)
         command=[str(exe),'--level2-preview=asteroid2-v1','--data='+str(data),'--no-sound','--no-joystick','--no-xmas']
         report.update(argv=command,launch=launch,test_binary_sha256=sha(exe));save()
         with (out/'stdout.log').open('w') as stdout,(out/'stderr.log').open('w') as stderr:
@@ -73,8 +80,16 @@ def main():
             raise AssertionError('Native spawn invulnerability did not expire.')
         for field in ('family_presents','terrain_presents','player_presents','tank_presents'):
             if rows[-1][field]<=0:raise AssertionError('No actual display coverage for '+field)
-        if any(r['hud_owned']<20000 or r['hud_mismatches'] or r['native_hud_mismatches'] for r in rows):
+        if any(r['hud_owned']<20000 or r['hud_mismatches'] or r['native_hud_mismatches'] or r['dynamic_hud_mismatches'] for r in rows):
             raise AssertionError('Actual Present static/dynamic HUD verification failed.')
+        if args.dynamic_hud and not any(r['dynamic_hud_owned'] for r in rows):
+            raise AssertionError('Dynamic HUD requested but never contributed at actual Present.')
+        if not args.dynamic_hud and any(r['dynamic_hud_owned'] for r in rows):
+            raise AssertionError('Dynamic HUD contributed without explicit opt-in.')
+        if args.capture_frame is not None:
+            capture=out/'native-preview-capture.bmp'
+            if not capture.is_file():raise AssertionError('Requested actual-Present capture missing.')
+            report['capture_sha256']=sha(capture)
         if before!={p.name:sha(p) for p in data.iterdir() if p.is_file()}:raise AssertionError('Original data changed.')
         report.update(status='PASS_BOUNDED_NATIVE_ENTRY_SDL_EVENTS',frames=len(rows),physical_input_qualified=False,
                       single_session_abandon=True,source_units_modified_for_test=0,final=rows[-1])

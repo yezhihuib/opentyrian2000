@@ -30,10 +30,16 @@ PUBLIC_CANDIDATE_FLAGS = ("later_lamps", "later_embers", "later_triples", "fork2
 SMALLROCKS_SHA256 = {95: '3d099619cd2f520caaa3b0bb54457780bbc86cb74f1affd76d14794e8f9bf6d7', 114: '594d8d8ae896e2145bfbe269418bc7f3182cab4892e59aa8525822d96c1bbfbc', 133: '6365fe3258b918f3a3257b5a92963c917564cfdae5a045ea932995b0da293532', 152: '7c346971170ca612506af55d50c1c7cd2150830fa6ec2b0043caa6e8104c410b'}
 TANK194_ROOT = Path("assets/hd/artwork/type15-eightheading-smooth-contour-v2/output")
 TANK194_SHA256 = {91: 'e2c3aaa833db864ae73b4cd611305043ddcefd89dda19d22a1b1d5d577b2c29f', 45: '3a20918ae6fffb966c9fc857a04a9b75a5554c961e622f6f7851db2d871f8af5', 93: 'c816a59f906bbf63af3707d7b183c7be8c39136613f60c0a9f8b4423d2622164', 39: 'faa362385a6b7f67e7926df162d9b5df4df41aa492709562841e410fd77e2d6d', 43: '5874d9c67472bb9afa8e6be64480d33b0502ad4c035f8c985bb77ef7cfa00d66', 129: '0369d6e3fdbe602f8e5caa51fa3834a434a1abd28c267674d4b7aa98005e3e56', 41: '8d2f73e32e39be13e440ba8639f471ca1877dc476ac03b5ee60771741c2f515f', 131: '7590d16a0c2378bca3d2ffb66c0279ede2c73ffcbc61383e83d582cdd03ad904'}
-RANDOM_PROPS_SHA256 = {5: 'bc4fe34b0ce8f43351b37a7c7af9c57ac100e13697aa03fe48458112be16c322', 43: 'd32bab72c7e674a43aa35a548fbd192c3924a8de9aad142e6f00582458f9cda5', 85: '6ea525685fc9b898c4054b93bca8e1f64fce0c1914ed18b41727b9d1fe2a7935'}
+RANDOM_PROPS_SHA256 = {5: 'bc4fe34b0ce8f43351b37a7c7af9c57ac100e13697aa03fe48458112be16c322', 43: 'd32bab72c7e674a43aa35a548fbd192c3924a8de9aad142e6f00582458f9cda5', 85: '6ea525685fc9b898c4054b93bca8e1f64fce0c1914ed18b41727b9d1fe2a7935', 123: '9b715a874a8d8d12ff6849f5946787647072bfc0e6c2ca102e753fed48ca4fac'}
 PLAYER_SHIP_SHA256 = {229: '5cfa025cce0d662d0d92f1f1371cd0153910175a5956e4ed02ae7dc6fc3bafc7', 231: 'ec6c662bc5a8f596a0e8b1023530636b3cdf1a9b608382c7d8ee37337d9cfefb', 233: 'd1fe9bfe2dd84207fceb2f453c862eeaea802d9832fd14c1e1c3290622a53964', 235: '692b9a7cc8455798a1dda8a1dfe4aba10bb9872cacc790fd26ac5b246fa91350', 237: 'a375ba8f0cf276a2eb2e8be75165f96ea9b67edf37a6dca9f29fd8aef07bd7dc'}
 TANK_SHELL_ROOT = Path("assets/hd/current-compat/tank-shell")
 TANK_SHELL_SHA256 = {146: 'd7c88729cdc18e4fb90a4c46be89681e99b7cdcd43bb6421c639653355109afa', 147: 'fef0333704fd2afb69fc48a38555e2b892608d590054a9819064cf5cb7fecdbf'}
+DYNAMIC_HUD_PINS = {
+    "gameplay-hud-components-v1.hda": (38592, "c40c9ecf16a0d654876597195880deb484c17e36b1d1a17a9c1a241fb2b26d33"),
+    "gameplay-hud-meters-v2.hda": (621920, "3f8d9c35a3a9791d554a3c46f3431289c8ecd68b57419747ce3a40c225dafa4c"),
+    "gameplay-hud-indicators-v1.hda": (29072, "c7e5925631cfeecb28a09b547702824af55ef3d9b5abe83f568dcf4672638631"),
+    "gameplay-hud-fixed-text-v1.hda": (23744, "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745"),
+}
 CONTROL_NAMES = {"TYRIAN_CYAN_BORROW_TRACE"}
 HD_ENABLE_KEYS = (
     "BUILDING313_FAMILY_OBSERVER_ENABLE",
@@ -188,6 +194,15 @@ def build_plan(args, inherited=None, root=ROOT):
         if hud.stat().st_size != 4160064 or hashlib.sha256(hud.read_bytes()).hexdigest() != "98cd6cfefa02a9ae79b75a65e02dd2566d3dec1492552f20b042b3c61c19cd17":
             raise ValueError("Changed static HUD asset: " + hud.name)
         family["BUILDING313_FAMILY_HUD_ENABLE"] = "1"
+    dynamic_hud = bool(getattr(args, "dynamic_hud", False))
+    if dynamic_hud:
+        if not (args.hd and static_hud):
+            raise ValueError("--dynamic-hud requires --hd --static-hud")
+        for name, (size, digest) in DYNAMIC_HUD_PINS.items():
+            resource = root / "assets/hd/shared-ui-v1" / name
+            if not resource.is_file() or resource.stat().st_size != size or hashlib.sha256(resource.read_bytes()).hexdigest() != digest:
+                raise ValueError("Changed dynamic HUD asset: " + name)
+        family["BUILDING313_FAMILY_DYNAMIC_HUD_ENABLE"] = "1"
     # Boundary candidates are deliberately excluded from the public preset.
     for option, control in (("lamp_top_clip", "LAMP272_TOP_CLIP_ENABLE"),
                             ("lamp_bottom_clip", "LAMP272_BOTTOM_CLIP_ENABLE")):
@@ -312,6 +327,8 @@ def build_plan(args, inherited=None, root=ROOT):
         "assets_sha256_verified": checked,
         "public_candidates_enabled": bool(public_candidates),
         "static_hud_enabled": static_hud,
+        "dynamic_hud_enabled": dynamic_hud,
+        "dynamic_hud_assets_sha256_verified": len(DYNAMIC_HUD_PINS) if dynamic_hud else 0,
         "terrain_fallback_enabled": terrain_fallback,
         "player_fallback_enabled": player_fallback,
         "tank_fallback_enabled": tank_fallback,
@@ -341,7 +358,7 @@ def build_plan(args, inherited=None, root=ROOT):
         "player_ship_invulnerable_enabled": player_invulnerable,
         "player_ship_assets_sha256_verified": 5 if public_candidates else 0,
         "random_props_enabled": bool(public_candidates),
-        "random_props_assets_sha256_verified": 3 if public_candidates else 0,
+        "random_props_assets_sha256_verified": 4 if public_candidates else 0,
         "smallrocks_enabled": bool(public_candidates),
         "smallrocks_assets_sha256_verified": 4 if public_candidates else 0,
         "lamp_top_clip_enabled": bool(getattr(args, "lamp_top_clip", False)),
@@ -367,6 +384,7 @@ def parser():
     result.add_argument("--player-fallback", action="store_true", help="Keep a separately validated normal player ship on terrain fallback; requires --hd --public-candidates --terrain-fallback")
     result.add_argument("--tank-fallback", action="store_true", help="Keep separately witnessed normal tanks on terrain fallback; requires --hd --public-candidates --terrain-fallback")
     result.add_argument("--static-hud", action="store_true", help="Opt in to the existing HD static border only; requires --hd; text and gauges stay native")
+    result.add_argument("--dynamic-hud", action="store_true", help="Opt in to source-verified HD labels, gauges, mode indicators and fixed text; requires --hd --static-hud; dynamic glyph text remains native")
     result.add_argument("--redvent-pair", help="Opt-in private 339/348 candidate directory; requires --hd and matching assets; not gameplay-validated")
     result.add_argument("--lamp-top-clip", action="store_true", help="Opt in to bounded lamp top-edge writes; requires --hd; only one visible sample qualified")
     result.add_argument("--lamp-bottom-clip", action="store_true", help="Opt in to bounded lamp bottom-edge writes; requires --hd; real scene unverified")

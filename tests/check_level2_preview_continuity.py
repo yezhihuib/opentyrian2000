@@ -67,10 +67,13 @@ def main(argv=None):
     parser.add_argument('--build-receipt', type=Path, help='Explicit immutable historical build snapshot; default checks current source')
     parser.add_argument('--terrain-fallback', action='store_true')
     parser.add_argument('--static-hud', action='store_true')
+    parser.add_argument('--dynamic-hud', action='store_true')
     parser.add_argument('--scale', type=int, choices=(2, 4), default=2)
     parser.add_argument('--capture-start', type=int, default=298)
     parser.add_argument('--capture-count', type=int, default=12)
     args = parser.parse_args(argv)
+    if args.dynamic_hud and not args.static_hud:
+        parser.error('--dynamic-hud requires --static-hud')
     data, out = args.data.resolve(), args.out.resolve()
     if out.exists() or out == ROOT or ROOT in out.parents:
         parser.error('Use a fresh output directory outside the repository.')
@@ -112,7 +115,7 @@ def main(argv=None):
                'original_data_sha256': before, 'capture': [args.capture_start, args.capture_count],
                'wrapper_sha256': sha(ROOT/'tests/fixtures/level2_preview_observer.c'),
                'build_receipt': str(stage/'BUILD.json'), 'historical_snapshot': bool(args.build_receipt),
-               'terrain_fallback': args.terrain_fallback, 'static_hud': args.static_hud}
+               'terrain_fallback': args.terrain_fallback, 'static_hud': args.static_hud, 'dynamic_hud': args.dynamic_hud}
     def save():
         (out/'receipt.json').write_text(json.dumps(receipt, indent=2)+'\n')
     save()
@@ -150,6 +153,12 @@ def main(argv=None):
             if hud.stat().st_size != 4160064 or sha(hud) != '98cd6cfefa02a9ae79b75a65e02dd2566d3dec1492552f20b042b3c61c19cd17':
                 raise ValueError('Changed static HUD asset.')
             env['BUILDING313_FAMILY_HUD_ENABLE'] = '1'
+        if args.dynamic_hud:
+            for name, (size, digest) in launcher.DYNAMIC_HUD_PINS.items():
+                asset = ROOT/'assets/hd/shared-ui-v1'/name
+                if asset.stat().st_size != size or sha(asset) != digest:
+                    raise ValueError('Changed dynamic HUD asset: ' + name)
+            env['BUILDING313_FAMILY_DYNAMIC_HUD_ENABLE'] = '1'
         command = [str(exe), '--data='+str(data), '--no-sound', '--no-joystick', '--no-xmas',
                    *preview.PREVIEW_ARGS[:-1], '--asset-debug-capture', '--asset-debug-window-only',
                    f'--asset-debug-capture-start={args.capture_start}', f'--asset-debug-capture-count={args.capture_count}']

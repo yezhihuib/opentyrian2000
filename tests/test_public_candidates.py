@@ -24,7 +24,7 @@ class PublicCandidateTests(unittest.TestCase):
             plan,env=launcher.build_plan(args,{'LATE_ACTORS_ASSET_DIR':'bad','GAME_PROBE_ENABLE':'1','NORMAL270_ASSET_DIR':'bad','UNRELATED':'kept'})
             self.assertEqual(vars(args),original);self.assertEqual(plan['status'],'CHECK_ONLY');self.assertFalse(plan['game_started']);self.assertFalse(plan['profile_created'])
             self.assertEqual(env['UNRELATED'],'kept');self.assertNotIn('GAME_PROBE_ENABLE',env)
-            self.assertTrue(plan['player_ship_normal_enabled']);self.assertEqual(plan['player_ship_assets_sha256_verified'],5);self.assertEqual(env['PLAYER_SHIP_FAMILY_ENABLE'],'1');self.assertTrue(plan['random_props_enabled']);self.assertEqual(plan['random_props_assets_sha256_verified'],3);self.assertEqual(env['RANDOM_PROPS_ENABLE'],'1');self.assertTrue(plan['smallrocks_enabled']);self.assertEqual(plan['smallrocks_assets_sha256_verified'],4);self.assertEqual(env['SMALLROCKS_ENABLE'],'1');self.assertTrue(plan['later_longface_groups_enabled']);self.assertEqual(env['LONGFACE573_LATER230240_ENABLE'],'1');self.assertEqual(plan['normal270_assets_sha256_verified'],3);self.assertEqual(len(plan['public_candidate_flags']),9)
+            self.assertTrue(plan['player_ship_normal_enabled']);self.assertEqual(plan['player_ship_assets_sha256_verified'],5);self.assertEqual(env['PLAYER_SHIP_FAMILY_ENABLE'],'1');self.assertTrue(plan['random_props_enabled']);self.assertEqual(plan['random_props_assets_sha256_verified'],4);self.assertEqual(env['RANDOM_PROPS_ENABLE'],'1');self.assertTrue(plan['smallrocks_enabled']);self.assertEqual(plan['smallrocks_assets_sha256_verified'],4);self.assertEqual(env['SMALLROCKS_ENABLE'],'1');self.assertTrue(plan['later_longface_groups_enabled']);self.assertEqual(env['LONGFACE573_LATER230240_ENABLE'],'1');self.assertEqual(plan['normal270_assets_sha256_verified'],3);self.assertEqual(len(plan['public_candidate_flags']),9)
             for flag in launcher.PUBLIC_CANDIDATE_FLAGS:
                 key={'linked_props':'linked_props','later_triples':'later_triples','later_embers':'later_embers','later_lamps':'later_lamps'}.get(flag,flag)+'_enabled'
                 self.assertTrue(plan[key])
@@ -106,7 +106,7 @@ class PublicCandidateTests(unittest.TestCase):
             real=Path.read_bytes
             def corrupt(path):
                 raw=real(path)
-                return raw[:-1]+bytes([raw[-1]^1]) if path.name=='enemy-newshd-5-8.hda' else raw
+                return raw[:-1]+bytes([raw[-1]^1]) if path.name=='enemy-newshd-123-8.hda' else raw
             with patch.object(Path,'read_bytes',corrupt),self.assertRaisesRegex(ValueError,'Changed random props'):
                 launcher.build_plan(args,{})
 

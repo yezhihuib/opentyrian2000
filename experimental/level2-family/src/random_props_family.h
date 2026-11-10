@@ -25,7 +25,7 @@ typedef struct {
  uint64_t frame,blend_retirements,normal_retirements,shadow_writes;
  uint64_t clipped,unwitnessed,lifetime_losses,bank_losses,contract_faults;
  unsigned first_reason,material_mask,witnessed_records,active_slot,active_part,surviving_cells,shadowed_cells;
- uint64_t witnessed_count[6]; /* record order135,136,260,261,263,265. */
+ uint64_t witnessed_count[8]; /* record order135,136,260,261,263,265,266,268. */
  RandomPropsBirth births[25]; /* pool slots0..24; historical witnesses survive retirement. */
  RandomPropsDraw draw[25];
 } RandomPropsFamilyStatus;

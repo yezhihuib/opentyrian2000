@@ -1,10 +1,10 @@
 /* SPDX-License-Identifier: GPL-2.0-or-later
- * Private, default OFF, three sparse four-part native-callback materials. This adapter writes
+ * Private, default OFF, four sparse four-part native-callback materials. This adapter writes
  * only renderer sidecars and RGB canvas. No gameplay/RNG/event writes.
  * RANDOM_PROPS_ENABLE=1 plus RANDOM_PROPS_ASSET_DIR explicitly opts in. It cannot
  * admit a frame: only the existing actor or surviving terrain lease can.
- * Types135/136,260/261,263/265; every exact witnessed random lifetime,
- * never a scene/frame allowlist. No sibling137/262/264 or base123 admission.
+ * Types135/136,260/261,263/265,266/268; every exact witnessed random lifetime,
+ * never a scene/frame allowlist. No sibling137/262/264 or sibling267 admission.
  */
 #include "random_props_native.inc"
 /* Existing engine-owned table, inspected read-only. */
@@ -14,15 +14,15 @@ static struct {uint64_t generation,epoch,token,witness;bool exhausted,pending,in
  unsigned record;RandomPropsBirth birth;Sprite2_array *bank;const Uint8 *data;size_t bytes;} rp_slots[100];
 static struct {uint64_t epoch,serial;bool exhausted,loaded;char root[1024];
  struct {bool live;uint64_t token,epoch,generation;unsigned record;int slot;} call;} rp_life;
-static struct {bool checked,valid;char root[1024];Asset member[3];} rp_resources;
+static struct {bool checked,valid;char root[1024];Asset member[4];} rp_resources;
 static struct {bool contributed,fault,active,pending,accepted;unsigned slot,image,part,pixels,used;
  RandomPropsDraw draw[25];RandomPropsWrite writes[25][672];} rp_frame;
 static unsigned rp_witnessed_records;
-static uint64_t rp_witnessed_count[6];
+static uint64_t rp_witnessed_count[8];
 static bool rp_resources_current(void);
 static int rp_record_index(unsigned record)
 {
- for(unsigned i=0;i<6;i++)if(rp_records[i].record==record)return (int)i;
+ for(unsigned i=0;i<8;i++)if(rp_records[i].record==record)return (int)i;
  return -1;
 }
 static uint8_t rp_owned[64000],rp_shadows[64000];
@@ -97,7 +97,7 @@ static bool rp_source(Sprite2_array *bank)
  bool bound=false;
  for(unsigned i=0;i<4;i++)if(enemySpriteSheetIds[i]==8&&bank==enemySpriteSheets+i)bound=true;
  if(!bound||asteroid1_stamp(bank->data,bank->size)!=UINT64_C(0x913975450e0fc00d))return false;
- for(unsigned i=0;i<6;i++)if(asteroid1_record_stamp(rp_records[i].record)!=rp_records[i].stamp)return false;
+ for(unsigned i=0;i<8;i++)if(asteroid1_record_stamp(rp_records[i].record)!=rp_records[i].stamp)return false;
  return true;
 }
 static bool rp_colors(void)
@@ -219,7 +219,7 @@ static bool rp_material_load(unsigned k)
 static bool rp_resources_current(void)
 {
  if(!rp_resources.checked||!rp_resources.valid||strcmp(rp_resources.root,rp_root()))return false;
- for(unsigned i=0;i<3;i++){const Asset *a=rp_resources.member+i;
+ for(unsigned i=0;i<4;i++){const Asset *a=rp_resources.member+i;
   if(!a->initialized||!a->valid||a->bank!=ASSET_ASTEROID1||a->index!=(int)rp_images[i].base||
   a->w!=24||a->h!=28||a->anchor_x||a->anchor_y||a->density!=8||!a->rgba||
   asteroid1_stamp(a->rgba,172032)!=rp_images[i].rgba)return false;
@@ -229,13 +229,13 @@ static bool rp_ready(void)
 {
  if(!rp_scope()||game_probe_missing||game_probe_invalid||game_probe_original_reference)return false;
  if(!rp_resources.checked){rp_resources.checked=true;rp_resources.valid=true;strcpy(rp_resources.root,rp_life.root);
- for(unsigned i=0;i<3;i++)if(!rp_material_load(i))rp_resources.valid=false;}
+ for(unsigned i=0;i<4;i++)if(!rp_material_load(i))rp_resources.valid=false;}
  if(!rp_resources_current()){rp_resources.valid=false;return false;}return true;
 }
 static void rp_shutdown(void)
 {
  rp_reset();rp_life.loaded=false;
- for(unsigned i=0;i<3;i++)free(rp_resources.member[i].rgba);
+ for(unsigned i=0;i<4;i++)free(rp_resources.member[i].rgba);
  memset(&rp_resources,0,sizeof rp_resources);
 }
 static bool rp_dependencies(bool partial)

@@ -92,6 +92,9 @@ static void verify_native_target(SDL_Surface *target,int scale)
 }
 int main(int argc,char **argv)
 {
+ /* Exercise disabled callback routing too: it must never acquire a lease. */
+ fdh_mode_drawn(NULL,1);fdh_shield_wiped(NULL);fdh_shield_drawn(NULL,0,0);
+ fdh_meter_begin(NULL,NULL,HUD_WRITE_FRONT,1,0);fdh_meter_end(NULL,HUD_WRITE_FRONT);
  CHECK(argc==2);load_original();CHECK(SDL_Init(SDL_INIT_VIDEO)==0);
  VGAScreenSeg=SDL_CreateRGBSurfaceWithFormat(0,320,200,8,SDL_PIXELFORMAT_INDEX8);
  output=SDL_CreateRGBSurfaceWithFormat(0,2560,1600,32,SDL_PIXELFORMAT_ARGB8888);

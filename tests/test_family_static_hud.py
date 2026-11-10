@@ -21,9 +21,14 @@ def main():
     ap.add_argument('--data',type=Path,required=True)
     ap.add_argument('--receipt',type=Path)
     ap.add_argument('--sanitize',action='store_true')
+    ap.add_argument('--dynamic',action='store_true',help='Exercise the independent dynamic HUD adapter')
     a=ap.parse_args()
     overlay=ROOT/'experimental/level2-family/src'
-    paths=[overlay/'family_static_hud_mirror.inc',overlay/'render_mirror.c',overlay/'b313_family_canvas_mirror.inc',ROOT/'src/gameplay_hud.c',ROOT/'src/gameplay_hud.h',ROOT/'tests/family_static_hud_test.c']
+    paths=[overlay/'family_static_hud_mirror.inc',overlay/'family_dynamic_hud_mirror.inc',overlay/'render_mirror.c',overlay/'b313_family_canvas_mirror.inc',ROOT/'src/gameplay_hud.c',ROOT/'src/gameplay_hud.h',ROOT/'tests/family_static_hud_test.c']
+    paths += [ROOT/'src'/('gameplay_hud'+suffix+extension)
+              for suffix in ('_components','_meters','_indicators','_fixed_text')
+              for extension in ('.c','.h')]
+    if a.dynamic:paths.append(ROOT/'tests/family_dynamic_hud_test.c')
     pins={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
     src=(overlay/'render_mirror.c').read_text()
     canvas=(overlay/'b313_family_canvas_mirror.inc').read_text()
@@ -39,13 +44,16 @@ def main():
         exe=temp/'test'
         cmd=shlex.split(os.environ.get('CC','cc'))+['-std=c99','-O1','-g','-Wall','-Wextra','-Werror','-I'+str(temp),'-I'+str(overlay),'-I'+str(ROOT/'src')]+flags
         if a.sanitize:cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer','-no-pie']
-        cmd+=[str(ROOT/'tests/family_static_hud_test.c'),str(ROOT/'src/gameplay_hud.c'),'-o',str(exe)]+libs
+        cmd+=[str(ROOT/'tests'/('family_dynamic_hud_test.c' if a.dynamic else 'family_static_hud_test.c')),*[str(ROOT/'src'/('gameplay_hud'+suffix+'.c')) for suffix in ('','_components','_meters','_indicators','_fixed_text')],'-o',str(exe)]+libs
         subprocess.run(cmd,check=True)
         raw=original_payload(a.data.resolve())
         for case in ('valid','missing','corrupt'):
             work=temp/case;resource=work/'assets/hd/shared-ui-v1';resource.mkdir(parents=True)
-            if case=='valid':(resource/'gameplay-hud-v1.hda').symlink_to(ROOT/'assets/hd/shared-ui-v1/gameplay-hud-v1.hda')
-            if case=='corrupt':(resource/'gameplay-hud-v1.hda').write_bytes(b'invalid')
+            names=[p.name for p in (ROOT/'assets/hd/shared-ui-v1').glob('*.hda')] if a.dynamic else ['gameplay-hud-v1.hda']
+            for name in names:
+                if case=='valid' or (a.dynamic and name=='gameplay-hud-v1.hda'):
+                    (resource/name).symlink_to(ROOT/'assets/hd/shared-ui-v1'/name)
+                elif case=='corrupt':(resource/name).write_bytes(b'invalid')
             result=subprocess.run([str(exe),case],cwd=work,input=raw,capture_output=True,env={**os.environ,'SDL_VIDEODRIVER':'dummy','ASAN_OPTIONS':'detect_leaks=0:halt_on_error=1','UBSAN_OPTIONS':'halt_on_error=1'})
             print(result.stdout.decode(),end='');print(result.stderr.decode(),end='')
             results.append({'case':case,'returncode':result.returncode,'stdout':result.stdout.decode(),'stderr':result.stderr.decode()})
