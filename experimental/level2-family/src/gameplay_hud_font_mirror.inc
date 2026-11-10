@@ -207,6 +207,7 @@ void render_mirror_text_warning_begin(SDL_Surface *surface,int value)
 {font_scene_begin(surface,2,140,178,"WARNING",7,value,false);}
 void render_mirror_text_glyph_begin(SDL_Surface *surface,int x,int y,unsigned table,unsigned id,bool black,unsigned hue,int value)
 {
+ if(render_mirror_family_requested()){fhf_glyph_begin(surface,x,y,table,id,black,hue,value);return;}
  if(font_context<0)return;
  FontScene *r=font_scenes+font_context;
  if(font_glyph_active||font_command_next>=font_command_count||surface!=r->surface||!font_scene_source(r)){font_strip_scene((unsigned)font_context);return;}
@@ -222,7 +223,7 @@ void render_mirror_text_glyph_begin(SDL_Surface *surface,int x,int y,unsigned ta
   font_owner[k]=1;hd_owner[n]=1;cloud_owner[n]=0;green_first[n]=0;selected[(py/d)*320+px/d]=1;
  }
 }
-void render_mirror_text_glyph_end(void){font_glyph_active=false;}
+void render_mirror_text_glyph_end(void){if(render_mirror_family_requested()){fhf_glyph_end();return;}font_glyph_active=false;}
 void render_mirror_text_end(void)
 {
  if(font_context>=0){if(font_glyph_active||font_command_next!=font_command_count)font_strip_scene((unsigned)font_context);font_context=-1;}
@@ -414,6 +415,7 @@ static bool font_ptext(unsigned which,const char *text)
 }
 void render_mirror_text_level_begin(SDL_Surface *surface,const char *text)
 {
+ if(render_mirror_family_requested()){fhf_level_begin(surface,text);return;}
  if(!font_gameplay)return;
  FontPersistent *p=font_persistent;
  font_clear_cached(1);
@@ -424,6 +426,7 @@ void render_mirror_text_level_begin(SDL_Surface *surface,const char *text)
 }
 void render_mirror_text_level_end(void)
 {
+ if(render_mirror_family_requested()){fhf_run_end(0);return;}
  FontPersistent *p=font_persistent;if(!font_gameplay||!p->inflight)return;p->inflight=false;
  if(!font_source_matches()){p->poison=true;return;}font_copy_indices(0,font_post);p->valid=true;p->blank=false;
 }
@@ -440,6 +443,7 @@ static bool font_message_erase_matches(bool completed)
 }
 void render_mirror_text_message_begin(const char *text,bool will_erase)
 {
+ if(render_mirror_family_requested()){fhf_message_begin(text,will_erase);return;}
  if(!font_gameplay)return;
  FontPersistent *p=font_persistent+1;font_clear_cached(2);
  p->valid=p->inflight=false;p->expect_erase=will_erase;
@@ -448,22 +452,26 @@ void render_mirror_text_message_begin(const char *text,bool will_erase)
 }
 void render_mirror_text_message_backdrop(void)
 {
+ if(render_mirror_family_requested()){fhf_message_backdrop();return;}
  FontPersistent *p=font_persistent+1;if(!font_gameplay||!p->inflight)return;
  if(!font_source_matches()||(p->expect_erase&&!font_message_erase_matches(true))){p->inflight=false;p->poison=true;return;}
  font_copy_indices(1,font_pre);
 }
 void render_mirror_text_message_end(void)
 {
+ if(render_mirror_family_requested()){fhf_run_end(1);return;}
  FontPersistent *p=font_persistent+1;if(!font_gameplay||!p->inflight)return;p->inflight=false;
  if(!font_source_matches()){p->poison=true;return;}font_copy_indices(1,font_post);p->valid=true;
 }
 void render_mirror_text_message_erase_begin(void)
 {
+ if(render_mirror_family_requested()){fhf_message_erase_begin();return;}
  if(!font_gameplay)return;
  font_clear_cached(2);font_persistent[1].valid=font_persistent[1].inflight=false;font_persistent[1].blank=false;
 }
 void render_mirror_text_message_erased(bool help_prompt)
 {
+ if(render_mirror_family_requested()){fhf_message_erased(help_prompt);return;}
  if(!font_gameplay||!font_source_matches())return;
  if(!font_message_erase_matches(true)){font_persistent[1].poison=true;return;}
  font_copy_indices(1,font_pre);font_persistent[1].blank=!help_prompt;
