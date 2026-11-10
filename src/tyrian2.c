@@ -768,6 +768,13 @@ start_level:
 		}
 	}
 
+	/* Keep native termination and cleanup, but do not enter score/shop/retry flows. */
+	if (level2_preview_requested)
+	{
+		printf("Native ASTEROID2 preview session ended.\n");
+		return;
+	}
+
 	difficultyLevel = oldDifficultyLevel;   /*Return difficulty to normal*/
 
 	if (!play_demo)
@@ -820,6 +827,14 @@ start_level_first:
 	doNotSaveBackup = false;
 	common_pause_snapshot_reset();render_mirror_global_reset();render_mirror_hud_reset();
 	JE_loadMap();
+	if (level2_preview_requested &&
+	    (episodeNum != 1 || lvlFileNum != 2 || mainLevel != 6 ||
+	     strncmp(levelName, "ASTEROID2", 9) != 0))
+	{
+		fprintf(stderr, "Level 2 preview did not resolve to native ASTEROID2\n");
+		JE_tyrianHalt(2);
+	}
+
 
 	if (mainLevel == 0)  // if quit itemscreen
 		return;          // back to titlescreen

@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
-#ifdef _MSC_VER
+#ifdef _WIN32
 #include <io.h>
 #else
 #include <fcntl.h>
@@ -112,7 +112,7 @@ static unsigned char *read_resource(const char *root, const char *name, size_t l
 {
     char path[4096];
     if (!root || snprintf(path,sizeof(path),"%s/%s",root,name)>=(int)sizeof(path)) return NULL;
-#ifdef _MSC_VER
+#ifdef _WIN32
     struct _stat before;
     if (_stat(path,&before) || !(before.st_mode & _S_IFREG)) return NULL;
     FILE *f=fopen(path,"rb");
@@ -126,7 +126,7 @@ static unsigned char *read_resource(const char *root, const char *name, size_t l
     if (!f) close(fd);
 #endif
     if (!f) return NULL;
-#ifdef _MSC_VER
+#ifdef _WIN32
     struct _stat info;
     if (_fstat(_fileno(f),&info) || !(info.st_mode & _S_IFREG)) { fclose(f); return NULL; }
 #else

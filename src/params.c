@@ -46,6 +46,42 @@
 
 JE_boolean richMode = false, constantPlay = false, constantDie = false;
 
+bool level2_preview_requested = false;
+
+void level2_preview_parse(int *argc, char *argv[])
+{
+	/* Inspect untouched arguments before the diagnostic parsers consume them. */
+	bool diagnostic = false;
+	int out = 1;
+	for (int i = 1; i < *argc; ++i)
+	{
+		if (strncmp(argv[i], "--level2-preview", 16) == 0)
+		{
+			if (level2_preview_requested || strcmp(argv[i], "--level2-preview=asteroid2-v1") != 0)
+			{
+				fprintf(stderr, "Use exactly one --level2-preview=asteroid2-v1\n");
+				exit(2);
+			}
+			level2_preview_requested = true;
+			continue;
+		}
+		if (strncmp(argv[i], "--render-", 9) == 0 ||
+		    strncmp(argv[i], "--asset-debug", 13) == 0 ||
+		    strncmp(argv[i], "--enemy-reuse", 13) == 0 ||
+		    strncmp(argv[i], "--manual-hd-assets", 18) == 0 ||
+		    strncmp(argv[i], "--asteroid-hd-assets", 20) == 0)
+			diagnostic = true;
+		argv[out++] = argv[i];
+	}
+	if (level2_preview_requested && diagnostic)
+	{
+		fprintf(stderr, "Level 2 preview cannot be combined with diagnostic or other direct HD modes\n");
+		exit(2);
+	}
+	argv[out] = NULL;
+	*argc = out;
+}
+
 /* YKS: Note: LOOT cheat had non letters removed. */
 const char pars[][9] = {
 	"LOOT", "RECORD", "NOJOY", "CONSTANT", "DEATH", "NOSOUND", "NOXMAS", "YESXMAS"
@@ -109,6 +145,8 @@ void JE_paramCheck(int argc, char *argv[])
 			       "  -s, --no-sound               Disable audio\n"
 			       "  -j, --no-joystick            Disable joystick/gamepad input\n"
 			       "  -x, --no-xmas                Disable Christmas mode\n\n"
+			       "  --level2-preview=asteroid2-v1  Native single ASTEROID2 session; keyboard controls\n"
+			       "                                 No shop/next level; incomplete HD coverage\n"
 			       "  -t, --data=DIR               Set Tyrian data directory\n"
 			       "  --music-dir=DIR             Optional MP3 replacements: track01.mp3, track02.mp3, ...\n"
 			       "  --data-text-assets=DIR      Optional Data-only Chinese text and font resources\n"

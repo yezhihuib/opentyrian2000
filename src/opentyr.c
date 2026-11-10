@@ -804,8 +804,23 @@ int main(int argc, char *argv[])
 	// Tyrian 2000 requires help text to be loaded before the configuration,
 	// because the default high score names are stored in help text
 
+	level2_preview_parse(&argc, argv);
 	game_probe_parse(&argc, argv);
 	JE_paramCheck(argc, argv);
+	if (level2_preview_requested)
+	{
+		if (isNetworkGame || game_probe_enabled || asset_debug_enabled ||
+		    enemy_reuse_observe_requested() || record_demo || constantPlay ||
+		    constantDie || richMode || (override_xmas && xmas))
+		{
+			fprintf(stderr, "Level 2 preview is local normal play only; no network, demo, diagnostics, cheats or Christmas mode\n");
+			SDL_Quit();
+			return 2;
+		}
+		/* The preview uses the original non-seasonal Episode 1 materials. */
+		override_xmas = true;
+		xmas = false;
+	}
 	if (enemy_reuse_observe_requested() && (isNetworkGame || record_demo || constantPlay || constantDie || richMode))
 	{
 		fprintf(stderr, "Enemy reuse observation cannot be combined with network, record, constant, death or loot modes\n");
@@ -902,6 +917,26 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "OpenTyrian was compiled without networking support.");
 		JE_tyrianHalt(5);
 #endif
+	}
+
+	if (level2_preview_requested)
+	{
+		/* Normal native initialization and loader, not game_probe_start(). */
+		JE_initEpisode(1);
+		JE_initPlayerData();
+		mainLevel = 6;  /* Episode 1 script section for ASTEROID2 / level file 2. */
+		initial_episode_num = 1;
+		difficultyLevel = DIFFICULTY_NORMAL;
+		initialDifficulty = DIFFICULTY_NORMAL;
+		inputDevice[0] = 1;  /* Physical keyboard; never substitute scripted input. */
+		play_demo = false;
+		stopped_demo = false;
+		gameLoaded = false;
+		jumpSection = false;
+		printf("Native ASTEROID2 preview: normal keyboard controls; no tick limit.\n"
+		       "Single-level session only; partial HD artwork, not full-level qualification.\n");
+		JE_main();
+		JE_tyrianHalt(0);
 	}
 
 #ifdef NDEBUG

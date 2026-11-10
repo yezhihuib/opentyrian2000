@@ -23,6 +23,10 @@
 
 extern JE_boolean richMode, constantPlay, constantDie;
 
+/* Direct native single-session preview; never enables a render/probe mode. */
+extern bool level2_preview_requested;
+void level2_preview_parse(int *argc, char *argv[]);
+
 void JE_paramCheck(int argc, char *argv[]);
 
 #endif /* PARAMS_H */
