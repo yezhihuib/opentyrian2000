@@ -63,7 +63,7 @@ def audit(root=ROOT):
         path = Path("assets/hd/shared-ui-v1") / name
         entries.append({"category": "hud", "file": str(path),
                         "resource": inspect_file(root / path),
-                        "family_integration": "guarded-static-border" if name == HUD_NAMES[0] else "not-wired" if name == "gameplay-hud-font-v1.hda" else "guarded-dynamic-hud-adapter",
+                        "family_integration": "guarded-static-border" if name == HUD_NAMES[0] else "guarded-persistent-font-only" if name == "gameplay-hud-font-v1.hda" else "guarded-dynamic-hud-adapter",
                         "level2_required": "gameplay-hud"})
     # These two resources are actually referenced by the family weapon adapter,
     # not inferred from similarly named legacy projectile art.
