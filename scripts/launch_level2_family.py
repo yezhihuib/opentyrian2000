@@ -41,6 +41,7 @@ DYNAMIC_HUD_PINS = {
     "gameplay-hud-fixed-text-v1.hda": (23744, "6d096f31085b22fb381761d3c8460bd06956c2bd039a1e0cc97481bc09819745"),
 }
 CONTROL_NAMES = {"TYRIAN_CYAN_BORROW_TRACE"}
+HUD_FONT_PIN = (163952, "3c328c1537cf1e09529ae8805e98a8deb57a859ea80ba269cfea0b55cfae539e")
 HD_ENABLE_KEYS = (
     "BUILDING313_FAMILY_OBSERVER_ENABLE",
     "BUILDING313_FAMILY_CANVAS_ENABLE",
@@ -203,6 +204,15 @@ def build_plan(args, inherited=None, root=ROOT):
             if not resource.is_file() or resource.stat().st_size != size or hashlib.sha256(resource.read_bytes()).hexdigest() != digest:
                 raise ValueError("Changed dynamic HUD asset: " + name)
         family["BUILDING313_FAMILY_DYNAMIC_HUD_ENABLE"] = "1"
+    hud_font = bool(getattr(args, "hud_font", False))
+    if hud_font:
+        if not (args.hd and static_hud):
+            raise ValueError("--hud-font requires --hd --static-hud")
+        resource = root / "assets/hd/shared-ui-v1/gameplay-hud-font-v1.hda"
+        size, digest = HUD_FONT_PIN
+        if not resource.is_file() or resource.stat().st_size != size or hashlib.sha256(resource.read_bytes()).hexdigest() != digest:
+            raise ValueError("Changed HUD font asset: " + resource.name)
+        family["BUILDING313_FAMILY_FONT_ENABLE"] = "1"
     # Boundary candidates are deliberately excluded from the public preset.
     for option, control in (("lamp_top_clip", "LAMP272_TOP_CLIP_ENABLE"),
                             ("lamp_bottom_clip", "LAMP272_BOTTOM_CLIP_ENABLE")):
@@ -329,6 +339,8 @@ def build_plan(args, inherited=None, root=ROOT):
         "static_hud_enabled": static_hud,
         "dynamic_hud_enabled": dynamic_hud,
         "dynamic_hud_assets_sha256_verified": len(DYNAMIC_HUD_PINS) if dynamic_hud else 0,
+        "hud_font_enabled": hud_font,
+        "hud_font_assets_sha256_verified": 1 if hud_font else 0,
         "terrain_fallback_enabled": terrain_fallback,
         "player_fallback_enabled": player_fallback,
         "tank_fallback_enabled": tank_fallback,
@@ -385,6 +397,7 @@ def parser():
     result.add_argument("--tank-fallback", action="store_true", help="Keep separately witnessed normal tanks on terrain fallback; requires --hd --public-candidates --terrain-fallback")
     result.add_argument("--static-hud", action="store_true", help="Opt in to the existing HD static border only; requires --hd; text and gauges stay native")
     result.add_argument("--dynamic-hud", action="store_true", help="Opt in to source-verified HD labels, gauges, mode indicators and fixed text; requires --hd --static-hud; dynamic glyph text remains native")
+    result.add_argument("--hud-font", action="store_true", help="Opt in to witnessed HD level/message glyphs; requires --hd --static-hud; scene score/timer/WARNING remain native")
     result.add_argument("--redvent-pair", help="Opt-in private 339/348 candidate directory; requires --hd and matching assets; not gameplay-validated")
     result.add_argument("--lamp-top-clip", action="store_true", help="Opt in to bounded lamp top-edge writes; requires --hd; only one visible sample qualified")
     result.add_argument("--lamp-bottom-clip", action="store_true", help="Opt in to bounded lamp bottom-edge writes; requires --hd; real scene unverified")
