@@ -24,9 +24,9 @@ def main():
     ap.add_argument('--dynamic',action='store_true',help='Exercise the independent dynamic HUD adapter')
     a=ap.parse_args()
     overlay=ROOT/'experimental/level2-family/src'
-    paths=[overlay/'family_static_hud_mirror.inc',overlay/'family_dynamic_hud_mirror.inc',overlay/'render_mirror.c',overlay/'b313_family_canvas_mirror.inc',ROOT/'src/gameplay_hud.c',ROOT/'src/gameplay_hud.h',ROOT/'tests/family_static_hud_test.c']
+    paths=[overlay/'family_static_hud_mirror.inc',overlay/'family_dynamic_hud_mirror.inc',overlay/'family_hud_font_mirror.inc',overlay/'render_mirror.c',overlay/'b313_family_canvas_mirror.inc',ROOT/'src/gameplay_hud.c',ROOT/'src/gameplay_hud.h',ROOT/'tests/family_static_hud_test.c']
     paths += [ROOT/'src'/('gameplay_hud'+suffix+extension)
-              for suffix in ('_components','_meters','_indicators','_fixed_text')
+              for suffix in ('_components','_meters','_indicators','_fixed_text','_font')
               for extension in ('.c','.h')]
     if a.dynamic:paths.append(ROOT/'tests/family_dynamic_hud_test.c')
     pins={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
@@ -44,7 +44,7 @@ def main():
         exe=temp/'test'
         cmd=shlex.split(os.environ.get('CC','cc'))+['-std=c99','-O1','-g','-Wall','-Wextra','-Werror','-I'+str(temp),'-I'+str(overlay),'-I'+str(ROOT/'src')]+flags
         if a.sanitize:cmd+=['-fsanitize=address,undefined','-fno-omit-frame-pointer','-no-pie']
-        cmd+=[str(ROOT/'tests'/('family_dynamic_hud_test.c' if a.dynamic else 'family_static_hud_test.c')),*[str(ROOT/'src'/('gameplay_hud'+suffix+'.c')) for suffix in ('','_components','_meters','_indicators','_fixed_text')],'-o',str(exe)]+libs
+        cmd+=[str(ROOT/'tests'/('family_dynamic_hud_test.c' if a.dynamic else 'family_static_hud_test.c')),*[str(ROOT/'src'/('gameplay_hud'+suffix+'.c')) for suffix in ('','_components','_meters','_indicators','_fixed_text','_font')],'-o',str(exe)]+libs
         subprocess.run(cmd,check=True)
         raw=original_payload(a.data.resolve())
         for case in ('valid','missing','corrupt'):
