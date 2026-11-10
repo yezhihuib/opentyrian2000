@@ -43,9 +43,11 @@ leases do not prove family canvas ownership or current-frame writer order.
 `--hd --static-hud --dynamic-hud` adds independent family rendering of existing
 HUC labels/shield, HUM2 front/rear/generator/armor meters, HUL top lens/paired
 mode assembly, and HUF fixed MODE/SHIELD/ARMOR words. It does **not** add the
-dynamic glyph font, score, message text or arbitrary option icons. No artwork
-is generated or upscaled to fill those gaps. The separate font resource exists
-but needs its ordered glyph/underlay adapter before it counts as integrated.
+dynamic glyph font, score, message text or arbitrary option icons by itself.
+The separate `--hud-font` option now adds witnessed persistent level/message
+glyphs; see [the font contract](PERSISTENT-HUD-FONT-CANDIDATE.md). Scene score,
+timer and WARNING still need their ordered scene-underlay adapter. No artwork
+is generated or upscaled to fill those gaps.
 
 `family_dynamic_hud_mirror.inc` captures only the genuine pristine PIC3 grant
 already admitted by the static family adapter. Each existing loader retains
