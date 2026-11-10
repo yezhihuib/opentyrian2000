@@ -1,0 +1,261 @@
+{
+  "schema": "compound309-312-art-candidates-v1",
+  "runtime_qualified": false,
+  "status": "AUTHORING CANDIDATE ONLY; requires runtime integration and visual qualification",
+  "source_bank_sha256": "f0bccf154a436ba46834a00b934e7cb8a77d8585b175a39c1270ad7888411c88",
+  "source_bank_fnv64": "0xf22ec1295ced5d11",
+  "source_difference_cells": 167,
+  "source_difference_bbox": [
+    15,
+    38,
+    32,
+    53
+  ],
+  "masters": {
+    "imagegen-master-phase0.png": "4d1b1dbfa3e1c73c4f2b9582b36e78d28b186cf779b843c7105097a060ae9db1",
+    "imagegen-master-phase1.png": "6d9ef44af5c856e4655ec4ac4e3a6650268dac49b7775d2aab0b0ba8732abd42",
+    "imagegen-master-phase2.png": "ae57a11adc88f1fcbdfedf2c0e5b447a6b3972550756d83731e44a205bd71687"
+  },
+  "files": [
+    {
+      "record": 311,
+      "base": 39,
+      "phase": 0,
+      "quadrant_origin": [
+        0,
+        0
+      ],
+      "resource": "enemy-newshs-39-8.hda",
+      "sha256": "fe7a41218dec836cbf01cf3ce4b4a55fa14a9e45b720143725f8cd516c59f701",
+      "rgba_fnv64": "0x418e75c315e7b23d",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 312,
+      "base": 41,
+      "phase": 0,
+      "quadrant_origin": [
+        24,
+        0
+      ],
+      "resource": "enemy-newshs-41-8.hda",
+      "sha256": "9540ad3efd236d50b97d5246cdb7aba2a8bcf9b8c9488d8808610dd8d3bca886",
+      "rgba_fnv64": "0x16e235ca5d169c86",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 309,
+      "base": 77,
+      "phase": 0,
+      "quadrant_origin": [
+        0,
+        28
+      ],
+      "resource": "enemy-newshs-77-8.hda",
+      "sha256": "6a985645690619e98c9673591053287d33c7d728aef76be6b03efd328bd68b99",
+      "rgba_fnv64": "0x1441db811a2ea63c",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 310,
+      "base": 79,
+      "phase": 0,
+      "quadrant_origin": [
+        24,
+        28
+      ],
+      "resource": "enemy-newshs-79-8.hda",
+      "sha256": "27631e4d2f17d30dd9778e834c9a5eaa711fcf776dcd1d7973147dbf463520c7",
+      "rgba_fnv64": "0xd5d3713ba02bc253",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 311,
+      "base": 43,
+      "phase": 1,
+      "quadrant_origin": [
+        0,
+        0
+      ],
+      "resource": "enemy-newshs-43-8.hda",
+      "sha256": "eab2ff0a1ed9da5aeee387c50a6bc2315356393e178bd68c9496687cf058d3e6",
+      "rgba_fnv64": "0x418e75c315e7b23d",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 312,
+      "base": 45,
+      "phase": 1,
+      "quadrant_origin": [
+        24,
+        0
+      ],
+      "resource": "enemy-newshs-45-8.hda",
+      "sha256": "3e3aa013448c6c321fb821882182732bef2ddfa0f645ddc609524a75321a848a",
+      "rgba_fnv64": "0x16e235ca5d169c86",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 309,
+      "base": 81,
+      "phase": 1,
+      "quadrant_origin": [
+        0,
+        28
+      ],
+      "resource": "enemy-newshs-81-8.hda",
+      "sha256": "649216ab1ff66326273eecdc699870bc72af86c92a75825938ae756afc3a7ef9",
+      "rgba_fnv64": "0xbe3fc7c1fbd37085",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 310,
+      "base": 83,
+      "phase": 1,
+      "quadrant_origin": [
+        24,
+        28
+      ],
+      "resource": "enemy-newshs-83-8.hda",
+      "sha256": "ec76858d4addeaa00560b8eb3651b5642c26bef4f851ce9b5158c4541b591bee",
+      "rgba_fnv64": "0x6149cb08836f85a0",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 311,
+      "base": 47,
+      "phase": 2,
+      "quadrant_origin": [
+        0,
+        0
+      ],
+      "resource": "enemy-newshs-47-8.hda",
+      "sha256": "83911bf3bf1bbcca6b3b36fae5f1d941dad69504a857259649409890051a2d15",
+      "rgba_fnv64": "0x418e75c315e7b23d",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 312,
+      "base": 49,
+      "phase": 2,
+      "quadrant_origin": [
+        24,
+        0
+      ],
+      "resource": "enemy-newshs-49-8.hda",
+      "sha256": "7ca7cd0573b3041036c40a8cfc24ec638db033ce20c8cd4cfab62e314282e594",
+      "rgba_fnv64": "0x16e235ca5d169c86",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 309,
+      "base": 85,
+      "phase": 2,
+      "quadrant_origin": [
+        0,
+        28
+      ],
+      "resource": "enemy-newshs-85-8.hda",
+      "sha256": "6a9906dfe0c5e124ef66920ca53222d8a8c57e5430cc792f2dfac656c865ee55",
+      "rgba_fnv64": "0x95a1bc0892fdbc42",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    },
+    {
+      "record": 310,
+      "base": 87,
+      "phase": 2,
+      "quadrant_origin": [
+        24,
+        28
+      ],
+      "resource": "enemy-newshs-87-8.hda",
+      "sha256": "456951ea34958413f4b0dd64ccdcffa8315ee15c90d6e1a5c5ff066ec7223d05",
+      "rgba_fnv64": "0xf9ba877fef8e64cc",
+      "logical_bank": 23,
+      "material_role": 123,
+      "logical_size": [
+        24,
+        28
+      ],
+      "scale": 8,
+      "source_occupied_cells": 672
+    }
+  ]
+}
