@@ -37,7 +37,11 @@ def summarize(rows):
         tick = int(row['tick'])
         if accepted < previous:
             raise ValueError('Accepted counter moved backwards.')
-        frames.append({'tick': tick, 'hd': accepted > previous and not int(row['failed']),
+        full = accepted > previous and not int(row['failed'])
+        terrain = bool(int(row.get('terrain_presenting', 0)))
+        if full and terrain:
+            raise ValueError('Two compositors claimed the same Present.')
+        frames.append({'tick': tick, 'hd': full or terrain, 'family': full, 'terrain': terrain,
                        'failed': bool(int(row['failed']))})
         previous = accepted
     runs = []
@@ -48,6 +52,9 @@ def summarize(rows):
             runs.append({'first': frame['tick'], 'last': frame['tick'], 'hd': frame['hd']})
     return {'visible_presents': len(frames), 'hd_presents': sum(r['hd'] for r in frames),
             'classic_presents': sum(not r['hd'] for r in frames),
+            'family_hd_presents': sum(r['family'] for r in frames),
+            'terrain_only_presents': sum(r['terrain'] for r in frames),
+            'family_mode_switches': sum(a['family'] != b['family'] for a, b in zip(frames, frames[1:])),
             'mode_switches': sum(a['hd'] != b['hd'] for a, b in zip(frames, frames[1:])),
             'runs': runs}
 
@@ -58,6 +65,8 @@ def main(argv=None):
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--baseline', type=Path)
     parser.add_argument('--build-receipt', type=Path, help='Explicit immutable historical build snapshot; default checks current source')
+    parser.add_argument('--terrain-fallback', action='store_true')
+    parser.add_argument('--static-hud', action='store_true')
     parser.add_argument('--scale', type=int, choices=(2, 4), default=2)
     parser.add_argument('--capture-start', type=int, default=298)
     parser.add_argument('--capture-count', type=int, default=12)
@@ -102,13 +111,17 @@ def main(argv=None):
     receipt = {'status': 'RUNNING', 'source_digest': build['source_digest'], 'scale': args.scale,
                'original_data_sha256': before, 'capture': [args.capture_start, args.capture_count],
                'wrapper_sha256': sha(ROOT/'tests/fixtures/level2_preview_observer.c'),
-               'build_receipt': str(stage/'BUILD.json'), 'historical_snapshot': bool(args.build_receipt)}
+               'build_receipt': str(stage/'BUILD.json'), 'historical_snapshot': bool(args.build_receipt),
+               'terrain_fallback': args.terrain_fallback, 'static_hud': args.static_hud}
     def save():
         (out/'receipt.json').write_text(json.dumps(receipt, indent=2)+'\n')
     save()
     try:
         wrapper = out/'observe.o'
-        subprocess.run(build['compiler']+build['cppflags']+build['cflags']+
+        extra = ['-DTERRAIN_FALLBACK_OBSERVER=1'] if 'b313_terrain_fallback.h' in build['source_sha256'] else []
+        if args.terrain_fallback and not extra:
+            raise ValueError('This staged source has no independent terrain fallback.')
+        subprocess.run(build['compiler']+build['cppflags']+extra+build['cflags']+
                        ['-c', str(ROOT/'tests/fixtures/level2_preview_observer.c'), '-o', str(wrapper)], check=True)
         exe = out/'observer'
         subprocess.run(build['compiler']+build['ldflags']+[str(stage/'obj'/n) for n in build['object_sha256']]+
@@ -130,6 +143,13 @@ def main(argv=None):
         launcher_spec.loader.exec_module(launcher)
         env = {k: v for k, v in env.items() if not launcher.controlled_name(k)}
         env.update(preview.environment(ROOT))
+        if args.terrain_fallback:
+            env['BUILDING313_TERRAIN_FALLBACK_ENABLE'] = '1'
+        if args.static_hud:
+            hud = ROOT/'assets/hd/shared-ui-v1/gameplay-hud-v1.hda'
+            if hud.stat().st_size != 4160064 or sha(hud) != '98cd6cfefa02a9ae79b75a65e02dd2566d3dec1492552f20b042b3c61c19cd17':
+                raise ValueError('Changed static HUD asset.')
+            env['BUILDING313_FAMILY_HUD_ENABLE'] = '1'
         command = [str(exe), '--data='+str(data), '--no-sound', '--no-joystick', '--no-xmas',
                    *preview.PREVIEW_ARGS[:-1], '--asset-debug-capture', '--asset-debug-window-only',
                    f'--asset-debug-capture-start={args.capture_start}', f'--asset-debug-capture-count={args.capture_count}']
@@ -143,8 +163,11 @@ def main(argv=None):
             raise AssertionError('Expected exactly 355 visible actual Present calls at ticks245..599.')
         receipt.update(summarize(rows))
         receipt['canvas'] = json.loads((out/'building313-family-canvas.json').read_text())
-        if receipt['canvas']['frames'] != 600 or receipt['canvas']['presents'] != receipt['hd_presents']:
+        if receipt['canvas']['frames'] != 600 or receipt['canvas']['presents'] != receipt['family_hd_presents']:
             raise AssertionError('Native frame/presentation totals disagree.')
+        terrain_total = int(rows[-1].get('terrain_presents', 0)) + int(rows[-1].get('terrain_presenting', 0))
+        if terrain_total != receipt['terrain_only_presents']:
+            raise AssertionError('Independent terrain Present total disagrees.')
         receipt['native_stream_sha256'] = {name: sha(out/name) for name in NATIVE_STREAMS}
         if baseline:
             receipt['baseline'] = str(baseline)

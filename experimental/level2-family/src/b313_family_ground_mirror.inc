@@ -424,7 +424,7 @@ void render_mirror_family_ground_end(void)
 {
  if(fc.frame_failed||!fg_config_current()||!fg.enabled)return;
  if(!fg_current()||!b313_family_writer_draw_ready(fc_frame)||!fg.pass||fg.row||fg.next_row!=8||!fg_sources_current()||!fg_maps_current(8)){fg_fault(FG_END);return;}
- fg.pass=false;fg.done=true;
+ fg.pass=false;fg.done=true;tf_capture();
 }
 static bool fg_final_check(void)
 {

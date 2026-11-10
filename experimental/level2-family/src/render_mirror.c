@@ -69,6 +69,7 @@ static void la_shutdown(void);
 #include "b313_family_observer.h"
 #include "b313_terrain_context.h"
 #include "b313_family_writer.h"
+#include "b313_terrain_fallback.h"
 #include "old_hd_sample_observer.h"
 #include "building313_precommit.h"
 #include "building313_snapshot_transaction.h"
@@ -118,6 +119,10 @@ typedef struct {
 } Asset;
 static Asset *fc_draw_lease;
 static void family_begin(void),family_reset(void),family_fault(unsigned),family_entity_end(void);
+static void tf_begin(void),tf_reset(void),tf_fail(unsigned),tf_capture(void),tf_finish(MirrorOutputKind),tf_release(void);
+static bool tf_tracking(void),tf_pixel(SDL_Surface *,Uint8 *,int),tf_present(SDL_Renderer *,SDL_Surface *,const SDL_Rect *);
+static void family_static_hud_reset(void),family_static_hud_invalidate_frame(void);
+static void family_static_hud_release_texture(void);
 static void family_pixel(SDL_Surface *,Uint8 *,int),family_rect(SDL_Surface *,const SDL_Rect *);
 static void family_finish(MirrorOutputKind);
 static bool family_present(SDL_Renderer *,SDL_Surface *,const SDL_Rect *);
@@ -1458,6 +1463,7 @@ static void hud_frame_reset(void)
 void render_mirror_hud_reset(void)
 {
  family_reset();
+ family_static_hud_reset();
  b313_v6_lock_revoke();
  ohs_revoke(OHS_REASON_RESET);
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
@@ -1512,6 +1518,7 @@ bool render_mirror_set_global_assets(const char *directory)
 
 void render_mirror_hud_shutdown(void)
 {
+ family_static_hud_release_texture();tf_release();
  fg_free_cache();
  enemy_reuse_shutdown();
  render_mirror_newshf_validation_reset();
@@ -1593,6 +1600,8 @@ static bool hud_runtime_compatible(bool live)
  return true;
 }
 
+#include "family_static_hud_mirror.inc"
+
 static void hud_check_mode(void)
 {
  if(shared_hud_lease&&!shared_hud_requested()){render_mirror_hud_reset();return;}
@@ -1609,6 +1618,7 @@ void render_mirror_hud_start(SDL_Surface *decoded_pic3)
  if(!decoded_pic3||decoded_pic3!=VGAScreenSeg||!decoded_pic3->pixels||decoded_pic3->w!=320||decoded_pic3->h!=200||decoded_pic3->pitch<320||
     !decoded_pic3->format||decoded_pic3->format->format!=SDL_PIXELFORMAT_INDEX8||
     decoded_pic3->format->BitsPerPixel!=8||decoded_pic3->format->BytesPerPixel!=1)return;
+ if(family_static_hud_requested()){family_static_hud_start(decoded_pic3);return;}
 #if defined(ENEMY_REUSE_HD_PROTOTYPE) && ENEMY_REUSE_HD_PROTOTYPE
  enemy_reuse_observe_start();
 #endif
@@ -1637,6 +1647,7 @@ void render_mirror_hud_start(SDL_Surface *decoded_pic3)
 
 void render_mirror_hud_suspend(void)
 {
+ family_static_hud_suspend();
  hud_storm_suspend();
  hud_check_mode();
  font_suspend();fixed_text_clear_cached();if(fixed_text_gameplay)fixed_text_suspended=true;
@@ -3223,6 +3234,7 @@ static bool private_longface573_finish(void);
 static void longface573_accept(void);
 #include "b313_family_canvas_mirror.inc"
 #include "b313_family_ground_mirror.inc"
+#include "b313_terrain_fallback_mirror.inc"
 
 static bool draw_asset(int x,int y,Asset *a,int style,const SDL_Rect *part)
 {return draw_asset_filtered(x,y,a,style,part,0,NULL,NULL,NULL);}
@@ -5680,7 +5692,11 @@ void render_mirror_fade_step(int steps)
 
 bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rect *dst)
 {
- if(render_mirror_family_requested())return family_present(renderer,src,dst);
+ if(render_mirror_family_requested()){
+  if(family_present(renderer,src,dst)){tf_reset();family_static_hud_invalidate_frame();return true;}
+  if(tf_present(renderer,src,dst)){family_static_hud_invalidate_frame();return true;}
+  return family_static_hud_present(renderer,src,dst);
+ }
  b313_v6_lock_present_entry(game_probe_tick);
  ohs_present_begin(src,rgb_palette);
  sample_font_scope(1);
@@ -5747,6 +5763,7 @@ bool render_mirror_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
 
 void render_mirror_release_texture(void)
 {
+ family_static_hud_release_texture();tf_release();
  family_reset();
  b313_v6_lock_revoke();
  ohs_revoke(OHS_REASON_RESET);

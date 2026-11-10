@@ -58,10 +58,14 @@ bool render_mirror_family_requested(void)
 #endif
  return fc.requested;
 }
-static void family_fault(unsigned reason)
+static void family_scene_fault(unsigned reason)
 {if(!fc.frame_active&&!fc.ready)return;if(!fc.first_reason)fc.first_reason=reason;if(!fbr.first_reason)fbr.first_reason=reason;fc.frame_failed=true;fc.ready=false;ready=last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;}
+static void family_fault(unsigned reason)
+{if(reason!=FC_SOURCE&&reason!=FC_PRESENT)tf_fail(100+reason);family_scene_fault(reason);}
 static void family_reset(void)
 {
+ tf_reset();
+ family_static_hud_invalidate_frame();
  private_lamp272_reset();private_triple275_reset();private_ember269_reset();f284_reset();tp_reset();ln_reset();lp287_reset();f270_reset();la_reset();private_gray325_reset();private_longface573_reset();smallrocks_reset();rp_reset();t194_reset();es_reset();ps_reset();
  fg_reset();
  memset(fbr_retired,0,sizeof fbr_retired);fbr.frame=0;fbr.frame_eligible=fbr.frame_retired=0;fbr.first_reason=0;fbr.first_x=fbr.first_y=-1;
@@ -112,6 +116,8 @@ static bool family_geometry(bool rgb)
 }
 static void family_begin(void)
 {
+ tf_reset();
+ family_static_hud_begin();
  private_lamp272_tick();private_triple275_tick();private_ember269_tick();f284_tick();tp_tick();ln_tick();lp287_tick();f270_tick();la_tick();private_gray325_tick();private_longface573_tick();smallrocks_tick();rp_tick();t194_tick();es_tick();ps_tick();
  memset(&fct,0,sizeof fct);fct.requested=family_terrain_requested();
  if(fct.requested)++fct_status.frames;
@@ -136,6 +142,7 @@ static void family_begin(void)
  memset(selected,0,sizeof selected);region_count=green_head_count=0;draws=occlusions=mismatch=0;reject_reason=NULL;
  memset(restored_mask,0,sizeof restored_mask);all_rejections[0]=0;local_entities=local_regions=local_blocks=0;
  if(!b313_family_writer_begin(fc_frame,game_screen,VGAScreenSeg))family_fault(FC_WRITER);
+ tf_begin();
  /* One attempt at the original frame-begin token, before fg starts. A
   * denial is never upgraded at finish or Present, including after an actor. */
  if(!fc.frame_failed&&fct.requested){
@@ -155,6 +162,8 @@ static bool family_prepare_canvas(void)
 }
 static void family_pixel(SDL_Surface *s,Uint8 *address,int style)
 {
+ bool tracked=tf_tracking();
+ if(tracked&&!tf_pixel(s,address,style)){family_fault(FC_WRITER);return;}
  if(!fc.frame_active||fc.frame_failed)return;
  if(!la_write_current()){la_fail(20);family_fault(FC_SOURCE);return;}
  if(!f270_write_current()){f270_fail(20);family_fault(FC_SOURCE);return;}
@@ -167,7 +176,7 @@ static void family_pixel(SDL_Surface *s,Uint8 *address,int style)
   * the first terrain tile has not yet prepared the canvas. */
  if(fct.requested&&style!=MIRROR_NORMAL&&style!=MIRROR_SHADOW&&style!=MIRROR_BLEND){family_fault(FC_EFFECT);return;}
  if(!fg_writer_entry()){family_fault(FC_GROUND);return;}
- if(!b313_family_writer_pixel(s,address)){family_fault(FC_WRITER);return;}
+ if(!tracked&&!b313_family_writer_pixel(s,address)){family_fault(FC_WRITER);return;}
  if(s!=fc_source){if(fc_native_call)family_fault(FC_ORDER);return;}
  if(!family_geometry(false)){family_fault(FC_CONTEXT);return;}
  uintptr_t off=(uintptr_t)address-(uintptr_t)fc_source_pixels;
@@ -236,7 +245,12 @@ static void family_pixel(SDL_Surface *s,Uint8 *address,int style)
  if(selected[off]){++fc.occlusions;selected[off]=0;}
  for(unsigned sy=0;sy<8;sy++)for(unsigned sx=0;sx<8;sx++){
   size_t n=(y*8+sy)*2560+x*8+sx;Uint32 *pixel=(Uint32 *)canvas->pixels+n;
-  if(style==MIRROR_BLEND&&hd_owner[n]&&!lamp_owned&&!gray_owned&&!longface_owned&&!triple_owned&&!ember_owned&&!fork_owned&&!turret_owned&&!linked_owned&&!linked_prop_owned&&!late_actor_owned&&!normal270_owned&&!rock_owned&&!random_prop_owned&&!tank_owned&&!ship_owned&&!enemy_shot_owned&&!terrain_retire){++fc.blend_fallbacks;family_fault(FC_EFFECT);return;}
+  if(style==MIRROR_BLEND&&hd_owner[n]&&!lamp_owned&&!gray_owned&&!longface_owned&&!triple_owned&&!ember_owned&&!fork_owned&&!turret_owned&&!linked_owned&&!linked_prop_owned&&!late_actor_owned&&!normal270_owned&&!rock_owned&&!random_prop_owned&&!tank_owned&&!ship_owned&&!enemy_shot_owned&&!terrain_retire){++fc.blend_fallbacks;
+   /* Only this known native blend rejects the actor canvas alone. tf_pixel
+    * already consumed its exact writer callback and retired this cell; the
+    * independent final/crop/resource/post-lock proofs must still all pass.
+    * Unknown effects and invalid shadows retain the shared hard failure. */
+   family_scene_fault(FC_EFFECT);return;}
   if(style==MIRROR_SHADOW&&(hd_owner[n]||es_extra(n))){
    if(*address!=(Uint8)((before&240)|((before&15)/2))){family_fault(FC_EFFECT);return;}
    *pixel=darken_rgba(*pixel,255);++fc.shadow_pixels;
@@ -258,7 +272,7 @@ static void family_pixel(SDL_Surface *s,Uint8 *address,int style)
 }
 static void family_rect(SDL_Surface *s,const SDL_Rect *rect)
 {
- if(!fc.frame_active||fc.frame_failed)return;
+ if(!fc.frame_active||(fc.frame_failed&&!tf_tracking()))return;
  if(!b313_family_writer_rect_begin(s,rect)){family_fault(FC_WRITER);return;}
  if(!family_indexed(s)){family_fault(FC_CONTEXT);return;}
  int x0=rect?rect->x:0,y0=rect?rect->y:0,x1=rect?rect->x+rect->w:320,y1=rect?rect->y+rect->h:200;
@@ -353,6 +367,8 @@ static void family_finish(MirrorOutputKind kind)
   }
  }
  lamp272_accept();triple275_accept();private_ember269_accept();f284_accept();tp_accept();ln_accept();lp287_accept();f270_accept();la_accept();gray325_accept();longface573_accept();smallrocks_accept();rp_accept();t194_accept();es_accept();ps_accept();
+ tf_finish(kind);
+ family_static_hud_finish(kind,fc.ready);
  if(!fc.ready)++fc.fallback_frames;
  if(game_probe_capture_tick()&&fc.ready){char name[64];snprintf(name,sizeof name,"family-display-%04u.bmp",game_probe_tick);game_probe_export(output,name);}
  fc.frame_active=false;active=ready=false;last_output_valid=last_output_scene_hd=have_fade_saved=false;fade_mode=0;
@@ -382,6 +398,7 @@ static bool family_terrain_present(SDL_Renderer *renderer,SDL_Surface *src,const
     SDL_GetTextureScaleMode(locked_texture,&scale)||scale!=SDL_ScaleModeNearest||
     SDL_GetTextureBlendMode(locked_texture,&blend)||blend!=SDL_BLENDMODE_NONE||
     texture!=locked_texture||fc_texture_renderer!=renderer||!family_terrain_current()){SDL_UnlockTexture(locked_texture);family_fault(FC_PRESENT);return false;}
+ family_static_hud_compose();
  for(int y=0;y<1600;y++)memcpy((Uint8 *)pixels+(size_t)y*(size_t)pitch,(Uint8 *)output->pixels+y*10240,10240);
  SDL_UnlockTexture(locked_texture);
  if(SDL_SetRenderDrawColor(renderer,0,0,0,255)||SDL_RenderClear(renderer)||SDL_RenderCopy(renderer,texture,NULL,dst)){family_fault(FC_PRESENT);return false;}
@@ -404,6 +421,7 @@ static bool family_present(SDL_Renderer *renderer,SDL_Surface *src,const SDL_Rec
  if(!pixels||pitch<10240||(!private_lamp272_finish()||!private_triple275_finish()||!private_ember269_finish()||!f284_finish()||!tp_finish()||!ln_finish()||!lp287_finish()||!f270_finish()||!la_finish()||!private_gray325_finish()||!private_longface573_finish()||!smallrocks_finish()||!es_guard()||!t194_guard()||!rp_guard()||!ps_finish())||!fc.ready||fc.frame_failed||
     !family_terrain_blend_config_current()||!family_geometry(true)||memcmp(fc_palette,rgb_palette,sizeof fc_palette)||
     !b313_family_writer_current(fc_frame)||!b313_family_observer_frame_current(fc_source,&fc_identity)){SDL_UnlockTexture(texture);family_fault(FC_PRESENT);return false;}
+ family_static_hud_compose();
  for(int y=0;y<1600;y++)memcpy((Uint8 *)pixels+y*pitch,(Uint8 *)output->pixels+y*10240,10240);
  SDL_UnlockTexture(texture);
  if(SDL_SetRenderDrawColor(renderer,0,0,0,255)||SDL_RenderClear(renderer)||SDL_RenderCopy(renderer,texture,NULL,dst)){family_fault(FC_PRESENT);return false;}

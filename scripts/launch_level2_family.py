@@ -163,6 +163,21 @@ def build_plan(args, inherited=None, root=ROOT):
         "XDG_STATE_HOME": str(profile / "state"),
     }
     family = hd_environment(root) if args.hd else {}
+    terrain_fallback = bool(getattr(args, "terrain_fallback", False))
+    if terrain_fallback:
+        if not args.hd:
+            raise ValueError("--terrain-fallback requires --hd")
+        if getattr(args, "redvent_pair", None):
+            raise ValueError("--terrain-fallback excludes the unqualified private red-vent extension")
+        family["BUILDING313_TERRAIN_FALLBACK_ENABLE"] = "1"
+    static_hud = bool(getattr(args, "static_hud", False))
+    if static_hud:
+        if not args.hd:
+            raise ValueError("--static-hud requires --hd; it cannot enable the parent itself")
+        hud = root / "assets/hd/shared-ui-v1/gameplay-hud-v1.hda"
+        if hud.stat().st_size != 4160064 or hashlib.sha256(hud.read_bytes()).hexdigest() != "98cd6cfefa02a9ae79b75a65e02dd2566d3dec1492552f20b042b3c61c19cd17":
+            raise ValueError("Changed static HUD asset: " + hud.name)
+        family["BUILDING313_FAMILY_HUD_ENABLE"] = "1"
     # Boundary candidates are deliberately excluded from the public preset.
     for option, control in (("lamp_top_clip", "LAMP272_TOP_CLIP_ENABLE"),
                             ("lamp_bottom_clip", "LAMP272_BOTTOM_CLIP_ENABLE")):
@@ -286,6 +301,9 @@ def build_plan(args, inherited=None, root=ROOT):
         "inherited_controls_removed": sorted(key for key in inherited if controlled_name(key)),
         "assets_sha256_verified": checked,
         "public_candidates_enabled": bool(public_candidates),
+        "static_hud_enabled": static_hud,
+        "terrain_fallback_enabled": terrain_fallback,
+        "static_hud_assets_sha256_verified": 1 if static_hud else 0,
         "public_candidate_flags": list(PUBLIC_CANDIDATE_FLAGS) if public_candidates else [],
         "qualification": "Experimental offline candidate; actual combined scene/gameplay is unverified.",
         "normal270_enabled": bool(normal270),
@@ -333,6 +351,8 @@ def parser():
     result.add_argument("--binary", help="Executable to use (default: repository/opentyrian2000-family)")
     result.add_argument("--profile", help="Separate profile directory (default: repository/.level2-family-profile)")
     result.add_argument("--hd", action="store_true", help="Enable the 23 fixed family environment settings")
+    result.add_argument("--terrain-fallback", action="store_true", help="Retain independently proven untouched terrain when actor HD rejects; requires --hd")
+    result.add_argument("--static-hud", action="store_true", help="Opt in to the existing HD static border only; requires --hd; text and gauges stay native")
     result.add_argument("--redvent-pair", help="Opt-in private 339/348 candidate directory; requires --hd and matching assets; not gameplay-validated")
     result.add_argument("--lamp-top-clip", action="store_true", help="Opt in to bounded lamp top-edge writes; requires --hd; only one visible sample qualified")
     result.add_argument("--lamp-bottom-clip", action="store_true", help="Opt in to bounded lamp bottom-edge writes; requires --hd; real scene unverified")

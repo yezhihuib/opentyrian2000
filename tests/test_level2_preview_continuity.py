@@ -37,6 +37,22 @@ class ContinuityAccountingTests(unittest.TestCase):
         self.assertEqual(result['hd_presents'], 1)
         self.assertEqual(result['classic_presents'], 1)
 
+    def test_independent_terrain_is_not_counted_as_actor_admission(self):
+        rows = self.rows([1, 1, 2], [0, 1, 0])
+        rows[1]['terrain_presenting'] = '1'
+        result = continuity.summarize(rows)
+        self.assertEqual(result['hd_presents'], 3)
+        self.assertEqual(result['family_hd_presents'], 2)
+        self.assertEqual(result['terrain_only_presents'], 1)
+        self.assertEqual(result['mode_switches'], 0)
+        self.assertEqual(result['family_mode_switches'], 2)
+
+    def test_double_present_claim_is_rejected(self):
+        rows = self.rows([1])
+        rows[0]['terrain_presenting'] = '1'
+        with self.assertRaisesRegex(ValueError, 'Two compositors'):
+            continuity.summarize(rows)
+
     def test_tick_gap_does_not_become_contiguous_run(self):
         result = continuity.summarize(self.rows([1, 2], ticks=[245, 247]))
         self.assertEqual(len(result['runs']), 2)
