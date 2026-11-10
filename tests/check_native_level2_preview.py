@@ -25,6 +25,7 @@ def main():
     parser.add_argument('--scale',type=int,choices=(2,4),default=2)
     parser.add_argument('--frames',type=int,choices=(240,540),default=540)
     parser.add_argument('--dynamic-hud',action='store_true',help='Check the explicit source-verified dynamic HUD adapter')
+    parser.add_argument('--hud-font',action='store_true',help='Check the witnessed persistent level/message glyph adapter')
     parser.add_argument('--capture-frame',type=int,help='Save one private actual-Present BMP for visual review')
     args=parser.parse_args()
     if args.capture_frame is not None and not 0<=args.capture_frame<args.frames:
@@ -44,7 +45,7 @@ def main():
     out.mkdir(mode=0o700)
     observer=ROOT/'tests/fixtures/native_level2_preview_observer.c';obj=out/'observer.o';exe=out/'native-preview-check'
     report={'status':'RUNNING','scope':__doc__,'source_digest':build['source_digest'],'native_binary_sha256':build['binary_sha256'],
-            'observer_sha256':sha(observer),'original_data_sha256':before,'scale':args.scale,'frames_requested':args.frames,'dynamic_hud_requested':args.dynamic_hud,'capture_frame':args.capture_frame}
+            'observer_sha256':sha(observer),'original_data_sha256':before,'scale':args.scale,'frames_requested':args.frames,'dynamic_hud_requested':args.dynamic_hud,'hud_font_requested':args.hud_font,'capture_frame':args.capture_frame}
     receipt=out/'receipt.json'
     def save():receipt.write_text(json.dumps(report,indent=2)+'\n')
     save()
@@ -60,6 +61,7 @@ def main():
         flags=['--data',str(data),'--binary',str(exe),'--profile',str(profile),'--hd','--public-candidates',
                '--terrain-fallback','--player-fallback','--tank-fallback','--static-hud']
         if args.dynamic_hud:flags.append('--dynamic-hud')
+        if args.hud_font:flags.append('--hud-font')
         launch,env=launcher.build_plan(launcher.parser().parse_args(flags),os.environ)
         env.update(SDL_VIDEODRIVER='dummy',SDL_AUDIODRIVER='dummy',SDL_RENDER_DRIVER='software',NATIVE_PREVIEW_TEST_FRAMES=str(args.frames))
         env.pop('NATIVE_PREVIEW_TEST_CAPTURE_FRAME',None)
@@ -80,12 +82,16 @@ def main():
             raise AssertionError('Native spawn invulnerability did not expire.')
         for field in ('family_presents','terrain_presents','player_presents','tank_presents'):
             if rows[-1][field]<=0:raise AssertionError('No actual display coverage for '+field)
-        if any(r['hud_owned']<20000 or r['hud_mismatches'] or r['native_hud_mismatches'] or r['dynamic_hud_mismatches'] for r in rows):
+        if any(r['hud_owned']<20000 or r['hud_mismatches'] or r['native_hud_mismatches'] or r['dynamic_hud_mismatches'] or r['font_mismatches'] for r in rows):
             raise AssertionError('Actual Present static/dynamic HUD verification failed.')
         if args.dynamic_hud and not any(r['dynamic_hud_owned'] for r in rows):
             raise AssertionError('Dynamic HUD requested but never contributed at actual Present.')
         if not args.dynamic_hud and any(r['dynamic_hud_owned'] for r in rows):
             raise AssertionError('Dynamic HUD contributed without explicit opt-in.')
+        if args.hud_font and not any(r['font_owned'] for r in rows):
+            raise AssertionError('HUD font requested but never contributed at actual Present.')
+        if not args.hud_font and any(r['font_owned'] for r in rows):
+            raise AssertionError('HUD font contributed without explicit opt-in.')
         if args.capture_frame is not None:
             capture=out/'native-preview-capture.bmp'
             if not capture.is_file():raise AssertionError('Requested actual-Present capture missing.')
