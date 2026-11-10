@@ -135,6 +135,11 @@ static void family_static_hud_reset(void),family_static_hud_invalidate_frame(voi
 static void fdh_mode_drawn(SDL_Surface *,unsigned),fdh_shield_wiped(SDL_Surface *),fdh_shield_drawn(SDL_Surface *,unsigned,unsigned);
 static void fdh_meter_begin(SDL_Surface *,SDL_Surface *,unsigned,unsigned,unsigned),fdh_meter_end(SDL_Surface *,unsigned);
 static void family_static_hud_release_texture(void);
+static void fhf_shutdown(void),fhf_glyph_end(void),fhf_run_end(unsigned),fhf_message_backdrop(void),fhf_message_erase_begin(void),fhf_message_erased(bool);
+static void fhf_level_begin(SDL_Surface *,const char *),fhf_message_begin(const char *,bool);
+static void fhf_glyph_begin(SDL_Surface *,int,int,unsigned,unsigned,bool,unsigned,int);
+static void fhf_pixel(SDL_Surface *,Uint8 *,int),fhf_rect(SDL_Surface *,const SDL_Rect *);
+
 static void family_pixel(SDL_Surface *,Uint8 *,int),family_rect(SDL_Surface *,const SDL_Rect *);
 static void family_finish(MirrorOutputKind);
 static bool family_present(SDL_Renderer *,SDL_Surface *,const SDL_Rect *);
@@ -1510,7 +1515,7 @@ bool render_mirror_set_hud_assets(const char *directory)
     (length&&strcmp(directory,shared_hud_assets)==0)))return true;
  render_mirror_hud_reset();
  gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();
- hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();
+ hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();fhf_shutdown();
  shared_hud_assets[0]='\0';
  if(valid&&length)memcpy(shared_hud_assets,directory,length+1);
  return valid;
@@ -1540,7 +1545,7 @@ void render_mirror_hud_shutdown(void)
  enemy_reuse_shutdown();
  render_mirror_newshf_validation_reset();
  global_hitflare_shutdown();global_smoke_shutdown();global_green_shutdown();global_small_explosion_shutdown();global_cash25_shutdown();global_tank194_shutdown();global_rotor_shutdown();global_projectile91_shutdown();global_newshf_shutdown();global_vulcan_shutdown();global_pulse_shutdown();global_shield_shutdown();global_talon_shutdown();
- render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();ln_shutdown();lp287_shutdown();f270_shutdown();la_shutdown();private_gray325_shutdown();private_longface573_shutdown();smallrocks_shutdown();rp_shutdown();ps_shutdown();t194_shutdown();es_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
+ render_mirror_hud_reset();gameplay_hud_shutdown();hud_components_shutdown();hud_meters_shutdown();hud_indicators_shutdown();hud_fixed_text_shutdown();font_shutdown();fhf_shutdown();hud_storm_shutdown();rear_p1_shutdown();asteroid1_shutdown();asteroid4_shutdown();asteroid_common4_shutdown();asteroid_random5_shutdown();asteroid_random43_shutdown();asteroid_random85_shutdown();asteroid_random123_shutdown();asteroid_random95_shutdown();asteroid_random114_shutdown();asteroid_random133_shutdown();asteroid_random152_shutdown();goldwing_shutdown();asteroid_random286_shutdown();fork284_shutdown();capsule545_shutdown();paired287_288_shutdown();firing325_shutdown();ember269_shutdown();linked338_shutdown();pulsing272_shutdown();private_lamp272_shutdown();private_triple275_shutdown();private_ember269_shutdown();f284_shutdown();tp_shutdown();ln_shutdown();lp287_shutdown();f270_shutdown();la_shutdown();private_gray325_shutdown();private_longface573_shutdown();smallrocks_shutdown();rp_shutdown();ps_shutdown();t194_shutdown();es_shutdown();triple275_shutdown();columns276_shutdown();turret273_shutdown();projectile304_shutdown();projectile91_shutdown();firing270_shutdown();firing285_shutdown();enemy_orb112113_shutdown();terrain144_shutdown();shapesy_shutdown();cyan_shutdown();
 }
 
 /* Validate the original bytecode as well as declared dimensions: malformed RLE
@@ -1804,7 +1809,7 @@ void render_mirror_begin(void)
 
 void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int style)
 {
- if(render_mirror_family_requested()){family_pixel(surface,address,style);return;}
+ if(render_mirror_family_requested()){fhf_pixel(surface,address,style);family_pixel(surface,address,style);return;}
  if(!global_tank194_pre_native(surface,address,style))return;
  global_projectile91_pre_final_pixel(surface,address);
  shapesy_clear_proof=false;
@@ -1890,7 +1895,7 @@ void render_mirror_pixel(SDL_Surface *surface,Uint8 *address,Uint8 source,int st
 
 void render_mirror_rect(SDL_Surface *s,const SDL_Rect *rect)
 {
- if(render_mirror_family_requested()){family_rect(s,rect);return;}
+ if(render_mirror_family_requested()){fhf_rect(s,rect);family_rect(s,rect);return;}
  if(!global_tank194_final_preflight_rect(s,rect))return;
  global_projectile91_pre_final_rect(s,rect);
  data_frame_rect(s,rect);
