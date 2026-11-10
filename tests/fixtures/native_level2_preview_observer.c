@@ -52,11 +52,11 @@ void __wrap_SDL_RenderPresent(SDL_Renderer *r)
    if(!level2_preview_requested||game_probe_enabled||asset_debug_enabled||play_demo||record_demo||
       isNetworkGame||episodeNum!=1||lvlFileNum!=2||mainLevel!=6)abort();
    if(!receipt){receipt=fopen("native-preview.csv","w");if(!receipt)abort();
-    fputs("frame,x,y,invulnerable,armor,shield,shots,family_presents,terrain_presents,player_presents,tank_presents,hud_owned,hud_mismatches,native_hud_mismatches,dynamic_hud_owned,dynamic_hud_mismatches\n",receipt);}
+    fputs("frame,x,y,invulnerable,armor,shield,shots,family_presents,terrain_presents,player_presents,tank_presents,hud_owned,hud_mismatches,native_hud_mismatches,dynamic_hud_owned,dynamic_hud_mismatches,font_owned,font_mismatches\n",receipt);}
    B313TerrainFallbackStatus t=render_mirror_terrain_fallback_status();
    B313PlayerFallbackStatus p=render_mirror_player_fallback_status();
    B313TankFallbackStatus k=render_mirror_tank_fallback_status();
-   unsigned shots=0,owned=0,bad=0,native_bad=0,dynamic_owned=0,dynamic_bad=0;
+   unsigned shots=0,owned=0,bad=0,native_bad=0,dynamic_owned=0,dynamic_bad=0,font_owned=0,font_bad=0;
    for(unsigned i=0;i<MAX_PWEAPON;i++)shots+=shotAvail[i]!=0;
    int w,h;if(SDL_GetRendererOutputSize(r,&w,&h)||w%320||h%200||w/320!=h/200)abort();
    int scale=w/320;if(scale!=2&&scale!=4)abort();
@@ -67,7 +67,9 @@ void __wrap_SDL_RenderPresent(SDL_Renderer *r)
     const Uint8 *rgba=gameplay_hud_sample(x/scale,y/scale,(x%scale)*(8/scale)+(4/scale),(y%scale)*(8/scale)+(4/scale),8,index);
     Uint32 actual=pixels[y*w+x]&0xffffffu;
     const Uint8 *dynamic=render_mirror_family_dynamic_hud_sample(x/scale,y/scale,(x%scale)*(8/scale)+(4/scale),(y%scale)*(8/scale)+(4/scale),index);
-    if(dynamic){dynamic_owned++;dynamic_bad+=actual!=(((Uint32)dynamic[0]<<16)|((Uint32)dynamic[1]<<8)|dynamic[2]);}
+    const Uint32 *font=render_mirror_family_hud_font_sample(x/scale,y/scale,(x%scale)*(8/scale)+(4/scale),(y%scale)*(8/scale)+(4/scale),index);
+    if(font){font_owned++;font_bad+=actual!=(*font&0xffffffu);}
+    else if(dynamic){dynamic_owned++;dynamic_bad+=actual!=(((Uint32)dynamic[0]<<16)|((Uint32)dynamic[1]<<8)|dynamic[2]);}
     else if(rgba){owned++;bad+=actual!=(((Uint32)rgba[0]<<16)|((Uint32)rgba[1]<<8)|rgba[2]);}
     else native_bad+=actual!=(rgb_palette[index]&0xffffffu);
    }
@@ -78,8 +80,8 @@ void __wrap_SDL_RenderPresent(SDL_Renderer *r)
     SDL_FreeSurface(shot);
    }
    free(pixels);
-   fprintf(receipt,"%u,%d,%d,%u,%u,%u,%u,%"PRIu64",%"PRIu64",%"PRIu64",%"PRIu64",%u,%u,%u,%u,%u\n",
-      frames,player[0].x,player[0].y,player[0].invulnerable_ticks,player[0].armor,player[0].shield,shots,c.presents,t.presents,p.presents,k.presents,owned,bad,native_bad,dynamic_owned,dynamic_bad);
+   fprintf(receipt,"%u,%d,%d,%u,%u,%u,%u,%"PRIu64",%"PRIu64",%"PRIu64",%"PRIu64",%u,%u,%u,%u,%u,%u,%u\n",
+      frames,player[0].x,player[0].y,player[0].invulnerable_ticks,player[0].armor,player[0].shield,shots,c.presents,t.presents,p.presents,k.presents,owned,bad,native_bad,dynamic_owned,dynamic_bad,font_owned,font_bad);
    if(fflush(receipt))abort();
    /* Go through the real SDL event pump and ordinary keyboard path. No keysactive/player writes. */
    if(frames==10)key(SDL_SCANCODE_SPACE,true);
