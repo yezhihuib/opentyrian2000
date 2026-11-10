@@ -362,7 +362,10 @@ inline static void blit_enemy(SDL_Surface *surface, unsigned int i, signed int x
 		enemy[i].scoreitem,enemy[i].edamaged,
 		enemy[i].exc||enemy[i].eyc||enemy[i].fixedmovey||enemy[i].excc||enemy[i].eycc||enemy[i].xaccel||enemy[i].yaccel,
 		enemy[i].ani==1&&enemy[i].enemycycle==1&&enemy[i].aniactive==0};
-	if(render_mirror_family_requested())render_mirror_family_tile(surface,i,x,y,enemy[i].sprite2s,enemy[i].egr[enemy[i].enemycycle-1],sprite_offset,enemy[i].filter);
+	if(render_mirror_family_requested()){
+  render_mirror_tank_fallback_tile_begin(surface,i,x,y,enemy[i].sprite2s,enemy[i].egr[enemy[i].enemycycle-1],sprite_offset,enemy[i].filter);
+  render_mirror_family_tile(surface,i,x,y,enemy[i].sprite2s,enemy[i].egr[enemy[i].enemycycle-1],sprite_offset,enemy[i].filter);
+ }
  else render_mirror_enemy_tile(surface,x,y,*enemy[i].sprite2s,enemy[i].egr[enemy[i].enemycycle - 1],sprite_offset,enemy[i].filter,&material_context);
 #endif
 
@@ -1642,7 +1645,9 @@ level_loop:
 	tempMapXOfs = mapXOfs;
 	tempBackMove = backMove;
 	JE_drawEnemy(50);
+		render_mirror_tank_fallback_phase_begin();
 	JE_drawEnemy(100);
+		render_mirror_tank_fallback_phase_end();
 
 	if (enemyOnScreen == 0 || enemyOnScreen == lastEnemyOnScreen)
 	{

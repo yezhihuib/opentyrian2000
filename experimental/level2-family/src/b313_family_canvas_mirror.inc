@@ -315,6 +315,7 @@ bool render_mirror_family_tile(SDL_Surface *s,unsigned slot,int x,int y,Sprite2_
 }
 static void family_entity_end(void)
 {
+ kf_end();
  pf_end();
  lamp272_end();triple275_end();private_ember269_end();f284_end();tp_end();ln_end();lp287_end();f270_end();la_end();gray325_end();longface573_end();smallrocks_end();rp_end();t194_end();es_end();ps_end();
  if(fc_native_call&&(!b313_family_writer_draw_ready(fc_frame)||fc_call_pixels!=(unsigned)(12*fc_call_rect.h)))family_fault(FC_ORDER);

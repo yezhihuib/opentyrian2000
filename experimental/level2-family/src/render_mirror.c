@@ -71,6 +71,7 @@ static void la_shutdown(void);
 #include "b313_family_writer.h"
 #include "b313_terrain_fallback.h"
 #include "b313_player_fallback.h"
+#include "b313_tank_fallback.h"
 #include "old_hd_sample_observer.h"
 #include "building313_precommit.h"
 #include "building313_snapshot_transaction.h"
@@ -127,6 +128,9 @@ static void pf_pose(unsigned,Sprite2_array,int,int,unsigned);
 static void pf_body(SDL_Surface *,int,int,Sprite2_array,unsigned,int,unsigned,int);
 static void pf_pixel(unsigned,int),pf_present_begin(bool),pf_present_end(void);
 static bool pf_compose(void);
+static void kf_begin(void),kf_reset(void),kf_shared_fail(void),kf_end(void),kf_finish(void),kf_release(void);
+static void kf_pixel(unsigned,int),kf_present_begin(uint32_t),kf_present_end(void);
+static uint32_t kf_compose(void);
 static void family_static_hud_reset(void),family_static_hud_invalidate_frame(void);
 static void family_static_hud_release_texture(void);
 static void family_pixel(SDL_Surface *,Uint8 *,int),family_rect(SDL_Surface *,const SDL_Rect *);
@@ -4152,6 +4156,7 @@ static bool boss_whole_base_allowed(const G101EnemyContext *context,unsigned int
 #include "enemy_shot_family_mirror.inc"
 #include "player_ship_family_mirror.inc"
 #include "b313_player_fallback_mirror.inc"
+#include "b313_tank_fallback_mirror.inc"
 #include "asteroid1_triple275_mirror.inc"
 #include "asteroid1_columns276_mirror.inc"
 #include "asteroid1_turret273_mirror.inc"

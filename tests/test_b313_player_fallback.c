@@ -84,6 +84,16 @@ static void pf_finish(void);
 static bool pf_compose(void);
 static void pf_present_begin(bool);
 static void pf_present_end(void);
+/* Tank fallback is disabled in this isolated player/terrain harness. */
+static void kf_begin(void){}
+static void kf_reset(void){}
+static void kf_shared_fail(void){}
+static void kf_finish(void){}
+static void kf_release(void){}
+static void kf_pixel(unsigned off,int style){(void)off;(void)style;}
+static void kf_present_begin(uint32_t used){(void)used;}
+static void kf_present_end(void){}
+static uint32_t kf_compose(void){return 0;}
 #define SDL_LockTexture injected_lock
 #include "b313_terrain_fallback_mirror.inc"
 #undef SDL_LockTexture
