@@ -1,0 +1,94 @@
+{
+  "schema": "level2-persistent-hud-font-validation-v1",
+  "status": "PASS_BOUNDED_FONT_BATCH",
+  "font_sanitizer": {
+    "status": "PASS",
+    "source_unchanged": true,
+    "assertions": 2722955,
+    "cases": [
+      "valid",
+      "missing",
+      "corrupt"
+    ],
+    "sanitizers": [
+      "address",
+      "undefined"
+    ],
+    "source_sha256": {
+      "src/gameplay_hud.c": "fecbb296db28a059743aae0bd314d93315d8e46e47786bb3d17ad6dc04a54b6a",
+      "src/gameplay_hud.h": "90be7715c069b1a382e5cb48b1007c1fbaeb284482694ffc5b22e98cb6817e60",
+      "src/gameplay_hud_components.c": "6f47d8079c889cb574d65198cb8734ea3187f010214d4fca78c69bdb66757ab6",
+      "src/gameplay_hud_components.h": "2af78b5c5368857cdb14018d29c5e3180000751dfac5cff064f739649ec1e42c",
+      "src/gameplay_hud_meters.c": "3b1b5bf4e9119cb85aed05cc8690ba46f5ea63249a746b5f31fbc8aeb01c83e4",
+      "src/gameplay_hud_meters.h": "c8e4fa4f2da223caddb08882a6b98f808ec22817457a2f745913fa0466eba911",
+      "src/gameplay_hud_indicators.c": "05d125af540fdfc478141d10a6cb1cd3b06b3ba12c008a28c4941d8954ee1961",
+      "src/gameplay_hud_indicators.h": "e19fa83820ace574cdf12cb5a6f8081353edc63bfb7001fac6c14b460c272ff5",
+      "src/gameplay_hud_fixed_text.c": "3d637c23ca8d410a3e2720a024a4bd1a48a58c9ad92a1b742b5801dd23bfdc3a",
+      "src/gameplay_hud_fixed_text.h": "923ada7701b06a8f1dc6d9276e955f8ce3b17853e8d388f5e06eff314984582f",
+      "src/gameplay_hud_font.c": "02237476b400f8d7b78e5331000bff4d8cbb5d1f22108f907b388240c74f4221",
+      "src/gameplay_hud_font.h": "e960503ca8b7a87e2083fe2f96fb54f06d1a53a2b7d1258ed88a84df93e5a29f",
+      "experimental/level2-family/src/family_hud_font_mirror.inc": "e8c1b90f0bcc60d790b5c5b236dbf85ba31c76249bf8b549fd654e4d6f9e675a",
+      "experimental/level2-family/src/family_static_hud_mirror.inc": "013f6153a3268548fd3fffc59cc9f594fbfe7041227a99da456445a3d1a4ec40",
+      "experimental/level2-family/src/family_dynamic_hud_mirror.inc": "828eeff1fe774cbc910d7e2a15772d0fda80ea94f1d457645d608ba2b75c7002",
+      "experimental/level2-family/src/render_mirror.c": "729f9c7c1392ef438cca46e3a81d133c4735731345f76cb6d31772b38e5c4fbc",
+      "experimental/level2-family/src/b313_family_canvas_mirror.inc": "ae73d4072cf64237a544d87c268a663f4ee2545862b881321e1c2e19d566b6f9",
+      "tests/family_hud_font_test.c": "fa9cbc1ebd4652ecdb7ffd26546dc29bbe7a62a4359bdcbc1e6099447750444b",
+      "tests/family_static_hud_test.c": "8fae3acd4deaa0af19f8f2fc8be093183ec7beccffaea42139a4abb3fb876709",
+      "tests/shared_hud_reconstruction.py": "942e733bfc9cef426882a38e4d326cffbce37c157d71ae79945b75696baa066c"
+    }
+  },
+  "launcher_tests": {
+    "run": 48,
+    "skipped": 1,
+    "failed": 0
+  },
+  "static_hud_sanitizer": "PASS valid/missing/corrupt",
+  "dynamic_hud_sanitizer": "PASS valid/missing/corrupt",
+  "isolated_sdl_scales": [
+    2,
+    4
+  ],
+  "native": {
+    "status": "PASS_BOUNDED_NATIVE_ENTRY_SDL_EVENTS",
+    "source_digest": "46a82304ae629f5680776e6057cca52f88dee3ed4e6c1684bc6d91e84cf00071",
+    "native_binary_sha256": "b96956923673ce530420ffe555d9077c59a0a6fb6040568e95a4d20a0dd3569b",
+    "scale": 2,
+    "frames": 240,
+    "dynamic_hud_enabled": true,
+    "font_enabled": true,
+    "final": {
+      "frame": 239,
+      "x": 256,
+      "y": 160,
+      "invulnerable": 0,
+      "armor": 10,
+      "shield": 10,
+      "shots": 4,
+      "family_presents": 203,
+      "terrain_presents": 14,
+      "player_presents": 8,
+      "tank_presents": 4,
+      "hud_owned": 27084,
+      "hud_mismatches": 0,
+      "native_hud_mismatches": 0,
+      "dynamic_hud_owned": 8404,
+      "dynamic_hud_mismatches": 0,
+      "font_owned": 576,
+      "font_mismatches": 0
+    },
+    "original_data_unchanged": true,
+    "physical_input_qualified": false
+  },
+  "not_performed": [
+    "Native 4x: current source digest changed during concurrent terrain work; rejected before launch pending rebuild.",
+    "Visual screenshot inspection: no capture requested in completed native run.",
+    "Full-level and Windows/GPU qualification."
+  ],
+  "unrelated_test_failure": {
+    "test": "test_shared_asset_authoring_map.AuthoringMapTests.setUpClass",
+    "error": "Derived Guided PNG does not match masters+fixed recipe: authoring-inputs/guided-current/derived/bullet-21-8.png",
+    "affected_guided_inputs_and_test_match_HEAD": true,
+    "clean_baseline_reproduction": false
+  },
+  "original_data_or_captures_included": false
+}
