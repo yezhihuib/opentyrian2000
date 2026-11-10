@@ -9,6 +9,7 @@
 #include "SDL.h"
 #include "gameplay_hud.h"
 #define B313_FAMILY_CANVAS_DIAGNOSTIC 1
+#define MIRROR_NORMAL 0
 #define MAX(a,b) ((a)>(b)?(a):(b))
 #define SPRITE_TABLES_MAX 8
 #define SPRITES_PER_TABLE_MAX 152
@@ -95,6 +96,9 @@ int main(int argc,char **argv)
  /* Exercise disabled callback routing too: it must never acquire a lease. */
  fdh_mode_drawn(NULL,1);fdh_shield_wiped(NULL);fdh_shield_drawn(NULL,0,0);
  fdh_meter_begin(NULL,NULL,HUD_WRITE_FRONT,1,0);fdh_meter_end(NULL,HUD_WRITE_FRONT);
+ fhf_level_begin(NULL,NULL);fhf_message_begin(NULL,false);fhf_message_backdrop();
+ fhf_glyph_begin(NULL,0,0,0,0,false,0,0);fhf_glyph_end();fhf_run_end(0);
+ fhf_pixel(NULL,NULL,0);fhf_rect(NULL,NULL);fhf_message_erase_begin();fhf_message_erased(false);fhf_shutdown();
  CHECK(argc==2);load_original();CHECK(SDL_Init(SDL_INIT_VIDEO)==0);
  VGAScreenSeg=SDL_CreateRGBSurfaceWithFormat(0,320,200,8,SDL_PIXELFORMAT_INDEX8);
  output=SDL_CreateRGBSurfaceWithFormat(0,2560,1600,32,SDL_PIXELFORMAT_ARGB8888);
