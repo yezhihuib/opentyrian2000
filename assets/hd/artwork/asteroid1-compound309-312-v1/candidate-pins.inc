@@ -1,0 +1,14 @@
+/* Candidate-only pins. Not an accepted runtime table.
+ * NEWSHS bank23 role123; do not replace record270 entries. */
+{77,23,123,UINT64_C(0x1441db811a2ea63c)},
+{81,23,123,UINT64_C(0xbe3fc7c1fbd37085)},
+{85,23,123,UINT64_C(0x95a1bc0892fdbc42)},
+{79,23,123,UINT64_C(0xd5d3713ba02bc253)},
+{83,23,123,UINT64_C(0x6149cb08836f85a0)},
+{87,23,123,UINT64_C(0xf9ba877fef8e64cc)},
+{39,23,123,UINT64_C(0x418e75c315e7b23d)},
+{43,23,123,UINT64_C(0x418e75c315e7b23d)},
+{47,23,123,UINT64_C(0x418e75c315e7b23d)},
+{41,23,123,UINT64_C(0x16e235ca5d169c86)},
+{45,23,123,UINT64_C(0x16e235ca5d169c86)},
+{49,23,123,UINT64_C(0x16e235ca5d169c86)},
