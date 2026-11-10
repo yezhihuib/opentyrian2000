@@ -208,8 +208,10 @@ static void family_pixel(SDL_Surface *s,Uint8 *address,int style)
  if(gray325_pixel(x,y,style))return;
  if(longface573_pixel(x,y,style))return;
  if(fc_native_call){
+  /* The pinned opaque quadrant may begin/end outside the indexed buffer.
+   * Admit only the plan's visible contiguous rows, in exact native order. */
   lamp272_clear((unsigned)off);triple275_clear((unsigned)off);private_ember269_clear((unsigned)off);gray325_clear((unsigned)off);longface573_clear((unsigned)off);
-  if(!suppress||style!=MIRROR_NORMAL||x<(unsigned)fc_call_rect.x||x>=(unsigned)(fc_call_rect.x+12)||y<(unsigned)fc_call_rect.y||y>=(unsigned)(fc_call_rect.y+14)||fc_call_pixels>=168){family_fault(FC_ORDER);return;}
+  if(!suppress||style!=MIRROR_NORMAL||x<(unsigned)fc_call_rect.x||x>=(unsigned)(fc_call_rect.x+12)||y<(unsigned)fc_call_rect.y||y>=(unsigned)(fc_call_rect.y+fc_call_rect.h)||fc_call_pixels>=(unsigned)(12*fc_call_rect.h)){family_fault(FC_ORDER);return;}
   if(x!=(unsigned)fc_call_rect.x+fc_call_pixels%12||y!=(unsigned)fc_call_rect.y+fc_call_pixels/12){family_fault(FC_ORDER);return;}
   ++fc_call_pixels;return;
  }
@@ -295,12 +297,12 @@ bool render_mirror_family_tile(SDL_Surface *s,unsigned slot,int x,int y,Sprite2_
  Asset a={.initialized=true,.valid=true,.bank=158,.index=(int)(b.plan.phase*16+b.tile.tile_index),.w=12,.h=14,.density=8,.rgba=(Uint8 *)b.tile.rgba};
  fc_draw_lease=&a;bool drawn=draw_asset_filtered(x,y,&a,MIRROR_NORMAL,NULL,0,NULL,NULL,NULL);fc_draw_lease=NULL;
  if(!drawn){family_fault(FC_ORDER);return false;}
- fc_native_call=true;fc_call_rect=(SDL_Rect){x,y,12,14};fc_call_pixels=0;fc.last_nonce=b.nonce;++fc.draws;++fc_frame_draws;++fc.phase_draws[b.plan.phase];fc.cycle_mask|=UINT64_C(1)<<(b.plan.cycle-1);return true;
+ fc_native_call=true;fc_call_rect=(SDL_Rect){x,b.plan.visible_y,12,(int)b.plan.visible_rows};fc_call_pixels=0;fc.last_nonce=b.nonce;++fc.draws;++fc_frame_draws;++fc.phase_draws[b.plan.phase];fc.cycle_mask|=UINT64_C(1)<<(b.plan.cycle-1);return true;
 }
 static void family_entity_end(void)
 {
  lamp272_end();triple275_end();private_ember269_end();f284_end();tp_end();ln_end();lp287_end();f270_end();la_end();gray325_end();longface573_end();smallrocks_end();rp_end();t194_end();es_end();ps_end();
- if(fc_native_call&&(!b313_family_writer_draw_ready(fc_frame)||fc_call_pixels!=168))family_fault(FC_ORDER);
+ if(fc_native_call&&(!b313_family_writer_draw_ready(fc_frame)||fc_call_pixels!=(unsigned)(12*fc_call_rect.h)))family_fault(FC_ORDER);
  fc_native_call=false;fc_draw_lease=NULL;suppress=suppress_green_smoke=suppress_cloud=false;
 }
 /* Shared pure snapshot gate. This validates only the same pre-ground token;

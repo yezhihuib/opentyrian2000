@@ -1,5 +1,6 @@
 #include "b313_family_plan.h"
 #include <string.h>
+#include <limits.h>
 /* Same fixed record313..316 graphics mapping already verified against hdt.
  * Every real actor callback retains the engine's own20-cycle dwell schedule. */
 static const unsigned bases[4][3]={{191,195,199},{193,197,201},{153,157,161},{155,159,163}};
@@ -21,10 +22,11 @@ bool b313_family_plan(const B313FamilyCall *call,B313FamilyPlan *out)
  if(a->base!=bases[component][phase])return reject(out,B313FP_PHASE);
  unsigned q=call->part==0?0:call->part==1?1:call->part==19?2:call->part==20?3:4;
  if(q==4)return reject(out,B313FP_PART);
- /* Reject original raw-RLE row wrapping and partial/offscreen native calls.
-  * Bounds precede arithmetic; x/y may be any signed caller input. */
+ /* The pinned opaque 12x14 RLE writes row-major and clips at buffer ends.
+  * Horizontal wrapping remains forbidden. Bound signed native y*pitch and
+  * HD coordinate arithmetic before evaluating either, including hidden tiles. */
  if(call->surface_width!=320||call->surface_height!=200||call->surface_pitch!=320||
-    call->x<0||call->x>308||call->y<0||call->y>186)return reject(out,B313FP_GEOMETRY);
+    call->x<0||call->x>308||call->y<INT_MIN/320+14||call->y>INT_MAX/320-14)return reject(out,B313FP_GEOMETRY);
  out->component=component;out->phase=phase;out->cycle=a->cycle;out->part=call->part;
  out->part_x=(int)(q%2)*12;out->part_y=(int)(q/2)*14;
  out->actor_x=call->x-out->part_x;out->actor_y=call->y-out->part_y;
@@ -36,6 +38,12 @@ bool b313_family_plan(const B313FamilyCall *call,B313FamilyPlan *out)
  out->destination_x=call->x;out->destination_y=call->y;
  out->destination_x_hd=call->x*8;out->destination_y_hd=call->y*8;
  out->width=12;out->height=14;out->width_hd=96;out->height_hd=112;
+ int first=call->y<0?(call->y<=-14?14:-call->y):0;
+ int end=call->y>=200?0:(call->y>186?200-call->y:14);
+ out->first_visible_row=(unsigned)first;
+ out->visible_rows=end>first?(unsigned)(end-first):0;
+ out->visible_pixels=12*out->visible_rows;
+ out->visible_y=call->y<0?0:call->y>200?200:call->y;
  out->planned=true;
  /* Success means coordinates only. It does not validate the caller's source
   * assertion, lifetime, current SDL context, assets, or suppression/occlusion. */

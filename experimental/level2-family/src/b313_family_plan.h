@@ -22,6 +22,10 @@ typedef struct {
  int atlas_tile_x,atlas_tile_y,source_x_hd,source_y_hd;
  int destination_x,destination_y,destination_x_hd,destination_y_hd;
  unsigned width,height,width_hd,height_hd;
+ /* Exact contiguous native callback sequence after vertical buffer clipping.
+  * Zero visible rows means no native pixel callbacks are permitted. */
+ unsigned first_visible_row,visible_rows,visible_pixels;
+ int visible_y;
 } B313FamilyPlan;
 bool b313_family_plan(const B313FamilyCall *call,B313FamilyPlan *out);
 #endif
